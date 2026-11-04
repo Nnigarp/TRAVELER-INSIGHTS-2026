@@ -12,6 +12,8 @@ from typing import Any
 
 import pandas as pd
 
+from traveler_agent.emoji_analysis import emoji_profile
+
 
 def sha256_file(path: Path) -> str:
     h = hashlib.sha256()
@@ -54,13 +56,12 @@ def safe_scalar(value: Any) -> Any:
 def column_profile(df: pd.DataFrame, col: str) -> dict[str, Any]:
     s = df[col]
     non_null = s.dropna()
-    examples = [safe_scalar(v) for v in non_null.head(5).tolist()]
     return {
         "dtype": str(s.dtype),
         "missing": int(s.isna().sum()),
         "missing_pct": round(float(s.isna().mean() * 100), 4),
         "unique_non_null": int(non_null.nunique(dropna=True)),
-        "examples": examples,
+        "examples": "redacted_by_default",
     }
 
 
@@ -81,8 +82,8 @@ def text_profile(df: pd.DataFrame, col: str) -> dict[str, Any]:
         "duplicate_normalized_text_rows": int(dup_mask.sum()),
         "duplicate_normalized_text_values": int(len(counts)),
         "top_duplicate_normalized_text": [
-            {"text": text[:200], "count": int(count)}
-            for text, count in counts.most_common(10)
+            {"count": int(count)}
+            for _, count in counts.most_common(10)
         ],
     }
 
@@ -150,6 +151,7 @@ def audit_file(
         report["target_profile"] = target_profile(df, target)  # type: ignore[arg-type]
     if require(text_col, "text"):
         report["text_profile"] = text_profile(df, text_col)  # type: ignore[arg-type]
+        report["emoji_profile"] = emoji_profile(df[text_col].tolist(), df[target].tolist() if target and target in df.columns else None)
     if require(id_col, "id"):
         s = df[id_col]  # type: ignore[index]
         report["id_profile"] = {
@@ -183,7 +185,6 @@ def cross_file_checks(
                     "pair": pair,
                     "check": "normalized_text_overlap",
                     "overlap_count": len(overlap),
-                    "examples": overlap[:10],
                     "risk": "HIGH" if overlap else "NONE",
                     "interpretation": "Exact normalized review overlap across splits can create leakage.",
                 })
@@ -195,7 +196,6 @@ def cross_file_checks(
                     "pair": pair,
                     "check": "group_overlap",
                     "overlap_count": len(overlap),
-                    "examples": overlap[:20],
                     "risk": "CONTEXT_DEPENDENT" if overlap else "NONE",
                     "interpretation": (
                         "If group represents tourist place/location and the research goal is out-of-place generalization, "

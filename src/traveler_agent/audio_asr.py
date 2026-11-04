@@ -61,6 +61,8 @@ def validate_wav(filepath: str | Path | None) -> AudioInfo:
                 raise AudioInputError("Se requiere WAV PCM de 16 bits, mono o estéreo.")
             if not 8000 <= rate <= 48000:
                 raise AudioInputError("Frecuencia de audio fuera del rango 8–48 kHz.")
+            if size < 44 + frames * channels * width:
+                raise AudioInputError("El WAV está truncado: no contiene todas las muestras declaradas.")
             duration = frames / rate
             if not MIN_AUDIO_SECONDS <= duration <= MAX_AUDIO_SECONDS:
                 raise AudioInputError("La grabación debe durar entre 0,25 y 120 segundos.")

@@ -81,3 +81,9 @@ Véanse `docs/PROTOCOLO_INVESTIGACION.md`, `docs/BITACORA.md`, `docs/DECISIONES.
 ## Fuente del reto
 
 [Traveler Insights 2026 (Kaggle)](https://www.kaggle.com/competitions/travelerinsights2026/overview). La competencia describe tres clases y datos turísticos vinculados a fuentes distintas; su referencia apunta a un dataset de Sucre. Cartagena es un **dominio objetivo futuro**, no se asume como origen de sus reseñas.
+
+## Incremento 04 — análisis por lotes y revisión humana (DEMO)
+
+La interfaz local conserva el análisis individual y añade una pestaña de lotes. Permite introducir hasta 200 reseñas, una por línea, o cargar un CSV UTF-8 de hasta 1 MiB con columna `reseña`. Muestra conteos de **predicciones DEMO**, permite registrar una etiqueta corregida y una nota por ID sin sobrescribir la predicción original, y exporta JSON/CSV. No existe aún un modelo validado con Kaggle ni ABSA supervisado. Los archivos exportados contienen texto de entrada; trátalos como privados.
+
+Instala `.[ui,test]`, ejecuta `python -m pytest -q` y abre `python app.py`. Consulta [el alcance y las limitaciones del incremento](docs/INCREMENTO_04_LOTES_REVISION.md). El audio/ASR, SVM y Transformers quedan para incrementos posteriores, independientes de la adquisición del dataset.

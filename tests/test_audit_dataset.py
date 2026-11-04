@@ -78,3 +78,15 @@ def test_dataset_audit_includes_emoji_counts_without_inferred_polarity(tmp_path:
     assert profile["rows_with_ascii_emoticons"] == 1
     assert len(profile["raw_label_groups"]) == 3
     assert "predicted_sentiment" not in profile
+
+
+def test_audit_report_redacts_raw_review_text(tmp_path: Path):
+    secret_text = "Queja privada especial 😡"
+    csv = tmp_path / "reviews.csv"
+    pd.DataFrame({"Comentario": [secret_text, secret_text, "Buen lugar 😍"],
+                  "Sentimiento": [0, 0, 2]}).to_csv(csv, index=False)
+    _, report = module.audit_file(csv, "Sentimiento", "Comentario", None, None)
+    serialized = json.dumps(report, ensure_ascii=False)
+    assert secret_text not in serialized
+    assert "queja privada especial" not in serialized.lower()
+    assert report["text_profile"]["duplicate_normalized_text_rows"] == 2

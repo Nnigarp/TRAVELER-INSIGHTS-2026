@@ -24,3 +24,17 @@ def test_batch_ui_validation_keeps_empty_state():
     records, _, _, _, message = app.run_batch_lines(" ")
     assert records == []
     assert "Error" in message
+
+
+def test_ui_svm_model_switch_and_audit_export():
+    summary, raw = app.analyze("La visita fue espectacular.", "svm")
+    record = json.loads(raw)
+    assert record["modelo_utilizado"] == "svm"
+    assert record["sentimiento"] in {"positivo", "neutral", "negativo"}
+    records, table, _, _, status = app.run_batch_lines("El servicio fue excelente 😍", "svm")
+    assert len(records) == 1
+    assert records[0]["modelo_utilizado"] == "svm"
+    assert table[0][2] == "svm"
+    json_path, csv_path, _ = app.export_files(records)
+    assert json.loads(Path(json_path).read_text(encoding="utf-8"))["registros"][0]["modelo_utilizado"] == "svm"
+    assert "modelo_utilizado" in Path(csv_path).read_text(encoding="utf-8-sig")

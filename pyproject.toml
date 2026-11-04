@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "traveler-insights-agent"
+version = "0.1.0"
+description = "Prototipo reproducible de un agente de apoyo a decisiones sobre reseñas turísticas"
+requires-python = ">=3.10"
+dependencies = ["scikit-learn>=1.3,<2", "pandas>=2,<4", "joblib>=1.3,<2", "numpy>=1.24,<3"]
+[project.optional-dependencies]
+ui = ["gradio>=4,<7"]
+test = ["pytest>=7,<10"]
+[project.scripts]
+traveler = "traveler_agent.cli:main"
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]

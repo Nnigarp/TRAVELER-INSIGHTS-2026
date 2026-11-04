@@ -49,7 +49,9 @@ def test_correction_preserves_model_prediction_and_original_state(demo_model):
     assert edited[0]["etiqueta_corregida_humano"] == "negativo"
     assert edited[0]["estado_revision"] == "corregida"
     assert rows[0]["etiqueta_corregida_humano"] is None
-    assert "no automatizar" in edited[0]["recomendacion"]
+    assert edited[0]["recomendacion"] == rows[0]["recomendacion"]
+    assert edited[0]["tipo_salida"] == rows[0]["tipo_salida"]
+    assert "No automatizar" in edited[0]["decision_revision_humana"]
 
 
 def test_correction_rejects_invalid_requests(demo_model):
@@ -67,3 +69,21 @@ def test_json_csv_exports_keep_predictions_and_review(demo_model):
     parsed = list(csv.DictReader(io.StringIO(export_csv(rows))))
     assert len(parsed) == 1
     assert parsed[0]["etiqueta_corregida_humano"] == "positivo"
+
+
+def test_original_and_human_actions_are_distinct_in_exports(demo_model):
+    rows = analyze_batch(["=HYPERLINK(\"http://example.com\")"], demo_model)
+    original = rows[0]
+    changed = apply_human_correction(rows, original["id"], "negativo", "Revisado")
+    assert changed[0]["sentimiento"] == original["sentimiento"]
+    assert changed[0]["recomendacion"] == original["recomendacion"]
+    assert changed[0]["tipo_salida"] == original["tipo_salida"]
+    assert changed[0]["decision_revision_humana"] != original["decision_revision_humana"]
+    document = json.loads(export_json(changed))["registros"][0]
+    assert document["recomendacion"] == original["recomendacion"]
+    assert document["decision_revision_humana"] == changed[0]["decision_revision_humana"]
+    line = list(csv.DictReader(io.StringIO(export_csv(changed))))[0]
+    assert line["recomendacion"] == original["recomendacion"]
+    assert line["tipo_salida"] == original["tipo_salida"]
+    assert line["decision_revision_humana"] == changed[0]["decision_revision_humana"]
+    assert line["texto_original"].startswith("'=")

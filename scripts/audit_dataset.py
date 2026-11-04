@@ -12,6 +12,8 @@ from typing import Any
 
 import pandas as pd
 
+from traveler_agent.emoji_analysis import emoji_profile
+
 
 def sha256_file(path: Path) -> str:
     h = hashlib.sha256()
@@ -150,6 +152,7 @@ def audit_file(
         report["target_profile"] = target_profile(df, target)  # type: ignore[arg-type]
     if require(text_col, "text"):
         report["text_profile"] = text_profile(df, text_col)  # type: ignore[arg-type]
+        report["emoji_profile"] = emoji_profile(df[text_col].tolist(), df[target].tolist() if target and target in df.columns else None)
     if require(id_col, "id"):
         s = df[id_col]  # type: ignore[index]
         report["id_profile"] = {

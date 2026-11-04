@@ -15,3 +15,13 @@
 ## Plantilla para cada experimento
 
 Fecha y commit | ID de experimento | SHA del dataset | tipo de partición | arquitectura | parámetros | semilla | hardware | tiempo | métricas | errores / sesgos | decisión
+
+## 2026-11-04 — Incremento 04: lotes y revisión humana (PR de desarrollo)
+
+- Implementados `batch.py` y una nueva pestaña Gradio para reseñas por líneas/CSV, conteos de etiquetas DEMO, corrección humana por ID y exportación JSON/CSV.
+- La corrección conserva por separado predicción del modelo, etiqueta humana y nota; no modifica pesos ni crea etiquetas científicas.
+- Entrada validada con límites explícitos (200 filas, 5000 caracteres, CSV UTF-8 <= 1 MiB).
+- Pruebas de núcleo y callbacks UI; CI configurado para instalar UI en Python 3.11/3.12. Verificar estado del run de PR antes de fusionar.
+- Ambiente local de desarrollo antes del PR: 27 passed, 1 xfailed sobre copia de checkpoint anterior; smoke test de callbacks funcionó. El remoto incluye además pruebas de emojis, por lo que el total definitivo procede de CI.
+- Sin dataset real, sin métricas científicas; la prueba de negación incorrecta continúa como xfail.
+- Próximo: interfaz común LR/SVM y arquitectura ASR opcional, con resultados claramente demostrativos.

@@ -1,5 +1,6 @@
 """Modelo clásico reproducible: TF-IDF de palabras+caracteres y regresión logística."""
 from pathlib import Path
+from collections import Counter
 import hashlib
 import json
 import joblib
@@ -55,7 +56,7 @@ def train(texts, labels, *, model_kind: str = "lr"):
     if set(labels) != set(LABELS):
         raise ValueError(f"Se requieren las tres clases {LABELS} presentes.")
     _validate_kind(model_kind)
-    if model_kind == "svm" and min(labels.count(label) for label in LABELS) < 3:
+    if model_kind == "svm" and min(Counter(labels)[label] for label in LABELS) < 3:
         raise ValueError("SVM requiere al menos 3 ejemplos por clase para calibración interna CV=3.")
     model = build_pipeline(model_kind)
     model.fit(texts, labels)

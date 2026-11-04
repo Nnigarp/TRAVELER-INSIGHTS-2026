@@ -63,6 +63,7 @@ def analyze_batch(reviews: list[str], model: Any, *, prefix: str = "demo") -> li
         record["etiqueta_corregida_humano"] = None
         record["comentario_revision_humana"] = None
         record["estado_revision"] = "pendiente" if record["revision_humana"] else "sin_revisar"
+        record["decision_revision_humana"] = None
         result.append(record)
     return result
 
@@ -81,10 +82,9 @@ def apply_human_correction(records: list[dict], review_id: str, label: str, note
     edited[matches[0]]["etiqueta_corregida_humano"] = label
     edited[matches[0]]["comentario_revision_humana"] = note.strip()
     edited[matches[0]]["estado_revision"] = "corregida"
-    edited[matches[0]]["tipo_salida"] = "revisión_humana"
-    edited[matches[0]]["recomendacion"] = (
-        "Corrección registrada. Revisar acciones con un responsable; "
-        "no automatizar a partir de la etiqueta corregida."
+    edited[matches[0]]["decision_revision_humana"] = (
+        "Corrección registrada; revisar acciones con una persona responsable. "
+        "No automatizar acciones a partir de la etiqueta corregida."
     )
     return edited
 
@@ -101,11 +101,20 @@ def export_json(records: list[dict]) -> str:
                       ensure_ascii=False, indent=2)
 
 
+def _safe_csv_value(value: Any) -> Any:
+    """Prefix spreadsheet formula-like strings to avoid execution on opening CSV."""
+    if isinstance(value, str) and value.lstrip().startswith(("=", "+", "-", "@")):
+        return "\x27" + value
+    return value
+
+
 def export_csv(records: list[dict]) -> str:
     buffer = io.StringIO(newline="")
     fields = ["id", "texto_original", "sentimiento", "confianza_no_calibrada",
-              "revision_humana", "etiqueta_corregida_humano", "estado_revision", "recomendacion"]
+              "revision_humana", "etiqueta_corregida_humano", "estado_revision",
+              "comentario_revision_humana", "recomendacion", "tipo_salida", "decision_revision_humana"]
     writer = csv.DictWriter(buffer, fieldnames=fields, extrasaction="ignore", lineterminator="\n")
     writer.writeheader()
-    writer.writerows(records)
+    for record in records:
+        writer.writerow({key: _safe_csv_value(record.get(key)) for key in fields})
     return buffer.getvalue()

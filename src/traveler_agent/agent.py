@@ -2,6 +2,7 @@
 import re
 from .aspects import find_aspects,evidence_spans
 from .policy import recommend
+from .linguistic import linguistic_profile
 
 def inspect_review(text: str, model, *, review_id: str = "", threshold: float = 0.56) -> dict:
     if not isinstance(text, str) or not text.strip():
@@ -24,6 +25,7 @@ def inspect_review(text: str, model, *, review_id: str = "", threshold: float = 
         "puntuaciones_modelo_no_calibradas": {c:round(float(p),4) for c,p in zip(classes, probs)},
         "confianza_no_calibrada": round(confidence,4),
         "aspectos_exploratorios": list(aspects),
+        "perfil_linguistico_exploratorio": linguistic_profile(content),
         "fragmentos_literales_no_explicativos": evidence_spans(content,aspects),
         "revision_humana": bool(needs_review), "tipo_salida": state,
         "recomendacion": action,

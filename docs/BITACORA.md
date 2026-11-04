@@ -33,3 +33,12 @@ Fecha y commit | ID de experimento | SHA del dataset | tipo de partición | arqu
 - Pruebas nuevas del motor SVM, compatibilidad LR y smoke UI.
 - La rama `feat/model-selection-svm` deriva de `feat/batch-human-review`, no de `main`. El PR debe ser revisado contra la rama padre antes de integrarse.
 - Sin métricas científicas: DEMO solo prueba ejecución. Mantener `xfail` de negación; evaluar después con datos reales.
+
+
+## 2026-11-04 — Incremento 07: audio/ASR local (PR)
+
+- Código modular de validación WAV y ASR opcional por faster-whisper, con CPU int8 y sin descarga automática.
+- Gradio: grabación o carga (normalización a WAV), transcripción editable, análisis con LR/SVM y trazabilidad de original/corrección.
+- Tests ASR sin modelos mediante mocks, pruebas del flujo UI, errores y negaciones. CI Python 3.11/3.12 como puerta de calidad.
+- Limitaciones: sólo formato WAV PCM tras conversión; silencio digital comprobado, ruido no completamente detectado; no análisis de emoción vocal ni datos científicos.
+- Mantenimiento posterior: migrar acciones checkout@v4 y setup-python@v5 a versiones compatibles Node recientes, en PR independiente.

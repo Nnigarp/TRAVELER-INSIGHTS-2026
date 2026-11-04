@@ -100,3 +100,10 @@ python app.py
 ```
 
 Ver [alcance del incremento](docs/INCREMENTO_05_MODELOS_LR_SVM.md).
+
+
+## Incremento 07 — micrófono y transcripción local opcional
+
+Gradio incorpora una pestaña para grabar o subir audio. Convierte a WAV y verifica el formato PCM, longitud (0,25–120 s), tamaño (12 MiB) y silencio digital; ofrece transcripción ASR local con faster-whisper opcional, editable antes del análisis con LR/SVM. El JSON registra transcripción original, texto editado, hash del WAV, idioma solicitado y modelo ASR; no incluye el audio. **No se infieren emociones desde la voz.** No hay métricas científicas de ASR ni del reto.
+
+Para mantener el análisis textual sin dependencias pesadas: instala solamente ".[ui,test]". Para activar ASR en Windows instala ".[ui,test,asr]"; el modelo permanece **offline por defecto** y su primera descarga requiere autorización explícita. Revisa [el manual del Incremento 07](docs/INCREMENTO_07_AUDIO_ASR.md) antes de usar grabaciones reales.

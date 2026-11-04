@@ -17,7 +17,7 @@ def main(argv=None):
     a=p.parse_args(argv)
     if a.command=='demo-train':
         m=train([x[0] for x in DEMO],[x[1] for x in DEMO],model_kind=a.model_kind)
-        out=a.out or f'artifacts/demo_{a.model_kind}.joblib'
+        out=a.out or ('artifacts/demo_model.joblib' if a.model_kind == 'lr' else 'artifacts/demo_svm.joblib')
         save_model(m,Path(out),provenance='SINTETICO_DEMO_NO_PUBLICABLE',model_kind=a.model_kind)
         print(f'Modelo de DEMOSTRACIÓN guardado: {out} (NO evidencia científica)')
     elif a.command=='train':

@@ -62,3 +62,14 @@ def test_svm_artifact_roundtrip_records_method(tmp_path: Path, training):
     assert metadata["model_kind"] == "svm"
     loaded = load_model(path)
     assert list(loaded.predict(["La visita fue interesante."])) == list(model.predict(["La visita fue interesante."]))
+
+
+def test_svm_calibration_refits_full_vectorizer_inside_each_fold():
+    from sklearn.calibration import CalibratedClassifierCV
+    from sklearn.pipeline import Pipeline
+    estimator = build_pipeline("svm")
+    assert isinstance(estimator, CalibratedClassifierCV)
+    assert estimator.cv == 3
+    assert isinstance(estimator.estimator, Pipeline)
+    assert "tfidf" in estimator.estimator.named_steps
+    assert estimator.estimator.named_steps["classifier"].__class__.__name__ == "LinearSVC"

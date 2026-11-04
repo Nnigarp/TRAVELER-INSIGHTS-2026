@@ -87,3 +87,16 @@ Véanse `docs/PROTOCOLO_INVESTIGACION.md`, `docs/BITACORA.md`, `docs/DECISIONES.
 La interfaz local conserva el análisis individual y añade una pestaña de lotes. Permite introducir hasta 200 reseñas, una por línea, o cargar un CSV UTF-8 de hasta 1 MiB con columna `reseña`. Muestra conteos de **predicciones DEMO**, permite registrar una etiqueta corregida y una nota por ID sin sobrescribir la predicción original, y exporta JSON/CSV. No existe aún un modelo validado con Kaggle ni ABSA supervisado. Los archivos exportados contienen texto de entrada; trátalos como privados.
 
 Instala `.[ui,test]`, ejecuta `python -m pytest -q` y abre `python app.py`. Consulta [el alcance y las limitaciones del incremento](docs/INCREMENTO_04_LOTES_REVISION.md). El audio/ASR, SVM y Transformers quedan para incrementos posteriores, independientes de la adquisición del dataset.
+
+## Incremento 05 — Elegir modelo: regresión logística o SVM
+
+En Gradio, el selector de modelo utiliza **TF-IDF + LR** (predeterminado) o **TF-IDF + LinearSVC con calibración interna CV=3**. Ambos se entrenan para la demo con ejemplos ficticios. Esto es una prueba del software, **no evidencia de rendimiento en Kaggle ni fiabilidad probabilística externa**. También se registra `modelo_utilizado` en resultados individuales y exportaciones de lotes.
+
+```cmd
+python -m traveler_agent.cli demo-train --model-kind svm
+python -m traveler_agent.cli predict --model artifacts/demo_svm.joblib --text "El servicio fue bueno."
+python -m pytest -q
+python app.py
+```
+
+Ver [alcance del incremento](docs/INCREMENTO_05_MODELOS_LR_SVM.md).

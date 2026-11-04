@@ -30,25 +30,34 @@ def _validate_kind(model_kind: str) -> str:
     return model_kind
 
 
+def _text_features():
+    return FeatureUnion([
+        ("words", TfidfVectorizer(ngram_range=(1, 2), strip_accents="unicode",
+                                   sublinear_tf=True, min_df=1)),
+        ("chars", TfidfVectorizer(analyzer="char_wb", ngram_range=(3, 5),
+                                   sublinear_tf=True, max_features=12000)),
+    ])
+
+
 def build_pipeline(model_kind: str = "lr"):
     model_kind = _validate_kind(model_kind)
     if model_kind == "lr":
-        classifier = LogisticRegression(max_iter=1500, class_weight="balanced", random_state=42)
-    else:
-        # LinearSVC offers decision scores, not probabilities. Internal 3-fold
-        # sigmoid calibration supplies predict_proba for the existing agent.
-        # These scores still require independent reliability evaluation.
-        classifier = CalibratedClassifierCV(
-            estimator=LinearSVC(class_weight="balanced", random_state=42),
-            method="sigmoid", cv=3,
-        )
-    return Pipeline([
-        ("tfidf", FeatureUnion([
-            ("words", TfidfVectorizer(ngram_range=(1,2), strip_accents="unicode", sublinear_tf=True, min_df=1)),
-            ("chars", TfidfVectorizer(analyzer="char_wb", ngram_range=(3,5), sublinear_tf=True, max_features=12000)),
-        ])),
-        ("classifier", classifier),
-    ])
+        return Pipeline([
+            ("tfidf", _text_features()),
+            ("classifier", LogisticRegression(max_iter=1500,
+                                               class_weight="balanced",
+                                               random_state=42)),
+        ])
+    # IMPORTANT: TF-IDF belongs INSIDE calibration folds. Wrapping only
+    # LinearSVC would fit a shared vocabulary on all calibration data.
+    return CalibratedClassifierCV(
+        estimator=Pipeline([
+            ("tfidf", _text_features()),
+            ("classifier", LinearSVC(class_weight="balanced", random_state=42)),
+        ]),
+        method="sigmoid",
+        cv=3,
+    )
 
 def train(texts, labels, *, model_kind: str = "lr"):
     if len(texts) != len(labels) or not texts:

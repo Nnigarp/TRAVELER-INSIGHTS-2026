@@ -148,3 +148,11 @@ def test_no_dependency_download_or_internet_for_mock(monkeypatch, wav):
     text, trace = recognize_audio(wav, backend=FakeASR("Hola"))
     assert text == "Hola"
     assert trace["modelo_asr"] == "backend_simulado"
+
+
+def test_truncated_declared_wav_frames_rejected(tmp_path):
+    wav = write_wav(tmp_path / "truncated.wav")
+    original = wav.read_bytes()
+    wav.write_bytes(original[:-3000])
+    with pytest.raises(AudioInputError, match="truncado"):
+        validate_wav(wav)

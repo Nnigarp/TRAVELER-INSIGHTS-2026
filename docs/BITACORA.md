@@ -25,3 +25,11 @@ Fecha y commit | ID de experimento | SHA del dataset | tipo de partición | arqu
 - Ambiente local de desarrollo antes del PR: 27 passed, 1 xfailed sobre copia de checkpoint anterior; smoke test de callbacks funcionó. El remoto incluye además pruebas de emojis, por lo que el total definitivo procede de CI.
 - Sin dataset real, sin métricas científicas; la prueba de negación incorrecta continúa como xfail.
 - Próximo: interfaz común LR/SVM y arquitectura ASR opcional, con resultados claramente demostrativos.
+
+## 2026-11-04 — Incremento 05: interfaz común LR/SVM (PR encadenado)
+
+- Implementados LR y LinearSVC + calibración interna para un contrato `predict_proba` común.
+- Selección por CLI y Gradio, rastreabilidad del modelo en salida y exportaciones.
+- Pruebas nuevas del motor SVM, compatibilidad LR y smoke UI.
+- La rama `feat/model-selection-svm` deriva de `feat/batch-human-review`, no de `main`. El PR debe ser revisado contra la rama padre antes de integrarse.
+- Sin métricas científicas: DEMO solo prueba ejecución. Mantener `xfail` de negación; evaluar después con datos reales.

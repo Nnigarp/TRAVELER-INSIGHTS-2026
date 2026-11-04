@@ -52,13 +52,14 @@ def parse_review_csv(content: bytes, *, text_col: str = "reseña") -> list[str]:
     return rows
 
 
-def analyze_batch(reviews: list[str], model: Any, *, prefix: str = "demo") -> list[dict]:
+def analyze_batch(reviews: list[str], model: Any, *, prefix: str = "demo", model_kind: str = "lr") -> list[dict]:
     if not reviews or len(reviews) > MAX_ROWS:
         raise ValueError("Número de reseñas no permitido.")
     from .agent import inspect_review
     result = []
     for index, text in enumerate(reviews, 1):
         record = inspect_review(text, model, review_id=f"{prefix}-{index:03d}")
+        record["modelo_utilizado"] = model_kind
         record["texto_original"] = text
         record["etiqueta_corregida_humano"] = None
         record["comentario_revision_humana"] = None
@@ -110,7 +111,7 @@ def _safe_csv_value(value: Any) -> Any:
 
 def export_csv(records: list[dict]) -> str:
     buffer = io.StringIO(newline="")
-    fields = ["id", "texto_original", "sentimiento", "confianza_no_calibrada",
+    fields = ["id", "texto_original", "modelo_utilizado", "sentimiento", "confianza_no_calibrada",
               "revision_humana", "etiqueta_corregida_humano", "estado_revision",
               "comentario_revision_humana", "recomendacion", "tipo_salida", "decision_revision_humana"]
     writer = csv.DictWriter(buffer, fieldnames=fields, extrasaction="ignore", lineterminator="\n")

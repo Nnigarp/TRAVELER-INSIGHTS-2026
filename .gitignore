@@ -17,3 +17,6 @@ data/processed/
 .ipynb_checkpoints/
 .DS_Store
 Thumbs.db
+
+# Dataset audit reports may contain derived sensitive metadata
+reports/

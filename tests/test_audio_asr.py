@@ -239,3 +239,12 @@ def test_local_dependency_report_metadata_is_non_sensitive():
     assert "ctranslate2" in data
     assert "av" in data
     assert all(isinstance(v, str) for v in data.values())
+
+
+def test_inference_engine_classification_without_loading_ctranslate2():
+    from traveler_agent.audio_asr import _inference_failure_stage
+    CTranslateError = type("CTranslateError", (RuntimeError,), {"__module__": "ctranslate2.models"})
+    OnnxError = type("OnnxError", (RuntimeError,), {"__module__": "onnxruntime.capi"})
+    assert _inference_failure_stage(CTranslateError("private")) == "ctranslate2"
+    assert _inference_failure_stage(OnnxError("private")) == "vad_inference"
+    assert _inference_failure_stage(RuntimeError("private")) == "inference"

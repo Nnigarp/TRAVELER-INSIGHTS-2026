@@ -3,7 +3,7 @@ on:
   push:
     branches: [main, 'feat/**']
   pull_request:
-    branches: [main, feat/batch-human-review]
+    branches: [main, feat/tourism-corpus-foundation]
 permissions:
   contents: read
 jobs:
@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ['3.11', '3.12']
+        python-version: ['3.12']
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

@@ -6,10 +6,10 @@ import app
 def test_midnight_indigo_has_light_and_dark_tokens():
     assert app._PRIMARY.c500 == "#4F46E5"
     assert app._PRIMARY.c300 == "#818CF8"
-    assert "#F8FAFC" in str(app.THEME.get_theme_dict())
-    assert "#0F172A" in str(app.THEME.get_theme_dict())
-    assert "#FFFFFF" in str(app.THEME.get_theme_dict())
-    assert "#1E293B" in str(app.THEME.get_theme_dict())
+    assert app.THEME.body_background_fill == "#F8FAFC"
+    assert app.THEME.body_background_fill_dark == "#0F172A"
+    assert app.THEME.block_background_fill == "#FFFFFF"
+    assert app.THEME.block_background_fill_dark == "#1E293B"
 
 
 def test_three_tabs_and_event_wiring_remain_present():

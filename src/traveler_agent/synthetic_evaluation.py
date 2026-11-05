@@ -20,7 +20,7 @@ from .corpus import CorpusError, file_sha, text_sha
 from .labels import LABELS
 from .scientific_benchmark import MODEL_GRID, _new_estimator, _score, _training_calibration_folds
 from .synthetic_tourism import (
-    CATEGORIES, FIELDS, GENERATOR, MODEL, VERSION, audit_records,
+    ASPECT_TEXT, CATEGORIES, FIELDS, GENERATOR, MODEL, VERSION, audit_records,
 )
 
 NAMES = ("train", "validation", "test")
@@ -90,6 +90,38 @@ def _convert(rows: list[dict]) -> list[dict]:
         "group_id": r["scenario_family"], "review_id": r["review_id"],
     } for r in rows]
 
+
+
+def _synthetic_shortcut_audit(train: list[dict], test: list[dict]) -> dict:
+    """Measure reused authored sentiment phrases across supposedly held-out families.
+
+    This is a known vulnerability of compositional synthetic generators: a
+    family-disjoint split does not imply language-pattern independence.
+    """
+    source_cues = [
+        (aspect, label, phrase)
+        for aspect, sentiments in ASPECT_TEXT.items()
+        for label, phrases in sentiments.items()
+        for phrase in phrases
+    ]
+    train_texts = [r["text"].casefold() for r in train]
+    test_texts = [r["text"].casefold() for r in test]
+    shared = [
+        {"aspect": aspect, "intended_class": label}
+        for aspect, label, phrase in source_cues
+        if any(phrase.casefold() in t for t in train_texts)
+        and any(phrase.casefold() in t for t in test_texts)
+    ]
+    return {
+        "shared_exact_authored_class_cues": len(shared),
+        "examples_aspect_and_class_only": shared[:12],
+        "risk": ("HIGH_TEMPLATE_SHORTCUT_RISK" if shared else "NOT_DETECTED_BY_THIS_HEURISTIC"),
+        "interpretation": (
+            "Shared authored sentiment phrases may let models memorize synthetic "
+            "lexical patterns across families; 100% test performance is not "
+            "evidence of semantic generalization."
+        ),
+    }
 
 def _report_errors(model, rows: list[dict]) -> dict:
     predicted = model.predict([row["text"] for row in rows])
@@ -201,11 +233,13 @@ def run_synthetic_experiment(input_dir: Path, out_dir: Path, *, seed: int = 42) 
             ),
             "hard_cases": audit["hard_cases"],
         },
+        "lexical_shortcut_audit": _synthetic_shortcut_audit(train, test),
         "models": compared, "model_hashes": model_hashes,
         "environment": {"python": platform.python_version(), "packages": packages},
         "warnings": [
             "Targets express generator intent and are NOT independent human labels.",
             "Every example is synthetic: no tourism-world accuracy is measured.",
+            "Shared authored class cues across groups can inflate synthetic accuracy to 100%.",
             "Template and scenario leakage may persist semantically despite family isolation.",
             "No external independent Spanish tourist test is used.",
             "Test was evaluated once per model AFTER validation tuning.",

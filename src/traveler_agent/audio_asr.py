@@ -50,8 +50,29 @@ def _safe_trace(exc: BaseException) -> str:
 
 
 def _diagnose(stage: str, exc: BaseException) -> None:
-    _LOG.error("ASR_STAGE=%s ERROR_TYPE=%s\n%s",
-               stage, type(exc).__name__, _safe_trace(exc))
+    # Only OS error codes and module identifiers are safe to disclose from args.
+    winerror = getattr(exc, "winerror", None)
+    errno = getattr(exc, "errno", None)
+    module = getattr(exc, "name", None) if isinstance(exc, ImportError) else None
+    module = module if isinstance(module, str) and module.replace("_", "").replace(".", "").isalnum() else None
+    _LOG.error("ASR_STAGE=%s ERROR_TYPE=%s WINERROR=%s ERRNO=%s MODULE=%s\n%s",
+               stage, type(exc).__name__, winerror, errno, module,
+               _safe_trace(exc))
+
+
+def _inference_failure_stage(exc: BaseException) -> str:
+    # Classification by exception origin, never by the contents of private text.
+    current = exc
+    visited = set()
+    while current is not None and id(current) not in visited:
+        visited.add(id(current))
+        module = type(current).__module__.lower()
+        if module.startswith("ctranslate2"):
+            return "ctranslate2"
+        if module.startswith("onnxruntime"):
+            return "vad_inference"
+        current = current.__cause__ if current.__cause__ else current.__context__
+    return "inference"
 
 
 def dependency_versions() -> dict[str, str]:
@@ -203,9 +224,10 @@ def recognize_audio(
         # Inference may fail during the call OR the lazy generator iteration.
         recognized = " ".join(str(part.text).strip() for part in segments).strip()
     except Exception as exc:
-        _diagnose("inference", exc)
+        stage = _inference_failure_stage(exc)
+        _diagnose(stage, exc)
         raise AudioInputError(
-            "Falló la inferencia ASR (inference). Consulta terminal; "
+            "Falló la inferencia ASR (" + stage + "). Consulta terminal; "
             "no se registra audio ni transcripción."
         ) from None
     if not recognized:

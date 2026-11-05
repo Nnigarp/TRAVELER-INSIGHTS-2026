@@ -17,8 +17,10 @@ from traveler_agent.scientific_benchmark import (
 
 @pytest.fixture(scope="module")
 def corpus_paths(tmp_path_factory):
-    private = tmp_path_factory.mktemp("synthetic_private")
-    split_dir = tmp_path_factory.mktemp("synthetic_processed")
+    private = tmp_path_factory.mktemp("corpus-fixtures") / "private" / "tourism"
+    split_dir = tmp_path_factory.mktemp("split-fixtures") / "processed" / "tourism"
+    private.mkdir(parents=True)
+    split_dir.mkdir(parents=True)
     source = private / "sources.csv"
     reviews = private / "reviews.csv"
     ann = private / "annotations.csv"

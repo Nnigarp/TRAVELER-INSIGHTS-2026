@@ -11,7 +11,7 @@ from traveler_agent.corpus import (
 )
 from traveler_agent.corpus_splits import prepare_splits
 from traveler_agent.scientific_benchmark import (
-    verified_splits, run_benchmark, MODEL_GRID, _new_estimator
+    verified_splits, run_benchmark, MODEL_GRID, _new_estimator, _training_calibration_folds
 )
 
 
@@ -138,3 +138,18 @@ def test_rejects_changed_seed(corpus_paths, tmp_path):
     private, split_dir = corpus_paths
     with pytest.raises(CorpusError, match="semilla"):
         run_benchmark(private, split_dir, tmp_path / "artifacts" / "b", seed=999, demo_only=True)
+
+
+
+def test_calibration_folds_keep_groups_and_duplicates_disjoint(corpus_paths):
+    private, split_dir = corpus_paths
+    splits, _ = verified_splits(private, split_dir)
+    train = splits["train"]
+    folds = _training_calibration_folds(train, seed=42)
+    assert len(folds) == 3
+    for fit_ids, cal_ids in folds:
+        fit_groups = {train[i]["group_id"] for i in fit_ids}
+        cal_groups = {train[i]["group_id"] for i in cal_ids}
+        assert not fit_groups & cal_groups
+        assert {train[i]["sentiment"] for i in fit_ids} == {"negativo","neutral","positivo"}
+        assert {train[i]["sentiment"] for i in cal_ids} == {"negativo","neutral","positivo"}

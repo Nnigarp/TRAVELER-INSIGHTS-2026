@@ -10,7 +10,7 @@ from traveler_agent.synthetic_tourism import (
     ASPECTS, CATEGORIES, LABELS, audit_records, generate_records, write_corpus,
 )
 from traveler_agent.synthetic_evaluation import (
-    _read_input, group_split, run_synthetic_experiment,
+    _read_input, group_split, run_synthetic_experiment, _synthetic_shortcut_audit,
 )
 
 
@@ -126,3 +126,12 @@ def test_benchmark_fails_on_seed_mismatch(written, tmp_path):
 def test_no_artifacts_written_to_tracked_root(samples, tmp_path):
     with pytest.raises(CorpusError, match="Salida"):
         write_corpus(samples, tmp_path / "public", audit_records(samples), seed=42)
+
+
+def test_synthetic_language_shortcuts_are_explicitly_flagged(samples):
+    split = group_split(samples, seed=42)
+    risk = _synthetic_shortcut_audit(split["train"], split["test"])
+    assert risk["risk"] == "HIGH_TEMPLATE_SHORTCUT_RISK"
+    assert risk["shared_exact_authored_class_cues"] > 0
+    assert all(set(row) == {"aspect", "intended_class"} for row in risk["examples_aspect_and_class_only"])
+    assert "100%" in risk["interpretation"]

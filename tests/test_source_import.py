@@ -57,6 +57,10 @@ def test_benchmark_is_explicitly_rating_proxy_only(tmp_path,argilla_fixture,appr
     assert set(report["models"])=={"dummy","lr","svm"}
     assert sum(report["sizes"].values())==180
     assert report["models"]["svm"]["test"]["n"]>0
+    assert report["runtime_versions"]["python"].startswith("3.")
+    for name in ("dummy","lr","svm"):
+        assert (tmp_path/"artifacts"/"rating"/(name+".joblib")).is_file()
+        assert len(report["model_hashes"][name])==64
     assert "Fabricated" not in json.dumps(report)
     assert "Spanish evaluation" in " ".join(report["limitations"])
     with pytest.raises(CorpusError,match="sobrescribir"):

@@ -66,6 +66,8 @@ def test_benchmark_trains_three_models_without_scientific_claim(corpus_paths, tm
     out = tmp_path / "artifacts" / "benchmark"
     report = run_benchmark(private, splits, out, demo_only=True)
     assert report["report_type"] == "SOFTWARE_DEMO_ONLY"
+    assert report["software"]["installed_package_versions"]["scikit-learn"] != "NOT_INSTALLED"
+    assert report["software"]["python"].startswith("3.")
     assert set(report["models"]) == {"dummy", "lr", "svm"}
     assert report["models"]["lr"]["selected_parameters"]["C"] in {0.5, 2.0}
     for kind in ("dummy", "lr", "svm"):

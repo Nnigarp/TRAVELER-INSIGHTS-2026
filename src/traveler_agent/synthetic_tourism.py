@@ -306,6 +306,15 @@ def audit_records(records: list[dict], *, similarity_threshold: float = .94) -> 
                         "similarity": round(sim, 4), "action": "REVIEW_OR_REGROUP",
                     })
         blocks.setdefault(key, []).append(row)
+    # Ambiguity/contradiction is NEVER silently resolved into a gold label.
+    # Negation, contrast, mixed framing and irony are queued for review.
+    ambiguity_cases = {"negacion", "contraste", "opinion_mixta", "ironia_simulada"}
+    ambiguity_queue = [
+        {"review_id": row["review_id"], "case": row["hard_case"],
+         "intended_label": row["target_label"],
+         "action": "HUMAN_SEMANTIC_CONSISTENCY_REVIEW"}
+        for row in records if row["hard_case"] in ambiguity_cases
+    ]
     counts = Counter(r["target_label"] for r in records)
     family_counts = Counter(r["scenario_family"] for r in records)
     # Structural class balance is enforced before training.
@@ -323,6 +332,8 @@ def audit_records(records: list[dict], *, similarity_threshold: float = .94) -> 
         "unique_text_ratio": len(seen) / len(records),
         "unique_token_count": len(set(re.findall(r"\w+", " ".join(r["text"] for r in records).casefold()))),
         "near_duplicate_candidates_cross_family": near_cross_family,
+        "ambiguity_and_contradiction_review_queue": ambiguity_queue,
+        "ambiguity_queue_count": len(ambiguity_queue),
         "limitations": [
             "Template composition is still artificial and may share lexical patterns.",
             "Candidate near-duplicate detection is blocked and incomplete.",

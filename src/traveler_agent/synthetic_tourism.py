@@ -140,23 +140,23 @@ ASPECT_TEXT = {
 # The regional vocabulary is consciously limited: it does not claim to model
 # authentic regional speech distributions.
 REGIONAL = {
-    "colombia": ("Qué bacano encontrar algo así", "La verdad, estuvo una nota"),
-    "peru": ("Qué chévere fue esa parte", "En general, estuvo bien paja"),
-    "general": ("Fue una experiencia particular", "Quedó bastante por comentar"),
+    "colombia": ("Parce, así fue lo que nos pasó", "Por acá así contamos la visita"),
+    "peru": ("Causa, así vivimos el paseo", "Pues eso ocurrió durante el viaje, pe"),
+    "general": ("En fin, eso fue lo ocurrido", "Tal cual, es lo que observamos"),
 }
 # Hard cases are always explicit; mixed texts still have a primary target.
 HARD_CASES = ("ninguno", "contraste", "negacion", "intensificador",
               "regionalismo", "falta_ortografica", "opinion_mixta", "ironia_simulada")
 ENDING = {
-    "positivo": ("La impresión final fue favorable.",
-                 "Me quedé con una valoración positiva.",
-                 "En conjunto, nos gustó la experiencia."),
-    "neutral": ("Lo menciono como un dato, sin valorarlo.",
-                "Es una descripción de lo ocurrido.",
-                "No tengo una valoración favorable ni desfavorable."),
-    "negativo": ("La impresión final fue desfavorable.",
-                 "Me quedé con una valoración negativa.",
-                 "En conjunto, fue una mala experiencia."),
+    "positivo": ("Me dieron ganas de volver otra vez.",
+                 "Se lo recomendaría a quienes vengan después.",
+                 "Salí contento con lo que encontramos."),
+    "neutral": ("Anoté el detalle sin emitir una opinión.",
+                "Es simplemente una descripción de lo que ocurrió.",
+                "Lo registro aquí sin decir si estuvo bien o mal."),
+    "negativo": ("No quisiera repetir esa parte del viaje.",
+                 "Al salir sentí que deberían corregirlo.",
+                 "Me arrepentí de haber elegido esa opción."),
 }
 ORTHO = {"atención": "atencion", "instalaciones": "instalacoines",
          "información": "informacion", "experiencia": "experiensia"}
@@ -166,9 +166,9 @@ NEGATION = {
     "negativo": "No fue una experiencia satisfactoria.",
 }
 CONTRAST = {
-    "positivo": "Aunque hubo algún detalle menor, mi balance es positivo.",
+    "positivo": "Aunque hubo algún detalle menor, volvería sin dudarlo.",
     "neutral": "Sin embargo, no tengo elementos para evaluarlo.",
-    "negativo": "Aunque hubo cosas normales, el balance fue negativo.",
+    "negativo": "Aunque hubo aspectos corrientes, preferiría no volver.",
 }
 IRONY = {
     "positivo": "Qué sorpresa tan agradable, esta vez sí salió bien.",
@@ -190,8 +190,10 @@ def _hard_suffix(case: str, sentiment: str, region: str, rng: random.Random) -> 
         return NEGATION[sentiment]
     if case in {"contraste", "opinion_mixta"}:
         return CONTRAST[sentiment] if case == "contraste" else (
-            "Hubo un detalle distinto, pero mi valoración global sigue siendo "
-            + sentiment + "."
+            "Hubo un detalle distinto, pero " + (
+                "me gustaría regresar." if sentiment == "positivo" else
+                "solo describo lo ocurrido." if sentiment == "neutral" else
+                "terminé decepcionado." )
         )
     if case == "intensificador":
         return ("De verdad, realmente, muy " +

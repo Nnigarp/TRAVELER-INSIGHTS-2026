@@ -114,3 +114,8 @@ Comenzar en la rama feat/tourism-corpus-foundation:
 ~~~
 
 La validación exigirá primero registrar una fuente autorizada y al menos una reseña; ver docs/CORPUS_TURISTICO_2026.md. La CLI permite contribuir, anotar, adjudicar y dividir train/validation/test; sin descargar nada ni publicar textos.
+
+
+## Benchmark reproducible del corpus adjudicado (PR encadenado)
+
+En la rama feat/corpus-benchmark existe infraestructura para comparar DummyClassifier, LR y SVM con el mismo train/validation/test del corpus académico. Comprueba permisos registrados, hashes y ausencia de grupos y textos exactos compartidos antes de entrenar. La selección de hiperparámetros sólo usa validation; SVM calibra dentro de folds separados por grupos de train. Produce informes, modelos y manifiestos privados. **No hay resultados científicos de reseñas reales**; tests usan datos sintéticos. Manual: docs/INCREMENTO_09_BENCHMARK.md.

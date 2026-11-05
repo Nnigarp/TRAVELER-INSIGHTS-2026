@@ -9,6 +9,7 @@ import argparse
 import csv
 import hashlib
 import json
+from importlib.metadata import version as package_version, PackageNotFoundError
 import platform
 import sys
 from collections import Counter
@@ -279,6 +280,16 @@ def run_benchmark(corpus_dir: Path, split_dir: Path, output_dir: Path,
     # Forbid untrusted joblib: these files must not be loaded from shared sources.
     for kind, model in selected.items():
         joblib.dump(model, out / f"{kind}.joblib")
+    # Version manifest records the actually installed environment, not a guessed
+    # frozen lockfile; compatibility tests still run with Python 3.12.
+    packages = ("scikit-learn", "numpy", "scipy", "pandas", "joblib",
+                "threadpoolctl", "gradio", "faster-whisper", "ctranslate2", "av")
+    installed_versions = {}
+    for package in packages:
+        try:
+            installed_versions[package] = package_version(package)
+        except PackageNotFoundError:
+            installed_versions[package] = "NOT_INSTALLED"
     report = {
         "report_type": "SOFTWARE_DEMO_ONLY" if demo_only else "RESEARCH_CANDIDATE_NOT_INDEPENDENTLY_AUDITED",
         "scientific_caveat": (
@@ -298,6 +309,8 @@ def run_benchmark(corpus_dir: Path, split_dir: Path, output_dir: Path,
             "python": platform.python_version(),
             "scikit_learn": sklearn.__version__,
             "numpy": np.__version__,
+            "installed_package_versions": installed_versions,
+            "platform": platform.platform(),
         },
         "splits": {name: {"n": len(rows)} for name, rows in splits.items()},
         "models": comparison,

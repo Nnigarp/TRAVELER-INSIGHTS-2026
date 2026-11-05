@@ -8,6 +8,8 @@ from __future__ import annotations
 import json
 import platform
 from collections import Counter
+from importlib.metadata import version as package_version
+import joblib
 from pathlib import Path
 import numpy as np
 from sklearn.model_selection import GroupShuffleSplit
@@ -68,6 +70,7 @@ def run_rating_proxy_benchmark(records_path:Path,out_dir:Path,*,seed=42):
            set(y[i] for i in cal)!=set(LABELS) for fit,cal in folds):
         raise CorpusError("La calibración interna carece de clases completas.")
     report={}
+    selected_models={}
     def convert(subset):
         return [{"text":r["text"],"sentiment":r["weak_label"],"language":r["language"]} for r in subset]
     for kind,grid in MODEL_GRID.items():
@@ -80,6 +83,7 @@ def run_rating_proxy_benchmark(records_path:Path,out_dir:Path,*,seed=42):
             candidates.append((val_metric["macro_f1"],params,clf,val_metric))
         best=max(enumerate(candidates),key=lambda a:(a[1][0],-a[0]))[1]
         score,params,clf,val_metric=best
+        selected_models[kind]=clf
         report[kind]={
             "selected_parameters":params,"validation":val_metric,
             "test":_score(clf,convert(test))
@@ -90,7 +94,17 @@ def run_rating_proxy_benchmark(records_path:Path,out_dir:Path,*,seed=42):
     if out.exists() and any(out.iterdir()):
         raise CorpusError("No sobrescribir resultados experimentales.")
     out.mkdir(parents=True,exist_ok=True)
+    model_hashes={}
+    for kind,clf in selected_models.items():
+        path=out/(kind+".joblib")
+        joblib.dump(clf,path)
+        model_hashes[kind]=file_sha(path)
     result={
+        "model_hashes":model_hashes,
+        "runtime_versions":{"python":platform.python_version(),
+                            "scikit-learn":package_version("scikit-learn"),
+                            "numpy":package_version("numpy"),
+                            "joblib":package_version("joblib")},
         "report_type":"WEAK_RATING_PROXY_NOT_HUMAN_SENTIMENT",
         "model_training":"REAL_TEXT_WEAK_LABELS_ONLY_IF_RIGHTS_APPROVED_BY_OPERATOR",
         "source":"argilla_tripadvisor","seed":seed,
@@ -109,3 +123,28 @@ def run_rating_proxy_benchmark(records_path:Path,out_dir:Path,*,seed=42):
     (out/"rating_proxy_report.json").write_text(
         json.dumps(result,ensure_ascii=False,indent=2),encoding="utf-8")
     return result
+
+
+
+def main(argv=None):
+    """Explicit CLI for an already-approved, locally imported Argilla corpus."""
+    import argparse
+    parser=argparse.ArgumentParser(description="Rating-proxy benchmark, not human sentiment evaluation")
+    parser.add_argument("--records",type=Path,required=True)
+    parser.add_argument("--out",type=Path,required=True)
+    parser.add_argument("--seed",type=int,default=42)
+    args=parser.parse_args(argv)
+    try:
+        result=run_rating_proxy_benchmark(args.records,args.out,seed=args.seed)
+    except (CorpusError,OSError,ValueError):
+        parser.exit(2,"Benchmark blocked: verify approved source, classes and split constraints.\n")
+    print(json.dumps({
+        "status":"ok","report_type":result["report_type"],
+        "n":result["sizes"],"models":sorted(result["models"]),
+        "warning":"Only rating-derived WEAK labels; no human gold, no Spanish validation."
+    },ensure_ascii=False,indent=2))
+    return 0
+
+
+if __name__=="__main__":
+    raise SystemExit(main())

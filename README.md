@@ -100,3 +100,17 @@ python app.py
 ```
 
 Ver [alcance del incremento](docs/INCREMENTO_05_MODELOS_LR_SVM.md).
+
+
+## Corpus académico propio (incremento en revisión)
+
+La rama de corpus añade una infraestructura independiente del dataset Kaggle y del audio: fuentes autorizadas, reseñas privadas, anotación humana por revisor, adjudicación final razonada y particiones reproducibles por grupo/duplicado. Los CSV y particiones se guardan únicamente bajo data/private/ y data/processed/ (excluidos de Git). El sistema no verifica permisos legalmente, no elimina PII de forma automática y todavía no detecta casi duplicados. No existe aún corpus real ni métricas experimentales.
+
+Comenzar en la rama feat/tourism-corpus-foundation:
+
+~~~powershell
+.\.venv\Scripts\python.exe -m traveler_agent.corpus_cli init
+.\.venv\Scripts\python.exe -m traveler_agent.corpus_cli validate
+~~~
+
+La validación exigirá primero registrar una fuente autorizada y al menos una reseña; ver docs/CORPUS_TURISTICO_2026.md. La CLI permite contribuir, anotar, adjudicar y dividir train/validation/test; sin descargar nada ni publicar textos.

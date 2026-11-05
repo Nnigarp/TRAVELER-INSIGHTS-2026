@@ -62,7 +62,7 @@ def test_generation_is_not_a_human_dataset(samples):
 
 
 def test_duplicate_or_fingerprint_tamper_rejected(samples):
-    with pytest.raises(CorpusError, match="Duplicado"):
+    with pytest.raises(CorpusError, match="ID repetido|Duplicado"):
         audit_records(samples + [copy.deepcopy(samples[0])])
     bad = copy.deepcopy(samples)
     bad[0]["text_sha256"] = "wrong"

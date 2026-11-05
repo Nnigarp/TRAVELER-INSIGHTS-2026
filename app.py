@@ -177,7 +177,10 @@ def reset_audio_trace():
     """Do not analyze stale transcripts after replacing a recording."""
     return "", {}, "", "", "{}"
 
-with gr.Blocks(title="Traveler Insights 2026 | Demo académico", theme=THEME, css=UI_CSS) as app:
+# Gradio 6 accepts launch-time theme/css; 4–5 attach them to Blocks.
+_GRADIO_MAJOR = int(gr.__version__.split(".")[0])
+_BLOCKS_THEME = {"theme": THEME, "css": UI_CSS} if _GRADIO_MAJOR < 6 else {}
+with gr.Blocks(title="Traveler Insights 2026 | Demo académico", **_BLOCKS_THEME) as app:
     with gr.Group(elem_classes=["ti-hero"]):
         gr.Markdown(
             "**TRAVELER INSIGHTS · 2026**\n"
@@ -282,4 +285,5 @@ with gr.Blocks(title="Traveler Insights 2026 | Demo académico", theme=THEME, cs
         make_export.click(export_files, inputs=batch_state, outputs=[json_export, csv_export, batch_status])
 
 if __name__ == "__main__":
-    app.launch(server_name="127.0.0.1", share=False)
+    _LAUNCH_THEME = {"theme": THEME, "css": UI_CSS} if _GRADIO_MAJOR >= 6 else {}
+    app.launch(server_name="127.0.0.1", share=False, **_LAUNCH_THEME)

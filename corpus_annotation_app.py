@@ -59,7 +59,8 @@ def submit_annotation(review_id: str, annotator_id: str, sentiment: str,
         if record is None:
             raise CorpusError("Reseña inexistente.")
         aspects = parse_aspects(aspects_json)
-        spans = validate_span_entries(record["text"], json.loads(spans_json))
+        raw_spans = json.loads(spans_json)
+        spans = validate_span_entries(record["text"], raw_spans)
         if any(aspects.get(s["aspect"]) != s["polarity"] for s in spans):
             raise CorpusError("Evidencia y polaridad anotada no coinciden.")
         path = ROOT / "annotations.csv"
@@ -68,7 +69,7 @@ def submit_annotation(review_id: str, annotator_id: str, sentiment: str,
                           sentiment=sentiment, aspects=aspects)
         if spans:
             record_evidence(ROOT / "evidence_spans.csv", review_id, annotator_id,
-                            record["text"], spans, aspects)
+                            record["text"], raw_spans, aspects)
         return "Anotación guardada localmente; revisar adjudicación por separado."
     except (CorpusError, ValueError, OSError, TypeError) as exc:
         return "Error: " + str(exc)

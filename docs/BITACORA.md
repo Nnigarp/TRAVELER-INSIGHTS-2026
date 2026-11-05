@@ -52,3 +52,12 @@ Fecha y commit | ID de experimento | SHA del dataset | tipo de partición | arqu
 - Tests con datos sintéticos cubren permisos, etiquetas, desacuerdos, fuga exacta y reproducción de split. Sin datos turísticos reales ni métricas.
 - Auditoría adicional: revisión de casi duplicados (candidatos), spans humanos y acuerdo entre anotadores incorporados con pruebas; la revisión PII/derechos y la doble anotación obligatoria siguen pendientes.
 - El PR #6 de ASR fue integrado en main (commit 85dbb73a); este PR conserva su código y documentación mediante merge de dos padres.
+
+## 2026-11-05 — Incremento 09: benchmark reproducible (PR encadenado)
+
+- Fuente: corpus propio integrado mediante PR #7 y audio integrado mediante PR #6. El PR #8 mantiene ambos incrementos.
+- Código scientific_benchmark.py valida corpus privado y splits, entrena Dummy/LR/SVM, selecciona hiperparámetros con validación y evalúa test retenido. SVM realiza calibración interna sin compartir grupos/duplicados entre folds.
+- trusted_models.py permite integrar estimadores locales propios mediante confianza explícita y comprobación SHA.
+- tests/test_scientific_benchmark.py cubre flujo sintético, manipulación de hashes, fuga de grupos, restricciones y carga de modelos.
+- docs/REVISION_INTERNA_2026-11-06.md resume estado verificable para revisión académica.
+- No se recolectaron textos turísticos reales ni se calculó rendimiento científico; ABSA, casi duplicados y anotación visual siguen pendientes.

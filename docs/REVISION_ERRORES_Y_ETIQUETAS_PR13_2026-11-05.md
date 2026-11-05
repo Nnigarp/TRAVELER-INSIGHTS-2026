@@ -43,7 +43,7 @@ Estos son **fragmentos literales de las situaciones fuente** en `out_of_generato
 | «El conductor aceleró demasiado cerca de una zona escolar» | Negativo | Riesgo de seguridad real en el texto ficticio; el término *aceleró* no fue necesariamente visto en entrenamiento original |
 | «La rampa estaba clausurada y no existía otra entrada accesible» | Negativo | Describe un fallo específico de accesibilidad; etiqueta objetivo razonable |
 | «La página mostraba fotografías y un listado de servicios» | Neutral | Descripción verificable, sin valoración evidente; conservar como intención neutral |
-| «La marea cambiaba de color según la hora del día» | Neutral | Descripción física, pero la lectura emocional puede depender del contexto |
+| «La bahía cambiaba de color según la hora del día» | Neutral | Descripción física, pero la lectura emocional puede depender del contexto |
 | «Los paneles estaban ordenados cronológicamente» | Neutral | Orden puede interpretarse como elogio implícito de organización; **posible ambigüedad** de etiqueta |
 | «La visita terminaba a una hora razonable y alcanzamos el regreso» | Positivo | Relación de puntualidad con beneficio explícito; polaridad plausible |
 | «No quiero exagerar lo que ocurrió…» seguido de un problema | Negativo en ese núcleo | La negación afecta al acto de *exagerar*, no necesariamente a la polaridad. La marca automática `phenomenon=negation` es **superficial** |

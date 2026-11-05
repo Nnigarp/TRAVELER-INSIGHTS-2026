@@ -42,3 +42,13 @@ Fecha y commit | ID de experimento | SHA del dataset | tipo de partición | arqu
 - Tests ASR sin modelos mediante mocks, pruebas del flujo UI, errores y negaciones. CI Python 3.11/3.12 como puerta de calidad.
 - Limitaciones: sólo formato WAV PCM tras conversión; silencio digital comprobado, ruido no completamente detectado; no análisis de emoción vocal ni datos científicos.
 - Mantenimiento posterior: migrar acciones checkout@v4 y setup-python@v5 a versiones compatibles Node recientes, en PR independiente.
+
+## 2026-11-05 — Corpus académico propio (rama independiente en revisión)
+
+- Auditoría de main: dataset.py y scripts/audit_dataset.py no ofrecían procedencia/consentimiento ni anotación; experiments.py tenía holdout aleatorio sin separación por grupos. No se sobrescriben.
+- Creado corpus.py: fuentes con permiso revisado, reseñas seudónimas, anotaciones separadas por revisor, adjudicación justificada y auditoría con hashes.
+- Creado corpus_splits.py: componentes de grupos y duplicados normalizados, separación reproducible train/validation/test, manifiestos y rechazo de splits incompletos.
+- Creado corpus_cli.py: inicio de plantillas, contribución voluntaria con confirmación, anotación, adjudicación, validación y split local; todo en data/private o data/processed.
+- Tests con datos sintéticos cubren permisos, etiquetas, desacuerdos, fuga exacta y reproducción de split. Sin datos turísticos reales ni métricas.
+- Auditoría adicional: revisión de casi duplicados (candidatos), spans humanos y acuerdo entre anotadores incorporados con pruebas; la revisión PII/derechos y la doble anotación obligatoria siguen pendientes.
+- El PR #6 de ASR fue integrado en main (commit 85dbb73a); este PR conserva su código y documentación mediante merge de dos padres.

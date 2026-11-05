@@ -54,3 +54,22 @@ Argilla: evaluación del rating-proxy únicamente; idioma inglés, particiones s
 Objetivo español Cartagena: conjunto test separado y anotado por humanos; todavía no existe. No declarar generalización en español usando únicamente resultados en inglés.
 
 **Bloqueo de primera importación real:** faltan verificaciones independientes sobre los derechos de reutilización de textos de Tripadvisor/Booking.com. Hasta resolverlas, no ejecutar descargas ni publicar resultados de modelos reales sobre estos corpus.
+
+
+## Descarga permitida y experimento WEAK (opcional, bloqueado por defecto)
+
+El código implementa source_download.py, un descargador con allowlist y archivos fijados por versión: Argilla Parquet (revisión 533be43, SHA-256 público comprobable) y CrawlFeeds CSV (revisión f39ceee, SHA registrado en primera descarga). No se permite HAMOS automáticamente hasta confirmar URLs de archivo y schema. La red se mantiene desactivada sin --allow-network. La aprobación de origen y privacidad necesita constancias **reales**, no un simple cambio de flags.
+
+Comandos siguientes ÚNICAMENTE después de confirmar derechos originales y completar approval.json privado:
+
+~~~powershell
+.\.venv\Scripts\python.exe -m traveler_agent.source_download --source argilla_tripadvisor --approval data/private/approvals/argilla.json --destination data/private/originales --allow-network
+.\.venv\Scripts\python.exe -m pip install pyarrow
+.\.venv\Scripts\python.exe -m traveler_agent.source_import inspect --source argilla_tripadvisor --file data/private/originales/argilla_tripadvisor_533be43.parquet
+.\.venv\Scripts\python.exe -m traveler_agent.source_import import --source argilla_tripadvisor --file data/private/originales/argilla_tripadvisor_533be43.parquet --approval data/private/approvals/argilla.json --output data/private/adaptados/argilla.jsonl
+.\.venv\Scripts\python.exe -m traveler_agent.weak_rating_benchmark --records data/private/adaptados/argilla.jsonl --out artifacts/argilla-rating-proxy --seed 42
+~~~
+
+Este experimento exporta dummy.joblib, lr.joblib y svm.joblib, más rating_proxy_report.json. Registra semilla, datos, hashes y bibliotecas efectivamente instaladas. El test retenido mide únicamente **predicción de valoraciones** (ratings traducidos a tres clases): no es resultado gold de sentimiento ni transferencia demostrada a Cartagena. La partición excluye duplicados exactos pero no puede garantizar independencia por hotel (sin hotel_id en Argilla).
+
+Si el dataset no está autorizado, no ejecutar esos comandos. El CI usa pruebas sintéticas y un servidor falso para comprobar downloads sin descargar contenido de terceros.

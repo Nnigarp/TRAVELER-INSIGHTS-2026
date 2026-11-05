@@ -153,3 +153,30 @@ def test_calibration_folds_keep_groups_and_duplicates_disjoint(corpus_paths):
         assert not fit_groups & cal_groups
         assert {train[i]["sentiment"] for i in fit_ids} == {"negativo","neutral","positivo"}
         assert {train[i]["sentiment"] for i in cal_ids} == {"negativo","neutral","positivo"}
+
+
+
+def test_trusted_model_loader_checks_manifest_and_agent_compatibility(corpus_paths, tmp_path):
+    from traveler_agent.trusted_models import load_own_benchmark_model
+    from traveler_agent.agent import inspect_review
+    private, split_dir = corpus_paths
+    out = tmp_path / "artifacts" / "owned"
+    run_benchmark(private, split_dir, out, demo_only=True)
+    with pytest.raises(CorpusError, match="deserialización"):
+        load_own_benchmark_model(out, "lr")
+    model = load_own_benchmark_model(out, "lr", trust_local_artifacts=True)
+    result = inspect_review("Reseña turística ilustrativa", model)
+    assert result["sentimiento"] in ("positivo", "neutral", "negativo")
+    with pytest.raises(CorpusError, match="admitido"):
+        load_own_benchmark_model(out, "external", trust_local_artifacts=True)
+
+
+def test_trusted_model_loader_rejects_tampered_hash_without_deserializing(corpus_paths, tmp_path):
+    from traveler_agent.trusted_models import load_own_benchmark_model
+    private, split_dir = corpus_paths
+    out = tmp_path / "artifacts" / "owned"
+    run_benchmark(private, split_dir, out, demo_only=True)
+    model_path = out / "dummy.joblib"
+    model_path.write_bytes(model_path.read_bytes() + b"tampered")
+    with pytest.raises(CorpusError, match="SHA-256"):
+        load_own_benchmark_model(out, "dummy", trust_local_artifacts=True)

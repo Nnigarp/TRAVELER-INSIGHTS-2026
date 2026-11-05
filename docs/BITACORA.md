@@ -35,6 +35,14 @@ Fecha y commit | ID de experimento | SHA del dataset | tipo de partición | arqu
 - Sin métricas científicas: DEMO solo prueba ejecución. Mantener `xfail` de negación; evaluar después con datos reales.
 
 
+## 2026-11-04 — Incremento 07: audio/ASR local (PR)
+
+- Código modular de validación WAV y ASR opcional por faster-whisper, con CPU int8 y sin descarga automática.
+- Gradio: grabación o carga (normalización a WAV), transcripción editable, análisis con LR/SVM y trazabilidad de original/corrección.
+- Tests ASR sin modelos mediante mocks, pruebas del flujo UI, errores y negaciones. CI Python 3.11/3.12 como puerta de calidad.
+- Limitaciones: sólo formato WAV PCM tras conversión; silencio digital comprobado, ruido no completamente detectado; no análisis de emoción vocal ni datos científicos.
+- Mantenimiento posterior: migrar acciones checkout@v4 y setup-python@v5 a versiones compatibles Node recientes, en PR independiente.
+
 ## 2026-11-05 — Corpus académico propio (rama independiente en revisión)
 
 - Auditoría de main: dataset.py y scripts/audit_dataset.py no ofrecían procedencia/consentimiento ni anotación; experiments.py tenía holdout aleatorio sin separación por grupos. No se sobrescriben.
@@ -42,13 +50,12 @@ Fecha y commit | ID de experimento | SHA del dataset | tipo de partición | arqu
 - Creado corpus_splits.py: componentes de grupos y duplicados normalizados, separación reproducible train/validation/test, manifiestos y rechazo de splits incompletos.
 - Creado corpus_cli.py: inicio de plantillas, contribución voluntaria con confirmación, anotación, adjudicación, validación y split local; todo en data/private o data/processed.
 - Tests con datos sintéticos cubren permisos, etiquetas, desacuerdos, fuga exacta y reproducción de split. Sin datos turísticos reales ni métricas.
-- Deuda: revisión PII y derechos es manual; casi duplicados, offsets humanos, doble anotación obligatoria, agreement y entrenamiento group-aware quedan pendientes.
-- PR #6 de ASR permanece separado y no se fusionará hasta cerrar prueba de archivos y aceptación.
-
+- Auditoría adicional: revisión de casi duplicados (candidatos), spans humanos y acuerdo entre anotadores incorporados con pruebas; la revisión PII/derechos y la doble anotación obligatoria siguen pendientes.
+- El PR #6 de ASR fue integrado en main (commit 85dbb73a); este PR conserva su código y documentación mediante merge de dos padres.
 
 ## 2026-11-05 — Incremento 09: benchmark reproducible (PR encadenado)
 
-- Fuente: corpus propio PR #7, sin alteración de main ni del audio PR #6.
+- Fuente: corpus propio integrado mediante PR #7 y audio integrado mediante PR #6. El PR #8 mantiene ambos incrementos.
 - Código scientific_benchmark.py valida corpus privado y splits, entrena Dummy/LR/SVM, selecciona hiperparámetros con validación y evalúa test retenido. SVM realiza calibración interna sin compartir grupos/duplicados entre folds.
 - trusted_models.py permite integrar estimadores locales propios mediante confianza explícita y comprobación SHA.
 - tests/test_scientific_benchmark.py cubre flujo sintético, manipulación de hashes, fuga de grupos, restricciones y carga de modelos.

@@ -1,0 +1,56 @@
+name: Out-of-generator synthetic challenge (sealed)
+on:
+  push:
+    branches: ['feat/out-of-generator-challenge']
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/traveler_agent/out_of_generator_challenge.py'
+      - 'src/traveler_agent/evaluate_out_of_generator.py'
+      - 'tests/test_out_of_generator.py'
+      - '.github/workflows/out-of-generator.yml'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  evaluate-frozen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install existing dependencies
+        run: python -m pip install -e '.[test]'
+      - name: Download ORIGINAL baseline artifacts by fixed run ID
+        uses: actions/download-artifact@v4
+        with:
+          name: SYNTHETIC-ONLY-NOT-HUMAN-GOLD-seed42
+          run-id: 42006977003
+          repository: Nnigarp/TRAVELER-INSIGHTS-2026
+          github-token: ${{ github.token }}
+          path: frozen-artifact
+      - name: Copy original inputs WITHOUT changing original files
+        shell: bash
+        run: |
+          mkdir -p data/processed/frozen-original
+          cp frozen-artifact/data/processed/synthetic-tourism-v1/synthetic_reviews.csv data/processed/frozen-original/
+          cp frozen-artifact/data/processed/synthetic-tourism-v1/synthetic_manifest.json data/processed/frozen-original/
+          cp frozen-artifact/artifacts/synthetic-tourism-v1/synthetic_experiment_report.json data/processed/frozen-original/
+          echo "315012f9d553c51906e49bac617ef7ed9107ee2fc3cfd4dfd5a1368c7a4be059  data/processed/frozen-original/synthetic_reviews.csv" | sha256sum --check
+      - name: Generate challenge once from independent inventory
+        run: python -m traveler_agent.out_of_generator_challenge --seed 913
+      - name: Evaluate FROZEN original setup on new synthetic challenge once
+        run: python -m traveler_agent.evaluate_out_of_generator
+      - name: Verify source and caveat without model selection
+        run: |
+          python -c "import json;from pathlib import Path;r=json.loads(Path('artifacts/out-of-generator-v1/challenge_report.json').read_text());assert r['not_real_tourism'] and r['not_human_gold'] and r['size']==1260;assert r['baseline_run']==42006977003;print('SEALED SYNTHETIC CHALLENGE, NO HUMAN GOLD')"
+      - name: Upload challenge and report (synthetic only)
+        uses: actions/upload-artifact@v4
+        with:
+          name: OUT-OF-GENERATOR-SYNTHETIC-ONLY-seed913
+          retention-days: 30
+          path: |
+            data/processed/out-of-generator-challenge-v1/challenge_synthetic.csv
+            data/processed/out-of-generator-challenge-v1/challenge_manifest.json
+            artifacts/out-of-generator-v1/challenge_report.json

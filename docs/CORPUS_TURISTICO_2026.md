@@ -92,3 +92,21 @@ El PR #6 de audio sigue separado: ya se demostró una transcripción local real 
 ### Límites científicos
 
 Las pruebas automatizadas usan reseñas sintéticas solamente para contratos de software. No se han recolectado ni evaluado reseñas auténticas en este incremento. No declarar ABSA entrenado, acuerdo entre anotadores, calidad de generalización, rendimiento turístico ni resultados del concurso.
+
+
+## Interfaz local de anotación y controles de calidad
+
+Se añadió corpus_annotation_app.py con Gradio local (127.0.0.1, share=False). No está integrada en la pestaña pública de análisis: se mantiene separada porque puede mostrar textos sensibles y requiere revisar fuentes antes de usarlos.
+
+~~~powershell
+.\.venv\Scripts\python.exe -m pip install -e ".[ui,test]"
+.\.venv\Scripts\python.exe corpus_annotation_app.py
+~~~
+
+Se selecciona un review_id del corpus privado; se ve el texto original, se introduce ID seudónimo de anotador, sentimiento global, aspectos JSON y evidencias JSON con offsets Unicode [start,end) exactos. El botón «Verificar evidencias» muestra los fragmentos literales y rechaza posiciones incorrectas. Guardar no sustituye anotaciones anteriores. Los spans anotados se conservan en evidence_spans.csv dentro de data/private/tourism-corpus-v1/; esa tabla es adicional y no modifica los CSV del contrato v1.
+
+Ejemplo ilustrativo para evidencias: un fragmento como «sucio» en una reseña real se selecciona por el valor exacto de start/end sobre el texto original; los ejemplos de documentación no son contribuciones reales.
+
+El botón de control de calidad calcula Cohen kappa por pares de anotadores sobre reseñas compartidas, incluyendo aspectos por presencia/ausencia y polaridad cuando fueron anotados. Si el acuerdo es indefinido, devuelve null. Los posibles casi duplicados se sugieren mediante similitud literal difflib (umbral por defecto 0.88, máximo 2000 reseñas por ejecución); se muestran solamente IDs y una puntuación orientativa, sin publicar texto ni eliminar registros. Estas herramientas no garantizan calidad ni consentimiento y no sustituyen adjudicación humana. El cálculo O(n²) es exploratorio; se necesitarán filtros por bloques y revisión antes de escalar a corpus grandes.
+
+No se ha implementado aún un editor de adjudicaciones dentro de Gradio; sigue disponible por CLI. No conectar esta UI privada a un dominio público ni deshabilitar share=False sin autenticación, consentimiento y revisión de seguridad.

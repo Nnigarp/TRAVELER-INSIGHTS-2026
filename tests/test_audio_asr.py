@@ -107,7 +107,7 @@ def test_asr_runtime_error_sanitized(wav):
     class FailingASR:
         def transcribe(self, *args, **kwargs):
             raise RuntimeError("private file path or audio content")
-    with pytest.raises(AudioInputError, match="Falló el reconocimiento") as err:
+    with pytest.raises(AudioInputError, match="inferencia ASR") as err:
         recognize_audio(wav, backend=FailingASR())
     assert "private file path" not in str(err.value)
 
@@ -156,3 +156,78 @@ def test_truncated_declared_wav_frames_rejected(tmp_path):
     wav.write_bytes(original[:-3000])
     with pytest.raises(AudioInputError, match="truncado"):
         validate_wav(wav)
+
+
+def test_safe_terminal_diagnostics_do_not_leak_audio_or_path(wav, capfd):
+    class FailingBackend:
+        def transcribe(self, *args, **kwargs):
+            raise RuntimeError("C:\\Users\\Private\\personal.wav confidential speech")
+    with pytest.raises(AudioInputError, match="inference"):
+        recognize_audio(wav, backend=FailingBackend())
+    report = capfd.readouterr().err
+    assert "ASR_STAGE=inference" in report
+    assert "ERROR_TYPE=RuntimeError" in report
+    assert "function=transcribe" in report
+    assert "confidential speech" not in report
+    assert "personal.wav" not in report
+    assert "Private" not in report
+
+
+def test_decode_stage_error_is_distinct_and_private(monkeypatch, wav, capfd):
+    import traveler_agent.audio_asr as audio
+    import sys
+    import types
+    package = types.ModuleType("faster_whisper")
+    decoder = types.ModuleType("faster_whisper.audio")
+    def fail_decode(*args, **kwargs):
+        raise RuntimeError("C:\\Users\\Private\\recording.wav secret")
+    decoder.decode_audio = fail_decode
+    monkeypatch.setitem(sys.modules, "faster_whisper", package)
+    monkeypatch.setitem(sys.modules, "faster_whisper.audio", decoder)
+    with pytest.raises(AudioInputError, match="decode"):
+        audio._decode_local_audio(wav)
+    report = capfd.readouterr().err
+    assert "ASR_STAGE=decode" in report
+    assert "secret" not in report
+    assert "Private" not in report
+
+
+def test_model_load_error_is_distinct_and_cannot_expose_paths(monkeypatch, capfd):
+    import traveler_agent.audio_asr as audio
+    import sys
+    import types
+    package = types.ModuleType("faster_whisper")
+    def broken_load(*args, **kwargs):
+        raise OSError("C:\\Users\\Private\\cache\\model.bin")
+    package.WhisperModel = broken_load
+    monkeypatch.setitem(sys.modules, "faster_whisper", package)
+    audio._load_local_backend.cache_clear()
+    with pytest.raises(AudioInputError, match="model_load"):
+        audio._load_local_backend("tiny", False)
+    report = capfd.readouterr().err
+    assert "ASR_STAGE=model_load" in report
+    assert "Private" not in report
+    audio._load_local_backend.cache_clear()
+
+
+def test_inference_generator_exception_is_classified(wav, capfd):
+    class Deferred:
+        def transcribe(self, path, **kwargs):
+            def generator():
+                raise RuntimeError("private voice transcript")
+                yield None
+            return generator(), SimpleNamespace(language="es")
+    with pytest.raises(AudioInputError, match="inference"):
+        recognize_audio(wav, backend=Deferred())
+    output = capfd.readouterr().err
+    assert "ASR_STAGE=inference" in output
+    assert "private voice transcript" not in output
+
+
+def test_local_dependency_report_metadata_is_non_sensitive():
+    from traveler_agent.audio_asr import dependency_versions
+    data = dependency_versions()
+    assert "faster-whisper" in data
+    assert "ctranslate2" in data
+    assert "av" in data
+    assert all(isinstance(v, str) for v in data.values())

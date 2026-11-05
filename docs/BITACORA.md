@@ -33,3 +33,14 @@ Fecha y commit | ID de experimento | SHA del dataset | tipo de partición | arqu
 - Pruebas nuevas del motor SVM, compatibilidad LR y smoke UI.
 - La rama `feat/model-selection-svm` deriva de `feat/batch-human-review`, no de `main`. El PR debe ser revisado contra la rama padre antes de integrarse.
 - Sin métricas científicas: DEMO solo prueba ejecución. Mantener `xfail` de negación; evaluar después con datos reales.
+
+
+## 2026-11-05 — Corpus académico propio (rama independiente en revisión)
+
+- Auditoría de main: dataset.py y scripts/audit_dataset.py no ofrecían procedencia/consentimiento ni anotación; experiments.py tenía holdout aleatorio sin separación por grupos. No se sobrescriben.
+- Creado corpus.py: fuentes con permiso revisado, reseñas seudónimas, anotaciones separadas por revisor, adjudicación justificada y auditoría con hashes.
+- Creado corpus_splits.py: componentes de grupos y duplicados normalizados, separación reproducible train/validation/test, manifiestos y rechazo de splits incompletos.
+- Creado corpus_cli.py: inicio de plantillas, contribución voluntaria con confirmación, anotación, adjudicación, validación y split local; todo en data/private o data/processed.
+- Tests con datos sintéticos cubren permisos, etiquetas, desacuerdos, fuga exacta y reproducción de split. Sin datos turísticos reales ni métricas.
+- Deuda: revisión PII y derechos es manual; casi duplicados, offsets humanos, doble anotación obligatoria, agreement y entrenamiento group-aware quedan pendientes.
+- PR #6 de ASR permanece separado y no se fusionará hasta cerrar prueba de archivos y aceptación.

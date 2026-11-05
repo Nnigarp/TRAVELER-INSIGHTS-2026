@@ -19,6 +19,7 @@ import joblib
 import numpy as np
 import sklearn
 from sklearn.dummy import DummyClassifier
+from sklearn.model_selection import StratifiedGroupKFold
 from sklearn.metrics import (
     accuracy_score, classification_report, confusion_matrix, f1_score,
     precision_recall_fscore_support
@@ -142,6 +143,48 @@ def verified_splits(corpus_dir: Path, split_dir: Path) -> tuple[dict, dict]:
     return splits, manifest
 
 
+
+def _training_calibration_folds(rows: list[dict], seed: int):
+    """Group-safe inner folds for SVM calibration, including exact duplicates."""
+    parent = list(range(len(rows)))
+
+    def root(i):
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+
+    def union(i, j):
+        a, b = root(i), root(j)
+        if a != b:
+            parent[max(a, b)] = min(a, b)
+
+    by_group, by_text = {}, {}
+    for i, row in enumerate(rows):
+        group, fingerprint = row["group_id"], text_sha(row["text"])
+        if group in by_group:
+            union(i, by_group[group])
+        if fingerprint in by_text:
+            union(i, by_text[fingerprint])
+        by_group[group] = i
+        by_text[fingerprint] = i
+
+    groups = [root(i) for i in range(len(rows))]
+    labels = [r["sentiment"] for r in rows]
+    if len(set(groups)) < 3:
+        raise CorpusError("SVM necesita al menos 3 grupos independientes en train.")
+    splitter = StratifiedGroupKFold(n_splits=3, shuffle=True, random_state=seed)
+    folds = list(splitter.split(np.zeros(len(rows)), labels, groups))
+    for fit_ids, cal_ids in folds:
+        if set(labels[i] for i in fit_ids) != set(LABELS):
+            raise CorpusError("No hay tres clases en cada fold de calibración.")
+        if set(labels[i] for i in cal_ids) != set(LABELS):
+            raise CorpusError("Un fold de calibración carece de una clase.")
+        if set(groups[i] for i in fit_ids) & set(groups[i] for i in cal_ids):
+            raise CorpusError("Fuga de grupos en calibración SVM.")
+    return folds
+
+
 def _new_estimator(kind: str, params: dict, seed: int):
     if kind == "dummy":
         return DummyClassifier(strategy="most_frequent")
@@ -202,11 +245,15 @@ def run_benchmark(corpus_dir: Path, split_dir: Path, output_dir: Path,
 
     comparison = {}
     selected = {}
+    # Group-aware CV keeps related reviews out of SVM calibration folds.
+    calibration_folds = _training_calibration_folds(train_rows, seed)
     # Selection sees train+validation ONLY. Test never enters fitting or tuning.
     for kind in MODEL_GRID:
         attempts = []
         for params in MODEL_GRID[kind]:
             clf = _new_estimator(kind, params, seed)
+            if kind == "svm":
+                clf.set_params(cv=calibration_folds)
             clf.fit([r["text"] for r in train_rows],
                     [r["sentiment"] for r in train_rows])
             validation = _score(clf, valid_rows)
@@ -258,7 +305,7 @@ def run_benchmark(corpus_dir: Path, split_dir: Path, output_dir: Path,
             "Test evaluated exactly once per chosen model; comparison across models is descriptive.",
             "Not a nested-CV or cross-source validation.",
             "Near-duplicate and PII checks still require manual audit.",
-            "SVM uses internal cross-validated calibration within TRAIN, not validation/test.",
+            "SVM uses stratified group-disjoint calibration within TRAIN, not validation/test.",
             "Machine learning models are serialized with joblib; only load files created locally.",
         ],
     }

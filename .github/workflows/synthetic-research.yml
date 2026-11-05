@@ -1,0 +1,39 @@
+name: Synthetic tourism research — internal only
+on:
+  push:
+    branches: ['feat/synthetic-tourism-research']
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/traveler_agent/synthetic_tourism.py'
+      - 'src/traveler_agent/synthetic_evaluation.py'
+      - 'tests/test_synthetic_tourism.py'
+      - '.github/workflows/synthetic-research.yml'
+permissions:
+  contents: read
+jobs:
+  synthetic-internal:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install existing scientific dependencies
+        run: python -m pip install -e '.[test]'
+      - name: Generate 336 invented reviews (56 scenario families)
+        run: python -m traveler_agent.synthetic_tourism --seed 42 --variants 2 --date 2026-11-05 --out data/processed/synthetic-tourism-v1
+      - name: Run first group-disjoint synthetic-only benchmark
+        run: python -m traveler_agent.synthetic_evaluation --seed 42 --input data/processed/synthetic-tourism-v1 --out artifacts/synthetic-tourism-v1
+      - name: Verify report states synthetic internal only
+        run: |
+          python -c "import json; from pathlib import Path; r=json.loads(Path('artifacts/synthetic-tourism-v1/synthetic_experiment_report.json').read_text()); assert r['report_type']=='SYNTHETIC_INTERNAL_EVALUATION_ONLY'; assert r['not_human_testimonials'] is True; assert r['research_claim']=='NONE_NO_REAL_TOURIST_GENERALIZATION'; print('EXPERIMENT TYPE:', r['report_type'])"
+      - name: Publish reproducibility artifacts (all examples fictional)
+        uses: actions/upload-artifact@v4
+        with:
+          name: SYNTHETIC-ONLY-NOT-HUMAN-GOLD-seed42
+          retention-days: 30
+          path: |
+            data/processed/synthetic-tourism-v1/synthetic_reviews.csv
+            data/processed/synthetic-tourism-v1/synthetic_manifest.json
+            artifacts/synthetic-tourism-v1/synthetic_experiment_report.json

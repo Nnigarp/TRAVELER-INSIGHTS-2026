@@ -248,3 +248,22 @@ def test_inference_engine_classification_without_loading_ctranslate2():
     assert _inference_failure_stage(CTranslateError("private")) == "ctranslate2"
     assert _inference_failure_stage(OnnxError("private")) == "vad_inference"
     assert _inference_failure_stage(RuntimeError("private")) == "inference"
+
+
+def test_asr_extra_pins_pyav_before_19_for_faster_whisper_121():
+    """Regression: faster-whisper 1.2.1 passes removed metadata_errors."""
+    import tomllib
+    from pathlib import Path
+    project = tomllib.loads((Path(__file__).resolve().parents[1] / "pyproject.toml").read_text(encoding="utf-8"))
+    deps = project["project"]["optional-dependencies"]["asr"]
+    assert any(dep.startswith("faster-whisper") for dep in deps)
+    assert any(dep.replace(" ", "").startswith("av>=") and "<19" in dep for dep in deps)
+
+
+def test_pyav19_removed_metadata_errors_kwarg_in_minimal_reproduction():
+    """Confirm the precise API incompatibility without installing PyAV 19."""
+    class PyAV19Open:
+        def __call__(self, file, mode="r"):
+            return None
+    with pytest.raises(TypeError, match="metadata_errors"):
+        PyAV19Open()("voice.wav", mode="r", metadata_errors="ignore")

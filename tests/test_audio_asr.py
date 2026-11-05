@@ -17,6 +17,14 @@ from traveler_agent.demo_data import DEMO
 from traveler_agent.model import train
 
 
+@pytest.fixture(autouse=True)
+def forward_safe_diagnostic_logs_to_pytest(monkeypatch):
+    import traveler_agent.audio_asr as audio
+    # Application uses its own stderr handler; only tests forward to caplog.
+    monkeypatch.setattr(audio._LOG, "propagate", True)
+
+
+
 def write_wav(path: Path, *, duration=.5, value=900, rate=16000, nchannels=1):
     n = int(rate * duration)
     samples = struct.pack("<h", value) * n * nchannels
@@ -158,13 +166,13 @@ def test_truncated_declared_wav_frames_rejected(tmp_path):
         validate_wav(wav)
 
 
-def test_safe_terminal_diagnostics_do_not_leak_audio_or_path(wav, capfd):
+def test_safe_terminal_diagnostics_do_not_leak_audio_or_path(wav, caplog):
     class FailingBackend:
         def transcribe(self, *args, **kwargs):
             raise RuntimeError("C:\\Users\\Private\\personal.wav confidential speech")
     with pytest.raises(AudioInputError, match="inference"):
         recognize_audio(wav, backend=FailingBackend())
-    report = capfd.readouterr().err
+    report = caplog.text
     assert "ASR_STAGE=inference" in report
     assert "ERROR_TYPE=RuntimeError" in report
     assert "function=transcribe" in report
@@ -173,7 +181,7 @@ def test_safe_terminal_diagnostics_do_not_leak_audio_or_path(wav, capfd):
     assert "Private" not in report
 
 
-def test_decode_stage_error_is_distinct_and_private(monkeypatch, wav, capfd):
+def test_decode_stage_error_is_distinct_and_private(monkeypatch, wav, caplog):
     import traveler_agent.audio_asr as audio
     import sys
     import types
@@ -186,13 +194,13 @@ def test_decode_stage_error_is_distinct_and_private(monkeypatch, wav, capfd):
     monkeypatch.setitem(sys.modules, "faster_whisper.audio", decoder)
     with pytest.raises(AudioInputError, match="decode"):
         audio._decode_local_audio(wav)
-    report = capfd.readouterr().err
+    report = caplog.text
     assert "ASR_STAGE=decode" in report
     assert "secret" not in report
     assert "Private" not in report
 
 
-def test_model_load_error_is_distinct_and_cannot_expose_paths(monkeypatch, capfd):
+def test_model_load_error_is_distinct_and_cannot_expose_paths(monkeypatch, caplog):
     import traveler_agent.audio_asr as audio
     import sys
     import types
@@ -204,13 +212,13 @@ def test_model_load_error_is_distinct_and_cannot_expose_paths(monkeypatch, capfd
     audio._load_local_backend.cache_clear()
     with pytest.raises(AudioInputError, match="model_load"):
         audio._load_local_backend("tiny", False)
-    report = capfd.readouterr().err
+    report = caplog.text
     assert "ASR_STAGE=model_load" in report
     assert "Private" not in report
     audio._load_local_backend.cache_clear()
 
 
-def test_inference_generator_exception_is_classified(wav, capfd):
+def test_inference_generator_exception_is_classified(wav, caplog):
     class Deferred:
         def transcribe(self, path, **kwargs):
             def generator():
@@ -219,7 +227,7 @@ def test_inference_generator_exception_is_classified(wav, capfd):
             return generator(), SimpleNamespace(language="es")
     with pytest.raises(AudioInputError, match="inference"):
         recognize_audio(wav, backend=Deferred())
-    output = capfd.readouterr().err
+    output = caplog.text
     assert "ASR_STAGE=inference" in output
     assert "private voice transcript" not in output
 

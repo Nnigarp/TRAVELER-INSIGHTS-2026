@@ -10,6 +10,7 @@ import tempfile
 from pathlib import Path
 import gradio as gr
 from traveler_agent.agent import inspect_review
+from traveler_agent.audio_asr import AudioInputError, recognize_audio, analyze_edited_transcript
 from traveler_agent.batch import (
     analyze_batch, apply_human_correction, demo_trends, export_csv,
     export_json, parse_review_csv, parse_review_lines,
@@ -94,6 +95,43 @@ def export_files(records: list[dict]):
     )
 
 
+
+
+def transcribe_audio_ui(filepath: str | None, language: str):
+    """Returns editable transcript, metadata state and human-readable status."""
+    try:
+        text, provenance = recognize_audio(filepath, language)
+        return text, provenance, (
+            f"Transcripción local terminada ({provenance['duracion_segundos']} s; "
+            f"idioma ASR: {provenance['idioma_detectado_asr']}). "
+            "Revisa especialmente negaciones, nombres y ruido antes de analizar."
+        )
+    except AudioInputError as exc:
+        return "", {}, f"Error de audio: {exc}"
+
+
+def analyze_audio_ui(edited_text: str, provenance: dict, model_kind: str):
+    try:
+        result = analyze_edited_transcript(
+            edited_text, provenance, get_demo_model(model_kind),
+            model_kind=model_kind,
+        )
+        summary = (
+            f"**Sentimiento DEMO:** {result['sentimiento']} | "
+            f"**Modelo:** {model_kind} | "
+            f"**Transcripción corregida:** "
+            f"{'Sí' if result['procedencia_entrada']['fue_corregida'] else 'No'}"
+            f"\n\n**Recomendación exploratoria:** {result['recomendacion']}"
+        )
+        return summary, json.dumps(result, ensure_ascii=False, indent=2)
+    except (AudioInputError, ValueError, TypeError) as exc:
+        return f"Error: {exc}", "{}"
+
+
+def reset_audio_trace():
+    """Do not analyze stale transcripts after replacing a recording."""
+    return "", {}, "", "", "{}"
+
 with gr.Blocks(title="Traveler Insights 2026 | Demo académico") as app:
     gr.Markdown(
         "# Traveler Insights 2026 · Prototipo académico\n"
@@ -109,6 +147,53 @@ with gr.Blocks(title="Traveler Insights 2026 | Demo académico") as app:
         result = gr.Markdown(label="Resultado")
         detail = gr.Code(label="Trazabilidad JSON", language="json")
         run.click(analyze, inputs=[inp, model_choice], outputs=[result, detail])
+
+
+    with gr.Tab("Audio y transcripción local"):
+        gr.Markdown(
+            "**Solo reconocimiento de voz:** no detecta emociones por la voz. "
+            "Micrófono o archivo convertido por Gradio a WAV PCM; máximo 120 s y 12 MiB "
+            "después de la conversión. La primera descarga de pesos requiere autorización "
+            "explícita y el complemento ASR opcional. El texto se puede corregir antes "
+            "de usar el mismo modelo LR/SVM seleccionado arriba."
+        )
+        audio_input = gr.Audio(
+            label="Grabar voz o cargar archivo de audio",
+            sources=["microphone", "upload"], type="filepath", format="wav",
+        )
+        audio_language = gr.Dropdown(
+            label="Idioma de la voz", choices=[("Español", "es"), ("English", "en"),
+                                              ("Italiano", "it"), ("Detectar", "auto")],
+            value="es",
+        )
+        audio_transcribe_btn = gr.Button("Transcribir localmente")
+        audio_status = gr.Markdown()
+        audio_transcript = gr.Textbox(
+            label="Transcripción editable — revisa negaciones y palabras mal reconocidas",
+            lines=5, interactive=True,
+        )
+        audio_metadata = gr.State({})
+        audio_analyze_btn = gr.Button("Analizar transcripción corregida", variant="primary")
+        audio_summary = gr.Markdown()
+        audio_trace = gr.Code(label="Trazabilidad: ASR original + corrección + análisis", language="json")
+        audio_transcribe_btn.click(
+            transcribe_audio_ui, inputs=[audio_input, audio_language],
+            outputs=[audio_transcript, audio_metadata, audio_status],
+        )
+        audio_analyze_btn.click(
+            analyze_audio_ui, inputs=[audio_transcript, audio_metadata, model_choice],
+            outputs=[audio_summary, audio_trace],
+        )
+        audio_input.change(
+            reset_audio_trace, outputs=[
+                audio_transcript, audio_metadata, audio_status, audio_summary, audio_trace
+            ]
+        )
+        audio_language.change(
+            reset_audio_trace, outputs=[
+                audio_transcript, audio_metadata, audio_status, audio_summary, audio_trace
+            ]
+        )
 
     with gr.Tab("Lotes y revisión humana"):
         gr.Markdown("Una reseña por línea (máximo 200) **o** CSV UTF-8 con columna `reseña` (máximo 1 MiB). "

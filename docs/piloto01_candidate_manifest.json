@@ -1,0 +1,124 @@
+{
+  "schema_version": "piloto01_candidate_audit_v1",
+  "created_on": "2026-11-06",
+  "status": "NO_CORPUS_ADMITTED",
+  "selected_training_corpus": null,
+  "selected_gold_test_corpus": null,
+  "constraints": {
+    "no_downloaded_restricted_files": true,
+    "no_model_training": true,
+    "no_hidden_test_labeling": true,
+    "no_numeric_mapping_guessed": true,
+    "no_personal_text_published": true,
+    "scientific_reports_frozen": true,
+    "first_training_gate": "Explicit verified reuse basis, known origin/labels and audited local files."
+  },
+  "candidates": [
+    {
+      "id": "kaggle_travelerinsights2026",
+      "priority": 1,
+      "status": "BLOCKED_PENDING_ACCESS_RULES_AND_CSV",
+      "url": "https://www.kaggle.com/competitions/travelerinsights2026/data",
+      "rules_url": "https://www.kaggle.com/competitions/travelerinsights2026/rules",
+      "claimed_license": "CC BY-SA 4.0 (page metadata only; competition-specific rules unreadable)",
+      "claimed_source": "Tourist reviews from platforms like Foursquare per overview; sampling and annotation not verified",
+      "verified_public_facts": [
+        "Competition is exact slug travelerinsights2026",
+        "Overview says May 19 to May 31 2026",
+        "Page data metadata CC BY-SA 4.0",
+        "Public leaderboard notes private segment ~50% of test",
+        "Overview says positive=2, neutral=1 and also negative=1; sample submission uses 0 for third class"
+      ],
+      "unverified": [
+        "rules full text and permission scope",
+        "real CSV file names and headers",
+        "row counts",
+        "class distribution",
+        "language distribution",
+        "human or weak/synthetic label origin",
+        "rights to redistribute original review text",
+        "duplicates and group leakage",
+        "whether hidden test labels downloadable"
+      ],
+      "csv_file_sha256": null,
+      "raw_numeric_to_text_mapping": null,
+      "raw_counts": null
+    },
+    {
+      "id": "uned_hotelreview",
+      "priority": 2,
+      "status": "CONDITIONAL_RESEARCH_USE_NO_FILE_INSPECTION",
+      "url": "https://nlp.uned.es/~lplaza/resources/hotel-review-corpus/",
+      "claimed_license": "Website states available for research purposes in XML; no explicit redistribution grant identified",
+      "claimed_source": "1000 booking.com hotel reviews, manual 5-class and 3-class category, rating computed by platform",
+      "verified_public_facts": [
+        "1000 reviews stated in official page",
+        "3 classes Good/Fair/Poor manually tagged; 5 classes Excellent/Good/Fair/Poor/Very poor",
+        "XML ZIP official download link; download not completed here"
+      ],
+      "unverified": [
+        "language distribution",
+        "XML schema and row counts locally",
+        "source privacy/usage terms including text redistribution",
+        "group IDs and exact duplicates"
+      ],
+      "file_sha256": null
+    },
+    {
+      "id": "sinai_coar",
+      "priority": 3,
+      "status": "GATED_NOT_ACCESSED",
+      "url": "https://huggingface.co/datasets/SINAI/COAR",
+      "claimed_license": "cc-by-nc-sa-4.0 on dataset card; gated license acceptance required",
+      "claimed_source": "2202 TripAdvisor restaurant opinions in Spanish; 1-5 polarity category (annotation process not verified)",
+      "verified_public_facts": [
+        "1:565",
+        "2:246",
+        "3:188",
+        "4:333",
+        "5:870",
+        "sum=2202",
+        "requires user to agree to share Hugging Face information before file access"
+      ],
+      "unverified": [
+        "whether labels are human or star-derived",
+        "raw schema",
+        "republication rights",
+        "privacy and group fields"
+      ],
+      "file_sha256": null
+    },
+    {
+      "id": "ub_hopinion",
+      "priority": 4,
+      "status": "PUBLIC_DESCRIPTION_ONLY_TERMS_UNVERIFIED",
+      "url": "https://clic.ub.edu/corpus/es/hopinion",
+      "claimed_license": "Not verified",
+      "claimed_source": "17,934 Spanish opinions mainly hotels from TripAdvisor; author/item metadata; 4,740 with morphological annotation, scores in item metadata",
+      "verified_public_facts": [
+        "17,934 opinions and 2,388,848 words claimed by project",
+        "4,740 morphological texts",
+        "metadata includes pseudonyms and demographics; privacy risk",
+        "download described as CSV/database"
+      ],
+      "unverified": [
+        "download usage/redistribution license",
+        "whether sentiment labels exist independently of star ratings",
+        "exact file schema/distribution",
+        "group leakage, duplicates and PII"
+      ],
+      "file_sha256": null
+    }
+  ],
+  "sampling_proposal": {
+    "status": "NOT_EXECUTED",
+    "scope": "Only a corpus admitted after source/legal/privacy + human-label audit",
+    "unit": "Connected components sharing review entity/group source or normalized-text duplicate; keep each component within a single fold.",
+    "split": "Provisional 60% train / 20% validation / 20% independent test by group; adjust based on group sizes and per-class feasibility before opening test.",
+    "calibration": "Within training only, group-disjoint inner folds",
+    "labeling": "Written, pre-registered mapping; label adjudication or clear weak-rating provenance; ambiguous labels excluded from gold or independently adjudicated",
+    "hidden_competition_test": "Excluded from model selection/training and all custom gold evaluations",
+    "near_duplicates": "Exact normalized-text check automated locally; semantic near-duplicate review still manual pending",
+    "release_policy": "Only aggregate metrics/metadata and permitted models; no restricted texts or identifiers"
+  }
+}

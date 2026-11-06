@@ -185,10 +185,13 @@ class TravelerOrchestrator:
         }
         if set(self.agents) != set(STEPS):
             raise AgentFailure("El orquestador requiere cuatro especialistas.")
+        # Per-instance, ephemeral observation for debugging failed handoffs.
+        self.last_execution: Execution | None = None
 
     def run(self, text: str, *, review_id: str = "", modality: str = "texto",
             edited_by_human: bool = False) -> dict:
         execution = Execution()
+        self.last_execution = execution
         _trace(execution, agent="orquestador", step="plan", status="PLANNED",
                output_fields=STEPS, note="PLAN_FIJO_CON_GATES")
         payload: dict[str, Any] = {

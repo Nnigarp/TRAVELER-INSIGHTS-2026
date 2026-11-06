@@ -272,7 +272,10 @@ def analyze_edited_transcript(
     if not isinstance(original, str) or not original.strip():
         raise AudioInputError("No existe transcripción ASR original verificable.")
     from .agent import inspect_review
-    record = inspect_review(edited_text, classifier)
+    record = inspect_review(
+        edited_text, classifier, modality="audio_transcrito",
+        edited_by_human=(edited_text != original),
+    )
     record["modelo_utilizado"] = model_kind
     record["procedencia_entrada"] = {
         **provenance,

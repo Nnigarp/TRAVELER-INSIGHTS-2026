@@ -147,9 +147,6 @@ class ControlAgent:
             reasons.append("SCORE_DEMO_BAJO")
         if semantic["contrast"] and value < .80:
             reasons.append("CONTRASTE_CON_SCORE_LIMITADO")
-        if not semantic["evidence"] and semantic["aspects"]:
-            review = True
-            reasons.append("ASPECTO_SIN_EVIDENCIA_LITERAL")
         return {
             "needs_human": review,
             "decision": "SOLICITAR_REVISION" if review else "CONTINUAR",

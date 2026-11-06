@@ -138,8 +138,13 @@ def test_partial_failure_prevents_later_agents(model):
         def handle(self, message):
             raise RuntimeError("do not leak private text")
     spies["control"] = Fails()
+    coordinator = TravelerOrchestrator(model, agents=spies)
     with pytest.raises(AgentFailure, match="control") as exc:
-        TravelerOrchestrator(model, agents=spies).run("Una reseña")
+        coordinator.run("Una reseña")
+    assert coordinator.last_execution.state == "DETENIDO_SEGURO"
+    assert coordinator.last_execution.trace[-1]["status"] == "FAILED"
+    assert coordinator.last_execution.trace[-1]["agent"] == "control"
+    assert "Una reseña" not in json.dumps(coordinator.last_execution.trace)
     assert not spies["accion"].messages
     assert "private" not in str(exc.value)
 

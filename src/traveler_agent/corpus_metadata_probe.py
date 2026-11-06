@@ -36,6 +36,19 @@ def _approved_counts(counts: Counter, allowed: tuple[str, ...]) -> dict:
     return {value: counts[value] for value in sorted(set(allowed)) if value in counts}
 
 
+def _write_private_report(result: dict, destination: Path) -> None:
+    """Write UTF-8 without shell redirection or overwriting an earlier audit."""
+    root = Path.cwd().resolve()
+    target = destination.resolve()
+    allowed = (root / "data" / "private", root / "reports")
+    if (target.suffix.lower() != ".json"
+            or not any(target.is_relative_to(folder) for folder in allowed)):
+        raise ProbeError("El informe JSON requiere data/private o reports desde la raíz del proyecto.")
+    target.parent.mkdir(parents=True, exist_ok=True)
+    with target.open("x", encoding="utf-8", newline="\n") as handle:
+        handle.write(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True) + "\n")
+
+
 def inspect_csv(path: Path, *, text_column: str, label_column: str | None = None,
                 id_column: str | None = None, language_column: str | None = None,
                 group_columns: tuple[str, ...] = (),
@@ -223,6 +236,8 @@ def main(argv=None):
                         help="Código original revisado que puede mostrarse; no define su significado.")
     parser.add_argument("--allow-language-value", action="append", default=[],
                         help="Código de idioma revisado que puede mostrarse; no certifica el idioma.")
+    parser.add_argument("--output", type=Path,
+                        help="JSON UTF-8 nuevo bajo data/private o reports; no sobrescribe archivos.")
     args = parser.parse_args(argv)
     try:
         result = probe(
@@ -233,10 +248,15 @@ def main(argv=None):
             allowed_label_values=tuple(args.allow_label_value),
             allowed_language_values=tuple(args.allow_language_value),
         )
+        if args.output:
+            _write_private_report(result, args.output)
     except (ProbeError, OSError) as exc:
         # OSError may contain a private full path, account name or mount name.
         parser.exit(2, f"Auditoría detenida: {type(exc).__name__}; revise archivo y opciones localmente.\n")
-    print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+    if args.output:
+        print(json.dumps({"status": "PRIVATE_REPORT_WRITTEN", "admission": result["admission"]}))
+    else:
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
 
 
 if __name__ == "__main__":

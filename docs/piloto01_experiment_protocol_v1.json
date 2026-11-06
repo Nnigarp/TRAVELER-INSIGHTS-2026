@@ -1,0 +1,233 @@
+{
+  "protocol_id": "PILOTO01-HUMAN-v1",
+  "status": "PROPOSED_NO_CORPUS_ADMITTED_NO_SCIENTIFIC_RUN",
+  "created_on": "2026-11-06",
+  "seed": 42,
+  "source_order": [
+    "authorized_kaggle_training_file",
+    "original_consented_spanish_human_reviews"
+  ],
+  "not_admitted": [
+    "kaggle_travelerinsights2026",
+    "uned_hotelreview",
+    "trip_maml",
+    "opener_es",
+    "restmex"
+  ],
+  "primary_text_feature": "review_text_only_NO_RATING_ID_OR_LABEL_FEATURES",
+  "label_order": [
+    "negativo",
+    "neutral",
+    "positivo"
+  ],
+  "unknown_label": "desconocido_excluded_before_split_with_exclusion_counts_reported",
+  "numeric_mapping": "NONE_UNTIL_AUTHORITATIVE_DICTIONARY_NO_OPTIMIZATION_FOR_MAPPING",
+  "human_gold": {
+    "independent_annotators_per_review": 2,
+    "adjudication": "human_with_rationale",
+    "annotators_blind_to": [
+      "other_annotator_labels",
+      "model_predictions",
+      "star_ratings"
+    ],
+    "neutral": "no clear positive or negative evaluation; factual experience can qualify",
+    "mixed": "not automatically neutral; dominant global assessment if justified, otherwise unknown",
+    "agreement": "pairwise_Cohen_kappa_with_null_when_undefined_and_raw_agreement",
+    "phenomena_fields": [
+      "negation_semantic",
+      "contrast_semantic",
+      "mixed_opinion"
+    ],
+    "phenomena_values": [
+      "present",
+      "absent",
+      "uncertain"
+    ],
+    "phenomena_origin": "manual_annotation_not_regex_ground_truth",
+    "ambiguous_mixed_cohort": "separate_review_referral_cohort_without_forced_three_class_labels_or_classification_accuracy_claims"
+  },
+  "voluntary_fallback": {
+    "origin": "original_spanish_text_about_a_real_tourism_experience_not_copied_from_platforms",
+    "authorization": "documented_author_permission_for_academic_training_evaluation_and_human_review",
+    "initial_planning_target_reviews": 150,
+    "initial_planning_target_place_components": 30,
+    "target_is_not_observed_sample_size": true,
+    "one_contribution_per_author": true,
+    "source_id_scope": "one_pseudonymous_author_per_source_row_and_private_consent_reference",
+    "group_id_scope": "stable_place_code_when_one_contribution_per_author; otherwise union_author_place_and_duplicates",
+    "do_not_prompt_target_class": true,
+    "known_sampling_limit": "elicited_voluntary_reviews_not_a_representative_platform_or_Cartagena_sample"
+  },
+  "split": {
+    "strategy": "existing_union_group_and_exact_duplicate_then_hash_split",
+    "target_component_fractions": {
+      "train": 0.6,
+      "validation": 0.2,
+      "test": 0.2
+    },
+    "fractions_are_not_exact_row_percentages": true,
+    "minimum_software_components": 9,
+    "all_three_classes_required_in_each_split": true,
+    "planning_target_minimum_reviews_per_class_in_validation_and_test": 10,
+    "planning_target_is_not_a_power_calculation": true,
+    "no_seed_search_using_test_performance": true,
+    "author_place_and_near_duplicates_reviewed_before_freeze": true,
+    "kaggle_official_test": "NEVER_USED",
+    "own_gold_test": "derived_from_admitted_training_or_voluntary_corpus_only"
+  },
+  "baseline_candidates": {
+    "dummy": [
+      {}
+    ],
+    "lr": [
+      {
+        "C": 0.5
+      },
+      {
+        "C": 2.0
+      }
+    ],
+    "svm": [
+      {
+        "C": 0.5
+      },
+      {
+        "C": 2.0
+      }
+    ]
+  },
+  "features": "existing_word_1_2_and_char_wb_3_5_TFIDF; no negation stopword removal",
+  "selection": "highest_validation_macro_F1_per_model; first_grid_candidate_breaks_ties",
+  "calibration": "existing_SVM_3_group_disjoint_folds_with_TFIDF_inside_folds_TRAIN_ONLY",
+  "beto": {
+    "status": "NOT_IMPLEMENTED_NOT_DOWNLOADED",
+    "order": "after_admitted_data_and_Dummy_LR_SVM_development",
+    "checkpoint_revision": null,
+    "hyperparameter_budget": null,
+    "freeze_checkpoint_tokenizer_preprocessing_budget_before_final_test_comparison": true,
+    "no_claim_of_improvement": true
+  },
+  "metrics": {
+    "primary": "macro_F1_fixed_three_class_order",
+    "secondary": [
+      "accuracy",
+      "precision_recall_F1_support_per_class",
+      "confusion_matrix"
+    ],
+    "negative_recall": "TP_negative / n_true_negative",
+    "negative_to_positive_rate": "n_true_negative_pred_positive / n_true_negative",
+    "negative_to_neutral_rate": "n_true_negative_pred_neutral / n_true_negative",
+    "robustness": "same_metrics_by_human_negation_contrast_mixed_slices_with_n_and_class_support",
+    "slice_missing_a_class": "do_not_interpret_3_class_macro_F1_as_comparable; report_supported_class_metrics",
+    "uncertainty": "paired_cluster_bootstrap_of_saved_predictions_by_independent_component; insufficient_groups_flag",
+    "zero_denominator": "null_not_zero"
+  },
+  "abstention": {
+    "coverage": "n_accepted / n_all",
+    "risk": "n_incorrect_accepted / n_accepted",
+    "review_rate": "1 - coverage",
+    "dangerous_negative_rate": "n_true_negative_pred_positive_accepted / n_true_negative",
+    "zero_accepted": "risk_null; coverage_zero",
+    "current_policy_control": {
+      "low_score_threshold": 0.56,
+      "contrast_score_threshold": 0.8,
+      "contrast_regex_words": [
+        "pero",
+        "aunque",
+        "sin embargo"
+      ]
+    },
+    "offline_score_only_curve_thresholds": [
+      0.0,
+      0.4,
+      0.5,
+      0.56,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      0.95,
+      1.01
+    ],
+    "threshold_selection_or_operating_point": "validation_only; freeze_before_test; no_production_policy_update",
+    "reported_scores": "not_assumed_reliable_probabilities",
+    "optional_probability_metrics": "10_fixed_confidence_bins_ECE_and_multiclass_mean_sum_squared_probability_error"
+  },
+  "latency": {
+    "cohort": "fixed_validation_sample_up_to_100_reviews_chosen_by_stable_ID_order",
+    "unit": "single_review_batch_size_1_model_loaded",
+    "warmup_passes": 5,
+    "measured_passes": 20,
+    "includes": [
+      "text_preprocessing",
+      "vectorization_or_tokenization",
+      "classifier_predict_proba"
+    ],
+    "separate_measurements": [
+      "model_load_time",
+      "training_fit_time_per_candidate",
+      "agent_end_to_end_optional"
+    ],
+    "excludes": [
+      "ASR",
+      "Gradio_UI",
+      "network_download"
+    ],
+    "report": [
+      "p50_ms",
+      "p95_ms",
+      "reviews_per_second",
+      "hardware",
+      "package_versions",
+      "text_lengths",
+      "model_bytes",
+      "RSS_measurement_method"
+    ],
+    "clock": "time.perf_counter_ns",
+    "artificial_delays": false
+  },
+  "test_policy": {
+    "freeze_before_test": [
+      "source_admission",
+      "annotation_version",
+      "component_membership",
+      "candidate_families",
+      "metrics",
+      "chosen_model_configs",
+      "selected_abstention_operating_points"
+    ],
+    "baseline_development_before_BETO": "train_and_validation_only",
+    "final_comparison": "one_frozen_report_on_own_gold_test; saved_predictions_support_metrics_without_refitting",
+    "if_baseline_test_is_opened_before_contextual_protocol_freeze": "later_BETO_test_comparison_descriptive_or_collect_new_independent_test",
+    "historical_synthetic_tests": "unchanged_not_used_to_tune"
+  },
+  "reproduction": [
+    "input_SHA256",
+    "consent_or_rights_evidence_reference_and_hash",
+    "annotation_SHA256",
+    "split_manifest_SHA256",
+    "commit_SHA",
+    "exact_software_versions",
+    "hardware",
+    "seeds",
+    "hyperparameters",
+    "checkpoint_revision_when_used"
+  ],
+  "production_changes": false,
+  "implementation_state": {
+    "available_now": [
+      "private_corpus_schema",
+      "human_annotation_and_adjudication_CLI",
+      "group_and_duplicate_splitter",
+      "Dummy_LR_SVM_benchmark",
+      "basic_macro_F1_per_class_and_confusion_matrix"
+    ],
+    "planned_before_final_report": [
+      "per_review_saved_prediction_analysis",
+      "human_phenomena_slice_analysis",
+      "latency_measurements",
+      "abstention_curves"
+    ],
+    "beto": "not_implemented"
+  }
+}

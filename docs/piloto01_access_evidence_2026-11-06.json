@@ -1,0 +1,100 @@
+{
+  "schema_version": "piloto01_operational_access_v1",
+  "observed_on": "2026-11-06",
+  "status": "NO_CORPUS_ADMITTED",
+  "main_at_start": "291f6a78e67aba22b9fa44b2c0851214f576617d",
+  "pr19_already_merged": true,
+  "kaggle": {
+    "exact_slug": "travelerinsights2026",
+    "rules_url": "https://www.kaggle.com/competitions/travelerinsights2026/rules",
+    "data_url": "https://www.kaggle.com/competitions/travelerinsights2026/data",
+    "rendered_rules_observation": "read during preceding intervention on same date; this turn's search reader had no readable lines",
+    "unauthenticated_file_listing": {
+      "http_status": 401,
+      "method": "GET",
+      "records_requested": false
+    },
+    "unauthenticated_train_head": {
+      "http_status": 404,
+      "method": "HEAD",
+      "body_read": false,
+      "interpretation": "inconclusive; not evidence that train.csv is absent"
+    },
+    "user_actions_required": [
+      "sign in in own account",
+      "review and personally accept applicable competition rules if agreeing",
+      "download train.csv alone if account is authorized"
+    ],
+    "no_credentials_requested": true,
+    "cli_official_docs": {
+      "authentication": "https://github.com/Kaggle/kaggle-cli/blob/main/docs/README.md",
+      "single_file_download": "https://github.com/Kaggle/kaggle-cli/blob/main/docs/competitions.md",
+      "download_doc_blob_sha": "b311d82fd80ae40eb688e397fa789007a7d3c8c9",
+      "command": "kaggle competitions download travelerinsights2026 -f train.csv -p data/private/piloto01-kaggle",
+      "download_command_not_executed_without_user_authorized_session": true
+    },
+    "train_file_read": false,
+    "class_mapping": "UNRESOLVED",
+    "annotation_origin": "UNVERIFIED",
+    "original_review_rights": "UNVERIFIED",
+    "kaggle_test_accessed": false
+  },
+  "alternatives": [
+    {
+      "id": "trip_maml_es",
+      "source": "https://github.com/diegma/trip-maml",
+      "tree_sha": "a9f47df668d3e2ec37bb13e04d1005fb1623d91d",
+      "annotation_readme": "https://github.com/diegma/trip-maml/blob/main/EN/README.md",
+      "annotation_readme_blob_sha": "666e78bb43347b9745b267cacc4151686ca96602",
+      "declared_spanish_reviews": 500,
+      "declared_is_not_local_count": true,
+      "task": "sentence_aspect_sentiment_including_neutral_mixed",
+      "license": "precise_dataset_reuse_authorization_not_located_in_reviewed_tree_and_READMEs",
+      "training_test_json_downloaded": false,
+      "status": "CONDITIONAL_NOT_ADMITTED"
+    },
+    {
+      "id": "opener_es",
+      "source": "https://github.com/jerbarnes/semeval22_structured_sentiment",
+      "original_source": "https://github.com/cltl/OpeNER_corpus",
+      "original_tree_sha": "abe5e1b99ad6fb65ea8a4e50ea45be7b0f149ea3",
+      "task": "structured_expression_target_holder_polarity_not_global_three_class_review_gold",
+      "license": "precise_text_corpus_license_not_located_in_reviewed_trees_and_documentation",
+      "corpus_train_dev_test_downloaded": false,
+      "status": "CONDITIONAL_NOT_ADMITTED"
+    },
+    {
+      "id": "restmex",
+      "source": "https://sites.google.com/cimat.mx/rest-mex2023/data-and-evaluation",
+      "access": "official_page_requires_registration_to_receive_link",
+      "task": "ordinal_five_level_polarity",
+      "license": "article_CC_notice_not_dataset_permission",
+      "status": "REGISTRATION_AND_RIGHTS_PENDING"
+    },
+    {
+      "id": "voluntary_original_es",
+      "source": "new_original_author_contributions_not_platform_texts",
+      "status": "SELECTED_FALLBACK_COLLECTION_NOT_STARTED",
+      "permission": "requires_real_documented_author_consent",
+      "gold": "requires_two_independent_human_annotations_and_adjudication",
+      "templates_created_empty": true,
+      "actual_human_reviews": 0,
+      "planned_sample_size_is_not_data": true
+    }
+  ],
+  "uned": "retain_previous_private_archive_audit; not_admitted_for_automatic_Spanish_BETO_training",
+  "verification": {
+    "command_fixture": "synthetic_only_data/private/piloto01-command-check/train.csv",
+    "command_result": "PRIVATE_REPORT_WRITTEN_and_admission_BLOCKED",
+    "directed_tests_passed": 22,
+    "full_suite_local": {
+      "passed": 202,
+      "xfailed": 1,
+      "python": "3.12.14"
+    },
+    "new_scientific_training_runs": 0,
+    "real_human_reviews_read_this_turn": 0,
+    "demo_or_agents_modified": false
+  },
+  "protocol_file": "docs/piloto01_experiment_protocol_v1.json"
+}

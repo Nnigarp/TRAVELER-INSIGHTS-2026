@@ -10,6 +10,7 @@ import tempfile
 from pathlib import Path
 import gradio as gr
 from traveler_agent.agent import inspect_review
+from traveler_agent.multiagent_view import render_multiagent_view
 from traveler_agent.audio_asr import AudioInputError, recognize_audio, analyze_edited_transcript
 from traveler_agent.batch import (
     analyze_batch, apply_human_correction, demo_trends, export_csv,
@@ -61,6 +62,33 @@ THEME = gr.themes.Soft(primary_hue=_PRIMARY, secondary_hue=_PRIMARY,
 UI_CSS = """
 .ti-hero {padding:1.25rem; border:1px solid var(--border-color-primary);
           border-radius:1rem; background:var(--background-fill-secondary);}
+.ti-flow { color:var(--body-text-color); display:grid; gap:1rem; margin:.5rem 0 1rem; }
+.ti-flow-lead,.ti-flow-agent,.ti-flow-outcome,.ti-flow-empty {
+ border:1px solid var(--border-color-primary); border-radius:12px;
+ background:var(--block-background-fill); padding:1rem; }
+.ti-flow-lead {background:var(--background-fill-secondary);}
+.ti-flow-lead h3 {margin:.25rem 0;}
+.ti-flow-eyebrow {font-size:.75rem;letter-spacing:.075em;font-weight:650;}
+.ti-flow-status {border:1px solid var(--border-color-primary);
+ border-radius:999px;padding:.15rem .55rem;font-size:.78rem;
+ background:var(--background-fill-secondary);font-weight:600;
+ display:inline-block;white-space:normal;}
+.ti-flow-agents {display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:.7rem;}
+.ti-flow-agent p {margin:.4rem 0;color:var(--body-text-color-subdued);
+ font-size:.875rem;}
+.ti-flow-events {list-style:none;padding:0;margin:0;display:grid;gap:.45rem;}
+.ti-flow-event {display:flex;align-items:center;gap:.7rem;padding:.65rem .8rem;
+ border:1px solid var(--border-color-primary);border-radius:10px;
+ background:var(--block-background-fill);flex-wrap:wrap;}
+.ti-flow-event>div {flex:1;min-width:165px;}
+.ti-flow-event-note,.ti-flow-event-task {font-size:.82rem;opacity:.85;}
+.ti-flow-sequence {display:inline-grid;place-items:center;min-width:2rem;
+ min-height:2rem;border-radius:9px;background:var(--background-fill-secondary);
+ font-variant-numeric:tabular-nums;font-weight:600;}
+.ti-flow-caveat {font-size:.83rem;opacity:.85;}
+@media (max-width:600px) {.ti-flow-agents {grid-template-columns:1fr 1fr;}
+ .ti-flow-event {align-items:flex-start;}}
+@media (max-width:380px) {.ti-flow-agents {grid-template-columns:1fr;}}
 """
 
 def _analysis_card(record: dict, *, model_kind: str, audio: bool = False) -> str:
@@ -95,6 +123,20 @@ def analyze(review: str, model_kind: str = "lr"):
         return summary, json.dumps(record, ensure_ascii=False, indent=2)
     except (ValueError, TypeError) as exc:
         return f"Error de validación: {exc}", "{}"
+
+
+def analyze_with_agents(review: str, model_kind: str = "lr"):
+    """UI-only adapter: exactly one inference, unchanged legacy JSON outputs.
+
+    A safe failure currently has no returned execution trace. Do not fabricate
+    specialist status or a completed run when the underlying agent raised.
+    """
+    summary, json_text = analyze(review, model_kind)
+    try:
+        record = json.loads(json_text)
+    except (TypeError, json.JSONDecodeError):
+        record = {}
+    return summary, json_text, render_multiagent_view(record)
 
 
 def _render_batch(records: list[dict]):
@@ -198,9 +240,14 @@ with gr.Blocks(title="Traveler Insights 2026 | Demo académico", **_BLOCKS_THEME
                          value="El guía fue amable, pero esperamos demasiado para entrar.")
         run = gr.Button("Analizar reseña", variant="primary")
         result = gr.Markdown(label="Resumen visual del análisis")
+        gr.Markdown("### Coordinación de los cinco agentes")
+        agent_view = gr.HTML(label="Orquestador y delegaciones verificadas")
         with gr.Accordion("Trazabilidad completa · JSON", open=False):
             detail = gr.Code(label="JSON sin modificaciones", language="json")
-        run.click(analyze, inputs=[inp, model_choice], outputs=[result, detail])
+        run.click(
+            analyze_with_agents, inputs=[inp, model_choice],
+            outputs=[result, detail, agent_view],
+        )
 
 
     with gr.Tab("Audio y transcripción local"):

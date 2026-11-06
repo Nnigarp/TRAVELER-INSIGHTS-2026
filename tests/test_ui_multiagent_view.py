@@ -128,7 +128,9 @@ def test_html_escaping_and_strict_allowlist_for_trace():
     assert html.escape(payload, quote=True) in markup  # only in permitted recommendation
     assert markup.count(payload) == 0
     assert "Agente no identificado" in markup
-    assert "Sin ejecutar" in markup
+    # The coordinator delegated perception before its response was modified:
+    # a recorded handoff is DELEGATED, never silently marked OK or not started.
+    assert "Delegado" in markup
 
 
 def test_three_tabs_and_all_original_batch_audio_callbacks_remain():

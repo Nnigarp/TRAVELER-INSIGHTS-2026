@@ -224,3 +224,57 @@ def test_cli_allowlists_and_valid_multiline_utf8_bom(tmp_path, capsys):
     assert "Una visita" not in output
     metadata_probe.main(args)
     assert capsys.readouterr().out == output
+
+
+def test_cli_writes_utf8_private_report_without_printing_cells(tmp_path, monkeypatch, capsys):
+    monkeypatch.chdir(tmp_path)
+    path = tmp_path / "train.csv"
+    _csv(path, ["reseña", "sentimiento"], [
+        {"reseña": "SYNTHETIC_PRIVATE_TEXT", "sentimiento": "2"},
+    ])
+    output = tmp_path / "data/private/piloto01/audit_train.json"
+    metadata_probe.main([
+        "--train", str(path), "--text-column", "reseña", "--label-column", "sentimiento",
+        "--allow-label-value", "2", "--output", str(output),
+    ])
+    public = json.loads(capsys.readouterr().out)
+    assert public["status"] == "PRIVATE_REPORT_WRITTEN"
+    assert public["admission"].startswith("BLOCKED")
+    raw = output.read_bytes()
+    result = json.loads(raw.decode("utf-8"))
+    assert result["train"]["columns"] == ["reseña", "sentimiento"]
+    assert result["train"]["label_values_raw_UNMAPPED"] == {"2": 1}
+    assert b"SYNTHETIC_PRIVATE_TEXT" not in raw
+
+
+@pytest.mark.parametrize("destination", ["audit.json", "public/audit.json", "reports/audit.csv"])
+def test_report_output_rejects_publishable_or_wrong_format_paths(tmp_path, monkeypatch, destination):
+    monkeypatch.chdir(tmp_path)
+    with pytest.raises(ProbeError):
+        metadata_probe._write_private_report({}, tmp_path / destination)
+    assert not (tmp_path / destination).exists()
+
+
+def test_report_output_never_overwrites_prior_audit(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    output = tmp_path / "reports/audit.json"
+    output.parent.mkdir()
+    output.write_text("previous audit", encoding="utf-8")
+    with pytest.raises(FileExistsError):
+        metadata_probe._write_private_report({"new": True}, output)
+    assert output.read_text(encoding="utf-8") == "previous audit"
+
+
+def test_private_output_cannot_escape_through_a_symlink(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    outside = tmp_path / "public"
+    outside.mkdir()
+    private = tmp_path / "data/private"
+    private.parent.mkdir()
+    try:
+        private.symlink_to(outside, target_is_directory=True)
+    except OSError:
+        pytest.skip("Creating symlinks is unavailable on this platform.")
+    with pytest.raises(ProbeError):
+        metadata_probe._write_private_report({}, private / "audit.json")
+    assert not (outside / "audit.json").exists()

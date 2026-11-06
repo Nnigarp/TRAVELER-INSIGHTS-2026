@@ -1,0 +1,164 @@
+{
+  "schema_version": "piloto01_source_access_audit_v1",
+  "observed_at_utc": "2026-11-06T11:24:24.913169+00:00",
+  "status": "NO_CORPUS_ADMITTED",
+  "main_reviewed_sha": "06a14454d9b34ba122ef7094a3912e70c669ed76",
+  "pr18_reviewed_head_sha": "60f88a3f8c62a142d489daddbe2ac25d1763d7c9",
+  "kaggle": {
+    "rules_url": "https://www.kaggle.com/competitions/travelerinsights2026/rules",
+    "data_url": "https://www.kaggle.com/competitions/travelerinsights2026/data",
+    "access_method": "PUBLIC_RENDERED_BROWSER_PAGE; HTTP API listing returned 401 without credentials",
+    "rules_read": true,
+    "rules_observed": {
+      "specific_terms_1_7_and_rules_2_4": "Academic and non-commercial data use; this is not a redistribution clearance.",
+      "foundational_4_b": "No hand-labeling or human predictions of competition validation/test records for submissions.",
+      "foundational_5_d": "No private code/data sharing outside registered teams.",
+      "foundational_6_b": "Public competition code sharing must respect third-party IP and Kaggle sharing conditions.",
+      "specific_rules_template_website": "The rendered rules themselves point to traveler-insights; no other competition rules were substituted."
+    },
+    "data_access_wall": "Please sign in or register to accept the rules.",
+    "metadata_claimed_license": "CC BY-SA 4.0",
+    "declared_training_filename": "train.csv",
+    "declared_training_columns_NOT_FILE_VERIFIED": [
+      "ID",
+      "Sitio",
+      "Índice del lugar",
+      "Nombre del lugar",
+      "Enlace del lugar",
+      "Municipio",
+      "Valoración",
+      "Valoraciones",
+      "Precio",
+      "Comentario",
+      "Fecha",
+      "Votos a favor",
+      "Votos en contra",
+      "Valoración_num",
+      "Sentimiento"
+    ],
+    "csv_read": false,
+    "csv_sha256": null,
+    "csv_rows": null,
+    "csv_label_counts": null,
+    "label_mapping": "UNRESOLVED_OVERVIEW_NEGATIVE_1_CONFLICTS_WITH_SUBMISSION_EXAMPLE_0",
+    "annotation_origin": "UNVERIFIED",
+    "original_content_rights": "NOT_VERIFIED",
+    "rules_accepted_by_agent": false,
+    "login_attempted": false,
+    "competition_test_records_or_labels_accessed": false,
+    "status": "BLOCKED_FILE_ACCESS_ANNOTATION_MAPPING_AND_ORIGINAL_RIGHTS"
+  },
+  "uned": {
+    "page_url": "https://nlp.uned.es/~lplaza/resources/hotel-review-corpus/",
+    "archive_url": "https://nlp.uned.es/~lplaza/files/HotelReview_Corpus_v0.1.zip",
+    "download_http_status": 200,
+    "inspection": {
+      "admission": "NO_CORPUS_ADMITTED",
+      "archive_bytes": 122221,
+      "archive_sha256": "5f1996860bc475363b684b59b4a61ac8a5c3a9bb3861be040bc23ba724b895bb",
+      "attribute_names_renamed_in_memory": {
+        "3_classes_intensity": 1000,
+        "5_classes_intensity": 1000
+      },
+      "five_class_counts_raw": {
+        "Excellent": 200,
+        "Fair": 200,
+        "Good": 200,
+        "Poor": 200,
+        "Very_Poor": 200
+      },
+      "language_distribution": "UNVERIFIED_NO_LANGUAGE_FIELD",
+      "language_wordlist_diagnostic_NOT_CERTIFICATION": {
+        "english_dominant": 994,
+        "tie": 6
+      },
+      "readme_bytes": 2138,
+      "readme_sha256": "ac37d214def3e79c8766310b47991cc196d398eb276f874dd93094f42c57efca",
+      "research_notice_present": true,
+      "rights": "RESEARCH_PURPOSE_NOTICE_PRESENT_ORIGINAL_REVIEW_RIGHTS_AND_REDISTRIBUTION_NOT_VERIFIED",
+      "source_attribute_names": [
+        "idDoc",
+        "hotelID",
+        "hotelLocation",
+        "reviewerCategory",
+        "reviewerNationality",
+        "date",
+        "score",
+        "5_classes_intensity",
+        "3_classes_intensity"
+      ],
+      "source_xml_strict_parse": "FAIL_NUMERIC_ATTRIBUTE_NAMES_LINE_3_COLUMN_176",
+      "test_split_created": false,
+      "text_elements": [
+        "PositiveOpinion",
+        "NegativeOpinion"
+      ],
+      "three_class_csv_probe": {
+        "annotation_origin": "UNVERIFIED",
+        "blank_group_values_by_column": {
+          "hotel": 0
+        },
+        "blank_id_rows": 0,
+        "blank_label_rows": 0,
+        "blank_text_rows": 0,
+        "columns": [
+          "text",
+          "label",
+          "id",
+          "hotel"
+        ],
+        "conflicting_raw_labels_same_normalized_text": 0,
+        "distinct_group_keys": 88,
+        "distinct_group_keys_by_column": {
+          "hotel": 88
+        },
+        "file_sha256": "e5ce964173832893a8125d32f2bdf2cdb6c9742a597dc27db999dae9ebfa1d60",
+        "group_key_semantics": "ANY_NONEMPTY_VALUE_PER_COLUMN_NOT_COMPOSITE",
+        "headers_privacy": "PRIVATE_UNTRUSTED_METADATA_REVIEW_BEFORE_SHARING",
+        "id_duplicates_extra_rows": 0,
+        "label_values_raw_UNMAPPED": {
+          "Fair": 292,
+          "Good": 359,
+          "Poor": 349
+        },
+        "language_values_source_claims_UNVERIFIED": null,
+        "license_and_redistribution": "UNVERIFIED_NO_AUTHORIZATION_INFERRED",
+        "mapping": "UNRESOLVED_NEEDS_ORIGINAL_DATA_DICTIONARY",
+        "mean_text_length_chars": 254.83,
+        "near_duplicate_semantic_audit": "NOT_RUN",
+        "normalized_exact_text_duplicate_extra_rows": 0,
+        "privacy_review": "MANUAL_PENDING",
+        "redacted_label_value_counts": [],
+        "redacted_language_value_counts": null,
+        "rows": 1000
+      },
+      "training_runs": 0,
+      "xml_bytes": 580048,
+      "xml_sha256": "14d6711dcab104f292b6880ce4f9b185c9bafef9250dacadf38ecda1c8a17eed"
+    },
+    "reproduction_script_sha256": "efdcfc6d1cfdc0868a6af808bfb20ca4e2272981b687d49f76c524962969b979",
+    "status": "PRIVATELY_INSPECTED_NOT_ADMITTED_AS_SPANISH_GOLD"
+  },
+  "coar": {
+    "url": "https://huggingface.co/datasets/SINAI/COAR",
+    "declared_rows_NOT_LOCALLY_COUNTED": 2202,
+    "declared_license": "cc-by-nc-sa-4.0",
+    "status": "GATED_USER_INFORMATION_SHARING_CONDITIONS_NOT_ACCEPTED",
+    "csv_read": false,
+    "label_origin": "NOT_VERIFIED",
+    "original_content_rights": "NOT_VERIFIED"
+  },
+  "hopinion": {
+    "url": "https://clic.ub.edu/corpus/es/hopinion",
+    "author_page_url": "https://johnrbto.com/hopinion/",
+    "direct_page_http_status": 503,
+    "declared_rows_NOT_LOCALLY_COUNTED": 17934,
+    "status": "DESCRIPTION_READ_LICENSE_AND_GOLD_LABEL_ORIGIN_UNVERIFIED",
+    "author_download_host": "mega.nz",
+    "download_attempted": false,
+    "reason_no_download": "No precise reuse/redistribution terms located; author page identifies personal metadata."
+  },
+  "scientific_training_runs": 0,
+  "split_60_20_20_executed": false,
+  "scope_note": "Software tests may fit existing synthetic fixtures. No new scientific models trained; historical experiments untouched."
+}

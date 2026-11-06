@@ -1,5 +1,7 @@
 # PILOTO-01 — Auditoría documental y puerta de admisión de datos (2026-11-06)
 
+**Registro inicial del PR #18.** La revisión posterior de Work, los accesos nuevos a Kaggle/UNED y las correcciones de la herramienta se documentan en [PILOTO01_REVISION_WORK_2026-11-06.md](PILOTO01_REVISION_WORK_2026-11-06.md). Las afirmaciones de inaccesibilidad de esta primera auditoría describen su sesión original, no el estado posterior.
+
 **Resultado:** `NO_CORPUS_ADMITTED`. Este documento informa evidencia obtenida de fichas públicas y distingue hechos **comprobados externamente** de las propiedades **que no pudieron inspeccionarse en archivos**. Ningún corpus externo se descargó, importó, adjudicó o utilizó para entrenar. Los experimentos sintéticos #12 y #13 permanecen congelados.
 
 **Estado inicial del repositorio:** `main` SHA `8a3576d0cfba8e0af910587820b91616f2236fc2`; PR #17 fusionado. El manifiesto auditable de candidatas está en [piloto01_candidate_manifest.json](piloto01_candidate_manifest.json).
@@ -41,15 +43,17 @@ Las estadísticas precedentes son declaraciones de las fichas oficiales, NO cont
 
 ## 3. Herramienta de inspección local, sin entrenamiento
 
-Archivo: `src/traveler_agent/corpus_metadata_probe.py`; **biblioteca estándar exclusivamente**. Para un CSV legítimamente obtenido y revisado, inspecciona cabeceras reales, conteos, distribución **de códigos crudos sin traducir**, SHA-256 de archivos, duplicados exactos normalizados, conflictos de etiquetas para el mismo texto, códigos de idioma declarados (no inferidos), grupos, duplicados de ID y solapamiento train/test. Imprime solo **metadatos agregados**; no imprime reseñas, rutas completas, transcripciones ni IDs privados.
+Archivo: `src/traveler_agent/corpus_metadata_probe.py`; **biblioteca estándar exclusivamente**. Para un CSV legítimamente obtenido y revisado, inspecciona cabeceras reales, conteos, SHA-256, duplicados exactos normalizados, conflictos de etiquetas, grupos, duplicados de ID y solapamientos de particiones propias autorizadas. Desde la corrección v2, los valores de etiqueta/idioma se ocultan por defecto; solo se muestran códigos originales incluidos explícitamente en una lista de valores revisados. No se traduce su significado. Las cabeceras y esos códigos siguen siendo metadatos privados que necesitan revisión antes de compartir. El programa no certifica anonimización.
 
 Ejemplo sintáctico para un archivo local con columnas **confirmadas al abrirlo**, no asumidas en Kaggle:
 
 ~~~powershell
-python -m traveler_agent.corpus_metadata_probe --train data/private/kaggle_local/train.csv --test data/private/kaggle_local/test.csv --text-column "Comentario" --label-column "Sentimiento" --id-column "ID" --group-column "Nombre del lugar"
+python -m traveler_agent.corpus_metadata_probe --train data/private/kaggle_local/train.csv --text-column "Comentario" --label-column "Sentimiento" --id-column "ID" --group-column "Nombre del lugar"
 ~~~
 
-Los nombres de columnas en este comando son **ejemplos tomados de otra competencia, no confirmados para `travelerinsights2026`**. Primero hay que inspeccionar cabeceras en un entorno autorizado y elegir opciones coherentes. No se ejecutará el ejemplo hasta disponer de datos y permisos. Los archivos deben permanecer en `data/private/` u otra ubicación excluida del control de versiones.
+En la sesión inicial estos nombres procedían de otra competencia. Posteriormente se observaron también en la **descripción** de Data de `travelerinsights2026`, pero todavía no se han verificado como cabeceras del CSV real. Primero hay que disponer del archivo autorizado y confirmar su esquema. Para mostrar códigos crudos ya revisados, agregar, por ejemplo, `--allow-label-value 0 --allow-label-value 1 --allow-label-value 2`; eso NO establece el mapeo numérico a sentimiento. Los archivos permanecen en `data/private/` u otra ubicación ignorada por Git. El test de Kaggle queda excluido de este piloto; `--test` se reserva para particiones propias autorizadas y no ocultas.
+
+Al repetir `--group-column hotel --group-column autor`, v2 detecta valores compartidos de hotel **o** autor por separado; no exige que coincida la pareja. Esos conteos todavía no son componentes conectadas ni crean particiones. La semántica del informe está versionada como `piloto01_metadata_probe_v2`.
 
 La salida marca incondicionalmente `annotation_origin=UNVERIFIED`, `mapping=UNRESOLVED_NEEDS_ORIGINAL_DATA_DICTIONARY`, `near_duplicate_semantic_audit=NOT_RUN`, `privacy_review=MANUAL_PENDING` y `admission=BLOCKED...`. Un programa no puede inferir permisos legales ni calidad gold a partir de CSV.
 

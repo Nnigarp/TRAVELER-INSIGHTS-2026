@@ -1,0 +1,792 @@
+{
+  "catalog_sha256": "9589744715644ae9e4fc643693da3ad639c0ca97e313ec1bf8861bcd7950e55d",
+  "coverage": {
+    "ambiguity_assessment": {
+      "dimensions": {
+        "aspect": {
+          "unspecified": 10
+        },
+        "domain": {
+          "unspecified": 10
+        },
+        "length_band": {
+          "medium": 10
+        },
+        "region": {
+          "unspecified": 10
+        }
+      },
+      "families": 10,
+      "intended_labels": {},
+      "phenomena_by_intended_class": {
+        "double_negation": {},
+        "explicit_contrast": {},
+        "implicit_contrast": {},
+        "mixed_aspects": {},
+        "negation": {},
+        "negative_concordance": {},
+        "positive_words_negative_context": {},
+        "regionalism": {},
+        "typo": {}
+      },
+      "rows": 10
+    },
+    "ambiguity_policy": {
+      "dimensions": {
+        "aspect": {
+          "unspecified": 10
+        },
+        "domain": {
+          "unspecified": 10
+        },
+        "length_band": {
+          "medium": 10
+        },
+        "region": {
+          "unspecified": 10
+        }
+      },
+      "families": 10,
+      "intended_labels": {},
+      "phenomena_by_intended_class": {
+        "double_negation": {},
+        "explicit_contrast": {},
+        "implicit_contrast": {},
+        "mixed_aspects": {},
+        "negation": {},
+        "negative_concordance": {},
+        "positive_words_negative_context": {},
+        "regionalism": {},
+        "typo": {}
+      },
+      "rows": 10
+    },
+    "assessment": {
+      "dimensions": {
+        "aspect": {
+          "accessibility": 9,
+          "cleanliness": 9,
+          "price": 9,
+          "safety": 9,
+          "service": 9
+        },
+        "domain": {
+          "hotel": 9,
+          "museum": 9,
+          "restaurant": 9,
+          "tour": 9,
+          "transport": 9
+        },
+        "length_band": {
+          "long": 3,
+          "medium": 42
+        },
+        "region": {
+          "es": 15,
+          "es-CO": 15,
+          "es-PE": 15
+        }
+      },
+      "families": 15,
+      "intended_labels": {
+        "negativo": 15,
+        "neutral": 15,
+        "positivo": 15
+      },
+      "phenomena_by_intended_class": {
+        "double_negation": {
+          "neutral": 2
+        },
+        "explicit_contrast": {},
+        "implicit_contrast": {
+          "negativo": 12,
+          "positivo": 4
+        },
+        "mixed_aspects": {},
+        "negation": {
+          "negativo": 3,
+          "neutral": 9,
+          "positivo": 5
+        },
+        "negative_concordance": {
+          "neutral": 2
+        },
+        "positive_words_negative_context": {},
+        "regionalism": {
+          "positivo": 6
+        },
+        "typo": {}
+      },
+      "rows": 45
+    },
+    "calibration": {
+      "dimensions": {
+        "aspect": {
+          "accessibility": 6,
+          "cleanliness": 6,
+          "price": 6,
+          "safety": 6,
+          "service": 6
+        },
+        "domain": {
+          "hotel": 6,
+          "museum": 6,
+          "restaurant": 6,
+          "tour": 6,
+          "transport": 6
+        },
+        "length_band": {
+          "medium": 30
+        },
+        "region": {
+          "es": 9,
+          "es-CO": 9,
+          "es-PE": 12
+        }
+      },
+      "families": 10,
+      "intended_labels": {
+        "negativo": 10,
+        "neutral": 10,
+        "positivo": 10
+      },
+      "phenomena_by_intended_class": {
+        "double_negation": {
+          "neutral": 1
+        },
+        "explicit_contrast": {},
+        "implicit_contrast": {
+          "negativo": 9
+        },
+        "mixed_aspects": {},
+        "negation": {
+          "neutral": 6,
+          "positivo": 4
+        },
+        "negative_concordance": {
+          "neutral": 2
+        },
+        "positive_words_negative_context": {
+          "negativo": 1
+        },
+        "regionalism": {
+          "positivo": 3
+        },
+        "typo": {}
+      },
+      "rows": 30
+    },
+    "policy_dev": {
+      "dimensions": {
+        "aspect": {
+          "accessibility": 6,
+          "cleanliness": 6,
+          "price": 6,
+          "safety": 6,
+          "service": 6
+        },
+        "domain": {
+          "hotel": 6,
+          "museum": 6,
+          "restaurant": 6,
+          "tour": 6,
+          "transport": 6
+        },
+        "length_band": {
+          "long": 1,
+          "medium": 29
+        },
+        "region": {
+          "es": 12,
+          "es-CO": 9,
+          "es-PE": 9
+        }
+      },
+      "families": 10,
+      "intended_labels": {
+        "negativo": 10,
+        "neutral": 10,
+        "positivo": 10
+      },
+      "phenomena_by_intended_class": {
+        "double_negation": {
+          "neutral": 1
+        },
+        "explicit_contrast": {},
+        "implicit_contrast": {
+          "negativo": 8,
+          "positivo": 2
+        },
+        "mixed_aspects": {},
+        "negation": {
+          "negativo": 1,
+          "neutral": 5,
+          "positivo": 5
+        },
+        "negative_concordance": {
+          "neutral": 1
+        },
+        "positive_words_negative_context": {
+          "negativo": 1
+        },
+        "regionalism": {
+          "positivo": 4
+        },
+        "typo": {}
+      },
+      "rows": 30
+    },
+    "train": {
+      "dimensions": {
+        "aspect": {
+          "accessibility": 36,
+          "cleanliness": 36,
+          "price": 36,
+          "safety": 36,
+          "service": 36
+        },
+        "domain": {
+          "hotel": 36,
+          "museum": 36,
+          "restaurant": 36,
+          "tour": 36,
+          "transport": 36
+        },
+        "length_band": {
+          "long": 3,
+          "medium": 171,
+          "short": 6
+        },
+        "region": {
+          "es": 54,
+          "es-CO": 60,
+          "es-PE": 66
+        }
+      },
+      "families": 20,
+      "intended_labels": {
+        "negativo": 60,
+        "neutral": 60,
+        "positivo": 60
+      },
+      "phenomena_by_intended_class": {
+        "double_negation": {
+          "negativo": 5,
+          "neutral": 5,
+          "positivo": 6
+        },
+        "explicit_contrast": {
+          "negativo": 4,
+          "positivo": 1
+        },
+        "implicit_contrast": {
+          "negativo": 34,
+          "positivo": 12
+        },
+        "mixed_aspects": {
+          "negativo": 4,
+          "positivo": 1
+        },
+        "negation": {
+          "negativo": 15,
+          "neutral": 9,
+          "positivo": 19
+        },
+        "negative_concordance": {
+          "neutral": 4,
+          "positivo": 2
+        },
+        "positive_words_negative_context": {
+          "negativo": 1
+        },
+        "regionalism": {
+          "positivo": 11
+        },
+        "typo": {
+          "negativo": 7,
+          "neutral": 2
+        }
+      },
+      "rows": 180
+    },
+    "tune": {
+      "dimensions": {
+        "aspect": {
+          "accessibility": 6,
+          "cleanliness": 6,
+          "price": 6,
+          "safety": 6,
+          "service": 6
+        },
+        "domain": {
+          "hotel": 6,
+          "museum": 6,
+          "restaurant": 6,
+          "tour": 6,
+          "transport": 6
+        },
+        "length_band": {
+          "medium": 30
+        },
+        "region": {
+          "es": 9,
+          "es-CO": 12,
+          "es-PE": 9
+        }
+      },
+      "families": 10,
+      "intended_labels": {
+        "negativo": 10,
+        "neutral": 10,
+        "positivo": 10
+      },
+      "phenomena_by_intended_class": {
+        "double_negation": {
+          "neutral": 1,
+          "positivo": 1
+        },
+        "explicit_contrast": {},
+        "implicit_contrast": {
+          "negativo": 5,
+          "positivo": 3
+        },
+        "mixed_aspects": {},
+        "negation": {
+          "negativo": 3,
+          "neutral": 5,
+          "positivo": 3
+        },
+        "negative_concordance": {
+          "neutral": 1
+        },
+        "positive_words_negative_context": {
+          "negativo": 2
+        },
+        "regionalism": {
+          "positivo": 4
+        },
+        "typo": {}
+      },
+      "rows": 30
+    }
+  },
+  "duplicate_screen": {
+    "candidate_count": 0,
+    "pairs": [
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_ce69445e39a0766258e9",
+          "v3_f45ab95000c71ca730a9"
+        ],
+        "maximum_similarity": 0.07692307692307693,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_assessment",
+          "ambiguity_policy"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_80f472744158b03e6384",
+          "v3_26cf1c2a7fd92e3760be"
+        ],
+        "maximum_similarity": 0.07246376811594203,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_assessment",
+          "assessment"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_cebd148fc7c4fd285879",
+          "v3_5f08d1ec7736eff15036"
+        ],
+        "maximum_similarity": 0.09433962264150944,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_assessment",
+          "calibration"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_595965d2259499f4e9f1",
+          "v3_5f08d1ec7736eff15036"
+        ],
+        "maximum_similarity": 0.06557377049180328,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_assessment",
+          "policy_dev"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_4f8f209b43cfec701311",
+          "v3_ba566ec3f203d1d74c45"
+        ],
+        "maximum_similarity": 0.09090909090909091,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_assessment",
+          "train"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_5117be922699d70e9bd8",
+          "v3_5f08d1ec7736eff15036"
+        ],
+        "maximum_similarity": 0.0749063670411985,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_assessment",
+          "tune"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_da10d3be5cb9af7a3bd5",
+          "v3_f8902c0c35d357af4e78"
+        ],
+        "maximum_similarity": 0.06315789473684211,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_policy",
+          "assessment"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_64d432c9523e0a585836",
+          "v3_9599ecd01fb7a3ec511f"
+        ],
+        "maximum_similarity": 0.12017167381974249,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_policy",
+          "calibration"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_baa89b7b14e60e777ca3",
+          "v3_9599ecd01fb7a3ec511f"
+        ],
+        "maximum_similarity": 0.07851239669421488,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_policy",
+          "policy_dev"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_6046a35525145965ad57",
+          "v3_ce69445e39a0766258e9"
+        ],
+        "maximum_similarity": 0.08163265306122448,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_policy",
+          "train"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_47c9c002ab11c1fb8f41",
+          "v3_ad8fddd1eb639df5d026"
+        ],
+        "maximum_similarity": 0.05263157894736842,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_policy",
+          "tune"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_201725621a61981cab0e",
+          "v3_71e8cb49d9dcc98f3b8e"
+        ],
+        "maximum_similarity": 0.09363295880149813,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "assessment",
+          "calibration"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_7b3035e6eb0cb1a78b3f",
+          "v3_1be75551213bfe93dac8"
+        ],
+        "maximum_similarity": 0.1111111111111111,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "assessment",
+          "policy_dev"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_4f2a1e102fb836d0c3f0",
+          "v3_bfe352d24b46116da67f"
+        ],
+        "maximum_similarity": 0.14646464646464646,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "assessment",
+          "train"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_a8edf9d66245c7026ac1",
+          "v3_bfe352d24b46116da67f"
+        ],
+        "maximum_similarity": 0.12033195020746888,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "assessment",
+          "tune"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_e68df9447701e52b4360",
+          "v3_064fe6b42379a543a4e6"
+        ],
+        "maximum_similarity": 0.09727626459143969,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "calibration",
+          "policy_dev"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_de1fa160c3ca15aef254",
+          "v3_c08d44c4e5c0a858f23c"
+        ],
+        "maximum_similarity": 0.12408759124087591,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "calibration",
+          "train"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_9d3a60962dcb44efc10b",
+          "v3_62766e65702f1fa1bbec"
+        ],
+        "maximum_similarity": 0.10116731517509728,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "calibration",
+          "tune"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_f08eb3f765cab508448c",
+          "v3_980a86055d5130f4a78e"
+        ],
+        "maximum_similarity": 0.13716814159292035,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "policy_dev",
+          "train"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_9ddee0121832cb84502a",
+          "v3_415e0eba7dd86227858d"
+        ],
+        "maximum_similarity": 0.11983471074380166,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "policy_dev",
+          "tune"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "v3_9db90ecda14e05efa353",
+          "v3_7f392a9292d9ba0b4458"
+        ],
+        "maximum_similarity": 0.13488372093023257,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "train",
+          "tune"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      }
+    ],
+    "semantic_independence_proven": false
+  },
+  "protocol_sha256": "ae0ecdcea96ed5e3635881da6be53434245900c03c27bb767b87cc9e7c64f327",
+  "provenance": {
+    "authoring_agent": "Codex session",
+    "generation_method": "Individually drafted complete literals; no noun/adjective substitution; frozen catalog replay is reproducible, drafting is not recreated by a seed.",
+    "human_authors": false,
+    "independence_limit": "Same assistant author across role batches. Disjoint declared semantic components do not prove external or semantic independence.",
+    "label_origin": "AUTHOR_INTENT_NOT_HUMAN_GOLD",
+    "model_identifier": "NOT_RELIABLY_IDENTIFIED",
+    "prior_evidence": "V2 published aggregate findings and TRAIN/development coverage; V2 reserved raw examples not read for V3 drafting.",
+    "regional_naturalness": "Author assessment only; independent native-speaker review pending.",
+    "sampling_parameters": "NOT_AVAILABLE",
+    "source_type": "SYNTHETIC_ASSISTANT_AUTHORED",
+    "train_quality_revision": "TRAIN-only preflight found class-linked discourse metadata. Before freezing, neutral chronological narratives, matched short observations and dialogues across all classes were individually redrafted. No sentiment-model assessment scores were observed."
+  },
+  "records_sha256": "d898fd83d382582aa6e49dc6047495d5dd360021a5932c0c7c0c6583f684eb2c",
+  "report_type": "V3_SYNTHETIC_AUTHOR_INTENT_NOT_HUMAN_GOLD",
+  "v2_pre_generation_coverage": {
+    "held_out_rows_scored_or_used_for_selection": false,
+    "interpretation": "Coverage and target association, not causal feature contribution.",
+    "roles_inspected": {
+      "train": {
+        "domain_and_aspect_contributions": "NOT_IDENTIFIABLE_FROM_V2_DESIGN_OR_METADATA",
+        "phenomena_by_intended_class": {
+          "contrast": {
+            "negativo": 13,
+            "positivo": 2
+          },
+          "double_negation": {
+            "negativo": 1,
+            "positivo": 2
+          },
+          "mixed_aspects": {
+            "negativo": 6,
+            "positivo": 1
+          },
+          "negation": {
+            "negativo": 14,
+            "neutral": 1,
+            "positivo": 21
+          },
+          "negative_concordance": {
+            "negativo": 3,
+            "positivo": 5
+          },
+          "positive_words_negative_context": {
+            "negativo": 10
+          },
+          "regionalism": {
+            "negativo": 5,
+            "positivo": 4
+          },
+          "typo": {
+            "negativo": 2,
+            "neutral": 1,
+            "positivo": 2
+          }
+        },
+        "rows": 90
+      },
+      "validation": {
+        "domain_and_aspect_contributions": "NOT_IDENTIFIABLE_FROM_V2_DESIGN_OR_METADATA",
+        "phenomena_by_intended_class": {
+          "contrast": {
+            "negativo": 4,
+            "positivo": 1
+          },
+          "double_negation": {
+            "positivo": 2
+          },
+          "mixed_aspects": {
+            "negativo": 1
+          },
+          "negation": {
+            "negativo": 6,
+            "neutral": 1,
+            "positivo": 6
+          },
+          "negative_concordance": {
+            "negativo": 3,
+            "positivo": 1
+          },
+          "positive_words_negative_context": {
+            "negativo": 3
+          },
+          "regionalism": {
+            "positivo": 1
+          },
+          "typo": {
+            "negativo": 1,
+            "neutral": 1,
+            "positivo": 2
+          }
+        },
+        "rows": 36
+      }
+    },
+    "source_sha256": "f6ec7560c1470b70663999b50f071a90f696a36ab7877de257acd19e7bec9cb0"
+  }
+}

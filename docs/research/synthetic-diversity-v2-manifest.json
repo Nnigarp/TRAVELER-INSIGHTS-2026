@@ -1,0 +1,144 @@
+{
+  "catalog_sha256": "f6ec7560c1470b70663999b50f071a90f696a36ab7877de257acd19e7bec9cb0",
+  "counts": {
+    "ambiguity": {
+      "families": 9,
+      "labels": {},
+      "length_bands": {
+        "medium": 8,
+        "short": 1
+      },
+      "phenomena": {},
+      "regions": {
+        "unspecified": 9
+      },
+      "rows": 9
+    },
+    "challenge": {
+      "families": 18,
+      "labels": {
+        "negativo": 18,
+        "neutral": 18,
+        "positivo": 18
+      },
+      "length_bands": {
+        "long": 2,
+        "medium": 50,
+        "short": 2
+      },
+      "phenomena": {
+        "contrast": 8,
+        "double_negation": 3,
+        "mixed_aspects": 2,
+        "negation": 20,
+        "negative_concordance": 5,
+        "positive_words_negative_context": 5,
+        "regionalism": 2,
+        "typo": 3
+      },
+      "regions": {
+        "es": 18,
+        "es-CO": 18,
+        "es-PE": 18
+      },
+      "rows": 54
+    },
+    "illustrative": {
+      "families": 4,
+      "labels": {},
+      "length_bands": {
+        "short": 4
+      },
+      "phenomena": {},
+      "regions": {
+        "unspecified": 4
+      },
+      "rows": 4
+    },
+    "train": {
+      "families": 30,
+      "labels": {
+        "negativo": 30,
+        "neutral": 30,
+        "positivo": 30
+      },
+      "length_bands": {
+        "long": 3,
+        "medium": 84,
+        "short": 3
+      },
+      "phenomena": {
+        "contrast": 15,
+        "double_negation": 3,
+        "mixed_aspects": 7,
+        "negation": 36,
+        "negative_concordance": 8,
+        "positive_words_negative_context": 10,
+        "regionalism": 9,
+        "typo": 5
+      },
+      "regions": {
+        "es": 30,
+        "es-CO": 30,
+        "es-PE": 30
+      },
+      "rows": 90
+    },
+    "validation": {
+      "families": 12,
+      "labels": {
+        "negativo": 12,
+        "neutral": 12,
+        "positivo": 12
+      },
+      "length_bands": {
+        "long": 1,
+        "medium": 34,
+        "short": 1
+      },
+      "phenomena": {
+        "contrast": 5,
+        "double_negation": 2,
+        "mixed_aspects": 1,
+        "negation": 13,
+        "negative_concordance": 4,
+        "positive_words_negative_context": 3,
+        "regionalism": 1,
+        "typo": 4
+      },
+      "regions": {
+        "es": 12,
+        "es-CO": 12,
+        "es-PE": 12
+      },
+      "rows": 36
+    }
+  },
+  "human_corpus_admitted": false,
+  "lexical_audit": {
+    "candidates": [],
+    "maximum_pair_ids": [
+      "v2_8d092952156f73d25292",
+      "v2_69406166f41a2ae3a43d"
+    ],
+    "maximum_similarity": 0.23684210526315788,
+    "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+    "semantic_paraphrase_independence_proven": false,
+    "threshold": 0.7
+  },
+  "protocol_sha256": "29f895b583273af0180d6d6f4d431c47c4a7beeff61686ae6547ed1beca1b795",
+  "provenance": {
+    "authoring_agent": "Codex assistant in this development session",
+    "authoring_model": "NOT_RELIABLY_IDENTIFIED",
+    "human_authors": false,
+    "label_origin": "AUTHOR_INTENT_NOT_HUMAN_GOLD",
+    "regional_naturalness": "author assessment only; native speaker review pending",
+    "reproduction": "replay this frozen catalog; random seed does not recreate LLM drafting",
+    "sampling_parameters": "NOT_AVAILABLE; not an external generation API",
+    "source_type": "SYNTHETIC_ASSISTANT_AUTHORED"
+  },
+  "records_sha256": "5a34eef707404b401bb756b689ca5ef72838c128b8a93e8be3b0ca81c25463fd",
+  "report_type": "FROZEN_SYNTHETIC_AUTHOR_INTENT_NOT_HUMAN_GOLD",
+  "scientific_training_executed": false,
+  "version": "synthetic-diversity-v2.0.0"
+}

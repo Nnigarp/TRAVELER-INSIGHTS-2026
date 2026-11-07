@@ -1,0 +1,94 @@
+{
+  "purpose": "SELECTED_WITH_TRAIN_AND_NEW_VALIDATION_ONLY",
+  "strategies": {
+    "A_historical_full_sensitivity": {
+      "models": {
+        "dummy": {},
+        "lr": {
+          "C": 0.5
+        },
+        "svm": {
+          "C": 2.0
+        }
+      },
+      "training_families": 34,
+      "training_ids_sha256": "ada5e1f1c305d1642e63a121e3eff4bcd172e35733c6c9762d9eb065a667d6bd",
+      "training_labels": {
+        "negativo": 68,
+        "neutral": 68,
+        "positivo": 68
+      },
+      "training_rows": 204,
+      "training_sources": {
+        "HISTORICAL_V1_TRAIN_ONLY": 204
+      }
+    },
+    "A_historical_matched": {
+      "models": {
+        "dummy": {},
+        "lr": {
+          "C": 0.5
+        },
+        "svm": {
+          "C": 0.5
+        }
+      },
+      "training_families": 30,
+      "training_ids_sha256": "de9e4d9ea6ee2df8678e9991daf528fd5ec84aaa9a013c185c9520aa20805353",
+      "training_labels": {
+        "negativo": 30,
+        "neutral": 30,
+        "positivo": 30
+      },
+      "training_rows": 90,
+      "training_sources": {
+        "HISTORICAL_V1_TRAIN_ONLY": 90
+      }
+    },
+    "B_new": {
+      "models": {
+        "dummy": {},
+        "lr": {
+          "C": 0.5
+        },
+        "svm": {
+          "C": 2.0
+        }
+      },
+      "training_families": 30,
+      "training_ids_sha256": "50bb9193dec81a9e563dd9c67b07b6944697eaa4b700e6e852503f38a2ed184d",
+      "training_labels": {
+        "negativo": 30,
+        "neutral": 30,
+        "positivo": 30
+      },
+      "training_rows": 90,
+      "training_sources": {
+        "NEW_SYNTHETIC_ASSISTANT_AUTHORED_V2": 90
+      }
+    },
+    "C_mixed_matched": {
+      "models": {
+        "dummy": {},
+        "lr": {
+          "C": 2.0
+        },
+        "svm": {
+          "C": 0.5
+        }
+      },
+      "training_families": 30,
+      "training_ids_sha256": "cbdd8220687141745153c062d8d7a6a9205cd2711f3a6744795b3ef5d799eb43",
+      "training_labels": {
+        "negativo": 30,
+        "neutral": 30,
+        "positivo": 30
+      },
+      "training_rows": 90,
+      "training_sources": {
+        "HISTORICAL_V1_TRAIN_ONLY": 45,
+        "NEW_SYNTHETIC_ASSISTANT_AUTHORED_V2": 45
+      }
+    }
+  }
+}

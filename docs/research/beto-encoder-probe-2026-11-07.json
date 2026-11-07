@@ -1,0 +1,99 @@
+{
+  "all_finite": true,
+  "batch_two_encode_tokenize_ms": [
+    87.97475,
+    61.730238,
+    87.206218,
+    68.386319,
+    68.907978
+  ],
+  "checkpoint": {
+    "files": {
+      "README.md": {
+        "bytes": 5927,
+        "sha256": "faaa2bc652dd73f77ef9e3b9bda5effc1d860f633483fbf25f2d6a5fa1ab4729"
+      },
+      "config.json": {
+        "bytes": 648,
+        "sha256": "3694a761b0ba882c24baab95df01cf7e7e1424797af557272e944ec2452f9f31"
+      },
+      "pytorch_model.bin": {
+        "bytes": 439621341,
+        "sha256": "e131a95091c777bbd45250fb647fec415010cb8cd1ad6e1d59babeb82a0be360"
+      },
+      "special_tokens_map.json": {
+        "bytes": 134,
+        "sha256": "bd6ed009009f8264d0ef87d5b50798cb57c5219a0bbb7c8973372855241aa05f"
+      },
+      "tokenizer.json": {
+        "bytes": 480199,
+        "sha256": "ea7a58026720ba45a8a401d9f86bbe8337f2725d3b02d3a1011305c46cbbd9cd"
+      },
+      "tokenizer_config.json": {
+        "bytes": 364,
+        "sha256": "2f5cde6bbb9959fccd280e9e9c08d41d05e96743fac1a3b5b67e0e5691ae7d10"
+      },
+      "vocab.txt": {
+        "bytes": 241796,
+        "sha256": "b8f1c939e21273bd19cd885d0b6d7eb11244240ef81f62e30dcf84b4c970ce36"
+      }
+    },
+    "model": "dccuchile/bert-base-spanish-wwm-cased",
+    "revision": "c4d86612f51b4f46759c8390d1798c2febe71b93"
+  },
+  "cuda_available": false,
+  "device_used": "cpu",
+  "encoder_output_shape": [
+    2,
+    13,
+    768
+  ],
+  "full_finetune_adam_parameter_gradient_moments_lower_bound_mib": 1667.1796875,
+  "future_three_class_head": {
+    "parameters": 2307,
+    "requires": "supervised training and independent evaluation",
+    "status": "UNTRAINED_NOT_CREATED_OR_EVALUATED"
+  },
+  "hardware_memory_total_mib": 9967.25390625,
+  "license_caveat": "Authors note uncertainty about compatibility of all pretraining text licenses, especially commercial use.",
+  "license_stated_intent": "CC BY 4.0 per upstream model-card disclaimer, not a complete original-corpus rights clearance",
+  "limits": [
+    "No GPU or fine-tuning memory/latency measured.",
+    "Optimizer memory is a parameter-only lower bound, not total training RAM.",
+    "No sentiment logits, sentiment probabilities or sentiment accuracy produced.",
+    "No remote code; checkpoint loaded locally with weights_only=True.",
+    "Probe inputs are illustrative, not gold evaluation data."
+  ],
+  "load_seconds": 0.3617221760000575,
+  "long_input_truncated_token_count": 128,
+  "memory_diagnostic": {
+    "errors": [],
+    "raw_resource_mib": 802.58984375,
+    "raw_sampled_mib": 17.54296875
+  },
+  "packages": {
+    "huggingface-hub": "0.36.2",
+    "psutil": "7.2.2",
+    "tokenizers": "0.22.2",
+    "torch": "2.9.1+cpu",
+    "transformers": "4.57.6"
+  },
+  "parameter_count": 109260288,
+  "parameter_fp32_mib": 416.794921875,
+  "peak_rss_method": "Linux getrusage self high-water",
+  "peak_rss_sampled_mib": null,
+  "peak_rss_verified_mib": 802.58984375,
+  "python": "3.12.14",
+  "report_type": "BETO_ENCODER_SMOKE_NOT_SENTIMENT_CLASSIFIER",
+  "rss_sampling_interval_ms": 20,
+  "threads": 2,
+  "timing_scope": "one warmup; five CPU batch-two forward passes including tokenizer",
+  "token_counts_including_special": [
+    13,
+    11
+  ],
+  "unknown_token_counts": [
+    0,
+    0
+  ]
+}

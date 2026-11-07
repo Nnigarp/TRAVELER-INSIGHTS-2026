@@ -1,0 +1,107 @@
+{
+  "protocol_id": "SYNTHETIC-DIVERSITY-V2-2026-11-07",
+  "report_type": "SYNTHETIC_AUTHOR_INTENT_NOT_HUMAN_GOLD",
+  "seed": 42,
+  "catalog_version": "synthetic-diversity-v2.0.0",
+  "roles": {
+    "train": 30,
+    "validation": 12,
+    "challenge": 18
+  },
+  "labeled_rows_per_family": 3,
+  "main_training_budget": 90,
+  "mix_historical_fraction": 0.5,
+  "historical_training_source": {
+    "generator": "synthetic_tourism.generate_records(seed=42,variants=2,generated_date=2026-11-05)",
+    "partition": "synthetic_evaluation.group_split(seed=42)[train] only",
+    "expected_full_train_rows": 204,
+    "matched_selection": "stable_hash_family_order; one narrative_0 per class; 30 families",
+    "no_historical_validation_or_test_for_selection_or_scoring": true
+  },
+  "strategies": {
+    "A_historical_matched": "90 historical TRAIN rows; new common validation selects parameters",
+    "B_new": "90 new authored training rows",
+    "C_mixed_matched": "45 historical TRAIN + 45 new TRAIN; keep source identities",
+    "A_historical_full_sensitivity": "all 204 historical TRAIN rows; sample-size sensitivity, not matched main comparison",
+    "D_human_mixed": "PENDING_AUTHORIZED_HUMAN_CORPUS; not implemented or simulated"
+  },
+  "model_grid": {
+    "dummy": [
+      {}
+    ],
+    "lr": [
+      {
+        "C": 0.5
+      },
+      {
+        "C": 2.0
+      }
+    ],
+    "svm": [
+      {
+        "C": 0.5
+      },
+      {
+        "C": 2.0
+      }
+    ]
+  },
+  "selection": "highest new common VALIDATION macro-F1 per estimator; fixed grid-order ties",
+  "svm_calibration": "3 group-disjoint TRAIN folds; vectorizers inside folds; existing helper",
+  "challenge_policy": "freeze catalog/protocol and selection before scoring; no test-derived revisions; later identical CI runs are reproductions, not new optimization trials",
+  "historical_test_status": "previously inspected and influential on hypotheses; not blind final tests; no scoring them in this experiment",
+  "independence_limit": "new challenge has disjoint authored semantic family IDs; same assistant authored splits; not an independent human or blind external evaluation",
+  "exact_duplicate_normalization": "NFKC+casefold+whitespace",
+  "near_duplicate_audit": {
+    "method": "unfitted all-pairs character5 and word3 Jaccard across new roles",
+    "jaccard_threshold": 0.7,
+    "semantic_guarantee": false
+  },
+  "unlabeled_cohorts": {
+    "ambiguity": "review-referral rate only; intended_review by author, not human gold",
+    "illustrative": "four user examples; no fitting or sentiment accuracy"
+  },
+  "metrics": [
+    "macro_f1",
+    "accuracy",
+    "recall_f1_support_per_class",
+    "confusion_matrix",
+    "negative_to_positive_count_and_rate",
+    "negative_to_neutral_count_and_rate",
+    "human_review_rate_under_unchanged_DEMO_policy",
+    "coverage_and_error_risk_among_accepted"
+  ],
+  "slices": [
+    "negation",
+    "double_negation",
+    "negative_concordance",
+    "contrast",
+    "mixed_aspects",
+    "positive_words_negative_context",
+    "regionalism",
+    "typo",
+    "length_band",
+    "region"
+  ],
+  "bootstrap": {
+    "resamples": 1000,
+    "seed": 20261107,
+    "unit": "challenge_family",
+    "pairing": "same resampled families for strategy differences",
+    "scope": "synthetic sensitivity only; not population inference"
+  },
+  "latency": {
+    "cohort": "new validation only",
+    "batch_size": 1,
+    "warmup": 5,
+    "passes": 10,
+    "clock": "perf_counter_ns",
+    "report": [
+      "median_ms",
+      "p95_ms"
+    ],
+    "synthetic_not_real_traffic": true
+  },
+  "artifact_policy": "new versioned data/processed and artifacts directories only; refuse overwrite",
+  "beto_scope": "encoder/tokenization smoke only, no sentiment classifier, no fine-tuning, no DEMO integration"
+}

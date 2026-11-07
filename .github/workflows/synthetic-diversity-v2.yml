@@ -1,0 +1,74 @@
+name: Synthetic diversity V2 — frozen reproduction
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/traveler_agent/synthetic_diversity*.py'
+      - 'src/traveler_agent/research_metrics.py'
+      - 'src/traveler_agent/research_data/**'
+      - 'src/traveler_agent/beto_encoder_probe.py'
+      - 'tests/test_synthetic_diversity*.py'
+      - 'tests/test_research_metrics.py'
+      - 'tests/test_beto_encoder_probe.py'
+      - 'docs/research/**'
+      - 'research/requirements-synthetic-v2.txt'
+      - 'pyproject.toml'
+      - '.github/workflows/synthetic-diversity-v2.yml'
+permissions:
+  contents: read
+jobs:
+  reproduce-frozen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install recorded scientific versions without encoder dependencies
+        run: python -m pip install -r research/requirements-synthetic-v2.txt -e '.[test]'
+      - name: Prepare the frozen assistant-authored catalog
+        run: python -m traveler_agent.synthetic_diversity --out data/processed/synthetic-diversity-v2-ci
+      - name: Reproduce registered A B C and historical-size sensitivity
+        run: >-
+          python -m traveler_agent.synthetic_diversity_benchmark
+          --data data/processed/synthetic-diversity-v2-ci
+          --out artifacts/synthetic-diversity-v2-ci
+          --registration-commit e3420606c721622d4c9134b0a1c82cef78982744
+          --reproduction
+      - name: Verify provenance and reproduce decisions without tuning
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          actual = json.loads(Path('artifacts/synthetic-diversity-v2-ci/experiment_report.json').read_text())
+          first = json.loads(Path('docs/research/synthetic-diversity-v2-first-report.json').read_text())
+          assert actual['purpose'] == 'IDENTICAL_FROZEN_REPRODUCTION'
+          for key in ('registration_commit', 'catalog_sha256', 'protocol_sha256', 'records_sha256'):
+              assert actual[key] == first[key], key
+          assert actual['challenge_rows'] == 54 and actual['challenge_families'] == 18
+          assert actual['historical_TRAIN_diagnostic']['old_held_out_scores_recomputed'] is False
+          for strategy, models in first['strategies'].items():
+              for kind, expected in models.items():
+                  observed = actual['strategies'][strategy][kind]
+                  assert observed['selected_parameters'] == expected['selected_parameters']
+                  assert observed['challenge']['confusion_matrix'] == expected['challenge']['confusion_matrix']
+                  assert abs(observed['challenge']['macro_f1'] - expected['challenge']['macro_f1']) < 1e-12
+          print('FROZEN SYNTHETIC REPRODUCTION VERIFIED; NO HUMAN VALIDATION')
+          PY
+      - name: Publish synthetic-only reproducibility evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: SYNTHETIC-DIVERSITY-V2-NOT-HUMAN-GOLD
+          retention-days: 30
+          path: |
+            data/processed/synthetic-diversity-v2-ci/manifest.json
+            data/processed/synthetic-diversity-v2-ci/records.jsonl
+            data/processed/synthetic-diversity-v2-ci/evaluation_journal.jsonl
+            artifacts/synthetic-diversity-v2-ci/selection_manifest.json
+            artifacts/synthetic-diversity-v2-ci/experiment_report.json
+            artifacts/synthetic-diversity-v2-ci/challenge_predictions.jsonl

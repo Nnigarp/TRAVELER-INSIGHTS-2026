@@ -1,0 +1,2073 @@
+{
+  "version": "synthetic-diversity-v2.0.0",
+  "authored_on": "2026-11-07",
+  "provenance": {
+    "source_type": "SYNTHETIC_ASSISTANT_AUTHORED",
+    "authoring_agent": "Codex assistant in this development session",
+    "authoring_model": "NOT_RELIABLY_IDENTIFIED",
+    "sampling_parameters": "NOT_AVAILABLE; not an external generation API",
+    "human_authors": false,
+    "label_origin": "AUTHOR_INTENT_NOT_HUMAN_GOLD",
+    "reproduction": "replay this frozen catalog; random seed does not recreate LLM drafting",
+    "regional_naturalness": "author assessment only; native speaker review pending"
+  },
+  "families": [
+    {
+      "family": "tr01_heat_shade",
+      "role": "train",
+      "region": "es-CO",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "La caminata tenía vistas bacanas. ¿De qué sirvieron si pasamos la parte más caliente bajo el sol, sin una sola pausa?",
+          "phenomena": [
+            "contrast",
+            "mixed_aspects",
+            "positive_words_negative_context",
+            "regionalism"
+          ],
+          "discourse": "rhetorical_question",
+          "rationale": "La falta de pausas domina la valoración de la caminata."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "Salimos del parque a las siete; el tramo de sombra quedó antes del mirador y regresamos por el sendero oriental.",
+          "phenomena": [],
+          "discourse": "chronological_description",
+          "rationale": "Describe el itinerario sin juzgarlo."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "No pensé que fueran a cambiar el orden de la caminata por el calor. Lo hicieron y pudimos observar el paisaje sin agotarnos.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "expectation_revision",
+          "rationale": "La adaptación de la ruta permite disfrutarla."
+        }
+      ]
+    },
+    {
+      "family": "tr02_luggage_lockers",
+      "role": "train",
+      "region": "es-PE",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Dejé la mochila para pasear tranquilo y acabé cuidando una puerta que no cerraba. Así no tenía sentido el servicio de consigna.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "causal_verdict",
+          "rationale": "La consigna no cumple la función de liberar al visitante."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "Casilleros numerados, llave en recepción.",
+          "phenomena": [],
+          "discourse": "procedural_description",
+          "rationale": "Información de funcionamiento, sin evaluación."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Guardé mis cosas y me fui al centro al toque. Da gusto no tener que cargar todo durante la visita.",
+          "phenomena": [
+            "negation",
+            "regionalism"
+          ],
+          "discourse": "benefit_then_evaluation",
+          "rationale": "Valora la comodidad de dejar el equipaje."
+        }
+      ]
+    },
+    {
+      "family": "tr03_bilingual_labels",
+      "role": "train",
+      "region": "es",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Muchos idiomas en la portada, pero dentro no se podía entender qué era cada objeto. Mi acompañante dependió de que yo tradujera hasta los botones.",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "discourse": "promise_vs_use",
+          "rationale": "La traducción anunciada no permite usar la exposición."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "Cada vitrina tiene una ficha en castellano y otra en inglés. Los números de ambas fichas corresponden al mismo objeto.",
+          "phenomena": [],
+          "discourse": "spatial_description",
+          "rationale": "Detalla las fichas sin elogio ni queja."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Pudimos recorrer la sala cada uno en su idioma y después comentar lo mismo. Las explicaciones daban contexto sin llenar la pared de palabras.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "shared_experience",
+          "rationale": "La información permite una visita autónoma y comprensible."
+        }
+      ]
+    },
+    {
+      "family": "tr04_weather_rescheduling",
+      "role": "train",
+      "region": "es-CO",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Cancelaron por lluvia y eso lo entiendo; lo que me pareció una mamera fue que nadie supiera reprogramar cuando llamamos.",
+          "phenomena": [
+            "contrast",
+            "negative_concordance",
+            "regionalism"
+          ],
+          "discourse": "concession_then_complaint",
+          "rationale": "Acepta la cancelación pero critica la ausencia de solución."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "Por la lluvia, el paseo pasó del martes al jueves. El punto de encuentro siguió siendo la oficina del muelle.",
+          "phenomena": [],
+          "discourse": "schedule_change",
+          "rationale": "Comunica un cambio de fecha sin valorarlo."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "No es cierto que no nos dieran alternativas: pudimos escoger otro día y conservar la misma actividad. Me facilitaron bastante las vacaciones.",
+          "phenomena": [
+            "double_negation",
+            "negation"
+          ],
+          "discourse": "correction_then_outcome",
+          "rationale": "Rechaza una negación y destaca la solución recibida."
+        }
+      ]
+    },
+    {
+      "family": "tr05_room_thermostat",
+      "role": "train",
+      "region": "es-PE",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "El cuarto se anunciaba como un refugio calentito; terminamos durmiendo con la casaca porque el mando solo encendía una luz. Bonito refugio.",
+          "phenomena": [
+            "positive_words_negative_context"
+          ],
+          "discourse": "ironic_outcome",
+          "rationale": "El frío y el mando inútil sustentan la queja irónica."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "El control de temperatura esta en la pared, a la izquierda del ropero. El boton central enciende el equipo.",
+          "phenomena": [
+            "typo"
+          ],
+          "discourse": "location_and_instruction",
+          "rationale": "Ubicación e instrucción sin juicio."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Calorcito regulable; por fin dormí bien.",
+          "phenomena": [
+            "negative_concordance"
+          ],
+          "discourse": "consequence_then_verdict",
+          "rationale": "La regulación autónoma mejora el descanso."
+        }
+      ]
+    },
+    {
+      "family": "tr06_breakfast_options",
+      "role": "train",
+      "region": "es",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Había una mesa enorme de desayuno, aunque para elegir algo distinto de pan dulce solo quedaba pedirlo y esperar. Me fui sin desayunar.",
+          "phenomena": [
+            "contrast",
+            "mixed_aspects"
+          ],
+          "discourse": "abundance_vs_constraint",
+          "rationale": "La oferta aparente no se traduce en opciones útiles."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "El desayuno reúne fruta, panes y dos preparaciones calientes. Las bebidas se sirven en una mesa separada.",
+          "phenomena": [],
+          "discourse": "inventory",
+          "rationale": "Enumera alimentos y distribución."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Pregunté por una opción sin azúcar añadida y me explicaron qué llevaba cada preparación. Elegí con tranquilidad y desayuné a gusto.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "request_response",
+          "rationale": "La información y la opción disponible generan satisfacción."
+        }
+      ]
+    },
+    {
+      "family": "tr07_birdwatching_group",
+      "role": "train",
+      "region": "es-CO",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Éramos tantos alrededor del observador que solo vi espaldas. El lugar pintaba bacano, pero no alcancé a observar ningún ave.",
+          "phenomena": [
+            "contrast",
+            "negation",
+            "regionalism",
+            "mixed_aspects"
+          ],
+          "discourse": "blocked_goal",
+          "rationale": "La organización del grupo impide el objetivo de la actividad."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "El grupo se repartió entre dos puntos de observación y cambió de puesto a mitad de la mañana.",
+          "phenomena": [],
+          "discourse": "plain_sequence",
+          "rationale": "Relata la distribución del grupo sin calificarla."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Llegamos sin saber reconocer las aves y con la idea de caminar rápido para ver más. La observadora propuso lo contrario: repartirnos, callarnos un rato y volver a mirar el mismo árbol. Primero solo distinguí hojas; después vi cómo se movía un nido. Cuando pregunté algo básico no cambió de tema ni me hizo sentir fuera de lugar. Nos turnamos el visor y nadie tuvo que competir por acercarse. Me fui contento, no por acumular nombres, sino porque había aprendido a fijarme en detalles que antes pasaban de largo.",
+          "phenomena": [
+            "negation",
+            "regionalism"
+          ],
+          "discourse": "comparison",
+          "rationale": "Aprecia el ritmo y la participación del grupo pequeño."
+        }
+      ]
+    },
+    {
+      "family": "tr08_stargazing_lights",
+      "role": "train",
+      "region": "es-PE",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Nos invitaron a mirar el cielo desde una terraza con reflectores apuntándonos a la cara. Las estrellas quedaron en segundo plano y la salida perdió su gracia.",
+          "phenomena": [],
+          "discourse": "incompatible_conditions",
+          "rationale": "La iluminación arruina el propósito astronómico."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La observación se hizo en la terraza. Al comenzar apagaron tres lámparas y orientaron los telescopios hacia el oeste.",
+          "phenomena": [],
+          "discourse": "technical_description",
+          "rationale": "Expone acciones y orientación sin valoración."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Qué chévere reconocer por fin las constelaciones sin las luces de la ciudad encima. No nos apuraron para dejar el telescopio.",
+          "phenomena": [
+            "negation",
+            "regionalism"
+          ],
+          "discourse": "realized_goal",
+          "rationale": "Valora la observación tranquila y sin interferencia luminosa."
+        }
+      ]
+    },
+    {
+      "family": "tr09_weaving_hands_on",
+      "role": "train",
+      "region": "es",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "El taller era para aprender a tejer; las herramientas estuvieron todo el tiempo del lado del instructor. Salí con una foto, no con algo que supiera hacer.",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "discourse": "advertised_goal_vs_result",
+          "rationale": "La demostración no permite adquirir la destreza anunciada."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "En el taller se emplean fibras de dos colores. El bastidor permanece sobre la mesa y el hilo se pasa con una aguja plana.",
+          "phenomena": [],
+          "discourse": "process_description",
+          "rationale": "Describe materiales y técnica."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Me equivoqué varias veces con el telar. En vez de hacer la pieza por mí, me ayudaron a entender el error y al final pude continuar solo. Fue una mañana que sí me dejó algo.",
+          "phenomena": [
+            "contrast"
+          ],
+          "discourse": "learning_narrative",
+          "rationale": "La ayuda permite aprender de manera autónoma."
+        }
+      ]
+    },
+    {
+      "family": "tr10_estuary_tides",
+      "role": "train",
+      "region": "es-CO",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Llegamos para navegar y encontramos el bote sobre barro. Nos hablaron del paisaje, muy bonito todo, pero habían ignorado la marea al fijar la salida.",
+          "phenomena": [
+            "contrast",
+            "positive_words_negative_context",
+            "typo"
+          ],
+          "discourse": "cause_of_failure",
+          "rationale": "El horario mal elegido impide navegar."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La salida por el estero depende de la marea. El tablero del embarcadero indica dos ventanas de navegación para cada jornada.",
+          "phenomena": [],
+          "discourse": "operational_fact",
+          "rationale": "Información sobre horarios, sin sentimiento global."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Salimos justo cuando el agua permitía entrar entre las raíces. El guía explicó la relación con la marea y entendimos por qué ese horario valía la pena.",
+          "phenomena": [],
+          "discourse": "explanation_and_benefit",
+          "rationale": "El horario fundamentado permite aprovechar el recorrido."
+        }
+      ]
+    },
+    {
+      "family": "tr11_arrival_connection",
+      "role": "train",
+      "region": "es-PE",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Mandamos la hora de llegada antes de viajar. Igual nos dejaron buscando como entrar al hospedaje, con las mochilas en la vereda. Esa primera noche fue agotadora.",
+          "phenomena": [
+            "typo"
+          ],
+          "discourse": "prior_notice_ignored",
+          "rationale": "La llegada no coordinada perjudica el descanso."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "El registro nocturno se realiza en una entrada lateral. El código se entrega el día anterior por el canal de reserva.",
+          "phenomena": [],
+          "discourse": "procedural_description",
+          "rationale": "Describe el procedimiento sin aprobarlo ni rechazarlo."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Nuestro transporte se atrasó y pensé que perderíamos la entrada. No pasó: nos dejaron todo explicado y entramos sin despertar a los demás.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "feared_outcome_averted",
+          "rationale": "La coordinación resuelve una llegada tardía."
+        }
+      ]
+    },
+    {
+      "family": "tr12_mechanical_noise",
+      "role": "train",
+      "region": "es",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "No es verdad que no se oyera el motor. Cada vez que arrancaba me despertaba, incluso con las ventanas cerradas; descansar allí fue imposible.",
+          "phenomena": [
+            "double_negation",
+            "negation"
+          ],
+          "discourse": "correction_and_evidence",
+          "rationale": "La negación de ausencia de ruido se corrige con evidencia de molestia."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La habitación da al patio donde está el equipo de ventilación. El motor se activa por intervalos durante la noche.",
+          "phenomena": [],
+          "discourse": "setting_description",
+          "rationale": "Expone ubicación y ciclos sin decir si molestan."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Apenas cerramos la puerta dejó de llegar el sonido de la máquina. Dormimos toda la noche y amanecimos con ganas de continuar el viaje.",
+          "phenomena": [],
+          "discourse": "cause_and_recovery",
+          "rationale": "El aislamiento permite descansar."
+        }
+      ]
+    },
+    {
+      "family": "tr13_meal_coordination",
+      "role": "train",
+      "region": "es-CO",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Platos buenos, almuerzo descoordinado. No lo repetiría.",
+          "phenomena": [
+            "contrast",
+            "mixed_aspects",
+            "negation"
+          ],
+          "discourse": "social_goal_frustrated",
+          "rationale": "La descoordinación pesa más que la valoración del plato."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "En la mesa pedimos dos entradas y tres platos. Las entradas llegaron antes de que retiraran las cartas.",
+          "phenomena": [],
+          "discourse": "order_sequence",
+          "rationale": "Relata el pedido y el orden de llegada."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Hasta el último plato llegó cuando todos seguíamos a la mesa. Pudimos compartir y probar cosas sin que nadie tuviera que comer aparte.",
+          "phenomena": [
+            "negative_concordance"
+          ],
+          "discourse": "collective_benefit",
+          "rationale": "Aprecia la coordinación de la comida."
+        }
+      ]
+    },
+    {
+      "family": "tr14_guide_questions",
+      "role": "train",
+      "region": "es-PE",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "El guía se sabía las fechas, eso sí; cuando le preguntamos por qué importaban, volvió a recitar lo mismo. Nos quedamos con datos y sin comprender el lugar.",
+          "phenomena": [
+            "contrast",
+            "mixed_aspects"
+          ],
+          "discourse": "knowledge_vs_explanation",
+          "rationale": "La explicación no responde a las preguntas relevantes."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "Las preguntas se hicieron al final de cada parada. La primera trató sobre el origen del nombre del sitio.",
+          "phenomena": [],
+          "discourse": "session_description",
+          "rationale": "Describe la dinámica de preguntas."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Pregunté algo q no estaba en el guion y lo conectó con lo que ya habíamos visto. Se me quedó la historia, no solo una lista de nombres.",
+          "phenomena": [
+            "negation",
+            "typo"
+          ],
+          "discourse": "unscripted_connection",
+          "rationale": "La respuesta facilita comprender la historia."
+        }
+      ]
+    },
+    {
+      "family": "tr15_fog_visibility",
+      "role": "train",
+      "region": "es",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Subimos para ver el valle y arriba solo había niebla. Antes de comprar podían haber explicado que no se veía nada; me habría ahorrado esa decepción.",
+          "phenomena": [
+            "negation",
+            "negative_concordance"
+          ],
+          "discourse": "counterfactual_complaint",
+          "rationale": "La información previa habría evitado una compra inadecuada."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "El ascenso duró doce minutos. En la estación superior había niebla y el tablero marcaba la altura del valle.",
+          "phenomena": [],
+          "discourse": "measurement_description",
+          "rationale": "Observaciones de duración y condiciones sin evaluación."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "No prometieron una vista que el clima no dejaba ver. Nos avisaron abajo, elegimos subir otro día y el panorama compensó la espera.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "informed_choice",
+          "rationale": "La información honesta permite una elección satisfactoria."
+        }
+      ]
+    },
+    {
+      "family": "tr16_exhibit_route",
+      "role": "train",
+      "region": "es-CO",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Íbamos siguiendo la historia y de pronto tocó retroceder entre grupos para hallar la continuación. La exposición tenía contenido, pero recorrerla fue enredado.",
+          "phenomena": [
+            "contrast",
+            "mixed_aspects",
+            "regionalism"
+          ],
+          "discourse": "sequence_breakdown",
+          "rationale": "La distribución interrumpe la comprensión del recorrido."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "Entramos por la sala de objetos y salimos por la de fotografías. La conexión entre ambas pasa por un patio.",
+          "phenomena": [],
+          "discourse": "spatial_route",
+          "rationale": "Itinerario espacial sin juicio."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "La visita se entendía incluso sin ir pegados al guía. Cada sala dejaba claro cómo seguía la historia y pudimos avanzar a nuestro ritmo.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "autonomous_understanding",
+          "rationale": "La organización facilita una visita autónoma."
+        }
+      ]
+    },
+    {
+      "family": "tr17_bicycle_gears",
+      "role": "train",
+      "region": "es-PE",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "La bici lucía de estreno, pero los cambios se quedaban pegados justo al subir. Pasé más rato peleando con la palanca que mirando la ruta.",
+          "phenomena": [
+            "contrast",
+            "positive_words_negative_context"
+          ],
+          "discourse": "appearance_vs_function",
+          "rationale": "La apariencia no compensa el fallo de funcionamiento."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "Antes de salir ajustaron el sillín y mostraron las dos palancas de cambio. La ruta comenzó por un tramo plano.",
+          "phenomena": [],
+          "discourse": "preparation_sequence",
+          "rationale": "Describe la preparación de la bicicleta."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "No tuve que volver a la tienda ni una vez para ajustar la bici. Los cambios respondían y pude concentrarme en el paisaje, que era a lo que había ido.",
+          "phenomena": [
+            "negative_concordance"
+          ],
+          "discourse": "uninterrupted_goal",
+          "rationale": "El equipo permite disfrutar del recorrido sin interrupciones."
+        }
+      ]
+    },
+    {
+      "family": "tr18_humid_laundry",
+      "role": "train",
+      "region": "es",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Dejamos la ropa porque al día siguiente seguíamos viajando y necesitábamos guardarla seca. Al recogerla venía doblada, con un aroma fuerte y una presentación que parecía impecable. Solo cuando abrimos el paquete en la habitación notamos que las costuras estaban húmedas. No teníamos dónde tender tantas prendas y terminamos ocupando las sillas, las puertas y parte de la noche en resolverlo. Puede que la entrega pareciera rápida y cuidadosa; a nosotros nos añadió trabajo justo cuando queríamos descansar. Para ese viaje el servicio no cumplió su función.",
+          "phenomena": [
+            "positive_words_negative_context"
+          ],
+          "discourse": "delayed_consequence",
+          "rationale": "La presentación oculta un secado deficiente."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La ropa se entregó en una bolsa de tela. Las prendas pequeñas venían separadas de las chaquetas.",
+          "phenomena": [],
+          "discourse": "inventory_description",
+          "rationale": "Describe la entrega sin evaluación."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Con la humedad del lugar pensé que las prendas no secarían. Me las entregaron listas para guardar y eso me resolvió la siguiente etapa del viaje.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "concern_resolved",
+          "rationale": "El servicio resuelve una dificultad práctica."
+        }
+      ]
+    },
+    {
+      "family": "tr19_open_kitchen",
+      "role": "train",
+      "region": "es-CO",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Podíamos ver toda la cocina; bacano habría sido ver que dejaran de pasar los platos terminados de una mesa a otra buscando su destino. El mío acabó frío.",
+          "phenomena": [
+            "regionalism",
+            "positive_words_negative_context"
+          ],
+          "discourse": "observation_to_outcome",
+          "rationale": "La desorganización visible repercute en la comida."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La cocina se observa desde la barra. Las preparaciones salen por una abertura situada frente a las mesas del fondo.",
+          "phenomena": [],
+          "discourse": "layout_description",
+          "rationale": "Explica la distribución de la cocina."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Ver como preparaban los ingredientes me animo a probar algo distinto. Me explicaron el proceso mientras cocinaban y termine disfrutando tanto la charla como el plato.",
+          "phenomena": [
+            "typo"
+          ],
+          "discourse": "curiosity_to_satisfaction",
+          "rationale": "La preparación visible enriquece la experiencia."
+        }
+      ]
+    },
+    {
+      "family": "tr20_shore_litter",
+      "role": "train",
+      "region": "es-PE",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Prometía una orilla tranquila. No podíamos apoyar las manos en la arena sin topar con envolturas; nos fuimos antes de lo previsto.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "promise_and_obstacle",
+          "rationale": "La basura impide disfrutar la estancia."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "Desde el acceso caminamos hacia la orilla norte. Allí hay dos puntos de recolección y un letrero que señala la zona de pesca.",
+          "phenomena": [],
+          "discourse": "location_inventory",
+          "rationale": "Descripción de lugares y señales."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Nos quedamos hasta tarde mirando el mar. La zona estaba cuidada y encontramos dónde dejar lo que llevábamos sin ensuciar la playa.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "extended_enjoyment",
+          "rationale": "El cuidado del lugar permite prolongar una visita agradable."
+        }
+      ]
+    },
+    {
+      "family": "tr21_late_departure",
+      "role": "train",
+      "region": "es",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Ofrecían guardar las maletas hasta la salida del bus. Al entregar la habitación, ese servicio resultó ser dejar todo en medio del comedor; pasé la tarde pendiente de mis cosas.",
+          "phenomena": [],
+          "discourse": "promise_reinterpreted",
+          "rationale": "La solución ofrecida no permite despreocuparse del equipaje."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La salida del bus era a las seis y la entrega de la habitación a las once. Dejamos dos bolsos en recepción durante ese intervalo.",
+          "phenomena": [],
+          "discourse": "time_relation",
+          "rationale": "Horarios y hechos sin evaluación."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "El último día no se convirtió en una espera con maletas. Pudimos cambiarnos antes de salir y aprovechar unas horas más de la ciudad.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "avoided_wasted_time",
+          "rationale": "La flexibilidad mejora el último día del viaje."
+        }
+      ]
+    },
+    {
+      "family": "tr22_audio_volume",
+      "role": "train",
+      "region": "es-CO",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "No faltaban audífonos: faltaba que se pudiera bajar el volumen. Las voces sonaban tan duras que abandoné la audioguía a la segunda parada.",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "discourse": "problem_reframing",
+          "rationale": "La falta de control de volumen hace inutilizable la guía."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "El receptor tiene un botón lateral y dos canales. La entrega se hizo junto con una funda para los audífonos.",
+          "phenomena": [],
+          "discourse": "device_description",
+          "rationale": "Características del receptor sin evaluación."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Podía escuchar la explicación y seguir oyendo al grupo. No tuve que estar quitándome los audífonos para enterarme de lo que pasaba alrededor.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "simultaneous_benefits",
+          "rationale": "El equipo permite escuchar sin aislar al visitante."
+        }
+      ]
+    },
+    {
+      "family": "tr23_market_prices",
+      "role": "train",
+      "region": "es-PE",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Pregunté el precio total y respondieron con una lista de opciones que no entendí. Al final desistí de probar nada; comprar algo sencillo se volvió una complicación.",
+          "phenomena": [
+            "negation",
+            "negative_concordance"
+          ],
+          "discourse": "decision_abandoned",
+          "rationale": "La información confusa impide realizar la compra."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "Los puestos colocan los precios en una pizarra. Una columna corresponde a las porciones y otra a las bebidas.",
+          "phenomena": [],
+          "discourse": "display_description",
+          "rationale": "Describe la disposición de precios."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Me dijeron al toque qué incluía cada opción. Pude escoger sin estar preguntando por cada cosa y me quedé con ganas de volver al mercado.",
+          "phenomena": [
+            "regionalism",
+            "negation"
+          ],
+          "discourse": "clear_information",
+          "rationale": "La claridad facilita una compra satisfactoria."
+        }
+      ]
+    },
+    {
+      "family": "tr24_landmark_navigation",
+      "role": "train",
+      "region": "es",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "El mapa marcaba unas escaleras que ya no estaban. La foto era preciosa; para orientarnos no servía y terminamos dando vueltas.",
+          "phenomena": [
+            "negation",
+            "positive_words_negative_context"
+          ],
+          "discourse": "representation_vs_reality",
+          "rationale": "La información desactualizada no permite orientarse."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "El folleto describe una ruta que comienza en la plaza y continúa hacia la antigua estación. Entre ambos puntos menciona un jardín y un cruce con una calle peatonal. Las referencias se representan con letras, mientras que los servicios aparecen con símbolos. Nosotros entramos por la plaza, hicimos una pausa en el jardín y llegamos a la estación antes del cambio de turno. La vuelta se hizo por una calle paralela, que también figura en el reverso del papel. Guardamos el folleto junto a las entradas y seguimos hacia el siguiente lugar del itinerario.",
+          "phenomena": [],
+          "discourse": "map_description",
+          "rationale": "Describe el contenido del mapa."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Usaron referencias que de verdad veíamos al caminar, no nombres de calles que no aparecían en ninguna esquina. Llegamos sin depender del teléfono.",
+          "phenomena": [
+            "negative_concordance"
+          ],
+          "discourse": "useful_alternative",
+          "rationale": "Las referencias visibles facilitan orientarse."
+        }
+      ]
+    },
+    {
+      "family": "tr25_photography_rules",
+      "role": "train",
+      "region": "es-CO",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "En la entrada dijeron que podíamos fotografiar y adentro nos regañaron por hacerlo. Esa contradicción nos dejó incómodos durante el resto de la visita.",
+          "phenomena": [],
+          "discourse": "contradictory_instructions",
+          "rationale": "Las instrucciones inconsistentes perjudican la experiencia."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "En las salas interiores se permite fotografiar sin flash. La demostración del patio tiene una indicación diferente junto a la puerta.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "rules_description",
+          "rationale": "Expone reglas sin valorarlas."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Antes de entrar explicaron qué se podía fotografiar y por qué. Nadie tuvo que interrumpir después para corregirnos y la visita fluyó tranquila.",
+          "phenomena": [
+            "negative_concordance"
+          ],
+          "discourse": "clarity_prevents_disruption",
+          "rationale": "La explicación previa evita interrupciones incómodas."
+        }
+      ]
+    },
+    {
+      "family": "tr26_science_experiments",
+      "role": "train",
+      "region": "es-PE",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Los carteles decían «toca y descubre». Tocamos y no ocurrió nada; casi todas las experiencias estaban apagadas. Bonita manera de descubrir un museo.",
+          "phenomena": [
+            "negation",
+            "positive_words_negative_context"
+          ],
+          "discourse": "ironic_instruction",
+          "rationale": "Las actividades anunciadas no funcionan."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La primera mesa tiene una rueda y un generador. Al girarla se enciende una luz sobre el panel de conexiones.",
+          "phenomena": [],
+          "discourse": "mechanism_description",
+          "rationale": "Describe la relación entre una acción y su resultado."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "No era imposible entender los experimentos sin saber de física. Con dos pistas pudimos hacerlos funcionar y salimos comentando lo que habíamos aprendido.",
+          "phenomena": [
+            "double_negation",
+            "negation"
+          ],
+          "discourse": "access_to_learning",
+          "rationale": "La dificultad esperada se supera mediante explicaciones útiles."
+        }
+      ]
+    },
+    {
+      "family": "tr27_surf_instructions",
+      "role": "train",
+      "region": "es",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "La primera explicación fue tan rápida que ya estábamos en el agua sin saber cómo caer. Me sentí a la deriva dentro de una clase supuestamente para principiantes.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "premature_execution",
+          "rationale": "La enseñanza no prepara al principiante para la actividad."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La clase comenzó sobre arena y continuó en una zona de poca profundidad. Cada participante usó una tabla de espuma.",
+          "phenomena": [],
+          "discourse": "session_sequence",
+          "rationale": "Describe las etapas y el material."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Primero ensayamos fuera del agua y solo avanzamos cuando todos entendimos. Aunque no logré ponerme de pie muchas veces, me fui contento y con ganas de seguir aprendiendo.",
+          "phenomena": [
+            "contrast",
+            "negation",
+            "mixed_aspects"
+          ],
+          "discourse": "progress_over_perfection",
+          "rationale": "La experiencia de aprendizaje pesa más que un logro parcial."
+        }
+      ]
+    },
+    {
+      "family": "tr28_wildlife_distance",
+      "role": "train",
+      "region": "es-CO",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Para que viéramos al animal lo rodearon hasta que se escondió. Me vendieron un encuentro con la naturaleza y acabé presenciando cómo la espantaban.",
+          "phenomena": [],
+          "discourse": "goal_contradiction",
+          "rationale": "La conducta del grupo contradice el motivo de la visita."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La observación se realizó desde una cuerda señalizada. El grupo permaneció de ese lado mientras el animal cruzaba el claro.",
+          "phenomena": [],
+          "discourse": "observational_report",
+          "rationale": "Describe distancias y posiciones sin valoración."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Esperamos en silencio y el animal se acercó por su cuenta. No había que perseguirlo para verlo; ese momento valió más que cualquier foto preparada.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "patient_observation",
+          "rationale": "Valora una observación respetuosa y espontánea."
+        }
+      ]
+    },
+    {
+      "family": "tr29_plating_flavor",
+      "role": "train",
+      "region": "es-PE",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Para la foto, de lujo. Para comer, no: el pescado tenía más adorno que sabor y lo dejé casi entero.",
+          "phenomena": [
+            "contrast",
+            "negation",
+            "positive_words_negative_context"
+          ],
+          "discourse": "parallel_comparison",
+          "rationale": "La presentación no compensa la falta de sabor."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "El pescado venía sobre una base de yuca. Al lado había una salsa en un recipiente pequeño y dos rodajas de limón.",
+          "phenomena": [],
+          "discourse": "plate_description",
+          "rationale": "Detalla componentes sin evaluarlos."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "La presentación era sencilla y pensé que no me sorprendería. Me equivoqué: los sabores se entendían entre sí y terminé limpiando el plato con el último pedazo de pan.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "expectation_reversal",
+          "rationale": "El sabor supera una expectativa modesta."
+        }
+      ]
+    },
+    {
+      "family": "tr30_time_zone_booking",
+      "role": "train",
+      "region": "es",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "La confirmación mostraba una hora y la oficina trabajaba con otra. Perdimos la salida intentando aclarar de qué reloj estaban hablando; vaya precisión.",
+          "phenomena": [
+            "positive_words_negative_context"
+          ],
+          "discourse": "coordination_failure",
+          "rationale": "La discrepancia horaria hace perder la actividad."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La reserva indica la hora local del destino y la duración de la actividad. El correo también contiene una referencia al huso horario.",
+          "phenomena": [],
+          "discourse": "document_description",
+          "rationale": "Describe los campos de una reserva."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Viajábamos entre husos horarios y temíamos confundirnos. La confirmación mostraba ambos relojes y llegamos a la salida sin sobresaltos.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "confusion_prevented",
+          "rationale": "La información clara evita un error de coordinación."
+        }
+      ]
+    },
+    {
+      "family": "dv01_coffee_cupping",
+      "role": "validation",
+      "region": "es-CO",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Anunciaban una cata y nos dieron tres vasos sin explicar qué comparábamos. Me fui con cafeína, no con una idea nueva del café.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "goal_vs_result",
+          "rationale": "Falta la explicación central de la actividad."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "Dos muestras, un cuaderno y una jarra.",
+          "phenomena": [],
+          "discourse": "inventory",
+          "rationale": "Descripción de materiales."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "No tenía experiencia catando y aun así distinguí los aromas con las pistas que nos dieron. Ahora entiendo mejor lo que pido cuando tomo café.",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "discourse": "learning_outcome",
+          "rationale": "Se adquiere una capacidad nueva."
+        }
+      ]
+    },
+    {
+      "family": "dv02_kayak_signals",
+      "role": "validation",
+      "region": "es-PE",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "El grupo remaba en direcciones distintas y nadie sabía qué significaban los gestos del instructor. Volví tenso de una salida que debía ser tranquila.",
+          "phenomena": [
+            "negative_concordance"
+          ],
+          "discourse": "coordination_breakdown",
+          "rationale": "Las señales incomprensibles producen tensión."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "Antes de remar se mostraron tres señales con la pala. La primera se uso al cruzar junto al embarcadero.",
+          "phenomena": [
+            "typo"
+          ],
+          "discourse": "sequence_description",
+          "rationale": "Describe las señales usadas."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "La corriente cambió y por un momento me preocupé. Con una señal q ya habíamos practicado nos juntamos otra vez, sin gritos ni confusión.",
+          "phenomena": [
+            "negation",
+            "typo"
+          ],
+          "discourse": "rehearsal_pays_off",
+          "rationale": "La preparación permite resolver un cambio de condiciones."
+        }
+      ]
+    },
+    {
+      "family": "dv03_thermal_turns",
+      "role": "validation",
+      "region": "es",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "La reserva por turnos parecía ordenada, pero al entrar coincidían tres grupos en la misma poza. No encontré el descanso que buscaba.",
+          "phenomena": [
+            "contrast",
+            "negation",
+            "positive_words_negative_context"
+          ],
+          "discourse": "capacity_mismatch",
+          "rationale": "La saturación frustra el descanso."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "Las pozas se usan por turnos de media hora. La pulsera cambia de color según el horario asignado.",
+          "phenomena": [],
+          "discourse": "system_description",
+          "rationale": "Explica un sistema de turnos."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "No hubo nadie que no encontrara espacio para sentarse. Salimos renovados después del baño y sin sentir que debíamos apurarnos.",
+          "phenomena": [
+            "double_negation",
+            "negative_concordance"
+          ],
+          "discourse": "collective_rest",
+          "rationale": "Todos pueden descansar con espacio y tiempo."
+        }
+      ]
+    },
+    {
+      "family": "dv04_tactile_relief",
+      "role": "validation",
+      "region": "es-CO",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "El relieve estaba, pero había que sostenerlo en el aire mientras otra persona alumbraba las etiquetas. Una ayuda que terminó complicándonos la visita.",
+          "phenomena": [
+            "contrast",
+            "positive_words_negative_context"
+          ],
+          "discourse": "tool_defeats_purpose",
+          "rationale": "La disposición impide usar cómodamente el recurso."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La maqueta tiene relieves del barrio y una leyenda lateral. Se encuentra sobre una mesa en el vestíbulo.",
+          "phenomena": [],
+          "discourse": "spatial_description",
+          "rationale": "Describe el objeto y su ubicación."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "La maqueta nos permitió imaginar el barrio antes de salir a recorrerlo. Cada explicación encontraba un lugar que podíamos señalar con la mano.",
+          "phenomena": [],
+          "discourse": "orientation_benefit",
+          "rationale": "La representación facilita comprender el espacio."
+        }
+      ]
+    },
+    {
+      "family": "dv05_ceramic_firing",
+      "role": "validation",
+      "region": "es-PE",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Hicimos la pieza y recién al irnos dijeron q el horno no funcionaba esa semana. Nos habrían ahorrado la ilusión de llevar algo terminado.",
+          "phenomena": [
+            "negation",
+            "typo"
+          ],
+          "discourse": "late_disclosure",
+          "rationale": "La información tardía frustra una expectativa creada."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "Las piezas entran al horno al final de la semana. La entrega se realiza después de la etapa de enfriamiento.",
+          "phenomena": [],
+          "discourse": "process_description",
+          "rationale": "Calendario técnico sin evaluación."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Explicaron desde el principio cuánto tardaba la cocción y nos ofrecieron ver el horno de una tanda anterior. Nos llevamos una idea completa del proceso, no solo una manualidad.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "transparent_process",
+          "rationale": "La explicación permite comprender el proceso completo."
+        }
+      ]
+    },
+    {
+      "family": "dv06_rooftop_air",
+      "role": "validation",
+      "region": "es",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Escogimos la terraza para sentarnos a conversar después de caminar toda la mañana. Desde la mesa se veía el barrio y la luz del atardecer parecía prometer un cierre bonito. El problema apareció cuando comenzó a trabajar la extracción de la cocina: por ratos no se podía distinguir el olor de la comida del humo que llegaba a nuestra cara. Cambiamos las sillas de posición, esperamos un poco y dejamos pasar otra ronda de platos. Nada de eso cambió la situación. Pedimos la cuenta sin terminar las bebidas porque ya solo queríamos salir a respirar en otro sitio.",
+          "phenomena": [
+            "contrast",
+            "mixed_aspects"
+          ],
+          "discourse": "benefit_overridden",
+          "rationale": "El humo pesa más que la vista."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La terraza ocupa la última planta. La extracción de la cocina está situada en un costado del edificio.",
+          "phenomena": [],
+          "discourse": "layout_description",
+          "rationale": "Descripción arquitectónica sin valoración."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Pudimos quedarnos conversando hasta el atardecer. Corría aire y la cocina no invadía la mesa con olores; fue el cierre tranquilo que necesitábamos.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "sustained_comfort",
+          "rationale": "El ambiente permite disfrutar de la estancia."
+        }
+      ]
+    },
+    {
+      "family": "dv07_textile_dyes",
+      "role": "validation",
+      "region": "es-CO",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Todo terminó siendo una exhibición de telas ya hechas. Preguntamos cómo obtenían los colores y nos respondieron señalando la tienda.",
+          "phenomena": [],
+          "discourse": "question_evaded",
+          "rationale": "La actividad no responde a la curiosidad sobre el proceso."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La demostración presentó dos tintes vegetales. Las muestras sin teñir quedaron en una bandeja distinta de las coloreadas.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "materials_description",
+          "rationale": "Distingue materiales sin evaluarlos."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Bacano ver cambiar el color paso a paso, en vez de que nos pidieran creer en un cartel. Pudimos comparar la fibra antes y después del baño.",
+          "phenomena": [
+            "regionalism"
+          ],
+          "discourse": "visible_process",
+          "rationale": "La demostración concreta hace comprensible el proceso."
+        }
+      ]
+    },
+    {
+      "family": "dv08_subtitle_synchrony",
+      "role": "validation",
+      "region": "es-PE",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Los subtítulos iban tan atrasados que ya había cambiado la escena cuando llegaba la explicación. Terminé más confundido que al empezar el documental.",
+          "phenomena": [],
+          "discourse": "temporal_mismatch",
+          "rationale": "La desincronización dificulta comprender el documental."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "El documental tiene subtítulos en la parte inferior. Al terminar se encienden las luces de la sala.",
+          "phenomena": [],
+          "discourse": "plain_description",
+          "rationale": "Expone características y secuencia."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "No es cierto que no pueda seguirse la película sin sonido: los subtítulos y las imágenes se acompañan bien. La pude entender de principio a fin.",
+          "phenomena": [
+            "double_negation",
+            "negation"
+          ],
+          "discourse": "claim_correction",
+          "rationale": "La información visual permite comprender la película."
+        }
+      ]
+    },
+    {
+      "family": "dv09_cave_group_echo",
+      "role": "validation",
+      "region": "es",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Las explicaciones rebotaban con las voces de los otros grupos. No alcanzaba a entender ni una frase y acabé siguiendo linternas por la cueva.",
+          "phenomena": [
+            "negation",
+            "negative_concordance"
+          ],
+          "discourse": "information_lost",
+          "rationale": "El eco y la superposición anulan la explicación."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "En la cueva se hicieron tres paradas. El guía encendió la luz de la pared antes de hablar en cada una.",
+          "phenomena": [],
+          "discourse": "chronological_description",
+          "rationale": "Relata paradas y acciones."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "En lugar de hablar más fuerte, esperaron a que el otro grupo se alejara. Entonces pudimos escuchar y el recorrido tuvo sentido.",
+          "phenomena": [],
+          "discourse": "practical_adjustment",
+          "rationale": "Una adaptación resuelve el problema acústico."
+        }
+      ]
+    },
+    {
+      "family": "dv10_coast_observation",
+      "role": "validation",
+      "region": "es-CO",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "El mirador se anunciaba para observar la costa, pero la explicación se quedó en nombres de hoteles. Salí sin entender las formas que tenía delante.",
+          "phenomena": [
+            "contrast",
+            "negation"
+          ],
+          "discourse": "topic_mismatch",
+          "rationale": "La explicación no satisface el objetivo geográfico."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "Desde el mirador se observan dos ensenadas. Una línea del panel señala dónde desemboca el río.",
+          "phenomena": [],
+          "discourse": "landscape_description",
+          "rationale": "Observación física sin valoración."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Cuando nos mostraron cómo había cambiado la costa, el paisaje dejó de ser una postal. Me gustó salir con preguntas nuevas y con formas de reconocer lo que veía.",
+          "phenomena": [],
+          "discourse": "changed_understanding",
+          "rationale": "La explicación enriquece la observación."
+        }
+      ]
+    },
+    {
+      "family": "dv11_shared_tasting",
+      "role": "validation",
+      "region": "es-PE",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "La degustación llegó en platos que no alcanzaban para compartir entre todos. Qué generosidad: varios probamos mirando cómo comían los demás.",
+          "phenomena": [
+            "negation",
+            "positive_words_negative_context"
+          ],
+          "discourse": "ironic_exclusion",
+          "rationale": "Las porciones impiden participar a todo el grupo."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "Las muestras de la degustación se colocaron en el centro. Había una cucharita para cada participante.",
+          "phenomena": [],
+          "discourse": "table_description",
+          "rationale": "Descripción del servicio."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Pude probar de todo sin terminar empachado. Ajustaron las porciones para el grupo y conversamos sobre las diferencias, no sobre a quién le faltaba.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "proportional_sharing",
+          "rationale": "Las porciones permiten una participación satisfactoria."
+        }
+      ]
+    },
+    {
+      "family": "dv12_sundial_demo",
+      "role": "validation",
+      "region": "es",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "El reloj de sol quedaba bajo una lona y nadie podía mostrar cómo funcionaba. Habría sido más útil leer una foto en casa.",
+          "phenomena": [
+            "negative_concordance"
+          ],
+          "discourse": "demonstration_prevented",
+          "rationale": "La disposición impide demostrar el objeto."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "El reloj de sol tiene marcas alrededor de una varilla. La sombra cambió de posición durante la explicación.",
+          "phenomena": [],
+          "discourse": "observational_description",
+          "rationale": "Observa un fenómeno sin juzgarlo."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Lo q parecía un adorno terminó sirviendo para entender cómo se medía el tiempo. La demostración aprovechó la sombra del momento y me enganchó.",
+          "phenomena": [
+            "typo"
+          ],
+          "discourse": "object_reinterpreted",
+          "rationale": "La demostración permite aprender y despierta interés."
+        }
+      ]
+    },
+    {
+      "family": "ch01_compass_stations",
+      "role": "challenge",
+      "region": "es-CO",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Nos repartieron brújulas y nos mandaron de un poste a otro sin explicar la relación entre la aguja y el plano. El juego de orientación fue adivinar qué querían.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "missing_concept",
+          "rationale": "Falta la explicación que permitiría participar con sentido."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La actividad de orientación tiene seis estaciones. En cada poste se registra un rumbo antes de pasar al siguiente.",
+          "phenomena": [],
+          "discourse": "procedure_description",
+          "rationale": "Describe reglas y cantidad de estaciones."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Al principio yo seguía a quien iba adelante. Después de practicar cómo alinear la aguja con el plano pude encontrar una estación por mi cuenta. Esa pequeña conquista hizo bacana la salida.",
+          "phenomena": [
+            "regionalism"
+          ],
+          "discourse": "growing_autonomy",
+          "rationale": "La actividad permite aprender y actuar de manera autónoma."
+        }
+      ]
+    },
+    {
+      "family": "ch02_salt_flat_photographs",
+      "role": "challenge",
+      "region": "es-PE",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Nos prometieron jugar con la perspectiva en el salar; cada intento terminaba antes de que entendiéramos dónde ponernos. Tengo fotos, pero todas del apuro.",
+          "phenomena": [
+            "contrast"
+          ],
+          "discourse": "rushed_goal",
+          "rationale": "El ritmo impide realizar la actividad ofrecida."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "Para la fotografía en perspectiva una persona se colocó cerca de la cámara y otras dos caminaron varios metros detrás.",
+          "phenomena": [],
+          "discourse": "position_description",
+          "rationale": "Describe posiciones sin evaluar la experiencia."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "No hubo una foto que no pudiéramos repetir si alguien se movía. Terminamos riéndonos de los intentos y nos llevamos justo el recuerdo que queríamos.",
+          "phenomena": [
+            "double_negation",
+            "negative_concordance"
+          ],
+          "discourse": "room_for_retry",
+          "rationale": "La posibilidad de repetir permite disfrutar de la actividad."
+        }
+      ]
+    },
+    {
+      "family": "ch03_community_radio_story",
+      "role": "challenge",
+      "region": "es",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "La historia se escuchaba por una radio compartida que cambiaba de emisora con cada movimiento. A la tercera interrupción perdí el hilo y también el interés.",
+          "phenomena": [],
+          "discourse": "repeated_interruption",
+          "rationale": "Los cortes impiden seguir el relato."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "El relato del barrio se transmite en una frecuencia local. El receptor se entrega en la primera parada del paseo.",
+          "phenomena": [],
+          "discourse": "system_description",
+          "rationale": "Información técnica y de entrega."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Escuchar a los vecinos contar el barrio con sus voces cambió la caminata. No necesitaba una voz solemne para sentir que estaba conociendo el lugar desde dentro.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "value_of_local_voice",
+          "rationale": "Aprecia la perspectiva de los vecinos."
+        }
+      ]
+    },
+    {
+      "family": "ch04_festival_flow",
+      "role": "challenge",
+      "region": "es-CO",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Todo el mundo decía por aquí y ninguna indicación aclaraba cómo volver a juntarnos. La fiesta se nos convirtió en buscar al grupo entre empujones.",
+          "phenomena": [
+            "negative_concordance"
+          ],
+          "discourse": "coordination_failure",
+          "rationale": "La falta de orientación perjudica la participación."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La comparsa pasó primero por el puente y después por la plaza. El grupo tenía un punto de reunión junto a una bandera.",
+          "phenomena": [],
+          "discourse": "event_route",
+          "rationale": "Describe recorrido y reunión."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Con tanta gente, pensé que veríamos la fiesta desde lejos. Nos señalaron un punto para observar y otro para reunirnos después; pude disfrutar sin estar pendiente de perder al grupo.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "planning_enables_enjoyment",
+          "rationale": "La coordinación permite participar con tranquilidad."
+        }
+      ]
+    },
+    {
+      "family": "ch05_cacao_fermentation",
+      "role": "challenge",
+      "region": "es-PE",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Nos dieron cacao para probar, aunque nadie explicó por qué olían distinto las muestras. La supuesta experiencia de fermentación fue mirar cajones y salir a comprar chocolate.",
+          "phenomena": [
+            "contrast",
+            "negative_concordance"
+          ],
+          "discourse": "activity_reduced_to_shop",
+          "rationale": "La falta de explicación vacía el contenido de la actividad."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "Las muestras corresponden a tres días de fermentación. La caja del segundo día se abrió antes de la última.",
+          "phenomena": [],
+          "discourse": "sample_sequence",
+          "rationale": "Describe muestras y orden."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Pensaba que la visita al cacao iba a terminar siendo otra explicación que olvidaría al llegar al hotel. Nos acercamos a tres cajones y nos pidieron describir el olor sin buscar una respuesta elegante. Después abrieron cada muestra y relacionaron lo que habíamos dicho con el tiempo de fermentación. No entendí todos los detalles a la primera, pero pude volver a comparar y preguntar. Al probar el chocolate del final reconocí algo de aquellos aromas. Me gustó esa manera de aprender con lo que teníamos delante; salí con una relación nueva entre el proceso y el sabor.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "sensory_learning",
+          "rationale": "La comparación sensorial permite comprender el proceso."
+        }
+      ]
+    },
+    {
+      "family": "ch06_mangrove_boardwalk",
+      "role": "challenge",
+      "region": "es",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "La plataforma vibraba cada vez que el grupo se movía y no podíamos mantener la vista fija en los cangrejos. Acabé dedicando más atención al suelo que al manglar.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "attention_displaced",
+          "rationale": "Las condiciones de observación frustran el propósito de la visita."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La pasarela del manglar tiene tres plataformas de observación. La última se encuentra sobre un canal estrecho.",
+          "phenomena": [],
+          "discourse": "spatial_description",
+          "rationale": "Describe la pasarela sin juzgarla."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Nos repartieron entre las plataformas y dejaron unos minutos sin movimiento. Entonces aparecieron detalles que no habría visto pasando de largo; fue lo más interesante del paseo.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "stillness_reveals_detail",
+          "rationale": "La organización permite una observación enriquecedora."
+        }
+      ]
+    },
+    {
+      "family": "ch07_fishing_net_repair",
+      "role": "challenge",
+      "region": "es-CO",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Nos sentaron a mirar nudos y se quedaron conversando de otra cosa. Preguntar para qué servía cada amarre parecía interrumpir una charla en la que sobraba nuestra visita.",
+          "phenomena": [],
+          "discourse": "visitor_excluded",
+          "rationale": "El visitante no recibe una explicación que le permita participar."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La red se extendió entre dos soportes. Durante la visita se reemplazaron los amarres de una de las esquinas.",
+          "phenomena": [],
+          "discourse": "work_description",
+          "rationale": "Describe una reparación sin evaluarla."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "No es que no pudiéramos preguntar: cada duda acababa en una demostración con la red en la mano. Me gustó entender el oficio a partir de lo que estaban reparando.",
+          "phenomena": [
+            "double_negation",
+            "negation"
+          ],
+          "discourse": "correction_and_demonstration",
+          "rationale": "La apertura a preguntas facilita comprender el oficio."
+        }
+      ]
+    },
+    {
+      "family": "ch08_market_tokens",
+      "role": "challenge",
+      "region": "es-PE",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Para comer había que cambiar dinero por fichas. Nos explicaron las fichas después de hacer la cola y hubo que empezar de nuevo; la organización nos quitó las ganas de probar.",
+          "phenomena": [],
+          "discourse": "late_instruction",
+          "rationale": "La explicación tardía provoca repetir un trámite y abandonar la experiencia."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "En la feria se usan fichas de dos colores. Una corresponde a bebidas y otra a porciones de comida.",
+          "phenomena": [],
+          "discourse": "system_description",
+          "rationale": "Explica equivalencias sin valoración."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Nos mostraron como usar las fichas antes de entrar y pudimos ir de puesto en puesto al toque. Se sintio practico hasta para quienes nunca habiamos venido.",
+          "phenomena": [
+            "regionalism",
+            "negation",
+            "typo"
+          ],
+          "discourse": "barrier_removed",
+          "rationale": "La explicación previa facilita participar por primera vez."
+        }
+      ]
+    },
+    {
+      "family": "ch09_clock_chimes",
+      "role": "challenge",
+      "region": "es",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Esperamos la demostración del reloj para escuchar cómo distinguían las horas, pero pusieron música encima. El sonido que habíamos ido a conocer quedó tapado.",
+          "phenomena": [
+            "contrast"
+          ],
+          "discourse": "central_signal_masked",
+          "rationale": "La organización oculta el elemento central de la actividad."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "El mecanismo del reloj mueve cuatro campanas. La demostracion comenzo cuando la aguja larga llego a la marca superior.",
+          "phenomena": [
+            "typo"
+          ],
+          "discourse": "mechanism_description",
+          "rationale": "Describe el mecanismo y el inicio de la demostración."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Pudimos escuchar cada campana por separado y luego reconocerlas juntas. Ahora ese reloj me dice algo más que la hora; disfruté mucho entender su sonido.",
+          "phenomena": [],
+          "discourse": "recognition_learned",
+          "rationale": "La demostración permite reconocer y apreciar el mecanismo."
+        }
+      ]
+    },
+    {
+      "family": "ch10_waterfall_mist",
+      "role": "challenge",
+      "region": "es-CO",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "La neblina del salto mojaba los lentes a cada paso. Me dijeron que el puente era el mejor lugar para observar, pero de allí me fui sin distinguir casi nada.",
+          "phenomena": [
+            "contrast",
+            "negative_concordance"
+          ],
+          "discourse": "vantage_point_fails",
+          "rationale": "El punto recomendado no permite realizar la observación."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "El puente cruza frente al salto. El agua levantaba neblina hacia el lado por donde caminaba el grupo.",
+          "phenomena": [],
+          "discourse": "weather_observation",
+          "rationale": "Describe posición y condiciones del agua."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "El guía nos hizo esperar un cambio del viento en vez de seguir avanzando por avanzar. Cuando se despejó la neblina pude apreciar la caída completa y entendí por qué valía la pena parar.",
+          "phenomena": [],
+          "discourse": "timely_pause",
+          "rationale": "La pausa fundamentada permite observar el salto."
+        }
+      ]
+    },
+    {
+      "family": "ch11_planetarium_projection",
+      "role": "challenge",
+      "region": "es-PE",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Qué moderno: media proyección cortada. Decepcionante.",
+          "phenomena": [
+            "contrast",
+            "mixed_aspects",
+            "positive_words_negative_context"
+          ],
+          "discourse": "presentation_vs_content",
+          "rationale": "El equipo no muestra la información necesaria."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La proyección ocupa el techo de la sala. Al comenzar se marcó una línea para representar el horizonte.",
+          "phenomena": [],
+          "discourse": "projection_description",
+          "rationale": "Describe la proyección sin evaluación."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "No fue una explicación imposible de seguir, ni siquiera para mí que recién aprendía los nombres. La proyección acompañó cada cambio del cielo y lo entendí con ganas de saber más.",
+          "phenomena": [
+            "double_negation",
+            "negation"
+          ],
+          "discourse": "accessibility_of_explanation",
+          "rationale": "La explicación y la imagen permiten comprender un tema nuevo."
+        }
+      ]
+    },
+    {
+      "family": "ch12_vineyard_reusable_cups",
+      "role": "challenge",
+      "region": "es",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Hablaban de una visita sin residuos y cambiaban el vaso desechable con cada muestra. Tanto discurso bonito terminó pareciéndome parte de la decoración.",
+          "phenomena": [
+            "negation",
+            "positive_words_negative_context"
+          ],
+          "discourse": "claim_vs_practice",
+          "rationale": "La práctica contradice el mensaje de la visita."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "Cada persona recibió una copa marcada al entrar. Entre muestras había un punto de enjuague junto a la mesa.",
+          "phenomena": [],
+          "discourse": "procedure_description",
+          "rationale": "Describe el uso y limpieza de copas."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Conservamos la misma copa durante la visita y explicaron cómo separaban lo que sobraba. Agradecí ver acciones concretas detrás del mensaje, aunque no todo estuviera resuelto.",
+          "phenomena": [
+            "contrast",
+            "negation",
+            "mixed_aspects"
+          ],
+          "discourse": "qualified_approval",
+          "rationale": "Reconoce acciones útiles pese a límites explícitos."
+        }
+      ]
+    },
+    {
+      "family": "ch13_tunnel_ventilation",
+      "role": "challenge",
+      "region": "es-CO",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Nos hablaron del aire fresco del túnel. A mitad de camino se sentía encerrado y el grupo seguía avanzando sin una explicación; yo solo quería salir de allí.",
+          "phenomena": [
+            "negation",
+            "positive_words_negative_context"
+          ],
+          "discourse": "expectation_vs_discomfort",
+          "rationale": "El ambiente y la falta de explicación producen deseo de terminar."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "El túnel tiene dos aberturas de ventilación. En la segunda parada nos mostraron por dónde entra el aire.",
+          "phenomena": [],
+          "discourse": "physical_description",
+          "rationale": "Describe aberturas y explicación."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "No había que recorrerlo a la carrera. Las pausas cerca de las aberturas dejaban respirar, observar las paredes y escuchar con calma; terminé disfrutándolo más de lo que esperaba.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "pace_and_comfort",
+          "rationale": "El ritmo y las pausas permiten disfrutar del recorrido."
+        }
+      ]
+    },
+    {
+      "family": "ch14_fermentation_wait",
+      "role": "challenge",
+      "region": "es-PE",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Nos hicieron esperar frente a una olla sin decir qué estaba cambiando. Cuando preguntamos, la respuesta fue que faltaba esperar más. La actividad se sintió vacía.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "wait_without_purpose",
+          "rationale": "La espera no está acompañada de contenido comprensible."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La demostración tiene una pausa entre mezclar los ingredientes y abrir el recipiente. Durante ese tiempo se mantiene la tapa cerrada.",
+          "phenomena": [],
+          "discourse": "process_description",
+          "rationale": "Describe una pausa técnica."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "La espera no fue tiempo perdido: nos dieron dos muestras para entender qué estaba cambiando dentro de la olla. Así la parte lenta también tuvo sentido.",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "discourse": "wait_reinterpreted",
+          "rationale": "El contenido de la pausa enriquece el aprendizaje."
+        }
+      ]
+    },
+    {
+      "family": "ch15_train_window_direction",
+      "role": "challenge",
+      "region": "es",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Reservé el recorrido panorámico y quedé mirando la pared del vagón. El asiento tenía una ventanita, claro, justo detrás de mi hombro. Vaya panorama.",
+          "phenomena": [
+            "positive_words_negative_context"
+          ],
+          "discourse": "ironic_view",
+          "rationale": "La ubicación impide disfrutar del paisaje ofrecido."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "Los asientos del vagón se distribuyen en dos filas. La fila de la izquierda queda junto al río durante el primer tramo.",
+          "phenomena": [],
+          "discourse": "layout_description",
+          "rationale": "Describe asientos y orientación."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Ventanilla al río. ¡Cómo disfruté el recorrido!",
+          "phenomena": [],
+          "discourse": "brief_verdict",
+          "rationale": "La experiencia junto a la ventanilla se valora explícitamente como disfrutable."
+        }
+      ]
+    },
+    {
+      "family": "ch16_weather_information",
+      "role": "challenge",
+      "region": "es-CO",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "Cambió el tiempo y la información del grupo seguía diciendo q todo estaba igual. No me molestó cambiar el plan, me molestó enterarme cuando ya no había cómo organizarnos.",
+          "phenomena": [
+            "negation",
+            "contrast",
+            "typo"
+          ],
+          "discourse": "complaint_reframing",
+          "rationale": "La falta de actualización impide reorganizar la visita."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "El aviso del grupo se actualizó después del cambio del tiempo. La nueva versión trasladó la actividad al patio cubierto.",
+          "phenomena": [],
+          "discourse": "update_description",
+          "rationale": "Describe una actualización y cambio de lugar."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Apenas cambió el tiempo nos avisaron con opciones concretas. Escogimos la actividad cubierta y no perdimos la tarde adivinando si seguía en pie el paseo.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "early_information",
+          "rationale": "La actualización permite reorganizar el día."
+        }
+      ]
+    },
+    {
+      "family": "ch17_archive_search",
+      "role": "challenge",
+      "region": "es-PE",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "La búsqueda del archivo devolvía decenas de fichas y ninguna pista para distinguirlas. La pantalla parecía completa; para encontrar una historia concreta resultó inútil.",
+          "phenomena": [
+            "negative_concordance",
+            "positive_words_negative_context"
+          ],
+          "discourse": "quantity_without_guidance",
+          "rationale": "La abundancia de información no facilita la búsqueda."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La consulta del archivo se puede iniciar por el nombre de un barrio o por una década. Al abrir un resultado aparece una imagen digitalizada, una referencia y una lista de otras fichas relacionadas. Durante nuestra visita se mostró primero una búsqueda por barrio y luego una por década. Las fichas seleccionadas permanecieron abiertas en dos ventanas para poder alternarlas. El registro de la sesión incluía los números consultados y la hora de cierre. Antes de salir se devolvieron los auriculares a una bandeja y se apagaron las pantallas que ya no estaban en uso.",
+          "phenomena": [],
+          "discourse": "interface_description",
+          "rationale": "Describe funciones de consulta sin valorarlas."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "No se quedó en apretar botones. Nos enseñaron a relacionar una foto con otras del mismo barrio y pudimos seguir una historia propia dentro del archivo.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "search_becomes_inquiry",
+          "rationale": "La orientación permite una exploración autónoma y significativa."
+        }
+      ]
+    },
+    {
+      "family": "ch18_route_offline_signals",
+      "role": "challenge",
+      "region": "es",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "text": "El itinerario dependía de una señal que desaparecía al salir del pueblo. El supuesto acompañamiento digital nos dejó siguiendo una flecha inmóvil; acabamos dando media vuelta.",
+          "phenomena": [],
+          "discourse": "tool_dependency_fails",
+          "rationale": "La dependencia de conectividad impide continuar la actividad."
+        },
+        {
+          "intended_label": "neutral",
+          "text": "La ruta tiene un tramo con cobertura y otro sin señal. El dispositivo permite guardar el recorrido antes de salir.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "technical_description",
+          "rationale": "Describe cobertura y almacenamiento sin evaluación."
+        },
+        {
+          "intended_label": "positivo",
+          "text": "Descargamos el recorrido antes de caminar y las indicaciones siguieron funcionando donde no había señal. La tecnología acompañó el paseo sin obligarnos a mirar la pantalla a cada rato.",
+          "phenomena": [
+            "negation"
+          ],
+          "discourse": "independence_from_network",
+          "rationale": "El funcionamiento sin conexión facilita disfrutar del camino."
+        }
+      ]
+    }
+  ],
+  "ambiguity_cohort": [
+    {
+      "family": "amb01",
+      "text": "Del hotel me llevo recuerdos opuestos: aquí aprendí a descansar y aquí perdí las ganas de volver. No sé cuál pesa más.",
+      "intended_label": null,
+      "intended_review": true,
+      "role": "ambiguity"
+    },
+    {
+      "family": "amb02",
+      "text": "El paseo fue justo lo que mi grupo buscaba y exactamente lo que yo quería evitar. Todavía no sé cómo resumirlo.",
+      "intended_label": null,
+      "intended_review": true,
+      "role": "ambiguity"
+    },
+    {
+      "family": "amb03",
+      "text": "Qué experiencia tan particular; no decido si agradecer la sorpresa o reclamarla.",
+      "intended_label": null,
+      "intended_review": true,
+      "role": "ambiguity"
+    },
+    {
+      "family": "amb04",
+      "text": "El almuerzo tenía ese punto que para unos es virtud y para otros defecto. Yo sigo a medio camino.",
+      "intended_label": null,
+      "intended_review": true,
+      "role": "ambiguity"
+    },
+    {
+      "family": "amb05",
+      "text": "Al salir dije «brutal». Sin escuchar el tono no sé si se entiende como elogio o como queja.",
+      "intended_label": null,
+      "intended_review": true,
+      "role": "ambiguity"
+    },
+    {
+      "family": "amb06",
+      "text": "Nos trataron como en casa. Cada quien sabrá si eso es un elogio o una queja.",
+      "intended_label": null,
+      "intended_review": true,
+      "role": "ambiguity"
+    },
+    {
+      "family": "amb07",
+      "text": "El recorrido cambió mis planes y no estoy seguro de que eso haya sido para bien o para mal.",
+      "intended_label": null,
+      "intended_review": true,
+      "role": "ambiguity"
+    },
+    {
+      "family": "amb08",
+      "text": "El guía cumplió todo lo anunciado; aun así, me cuesta explicar qué sensación me dejó el viaje.",
+      "intended_label": null,
+      "intended_review": true,
+      "role": "ambiguity"
+    },
+    {
+      "family": "amb09",
+      "text": "El servicio fue demasiado atento, de esa manera que te hace sentir acompañado o vigilado, según cómo lo mires.",
+      "intended_label": null,
+      "intended_review": true,
+      "role": "ambiguity"
+    }
+  ],
+  "illustrative_user_examples": [
+    {
+      "family": "usr01",
+      "text": "El hotel no estuvo nada mal, aunque el baño estaba sucio",
+      "intended_label": null,
+      "intended_review": null,
+      "role": "illustrative"
+    },
+    {
+      "family": "usr02",
+      "text": "El guía fue excelente, pero la espera arruinó la experiencia",
+      "intended_label": null,
+      "intended_review": null,
+      "role": "illustrative"
+    },
+    {
+      "family": "usr03",
+      "text": "El recorrido no fue tan bueno como esperaba",
+      "intended_label": null,
+      "intended_review": null,
+      "role": "illustrative"
+    },
+    {
+      "family": "usr04",
+      "text": "La visita empezó a las nueve y terminó al mediodía",
+      "intended_label": null,
+      "intended_review": null,
+      "role": "illustrative"
+    }
+  ]
+}

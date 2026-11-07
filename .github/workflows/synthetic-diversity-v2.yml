@@ -6,7 +6,8 @@ on:
     paths:
       - 'src/traveler_agent/synthetic_diversity*.py'
       - 'src/traveler_agent/research_metrics.py'
-      - 'src/traveler_agent/research_data/**'
+      - 'src/traveler_agent/research_data/synthetic_diversity_v2.json'
+      - 'src/traveler_agent/research_data/synthetic_v2_protocol.json'
       - 'src/traveler_agent/beto_encoder_probe.py'
       - 'tests/test_synthetic_diversity*.py'
       - 'tests/test_research_metrics.py'

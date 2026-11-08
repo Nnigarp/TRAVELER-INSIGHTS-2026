@@ -117,6 +117,28 @@ def write_json(path, value, *, exclusive=True):
             if os.path.exists(temporary): os.unlink(temporary)
 
 
+def _optional_private_sha(path):
+    """Track absence as well as bytes for an optional private file."""
+    path = private_path(path)
+    return file_sha(path) if path.exists() else None
+
+
+def _verify_span_proofs(path, reviews, proof):
+    """Canonical evidence must exactly match the sealed human declarations."""
+    path = private_path(path)
+    by_id = {row["review_id"]: row["text"] for row in reviews}
+    expected = []
+    for (review_id, annotator_id), judgment in proof.items():
+        expected.extend({"review_id": review_id, "annotator_id": annotator_id, **span}
+                        for span in validate_span_entries(by_id[review_id], judgment["spans"]))
+    actual = _read_csv(path, SPAN_COLUMNS) if path.exists() else []
+    # A multiset preserves duplicate declarations without relying on CSV order.
+    def rows(values):
+        return Counter(tuple(row[column] for column in SPAN_COLUMNS) for row in values)
+    if rows(actual) != rows(expected):
+        raise CorpusError("Evidencias ausentes o distintas de los dictámenes humanos finalizados.")
+
+
 @contextmanager
 def coordinator_lock(root):
     lock = root / ".coordinator-lock"
@@ -504,6 +526,7 @@ class HumanIntake:
                 raise CorpusError("Anotación canónica sin prueba de paquete humano independiente.")
         if set(proof)!={(r["review_id"],r["annotator_id"]) for r in annotations}:
             raise CorpusError("Importación incompleta; reimportar el mismo archivo finalizado.")
+        _verify_span_proofs(self.root/"evidence_spans.csv", reviews, proof)
         return proof
 
     def adjudication_view(self, review_id):
@@ -593,6 +616,7 @@ class HumanIntake:
         if output.exists(): raise CorpusError("Snapshot ya existente; no sobrescribir.")
         with coordinator_lock(self.root):
             input_hashes={name:file_sha(private_path(self.root/name)) for name in ("sources.csv","reviews.csv","annotations.csv","adjudications.csv","intake_links.csv")}
+            input_hashes["evidence_spans.csv"] = _optional_private_sha(self.root/"evidence_spans.csv")
             sources,reviews,links,annotations,adjudications,receipts=self._records()
             proof,decisions=self._verified_decisions(reviews,annotations,adjudications)
             active=[r for r in reviews if receipts[r["source_id"]]["status"]=="active"]
@@ -614,7 +638,7 @@ class HumanIntake:
                     _write_csv(corpus/"evidence_spans.csv",SPAN_COLUMNS,[r for r in _read_csv(self.root/"evidence_spans.csv",SPAN_COLUMNS) if r["review_id"] in ids])
                 splits=prepare_splits(corpus/"reviews.csv",corpus/"sources.csv",corpus/"annotations.csv",corpus/"adjudications.csv",staging/"splits",seed=seed)
                 write_json(staging/"human-phenomena.json",{rid:decisions[rid]["judgment"] for rid in sorted(ids)})
-                if any(file_sha(self.root/name)!=digest for name,digest in input_hashes.items()):
+                if any(_optional_private_sha(self.root/name)!=digest for name,digest in input_hashes.items()):
                     raise CorpusError("Corpus cambiado durante el congelado; no se crea snapshot.")
                 manifest={"schema":"human-intake-snapshot-v1","status":"PARTITIONS_PREPARED_NOT_HUMAN_PERFORMANCE",
                     "origin_root":str(self.root.relative_to(Path.cwd().resolve())),"reviewed_by":reviewed_by,"created_at":_utc(),
@@ -626,6 +650,7 @@ class HumanIntake:
                         for path in sorted((self.root/folder).glob(pattern))},
                     "component_map":groups,"near_duplicate_screen":duplicates,"split_summary":splits["partitions"],
                     "phenomena_sha256":file_sha(staging/"human-phenomena.json"),
+                    "snapshot_evidence_sha256":_optional_private_sha(corpus/"evidence_spans.csv"),
                     "limits":["Author/place codes and declared semantic relations require human review; no guarantee all paraphrases are found.",
                               "All near-duplicate candidates are conservatively grouped, never deleted.",
                               "Nine components is a technical lower bound, not sample-size adequacy.",
@@ -644,17 +669,29 @@ class HumanIntake:
         manifest=read_json(snapshot/"human-snapshot.json")
         if manifest.get("schema")!="human-intake-snapshot-v1" or manifest["origin_root"]!=str(self.root.relative_to(Path.cwd().resolve())):
             raise CorpusError("Snapshot de otro flujo o versión.")
+        if ("evidence_spans.csv" not in manifest.get("intake_input_hashes", {})
+                or "snapshot_evidence_sha256" not in manifest):
+            raise CorpusError("Snapshot anterior sin control íntegro de evidencias; regenerar antes de entrenar.")
         with coordinator_lock(self.root):
             _,reviews,_,annotations,adjudications,_=self._records()
-            self._verified_decisions(reviews,annotations,adjudications)
+            proof,decisions=self._verified_decisions(reviews,annotations,adjudications)
             for author,digest in manifest["consent_receipt_hashes"].items():
                 if self._receipt(author)["status"]!="active" or file_sha(self.root/"permissions"/f"{author}.json")!=digest:
                     raise CorpusError("Consentimiento retirado o cambiado después del snapshot.")
-            if any(file_sha(self.root/name)!=digest for name,digest in manifest["intake_input_hashes"].items()):
+            if any(_optional_private_sha(self.root/name)!=digest for name,digest in manifest["intake_input_hashes"].items()):
                 raise CorpusError("Corpus de recogida cambió tras congelarse; revisar una nueva versión antes de entrenar.")
             if any(file_sha(private_path(self.root/name))!=digest for name,digest in manifest["annotation_proof_hashes"].items()):
                 raise CorpusError("Pruebas de anotación/adjudicación cambiaron tras congelarse.")
             if file_sha(snapshot/"human-phenomena.json")!=manifest["phenomena_sha256"]: raise CorpusError("Marcas humanas alteradas.")
+            judgments=read_json(snapshot/"human-phenomena.json")
+            ids=set(manifest["component_map"])
+            if judgments!={rid:decisions[rid]["judgment"] for rid in sorted(ids)}:
+                raise CorpusError("Dictámenes del snapshot distintos de la adjudicación privada, incluidas sus evidencias.")
+            evidence=snapshot/"corpus"/"evidence_spans.csv"
+            if _optional_private_sha(evidence)!=manifest["snapshot_evidence_sha256"]:
+                raise CorpusError("Evidencias del snapshot ausentes o modificadas.")
+            _verify_span_proofs(evidence, [row for row in reviews if row["review_id"] in ids],
+                                {key:value for key,value in proof.items() if key[0] in ids})
             verified_splits(snapshot/"corpus",snapshot/"splits")
         return {"status":"SNAPSHOT_AND_CURRENT_CONSENTS_VERIFIED_NOT_PERFORMANCE"}
 

@@ -59,17 +59,18 @@
     "offline_form_javascript_contract": "PASS_WITH_SYNTHETIC_INPUTS_NO_NETWORK",
     "ci": "CHECK_ACTUAL_PR_RUNS_NOT_ASSUMED",
     "local_pytest": {
-      "passed": 282,
+      "passed": 285,
       "xfailed": 1,
-      "new_tests": 28,
+      "new_tests": 31,
       "known_xfail": "tests/test_manual_regression.py::test_negation_expected_positive_is_known_limitation",
       "xfail_strict_unchanged": true
     },
-    "frozen_v2_v3_and_demo_files_diff": "EMPTY_VERIFIED"
+    "frozen_v2_v3_and_demo_files_diff": "EMPTY_VERIFIED",
+    "final_review_integrity_fix": "Canonical span multiset bound to sealed responses; origin/snapshot optional evidence presence+hash; adjudicated snapshot judgments compared with private decisions."
   },
   "annotation_guide_version": "PILOTO01-ANNOTATION-1",
   "implementation_sha256": {
-    "src/traveler_agent/human_intake.py": "cdb1a84c09b6418ed17d6c40df666a48e5188c5c9dfa8a25e5814215654ce4e0",
+    "src/traveler_agent/human_intake.py": "fe6faa92e31da6b0bc2648dca1ed1e2435f4dfce71457d9aca2c7e14e29c1220",
     "src/traveler_agent/human_intake_cli.py": "781edaec4dab15693b3a45901f378c8cfaa5c692c6a8a66729a655135934f58c",
     "src/traveler_agent/participant_form.py": "55dab62af7766244662e9dcac738b3091d15ea772cd52580622ec5a7d16dd03e",
     "corpus_annotation_app.py": "dc1b7250b05ebf01cc219bbfd04d9faa7f0f53c33fd9a79219dcc502a0319d77",

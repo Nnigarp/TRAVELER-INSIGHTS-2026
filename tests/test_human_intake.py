@@ -235,6 +235,32 @@ def test_private_snapshot_reuses_existing_splits_and_blocks_stale_consent(servic
     assert sum(part['rows'] for part in result['split_summary'].values())==36
     assert service.verify_snapshot(output)['status'].startswith('SNAPSHOT_AND_CURRENT')
     manifest=workflow.read_json(output/'human-snapshot.json')
+    assert manifest['intake_input_hashes']['evidence_spans.csv'] is None
+    assert manifest['snapshot_evidence_sha256'] is None
+    evidence=output/'corpus/evidence_spans.csv'
+    _write_csv(evidence,workflow.SPAN_COLUMNS,[])
+    with pytest.raises(CorpusError,match='Evidencias del snapshot'):
+        service.verify_snapshot(output)
+    evidence.unlink()
+    origin_evidence=service.root/'evidence_spans.csv'
+    _write_csv(origin_evidence,workflow.SPAN_COLUMNS,[])
+    with pytest.raises(CorpusError,match='Corpus de recogida cambió'):
+        service.verify_snapshot(output)
+    origin_evidence.unlink()
+    # Even a recomputed local hash cannot detach a judgment from its adjudication.
+    phenomenon_path=output/'human-phenomena.json'
+    original_phenomena=phenomenon_path.read_bytes()
+    phenomena=workflow.read_json(phenomenon_path)
+    phenomena[next(iter(phenomena))]['spans']=[{'aspect':'servicio','polarity':'neutral','start':0,'end':4}]
+    workflow.write_json(phenomenon_path,phenomena,exclusive=False)
+    changed_manifest=deepcopy(manifest)
+    changed_manifest['phenomena_sha256']=file_sha(phenomenon_path)
+    workflow.write_json(output/'human-snapshot.json',changed_manifest,exclusive=False)
+    with pytest.raises(CorpusError,match='Dictámenes del snapshot'):
+        service.verify_snapshot(output)
+    phenomenon_path.write_bytes(original_phenomena)
+    workflow.write_json(output/'human-snapshot.json',manifest,exclusive=False)
+    assert service.verify_snapshot(output)['status'].startswith('SNAPSHOT_AND_CURRENT')
     assigned={}
     from traveler_agent.corpus_splits import TRAIN_COLUMNS
     for split in ('train','validation','test'):
@@ -291,6 +317,27 @@ def test_unicode_spans_survive_blind_import_and_match_existing_annotation_tools(
     fixture_task(service,'ann', {rid:value})
     rows=_read_csv(service.root/'evidence_spans.csv',workflow.SPAN_COLUMNS)
     assert rows[0]['text']=='paciente' and int(rows[0]['start'])==start
+
+
+@pytest.mark.parametrize('mutation',['valid_replacement','delete','duplicate'])
+def test_canonical_spans_must_match_sealed_independent_answers(service,mutation):
+    _,author=fixture_author(service)
+    text='Fixture: la atención fue paciente.'
+    rid=fixture_review(service,author,text)
+    start=text.index('paciente')
+    value=judgment('positivo',aspects={'servicio':'positivo'},spans=[{'aspect':'servicio','polarity':'positivo','start':start,'end':start+8}])
+    fixture_task(service,'ann',{rid:value})
+    assert service.status()['annotation_rows']==1
+    evidence=service.root/'evidence_spans.csv'
+    rows=_read_csv(evidence,workflow.SPAN_COLUMNS)
+    if mutation=='delete':
+        evidence.unlink()
+    else:
+        if mutation=='valid_replacement': rows[0].update(start='0',end='7',text='Fixture')
+        else: rows.append(dict(rows[0]))
+        _write_csv(evidence,workflow.SPAN_COLUMNS,rows)
+    with pytest.raises(CorpusError,match='Evidencias ausentes o distintas'):
+        service.status()
 
 
 def test_nested_permission_directory_cannot_escape_private_root(service,tmp_path):

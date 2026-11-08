@@ -1,0 +1,35 @@
+name: Human intake — private workflow contracts
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/traveler_agent/human_intake*.py'
+      - 'src/traveler_agent/participant_form.py'
+      - 'corpus_annotation_app.py'
+      - 'tests/test_human*.py'
+      - 'tests/participant_form_contract.mjs'
+      - '.github/workflows/human-intake.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  private-contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - name: Install existing Python UI and test dependencies
+        run: python -m pip install -e '.[ui,test]'
+      - name: Test private consent blind annotation grouping and existing compatibility
+        run: python -m pytest -q tests/test_human_intake.py tests/test_human_annotation_ui.py tests/test_corpus.py tests/test_corpus_review.py
+      - name: Generate a blank form without registering any participant
+        run: python -m traveler_agent.human_intake_cli participant-form --out data/private/human-form-contract/form.html
+      - name: Exercise actual JavaScript consent and download handlers using fixtures
+        run: node tests/participant_form_contract.mjs data/private/human-form-contract/form.html
+      # No artifact upload: human files, consent records and packets stay private.

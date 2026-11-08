@@ -1,0 +1,30 @@
+{
+  "scope": "POST_ASSESSMENT_TOKENIZATION_AUDIT_ONLY_NO_FITTING_OR_LENGTH_SELECTION",
+  "revision": "c4d86612f51b4f46759c8390d1798c2febe71b93",
+  "lengths_include_special_tokens": true,
+  "roles": {
+    "train": {
+      "rows": 240,
+      "max_tokens": 128,
+      "over_128": 0,
+      "over_256": 0
+    },
+    "tune": {
+      "rows": 30,
+      "max_tokens": 46,
+      "over_128": 0,
+      "over_256": 0
+    },
+    "assessment": {
+      "rows": 90,
+      "max_tokens": 133,
+      "over_128": 2,
+      "over_256": 0
+    }
+  },
+  "selected_max_length_unchanged": 128,
+  "limits": [
+    "No inference at 256 on assessment; dev selected 128 before outcomes.",
+    "This audit cannot establish long-human-review performance."
+  ]
+}

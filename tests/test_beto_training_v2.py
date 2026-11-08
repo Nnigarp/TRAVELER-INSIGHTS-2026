@@ -137,3 +137,32 @@ def test_untrained_v2_manifest_is_rejected_before_loading_encoder(tmp_path,monke
     (root/'model_manifest.json').write_text(json.dumps({'schema':models.SCHEMA,'training':{'supervised':False}}))
     monkeypatch.setattr(models,'EncoderV2',lambda *_args,**_kwargs:pytest.fail('Untrained artifact must not load weights'))
     with pytest.raises(CorpusError,match='no supervisado'):models.load_model_v2(root)
+
+
+@pytest.mark.parametrize('field',['seed','classical_C','head_epoch','configuration','grid'])
+def test_reproduction_refuses_drift_from_pre_assessment_choices(field):
+    from scripts.verify_beto_v2_selection import verify
+    root=Path(__file__).resolve().parents[1]
+    locked=json.loads((root/'docs/research/beto-v2-development-selection.json').read_text(encoding='utf-8'))
+    changed=deepcopy(locked)
+    if field=='seed':changed['primary_seed']=7
+    elif field=='classical_C':changed['classical_selection']['lr_mixed240']['selected']['C']=999
+    elif field=='head_epoch':changed['head_selection']['mean_l2_128_mixed240']['selected']['epoch']=1
+    elif field=='configuration':changed['selected_candidate']['configuration']['encoder_lr']=.01
+    else:changed['candidates'][-1]['status']='NOT_EXECUTED_COMPUTE_BUDGET'
+    with pytest.raises(ValueError,match='drifted'):verify(changed,locked)
+    verify(locked,deepcopy(locked))
+
+
+def test_memory_launcher_uses_only_tune_workers_and_rejects_inherited_equal_peaks(tmp_path,monkeypatch):
+    from scripts import measure_beto_v2_memory as launcher
+    (tmp_path/'evaluation-models.json').write_text(json.dumps([{'key':'dummy'},{'key':'beto'}]))
+    calls=[]
+    def child(command,**kwargs):
+        calls.append(command)
+        return json.dumps({'model':command[-1],'peak_rss_mib':1161.695,'method':'fixture'})
+    monkeypatch.setattr(launcher.subprocess,'check_output',child)
+    result=launcher.measure(tmp_path)
+    assert result['telemetry_comparison_valid'] is False
+    assert len(calls)==2 and all('measure' in c and 'assess' not in c for c in calls)
+    assert (tmp_path/'inference-memory.json').is_file()

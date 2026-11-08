@@ -1,0 +1,202 @@
+{
+  "limits": [
+    "Synthetic author intent and residual writing-style correlations; no human-population interval.",
+    "Three seeds do not establish broad optimizer stability; all share the same synthetic evaluation.",
+    "Source and diversity are confounded in existing120 versus new120 comparisons.",
+    "This assessment is now observed, not a reusable fresh final test."
+  ],
+  "paired_family_bootstrap": {
+    "beto_frozen_mean_l2_128_existing120": {
+      "difference_from_lr_mixed240": {
+        "high_95": 0.052160068116778605,
+        "low_95": -0.1638587942023012,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 30,
+      "macro_f1_family_bootstrap": {
+        "high_95": 0.8696566749305085,
+        "low_95": 0.7077744064192787,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      }
+    },
+    "beto_frozen_mean_l2_128_mixed240": {
+      "difference_from_lr_mixed240": {
+        "high_95": 0.1272713467361817,
+        "low_95": -0.08910560492400003,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 30,
+      "macro_f1_family_bootstrap": {
+        "high_95": 0.9325461495345169,
+        "low_95": 0.7938838306843661,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      }
+    },
+    "beto_frozen_mean_l2_128_new120": {
+      "difference_from_lr_mixed240": {
+        "high_95": 0.14377728074126997,
+        "low_95": -0.04826638736656028,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 30,
+      "macro_f1_family_bootstrap": {
+        "high_95": 0.9442251652491804,
+        "low_95": 0.8293790729757594,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      }
+    },
+    "beto_selected_seed101": {
+      "difference_from_lr_mixed240": {
+        "high_95": 0.10855735948962897,
+        "low_95": -0.0974050492663717,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 30,
+      "macro_f1_family_bootstrap": {
+        "high_95": 0.9206245199692781,
+        "low_95": 0.770868101302884,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      }
+    },
+    "beto_selected_seed7": {
+      "difference_from_lr_mixed240": {
+        "high_95": 0.14842954481658951,
+        "low_95": -0.04229284977521568,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 30,
+      "macro_f1_family_bootstrap": {
+        "high_95": 0.9548529794431433,
+        "low_95": 0.8347411426665641,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      }
+    },
+    "beto_top2_low128": {
+      "difference_from_lr_mixed240": {
+        "high_95": 0.09781374940546375,
+        "low_95": -0.09657635490336867,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 30,
+      "macro_f1_family_bootstrap": {
+        "high_95": 0.9011840899751979,
+        "low_95": 0.78201474185422,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      }
+    },
+    "dummy_mixed240": {
+      "difference_from_lr_mixed240": {
+        "high_95": -0.5793581746807555,
+        "low_95": -0.7671815094821826,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 30,
+      "macro_f1_family_bootstrap": {
+        "high_95": 0.16666666666666666,
+        "low_95": 0.16666666666666666,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      }
+    },
+    "lr_existing120": {
+      "difference_from_lr_mixed240": {
+        "high_95": 0.0348449561093287,
+        "low_95": -0.1387650531983425,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 30,
+      "macro_f1_family_bootstrap": {
+        "high_95": 0.8588440690541173,
+        "low_95": 0.7192217813051147,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      }
+    },
+    "lr_mixed240": {
+      "difference_from_lr_mixed240": {
+        "high_95": 0.0,
+        "low_95": 0.0,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 30,
+      "macro_f1_family_bootstrap": {
+        "high_95": 0.9338481761488492,
+        "low_95": 0.746024841347422,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      }
+    },
+    "lr_new120": {
+      "difference_from_lr_mixed240": {
+        "high_95": 0.0650157581237679,
+        "low_95": -0.07113221424689581,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 30,
+      "macro_f1_family_bootstrap": {
+        "high_95": 0.922938599246058,
+        "low_95": 0.755864016882367,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      }
+    },
+    "svm_existing120": {
+      "difference_from_lr_mixed240": {
+        "high_95": 0.026181792960164842,
+        "low_95": -0.1744674004209347,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 30,
+      "macro_f1_family_bootstrap": {
+        "high_95": 0.85855438242445,
+        "low_95": 0.6826693088582951,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      }
+    },
+    "svm_mixed240": {
+      "difference_from_lr_mixed240": {
+        "high_95": 0.055125606806802584,
+        "low_95": -0.021433733428818894,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 30,
+      "macro_f1_family_bootstrap": {
+        "high_95": 0.9448077645643856,
+        "low_95": 0.7705585712238925,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      }
+    },
+    "svm_new120": {
+      "difference_from_lr_mixed240": {
+        "high_95": 0.00943446734475017,
+        "low_95": -0.14674540291998964,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 30,
+      "macro_f1_family_bootstrap": {
+        "high_95": 0.8793479615367227,
+        "low_95": 0.6717489342349332,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      }
+    }
+  },
+  "scope": "SAVED_SYNTHETIC_PREDICTIONS_ONLY_NO_FITTING_OR_POLICY_SELECTION",
+  "selected_configuration_seed_summary": {
+    "best_seed_selection_performed": false,
+    "macro_f1": [
+      0.845366751336439,
+      0.8962498244299827,
+      0.8487688541419884
+    ],
+    "mean_macro_f1": 0.8634618099694701,
+    "model_keys": [
+      "beto_top2_low128",
+      "beto_selected_seed7",
+      "beto_selected_seed101"
+    ],
+    "negative_to_positive": [
+      1,
+      5,
+      8
+    ],
+    "sample_std_macro_f1": 0.02844615958388709,
+    "seed_selected_for_UI": 42
+  },
+  "source_report_sha256": "d504bd0f2e7f257f429079322e1d1de5f243371972e16b80977417041f9d90c2"
+}

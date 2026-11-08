@@ -216,11 +216,10 @@ def assess(output,registration,cache,commit,*,replicas=True):
             predictions.append({'model':key,'review_id':row['review_id'],'family':row['family'],'intended_label':str(y),
                                 'prediction':str(p),'probabilities':s.tolist(),'calibrated_probabilities':c.tolist()})
         del model;gc.collect()
-        # A fresh process attributes memory to one inference backend, rather than
-        # mislabelling this process's cumulative fine-tuning high-water mark.
-        measured=subprocess.check_output([sys.executable,'-m','traveler_agent.beto_training_v2','measure',
-            '--output',str(output),'--model-key',key],text=True)
-        results[key]['isolated_inference_memory']=json.loads(measured)
+        # Linux child high-water marks can inherit the optimizer parent's peak.
+        # Measure from scripts/measure_beto_v2_memory.py in a separate, stdlib-only
+        # launcher after this process exits; do not attribute this peak to a model.
+        results[key]['inference_memory_scope']='See separate inference-memory.json; not this optimizer process peak.'
     report={'schema':'beto-training-v2-assessment','registration_commit':commit,'data_manifest':manifest,
         'development_selection_sha256':selection_sha,'calibration_policy_selection_sha256':policy_sha,
         'selected_model_key':selection['selected_model_key'],'results':results,'model_entries':entries,

@@ -1,0 +1,1952 @@
+[
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_shower_pressure",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_e0b792a25ca90e987797"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_shower_pressure",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_ad92adafd7b0e7777651"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_shower_pressure",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_c4603195988e384bfd95"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_meal_pacing",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_506f3ee8a6de59a7f304"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_meal_pacing",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_6684ee43f71a5d0cb74e"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_meal_pacing",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_cd42f3dee13552a2d532"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_museum_handson_materials",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_c8cf7e6328ac8b426467"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_museum_handson_materials",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_aa47f45ed20ac24cb5f8"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_museum_handson_materials",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_41995f9ac49b421127e1"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_digital_ticket_gate",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_642343d07d7b7406d216"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_digital_ticket_gate",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_84153e1f441ba2096259"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_digital_ticket_gate",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_bbf030f80c27f06b1fca"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_wildlife_distance",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_a2e05d8bbae070f1a5d9"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_wildlife_distance",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_49dd28468513e924d302"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_wildlife_distance",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_514f1ae7513a1262ed82"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_breakfast_hours",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_43074b89ed92787b9355"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_breakfast_hours",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_11aa6e30590968dbb4be"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_breakfast_hours",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_fdbec2997909db66c459"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_dish_temperature",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_89184c1dd067899d5dbc"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_dish_temperature",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_3e6574e2afb986d510f5"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_dish_temperature",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_a329ccaa5eec8f1a1558"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_photo_policy",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_c046278366a360491e78"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_photo_policy",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_c40810ff7874643c06ba"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_photo_policy",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_cf0ac1c39d7ee0fc5ad9"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_bicycle_return",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_493de0bc338ca515beda"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_bicycle_return",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_aa99d9d3ca335748f345"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_bicycle_return",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_eaa4d255492d824a5c28"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_cave_tide_change",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_50f9da85924c4ddba8ca"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_cave_tide_change",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_24a340d79de32fd88190"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_cave_tide_change",
+    "model": "dummy",
+    "prediction": "negativo",
+    "probabilities": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "review": false,
+    "review_id": "ctx_f58939ea5dbd57dadddd"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_shower_pressure",
+    "model": "lr",
+    "prediction": "positivo",
+    "probabilities": [
+      0.4355043304525811,
+      0.10749276681248592,
+      0.45700290273493294
+    ],
+    "review": true,
+    "review_id": "ctx_e0b792a25ca90e987797"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_shower_pressure",
+    "model": "lr",
+    "prediction": "neutral",
+    "probabilities": [
+      0.32243692221636755,
+      0.47027366553103495,
+      0.20728941225259753
+    ],
+    "review": true,
+    "review_id": "ctx_ad92adafd7b0e7777651"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_shower_pressure",
+    "model": "lr",
+    "prediction": "negativo",
+    "probabilities": [
+      0.5550991026817375,
+      0.17840159460664679,
+      0.2664993027116158
+    ],
+    "review": true,
+    "review_id": "ctx_c4603195988e384bfd95"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_meal_pacing",
+    "model": "lr",
+    "prediction": "negativo",
+    "probabilities": [
+      0.5257666887076095,
+      0.3916995780014522,
+      0.08253373329093841
+    ],
+    "review": true,
+    "review_id": "ctx_506f3ee8a6de59a7f304"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_meal_pacing",
+    "model": "lr",
+    "prediction": "neutral",
+    "probabilities": [
+      0.19319089234332495,
+      0.7004879461564277,
+      0.10632116150024731
+    ],
+    "review": false,
+    "review_id": "ctx_6684ee43f71a5d0cb74e"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_meal_pacing",
+    "model": "lr",
+    "prediction": "negativo",
+    "probabilities": [
+      0.5002783194413872,
+      0.3815162304737729,
+      0.11820545008483985
+    ],
+    "review": true,
+    "review_id": "ctx_cd42f3dee13552a2d532"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_museum_handson_materials",
+    "model": "lr",
+    "prediction": "negativo",
+    "probabilities": [
+      0.5266701912792852,
+      0.18654289332591495,
+      0.28678691539479995
+    ],
+    "review": true,
+    "review_id": "ctx_c8cf7e6328ac8b426467"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_museum_handson_materials",
+    "model": "lr",
+    "prediction": "negativo",
+    "probabilities": [
+      0.4574828071346791,
+      0.23814588585139004,
+      0.30437130701393095
+    ],
+    "review": true,
+    "review_id": "ctx_aa47f45ed20ac24cb5f8"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_museum_handson_materials",
+    "model": "lr",
+    "prediction": "positivo",
+    "probabilities": [
+      0.06787254126694443,
+      0.027994448801825077,
+      0.9041330099312305
+    ],
+    "review": false,
+    "review_id": "ctx_41995f9ac49b421127e1"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_digital_ticket_gate",
+    "model": "lr",
+    "prediction": "negativo",
+    "probabilities": [
+      0.6206617120513974,
+      0.10995724016031587,
+      0.2693810477882868
+    ],
+    "review": false,
+    "review_id": "ctx_642343d07d7b7406d216"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_digital_ticket_gate",
+    "model": "lr",
+    "prediction": "neutral",
+    "probabilities": [
+      0.2468405587523481,
+      0.47777135639916996,
+      0.2753880848484818
+    ],
+    "review": true,
+    "review_id": "ctx_84153e1f441ba2096259"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_digital_ticket_gate",
+    "model": "lr",
+    "prediction": "positivo",
+    "probabilities": [
+      0.38012328796634515,
+      0.12141254526713995,
+      0.49846416676651484
+    ],
+    "review": true,
+    "review_id": "ctx_bbf030f80c27f06b1fca"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_wildlife_distance",
+    "model": "lr",
+    "prediction": "negativo",
+    "probabilities": [
+      0.41799862371468366,
+      0.25802413032270494,
+      0.3239772459626114
+    ],
+    "review": true,
+    "review_id": "ctx_a2e05d8bbae070f1a5d9"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_wildlife_distance",
+    "model": "lr",
+    "prediction": "neutral",
+    "probabilities": [
+      0.13734194833273408,
+      0.5275273241821667,
+      0.3351307274850993
+    ],
+    "review": true,
+    "review_id": "ctx_49dd28468513e924d302"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_wildlife_distance",
+    "model": "lr",
+    "prediction": "positivo",
+    "probabilities": [
+      0.41262266247619483,
+      0.15494438705854813,
+      0.4324329504652571
+    ],
+    "review": true,
+    "review_id": "ctx_514f1ae7513a1262ed82"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_breakfast_hours",
+    "model": "lr",
+    "prediction": "negativo",
+    "probabilities": [
+      0.6458963827326495,
+      0.1589887643100085,
+      0.19511485295734213
+    ],
+    "review": false,
+    "review_id": "ctx_43074b89ed92787b9355"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_breakfast_hours",
+    "model": "lr",
+    "prediction": "neutral",
+    "probabilities": [
+      0.29296475413703027,
+      0.4378176422812447,
+      0.2692176035817251
+    ],
+    "review": true,
+    "review_id": "ctx_11aa6e30590968dbb4be"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_breakfast_hours",
+    "model": "lr",
+    "prediction": "positivo",
+    "probabilities": [
+      0.3160101921515662,
+      0.032532023838524646,
+      0.6514577840099092
+    ],
+    "review": true,
+    "review_id": "ctx_fdbec2997909db66c459"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_dish_temperature",
+    "model": "lr",
+    "prediction": "negativo",
+    "probabilities": [
+      0.5238972285685796,
+      0.24597875608120226,
+      0.2301240153502183
+    ],
+    "review": true,
+    "review_id": "ctx_89184c1dd067899d5dbc"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_dish_temperature",
+    "model": "lr",
+    "prediction": "neutral",
+    "probabilities": [
+      0.17129815365221104,
+      0.4649781029007609,
+      0.3637237434470281
+    ],
+    "review": true,
+    "review_id": "ctx_3e6574e2afb986d510f5"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_dish_temperature",
+    "model": "lr",
+    "prediction": "neutral",
+    "probabilities": [
+      0.3777839620450325,
+      0.3863030124805963,
+      0.23591302547437115
+    ],
+    "review": true,
+    "review_id": "ctx_a329ccaa5eec8f1a1558"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_photo_policy",
+    "model": "lr",
+    "prediction": "negativo",
+    "probabilities": [
+      0.7621281910317778,
+      0.08099246597064041,
+      0.1568793429975817
+    ],
+    "review": true,
+    "review_id": "ctx_c046278366a360491e78"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_photo_policy",
+    "model": "lr",
+    "prediction": "negativo",
+    "probabilities": [
+      0.5947647317577821,
+      0.27808597710882343,
+      0.12714929113339446
+    ],
+    "review": false,
+    "review_id": "ctx_c40810ff7874643c06ba"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_photo_policy",
+    "model": "lr",
+    "prediction": "positivo",
+    "probabilities": [
+      0.21352954947443045,
+      0.07991966536976279,
+      0.7065507851558067
+    ],
+    "review": false,
+    "review_id": "ctx_cf0ac1c39d7ee0fc5ad9"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_bicycle_return",
+    "model": "lr",
+    "prediction": "negativo",
+    "probabilities": [
+      0.4164901967812358,
+      0.201917344039957,
+      0.38159245917880713
+    ],
+    "review": true,
+    "review_id": "ctx_493de0bc338ca515beda"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_bicycle_return",
+    "model": "lr",
+    "prediction": "neutral",
+    "probabilities": [
+      0.4046303661765639,
+      0.4278609907212525,
+      0.16750864310218355
+    ],
+    "review": true,
+    "review_id": "ctx_aa99d9d3ca335748f345"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_bicycle_return",
+    "model": "lr",
+    "prediction": "positivo",
+    "probabilities": [
+      0.31489681117725715,
+      0.1562001330046244,
+      0.5289030558181185
+    ],
+    "review": true,
+    "review_id": "ctx_eaa4d255492d824a5c28"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_cave_tide_change",
+    "model": "lr",
+    "prediction": "neutral",
+    "probabilities": [
+      0.3269812686461729,
+      0.47167535025246093,
+      0.20134338110136626
+    ],
+    "review": true,
+    "review_id": "ctx_50f9da85924c4ddba8ca"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_cave_tide_change",
+    "model": "lr",
+    "prediction": "neutral",
+    "probabilities": [
+      0.2721208608888047,
+      0.5791711580153904,
+      0.1487079810958049
+    ],
+    "review": false,
+    "review_id": "ctx_24a340d79de32fd88190"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_cave_tide_change",
+    "model": "lr",
+    "prediction": "positivo",
+    "probabilities": [
+      0.27796188204422706,
+      0.19076344218207753,
+      0.5312746757736955
+    ],
+    "review": true,
+    "review_id": "ctx_f58939ea5dbd57dadddd"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_shower_pressure",
+    "model": "svm",
+    "prediction": "positivo",
+    "probabilities": [
+      0.4712077646547663,
+      0.031404552858555604,
+      0.4973876824866781
+    ],
+    "review": true,
+    "review_id": "ctx_e0b792a25ca90e987797"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_shower_pressure",
+    "model": "svm",
+    "prediction": "neutral",
+    "probabilities": [
+      0.40110777592027874,
+      0.5088671963117172,
+      0.09002502776800407
+    ],
+    "review": true,
+    "review_id": "ctx_ad92adafd7b0e7777651"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_shower_pressure",
+    "model": "svm",
+    "prediction": "negativo",
+    "probabilities": [
+      0.660591997096874,
+      0.13257825128568193,
+      0.20682975161744419
+    ],
+    "review": false,
+    "review_id": "ctx_c4603195988e384bfd95"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_meal_pacing",
+    "model": "svm",
+    "prediction": "negativo",
+    "probabilities": [
+      0.5745401559983526,
+      0.41617535896919877,
+      0.00928448503244862
+    ],
+    "review": false,
+    "review_id": "ctx_506f3ee8a6de59a7f304"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_meal_pacing",
+    "model": "svm",
+    "prediction": "neutral",
+    "probabilities": [
+      0.22412358880525543,
+      0.6897509783896162,
+      0.08612543280512845
+    ],
+    "review": false,
+    "review_id": "ctx_6684ee43f71a5d0cb74e"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_meal_pacing",
+    "model": "svm",
+    "prediction": "negativo",
+    "probabilities": [
+      0.6262209594589682,
+      0.3504798580288786,
+      0.02329918251215331
+    ],
+    "review": true,
+    "review_id": "ctx_cd42f3dee13552a2d532"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_museum_handson_materials",
+    "model": "svm",
+    "prediction": "negativo",
+    "probabilities": [
+      0.6742097659400624,
+      0.12109885845500068,
+      0.20469137560493678
+    ],
+    "review": false,
+    "review_id": "ctx_c8cf7e6328ac8b426467"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_museum_handson_materials",
+    "model": "svm",
+    "prediction": "negativo",
+    "probabilities": [
+      0.5938169392976443,
+      0.21330396827793693,
+      0.1928790924244187
+    ],
+    "review": false,
+    "review_id": "ctx_aa47f45ed20ac24cb5f8"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_museum_handson_materials",
+    "model": "svm",
+    "prediction": "positivo",
+    "probabilities": [
+      0.12052874534375661,
+      0.009685443954324828,
+      0.8697858107019186
+    ],
+    "review": false,
+    "review_id": "ctx_41995f9ac49b421127e1"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_digital_ticket_gate",
+    "model": "svm",
+    "prediction": "negativo",
+    "probabilities": [
+      0.7360136354975487,
+      0.04264549502377099,
+      0.22134086947868015
+    ],
+    "review": false,
+    "review_id": "ctx_642343d07d7b7406d216"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_digital_ticket_gate",
+    "model": "svm",
+    "prediction": "neutral",
+    "probabilities": [
+      0.2309793466578093,
+      0.506944763954673,
+      0.26207588938751764
+    ],
+    "review": true,
+    "review_id": "ctx_84153e1f441ba2096259"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_digital_ticket_gate",
+    "model": "svm",
+    "prediction": "positivo",
+    "probabilities": [
+      0.439769567447372,
+      0.04116128335028265,
+      0.5190691492023455
+    ],
+    "review": true,
+    "review_id": "ctx_bbf030f80c27f06b1fca"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_wildlife_distance",
+    "model": "svm",
+    "prediction": "negativo",
+    "probabilities": [
+      0.49292267051920274,
+      0.24252451280857415,
+      0.26455281667222313
+    ],
+    "review": true,
+    "review_id": "ctx_a2e05d8bbae070f1a5d9"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_wildlife_distance",
+    "model": "svm",
+    "prediction": "neutral",
+    "probabilities": [
+      0.08636856195892033,
+      0.5652505312006325,
+      0.3483809068404471
+    ],
+    "review": false,
+    "review_id": "ctx_49dd28468513e924d302"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_wildlife_distance",
+    "model": "svm",
+    "prediction": "negativo",
+    "probabilities": [
+      0.484503792177396,
+      0.06908569161495363,
+      0.4464105162076504
+    ],
+    "review": true,
+    "review_id": "ctx_514f1ae7513a1262ed82"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_breakfast_hours",
+    "model": "svm",
+    "prediction": "negativo",
+    "probabilities": [
+      0.77784310632476,
+      0.12843977308491925,
+      0.09371712059032078
+    ],
+    "review": false,
+    "review_id": "ctx_43074b89ed92787b9355"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_breakfast_hours",
+    "model": "svm",
+    "prediction": "neutral",
+    "probabilities": [
+      0.3199389261160232,
+      0.5011930446369571,
+      0.17886802924701964
+    ],
+    "review": true,
+    "review_id": "ctx_11aa6e30590968dbb4be"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_breakfast_hours",
+    "model": "svm",
+    "prediction": "positivo",
+    "probabilities": [
+      0.3995040336936862,
+      0.0045574551011126055,
+      0.5959385112052011
+    ],
+    "review": true,
+    "review_id": "ctx_fdbec2997909db66c459"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_dish_temperature",
+    "model": "svm",
+    "prediction": "negativo",
+    "probabilities": [
+      0.63614269273264,
+      0.24594893558781164,
+      0.1179083716795483
+    ],
+    "review": true,
+    "review_id": "ctx_89184c1dd067899d5dbc"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_dish_temperature",
+    "model": "svm",
+    "prediction": "neutral",
+    "probabilities": [
+      0.1322035075499265,
+      0.4735287629347078,
+      0.39426772951536576
+    ],
+    "review": true,
+    "review_id": "ctx_3e6574e2afb986d510f5"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_dish_temperature",
+    "model": "svm",
+    "prediction": "negativo",
+    "probabilities": [
+      0.4522814705742025,
+      0.3798133271903347,
+      0.16790520223546282
+    ],
+    "review": true,
+    "review_id": "ctx_a329ccaa5eec8f1a1558"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_photo_policy",
+    "model": "svm",
+    "prediction": "negativo",
+    "probabilities": [
+      0.8612404349865811,
+      0.03877693770039891,
+      0.09998262731302006
+    ],
+    "review": false,
+    "review_id": "ctx_c046278366a360491e78"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_photo_policy",
+    "model": "svm",
+    "prediction": "negativo",
+    "probabilities": [
+      0.7030829881687651,
+      0.2682599028831226,
+      0.028657108948112076
+    ],
+    "review": false,
+    "review_id": "ctx_c40810ff7874643c06ba"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_photo_policy",
+    "model": "svm",
+    "prediction": "positivo",
+    "probabilities": [
+      0.25858893669997723,
+      0.027857142923156875,
+      0.7135539203768658
+    ],
+    "review": false,
+    "review_id": "ctx_cf0ac1c39d7ee0fc5ad9"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_bicycle_return",
+    "model": "svm",
+    "prediction": "negativo",
+    "probabilities": [
+      0.49997196165200214,
+      0.13312412798393491,
+      0.366903910364063
+    ],
+    "review": true,
+    "review_id": "ctx_493de0bc338ca515beda"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_bicycle_return",
+    "model": "svm",
+    "prediction": "negativo",
+    "probabilities": [
+      0.4804352874995718,
+      0.4606430779218454,
+      0.058921634578582814
+    ],
+    "review": true,
+    "review_id": "ctx_aa99d9d3ca335748f345"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_bicycle_return",
+    "model": "svm",
+    "prediction": "positivo",
+    "probabilities": [
+      0.3226409265367405,
+      0.08190270296490672,
+      0.5954563704983528
+    ],
+    "review": false,
+    "review_id": "ctx_eaa4d255492d824a5c28"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_cave_tide_change",
+    "model": "svm",
+    "prediction": "neutral",
+    "probabilities": [
+      0.4160622383702586,
+      0.509832777146111,
+      0.07410498448363047
+    ],
+    "review": true,
+    "review_id": "ctx_50f9da85924c4ddba8ca"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_cave_tide_change",
+    "model": "svm",
+    "prediction": "neutral",
+    "probabilities": [
+      0.34486227577434764,
+      0.613323891262641,
+      0.04181383296301136
+    ],
+    "review": false,
+    "review_id": "ctx_24a340d79de32fd88190"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_cave_tide_change",
+    "model": "svm",
+    "prediction": "positivo",
+    "probabilities": [
+      0.3201536259430123,
+      0.11613270310742314,
+      0.5637136709495646
+    ],
+    "review": false,
+    "review_id": "ctx_f58939ea5dbd57dadddd"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_shower_pressure",
+    "model": "beto_frozen",
+    "prediction": "negativo",
+    "probabilities": [
+      0.5957198284919237,
+      0.08281425838349478,
+      0.32146591312458145
+    ],
+    "review": false,
+    "review_id": "ctx_e0b792a25ca90e987797"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_shower_pressure",
+    "model": "beto_frozen",
+    "prediction": "neutral",
+    "probabilities": [
+      0.15527082054365896,
+      0.7663474326661744,
+      0.07838174679016664
+    ],
+    "review": false,
+    "review_id": "ctx_ad92adafd7b0e7777651"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_shower_pressure",
+    "model": "beto_frozen",
+    "prediction": "positivo",
+    "probabilities": [
+      0.34773317179837904,
+      0.04325262695317115,
+      0.6090142012484498
+    ],
+    "review": false,
+    "review_id": "ctx_c4603195988e384bfd95"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_meal_pacing",
+    "model": "beto_frozen",
+    "prediction": "negativo",
+    "probabilities": [
+      0.3844930702493345,
+      0.3747267540322851,
+      0.24078017571838053
+    ],
+    "review": true,
+    "review_id": "ctx_506f3ee8a6de59a7f304"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_meal_pacing",
+    "model": "beto_frozen",
+    "prediction": "neutral",
+    "probabilities": [
+      0.2624011027676601,
+      0.4574190747086903,
+      0.2801798225236495
+    ],
+    "review": true,
+    "review_id": "ctx_6684ee43f71a5d0cb74e"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_meal_pacing",
+    "model": "beto_frozen",
+    "prediction": "positivo",
+    "probabilities": [
+      0.27327127238028326,
+      0.26537153831678434,
+      0.4613571893029324
+    ],
+    "review": true,
+    "review_id": "ctx_cd42f3dee13552a2d532"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_museum_handson_materials",
+    "model": "beto_frozen",
+    "prediction": "positivo",
+    "probabilities": [
+      0.3479760017847827,
+      0.16135100465187752,
+      0.49067299356333965
+    ],
+    "review": true,
+    "review_id": "ctx_c8cf7e6328ac8b426467"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_museum_handson_materials",
+    "model": "beto_frozen",
+    "prediction": "positivo",
+    "probabilities": [
+      0.25250935606760383,
+      0.3289983648974658,
+      0.4184922790349303
+    ],
+    "review": true,
+    "review_id": "ctx_aa47f45ed20ac24cb5f8"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_museum_handson_materials",
+    "model": "beto_frozen",
+    "prediction": "positivo",
+    "probabilities": [
+      0.39425980571663205,
+      0.03442949171772153,
+      0.5713107025656464
+    ],
+    "review": false,
+    "review_id": "ctx_41995f9ac49b421127e1"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_digital_ticket_gate",
+    "model": "beto_frozen",
+    "prediction": "negativo",
+    "probabilities": [
+      0.7493210731178831,
+      0.061911138723645946,
+      0.18876778815847106
+    ],
+    "review": false,
+    "review_id": "ctx_642343d07d7b7406d216"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_digital_ticket_gate",
+    "model": "beto_frozen",
+    "prediction": "neutral",
+    "probabilities": [
+      0.36815664561291644,
+      0.41290292876820495,
+      0.21894042561887853
+    ],
+    "review": true,
+    "review_id": "ctx_84153e1f441ba2096259"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_digital_ticket_gate",
+    "model": "beto_frozen",
+    "prediction": "negativo",
+    "probabilities": [
+      0.6351606965898919,
+      0.1056611714256814,
+      0.25917813198442674
+    ],
+    "review": true,
+    "review_id": "ctx_bbf030f80c27f06b1fca"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_wildlife_distance",
+    "model": "beto_frozen",
+    "prediction": "positivo",
+    "probabilities": [
+      0.3947260492150631,
+      0.09855774963357894,
+      0.506716201151358
+    ],
+    "review": true,
+    "review_id": "ctx_a2e05d8bbae070f1a5d9"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_wildlife_distance",
+    "model": "beto_frozen",
+    "prediction": "neutral",
+    "probabilities": [
+      0.32050123969236977,
+      0.3942852563266713,
+      0.28521350398095896
+    ],
+    "review": true,
+    "review_id": "ctx_49dd28468513e924d302"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_wildlife_distance",
+    "model": "beto_frozen",
+    "prediction": "positivo",
+    "probabilities": [
+      0.17438667825751122,
+      0.07325392614281194,
+      0.7523593955996769
+    ],
+    "review": true,
+    "review_id": "ctx_514f1ae7513a1262ed82"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_breakfast_hours",
+    "model": "beto_frozen",
+    "prediction": "positivo",
+    "probabilities": [
+      0.3999980071463778,
+      0.0962486225276159,
+      0.5037533703260063
+    ],
+    "review": true,
+    "review_id": "ctx_43074b89ed92787b9355"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_breakfast_hours",
+    "model": "beto_frozen",
+    "prediction": "negativo",
+    "probabilities": [
+      0.4062633759037388,
+      0.36821617565298115,
+      0.22552044844328015
+    ],
+    "review": true,
+    "review_id": "ctx_11aa6e30590968dbb4be"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_breakfast_hours",
+    "model": "beto_frozen",
+    "prediction": "positivo",
+    "probabilities": [
+      0.2244080383348135,
+      0.03313153333389617,
+      0.7424604283312903
+    ],
+    "review": true,
+    "review_id": "ctx_fdbec2997909db66c459"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_dish_temperature",
+    "model": "beto_frozen",
+    "prediction": "negativo",
+    "probabilities": [
+      0.6194015616722707,
+      0.08711101564305167,
+      0.29348742268467753
+    ],
+    "review": true,
+    "review_id": "ctx_89184c1dd067899d5dbc"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_dish_temperature",
+    "model": "beto_frozen",
+    "prediction": "positivo",
+    "probabilities": [
+      0.21513641103480205,
+      0.32514842699078667,
+      0.4597151619744113
+    ],
+    "review": true,
+    "review_id": "ctx_3e6574e2afb986d510f5"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_dish_temperature",
+    "model": "beto_frozen",
+    "prediction": "positivo",
+    "probabilities": [
+      0.374294410200975,
+      0.10989737925872525,
+      0.5158082105402998
+    ],
+    "review": true,
+    "review_id": "ctx_a329ccaa5eec8f1a1558"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_photo_policy",
+    "model": "beto_frozen",
+    "prediction": "negativo",
+    "probabilities": [
+      0.545574966759233,
+      0.06156578007744408,
+      0.39285925316332293
+    ],
+    "review": true,
+    "review_id": "ctx_c046278366a360491e78"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_photo_policy",
+    "model": "beto_frozen",
+    "prediction": "neutral",
+    "probabilities": [
+      0.3109036530543769,
+      0.5417740172192116,
+      0.1473223297264114
+    ],
+    "review": true,
+    "review_id": "ctx_c40810ff7874643c06ba"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_photo_policy",
+    "model": "beto_frozen",
+    "prediction": "positivo",
+    "probabilities": [
+      0.2300709532869508,
+      0.0546191987789562,
+      0.715309847934093
+    ],
+    "review": false,
+    "review_id": "ctx_cf0ac1c39d7ee0fc5ad9"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_bicycle_return",
+    "model": "beto_frozen",
+    "prediction": "negativo",
+    "probabilities": [
+      0.45207109288471203,
+      0.1152313079996847,
+      0.43269759911560335
+    ],
+    "review": true,
+    "review_id": "ctx_493de0bc338ca515beda"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_bicycle_return",
+    "model": "beto_frozen",
+    "prediction": "neutral",
+    "probabilities": [
+      0.23844981059982306,
+      0.6285965700812569,
+      0.13295361931892005
+    ],
+    "review": false,
+    "review_id": "ctx_aa99d9d3ca335748f345"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_bicycle_return",
+    "model": "beto_frozen",
+    "prediction": "positivo",
+    "probabilities": [
+      0.3859844490171643,
+      0.12889327207877646,
+      0.48512227890405923
+    ],
+    "review": true,
+    "review_id": "ctx_eaa4d255492d824a5c28"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_cave_tide_change",
+    "model": "beto_frozen",
+    "prediction": "negativo",
+    "probabilities": [
+      0.5428694641825326,
+      0.165096014767198,
+      0.29203452105026934
+    ],
+    "review": true,
+    "review_id": "ctx_50f9da85924c4ddba8ca"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_cave_tide_change",
+    "model": "beto_frozen",
+    "prediction": "neutral",
+    "probabilities": [
+      0.3115254007229747,
+      0.443858264958283,
+      0.24461633431874233
+    ],
+    "review": true,
+    "review_id": "ctx_24a340d79de32fd88190"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_cave_tide_change",
+    "model": "beto_frozen",
+    "prediction": "positivo",
+    "probabilities": [
+      0.20371505552508923,
+      0.14762078833152636,
+      0.6486641561433844
+    ],
+    "review": false,
+    "review_id": "ctx_f58939ea5dbd57dadddd"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_shower_pressure",
+    "model": "beto_partial",
+    "prediction": "negativo",
+    "probabilities": [
+      0.5950146371484455,
+      0.06826898128520453,
+      0.3367163815663501
+    ],
+    "review": false,
+    "review_id": "ctx_e0b792a25ca90e987797"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_shower_pressure",
+    "model": "beto_partial",
+    "prediction": "neutral",
+    "probabilities": [
+      0.10388532342690969,
+      0.8430082758259732,
+      0.0531064007471171
+    ],
+    "review": false,
+    "review_id": "ctx_ad92adafd7b0e7777651"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_shower_pressure",
+    "model": "beto_partial",
+    "prediction": "positivo",
+    "probabilities": [
+      0.28903171527148214,
+      0.027848523107479234,
+      0.6831197616210387
+    ],
+    "review": false,
+    "review_id": "ctx_c4603195988e384bfd95"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_meal_pacing",
+    "model": "beto_partial",
+    "prediction": "neutral",
+    "probabilities": [
+      0.3418820453741932,
+      0.4045777117531889,
+      0.2535402428726178
+    ],
+    "review": true,
+    "review_id": "ctx_506f3ee8a6de59a7f304"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_meal_pacing",
+    "model": "beto_partial",
+    "prediction": "neutral",
+    "probabilities": [
+      0.21050077482670979,
+      0.5032917145185182,
+      0.28620751065477207
+    ],
+    "review": true,
+    "review_id": "ctx_6684ee43f71a5d0cb74e"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_meal_pacing",
+    "model": "beto_partial",
+    "prediction": "positivo",
+    "probabilities": [
+      0.20804005350473834,
+      0.27412686091953736,
+      0.5178330855757243
+    ],
+    "review": true,
+    "review_id": "ctx_cd42f3dee13552a2d532"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_museum_handson_materials",
+    "model": "beto_partial",
+    "prediction": "positivo",
+    "probabilities": [
+      0.2958652568908158,
+      0.14493958636636764,
+      0.5591951567428166
+    ],
+    "review": true,
+    "review_id": "ctx_c8cf7e6328ac8b426467"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_museum_handson_materials",
+    "model": "beto_partial",
+    "prediction": "positivo",
+    "probabilities": [
+      0.2133471237670972,
+      0.3372953346400656,
+      0.44935754159283714
+    ],
+    "review": true,
+    "review_id": "ctx_aa47f45ed20ac24cb5f8"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_museum_handson_materials",
+    "model": "beto_partial",
+    "prediction": "positivo",
+    "probabilities": [
+      0.32687905771404513,
+      0.02346667860374871,
+      0.6496542636822061
+    ],
+    "review": false,
+    "review_id": "ctx_41995f9ac49b421127e1"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_digital_ticket_gate",
+    "model": "beto_partial",
+    "prediction": "negativo",
+    "probabilities": [
+      0.7625764604897041,
+      0.054436176957003306,
+      0.1829873625532927
+    ],
+    "review": false,
+    "review_id": "ctx_642343d07d7b7406d216"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_digital_ticket_gate",
+    "model": "beto_partial",
+    "prediction": "neutral",
+    "probabilities": [
+      0.30219415467624905,
+      0.500475204487948,
+      0.1973306408358029
+    ],
+    "review": true,
+    "review_id": "ctx_84153e1f441ba2096259"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_digital_ticket_gate",
+    "model": "beto_partial",
+    "prediction": "negativo",
+    "probabilities": [
+      0.6309375276288858,
+      0.10059027771880687,
+      0.2684721946523073
+    ],
+    "review": true,
+    "review_id": "ctx_bbf030f80c27f06b1fca"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_wildlife_distance",
+    "model": "beto_partial",
+    "prediction": "positivo",
+    "probabilities": [
+      0.33391111941916257,
+      0.08139899933909026,
+      0.5846898812417471
+    ],
+    "review": false,
+    "review_id": "ctx_a2e05d8bbae070f1a5d9"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_wildlife_distance",
+    "model": "beto_partial",
+    "prediction": "neutral",
+    "probabilities": [
+      0.26722354226443085,
+      0.453760537497889,
+      0.27901592023767996
+    ],
+    "review": true,
+    "review_id": "ctx_49dd28468513e924d302"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_wildlife_distance",
+    "model": "beto_partial",
+    "prediction": "positivo",
+    "probabilities": [
+      0.11440705188812364,
+      0.052505463476361335,
+      0.8330874846355151
+    ],
+    "review": false,
+    "review_id": "ctx_514f1ae7513a1262ed82"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_breakfast_hours",
+    "model": "beto_partial",
+    "prediction": "positivo",
+    "probabilities": [
+      0.34660732384385057,
+      0.08336938516186655,
+      0.5700232909942828
+    ],
+    "review": false,
+    "review_id": "ctx_43074b89ed92787b9355"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_breakfast_hours",
+    "model": "beto_partial",
+    "prediction": "neutral",
+    "probabilities": [
+      0.3495290491493602,
+      0.4314588472488959,
+      0.21901210360174395
+    ],
+    "review": true,
+    "review_id": "ctx_11aa6e30590968dbb4be"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_breakfast_hours",
+    "model": "beto_partial",
+    "prediction": "positivo",
+    "probabilities": [
+      0.15684950527775815,
+      0.019282041952299808,
+      0.823868452769942
+    ],
+    "review": false,
+    "review_id": "ctx_fdbec2997909db66c459"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_dish_temperature",
+    "model": "beto_partial",
+    "prediction": "negativo",
+    "probabilities": [
+      0.6285457493149011,
+      0.06642014683220575,
+      0.3050341038528931
+    ],
+    "review": true,
+    "review_id": "ctx_89184c1dd067899d5dbc"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_dish_temperature",
+    "model": "beto_partial",
+    "prediction": "positivo",
+    "probabilities": [
+      0.1622176106459186,
+      0.32742857981177204,
+      0.5103538095423095
+    ],
+    "review": true,
+    "review_id": "ctx_3e6574e2afb986d510f5"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_dish_temperature",
+    "model": "beto_partial",
+    "prediction": "positivo",
+    "probabilities": [
+      0.34300937142367255,
+      0.08489618866575536,
+      0.5720944399105721
+    ],
+    "review": false,
+    "review_id": "ctx_a329ccaa5eec8f1a1558"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_photo_policy",
+    "model": "beto_partial",
+    "prediction": "negativo",
+    "probabilities": [
+      0.5204392008865575,
+      0.04823970252129446,
+      0.43132109659214807
+    ],
+    "review": true,
+    "review_id": "ctx_c046278366a360491e78"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_photo_policy",
+    "model": "beto_partial",
+    "prediction": "neutral",
+    "probabilities": [
+      0.24941797736083957,
+      0.6327398113036594,
+      0.11784221133550116
+    ],
+    "review": false,
+    "review_id": "ctx_c40810ff7874643c06ba"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_photo_policy",
+    "model": "beto_partial",
+    "prediction": "positivo",
+    "probabilities": [
+      0.16129364810895538,
+      0.037729341211186096,
+      0.8009770106798585
+    ],
+    "review": false,
+    "review_id": "ctx_cf0ac1c39d7ee0fc5ad9"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_bicycle_return",
+    "model": "beto_partial",
+    "prediction": "positivo",
+    "probabilities": [
+      0.4104524697495146,
+      0.10467364606053886,
+      0.4848738841899465
+    ],
+    "review": true,
+    "review_id": "ctx_493de0bc338ca515beda"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_bicycle_return",
+    "model": "beto_partial",
+    "prediction": "neutral",
+    "probabilities": [
+      0.16568098663476116,
+      0.7352461604138885,
+      0.09907285295135046
+    ],
+    "review": false,
+    "review_id": "ctx_aa99d9d3ca335748f345"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_bicycle_return",
+    "model": "beto_partial",
+    "prediction": "positivo",
+    "probabilities": [
+      0.34831394811230854,
+      0.11965568532473841,
+      0.5320303665629531
+    ],
+    "review": true,
+    "review_id": "ctx_eaa4d255492d824a5c28"
+  },
+  {
+    "author_intent": "negativo",
+    "family": "ctx_eval_cave_tide_change",
+    "model": "beto_partial",
+    "prediction": "negativo",
+    "probabilities": [
+      0.5413292422475935,
+      0.15524083931244081,
+      0.30342991843996575
+    ],
+    "review": true,
+    "review_id": "ctx_50f9da85924c4ddba8ca"
+  },
+  {
+    "author_intent": "neutral",
+    "family": "ctx_eval_cave_tide_change",
+    "model": "beto_partial",
+    "prediction": "neutral",
+    "probabilities": [
+      0.2594587147416979,
+      0.5081225385082039,
+      0.2324187467500982
+    ],
+    "review": true,
+    "review_id": "ctx_24a340d79de32fd88190"
+  },
+  {
+    "author_intent": "positivo",
+    "family": "ctx_eval_cave_tide_change",
+    "model": "beto_partial",
+    "prediction": "positivo",
+    "probabilities": [
+      0.14274030609340127,
+      0.12632458948639616,
+      0.7309351044202025
+    ],
+    "review": false,
+    "review_id": "ctx_f58939ea5dbd57dadddd"
+  }
+]

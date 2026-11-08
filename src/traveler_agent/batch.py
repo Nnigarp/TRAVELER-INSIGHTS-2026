@@ -114,8 +114,14 @@ def export_csv(records: list[dict]) -> str:
     fields = ["id", "texto_original", "modelo_utilizado", "sentimiento", "confianza_no_calibrada",
               "revision_humana", "etiqueta_corregida_humano", "estado_revision",
               "comentario_revision_humana", "recomendacion", "tipo_salida", "decision_revision_humana"]
+    if any("seleccion_modelo" in row for row in records):
+        fields += ["modelo_solicitado", "fallback_modelo", "version_modelo"]
     writer = csv.DictWriter(buffer, fieldnames=fields, extrasaction="ignore", lineterminator="\n")
     writer.writeheader()
     for record in records:
-        writer.writerow({key: _safe_csv_value(record.get(key)) for key in fields})
+        selected = record.get("seleccion_modelo", {})
+        values = {**record, "modelo_solicitado": selected.get("requested"),
+                  "fallback_modelo": selected.get("fallback"),
+                  "version_modelo": selected.get("manifest_sha256")}
+        writer.writerow({key: _safe_csv_value(values.get(key)) for key in fields})
     return buffer.getvalue()

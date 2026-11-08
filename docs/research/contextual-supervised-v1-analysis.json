@@ -1,0 +1,270 @@
+{
+  "assessment_is_now_observed": true,
+  "limits": [
+    "Ten synthetic families, one training seed; bootstrap is not human population inference.",
+    "ECE binning and bootstrap are descriptive analyses chosen after assessment, never selection criteria.",
+    "The zero-error binomial reference assumes independent fixed-policy Bernoulli decisions; related rows and policy selection invalidate a risk certification.",
+    "No fitted calibrator, changed threshold or abstention policy is admitted."
+  ],
+  "models": {
+    "beto_frozen": {
+      "accepted": 8,
+      "accepted_errors": 0,
+      "ece_10_equal_width_bins": 0.2181061636266703,
+      "family_bootstrap_macro_f1": {
+        "high_95": 0.9326599326599326,
+        "low_95": 0.5881370091896407,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "multiclass_brier_sum_per_row": 0.4108993248318091,
+      "negative_log_likelihood": 0.7018640712983526,
+      "reliability_bins": [
+        {
+          "accuracy": 1.0,
+          "lower": 0.3,
+          "mean_confidence": 0.3893891632880029,
+          "n": 2,
+          "upper": 0.4
+        },
+        {
+          "accuracy": 0.6,
+          "lower": 0.4,
+          "mean_confidence": 0.44878746400033026,
+          "n": 10,
+          "upper": 0.5
+        },
+        {
+          "accuracy": 0.75,
+          "lower": 0.5,
+          "mean_confidence": 0.5404408451545264,
+          "n": 8,
+          "upper": 0.6
+        },
+        {
+          "accuracy": 0.8,
+          "lower": 0.6,
+          "mean_confidence": 0.6281674371470507,
+          "n": 5,
+          "upper": 0.7
+        },
+        {
+          "accuracy": 1.0,
+          "lower": 0.7,
+          "mean_confidence": 0.7451596355298236,
+          "n": 5,
+          "upper": 0.8
+        }
+      ],
+      "risk_policy_certified": false,
+      "zero_error_iid_upper_95_reference_only": 0.31234397806636793
+    },
+    "beto_partial": {
+      "accepted": 14,
+      "accepted_errors": 2,
+      "ece_10_equal_width_bins": 0.14848132970431038,
+      "family_bootstrap_macro_f1": {
+        "high_95": 0.8624338624338624,
+        "low_95": 0.5802469135802469,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "multiclass_brier_sum_per_row": 0.38256466839433706,
+      "negative_log_likelihood": 0.6524026000637579,
+      "reliability_bins": [
+        {
+          "accuracy": 0.4,
+          "lower": 0.4,
+          "mean_confidence": 0.44480570445655143,
+          "n": 5,
+          "upper": 0.5
+        },
+        {
+          "accuracy": 0.6923076923076923,
+          "lower": 0.5,
+          "mean_confidence": 0.539607120643667,
+          "n": 13,
+          "upper": 0.6
+        },
+        {
+          "accuracy": 0.8,
+          "lower": 0.6,
+          "mean_confidence": 0.6449994227101382,
+          "n": 5,
+          "upper": 0.7
+        },
+        {
+          "accuracy": 1.0,
+          "lower": 0.7,
+          "mean_confidence": 0.7429192417745983,
+          "n": 3,
+          "upper": 0.8
+        },
+        {
+          "accuracy": 1.0,
+          "lower": 0.8,
+          "mean_confidence": 0.8252353059778221,
+          "n": 4,
+          "upper": 0.9
+        }
+      ],
+      "risk_policy_certified": false,
+      "zero_error_iid_upper_95_reference_only": null
+    },
+    "dummy": {
+      "accepted": 30,
+      "accepted_errors": 20,
+      "ece_10_equal_width_bins": 0.6666666666666667,
+      "family_bootstrap_macro_f1": {
+        "high_95": 0.16666666666666666,
+        "low_95": 0.16666666666666666,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "multiclass_brier_sum_per_row": 1.3333333333333333,
+      "negative_log_likelihood": 18.420680743952364,
+      "reliability_bins": [
+        {
+          "accuracy": 0.3333333333333333,
+          "lower": 0.9,
+          "mean_confidence": 1.0,
+          "n": 30,
+          "upper": 1.0
+        }
+      ],
+      "risk_policy_certified": false,
+      "zero_error_iid_upper_95_reference_only": null
+    },
+    "lr": {
+      "accepted": 7,
+      "accepted_errors": 1,
+      "ece_10_equal_width_bins": 0.25237953231674726,
+      "family_bootstrap_macro_f1": {
+        "high_95": 0.899749373433584,
+        "low_95": 0.6358668134983924,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "multiclass_brier_sum_per_row": 0.45298855586458686,
+      "negative_log_likelihood": 0.7862109202281747,
+      "reliability_bins": [
+        {
+          "accuracy": 0.0,
+          "lower": 0.3,
+          "mean_confidence": 0.3863030124805963,
+          "n": 1,
+          "upper": 0.4
+        },
+        {
+          "accuracy": 0.75,
+          "lower": 0.4,
+          "mean_confidence": 0.45252072964026896,
+          "n": 12,
+          "upper": 0.5
+        },
+        {
+          "accuracy": 0.7,
+          "lower": 0.5,
+          "mean_confidence": 0.5393352476225752,
+          "n": 10,
+          "upper": 0.6
+        },
+        {
+          "accuracy": 1.0,
+          "lower": 0.6,
+          "mean_confidence": 0.639338626264652,
+          "n": 3,
+          "upper": 0.7
+        },
+        {
+          "accuracy": 1.0,
+          "lower": 0.7,
+          "mean_confidence": 0.7230556407813373,
+          "n": 3,
+          "upper": 0.8
+        },
+        {
+          "accuracy": 1.0,
+          "lower": 0.9,
+          "mean_confidence": 0.9041330099312305,
+          "n": 1,
+          "upper": 1.0
+        }
+      ],
+      "risk_policy_certified": false,
+      "zero_error_iid_upper_95_reference_only": null
+    },
+    "svm": {
+      "accepted": 15,
+      "accepted_errors": 3,
+      "ece_10_equal_width_bins": 0.1261549445501656,
+      "family_bootstrap_macro_f1": {
+        "high_95": 0.8055555555555555,
+        "low_95": 0.6001029933640872,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "multiclass_brier_sum_per_row": 0.4479317113593034,
+      "negative_log_likelihood": 0.788861590976506,
+      "reliability_bins": [
+        {
+          "accuracy": 0.42857142857142855,
+          "lower": 0.4,
+          "mean_confidence": 0.48300451826339436,
+          "n": 7,
+          "upper": 0.5
+        },
+        {
+          "accuracy": 0.8181818181818182,
+          "lower": 0.5,
+          "mean_confidence": 0.5486021009455956,
+          "n": 11,
+          "upper": 0.6
+        },
+        {
+          "accuracy": 0.6666666666666666,
+          "lower": 0.6,
+          "mean_confidence": 0.6500400474801337,
+          "n": 6,
+          "upper": 0.7
+        },
+        {
+          "accuracy": 0.75,
+          "lower": 0.7,
+          "mean_confidence": 0.7326234125919849,
+          "n": 4,
+          "upper": 0.8
+        },
+        {
+          "accuracy": 1.0,
+          "lower": 0.8,
+          "mean_confidence": 0.8655131228442499,
+          "n": 2,
+          "upper": 0.9
+        }
+      ],
+      "risk_policy_certified": false,
+      "zero_error_iid_upper_95_reference_only": null
+    }
+  },
+  "paired_family_bootstrap_macro_f1_difference_from_lr": {
+    "beto_frozen": {
+      "high_95": 0.24453682814919173,
+      "low_95": -0.25639563128836584,
+      "scope": "paired synthetic family bootstrap, not a human population interval"
+    },
+    "beto_partial": {
+      "high_95": 0.19770394779985576,
+      "low_95": -0.2729118849323453,
+      "scope": "paired synthetic family bootstrap, not a human population interval"
+    },
+    "dummy": {
+      "high_95": -0.46920014683172606,
+      "low_95": -0.7330827067669173,
+      "scope": "paired synthetic family bootstrap, not a human population interval"
+    },
+    "svm": {
+      "high_95": 0.006406370009344829,
+      "low_95": -0.1628816531061954,
+      "scope": "paired synthetic family bootstrap, not a human population interval"
+    }
+  },
+  "scope": "POSTHOC_DESCRIPTIVE_SAVED_SYNTHETIC_PREDICTIONS_NOT_MODEL_OR_POLICY_SELECTION",
+  "source_predictions_sha256": "7d239c13b784f6207a1b3d446adc3a3090a354aea8df2efabab3707f5b9e8627",
+  "source_report_sha256": "073732985fbecf9eb07e5decb66ee291d25e75f36f51bfa25c2a5f8db01d831d"
+}

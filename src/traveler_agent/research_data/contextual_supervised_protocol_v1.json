@@ -1,0 +1,20 @@
+{
+  "version": "contextual-supervised-v1",
+  "hypothesis": "With a fixed 120-row V3 TRAIN budget, Spanish contextual embeddings plus a supervised head may behave differently from lexical TF-IDF on new semantic families. This tests representation, not synthetic volume or human generalization.",
+  "label_origin": "AUTHOR_INTENT_NOT_HUMAN_GOLD",
+  "role_rows": {"train": 120, "development": 18, "assessment": 30, "ambiguity": 6},
+  "duplicate_jaccard_threshold": 0.7,
+  "seed": 42,
+  "threads": 2,
+  "max_length": 128,
+  "encode_batch_size": 8,
+  "pooling": "attention-mask mean excluding padding; includes special tokens; per-row L2",
+  "class_order": ["negativo", "neutral", "positivo"],
+  "baselines": {"dummy": "most_frequent", "lr_C": [0.1, 1.0, 10.0], "svm_C": [0.1, 1.0, 10.0], "svm_calibration": "sigmoid on TRAIN-only 3-fold StratifiedGroupKFold, entire TF-IDF inside folds"},
+  "frozen_head": {"epochs": 60, "selection_epochs": [10, 30, 60], "batch_size": 32, "learning_rate": 0.01, "weight_decay": 0.01, "dropout": 0.0},
+  "partial_finetune": {"enabled": true, "epochs": 2, "batch_size": 4, "encoder_layers": [11], "encoder_learning_rate": 0.00002, "head_learning_rate": 0.001, "weight_decay": 0.01, "selection_epochs": [1, 2], "initialization": "selected frozen supervised head, original encoder", "dropout_encoder": "encoder.eval() for deterministic bounded technical probe; gradients still enabled on layer11"},
+  "selection": "development Macro-F1; ties lower development cross-entropy then earliest candidate; never assessment",
+  "assessment": "one pass per selected estimator, after selection.json is saved; saved predictions used for all slices and error analysis",
+  "review_policy": "existing DEMO rules described only, no new threshold or calibration selection, not validated for contextual models",
+  "limits": ["Single training seed and small assistant-authored evaluation; no population claim.", "New assessment becomes observed evidence after first run, never a fresh final test for later choices.", "No corpus generation or revision in response to evaluation scores.", "No actual human sentiment corpus or real voice supplied."]
+}

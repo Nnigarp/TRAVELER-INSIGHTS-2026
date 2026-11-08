@@ -1,0 +1,73 @@
+name: V3 quantity diversity and selective risk — frozen reproduction
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/traveler_agent/research_v3*.py'
+      - 'src/traveler_agent/research_data/synthetic_diversity_v3.json'
+      - 'src/traveler_agent/research_data/synthetic_v3_protocol.json'
+      - 'tests/test_research_v3*.py'
+      - 'docs/research/v3/**'
+      - 'research/requirements-synthetic-v2.txt'
+      - '.github/workflows/research-v3.yml'
+permissions:
+  contents: read
+jobs:
+  reproduce-v3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Reuse recorded scientific dependency versions
+        run: python -m pip install -r research/requirements-synthetic-v2.txt -e '.[test]'
+      - name: Materialize the frozen V3 catalog
+        run: python -m traveler_agent.research_v3_data --out data/processed/synthetic-v3-ci
+      - name: Reproduce factorial calibration and policies without new selection rules
+        run: >-
+          python -m traveler_agent.research_v3_benchmark
+          --data data/processed/synthetic-v3-ci
+          --out artifacts/synthetic-v3-ci
+          --registration-commit 72e400124d0c6e3004976d4e81ad5636eb862841
+          --reproduction
+      - name: Verify hashes decisions and exact outcome counts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          actual = json.loads(Path('artifacts/synthetic-v3-ci/experiment_report.json').read_text())
+          first = json.loads(Path('docs/research/v3/first-experiment-report.json').read_text())
+          selection = json.loads(Path('artifacts/synthetic-v3-ci/selection_manifest.json').read_text())
+          frozen = json.loads(Path('docs/research/v3/selection-manifest.json').read_text())
+          assert actual['purpose'] == 'IDENTICAL_FROZEN_REPRODUCTION'
+          for key in ('registration_commit', 'catalog_sha256', 'protocol_sha256', 'records_sha256', 'source_hashes'):
+              assert actual[key] == first[key], key
+          assert selection == frozen
+          assert actual['assessment_rows'] == 45 and actual['assessment_families'] == 15
+          for arm, models in first['results'].items():
+              for kind, expected in models.items():
+                  observed = actual['results'][arm][kind]
+                  assert observed['classification']['confusion_matrix'] == expected['classification']['confusion_matrix']
+                  assert observed['policies'] == expected['policies']
+                  assert abs(observed['classification']['macro_f1'] - expected['classification']['macro_f1']) < 1e-12
+          print('V3 FROZEN DECISIONS AND SELECTIVE-RISK COUNTS REPRODUCED; NOT HUMAN VALIDATION')
+          PY
+      - name: Preserve synthetic-only reproducibility evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: V3-SYNTHETIC-QUANTITY-DIVERSITY-SELECTIVE-RISK-NOT-HUMAN-GOLD
+          retention-days: 30
+          path: |
+            data/processed/synthetic-v3-ci/manifest.json
+            data/processed/synthetic-v3-ci/records.jsonl
+            data/processed/synthetic-v3-ci/v3_evaluation_journal.jsonl
+            artifacts/synthetic-v3-ci/selection_manifest.json
+            artifacts/synthetic-v3-ci/development_report.json
+            artifacts/synthetic-v3-ci/experiment_report.json
+            artifacts/synthetic-v3-ci/assessment_predictions.jsonl

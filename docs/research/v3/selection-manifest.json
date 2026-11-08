@@ -1,0 +1,189 @@
+{
+  "arms": {
+    "broad_120": {
+      "models": {
+        "dummy": {
+          "parameters": {},
+          "policy_status": "NO_FEASIBLE_DEVELOPMENT_POLICY_REVIEW_ALL",
+          "review_policy": {
+            "kind": "REVIEW_ALL"
+          },
+          "temperature": 3.0
+        },
+        "lr": {
+          "parameters": {
+            "C": 0.5
+          },
+          "policy_status": "NO_FEASIBLE_DEVELOPMENT_POLICY_REVIEW_ALL",
+          "review_policy": {
+            "kind": "REVIEW_ALL"
+          },
+          "temperature": 0.5
+        },
+        "svm": {
+          "parameters": {
+            "C": 0.5
+          },
+          "policy_status": "NO_FEASIBLE_DEVELOPMENT_POLICY_REVIEW_ALL",
+          "review_policy": {
+            "kind": "REVIEW_ALL"
+          },
+          "temperature": 0.5
+        }
+      },
+      "training_class_counts": {
+        "negativo": 40,
+        "neutral": 40,
+        "positivo": 40
+      },
+      "training_families": 20,
+      "training_ids_sha256": "7b23cd1cdd978e389ec3b5774ad8bba68c558f12c4f2274944fe5e65227e4e1e",
+      "training_rows": 120,
+      "training_sources": {
+        "V3_ASSISTANT_AUTHORED": 120
+      }
+    },
+    "broad_60": {
+      "models": {
+        "dummy": {
+          "parameters": {},
+          "policy_status": "NO_FEASIBLE_DEVELOPMENT_POLICY_REVIEW_ALL",
+          "review_policy": {
+            "kind": "REVIEW_ALL"
+          },
+          "temperature": 3.0
+        },
+        "lr": {
+          "parameters": {
+            "C": 2.0
+          },
+          "policy_status": "FEASIBLE_ON_SMALL_SYNTHETIC_DEVELOPMENT_ONLY",
+          "review_policy": {
+            "global_threshold": 0.56,
+            "kind": "ASYMMETRIC_CONFIDENCE_MARGIN",
+            "margin": 0.1,
+            "positive_threshold": 0.65
+          },
+          "temperature": 0.5
+        },
+        "svm": {
+          "parameters": {
+            "C": 2.0
+          },
+          "policy_status": "NO_FEASIBLE_DEVELOPMENT_POLICY_REVIEW_ALL",
+          "review_policy": {
+            "kind": "REVIEW_ALL"
+          },
+          "temperature": 1.0
+        }
+      },
+      "training_class_counts": {
+        "negativo": 20,
+        "neutral": 20,
+        "positivo": 20
+      },
+      "training_families": 20,
+      "training_ids_sha256": "d9980d2654bc370acd9c5d68f3eb02df7cc31310d73aa9bc55260b5a40d56f81",
+      "training_rows": 60,
+      "training_sources": {
+        "V3_ASSISTANT_AUTHORED": 60
+      }
+    },
+    "narrow_120": {
+      "models": {
+        "dummy": {
+          "parameters": {},
+          "policy_status": "NO_FEASIBLE_DEVELOPMENT_POLICY_REVIEW_ALL",
+          "review_policy": {
+            "kind": "REVIEW_ALL"
+          },
+          "temperature": 3.0
+        },
+        "lr": {
+          "parameters": {
+            "C": 0.5
+          },
+          "policy_status": "NO_FEASIBLE_DEVELOPMENT_POLICY_REVIEW_ALL",
+          "review_policy": {
+            "kind": "REVIEW_ALL"
+          },
+          "temperature": 0.5
+        },
+        "svm": {
+          "parameters": {
+            "C": 0.5
+          },
+          "policy_status": "FEASIBLE_ON_SMALL_SYNTHETIC_DEVELOPMENT_ONLY",
+          "review_policy": {
+            "global_threshold": 0.85,
+            "kind": "ASYMMETRIC_CONFIDENCE_MARGIN",
+            "margin": 0.1,
+            "positive_threshold": 0.65
+          },
+          "temperature": 0.5
+        }
+      },
+      "training_class_counts": {
+        "negativo": 40,
+        "neutral": 40,
+        "positivo": 40
+      },
+      "training_families": 10,
+      "training_ids_sha256": "cf7813e8d88823a7306efda173b348a815d07fd43f1e9d5d280538a958c01d7c",
+      "training_rows": 120,
+      "training_sources": {
+        "V3_ASSISTANT_AUTHORED": 120
+      }
+    },
+    "narrow_60": {
+      "models": {
+        "dummy": {
+          "parameters": {},
+          "policy_status": "NO_FEASIBLE_DEVELOPMENT_POLICY_REVIEW_ALL",
+          "review_policy": {
+            "kind": "REVIEW_ALL"
+          },
+          "temperature": 3.0
+        },
+        "lr": {
+          "parameters": {
+            "C": 0.5
+          },
+          "policy_status": "NO_FEASIBLE_DEVELOPMENT_POLICY_REVIEW_ALL",
+          "review_policy": {
+            "kind": "REVIEW_ALL"
+          },
+          "temperature": 0.5
+        },
+        "svm": {
+          "parameters": {
+            "C": 0.5
+          },
+          "policy_status": "NO_FEASIBLE_DEVELOPMENT_POLICY_REVIEW_ALL",
+          "review_policy": {
+            "kind": "REVIEW_ALL"
+          },
+          "temperature": 0.5
+        }
+      },
+      "training_class_counts": {
+        "negativo": 20,
+        "neutral": 20,
+        "positivo": 20
+      },
+      "training_families": 10,
+      "training_ids_sha256": "1361de3e119f6d60f328e212f2d49a8c8c5527dbc32267c80865b57a97790a6a",
+      "training_rows": 60,
+      "training_sources": {
+        "V3_ASSISTANT_AUTHORED": 60
+      }
+    }
+  },
+  "development_ids": {
+    "ambiguity_policy": "ce618b8c570552674b79c56e658c6c5b185f5f5e5a652584ae23a226ff905f9a",
+    "calibration": "c607460b86043ec1f9beb36f48445962560a88aa0be6aaeef25495e46757a811",
+    "policy_dev": "84f98b1d527c2147d43598518c2b4b9bb351adca5f08ff2478af1156ad50dc56",
+    "tune": "2648ecc2276dd2897e46a2c70e9c1f88504985378878af3cf0b54c55749b7eeb"
+  },
+  "registration_commit": "72e400124d0c6e3004976d4e81ad5636eb862841"
+}

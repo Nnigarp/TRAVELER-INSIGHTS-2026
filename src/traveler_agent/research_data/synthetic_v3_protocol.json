@@ -1,0 +1,21 @@
+{
+  "protocol_id": "V3-QUANTITY-DIVERSITY-SELECTIVE-2026-11-07",
+  "report_type": "SYNTHETIC_AUTHOR_INTENT_NOT_HUMAN_GOLD",
+  "seed": 42,
+  "role_rows": {"train": 180, "tune": 30, "calibration": 30, "policy_dev": 30, "assessment": 45, "ambiguity_policy": 10, "ambiguity_assessment": 10},
+  "factorial": {"training_rows": [60, 120], "semantic_families": [10, 20], "narrow_variants": [2, 4], "broad_variants": [1, 2]},
+  "model_grid": {"dummy": [{}], "lr": [{"C": 0.5}, {"C": 2.0}], "svm": [{"C": 0.5}, {"C": 2.0}]},
+  "ablation": {"fields": ["domain", "aspect"], "training_budget": 120, "evaluation": "TUNE ONLY; constant row budget; author-context regime contrast, not a causal population contribution"},
+  "selection": "C and model parameters on tune only; no train+tune refit",
+  "calibration": {"method": "scalar temperature on log predicted probabilities, argmax preserved", "temperatures": [1.0, 0.5, 0.75, 1.5, 2.0, 3.0], "selection": "minimum NLL on calibration only; ties keep grid order", "ece_bins": 5, "brier": "mean sum of squared three-class probability error, range 0..2"},
+  "review_policy": {"global_thresholds": [0.5, 0.56, 0.65, 0.75, 0.85, 0.95, 1.01], "positive_thresholds": [0.65, 0.8, 0.9, 1.01], "margin": 0.1, "min_coverage": 0.25, "min_accepted": 9, "max_empirical_risk": 0.1, "max_automatic_negative_to_positive": 0, "min_ambiguity_review_rate": 0.8, "selection": "maximum eligible policy_dev coverage, then lower risk, then fixed grid order; no feasible => REVIEW_ALL", "guarantee": "NONE; small author-labeled synthetic development set"},
+  "policy_comparisons": ["DEMO_RAW_UNCHANGED", "DEMO_TEMPERATURE", "SELECTED_ASYMMETRIC_TEMPERATURE"],
+  "assessment": "all hyperparameters, calibrators, policy thresholds and ablations saved before first assessment inference; never optimize on V2 or V3 assessment",
+  "bootstrap": {"resamples": 1000, "seed": 20261108, "unit": "assessment family; paired contrasts; synthetic sensitivity only"},
+  "latency": {"warmup": 5, "passes": 3, "cohort": "policy_dev", "batch_size": 1, "includes": "vectorizer and predict_proba; policy transform overhead reported separately"},
+  "near_duplicate_threshold": 0.7,
+  "v2": "frozen; only TRAIN/development coverage and full text-hash denylist, no V2 re-scoring or new selection",
+  "sources": "one assistant-author process; role batches and related variants remain family/component-grouped; not external/human independence",
+  "beto": {"status": "PENDING_SUPERVISED_DATA_AND_TRAINING_RESOURCE_PROTOCOL", "reason": "This phase isolates classical representation and review-policy effects. V2 encoder smoke remains valid technical evidence, not a sentiment model. Full fine-tuning resource use and human generalization are unmeasured."},
+  "human": "PENDING_AUTHORIZED_KAGGLE_OR_ORIGINAL_CONSENTED_REVIEWS; V3 does not replace human validation"
+}

@@ -1,0 +1,3730 @@
+{
+  "version": "synthetic-diversity-v3.0.0",
+  "authored_on": "2026-11-07",
+  "provenance": {
+    "source_type": "SYNTHETIC_ASSISTANT_AUTHORED",
+    "authoring_agent": "Codex session",
+    "model_identifier": "NOT_RELIABLY_IDENTIFIED",
+    "sampling_parameters": "NOT_AVAILABLE",
+    "human_authors": false,
+    "label_origin": "AUTHOR_INTENT_NOT_HUMAN_GOLD",
+    "generation_method": "Individually drafted complete literals; no noun/adjective substitution; frozen catalog replay is reproducible, drafting is not recreated by a seed.",
+    "regional_naturalness": "Author assessment only; independent native-speaker review pending.",
+    "prior_evidence": "V2 published aggregate findings and TRAIN/development coverage; V2 reserved raw examples not read for V3 drafting.",
+    "independence_limit": "Same assistant author across role batches. Disjoint declared semantic components do not prove external or semantic independence.",
+    "train_quality_revision": "TRAIN-only preflight found class-linked discourse metadata. Before freezing, neutral chronological narratives, matched short observations and dialogues across all classes were individually redrafted. No sentiment-model assessment scores were observed."
+  },
+  "families": [
+    {
+      "family": "tr01_shared_fridge",
+      "semantic_component": "tr01_shared_fridge",
+      "role": "train",
+      "domain": "hotel",
+      "aspect": "cleanliness",
+      "region": "es-CO",
+      "narrow_pool": true,
+      "source_batch": "V3_TRAIN",
+      "mechanism": "Derrame de comida en nevera comunitaria y respuesta de limpieza",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "La nevera compartida olía a leche cortada. Cambiaron la etiqueta de limpieza, no el trapo que seguía pegado al derrame.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Entramos al hostal, dejamos las maletas y preguntamos por la cocina. Guardamos una bebida en la repisa marcada para nuestro cuarto y salimos a caminar.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Se había derramado un yogur en la nevera. Antes de guardar nuestra comida la vaciaron, lavaron las bandejas y nos entregaron un espacio limpio.",
+          "variant": 0
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "dialogue",
+          "text": "¿Pueden retirar lo que se derramó? Respondieron que esperara al aseo de mañana. Cerré la nevera con mi comida adentro y un olor que quitaba el apetito.",
+          "variant": 1
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Consulté si el estante superior era privado. Me dijeron que no: se comparte y cada envase lleva una cinta con el número de cuarto.",
+          "variant": 1
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Pregunté si habían revisado el derrame. La encargada abrió las bandejas para enseñarme la limpieza; no tuve que confiar solo en una etiqueta, y lo agradecí.",
+          "variant": 1
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "comparison",
+          "text": "El aviso pedía separar bien los alimentos. Las bandejas se compartían con un líquido que venía del paquete de carne de otro huésped.",
+          "variant": 2
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "quotation",
+          "text": "No es cierto que no hubiera registro del aseo: vi una planilla con fecha, hora y firma junto al refrigerador.",
+          "variant": 2
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "No tuve que pedir otra limpieza. El encargado revisó las juntas de la nevera delante de nosotros y retiró hasta las migas de la goma.",
+          "variant": 2
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "typo"
+          ],
+          "structure": "narrative",
+          "text": "Dejé un almuerzo cerrado y al buscarlo la bolsa estaba pegada a una salsa vieja. Avisé dos veses; la nevera siguió igual hasta irme.",
+          "variant": 3
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "dialogue",
+          "text": "Pregunté dónde dejar una bebida. Me señalaron el estante de huéspedes y me dieron una cinta para escribir el número de habitación.",
+          "variant": 3
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "implicit_contrast"
+          ],
+          "structure": "comparison",
+          "text": "La cocina era compartida y esperaba olores de otras comidas. No los había: los recipientes estaban tapados y la nevera acababa de lavarse.",
+          "variant": 3
+        }
+      ]
+    },
+    {
+      "family": "tr02_lock_reset",
+      "semantic_component": "tr02_lock_reset",
+      "role": "train",
+      "domain": "hotel",
+      "aspect": "safety",
+      "region": "es-PE",
+      "narrow_pool": true,
+      "source_batch": "V3_TRAIN",
+      "mechanism": "Tarjeta de habitación reactivada sin comprobar identidad",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Perdí la tarjeta del cuarto. Me hicieron otra con solo decir el número; salí pensando que cualquiera podía haber pedido lo mismo.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "Regresé después del mediodía y la tarjeta no abrió. Bajé, mostré el documento y esperé a que la programaran hasta la hora de salida de mi ficha.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "narrative",
+          "text": "Da tranquilidad que pidan identificación antes de reponer la llave. Verificaron mi ficha y anularon la tarjeta perdida, así nomás no entraba otra persona.",
+          "variant": 0
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "dialogue",
+          "text": "Pedí la reposición de la tarjeta y pregunté cómo comprobarían mi identidad. Dijeron que bastaba el cuarto. Esa facilidad me dejó preocupado por quién podía entrar.",
+          "variant": 1
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "dialogue",
+          "text": "¿Hacían otra tarjeta por acompañante? Revisaron la reserva, anotaron dos entregas y nos dieron llaves con la misma fecha de vencimiento.",
+          "variant": 1
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Al solicitar otra llave preguntaron por el documento registrado. No saltaron ese paso por la prisa de la fila; me gustó ver que cuidaban el acceso.",
+          "variant": 1
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "narrative",
+          "text": "No puedo afirmar que no hubiera riesgo: a mi acompañante le dieron la llave de otro piso y abrió una puerta ocupada.",
+          "variant": 2
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "dialogue",
+          "text": "Dije que éramos dos personas alojadas. La recepcionista consultó la reserva y entregó una tarjeta a cada una, con la misma fecha de vencimiento.",
+          "variant": 2
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Volví por la llave sin mi mochila. Esperaron a contrastar mi identidad con el registro; agradecí que la prisa no pesara más que el cuidado.",
+          "variant": 2
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "typo"
+          ],
+          "structure": "observation",
+          "text": "La chapa abría con una tarjeta que nos habían dicho q ya estaba bloqueada. No me dio confianza dejar las cosas en ese cuarto.",
+          "variant": 3
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negative_concordance"
+          ],
+          "structure": "observation",
+          "text": "No se emitió ninguna tarjeta extra durante nuestra estancia. Usamos las dos que quedaron registradas al llegar.",
+          "variant": 3
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [],
+          "structure": "comparison",
+          "text": "En otros alojamientos la reposición era una entrega rápida. Aquí explicaron cada paso y desactivaron el acceso anterior; sentí que cuidaban nuestra privacidad.",
+          "variant": 3
+        }
+      ]
+    },
+    {
+      "family": "tr03_tactile_floor",
+      "semantic_component": "tr03_tactile_floor",
+      "role": "train",
+      "domain": "hotel",
+      "aspect": "accessibility",
+      "region": "es",
+      "narrow_pool": false,
+      "source_batch": "V3_TRAIN",
+      "mechanism": "Señales táctiles y orientación autónoma entre pisos",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "El ascensor anunciaba los pisos con una luz. Mi padre no veía la pantalla y tuvo que esperar a que otro huésped le dijera dónde bajarse.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "Al llegar pasamos por recepción y nos mostraron el plano táctil. Después tomamos el ascensor y seguimos la numeración del pasillo hasta la habitación.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "Las placas en relieve coincidían con los avisos de voz del ascensor. Mi padre encontró el cuarto sin pedir ayuda y pudo moverse por su cuenta.",
+          "variant": 0
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Pregunté cómo identificar el piso sin mirar la pantalla. Respondieron que alguien siempre avisa. No era una solución para moverse con autonomía.",
+          "variant": 1
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "dialogue",
+          "text": "¿Dónde empieza la señalización táctil? Nos mostraron el plano junto a recepción y las placas situadas al lado de las manijas del pasillo.",
+          "variant": 1
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "dialogue",
+          "text": "Consulté si los avisos de voz llegaban a todos los pisos. No faltaba ninguno: pudimos comprobarlos y mi padre se orientó sin depender de otros.",
+          "variant": 1
+        }
+      ]
+    },
+    {
+      "family": "tr04_early_departure_invoice",
+      "semantic_component": "tr04_early_departure_invoice",
+      "role": "train",
+      "domain": "hotel",
+      "aspect": "price",
+      "region": "es-CO",
+      "narrow_pool": false,
+      "source_batch": "V3_TRAIN",
+      "mechanism": "Cargo de salida anticipada anunciado frente a factura real",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Entregué el cuarto una noche antes. La reserva decía que esa noche no se cobraba; la factura la incluyó como ajuste y nadie explicó la diferencia.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Entregamos la habitación un día antes de la fecha inicial. Recibimos el detalle de noches y ajustes y pedimos que enviaran una copia al correo de la reserva.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "Avisé la salida anticipada y descontaron la noche según la condición escrita. No tuve que discutir una cuenta distinta de la que había contratado.",
+          "variant": 0
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "No devolvieron la noche cancelada pese a lo acordado. Salí molesto.",
+          "variant": 1
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "observation",
+          "text": "Dejamos el cuarto el martes. El recibo llegó después por correo.",
+          "variant": 1
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [],
+          "structure": "observation",
+          "text": "Descontaron la noche y explicaron la cuenta. Un cierre justo y claro.",
+          "variant": 1
+        }
+      ]
+    },
+    {
+      "family": "tr05_allergen_handover",
+      "semantic_component": "tr05_allergen_handover",
+      "role": "train",
+      "domain": "restaurant",
+      "aspect": "safety",
+      "region": "es-PE",
+      "narrow_pool": true,
+      "source_batch": "V3_TRAIN",
+      "mechanism": "Información sobre alergia que debe llegar de salón a cocina",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Anotaron mi alergia al maní en la mesa. El plato llegó con la salsa encima; el aviso se había quedado en el papel del mozo.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Al sentarnos consultamos qué llevaba el guiso. La cocina envió la lista de ingredientes, elegimos dos platos y pedimos que el ají saliera en otro recipiente.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "narrative",
+          "text": "El mozo repitió la restricción y la cocinera vino a confirmar qué aceite usaría. Pude comer tranquilo; se tomaron en serio lo que necesitaba.",
+          "variant": 0
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "¿Habían avisado a cocina de la alergia? El mesero dijo que sí, la cocinera que no. Devolví el plato; esa contradicción me quitó la confianza.",
+          "variant": 1
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "dialogue",
+          "text": "Consultamos por el ají del plato. La orden quedó marcada para servirlo aparte y en la mesa recibimos un recipiente con la salsa y otro con la comida.",
+          "variant": 1
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Preguntaron qué ingrediente debía evitar y repitieron la indicación a cocina delante de mí. No lo trataron como un capricho; pude comer con tranquilidad.",
+          "variant": 1
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "observation",
+          "text": "No puedo decir que no les avisara. Lo indiqué al reservar y al sentarme; aun así trajeron la misma guarnición que pedí evitar.",
+          "variant": 2
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "typo"
+          ],
+          "structure": "observation",
+          "text": "En la comanda figura alergia a frutos secos. El mesero anotó tmb la hora y el número de mesa antes de pasarla a cocina.",
+          "variant": 2
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "explicit_contrast",
+            "mixed_aspects"
+          ],
+          "structure": "concession",
+          "text": "El salón estaba lleno, aunque eso no impidió verificar los ingredientes conmigo. La demora tuvo una explicación y recibí una comida adecuada.",
+          "variant": 2
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "Pregunté si el caldo llevaba mariscos. Contestaron por costumbre y luego admitieron que no habían consultado; dejé el plato sin probar.",
+          "variant": 3
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negative_concordance"
+          ],
+          "structure": "list",
+          "text": "No se añadió ningún ingrediente al pedido después de confirmarlo. Los cambios de acompañamiento aparecen en el recibo de la mesa.",
+          "variant": 3
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [],
+          "structure": "comparison",
+          "text": "He tenido que explicar la misma restricción a cada persona que atiende. Aquí la información pasó de caja al mozo y a cocina sin perderse.",
+          "variant": 3
+        }
+      ]
+    },
+    {
+      "family": "tr06_large_print_menu",
+      "semantic_component": "tr06_large_print_menu",
+      "role": "train",
+      "domain": "restaurant",
+      "aspect": "accessibility",
+      "region": "es",
+      "narrow_pool": true,
+      "source_batch": "V3_TRAIN",
+      "mechanism": "Carta de letra grande utilizable a la mesa",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Ofrecieron carta de letra grande y trajeron una fotografía ampliada borrosa. Acabé eligiendo lo que otra persona alcanzó a leerme.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Nos sentamos cerca de la ventana y pedimos una carta impresa. Revisamos el cuadernillo ampliado, elegimos dos preparaciones y lo devolvimos cuando llegó la bebida.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "La versión de letra grande mantenía precios junto a cada plato. Pude comparar y elegir sin que alguien tuviera que leer toda la carta por mí.",
+          "variant": 0
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "dialogue",
+          "text": "Pedí leer las bebidas en letra grande. Dijeron que esa parte estaba solo en la carta pequeña. Acabé eligiendo a partir de lo que otra persona pudo leerme.",
+          "variant": 1
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "dialogue",
+          "text": "¿Los dos cuadernillos tenían el mismo menú? La camarera mostró las secciones y dejó la versión normal junto a la ampliada sobre nuestra mesa.",
+          "variant": 1
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Pregunté por los precios en la copia ampliada. Estaban junto a cada plato, sin saltos de página; no necesité pedir otra explicación para decidir y eso me dio autonomía.",
+          "variant": 1
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "mixed_aspects",
+            "explicit_contrast"
+          ],
+          "structure": "concession",
+          "text": "La comida llegó caliente, pero elegirla fue un problema: la carta accesible omitía las bebidas y tuve que pedir que me explicaran esa parte.",
+          "variant": 2
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "quotation",
+          "text": "No es verdad que no hubiera otra versión: vimos la carta normal y el cuadernillo ampliado, ambos fechados el mismo mes.",
+          "variant": 2
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "comparison",
+          "text": "Esperaba una hoja enorme difícil de manejar. El menú venía dividido en secciones cortas y se podía apoyar abierto sin tapar media mesa.",
+          "variant": 2
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "typo",
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "Me dieron el menu en letra grande sin la última página. Nadie encontró la copia completa y no pude revisar los postres por mi cuenta.",
+          "variant": 3
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "list",
+          "text": "El cuadernillo usa fondo claro y títulos oscuros. Cada sección enumera nombre, preparación y precio en columnas separadas.",
+          "variant": 3
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "observation",
+          "text": "No hubo un plato que no pudiera localizar en el índice ampliado. Elegir dejó de ser una tarea compartida y disfruté esa independencia.",
+          "variant": 3
+        }
+      ]
+    },
+    {
+      "family": "tr07_water_refill_bill",
+      "semantic_component": "tr07_water_refill_bill",
+      "role": "train",
+      "domain": "restaurant",
+      "aspect": "price",
+      "region": "es-CO",
+      "narrow_pool": false,
+      "source_batch": "V3_TRAIN",
+      "mechanism": "Recarga de agua cobrada por jarra sin aviso de precio",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Nos rellenaron la jarra mientras comíamos. En la cuenta cada recarga aparecía como una botella nueva, sin que nadie hubiera mencionado ese precio.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Al terminar pedimos la cuenta y contamos las recargas. El recibo tenía dos jarras y tres platos; dejamos sin llenar la casilla de propina y pagamos en caja.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "narrative",
+          "text": "Antes de rellenar preguntaron si aceptábamos el costo y señalaron dónde estaba escrito. Así da gusto decidir, sin encontrarse sorpresas al pagar.",
+          "variant": 0
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "observation",
+          "text": "Rellenaron sin preguntar. Cobraron cada vaso. Una sorpresa muy desagradable.",
+          "variant": 1
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "El recibo suma dos jarras. No añadimos bebida embotellada al pedido.",
+          "variant": 1
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [],
+          "structure": "observation",
+          "text": "Avisaron el costo de recarga. Elegimos tranquilos y pagamos lo acordado.",
+          "variant": 1
+        }
+      ]
+    },
+    {
+      "family": "tr08_occasion_reservation",
+      "semantic_component": "tr08_occasion_reservation",
+      "role": "train",
+      "domain": "restaurant",
+      "aspect": "service",
+      "region": "es-PE",
+      "narrow_pool": false,
+      "source_batch": "V3_TRAIN",
+      "mechanism": "Petición de mesa tranquila registrada y respetada",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Reservamos una mesa apartada para conversar. Nos sentaron al lado del parlante y dijeron que la nota de la reserva no se había pasado al salón.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Llegamos a la hora de la reserva y esperamos junto a la entrada. Nos indicaron la mesa del fondo, dejamos los abrigos y confirmamos los seis cubiertos anotados.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "narrative",
+          "text": "Pedimos un sitio sin parlante al lado. El mozo leyó la nota y nos dejó conversar a gusto; para nosotros ese detalle valió más que un adorno.",
+          "variant": 0
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "dialogue",
+          "text": "Les recordé que habíamos pedido un sitio para conversar. Contestaron que la nota no era una garantía y nos dejaron al lado del parlante. Me sentí desatendido.",
+          "variant": 1
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "¿Se cambiaba de mesa durante la cena? Nos dijeron que no; la ubicación del fondo figuraba en la reserva y allí tomaron el pedido.",
+          "variant": 1
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "dialogue",
+          "text": "Al ver el parlante pregunté por la petición de la reserva. Revisaron la nota y prepararon otro rincón antes de servir; sí escucharon lo que necesitábamos.",
+          "variant": 1
+        }
+      ]
+    },
+    {
+      "family": "tr09_hearing_loop",
+      "semantic_component": "tr09_hearing_loop",
+      "role": "train",
+      "domain": "museum",
+      "aspect": "accessibility",
+      "region": "es-CO",
+      "narrow_pool": true,
+      "source_batch": "V3_TRAIN",
+      "mechanism": "Bucle de inducción para seguir una explicación en sala",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "El símbolo de audición estaba en la entrada. Mi audífono no recibió nada en la charla y el personal no sabía encender el sistema anunciado.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "Llegamos antes de la charla para consultar por el bucle. Activé el modo T del audífono y nos sentamos en las primeras filas que marcaba el esquema de sala.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "narrative",
+          "text": "Probamos el bucle antes de la charla y pude ajustar el volumen sin perder la explicación. Fue bacano seguirla al mismo tiempo que el resto.",
+          "variant": 0
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Pregunté quién encendía el bucle. La persona de sala no lo sabía y me entregó un folleto de otra muestra. Quedé fuera de la explicación que había venido a escuchar.",
+          "variant": 1
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "dialogue",
+          "text": "Consulté por la cobertura del equipo. El mediador señaló las filas del plano y explicó qué posición del audífono se usa durante la charla.",
+          "variant": 1
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "dialogue",
+          "text": "¿Podíamos probar la señal antes de empezar? La revisaron conmigo, encontraron un asiento sin cobertura y cambiaron nuestra ubicación. Pude seguir la charla completa.",
+          "variant": 1
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "mixed_aspects",
+            "explicit_contrast"
+          ],
+          "structure": "concession",
+          "text": "Los carteles tenían buena letra, pero la actividad dependía de una voz que mi audífono apenas captaba. El bucle anunciado nunca se activó.",
+          "variant": 2
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "quotation",
+          "text": "No es correcto decir que no había instrucciones. La ficha del equipo explicaba el modo T y mostraba un esquema de las filas cubiertas.",
+          "variant": 2
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [],
+          "structure": "comparison",
+          "text": "Antes tenía que completar las explicaciones leyendo labios. Esta vez el sistema llevó la voz limpia al audífono y pude mirar las piezas mientras escuchaba.",
+          "variant": 2
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "typo"
+          ],
+          "structure": "narrative",
+          "text": "La persona de sala no encontró quién prendiera el bucle. Espere toda la introducción en la primera fila y me fui sin poder seguirla.",
+          "variant": 3
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "list",
+          "text": "La actividad fue en una sala rectangular. Había doce sillas, un micrófono de solapa, dos pantallas y un aviso sobre compatibilidad de audífonos.",
+          "variant": 3
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "narrative",
+          "text": "No hubo una explicación que no alcanzara a escuchar. Revisaron la señal al cambiar de sala y esa continuidad hizo que la visita fuera mía también.",
+          "variant": 3
+        }
+      ]
+    },
+    {
+      "family": "tr10_resident_ticket",
+      "semantic_component": "tr10_resident_ticket",
+      "role": "train",
+      "domain": "museum",
+      "aspect": "price",
+      "region": "es",
+      "narrow_pool": true,
+      "source_batch": "V3_TRAIN",
+      "mechanism": "Tarifa de residente y documentos exigidos en taquilla",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "El anuncio ofrecía tarifa de residente con documento. En taquilla exigieron otro comprobante que no figuraba y cobraron la entrada completa.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Pasamos por taquilla con el documento local. La persona de caja registró dos accesos como residentes, entregó el recibo y seguimos a la sala de la colección.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Los documentos aceptados estaban detallados antes de hacer fila. Llevé uno de la lista y pagué la tarifa publicada, sin discusiones en taquilla.",
+          "variant": 0
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "dialogue",
+          "text": "Pregunté por qué pedían otro certificado si llevaba lo publicado. Respondieron que la lista estaba vieja. El descuento terminó siendo imposible de usar ese día.",
+          "variant": 1
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "dialogue",
+          "text": "Consulté si un recibo acreditaba el domicilio. La encargada señaló los documentos que admite la tarifa y leyó conmigo el apartado correspondiente.",
+          "variant": 1
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "¿Se podía corregir la categoría equivocada? Verificaron mi comprobante y devolvieron la diferencia allí mismo. No me hicieron pagar otra vez por un error de caja.",
+          "variant": 1
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "observation",
+          "text": "No puedo decir que no presentara los papeles pedidos: llevé los dos de la lista. Añadieron una condición en la ventanilla y perdí el descuento.",
+          "variant": 2
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "list",
+          "text": "La pantalla de taquilla muestra tres tarifas y los documentos para cada una. En nuestro recibo aparecen la categoría local, la fecha y el número de accesos.",
+          "variant": 2
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Mi comprobante estaba en formato digital y temí perder la tarifa. Lo verificaron con el mismo criterio de la lista, sin inventar requisitos nuevos.",
+          "variant": 2
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "Entramos como visitantes locales y cobraron categoría general. No quisieron revisar el recibo hasta después del cierre de caja; tuvimos que marcharnos con el error.",
+          "variant": 3
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negative_concordance"
+          ],
+          "structure": "observation",
+          "text": "Ninguna persona del grupo solicitó exención. Se emitieron cuatro entradas de residente, todas con el mismo valor unitario.",
+          "variant": 3
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "Había leído la lista de requisitos y llevé el documento indicado. La fila avanzó sin atajos para nadie. Cuando llegó mi turno verificaron el domicilio, aplicaron la tarifa y me dieron un recibo donde se veía el descuento. No tuve que perseguir a otra oficina para corregir un cobro. Ese trámite sencillo me dejó tiempo para disfrutar la exposición, en lugar de empezar la visita discutiendo sobre el precio que habían anunciado.",
+          "variant": 3
+        }
+      ]
+    },
+    {
+      "family": "tr11_lost_tablet_desk",
+      "semantic_component": "tr11_lost_tablet_desk",
+      "role": "train",
+      "domain": "museum",
+      "aspect": "service",
+      "region": "es-PE",
+      "narrow_pool": false,
+      "source_batch": "V3_TRAIN",
+      "mechanism": "Comunicación de objeto olvidado entre salas y guardarropa",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Olvidé la tableta en una banca. En cada sala me mandaban a otro puesto; nadie anotó el reporte y repetí la historia hasta que cerraron.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Volví a la banca donde había dejado la tableta y después fui a guardarropa. Describí la cubierta y la sala, recibí un número de reporte y continuamos la visita.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "narrative",
+          "text": "El personal compartió el aviso por radio y me acompañó al puesto donde guardaron la tableta. No me dejaron yendo de ventanilla en ventanilla, fue un alivio.",
+          "variant": 0
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Pedí un número para seguir el reporte de la tableta. Nadie sabía dónde anotarlo; no había a quién preguntar después y sentí que el aviso se perdía en cada sala.",
+          "variant": 1
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "dialogue",
+          "text": "El encargado preguntó color y cubierta de la tableta. Le indiqué la banca donde la había visto y recibí un número del registro de objetos olvidados.",
+          "variant": 1
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "dialogue",
+          "text": "Pregunté si debía recorrer otra vez todas las salas. El personal compartió el aviso por radio y me acompañó al puesto donde estaba el objeto; qué alivio recibir ayuda concreta.",
+          "variant": 1
+        }
+      ]
+    },
+    {
+      "family": "tr12_exhibit_glass",
+      "semantic_component": "tr12_exhibit_glass",
+      "role": "train",
+      "domain": "museum",
+      "aspect": "cleanliness",
+      "region": "es",
+      "narrow_pool": false,
+      "source_batch": "V3_TRAIN",
+      "mechanism": "Suciedad del vidrio que impide distinguir una pieza",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "La pieza pequeña se veía detrás de un vidrio lleno de marcas. Cambiar de ángulo solo cambiaba el reflejo; acabé mirando la foto del folleto.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Empezamos por la maqueta del centro y leímos la ficha situada al lado. Seguimos alrededor de la vitrina, consultamos el folleto y pasamos al siguiente módulo.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "El vidrio estaba tan despejado que pude distinguir los grabados sin acercar la cara. Esa limpieza permitió apreciar lo que había ido a ver.",
+          "variant": 0
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "dialogue",
+          "text": "¿Podían limpiar la vitrina para ver el grabado? Dijeron que se hacía al final. La pieza quedó oculta tras las marcas y la visita perdió su motivo para mí.",
+          "variant": 1
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Preguntamos si podían abrir la vitrina. La mediadora explicó que no; la maqueta se observa desde fuera y la ficha del lateral describe sus materiales.",
+          "variant": 1
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Señalé una marca frente al detalle que explicaban. La limpiaron antes de seguir y no tuve que imaginar el grabado a partir del folleto; así pude disfrutarlo.",
+          "variant": 1
+        }
+      ]
+    },
+    {
+      "family": "tr13_baggage_fare",
+      "semantic_component": "tr13_baggage_fare",
+      "role": "train",
+      "domain": "transport",
+      "aspect": "price",
+      "region": "es-CO",
+      "narrow_pool": true,
+      "source_batch": "V3_TRAIN",
+      "mechanism": "Equipaje incluido o cobrado otra vez al subir al bus",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "El pasaje incluía una maleta. Al cargarla pidieron otro pago y el conductor dijo que la tarifa de la web no contaba en ese paradero.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Entregamos la maleta al cargar el bus y conservamos el talón. Las mochilas quedaron con nosotros; al bajar comparamos el número de la etiqueta y retiramos el equipaje.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "narrative",
+          "text": "Antes de pagar aclararon el tamaño de la maleta incluida. En el paradero respetaron esa condición y el viaje arrancó sin un cobro que tocara discutir.",
+          "variant": 0
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "positive_words_negative_context"
+          ],
+          "structure": "dialogue",
+          "text": "Pregunté qué incluía la tarifa todo incluido. Al entregar la maleta respondieron que esa parte se pagaba aparte en efectivo; sentí que el anuncio me había engañado.",
+          "variant": 1
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "dialogue",
+          "text": "¿Qué cubría el equipaje del boleto? En caja señalaron el peso permitido y anotaron la pieza que iría a bodega en nuestro comprobante.",
+          "variant": 1
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Al subir pregunté si faltaba otro pago por la maleta. Mostraron el registro y no cobraron nada adicional; el presupuesto que habíamos hecho sí se respetó.",
+          "variant": 1
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "observation",
+          "text": "No es que no hubiera pagado la maleta: conservaba el recibo. Me cobraron de nuevo porque el sistema de embarque no mostraba ese abono.",
+          "variant": 2
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "list",
+          "text": "El boleto separa valor del trayecto, tasa y piezas adicionales. El conductor conservó el talón de embarque y nosotros el comprobante de la maleta.",
+          "variant": 2
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "La compra digital omitió la pieza de equipaje por un fallo. Revisaron el abono y corrigieron la lista antes de salir; no nos trasladaron el costo del error.",
+          "variant": 2
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "typo"
+          ],
+          "structure": "narrative",
+          "text": "Decían q el bolso entraba con el pasaje. En el bus no reconocieron esa opción y tuvimos que pagar otro monto para no perder la salida.",
+          "variant": 3
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "observation",
+          "text": "El comprobante que recibimos al comprar tiene cuatro apartados. Primero aparecen los nombres del trayecto y la fecha; después, el número de pasajeros. La tercera línea registra una maleta en bodega y la última corresponde a una pieza adicional que añadimos en caja. Al subir nos dieron dos etiquetas iguales a las del talón. La maleta fue en el compartimiento lateral y las mochilas pequeñas quedaron con nosotros durante el recorrido completo.",
+          "variant": 3
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negative_concordance"
+          ],
+          "structure": "observation",
+          "text": "No apareció ningún recargo al entregar la maleta. El total fue el mismo de la reserva y agradecí poder cerrar ese gasto de antemano.",
+          "variant": 3
+        }
+      ]
+    },
+    {
+      "family": "tr14_stop_request",
+      "semantic_component": "tr14_stop_request",
+      "role": "train",
+      "domain": "transport",
+      "aspect": "service",
+      "region": "es-PE",
+      "narrow_pool": true,
+      "source_batch": "V3_TRAIN",
+      "mechanism": "Solicitud de parada comunicada al conductor",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Avisé con tiempo en qué paradero bajaba. El conductor pasó de largo y me dejó donde ya no había cómo volver al hospedaje a pie.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Subimos en el terminal y avisamos que bajaríamos en el mercado. Cuando el bus entró a la bahía recogimos las mochilas, bajamos y cruzamos hacia el hospedaje.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "narrative",
+          "text": "Le indiqué mi paradero al chofer y lo recordó al acercarnos. Viajaba por primera vez; ese aviso oportuno me evitó perderme con la maleta.",
+          "variant": 0
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "dialogue",
+          "text": "Avisé que bajaba en el mercado. El chofer respondió que conocía el paradero y lo pasó de largo. Después me tocó volver cargando la mochila; qué mala atención.",
+          "variant": 1
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "dialogue",
+          "text": "Consultamos cómo avisar la bajada. El chofer indicó el botón trasero y nombró las dos paradas que preceden al paradero del mercado.",
+          "variant": 1
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Pregunté si era la próxima parada y el chofer me dio la referencia precisa. No me hizo sentir una carga por desconocer la ciudad; bajé mucho más tranquilo.",
+          "variant": 1
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "mixed_aspects",
+            "explicit_contrast"
+          ],
+          "structure": "concession",
+          "text": "El bus tenía asientos cómodos, pero la atención al bajar fue áspera. Habíamos avisado la parada y nos hicieron sentir que pedirla era una molestia.",
+          "variant": 2
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "quotation",
+          "text": "No es verdad que no se anunciara el paradero. El nombre salió por el altavoz antes de que el bus entrara en la bahía.",
+          "variant": 2
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "comparison",
+          "text": "Me confundí con dos paraderos parecidos. En vez de dejarme en cualquiera, el chofer preguntó la referencia y confirmó cuál quedaba frente a mi alojamiento.",
+          "variant": 2
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "typo"
+          ],
+          "structure": "narrative",
+          "text": "Apreté el boton donde nos dijeron. No paró y después culparon al pasajero por no avisar; llegar al hospedaje se volvió otra vuelta cargando todo.",
+          "variant": 3
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "list",
+          "text": "El tramo urbano tiene cinco paraderos antes del terminal. El botón está junto a la puerta y la pantalla indica el nombre de la siguiente parada.",
+          "variant": 3
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "observation",
+          "text": "No hubo una consulta que no me respondieran al preguntar por la bajada. Un trato paciente hizo mucho más fácil moverme por una ciudad nueva.",
+          "variant": 3
+        }
+      ]
+    },
+    {
+      "family": "tr15_ferry_seats",
+      "semantic_component": "tr15_ferry_seats",
+      "role": "train",
+      "domain": "transport",
+      "aspect": "cleanliness",
+      "region": "es",
+      "narrow_pool": false,
+      "source_batch": "V3_TRAIN",
+      "mechanism": "Estado del asiento de ferry tras el viaje anterior",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Subimos después de otro grupo y los asientos seguían pegajosos. Pusieron un aviso de embarque listo y nos tocó limpiar para poder sentarnos.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Al subir dejamos la cubierta y entramos al salón central. Buscamos los números del boleto, acomodamos el equipaje y permanecimos allí hasta que anunciaron el desembarque.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Entre viajes retiraron residuos y dejaron secar las superficies. Pude apoyar la mochila y sentarme sin buscar un lugar menos sucio.",
+          "variant": 0
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "dialogue",
+          "text": "Pedí un paño para el asiento pegajoso. Me señalaron una servilleta usada; tuve que limpiar restos ajenos para sentarme y empecé el viaje con desagrado.",
+          "variant": 1
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "dialogue",
+          "text": "¿Cuándo abrían el salón? Explicaron que primero se retiran bolsas, después se pasa el trapeador y por último se permite entrar al siguiente grupo.",
+          "variant": 1
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Pregunté si podíamos usar la fila que habían limpiado. Esperaron a secarla antes de dejarnos pasar; no nos sentaron sobre una superficie mojada y se agradeció.",
+          "variant": 1
+        }
+      ]
+    },
+    {
+      "family": "tr16_seatbelt_fit",
+      "semantic_component": "tr16_seatbelt_fit",
+      "role": "train",
+      "domain": "transport",
+      "aspect": "safety",
+      "region": "es-CO",
+      "narrow_pool": false,
+      "source_batch": "V3_TRAIN",
+      "mechanism": "Cinturón disponible y ajustable en el asiento asignado",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "El cinturón de mi asiento no enganchaba. Arrancaron diciendo que el trayecto era corto; viajé sujetando la mochila en vez de ir tranquilo.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "Nos ubicamos en la fila asignada y ajustamos las correas de dos puntos. El conductor inició la marcha y no volvimos a cambiar de asiento durante ese tramo.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "La hebilla no cerraba en el primer asiento. Esperaron, me cambiaron de puesto y comprobaron el ajuste; agradecí que el horario no borrara ese cuidado.",
+          "variant": 0
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "dialogue",
+          "text": "Dije que la hebilla no cerraba. Contestaron que el viaje era corto y había que salir. Esa respuesta hizo que pasara todo el traslado preocupado.",
+          "variant": 1
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "¿Se ocuparía la fila del fondo? La persona de embarque dijo que no y asignó al grupo los puestos con cinturón habilitado que figuraban en su lista.",
+          "variant": 1
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Pregunté si podían revisar la hebilla antes de partir. La comprobaron y me cambiaron de asiento; no dejaron el cuidado en una recomendación vacía y pude viajar tranquilo.",
+          "variant": 1
+        }
+      ]
+    },
+    {
+      "family": "tr17_guide_handover",
+      "semantic_component": "tr17_guide_handover",
+      "role": "train",
+      "domain": "tour",
+      "aspect": "service",
+      "region": "es-PE",
+      "narrow_pool": true,
+      "source_batch": "V3_TRAIN",
+      "mechanism": "Relevo de guía con información de necesidades del grupo",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Cambiaron de guía a mitad del paseo. El relevo no sabía qué habíamos visitado y pasamos la siguiente hora repitiendo explicaciones y buscando al grupo.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Recorrimos el centro con la primera guía y llegamos a la plaza. Allí se presentó el relevo, repasamos las paradas pendientes y empezamos el tramo del mirador.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "narrative",
+          "text": "El nuevo guía recibió el recorrido que ya llevábamos y las consultas pendientes. Seguimos de frente con la visita, sin empezar la misma historia otra vez.",
+          "variant": 0
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "dialogue",
+          "text": "Preguntamos al relevo por la siguiente parada. Quería llevarnos a la misma del inicio y no tenía nuestro programa. La coordinación anunciada se quedó en el folleto.",
+          "variant": 1
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "dialogue",
+          "text": "¿Quién seguía después de la plaza? El coordinador presentó al relevo, entregó la hoja de paradas y marcó allí lo que ya habíamos visitado.",
+          "variant": 1
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Le pregunté al nuevo guía si conocía la consulta pendiente. La retomó enseguida y no hubo que volver a empezar; sentimos que el paseo estaba bien coordinado.",
+          "variant": 1
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "observation",
+          "text": "No puedo decir que no hubiera un segundo guía. Sí llegó; el problema es que desconocía la ruta contratada y nos hizo regresar al punto inicial.",
+          "variant": 2
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "typo"
+          ],
+          "structure": "list",
+          "text": "En el itinerario figuran dos guias: uno para el centro y otro para el tramo del mirador. El cambio se realiza junto al puesto de información.",
+          "variant": 2
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Al primero le surgió un imprevisto. El relevo llegó con nuestras preferencias anotadas y mantuvo el ritmo del paseo; nos sentimos acompañados todo el tiempo.",
+          "variant": 2
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "El recorrido lo atendían dos guías por turnos. Antes de salir explicamos qué parte ya conocíamos y qué queríamos ver. Cuando llegó el relevo no había recibido esa información. Nos pidió repetirla, consultó otro programa y empezó a conducirnos hacia la misma zona de la mañana. Intentamos aclararlo varias veces y perdimos buena parte del tiempo contratado. La visita terminó siendo una negociación sobre lo que habíamos pagado, en lugar de la experiencia que esperábamos disfrutar.",
+          "variant": 3
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negative_concordance"
+          ],
+          "structure": "observation",
+          "text": "Ninguna parada quedó a cargo de los dos guías simultáneamente. El relevo se hizo en la plaza, después de marcar el cierre del primer tramo.",
+          "variant": 3
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "narrative",
+          "text": "No hubo un detalle acordado que no recibiera el relevo. La coordinación se notó en el trato y pude concentrarme en disfrutar lo que estábamos viendo.",
+          "variant": 3
+        }
+      ]
+    },
+    {
+      "family": "tr18_walking_poles",
+      "semantic_component": "tr18_walking_poles",
+      "role": "train",
+      "domain": "tour",
+      "aspect": "cleanliness",
+      "region": "es",
+      "narrow_pool": true,
+      "source_batch": "V3_TRAIN",
+      "mechanism": "Limpieza de empuñaduras de bastones prestados",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Los bastones de préstamo todavía tenían barro seco en las empuñaduras. Los repartieron con la cinta de revisado y empecé el paseo limpiando donde debía sujetarme.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Recogimos dos bastones por persona y probamos la altura antes de salir. Al volver del sendero los dejamos en la caja de material usado junto al puesto de entrega.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Los mangos estaban limpios y secos, sin restos del grupo anterior. Pude apoyarme con firmeza y olvidarme del equipo durante la caminata.",
+          "variant": 0
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "dialogue",
+          "text": "¿Cambian las correas húmedas? Dijeron que todos los bastones venían así. Ese olor a material guardado quitaba las ganas de sujetarlos durante la caminata.",
+          "variant": 1
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "dialogue",
+          "text": "Pregunté dónde devolveríamos los bastones. Mostraron la caja de usados y la mesa donde se separan correas, empuñaduras y puntas para el aseo.",
+          "variant": 1
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Al pedir revisar el mango me enseñaron cómo limpiaban las ranuras. No era solo sacudir la punta; usar aquel material me dio confianza para apoyarme durante el paseo.",
+          "variant": 1
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "mixed_aspects",
+            "explicit_contrast"
+          ],
+          "structure": "concession",
+          "text": "Los bastones se ajustaban bien, pero las correas olían a humedad y estaban húmedas. Acabé caminando sin usarlas para no tenerlas en la mano.",
+          "variant": 2
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "quotation",
+          "text": "No es correcto decir que no separaban el material. Había un cajón para lo usado y otro para los bastones que iban a entregarse al grupo.",
+          "variant": 2
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Al revisar apareció una correa manchada. La retiraron antes del reparto y me entregaron otro bastón limpio, sin hacerme insistir en algo tan básico.",
+          "variant": 2
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "typo"
+          ],
+          "structure": "narrative",
+          "text": "El agarre seguía con mugre en las ranuras. Pedi cambiarlo y dijeron que todos eran iguales; no daban ganas de apoyar la mano durante la subida.",
+          "variant": 3
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "list",
+          "text": "Los bastones tienen tres secciones, una correa de muñeca y una tapa de goma. La limpieza del mango se realiza aparte del enjuague de las puntas.",
+          "variant": 3
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negative_concordance"
+          ],
+          "structure": "comparison",
+          "text": "No quedó ningún rastro pegajoso en las empuñaduras. El material se sentía cuidado y la caminata resultó más cómoda desde el primer tramo.",
+          "variant": 3
+        }
+      ]
+    },
+    {
+      "family": "tr19_zipline_harness",
+      "semantic_component": "tr19_zipline_harness",
+      "role": "train",
+      "domain": "tour",
+      "aspect": "safety",
+      "region": "es-CO",
+      "narrow_pool": false,
+      "source_batch": "V3_TRAIN",
+      "mechanism": "Doble comprobación de arnés antes de tirolesa",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "El arnés quedó flojo y lo señalé antes de saltar. El monitor hizo un gesto para que avanzara; tuve que detener la fila para que lo revisaran.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Fuimos entrando a la plataforma por turnos. El monitor ajustó el arnés, conectó las dos líneas y esperamos la señal de la persona situada al otro lado.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "narrative",
+          "text": "Revisaron el arnés entre dos personas y me dejaron probar el ajuste antes de salir. Ahí sí pude soltar el susto y disfrutar el cruce.",
+          "variant": 0
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "dialogue",
+          "text": "Pregunté si la correa debía quedar suelta. El monitor hizo una señal para que saltara sin acercarse a revisarla; perdí la confianza en la actividad.",
+          "variant": 1
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "dialogue",
+          "text": "¿Cuándo podía salir cada persona? El monitor explicó el ajuste del arnés, la segunda conexión y la señal que espera desde la plataforma de llegada.",
+          "variant": 1
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Pedí volver a comprobar el ajuste. Pararon y lo revisaron conmigo; no convirtieron la duda en una molestia y ese cuidado me permitió disfrutar el cruce.",
+          "variant": 1
+        }
+      ]
+    },
+    {
+      "family": "tr20_cobbled_detour",
+      "semantic_component": "tr20_cobbled_detour",
+      "role": "train",
+      "domain": "tour",
+      "aspect": "accessibility",
+      "region": "es-PE",
+      "narrow_pool": false,
+      "source_batch": "V3_TRAIN",
+      "mechanism": "Desvío accesible para evitar escaleras del tramo empedrado",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "La ruta se anunciaba sin escalones. El paso empedrado terminaba en una escalera y la alternativa era que cargaran la silla; dejamos ahí la visita.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Llegamos al puente y tomamos la vía de la rampa lateral. El grupo volvió a reunirse donde termina el pasaje y desde allí continuamos por la calle de adoquines.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "narrative",
+          "text": "El guía había comprobado la rampa del desvío y mantuvo al grupo unido. Pudimos hacer la visita en silla sin sentir que estorbábamos, qué alivio.",
+          "variant": 0
+        },
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "dialogue",
+          "text": "Al ver la escalera pregunté por la ruta accesible. Respondieron que podían cargar la silla entre varios. No era la autonomía ofrecida y tuvimos que dejar la visita.",
+          "variant": 1
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "dialogue",
+          "text": "Consultamos el desnivel del puente. La guía dibujó el paso lateral de rampa y señaló dónde se reúne de nuevo con la calle de adoquines.",
+          "variant": 1
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "dialogue",
+          "text": "Pregunté si quedaría algún paso sin resolver después de la rampa. No hubo un desnivel que no tuviera alternativa prevista; pudimos recorrerlo sin depender de que nos alzaran.",
+          "variant": 1
+        }
+      ]
+    },
+    {
+      "family": "tu01_wake_call",
+      "semantic_component": "tu01_wake_call",
+      "role": "tune",
+      "domain": "hotel",
+      "aspect": "service",
+      "region": "es-CO",
+      "narrow_pool": false,
+      "source_batch": "V3_TUNE",
+      "mechanism": "Llamada de despertador confirmada frente a ejecución",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "observation",
+          "text": "Confirmaron por escrito la llamada de las cinco. El teléfono sonó cuando ya habíamos perdido el transporte al aeropuerto; el servicio contratado no sirvió.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "No programamos alarma en el teléfono del cuarto. Bajamos a recepción, solicitamos una llamada a las cinco y anotaron la hora junto al número de habitación.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "regionalism"
+          ],
+          "structure": "dialogue",
+          "text": "¿Me pueden despertar antes del primer bus? Me confirmaron la hora y llamaron puntuales. No tuve que pasar la noche pendiente, eso se agradece un montón.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "tu02_duvet_cover",
+      "semantic_component": "tu02_duvet_cover",
+      "role": "tune",
+      "domain": "hotel",
+      "aspect": "cleanliness",
+      "region": "es-PE",
+      "narrow_pool": false,
+      "source_batch": "V3_TUNE",
+      "mechanism": "Funda recién colocada que conserva residuos de lavandería",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "positive_words_negative_context"
+          ],
+          "structure": "quotation",
+          "text": "La cama recién preparada tenía una funda con cabellos por dentro. De impecable solo quedaba la tarjeta sobre la almohada; pedí otro cuarto.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negative_concordance"
+          ],
+          "structure": "narrative",
+          "text": "No cambiamos ninguna pieza de cama durante las dos noches. Al llegar retiramos la manta del armario, usamos el edredón y lo dejamos doblado al salir.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "observation",
+          "text": "La primera funda tenía una marca. La encargada la retiró completa, revisó la otra conmigo y dejó una cama en la que sí pude descansar a gusto.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "tu03_cutlery_drawer",
+      "semantic_component": "tu03_cutlery_drawer",
+      "role": "tune",
+      "domain": "restaurant",
+      "aspect": "cleanliness",
+      "region": "es",
+      "narrow_pool": false,
+      "source_batch": "V3_TUNE",
+      "mechanism": "Cubiertos almacenados en cajón con residuos",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "list",
+          "text": "Tenedor con restos, cuchara pegajosa y servilleta húmeda. No era un detalle de presentación: tuve que pedir otro juego para empezar a comer.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Los cubiertos se toman de un cajón lateral. Cogimos un juego por persona, pedimos platos de fondo y devolvimos la bandeja al terminar.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "comparison",
+          "text": "No bastaba con que el salón se viera ordenado; también los cubiertos estaban limpios al abrir el cajón. Comer allí me dio confianza desde ese gesto pequeño.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "tu04_hot_bowl_handle",
+      "semantic_component": "tu04_hot_bowl_handle",
+      "role": "tune",
+      "domain": "restaurant",
+      "aspect": "safety",
+      "region": "es-CO",
+      "narrow_pool": false,
+      "source_batch": "V3_TUNE",
+      "mechanism": "Aviso y protección para agarrar recipiente caliente",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Me acercaron una cazuela sin advertencia y el asa estaba hirviendo. Dijeron que todos sabían cómo venía; esa respuesta me pareció un descuido.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Pregunté si el asa podía tocarse. No habían retirado la funda protectora; el mesero explicó dónde agarrar el recipiente antes de dejarlo en la mesa.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "observation",
+          "text": "De una avisaron que la cazuela quemaba y pusieron una protección en el asa. Pude acomodarla sin sustos y disfrutar la comida tranquilo.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "tu05_exit_aisle",
+      "semantic_component": "tu05_exit_aisle",
+      "role": "tune",
+      "domain": "museum",
+      "aspect": "safety",
+      "region": "es-PE",
+      "narrow_pool": false,
+      "source_batch": "V3_TUNE",
+      "mechanism": "Paso de evacuación ocupado por material de montaje",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "comparison",
+          "text": "La salida estaba marcada con un letrero enorme. Debajo habían apilado cajas de montaje; seguir la señal terminaba en un paso bloqueado.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "list",
+          "text": "No recorrimos la sala en montaje. El plano distingue entrada, pasillo de exposición y salida lateral hacia el patio, donde se reúne cada grupo.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [],
+          "structure": "observation",
+          "text": "Las cajas de montaje estaban fuera de las rutas de paso. Se podía seguir la salida sin adivinar por dónde moverse; la organización transmitía cuidado.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "tu06_color_description",
+      "semantic_component": "tu06_color_description",
+      "role": "tune",
+      "domain": "museum",
+      "aspect": "accessibility",
+      "region": "es",
+      "narrow_pool": false,
+      "source_batch": "V3_TUNE",
+      "mechanism": "Descripción verbal de una obra que solo se presenta por colores",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "La explicación decía mire el rojo y luego el azul. Mi acompañante no podía distinguirlos; al preguntar por otra referencia repitieron los mismos colores más fuerte.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "quotation",
+          "text": "No es exacto decir que no hubiera descripción: el audio enumera tres figuras, su posición y los materiales antes de nombrar los colores.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "La obra se apoyaba mucho en el color. La mediadora describió posiciones y texturas y mi acompañante pudo conversar sobre ella, sin quedarse fuera de la visita.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "tu07_boarding_gap",
+      "semantic_component": "tu07_boarding_gap",
+      "role": "tune",
+      "domain": "transport",
+      "aspect": "accessibility",
+      "region": "es-CO",
+      "narrow_pool": false,
+      "source_batch": "V3_TUNE",
+      "mechanism": "Rampa que salva desnivel al abordar un vehículo",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "observation",
+          "text": "El bus llevaba el símbolo de acceso. La rampa no alcanzaba el bordillo y propusieron alzar la silla entre pasajeros; decidí no subir.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "No abordamos por la puerta delantera. Esperamos en la marca, desplegaron la rampa trasera y entramos antes de que avanzara la fila general.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "comparison",
+          "text": "La rampa sí quedó firme contra el bordillo y nos dieron espacio para entrar. Nada de improvisar cargadas; pude subir por mis medios y viajar a gusto.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "tu08_reserved_seat_charge",
+      "semantic_component": "tu08_reserved_seat_charge",
+      "role": "tune",
+      "domain": "transport",
+      "aspect": "price",
+      "region": "es-PE",
+      "narrow_pool": false,
+      "source_batch": "V3_TUNE",
+      "mechanism": "Reserva de asiento cobrada sin asignación efectiva",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "Pagué por escoger asiento y me asignaron cualquiera al subir. No devolvieron el suplemento; el cobro compró una opción que nunca existió en el viaje.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "list",
+          "text": "El boleto registra pasaje y selección de asiento por separado. El número elegido aparece tanto en el correo como en el talón que entregamos al embarcar.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "observation",
+          "text": "Tuvieron que cambiar el vehículo y mi asiento dejó de existir. Reintegraron el suplemento sin que lo reclamara; la cuenta final fue justa con lo recibido.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "tu09_equipment_deposit",
+      "semantic_component": "tu09_equipment_deposit",
+      "role": "tune",
+      "domain": "tour",
+      "aspect": "price",
+      "region": "es",
+      "narrow_pool": false,
+      "source_batch": "V3_TUNE",
+      "mechanism": "Depósito anunciado como recuperable y condiciones de devolución",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "positive_words_negative_context"
+          ],
+          "structure": "quotation",
+          "text": "El depósito era recuperable hasta que quisimos recuperarlo. Entonces apareció una tarifa de gestión que nadie mencionó al reservar y se quedaron con casi todo.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "No pagamos el depósito con tarjeta. Lo entregamos en efectivo antes de tomar el equipo y conservamos el resguardo numerado para devolverlo al final.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "observation",
+          "text": "No hubo un euro del depósito que no regresara al entregar el equipo. Revisaron el resguardo y cerramos la actividad con el costo claro desde el principio.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "tu10_booking_roll",
+      "semantic_component": "tu10_booking_roll",
+      "role": "tune",
+      "domain": "tour",
+      "aspect": "service",
+      "region": "es-CO",
+      "narrow_pool": false,
+      "source_batch": "V3_TUNE",
+      "mechanism": "Lista de reservas desactualizada al iniciar actividad",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Llevaba la confirmación del paseo y mi nombre no estaba en la lista. Me enviaron de un teléfono a otro mientras el grupo salió sin nosotros.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "dialogue",
+          "text": "Pregunté en qué grupo figuraba la reserva. La coordinadora buscó el código del correo y anotó la salida asignada en la lista de asistencia.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "regionalism"
+          ],
+          "structure": "observation",
+          "text": "Mi reserva no salía en la primera lista. Revisaron el comprobante ahí mismo y resolvieron el ingreso sin dejarme perder la salida; se movieron bien con el problema.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "ca01_air_filter",
+      "semantic_component": "ca01_air_filter",
+      "role": "calibration",
+      "domain": "hotel",
+      "aspect": "cleanliness",
+      "region": "es-PE",
+      "narrow_pool": false,
+      "source_batch": "V3_CALIBRATION",
+      "mechanism": "Polvo de filtro que vuelve a caer después de encender ventilación",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "La mesa estaba recién limpiada. Encendimos la ventilación y volvió a cubrirse de polvo del filtro; pasamos la noche respirando ese olor a guardado.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "No se encendió el aire durante la revisión. El técnico sacó el filtro, anotó la fecha de recambio y cerró la rejilla antes de que saliéramos.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "No taparon el olor con ambientador. Lavaron el filtro y revisaron la salida; el aire dejó de cargar polvo y descansamos mucho más cómodos.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "ca02_alarm_instruction",
+      "semantic_component": "ca02_alarm_instruction",
+      "role": "calibration",
+      "domain": "hotel",
+      "aspect": "safety",
+      "region": "es",
+      "narrow_pool": false,
+      "source_batch": "V3_CALIBRATION",
+      "mechanism": "Instrucciones para distinguir alarma real de prueba",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "observation",
+          "text": "Sonó una alarma y cada empleado daba una indicación distinta. En el pasillo había huéspedes esperando; nadie se hizo cargo de explicar si había que salir.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "quotation",
+          "text": "No es cierto que no avisaran la prueba. Había una nota bajo la puerta con hora de inicio y un mensaje indicando cuándo terminaría.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Explicaron la prueba al registrarnos y, cuando sonó, una persona verificó que todos supiéramos qué pasaba. Sentí que cuidaban nuestra tranquilidad y el procedimiento.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "ca03_takeaway_cold",
+      "semantic_component": "ca03_takeaway_cold",
+      "role": "calibration",
+      "domain": "restaurant",
+      "aspect": "safety",
+      "region": "es-CO",
+      "narrow_pool": false,
+      "source_batch": "V3_CALIBRATION",
+      "mechanism": "Conservación del pedido frío mientras se espera el retiro",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Llegué por el postre frío a la hora acordada. Lo tenían junto a la caja caliente, derretido, y querían entregarlo como si acabara de salir de la nevera.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "list",
+          "text": "No recogimos platos calientes. El pedido consistió en dos postres refrigerados, empacados por separado, con hora de preparación anotada en la etiqueta.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "observation",
+          "text": "Guardaron el postre en frío hasta que llegué y lo sacaron al confirmar el pedido. Así sí dan ganas de volver: recibí lo que había encargado en condiciones.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "ca04_stroller_space",
+      "semantic_component": "ca04_stroller_space",
+      "role": "calibration",
+      "domain": "restaurant",
+      "aspect": "accessibility",
+      "region": "es-PE",
+      "narrow_pool": false,
+      "source_batch": "V3_CALIBRATION",
+      "mechanism": "Espacio real para ubicar coche de bebé sin cerrar el paso",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "comparison",
+          "text": "Nos dijeron que había espacio para el coche. Entre las mesas apenas cabía una persona y la única propuesta fue dejar al bebé junto a la puerta de cocina.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "No plegamos el coche al entrar. Lo ubicamos al lado de la mesa del fondo y usamos el pasillo lateral cuando salimos después del almuerzo.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "La mesa reservada permitía dejar el coche al lado sin bloquear el paso. No tuvimos que elegir entre estar juntos y dejar circular a los demás.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "ca05_interactive_height",
+      "semantic_component": "ca05_interactive_height",
+      "role": "calibration",
+      "domain": "museum",
+      "aspect": "accessibility",
+      "region": "es",
+      "narrow_pool": false,
+      "source_batch": "V3_CALIBRATION",
+      "mechanism": "Altura de controles de una instalación interactiva",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "La actividad invitaba a mover las palancas. Todas estaban por encima del alcance de mi acompañante sentado y mirar cómo jugaban otros fue su única participación.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negative_concordance"
+          ],
+          "structure": "observation",
+          "text": "Ningún control se activa desde la pantalla. Las tres palancas están en el frente del módulo y cada una cambia una parte del mecanismo visible.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [],
+          "structure": "comparison",
+          "text": "Los controles estaban a dos alturas y producían el mismo efecto. Mi acompañante pudo experimentar conmigo, sin que yo hiciera cada movimiento en su lugar.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "ca06_optional_donation",
+      "semantic_component": "ca06_optional_donation",
+      "role": "calibration",
+      "domain": "museum",
+      "aspect": "price",
+      "region": "es-CO",
+      "narrow_pool": false,
+      "source_batch": "V3_CALIBRATION",
+      "mechanism": "Aporte voluntario cobrado como condición de entrada",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "positive_words_negative_context"
+          ],
+          "structure": "quotation",
+          "text": "La entrada gratuita tenía una donación obligatoria en caja. No me molestaba aportar; me molestó que cambiaran la condición cuando ya estábamos haciendo fila.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Consulté si el aporte formaba parte del acceso. La taquillera explicó el comprobante de ingreso y la casilla de donación, que no llenamos ese día.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "narrative",
+          "text": "El aporte fue de verdad voluntario. Elegimos entrar sin donación y recibimos el mismo trato; esa claridad me pareció muy bacana.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "ca07_connection_tariff",
+      "semantic_component": "ca07_connection_tariff",
+      "role": "calibration",
+      "domain": "transport",
+      "aspect": "price",
+      "region": "es-PE",
+      "narrow_pool": false,
+      "source_batch": "V3_CALIBRATION",
+      "mechanism": "Tarifa integrada que no reconoce el transbordo anunciado",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Compramos el recorrido con transbordo incluido. En el segundo bus cobraron otro pasaje y nos dijeron que reclamáramos después; el precio anunciado no alcanzó para llegar.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "No cambiamos de tarjeta al transbordar. La misma validación registró el primer trayecto y la conexión dentro del tiempo indicado en el recibo.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [],
+          "structure": "comparison",
+          "text": "El segundo tramo reconoció la tarifa integrada sin trámites extra. Pudimos calcular el traslado completo antes de salir y ese precio se respetó hasta el destino.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "ca08_operator_terminal",
+      "semantic_component": "ca08_operator_terminal",
+      "role": "calibration",
+      "domain": "transport",
+      "aspect": "service",
+      "region": "es",
+      "narrow_pool": false,
+      "source_batch": "V3_CALIBRATION",
+      "mechanism": "Operador de atención distingue terminales homónimos",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Pregunté por el terminal del norte y me enviaron al del mismo nombre en otra zona. Al llamar de nuevo solo repitieron la dirección que ya había resultado equivocada.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "dialogue",
+          "text": "Consultamos por teléfono dónde salía el vehículo. El operador pidió ciudad, empresa y hora del boleto antes de dar la dirección del terminal.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "No asumieron cuál de los terminales buscaba. Revisaron el código del pasaje conmigo y dieron una referencia exacta; llegué sin otra vuelta innecesaria.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "ca09_water_station_duty",
+      "semantic_component": "ca09_water_station_duty",
+      "role": "calibration",
+      "domain": "tour",
+      "aspect": "service",
+      "region": "es-CO",
+      "narrow_pool": false,
+      "source_batch": "V3_CALIBRATION",
+      "mechanism": "Responsable de reponer agua en parada acordada",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "La actividad incluía una parada para rellenar agua. El punto estaba cerrado y cada encargado decía que le tocaba al otro; seguimos sin la provisión prometida.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "No compramos botellas durante la salida. Llevamos nuestros envases y paramos en el punto de recarga indicado en el programa, junto a la oficina del parque.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "observation",
+          "text": "El encargado comprobó la recarga antes de llevarnos hasta allí. Ese detalle práctico nos dejó seguir tranquilos, sin el corre corre de buscar agua por fuera.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "ca10_picnic_waste",
+      "semantic_component": "ca10_picnic_waste",
+      "role": "calibration",
+      "domain": "tour",
+      "aspect": "cleanliness",
+      "region": "es-PE",
+      "narrow_pool": false,
+      "source_batch": "V3_CALIBRATION",
+      "mechanism": "Restos de comida en zona donde se organiza picnic",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "observation",
+          "text": "Nos llevaron a comer a un área con bolsas rotas y restos del grupo anterior. Pusieron nuestros manteles encima y siguieron sirviendo; perdí las ganas de sentarme.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negative_concordance"
+          ],
+          "structure": "list",
+          "text": "No quedó ninguna bolsa del grupo en el lugar. La parada incluyó almuerzo, separación de envases y entrega de residuos en el puesto de salida.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "No eligieron la primera mesa libre: revisaron el área y retiraron restos antes de servir. Disfrutamos el picnic sin convivir con basura ajena.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "pd01_balcony_rail",
+      "semantic_component": "pd01_balcony_rail",
+      "role": "policy_dev",
+      "domain": "hotel",
+      "aspect": "safety",
+      "region": "es",
+      "narrow_pool": false,
+      "source_batch": "V3_POLICY_DEV",
+      "mechanism": "Baranda de balcón con fijación suelta y atención al aviso",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "La baranda se movía al apoyar la mano. No cerraron el balcón ni revisaron la fijación después del aviso; me quedé intranquilo todo el tiempo.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "list",
+          "text": "El cuarto tiene balcón hacia el patio. La baranda es de metal, va fijada al muro y la puerta interior dispone de pestillo a media altura.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Encontré una fijación floja al llegar y preferí no usar el balcón. Avisé abajo. El encargado subió conmigo, comprobó el movimiento y cerró esa salida mientras buscaba otra habitación. Nos ofrecieron trasladarnos sin diferencia de precio y revisamos juntos la nueva baranda. La noche pudo seguir sin esa preocupación. Lo que agradezco es que tomaran el aviso como algo que debían resolver, sin discutir si mi inquietud era exagerada ni pedirme que esperara al día siguiente.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "pd02_shower_seat",
+      "semantic_component": "pd02_shower_seat",
+      "role": "policy_dev",
+      "domain": "hotel",
+      "aspect": "accessibility",
+      "region": "es-CO",
+      "narrow_pool": false,
+      "source_batch": "V3_POLICY_DEV",
+      "mechanism": "Asiento de ducha anunciado pero instalado fuera de alcance",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "La ducha figuraba como adaptada. El asiento quedaba tan lejos del mando que necesitaba ayuda para abrir el agua; no podía usarla con autonomía.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "No utilizamos la bañera del otro piso. La habitación asignada tenía ducha, asiento plegable y un mando colocado en la pared lateral.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "comparison",
+          "text": "El asiento, el mando y el apoyo quedaban al alcance al sentarme. Ahí sí la adaptación servía para bañarme por mi cuenta, y eso hizo la estancia mucho más llevadera.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "pd03_adapted_cutlery",
+      "semantic_component": "pd03_adapted_cutlery",
+      "role": "policy_dev",
+      "domain": "restaurant",
+      "aspect": "accessibility",
+      "region": "es-PE",
+      "narrow_pool": false,
+      "source_batch": "V3_POLICY_DEV",
+      "mechanism": "Cubiertos de mango ancho disponibles durante la comida",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Ofrecieron cubiertos adaptados y trajeron un cuchillo normal envuelto en servilletas. El mango se desarmaba; tuve que pedir que alguien cortara toda la comida.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "quotation",
+          "text": "No sería correcto decir que no había otro juego. El cajón tenía cubiertos comunes y dos de mango ancho que el mozo llevó a nuestra mesa.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "No improvisaron un agarre con papel. Los cubiertos de mango ancho eran firmes y pude comer a mi ritmo, sin depender de otra persona.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "pd04_half_portion",
+      "semantic_component": "pd04_half_portion",
+      "role": "policy_dev",
+      "domain": "restaurant",
+      "aspect": "price",
+      "region": "es",
+      "narrow_pool": false,
+      "source_batch": "V3_POLICY_DEV",
+      "mechanism": "Precio de media ración anunciado y cobro correspondiente",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "positive_words_negative_context"
+          ],
+          "structure": "quotation",
+          "text": "La opción económica era media ración al precio de la completa. Cuando pedimos aclararlo dijeron que el cartel aún no estaba actualizado; pagamos una promesa que no existía.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "list",
+          "text": "No pedimos raciones completas. El ticket registra dos medias raciones, una bebida y el suplemento de pan separado del plato.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "La cuenta salió con raciones completas por error. Compararon la comanda, corrigieron el total y respetaron el precio de la carta sin hacernos discutir.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "pd05_joint_exhibition",
+      "semantic_component": "pd05_joint_exhibition",
+      "role": "policy_dev",
+      "domain": "museum",
+      "aspect": "price",
+      "region": "es-CO",
+      "narrow_pool": false,
+      "source_batch": "V3_POLICY_DEV",
+      "mechanism": "Entrada conjunta que debe cubrir exposición temporal",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "observation",
+          "text": "Compré entrada conjunta para ver la temporal. Su lector no la reconoció y me hicieron pagar otra; ni el recibo bastó para respetar lo vendido.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "narrative",
+          "text": "Elegimos el acceso conjunto en taquilla. Visitamos primero la colección y después presentamos el mismo código en la puerta de la exposición temporal.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "regionalism"
+          ],
+          "structure": "comparison",
+          "text": "No apareció otro pago en la puerta de la temporal. El pase conjunto cubrió las dos visitas como habían explicado; así da gusto organizar el presupuesto.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "pd06_room_closure_notice",
+      "semantic_component": "pd06_room_closure_notice",
+      "role": "policy_dev",
+      "domain": "museum",
+      "aspect": "service",
+      "region": "es-PE",
+      "narrow_pool": false,
+      "source_batch": "V3_POLICY_DEV",
+      "mechanism": "Aviso de cierre parcial antes de comprar una visita",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Preguntamos si la sala principal estaba abierta y vendieron la visita completa. La puerta tenía un cierre de mantenimiento del que solo hablaron después de cobrar.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "No visitamos la sala central. La programación del día la marcaba en mantenimiento y recorrimos las galerías laterales en el horario de la entrada.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "dialogue",
+          "text": "Avisaron de frente qué sala no se podía ver y qué alternativa había. Pude decidir antes de pagar y sentí que cuidaban mi tiempo, no solo la venta.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "pd07_machine_change_help",
+      "semantic_component": "pd07_machine_change_help",
+      "role": "policy_dev",
+      "domain": "transport",
+      "aspect": "service",
+      "region": "es",
+      "narrow_pool": false,
+      "source_batch": "V3_POLICY_DEV",
+      "mechanism": "Ayuda del personal ante máquina que retiene cambio",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "La máquina retuvo el cambio y el empleado señaló un teléfono sin respuesta. El bus estaba por salir; el problema quedó enteramente de mi lado.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "dialogue",
+          "text": "Consulté por el cambio retenido. El puesto de atención anotó número de máquina, importe entregado y hora de la operación en un comprobante de incidencia.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "No me mandaron a perseguir otra oficina. Revisaron el registro y resolvieron el cambio antes de salir; pude continuar el viaje sin cargar con el fallo de la máquina.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "pd08_coach_washroom",
+      "semantic_component": "pd08_coach_washroom",
+      "role": "policy_dev",
+      "domain": "transport",
+      "aspect": "cleanliness",
+      "region": "es-CO",
+      "narrow_pool": false,
+      "source_batch": "V3_POLICY_DEV",
+      "mechanism": "Lavamanos de bus de larga distancia sin suministro",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "El baño del bus estaba abierto, el lavamanos seco. Avisamos al iniciar el viaje y siguió sin agua ni jabón durante todo el trayecto.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "list",
+          "text": "No había toallas de tela en el baño. El módulo contaba con lavamanos, dispensador de jabón y papel colocado sobre una repisa junto a la puerta.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "observation",
+          "text": "El baño tenía agua, jabón y el piso seco durante el recorrido. Son cosas básicas, sí, y qué descanso poder usarlas sin encontrar un problema cada vez.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "pd09_works_dust_path",
+      "semantic_component": "pd09_works_dust_path",
+      "role": "policy_dev",
+      "domain": "tour",
+      "aspect": "cleanliness",
+      "region": "es-PE",
+      "narrow_pool": false,
+      "source_batch": "V3_POLICY_DEV",
+      "mechanism": "Ruta peatonal presentada entre residuos de obra",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "comparison",
+          "text": "El itinerario hablaba de una caminata por el barrio. Nos sentaron a comer junto a escombros que soltaban polvo sobre la mesa; no era un lugar acondicionado para recibirnos.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negative_concordance"
+          ],
+          "structure": "narrative",
+          "text": "No atravesamos ninguna zona de obra. La caminata tomó la calle paralela, pasó por la plaza y se detuvo en el patio donde estaba previsto el almuerzo.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "No instalaron la comida junto al polvo de la obra. Prepararon otro patio limpio y pudimos disfrutar la parada sin estar sacudiendo platos y asientos.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "pd10_river_crossing_limit",
+      "semantic_component": "pd10_river_crossing_limit",
+      "role": "policy_dev",
+      "domain": "tour",
+      "aspect": "safety",
+      "region": "es",
+      "narrow_pool": false,
+      "source_batch": "V3_POLICY_DEV",
+      "mechanism": "Criterio de suspender cruce de río que supera nivel acordado",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "El agua superaba la marca que ellos mismos habían puesto como límite. Nos animaron a cruzar igual para no cambiar el programa; preferí quedarme fuera.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "No se utilizó el vado. El nivel estaba por encima de la marca y la ruta continuó por el puente situado río arriba antes de volver al sendero.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "comparison",
+          "text": "No convirtieron la reserva en obligación de cruzar. Aplicaron el límite anunciado, buscaron el puente y pudimos seguir la excursión sintiéndonos cuidados.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "as01_digital_checkin",
+      "semantic_component": "as01_digital_checkin",
+      "role": "assessment",
+      "domain": "hotel",
+      "aspect": "accessibility",
+      "region": "es-CO",
+      "narrow_pool": false,
+      "source_batch": "V3_ASSESSMENT",
+      "mechanism": "Registro exige SMS a un número local sin alternativa presencial",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Para entrar exigían un código enviado a un número local. Yo viajaba con otra línea y, estando frente a recepción, me dijeron que consiguiera un teléfono colombiano.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Pregunté si podía registrarme sin recibir el mensaje. Anotaron el número de reserva y completamos la ficha en la mesa, en lugar de usar el enlace del SMS.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "observation",
+          "text": "Mi línea no recibía el código. Lo resolvieron en recepción con el documento de la reserva, de una, y pude instalarme sin comprar otra SIM.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "as02_minibar_sensor",
+      "semantic_component": "as02_minibar_sensor",
+      "role": "assessment",
+      "domain": "hotel",
+      "aspect": "price",
+      "region": "es-PE",
+      "narrow_pool": false,
+      "source_batch": "V3_ASSESSMENT",
+      "mechanism": "Sensor de minibar registra movimiento como consumo",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Moví una botella para hacer espacio y apareció como consumida. La mostré cerrada al salir; se quedaron con el cobro porque el sensor ya lo había marcado.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "list",
+          "text": "El minibar registra movimientos con sensor. El detalle de salida incluye bebidas, reposiciones y anulaciones en líneas distintas de las noches de alojamiento.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "No cobraron como consumo lo que solo habíamos movido. Revisaron los envases intactos y corrigieron el registro; el sistema no pesó más que lo que realmente usamos.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "as03_cot_delivery",
+      "semantic_component": "as03_cot_delivery",
+      "role": "assessment",
+      "domain": "hotel",
+      "aspect": "service",
+      "region": "es",
+      "narrow_pool": false,
+      "source_batch": "V3_ASSESSMENT",
+      "mechanism": "Cuna confirmada que debe llegar antes de instalar a la familia",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "Confirmaron una cuna y no apareció ni al llegar ni después de cenar. Acabamos reorganizando la noche mientras recepción seguía diciendo que estaba en camino.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "quotation",
+          "text": "No es cierto que no hubiera cuna: la trajeron del depósito, la armaron junto a la cama y anotaron la entrega en la ficha de habitación.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "La cuna inicial tenía una pieza que no cerraba. Antes de que instaláramos al bebé trajeron otra y verificaron el montaje; respondieron con una solución concreta.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "as04_fish_weight_price",
+      "semantic_component": "as04_fish_weight_price",
+      "role": "assessment",
+      "domain": "restaurant",
+      "aspect": "price",
+      "region": "es-CO",
+      "narrow_pool": false,
+      "source_batch": "V3_ASSESSMENT",
+      "mechanism": "Precio de pescado por peso presentado como valor del plato",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "La carta mostraba un valor junto al pescado. Solo al pagar explicaron que era por cien gramos; el plato costó varias veces lo que entendimos al pedir.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "No elegimos el pescado por unidad. Pesaron la pieza, anotaron los gramos en la comanda y dejaron ese dato junto al precio en el recibo.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "dialogue",
+          "text": "Antes de pedir nos mostraron el peso y el total de la pieza. Así uno decide con la cuenta clara; comimos a gusto sin una sorpresa al final.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "as05_course_timing",
+      "semantic_component": "as05_course_timing",
+      "role": "assessment",
+      "domain": "restaurant",
+      "aspect": "service",
+      "region": "es-PE",
+      "narrow_pool": false,
+      "source_batch": "V3_ASSESSMENT",
+      "mechanism": "Orden de platos solicitado para comer simultáneamente",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Pedimos que los fondos salieran juntos para compartir. Sirvieron uno, retiraron su plato y recién trajeron el otro; terminamos turnándonos para comer.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "No pedimos entradas. Ordenamos dos fondos y una bebida para compartir; el primer plato salió a las dos y el segundo después de retirarse la bandeja anterior.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "observation",
+          "text": "El mozo coordinó los dos platos y llegaron juntos, tal como pedimos. Pudimos conversar y comer al mismo ritmo; ese cuidado sencillo hizo la comida más chévere.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "as06_condiment_lids",
+      "semantic_component": "as06_condiment_lids",
+      "role": "assessment",
+      "domain": "restaurant",
+      "aspect": "cleanliness",
+      "region": "es",
+      "narrow_pool": false,
+      "source_batch": "V3_ASSESSMENT",
+      "mechanism": "Condimentos expuestos a insectos al permanecer abiertos",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "La mesa tenía varias salsas abiertas y moscas alrededor. Pensé que las cambiarían al sentarnos. Pedí una porción cerrada y el camarero tomó la misma jarra, la movió a otra mesa y volvió a traerla. No necesitaba una presentación especial, solo algo que pudiera usar sin apartar insectos. Terminamos comiendo sin aderezos y con la sensación de que nuestro aviso era una molestia. El resto del servicio siguió como si ese problema no existiera.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negative_concordance"
+          ],
+          "structure": "list",
+          "text": "No se añadió ningún condimento al servir. La mesa tenía aceite, sal y dos salsas en recipientes separados, y cada persona eligió después qué usar.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "observation",
+          "text": "Retiraron los recipientes abiertos y trajeron porciones tapadas. Pude acompañar la comida sin estar pendiente de lo que se acercaba a la salsa; se notó el cuidado.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "as07_workshop_material_help",
+      "semantic_component": "as07_workshop_material_help",
+      "role": "assessment",
+      "domain": "museum",
+      "aspect": "service",
+      "region": "es-CO",
+      "narrow_pool": false,
+      "source_batch": "V3_ASSESSMENT",
+      "mechanism": "Apoyo al visitante que no recibió material para el taller",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "El taller empezó y mi mesa seguía sin material. Avisé dos veces; repartieron lo que faltaba cuando ya estaban recogiendo las primeras actividades.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Pregunté dónde recogíamos los materiales. Nos señalaron el puesto de la entrada y entregaron lápiz, papel y una pieza de práctica; no hacía falta otra ficha.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "observation",
+          "text": "Faltaba material en nuestra mesa y la mediadora lo resolvió antes de avanzar. Pudimos participar desde el arranque, sin quedarnos mirando; se portaron bien con el grupo.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "as08_washroom_overflow",
+      "semantic_component": "as08_washroom_overflow",
+      "role": "assessment",
+      "domain": "museum",
+      "aspect": "cleanliness",
+      "region": "es-PE",
+      "narrow_pool": false,
+      "source_batch": "V3_ASSESSMENT",
+      "mechanism": "Sanitario que rebosa y limpieza antes de seguir admitiendo visitas",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "comparison",
+          "text": "El baño acababa de pasar una revisión según la hoja. El agua salía del sanitario hacia el pasillo y seguían dejando entrar gente; el registro no reflejaba el estado real.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "No usamos los baños de la sala principal. Al terminar el recorrido fuimos al módulo del patio. La puerta de la izquierda estaba cerrada y había un aviso de limpieza con hora de inicio. Esperamos junto al lavamanos exterior y luego pasamos por turnos al otro módulo. Dejamos el museo por la salida del jardín, donde volvimos a reunirnos con las personas que habían ido antes a la tienda. Ese fue el orden de nuestra visita de la mañana.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "No mantuvieron abierto un baño que se había desbordado. Cerraron la zona, limpiaron y señalaron otro módulo; pudimos terminar la visita sin pisar agua sucia.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "as09_small_parts_control",
+      "semantic_component": "as09_small_parts_control",
+      "role": "assessment",
+      "domain": "museum",
+      "aspect": "safety",
+      "region": "es",
+      "narrow_pool": false,
+      "source_batch": "V3_ASSESSMENT",
+      "mechanism": "Piezas pequeñas de módulo infantil sueltas en espacio de niños",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "La actividad era para niños pequeños. Había imanes sueltos en el suelo y el encargado dijo que los recogería al cerrar; me llevé a mi hija de esa zona.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "list",
+          "text": "El módulo usa piezas magnéticas de tres tamaños. Las pequeñas quedan en una caja del puesto de mediación y las grandes se montan sobre la mesa central.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "No esperaron al cierre para retirar piezas sueltas. Revisaron el suelo y entregaron solo las adecuadas para el grupo; pude acompañar la actividad con tranquilidad.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "as10_train_bin_overflow",
+      "semantic_component": "as10_train_bin_overflow",
+      "role": "assessment",
+      "domain": "transport",
+      "aspect": "cleanliness",
+      "region": "es-CO",
+      "narrow_pool": false,
+      "source_batch": "V3_ASSESSMENT",
+      "mechanism": "Basurero de vagón lleno que dispersa residuos por el pasillo",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "La bolsa del basurero estaba llena desde la estación. Cada curva soltaba vasos por el pasillo y el personal pasaba por encima sin recogerlos.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "No había un basurero por asiento. El vagón disponía de dos contenedores al lado de las puertas y dejamos allí los envases antes de bajar.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "narrative",
+          "text": "Vieron que el contenedor estaba lleno, cambiaron la bolsa y recogieron lo que había caído. Se mantuvo limpio el pasillo y el viaje fue mucho más agradable.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "as11_driver_phone",
+      "semantic_component": "as11_driver_phone",
+      "role": "assessment",
+      "domain": "transport",
+      "aspect": "safety",
+      "region": "es-PE",
+      "narrow_pool": false,
+      "source_batch": "V3_ASSESSMENT",
+      "mechanism": "Conductor usa el teléfono mientras el vehículo está en marcha",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "El chofer contestaba mensajes con el bus en marcha. No fue un momento detenido; pasó varios cruces mirando la pantalla y viajé preocupado todo el tramo.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negative_concordance"
+          ],
+          "structure": "narrative",
+          "text": "El conductor no atendió ninguna llamada en movimiento. Al llegar a la parada final detuvo el motor y revisó el teléfono antes de iniciar otro servicio.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "comparison",
+          "text": "Le entraban llamadas durante el trayecto y las dejó para la parada. Mantuvo la atención en la vía; ese cuidado concreto me permitió viajar tranquilo.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "as12_keyboard_booking",
+      "semantic_component": "as12_keyboard_booking",
+      "role": "assessment",
+      "domain": "transport",
+      "aspect": "accessibility",
+      "region": "es",
+      "narrow_pool": false,
+      "source_batch": "V3_ASSESSMENT",
+      "mechanism": "Compra de pasaje navegable con teclado sin ratón",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Elegí el horario con teclado y el botón de pago nunca recibió el foco. El viaje estaba disponible, la compra era imposible para quien no manejaba un ratón.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "dialogue",
+          "text": "Consulté por la compra sin ratón. La guía de ayuda enumera teclas para pasar por fecha, horario y asiento; no describe los formularios de otras empresas.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "narrative",
+          "text": "No necesité que otra persona terminara la compra. El foco avanzaba en orden por fecha, horario, datos y pago, y cada paso anunciaba lo que faltaba. Me equivoqué en una casilla y pude volver a ella con el teclado, corregirla y continuar sin perder la reserva. Al final recibí el pasaje igual que mis acompañantes. Esa posibilidad de hacer todo el trámite por mi cuenta me quitó una preocupación que otros sistemas suelen añadir antes de que empiece el viaje.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "as13_snorkel_return_count",
+      "semantic_component": "as13_snorkel_return_count",
+      "role": "assessment",
+      "domain": "tour",
+      "aspect": "safety",
+      "region": "es-CO",
+      "narrow_pool": false,
+      "source_batch": "V3_ASSESSMENT",
+      "mechanism": "Conteo de participantes antes de retirar embarcación de apoyo",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "El bote empezó a alejarse mientras dos personas seguían en el agua. Alguien del grupo tuvo que gritar para que las contaran; perdí la confianza en el cuidado del tour.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "No salió la embarcación al terminar el primer grupo. El monitor pasó lista, esperó a quienes seguían nadando y registró el total antes de moverla.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "comparison",
+          "text": "Contaron a cada persona al volver al bote y no arrancaron hasta confirmar el grupo completo. Ese control tan concreto me dejó disfrutar el agua con confianza.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "as14_written_participation",
+      "semantic_component": "as14_written_participation",
+      "role": "assessment",
+      "domain": "tour",
+      "aspect": "accessibility",
+      "region": "es-PE",
+      "narrow_pool": false,
+      "source_batch": "V3_ASSESSMENT",
+      "mechanism": "Consulta escrita aceptada para visitante que no puede expresarse oralmente",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Mi acompañante escribió la consulta en su teléfono. El guía insistió en que tenía que decirla en voz alta y siguió con el grupo; se quedó sin participar.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "double_negation"
+          ],
+          "structure": "quotation",
+          "text": "No sería exacto decir que no hubo consultas escritas. Dos personas mostraron preguntas en sus teléfonos y el guía las leyó durante la parada del recorrido.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "observation",
+          "text": "No exigieron una pregunta hablada para atender a mi acompañante. Leyeron su mensaje, respondieron mirándolo y pudo tomar parte de la visita como cualquiera.",
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "family": "as15_optional_photo_package",
+      "semantic_component": "as15_optional_photo_package",
+      "role": "assessment",
+      "domain": "tour",
+      "aspect": "price",
+      "region": "es",
+      "narrow_pool": false,
+      "source_batch": "V3_ASSESSMENT",
+      "mechanism": "Paquete de fotos opcional cargado sin elección expresa",
+      "cases": [
+        {
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "narrative",
+          "text": "Las fotos eran opcionales al reservar. Aparecieron cobradas en la liquidación y para quitarlas exigían un formulario que solo daban al terminar la salida.",
+          "variant": 0
+        },
+        {
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "list",
+          "text": "No compramos el paquete de fotografías. El comprobante separa actividad, alquiler y fotos, y esa última línea aparece con cantidad cero en nuestra reserva.",
+          "variant": 0
+        },
+        {
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "observation",
+          "text": "Nos mostraron las fotos y elegimos no llevarlas. Retiraron el paquete antes de cobrar, sin presión ni recargos; pudimos mantener el presupuesto que habíamos decidido.",
+          "variant": 0
+        }
+      ]
+    }
+  ],
+  "ambiguity": [
+    {
+      "family": "ap01",
+      "role": "ambiguity_policy",
+      "text": "La habitación miraba al patio y casi no entraba luz. A mi pareja le ayudó a dormir; yo necesitaba ver el exterior para estar a gusto.",
+      "intended_label": null,
+      "intended_review": true
+    },
+    {
+      "family": "ap02",
+      "role": "ambiguity_policy",
+      "text": "El almuerzo salió por más de lo previsto y todavía no sé si la porción lo compensó. Quedamos satisfechos de comida, con dudas sobre la cuenta.",
+      "intended_label": null,
+      "intended_review": true
+    },
+    {
+      "family": "ap03",
+      "role": "ambiguity_policy",
+      "text": "Nos dejaron explorar el museo sin instrucciones. Hubo quien disfrutó descubrirlo así y quien pasó la visita buscando qué debía hacer.",
+      "intended_label": null,
+      "intended_review": true
+    },
+    {
+      "family": "ap04",
+      "role": "ambiguity_policy",
+      "text": "El traslado tenía menos paradas. Llegamos antes a la zona, quedamos más lejos del alojamiento; ambas cosas nos cambiaron el plan.",
+      "intended_label": null,
+      "intended_review": true
+    },
+    {
+      "family": "ap05",
+      "role": "ambiguity_policy",
+      "text": "La ruta evitó la plaza llena de gente y vimos menos edificios. Yo buscaba tranquilidad, mis amigos querían conocer precisamente esa plaza.",
+      "intended_label": null,
+      "intended_review": true
+    },
+    {
+      "family": "ap06",
+      "role": "ambiguity_policy",
+      "text": "El trato fue muy cercano, hasta nos preguntaron por la familia. Me sentí acompañado y a ratos habría preferido que nos dejaran solos.",
+      "intended_label": null,
+      "intended_review": true
+    },
+    {
+      "family": "ap07",
+      "role": "ambiguity_policy",
+      "text": "La comida tenía un sabor que no conocía. No la dejé, tampoco sé decir si la volvería a pedir cuando tenga otras opciones.",
+      "intended_label": null,
+      "intended_review": true
+    },
+    {
+      "family": "ap08",
+      "role": "ambiguity_policy",
+      "text": "El precio estaba dentro de nuestro presupuesto. Al compararlo con las actividades que hicimos, me quedan razones tanto para repetir como para buscar otro lugar.",
+      "intended_label": null,
+      "intended_review": true
+    },
+    {
+      "family": "ap09",
+      "role": "ambiguity_policy",
+      "text": "Todo se hizo como figuraba en el programa y justo eso me deja dudando: quizá esperaba una sorpresa que nadie había prometido.",
+      "intended_label": null,
+      "intended_review": true
+    },
+    {
+      "family": "ap10",
+      "role": "ambiguity_policy",
+      "text": "La zona de descanso era pequeña y nos tocó compartirla. De ahí salió una conversación que disfrutamos, aunque no era el descanso que buscábamos.",
+      "intended_label": null,
+      "intended_review": true
+    },
+    {
+      "family": "aa01",
+      "role": "ambiguity_assessment",
+      "text": "La ventana daba al comedor y veíamos la vida del lugar. Para una de las personas del grupo eso era parte del encanto; para la otra, demasiada exposición.",
+      "intended_label": null,
+      "intended_review": true
+    },
+    {
+      "family": "aa02",
+      "role": "ambiguity_assessment",
+      "text": "La visita nos hizo cambiar de idea sobre el barrio. Salimos con curiosidad y con varias incomodidades que no sé cómo pesar en una recomendación.",
+      "intended_label": null,
+      "intended_review": true
+    },
+    {
+      "family": "aa03",
+      "role": "ambiguity_assessment",
+      "text": "El plato llegó distinto de la descripción. Nos gustó descubrirlo, quedamos pensando qué habría pasado si de verdad necesitábamos lo que habíamos elegido.",
+      "intended_label": null,
+      "intended_review": true
+    },
+    {
+      "family": "aa04",
+      "role": "ambiguity_assessment",
+      "text": "El conductor conversó todo el camino. Mi acompañante estaba encantado; yo quería mirar en silencio y terminé sin saber cómo valorar el traslado.",
+      "intended_label": null,
+      "intended_review": true
+    },
+    {
+      "family": "aa05",
+      "role": "ambiguity_assessment",
+      "text": "Nos dieron más tiempo en una sala y menos en las otras. La que vimos con calma me interesó mucho, lo demás quedó incompleto para el resto del grupo.",
+      "intended_label": null,
+      "intended_review": true
+    },
+    {
+      "family": "aa06",
+      "role": "ambiguity_assessment",
+      "text": "Fue fácil entrar y difícil decidir qué hacer una vez dentro. Puede que esa libertad sea el atractivo; todavía no tengo claro si funcionó para mí.",
+      "intended_label": null,
+      "intended_review": true
+    },
+    {
+      "family": "aa07",
+      "role": "ambiguity_assessment",
+      "text": "La cuenta y el horario coincidieron con lo acordado. La sensación que nos llevamos no coincide entre quienes fuimos y no encuentro una valoración compartida.",
+      "intended_label": null,
+      "intended_review": true
+    },
+    {
+      "family": "aa08",
+      "role": "ambiguity_assessment",
+      "text": "No fue una experiencia que pueda llamar mala ni una que quiera repetir tal cual. Estoy tratando de distinguir lo que pasó de lo que yo esperaba.",
+      "intended_label": null,
+      "intended_review": true
+    },
+    {
+      "family": "aa09",
+      "role": "ambiguity_assessment",
+      "text": "El alojamiento cambió nuestra rutina del viaje. Terminamos conociendo gente y perdiendo varias horas de descanso; las dos cosas importan en lo que recuerdo.",
+      "intended_label": null,
+      "intended_review": true
+    },
+    {
+      "family": "aa10",
+      "role": "ambiguity_assessment",
+      "text": "Nos ofrecieron recuperar la actividad otro día. Resuelve parte del problema para alguien que se queda; nosotros aún no sabemos si podremos cambiar la salida.",
+      "intended_label": null,
+      "intended_review": true
+    }
+  ]
+}

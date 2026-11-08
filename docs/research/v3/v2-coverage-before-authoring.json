@@ -1,0 +1,82 @@
+{
+  "source_sha256": "f6ec7560c1470b70663999b50f071a90f696a36ab7877de257acd19e7bec9cb0",
+  "roles_inspected": {
+    "train": {
+      "rows": 90,
+      "phenomena_by_intended_class": {
+        "contrast": {
+          "negativo": 13,
+          "positivo": 2
+        },
+        "double_negation": {
+          "positivo": 2,
+          "negativo": 1
+        },
+        "mixed_aspects": {
+          "negativo": 6,
+          "positivo": 1
+        },
+        "negation": {
+          "positivo": 21,
+          "negativo": 14,
+          "neutral": 1
+        },
+        "negative_concordance": {
+          "negativo": 3,
+          "positivo": 5
+        },
+        "positive_words_negative_context": {
+          "negativo": 10
+        },
+        "regionalism": {
+          "negativo": 5,
+          "positivo": 4
+        },
+        "typo": {
+          "neutral": 1,
+          "negativo": 2,
+          "positivo": 2
+        }
+      },
+      "domain_and_aspect_contributions": "NOT_IDENTIFIABLE_FROM_V2_DESIGN_OR_METADATA"
+    },
+    "validation": {
+      "rows": 36,
+      "phenomena_by_intended_class": {
+        "contrast": {
+          "positivo": 1,
+          "negativo": 4
+        },
+        "double_negation": {
+          "positivo": 2
+        },
+        "mixed_aspects": {
+          "negativo": 1
+        },
+        "negation": {
+          "negativo": 6,
+          "positivo": 6,
+          "neutral": 1
+        },
+        "negative_concordance": {
+          "negativo": 3,
+          "positivo": 1
+        },
+        "positive_words_negative_context": {
+          "negativo": 3
+        },
+        "regionalism": {
+          "positivo": 1
+        },
+        "typo": {
+          "neutral": 1,
+          "positivo": 2,
+          "negativo": 1
+        }
+      },
+      "domain_and_aspect_contributions": "NOT_IDENTIFIABLE_FROM_V2_DESIGN_OR_METADATA"
+    }
+  },
+  "held_out_rows_scored_or_used_for_selection": false,
+  "interpretation": "Coverage and target association, not causal feature contribution."
+}

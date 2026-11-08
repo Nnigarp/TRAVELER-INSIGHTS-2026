@@ -1,0 +1,5558 @@
+{
+  "data_manifest": {
+    "catalog_sha256": "951434e2f454590382eed19700a932755f5daa610f6f758fb3b46e229792d10f",
+    "counts": {
+      "ambiguity": {
+        "families": 6,
+        "labels": {},
+        "rows": 6
+      },
+      "assessment": {
+        "families": 10,
+        "labels": {
+          "negativo": 10,
+          "neutral": 10,
+          "positivo": 10
+        },
+        "rows": 30
+      },
+      "development": {
+        "families": 6,
+        "labels": {
+          "negativo": 6,
+          "neutral": 6,
+          "positivo": 6
+        },
+        "rows": 18
+      },
+      "train": {
+        "families": 20,
+        "labels": {
+          "negativo": 40,
+          "neutral": 40,
+          "positivo": 40
+        },
+        "rows": 120
+      }
+    },
+    "duplicate_screen": {
+      "candidates": [],
+      "maximum_similarity": 0.11659192825112108,
+      "method": "unfitted_char5_word3_all_six_role_pairs",
+      "role_pair_screens": [
+        {
+          "candidates": [],
+          "maximum_pair_ids": [
+            "ctx_3e6574e2afb986d510f5",
+            "ctx_587ddec0f5152a551161"
+          ],
+          "maximum_similarity": 0.06532663316582915,
+          "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+          "roles": [
+            "ambiguity",
+            "assessment"
+          ],
+          "semantic_paraphrase_independence_proven": false,
+          "threshold": 0.7
+        },
+        {
+          "candidates": [],
+          "maximum_pair_ids": [
+            "ctx_498fd97f6a1cb440c5e4",
+            "ctx_26309a1100c25c1cc99e"
+          ],
+          "maximum_similarity": 0.04316546762589928,
+          "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+          "roles": [
+            "ambiguity",
+            "development"
+          ],
+          "semantic_paraphrase_independence_proven": false,
+          "threshold": 0.7
+        },
+        {
+          "candidates": [],
+          "maximum_pair_ids": [
+            "ctx_d6ec2067b15cc91da156",
+            "ctx_66529c6f3c230c627833"
+          ],
+          "maximum_similarity": 0.07758620689655173,
+          "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+          "roles": [
+            "ambiguity",
+            "train"
+          ],
+          "semantic_paraphrase_independence_proven": false,
+          "threshold": 0.7
+        },
+        {
+          "candidates": [],
+          "maximum_pair_ids": [
+            "ctx_1ea3841cc85a3aa5ba38",
+            "ctx_6684ee43f71a5d0cb74e"
+          ],
+          "maximum_similarity": 0.09885931558935361,
+          "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+          "roles": [
+            "assessment",
+            "development"
+          ],
+          "semantic_paraphrase_independence_proven": false,
+          "threshold": 0.7
+        },
+        {
+          "candidates": [],
+          "maximum_pair_ids": [
+            "ctx_e7f545bcaa448b0566df",
+            "ctx_506f3ee8a6de59a7f304"
+          ],
+          "maximum_similarity": 0.11659192825112108,
+          "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+          "roles": [
+            "assessment",
+            "train"
+          ],
+          "semantic_paraphrase_independence_proven": false,
+          "threshold": 0.7
+        },
+        {
+          "candidates": [],
+          "maximum_pair_ids": [
+            "ctx_d6ec2067b15cc91da156",
+            "ctx_9fcda1b207aeed985b2e"
+          ],
+          "maximum_similarity": 0.0860655737704918,
+          "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+          "roles": [
+            "development",
+            "train"
+          ],
+          "semantic_paraphrase_independence_proven": false,
+          "threshold": 0.7
+        }
+      ],
+      "semantic_independence_proven": false,
+      "threshold": 0.7
+    },
+    "historical_evaluated_rows_used_for_selection": false,
+    "human_gold": false,
+    "protocol_sha256": "381b8fc550c62d8e4f552ef2d3e7caa112845c7a14ac6c6f321ad18869892e12",
+    "records_sha256": "5213be9acff50d1f433efcf286676cfb3f3ae93ca215c3fbdceacebc4f366313",
+    "schema": "contextual-representation-data-v1",
+    "semantic_independence_proven": false,
+    "v3_training_source_sha256": "9589744715644ae9e4fc643693da3ad639c0ca97e313ec1bf8861bcd7950e55d"
+  },
+  "environment": {
+    "packages": {
+      "numpy": "2.5.4",
+      "safetensors": "0.8.0",
+      "scikit-learn": "1.9.1",
+      "tokenizers": "0.22.2",
+      "torch": "2.9.1+cpu",
+      "transformers": "4.57.6"
+    },
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+    "python": "3.12.14"
+  },
+  "human_evaluation": false,
+  "implementation_sha256": {
+    "beto_classifier.py": "7e6e353cf8bef9fbee6cca23b6773f4ffea8654b417e762f7c6e5a5e49fb95da",
+    "contextual_benchmark.py": "2df740e29d8f543a5ce67417a409e2a26d5361f7a3c7e9a1428892a37e8f6e41",
+    "contextual_data.py": "31e66bc9bd7ad06f9579dcff6c80dc2a448ed27ea777a3830371fe311f212156"
+  },
+  "latency": {
+    "beto_frozen": {
+      "assessment_batch_rows": 30,
+      "assessment_batch_seconds": 1.7891129350000483,
+      "p50_ms": 79.41051350000001,
+      "p95_ms": 83.05265475,
+      "scope": "warm loaded model, tokenizer/vectorizer included, 6 requests, descriptive only",
+      "single_request_ms": [
+        83.819681,
+        80.369038,
+        78.451989,
+        80.751576,
+        77.787765,
+        75.35878
+      ]
+    },
+    "beto_partial": {
+      "assessment_batch_rows": 30,
+      "assessment_batch_seconds": 1.7703247360000205,
+      "p50_ms": 79.04966,
+      "p95_ms": 84.15232275,
+      "scope": "warm loaded model, tokenizer/vectorizer included, 6 requests, descriptive only",
+      "single_request_ms": [
+        85.014373,
+        78.300089,
+        79.799231,
+        81.566172,
+        73.485939,
+        76.187601
+      ]
+    },
+    "dummy": {
+      "assessment_batch_rows": 30,
+      "assessment_batch_seconds": 0.008375444999956017,
+      "p50_ms": 1.648217,
+      "p95_ms": 1.9219677499999999,
+      "scope": "warm loaded model, tokenizer/vectorizer included, 6 requests, descriptive only",
+      "single_request_ms": [
+        1.622068,
+        1.973512,
+        1.674366,
+        1.767335,
+        1.475157,
+        1.437242
+      ]
+    },
+    "lr": {
+      "assessment_batch_rows": 30,
+      "assessment_batch_seconds": 0.007002989000056914,
+      "p50_ms": 1.6684714999999999,
+      "p95_ms": 1.8018990000000001,
+      "scope": "warm loaded model, tokenizer/vectorizer included, 6 requests, descriptive only",
+      "single_request_ms": [
+        1.67467,
+        1.824157,
+        1.51283,
+        1.662273,
+        1.507647,
+        1.735125
+      ]
+    },
+    "svm": {
+      "assessment_batch_rows": 30,
+      "assessment_batch_seconds": 0.02282411900000625,
+      "p50_ms": 6.888217,
+      "p95_ms": 7.33883625,
+      "scope": "warm loaded model, tokenizer/vectorizer included, 6 requests, descriptive only",
+      "single_request_ms": [
+        6.802471,
+        7.411418,
+        6.973963,
+        6.685318,
+        7.121091,
+        6.439438
+      ]
+    }
+  },
+  "limits": [
+    "Single training seed and small assistant-authored evaluation; no population claim.",
+    "New assessment becomes observed evidence after first run, never a fresh final test for later choices.",
+    "No corpus generation or revision in response to evaluation scores.",
+    "No actual human sentiment corpus or real voice supplied.",
+    "Review policy is unchanged, descriptive, and not validated for either contextual arm.",
+    "Repeated reproduction with the same seed measures software reproducibility, not uncertainty over training seeds."
+  ],
+  "portable_reload": {
+    "beto_frozen": {
+      "artifact_bytes": 1000045630,
+      "executed": true,
+      "max_probability_difference": 0.0
+    },
+    "beto_partial": {
+      "artifact_bytes": 468721543,
+      "executed": true,
+      "max_probability_difference": 0.0
+    }
+  },
+  "protocol": {
+    "assessment": "one pass per selected estimator, after selection.json is saved; saved predictions used for all slices and error analysis",
+    "baselines": {
+      "dummy": "most_frequent",
+      "lr_C": [
+        0.1,
+        1.0,
+        10.0
+      ],
+      "svm_C": [
+        0.1,
+        1.0,
+        10.0
+      ],
+      "svm_calibration": "sigmoid on TRAIN-only 3-fold StratifiedGroupKFold, entire TF-IDF inside folds"
+    },
+    "class_order": [
+      "negativo",
+      "neutral",
+      "positivo"
+    ],
+    "duplicate_jaccard_threshold": 0.7,
+    "encode_batch_size": 8,
+    "frozen_head": {
+      "batch_size": 32,
+      "dropout": 0.0,
+      "epochs": 60,
+      "learning_rate": 0.01,
+      "selection_epochs": [
+        10,
+        30,
+        60
+      ],
+      "weight_decay": 0.01
+    },
+    "hypothesis": "With a fixed 120-row V3 TRAIN budget, Spanish contextual embeddings plus a supervised head may behave differently from lexical TF-IDF on new semantic families. This tests representation, not synthetic volume or human generalization.",
+    "label_origin": "AUTHOR_INTENT_NOT_HUMAN_GOLD",
+    "limits": [
+      "Single training seed and small assistant-authored evaluation; no population claim.",
+      "New assessment becomes observed evidence after first run, never a fresh final test for later choices.",
+      "No corpus generation or revision in response to evaluation scores.",
+      "No actual human sentiment corpus or real voice supplied."
+    ],
+    "max_length": 128,
+    "partial_finetune": {
+      "batch_size": 4,
+      "dropout_encoder": "encoder.eval() for deterministic bounded technical probe; gradients still enabled on layer11",
+      "enabled": true,
+      "encoder_layers": [
+        11
+      ],
+      "encoder_learning_rate": 2e-05,
+      "epochs": 2,
+      "head_learning_rate": 0.001,
+      "initialization": "selected frozen supervised head, original encoder",
+      "selection_epochs": [
+        1,
+        2
+      ],
+      "weight_decay": 0.01
+    },
+    "pooling": "attention-mask mean excluding padding; includes special tokens; per-row L2",
+    "review_policy": "existing DEMO rules described only, no new threshold or calibration selection, not validated for contextual models",
+    "role_rows": {
+      "ambiguity": 6,
+      "assessment": 30,
+      "development": 18,
+      "train": 120
+    },
+    "seed": 42,
+    "selection": "development Macro-F1; ties lower development cross-entropy then earliest candidate; never assessment",
+    "threads": 2,
+    "version": "contextual-supervised-v1"
+  },
+  "resources": {
+    "cuda_used": false,
+    "device": "cpu",
+    "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+    "monetary_cost": "NOT_MEASURED",
+    "peak_rss_mib": 1727.328125,
+    "process_cpu_seconds": 75.514186924,
+    "threads": 2,
+    "total_wall_seconds": 34.55100500000003,
+    "train_development_base_encoding_seconds": 8.667448561000128
+  },
+  "results": {
+    "beto_frozen": {
+      "ambiguity": {
+        "gold_sentiment_available": false,
+        "n": 6,
+        "referred_by_unchanged_DEMO_rules": 5,
+        "sentiment_accuracy": null
+      },
+      "classification": {
+        "abstention": {
+          "accepted": 8,
+          "automatic_negative_to_positive_count": 0,
+          "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+          "coverage": 0.26666666666666666,
+          "error_risk_among_accepted": 0.0,
+          "referred": 22,
+          "review_rate": 0.7333333333333333
+        },
+        "accuracy": 0.7666666666666667,
+        "confusion_matrix": [
+          [
+            7,
+            0,
+            3
+          ],
+          [
+            1,
+            7,
+            2
+          ],
+          [
+            1,
+            0,
+            9
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.7701238390092878,
+        "n": 30,
+        "negative_to_neutral_count": 0,
+        "negative_to_neutral_rate": 0.0,
+        "negative_to_positive_count": 3,
+        "negative_to_positive_rate": 0.3,
+        "per_class": {
+          "accuracy": 0.7666666666666667,
+          "macro avg": {
+            "f1-score": 0.7701238390092878,
+            "precision": 0.8068783068783069,
+            "recall": 0.7666666666666666,
+            "support": 30.0
+          },
+          "negativo": {
+            "f1-score": 0.7368421052631579,
+            "precision": 0.7777777777777778,
+            "recall": 0.7,
+            "support": 10.0
+          },
+          "neutral": {
+            "f1-score": 0.8235294117647058,
+            "precision": 1.0,
+            "recall": 0.7,
+            "support": 10.0
+          },
+          "positivo": {
+            "f1-score": 0.75,
+            "precision": 0.6428571428571429,
+            "recall": 0.9,
+            "support": 10.0
+          },
+          "weighted avg": {
+            "f1-score": 0.7701238390092879,
+            "precision": 0.806878306878307,
+            "recall": 0.7666666666666667,
+            "support": 30.0
+          }
+        },
+        "support": {
+          "negativo": 10,
+          "neutral": 10,
+          "positivo": 10
+        },
+        "three_class_macro_comparable": true
+      },
+      "errors": [
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "negativo",
+          "family": "ctx_eval_museum_handson_materials",
+          "predicted": "positivo",
+          "review_id": "ctx_c8cf7e6328ac8b426467",
+          "text": "El taller figuraba como «haz tu propia pieza». Nos dieron un cuaderno para mirar cómo trabajaba otra persona. Ni pude tocar el material ni hacer nada: publicidad estupenda para una actividad decepcionante."
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "neutral",
+          "family": "ctx_eval_museum_handson_materials",
+          "predicted": "positivo",
+          "review_id": "ctx_aa47f45ed20ac24cb5f8",
+          "text": "Durante el taller usé arcilla gris y un molde de madera. Mi pieza quedó junto a las otras para secarse; la recogeré en otra visita. "
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "positivo",
+          "family": "ctx_eval_digital_ticket_gate",
+          "predicted": "negativo",
+          "review_id": "ctx_bbf030f80c27f06b1fca",
+          "text": "Se me apagó el celular en la puerta. Pensé que ya había perdido el boleto, pero lo encontraron con mi comprobante y pasé al toque. Me sacaron de un apuro."
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "negativo",
+          "family": "ctx_eval_wildlife_distance",
+          "predicted": "positivo",
+          "review_id": "ctx_a2e05d8bbae070f1a5d9",
+          "text": "Le decían encuentro respetuoso con la fauna. El bote se acercó tanto que los animales se dispersaron; nos quedamos sin observarlos y con una sensación muy fea. No recomendaría esa salida."
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "negativo",
+          "family": "ctx_eval_breakfast_hours",
+          "predicted": "positivo",
+          "review_id": "ctx_43074b89ed92787b9355",
+          "text": "Bajé dentro del horario anunciado y ya habían retirado el desayuno. Me ofrecieron señalarme una cafetería de pago. Muy atentos, sí; desayunar donde ya había pagado habría sido mejor."
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "neutral",
+          "family": "ctx_eval_breakfast_hours",
+          "predicted": "negativo",
+          "review_id": "ctx_11aa6e30590968dbb4be",
+          "text": "Desayuné a las siete el primer día y a las nueve el segundo. El comedor estaba en la planta baja; subí después a buscar mi mochila. "
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "neutral",
+          "family": "ctx_eval_dish_temperature",
+          "predicted": "positivo",
+          "review_id": "ctx_3e6574e2afb986d510f5",
+          "text": "Primero probé el caldo y después agregué el ají. Mi acompañante esperó antes de comer el suyo; yo terminé y pedí una infusión. "
+        }
+      ],
+      "slices": {
+        "contrast": {
+          "abstention": {
+            "accepted": 3,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.2,
+            "error_risk_among_accepted": 0.0,
+            "referred": 12,
+            "review_rate": 0.8
+          },
+          "accuracy": 0.7333333333333333,
+          "confusion_matrix": [
+            [
+              7,
+              0,
+              3
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              4
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.48148148148148145,
+          "n": 15,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 3,
+          "negative_to_positive_rate": 0.3,
+          "per_class": {
+            "accuracy": 0.7333333333333333,
+            "macro avg": {
+              "f1-score": 0.48148148148148145,
+              "precision": 0.48214285714285715,
+              "recall": 0.5,
+              "support": 15.0
+            },
+            "negativo": {
+              "f1-score": 0.7777777777777778,
+              "precision": 0.875,
+              "recall": 0.7,
+              "support": 10.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 0.6666666666666666,
+              "precision": 0.5714285714285714,
+              "recall": 0.8,
+              "support": 5.0
+            },
+            "weighted avg": {
+              "f1-score": 0.7407407407407407,
+              "precision": 0.7738095238095238,
+              "recall": 0.7333333333333333,
+              "support": 15.0
+            }
+          },
+          "support": {
+            "negativo": 10,
+            "neutral": 0,
+            "positivo": 5
+          },
+          "three_class_macro_comparable": false
+        },
+        "double_negation": {
+          "abstention": {
+            "accepted": 1,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": null,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.0,
+            "referred": 0,
+            "review_rate": 0.0
+          },
+          "accuracy": 1.0,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.3333333333333333,
+          "n": 1,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": null,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": null,
+          "per_class": {
+            "accuracy": 1.0,
+            "macro avg": {
+              "f1-score": 0.3333333333333333,
+              "precision": 0.3333333333333333,
+              "recall": 0.3333333333333333,
+              "support": 1.0
+            },
+            "negativo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 1.0
+            },
+            "weighted avg": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 1.0
+            }
+          },
+          "support": {
+            "negativo": 0,
+            "neutral": 0,
+            "positivo": 1
+          },
+          "three_class_macro_comparable": false
+        },
+        "length_band:medium": {
+          "abstention": {
+            "accepted": 8,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.26666666666666666,
+            "error_risk_among_accepted": 0.0,
+            "referred": 22,
+            "review_rate": 0.7333333333333333
+          },
+          "accuracy": 0.7666666666666667,
+          "confusion_matrix": [
+            [
+              7,
+              0,
+              3
+            ],
+            [
+              1,
+              7,
+              2
+            ],
+            [
+              1,
+              0,
+              9
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.7701238390092878,
+          "n": 30,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 3,
+          "negative_to_positive_rate": 0.3,
+          "per_class": {
+            "accuracy": 0.7666666666666667,
+            "macro avg": {
+              "f1-score": 0.7701238390092878,
+              "precision": 0.8068783068783069,
+              "recall": 0.7666666666666666,
+              "support": 30.0
+            },
+            "negativo": {
+              "f1-score": 0.7368421052631579,
+              "precision": 0.7777777777777778,
+              "recall": 0.7,
+              "support": 10.0
+            },
+            "neutral": {
+              "f1-score": 0.8235294117647058,
+              "precision": 1.0,
+              "recall": 0.7,
+              "support": 10.0
+            },
+            "positivo": {
+              "f1-score": 0.75,
+              "precision": 0.6428571428571429,
+              "recall": 0.9,
+              "support": 10.0
+            },
+            "weighted avg": {
+              "f1-score": 0.7701238390092879,
+              "precision": 0.806878306878307,
+              "recall": 0.7666666666666667,
+              "support": 30.0
+            }
+          },
+          "support": {
+            "negativo": 10,
+            "neutral": 10,
+            "positivo": 10
+          },
+          "three_class_macro_comparable": true
+        },
+        "mixed_aspects": {
+          "abstention": {
+            "accepted": 1,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.2,
+            "error_risk_among_accepted": 0.0,
+            "referred": 4,
+            "review_rate": 0.8
+          },
+          "accuracy": 1.0,
+          "confusion_matrix": [
+            [
+              4,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.6666666666666666,
+          "n": 5,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": 0.0,
+          "per_class": {
+            "accuracy": 1.0,
+            "macro avg": {
+              "f1-score": 0.6666666666666666,
+              "precision": 0.6666666666666666,
+              "recall": 0.6666666666666666,
+              "support": 5.0
+            },
+            "negativo": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 4.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 1.0
+            },
+            "weighted avg": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 5.0
+            }
+          },
+          "support": {
+            "negativo": 4,
+            "neutral": 0,
+            "positivo": 1
+          },
+          "three_class_macro_comparable": false
+        },
+        "negation": {
+          "abstention": {
+            "accepted": 6,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.3333333333333333,
+            "error_risk_among_accepted": 0.0,
+            "referred": 12,
+            "review_rate": 0.6666666666666666
+          },
+          "accuracy": 0.8888888888888888,
+          "confusion_matrix": [
+            [
+              4,
+              0,
+              2
+            ],
+            [
+              0,
+              4,
+              0
+            ],
+            [
+              0,
+              0,
+              8
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.8962962962962964,
+          "n": 18,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 2,
+          "negative_to_positive_rate": 0.3333333333333333,
+          "per_class": {
+            "accuracy": 0.8888888888888888,
+            "macro avg": {
+              "f1-score": 0.8962962962962964,
+              "precision": 0.9333333333333332,
+              "recall": 0.8888888888888888,
+              "support": 18.0
+            },
+            "negativo": {
+              "f1-score": 0.8,
+              "precision": 1.0,
+              "recall": 0.6666666666666666,
+              "support": 6.0
+            },
+            "neutral": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 4.0
+            },
+            "positivo": {
+              "f1-score": 0.8888888888888888,
+              "precision": 0.8,
+              "recall": 1.0,
+              "support": 8.0
+            },
+            "weighted avg": {
+              "f1-score": 0.8839506172839506,
+              "precision": 0.911111111111111,
+              "recall": 0.8888888888888888,
+              "support": 18.0
+            }
+          },
+          "support": {
+            "negativo": 6,
+            "neutral": 4,
+            "positivo": 8
+          },
+          "three_class_macro_comparable": true
+        },
+        "positive_words_negative_context": {
+          "abstention": {
+            "accepted": 2,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.4,
+            "error_risk_among_accepted": 0.0,
+            "referred": 3,
+            "review_rate": 0.6
+          },
+          "accuracy": 0.6,
+          "confusion_matrix": [
+            [
+              3,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.25,
+          "n": 5,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 2,
+          "negative_to_positive_rate": 0.4,
+          "per_class": {
+            "accuracy": 0.6,
+            "macro avg": {
+              "f1-score": 0.25,
+              "precision": 0.3333333333333333,
+              "recall": 0.19999999999999998,
+              "support": 5.0
+            },
+            "negativo": {
+              "f1-score": 0.75,
+              "precision": 1.0,
+              "recall": 0.6,
+              "support": 5.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "weighted avg": {
+              "f1-score": 0.75,
+              "precision": 1.0,
+              "recall": 0.6,
+              "support": 5.0
+            }
+          },
+          "support": {
+            "negativo": 5,
+            "neutral": 0,
+            "positivo": 0
+          },
+          "three_class_macro_comparable": false
+        },
+        "region:es": {
+          "abstention": {
+            "accepted": 2,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.2222222222222222,
+            "error_risk_among_accepted": 0.0,
+            "referred": 7,
+            "review_rate": 0.7777777777777778
+          },
+          "accuracy": 0.5555555555555556,
+          "confusion_matrix": [
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              3
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.5222222222222223,
+          "n": 9,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 2,
+          "negative_to_positive_rate": 0.6666666666666666,
+          "per_class": {
+            "accuracy": 0.5555555555555556,
+            "macro avg": {
+              "f1-score": 0.5222222222222223,
+              "precision": 0.6666666666666666,
+              "recall": 0.5555555555555555,
+              "support": 9.0
+            },
+            "negativo": {
+              "f1-score": 0.4,
+              "precision": 0.5,
+              "recall": 0.3333333333333333,
+              "support": 3.0
+            },
+            "neutral": {
+              "f1-score": 0.5,
+              "precision": 1.0,
+              "recall": 0.3333333333333333,
+              "support": 3.0
+            },
+            "positivo": {
+              "f1-score": 0.6666666666666666,
+              "precision": 0.5,
+              "recall": 1.0,
+              "support": 3.0
+            },
+            "weighted avg": {
+              "f1-score": 0.5222222222222223,
+              "precision": 0.6666666666666666,
+              "recall": 0.5555555555555556,
+              "support": 9.0
+            }
+          },
+          "support": {
+            "negativo": 3,
+            "neutral": 3,
+            "positivo": 3
+          },
+          "three_class_macro_comparable": true
+        },
+        "region:es-CO": {
+          "abstention": {
+            "accepted": 1,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.1111111111111111,
+            "error_risk_among_accepted": 0.0,
+            "referred": 8,
+            "review_rate": 0.8888888888888888
+          },
+          "accuracy": 0.8888888888888888,
+          "confusion_matrix": [
+            [
+              2,
+              0,
+              1
+            ],
+            [
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              3
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.8857142857142857,
+          "n": 9,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 1,
+          "negative_to_positive_rate": 0.3333333333333333,
+          "per_class": {
+            "accuracy": 0.8888888888888888,
+            "macro avg": {
+              "f1-score": 0.8857142857142857,
+              "precision": 0.9166666666666666,
+              "recall": 0.8888888888888888,
+              "support": 9.0
+            },
+            "negativo": {
+              "f1-score": 0.8,
+              "precision": 1.0,
+              "recall": 0.6666666666666666,
+              "support": 3.0
+            },
+            "neutral": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 3.0
+            },
+            "positivo": {
+              "f1-score": 0.8571428571428571,
+              "precision": 0.75,
+              "recall": 1.0,
+              "support": 3.0
+            },
+            "weighted avg": {
+              "f1-score": 0.8857142857142857,
+              "precision": 0.9166666666666666,
+              "recall": 0.8888888888888888,
+              "support": 9.0
+            }
+          },
+          "support": {
+            "negativo": 3,
+            "neutral": 3,
+            "positivo": 3
+          },
+          "three_class_macro_comparable": true
+        },
+        "region:es-PE": {
+          "abstention": {
+            "accepted": 5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.4166666666666667,
+            "error_risk_among_accepted": 0.0,
+            "referred": 7,
+            "review_rate": 0.5833333333333334
+          },
+          "accuracy": 0.8333333333333334,
+          "confusion_matrix": [
+            [
+              4,
+              0,
+              0
+            ],
+            [
+              0,
+              3,
+              1
+            ],
+            [
+              1,
+              0,
+              3
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.832010582010582,
+          "n": 12,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": 0.0,
+          "per_class": {
+            "accuracy": 0.8333333333333334,
+            "macro avg": {
+              "f1-score": 0.832010582010582,
+              "precision": 0.85,
+              "recall": 0.8333333333333334,
+              "support": 12.0
+            },
+            "negativo": {
+              "f1-score": 0.8888888888888888,
+              "precision": 0.8,
+              "recall": 1.0,
+              "support": 4.0
+            },
+            "neutral": {
+              "f1-score": 0.8571428571428571,
+              "precision": 1.0,
+              "recall": 0.75,
+              "support": 4.0
+            },
+            "positivo": {
+              "f1-score": 0.75,
+              "precision": 0.75,
+              "recall": 0.75,
+              "support": 4.0
+            },
+            "weighted avg": {
+              "f1-score": 0.832010582010582,
+              "precision": 0.85,
+              "recall": 0.8333333333333334,
+              "support": 12.0
+            }
+          },
+          "support": {
+            "negativo": 4,
+            "neutral": 4,
+            "positivo": 4
+          },
+          "three_class_macro_comparable": true
+        },
+        "regionalism": {
+          "abstention": {
+            "accepted": 2,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.3333333333333333,
+            "error_risk_among_accepted": 0.0,
+            "referred": 4,
+            "review_rate": 0.6666666666666666
+          },
+          "accuracy": 0.8333333333333334,
+          "confusion_matrix": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              1,
+              0,
+              2
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.8222222222222223,
+          "n": 6,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": 0.0,
+          "per_class": {
+            "accuracy": 0.8333333333333334,
+            "macro avg": {
+              "f1-score": 0.8222222222222223,
+              "precision": 0.8333333333333334,
+              "recall": 0.8888888888888888,
+              "support": 6.0
+            },
+            "negativo": {
+              "f1-score": 0.6666666666666666,
+              "precision": 0.5,
+              "recall": 1.0,
+              "support": 1.0
+            },
+            "neutral": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 2.0
+            },
+            "positivo": {
+              "f1-score": 0.8,
+              "precision": 1.0,
+              "recall": 0.6666666666666666,
+              "support": 3.0
+            },
+            "weighted avg": {
+              "f1-score": 0.8444444444444444,
+              "precision": 0.9166666666666666,
+              "recall": 0.8333333333333334,
+              "support": 6.0
+            }
+          },
+          "support": {
+            "negativo": 1,
+            "neutral": 2,
+            "positivo": 3
+          },
+          "three_class_macro_comparable": true
+        },
+        "typo": {
+          "abstention": {
+            "accepted": 0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": null,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 1,
+            "review_rate": 1.0
+          },
+          "accuracy": 1.0,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.3333333333333333,
+          "n": 1,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": null,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": null,
+          "per_class": {
+            "accuracy": 1.0,
+            "macro avg": {
+              "f1-score": 0.3333333333333333,
+              "precision": 0.3333333333333333,
+              "recall": 0.3333333333333333,
+              "support": 1.0
+            },
+            "negativo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 1.0
+            },
+            "weighted avg": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 1.0
+            }
+          },
+          "support": {
+            "negativo": 0,
+            "neutral": 0,
+            "positivo": 1
+          },
+          "three_class_macro_comparable": false
+        }
+      }
+    },
+    "beto_partial": {
+      "ambiguity": {
+        "gold_sentiment_available": false,
+        "n": 6,
+        "referred_by_unchanged_DEMO_rules": 3,
+        "sentiment_accuracy": null
+      },
+      "classification": {
+        "abstention": {
+          "accepted": 14,
+          "automatic_negative_to_positive_count": 2,
+          "automatic_negative_to_positive_rate_over_all_negatives": 0.2,
+          "coverage": 0.4666666666666667,
+          "error_risk_among_accepted": 0.14285714285714285,
+          "referred": 16,
+          "review_rate": 0.5333333333333333
+        },
+        "accuracy": 0.7333333333333333,
+        "confusion_matrix": [
+          [
+            5,
+            1,
+            4
+          ],
+          [
+            0,
+            8,
+            2
+          ],
+          [
+            1,
+            0,
+            9
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.7290350877192981,
+        "n": 30,
+        "negative_to_neutral_count": 1,
+        "negative_to_neutral_rate": 0.1,
+        "negative_to_positive_count": 4,
+        "negative_to_positive_rate": 0.4,
+        "per_class": {
+          "accuracy": 0.7333333333333333,
+          "macro avg": {
+            "f1-score": 0.7290350877192981,
+            "precision": 0.7740740740740741,
+            "recall": 0.7333333333333334,
+            "support": 30.0
+          },
+          "negativo": {
+            "f1-score": 0.625,
+            "precision": 0.8333333333333334,
+            "recall": 0.5,
+            "support": 10.0
+          },
+          "neutral": {
+            "f1-score": 0.8421052631578947,
+            "precision": 0.8888888888888888,
+            "recall": 0.8,
+            "support": 10.0
+          },
+          "positivo": {
+            "f1-score": 0.72,
+            "precision": 0.6,
+            "recall": 0.9,
+            "support": 10.0
+          },
+          "weighted avg": {
+            "f1-score": 0.7290350877192983,
+            "precision": 0.774074074074074,
+            "recall": 0.7333333333333333,
+            "support": 30.0
+          }
+        },
+        "support": {
+          "negativo": 10,
+          "neutral": 10,
+          "positivo": 10
+        },
+        "three_class_macro_comparable": true
+      },
+      "errors": [
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "negativo",
+          "family": "ctx_eval_meal_pacing",
+          "predicted": "neutral",
+          "review_id": "ctx_506f3ee8a6de59a7f304",
+          "text": "La entrada llegó con el postre y el plato fuerte seguía en la cocina. El mesero era amable. Hambre y desorden fue lo que nos llevamos."
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "negativo",
+          "family": "ctx_eval_museum_handson_materials",
+          "predicted": "positivo",
+          "review_id": "ctx_c8cf7e6328ac8b426467",
+          "text": "El taller figuraba como «haz tu propia pieza». Nos dieron un cuaderno para mirar cómo trabajaba otra persona. Ni pude tocar el material ni hacer nada: publicidad estupenda para una actividad decepcionante."
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "neutral",
+          "family": "ctx_eval_museum_handson_materials",
+          "predicted": "positivo",
+          "review_id": "ctx_aa47f45ed20ac24cb5f8",
+          "text": "Durante el taller usé arcilla gris y un molde de madera. Mi pieza quedó junto a las otras para secarse; la recogeré en otra visita. "
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "positivo",
+          "family": "ctx_eval_digital_ticket_gate",
+          "predicted": "negativo",
+          "review_id": "ctx_bbf030f80c27f06b1fca",
+          "text": "Se me apagó el celular en la puerta. Pensé que ya había perdido el boleto, pero lo encontraron con mi comprobante y pasé al toque. Me sacaron de un apuro."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "negativo",
+          "family": "ctx_eval_wildlife_distance",
+          "predicted": "positivo",
+          "review_id": "ctx_a2e05d8bbae070f1a5d9",
+          "text": "Le decían encuentro respetuoso con la fauna. El bote se acercó tanto que los animales se dispersaron; nos quedamos sin observarlos y con una sensación muy fea. No recomendaría esa salida."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "negativo",
+          "family": "ctx_eval_breakfast_hours",
+          "predicted": "positivo",
+          "review_id": "ctx_43074b89ed92787b9355",
+          "text": "Bajé dentro del horario anunciado y ya habían retirado el desayuno. Me ofrecieron señalarme una cafetería de pago. Muy atentos, sí; desayunar donde ya había pagado habría sido mejor."
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "neutral",
+          "family": "ctx_eval_dish_temperature",
+          "predicted": "positivo",
+          "review_id": "ctx_3e6574e2afb986d510f5",
+          "text": "Primero probé el caldo y después agregué el ají. Mi acompañante esperó antes de comer el suyo; yo terminé y pedí una infusión. "
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "negativo",
+          "family": "ctx_eval_bicycle_return",
+          "predicted": "positivo",
+          "review_id": "ctx_493de0bc338ca515beda",
+          "text": "Al devolver la bicicleta, el anclaje se puso verde y el cobro siguió corriendo. Intenté avisar desde la aplicación sin conseguir respuesta. Un paseo agradable terminó en un gasto que no correspondía."
+        }
+      ],
+      "slices": {
+        "contrast": {
+          "abstention": {
+            "accepted": 7,
+            "automatic_negative_to_positive_count": 2,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.2,
+            "coverage": 0.4666666666666667,
+            "error_risk_among_accepted": 0.2857142857142857,
+            "referred": 8,
+            "review_rate": 0.5333333333333333
+          },
+          "accuracy": 0.6,
+          "confusion_matrix": [
+            [
+              5,
+              1,
+              4
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              4
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.4134615384615385,
+          "n": 15,
+          "negative_to_neutral_count": 1,
+          "negative_to_neutral_rate": 0.1,
+          "negative_to_positive_count": 4,
+          "negative_to_positive_rate": 0.4,
+          "per_class": {
+            "accuracy": 0.6,
+            "macro avg": {
+              "f1-score": 0.4134615384615385,
+              "precision": 0.4444444444444445,
+              "recall": 0.43333333333333335,
+              "support": 15.0
+            },
+            "negativo": {
+              "f1-score": 0.625,
+              "precision": 0.8333333333333334,
+              "recall": 0.5,
+              "support": 10.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 0.6153846153846154,
+              "precision": 0.5,
+              "recall": 0.8,
+              "support": 5.0
+            },
+            "weighted avg": {
+              "f1-score": 0.6217948717948718,
+              "precision": 0.7222222222222222,
+              "recall": 0.6,
+              "support": 15.0
+            }
+          },
+          "support": {
+            "negativo": 10,
+            "neutral": 0,
+            "positivo": 5
+          },
+          "three_class_macro_comparable": false
+        },
+        "double_negation": {
+          "abstention": {
+            "accepted": 1,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": null,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.0,
+            "referred": 0,
+            "review_rate": 0.0
+          },
+          "accuracy": 1.0,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.3333333333333333,
+          "n": 1,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": null,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": null,
+          "per_class": {
+            "accuracy": 1.0,
+            "macro avg": {
+              "f1-score": 0.3333333333333333,
+              "precision": 0.3333333333333333,
+              "recall": 0.3333333333333333,
+              "support": 1.0
+            },
+            "negativo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 1.0
+            },
+            "weighted avg": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 1.0
+            }
+          },
+          "support": {
+            "negativo": 0,
+            "neutral": 0,
+            "positivo": 1
+          },
+          "three_class_macro_comparable": false
+        },
+        "length_band:medium": {
+          "abstention": {
+            "accepted": 14,
+            "automatic_negative_to_positive_count": 2,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.2,
+            "coverage": 0.4666666666666667,
+            "error_risk_among_accepted": 0.14285714285714285,
+            "referred": 16,
+            "review_rate": 0.5333333333333333
+          },
+          "accuracy": 0.7333333333333333,
+          "confusion_matrix": [
+            [
+              5,
+              1,
+              4
+            ],
+            [
+              0,
+              8,
+              2
+            ],
+            [
+              1,
+              0,
+              9
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.7290350877192981,
+          "n": 30,
+          "negative_to_neutral_count": 1,
+          "negative_to_neutral_rate": 0.1,
+          "negative_to_positive_count": 4,
+          "negative_to_positive_rate": 0.4,
+          "per_class": {
+            "accuracy": 0.7333333333333333,
+            "macro avg": {
+              "f1-score": 0.7290350877192981,
+              "precision": 0.7740740740740741,
+              "recall": 0.7333333333333334,
+              "support": 30.0
+            },
+            "negativo": {
+              "f1-score": 0.625,
+              "precision": 0.8333333333333334,
+              "recall": 0.5,
+              "support": 10.0
+            },
+            "neutral": {
+              "f1-score": 0.8421052631578947,
+              "precision": 0.8888888888888888,
+              "recall": 0.8,
+              "support": 10.0
+            },
+            "positivo": {
+              "f1-score": 0.72,
+              "precision": 0.6,
+              "recall": 0.9,
+              "support": 10.0
+            },
+            "weighted avg": {
+              "f1-score": 0.7290350877192983,
+              "precision": 0.774074074074074,
+              "recall": 0.7333333333333333,
+              "support": 30.0
+            }
+          },
+          "support": {
+            "negativo": 10,
+            "neutral": 10,
+            "positivo": 10
+          },
+          "three_class_macro_comparable": true
+        },
+        "mixed_aspects": {
+          "abstention": {
+            "accepted": 2,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.4,
+            "error_risk_among_accepted": 0.0,
+            "referred": 3,
+            "review_rate": 0.6
+          },
+          "accuracy": 0.6,
+          "confusion_matrix": [
+            [
+              2,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.4444444444444444,
+          "n": 5,
+          "negative_to_neutral_count": 1,
+          "negative_to_neutral_rate": 0.25,
+          "negative_to_positive_count": 1,
+          "negative_to_positive_rate": 0.25,
+          "per_class": {
+            "accuracy": 0.6,
+            "macro avg": {
+              "f1-score": 0.4444444444444444,
+              "precision": 0.5,
+              "recall": 0.5,
+              "support": 5.0
+            },
+            "negativo": {
+              "f1-score": 0.6666666666666666,
+              "precision": 1.0,
+              "recall": 0.5,
+              "support": 4.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 0.6666666666666666,
+              "precision": 0.5,
+              "recall": 1.0,
+              "support": 1.0
+            },
+            "weighted avg": {
+              "f1-score": 0.6666666666666666,
+              "precision": 0.9,
+              "recall": 0.6,
+              "support": 5.0
+            }
+          },
+          "support": {
+            "negativo": 4,
+            "neutral": 0,
+            "positivo": 1
+          },
+          "three_class_macro_comparable": false
+        },
+        "negation": {
+          "abstention": {
+            "accepted": 11,
+            "automatic_negative_to_positive_count": 1,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.16666666666666666,
+            "coverage": 0.6111111111111112,
+            "error_risk_among_accepted": 0.09090909090909091,
+            "referred": 7,
+            "review_rate": 0.3888888888888889
+          },
+          "accuracy": 0.8333333333333334,
+          "confusion_matrix": [
+            [
+              3,
+              0,
+              3
+            ],
+            [
+              0,
+              4,
+              0
+            ],
+            [
+              0,
+              0,
+              8
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.8362573099415204,
+          "n": 18,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 3,
+          "negative_to_positive_rate": 0.5,
+          "per_class": {
+            "accuracy": 0.8333333333333334,
+            "macro avg": {
+              "f1-score": 0.8362573099415204,
+              "precision": 0.9090909090909092,
+              "recall": 0.8333333333333334,
+              "support": 18.0
+            },
+            "negativo": {
+              "f1-score": 0.6666666666666666,
+              "precision": 1.0,
+              "recall": 0.5,
+              "support": 6.0
+            },
+            "neutral": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 4.0
+            },
+            "positivo": {
+              "f1-score": 0.8421052631578947,
+              "precision": 0.7272727272727273,
+              "recall": 1.0,
+              "support": 8.0
+            },
+            "weighted avg": {
+              "f1-score": 0.8187134502923976,
+              "precision": 0.8787878787878788,
+              "recall": 0.8333333333333334,
+              "support": 18.0
+            }
+          },
+          "support": {
+            "negativo": 6,
+            "neutral": 4,
+            "positivo": 8
+          },
+          "three_class_macro_comparable": true
+        },
+        "positive_words_negative_context": {
+          "abstention": {
+            "accepted": 3,
+            "automatic_negative_to_positive_count": 1,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.2,
+            "coverage": 0.6,
+            "error_risk_among_accepted": 0.3333333333333333,
+            "referred": 2,
+            "review_rate": 0.4
+          },
+          "accuracy": 0.6,
+          "confusion_matrix": [
+            [
+              3,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.25,
+          "n": 5,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 2,
+          "negative_to_positive_rate": 0.4,
+          "per_class": {
+            "accuracy": 0.6,
+            "macro avg": {
+              "f1-score": 0.25,
+              "precision": 0.3333333333333333,
+              "recall": 0.19999999999999998,
+              "support": 5.0
+            },
+            "negativo": {
+              "f1-score": 0.75,
+              "precision": 1.0,
+              "recall": 0.6,
+              "support": 5.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "weighted avg": {
+              "f1-score": 0.75,
+              "precision": 1.0,
+              "recall": 0.6,
+              "support": 5.0
+            }
+          },
+          "support": {
+            "negativo": 5,
+            "neutral": 0,
+            "positivo": 0
+          },
+          "three_class_macro_comparable": false
+        },
+        "region:es": {
+          "abstention": {
+            "accepted": 4,
+            "automatic_negative_to_positive_count": 1,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.3333333333333333,
+            "coverage": 0.4444444444444444,
+            "error_risk_among_accepted": 0.25,
+            "referred": 5,
+            "review_rate": 0.5555555555555556
+          },
+          "accuracy": 0.5555555555555556,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              3
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              0,
+              0,
+              3
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.4666666666666666,
+          "n": 9,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 3,
+          "negative_to_positive_rate": 1.0,
+          "per_class": {
+            "accuracy": 0.5555555555555556,
+            "macro avg": {
+              "f1-score": 0.4666666666666666,
+              "precision": 0.4761904761904762,
+              "recall": 0.5555555555555555,
+              "support": 9.0
+            },
+            "negativo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 3.0
+            },
+            "neutral": {
+              "f1-score": 0.8,
+              "precision": 1.0,
+              "recall": 0.6666666666666666,
+              "support": 3.0
+            },
+            "positivo": {
+              "f1-score": 0.6,
+              "precision": 0.42857142857142855,
+              "recall": 1.0,
+              "support": 3.0
+            },
+            "weighted avg": {
+              "f1-score": 0.4666666666666667,
+              "precision": 0.47619047619047616,
+              "recall": 0.5555555555555556,
+              "support": 9.0
+            }
+          },
+          "support": {
+            "negativo": 3,
+            "neutral": 3,
+            "positivo": 3
+          },
+          "three_class_macro_comparable": true
+        },
+        "region:es-CO": {
+          "abstention": {
+            "accepted": 4,
+            "automatic_negative_to_positive_count": 1,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.3333333333333333,
+            "coverage": 0.4444444444444444,
+            "error_risk_among_accepted": 0.25,
+            "referred": 5,
+            "review_rate": 0.5555555555555556
+          },
+          "accuracy": 0.7777777777777778,
+          "confusion_matrix": [
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              3
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.7380952380952381,
+          "n": 9,
+          "negative_to_neutral_count": 1,
+          "negative_to_neutral_rate": 0.3333333333333333,
+          "negative_to_positive_count": 1,
+          "negative_to_positive_rate": 0.3333333333333333,
+          "per_class": {
+            "accuracy": 0.7777777777777778,
+            "macro avg": {
+              "f1-score": 0.7380952380952381,
+              "precision": 0.8333333333333334,
+              "recall": 0.7777777777777777,
+              "support": 9.0
+            },
+            "negativo": {
+              "f1-score": 0.5,
+              "precision": 1.0,
+              "recall": 0.3333333333333333,
+              "support": 3.0
+            },
+            "neutral": {
+              "f1-score": 0.8571428571428571,
+              "precision": 0.75,
+              "recall": 1.0,
+              "support": 3.0
+            },
+            "positivo": {
+              "f1-score": 0.8571428571428571,
+              "precision": 0.75,
+              "recall": 1.0,
+              "support": 3.0
+            },
+            "weighted avg": {
+              "f1-score": 0.738095238095238,
+              "precision": 0.8333333333333334,
+              "recall": 0.7777777777777778,
+              "support": 9.0
+            }
+          },
+          "support": {
+            "negativo": 3,
+            "neutral": 3,
+            "positivo": 3
+          },
+          "three_class_macro_comparable": true
+        },
+        "region:es-PE": {
+          "abstention": {
+            "accepted": 6,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5,
+            "error_risk_among_accepted": 0.0,
+            "referred": 6,
+            "review_rate": 0.5
+          },
+          "accuracy": 0.8333333333333334,
+          "confusion_matrix": [
+            [
+              4,
+              0,
+              0
+            ],
+            [
+              0,
+              3,
+              1
+            ],
+            [
+              1,
+              0,
+              3
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.832010582010582,
+          "n": 12,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": 0.0,
+          "per_class": {
+            "accuracy": 0.8333333333333334,
+            "macro avg": {
+              "f1-score": 0.832010582010582,
+              "precision": 0.85,
+              "recall": 0.8333333333333334,
+              "support": 12.0
+            },
+            "negativo": {
+              "f1-score": 0.8888888888888888,
+              "precision": 0.8,
+              "recall": 1.0,
+              "support": 4.0
+            },
+            "neutral": {
+              "f1-score": 0.8571428571428571,
+              "precision": 1.0,
+              "recall": 0.75,
+              "support": 4.0
+            },
+            "positivo": {
+              "f1-score": 0.75,
+              "precision": 0.75,
+              "recall": 0.75,
+              "support": 4.0
+            },
+            "weighted avg": {
+              "f1-score": 0.832010582010582,
+              "precision": 0.85,
+              "recall": 0.8333333333333334,
+              "support": 12.0
+            }
+          },
+          "support": {
+            "negativo": 4,
+            "neutral": 4,
+            "positivo": 4
+          },
+          "three_class_macro_comparable": true
+        },
+        "regionalism": {
+          "abstention": {
+            "accepted": 3,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5,
+            "error_risk_among_accepted": 0.0,
+            "referred": 3,
+            "review_rate": 0.5
+          },
+          "accuracy": 0.8333333333333334,
+          "confusion_matrix": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              1,
+              0,
+              2
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.8222222222222223,
+          "n": 6,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": 0.0,
+          "per_class": {
+            "accuracy": 0.8333333333333334,
+            "macro avg": {
+              "f1-score": 0.8222222222222223,
+              "precision": 0.8333333333333334,
+              "recall": 0.8888888888888888,
+              "support": 6.0
+            },
+            "negativo": {
+              "f1-score": 0.6666666666666666,
+              "precision": 0.5,
+              "recall": 1.0,
+              "support": 1.0
+            },
+            "neutral": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 2.0
+            },
+            "positivo": {
+              "f1-score": 0.8,
+              "precision": 1.0,
+              "recall": 0.6666666666666666,
+              "support": 3.0
+            },
+            "weighted avg": {
+              "f1-score": 0.8444444444444444,
+              "precision": 0.9166666666666666,
+              "recall": 0.8333333333333334,
+              "support": 6.0
+            }
+          },
+          "support": {
+            "negativo": 1,
+            "neutral": 2,
+            "positivo": 3
+          },
+          "three_class_macro_comparable": true
+        },
+        "typo": {
+          "abstention": {
+            "accepted": 1,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": null,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.0,
+            "referred": 0,
+            "review_rate": 0.0
+          },
+          "accuracy": 1.0,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.3333333333333333,
+          "n": 1,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": null,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": null,
+          "per_class": {
+            "accuracy": 1.0,
+            "macro avg": {
+              "f1-score": 0.3333333333333333,
+              "precision": 0.3333333333333333,
+              "recall": 0.3333333333333333,
+              "support": 1.0
+            },
+            "negativo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 1.0
+            },
+            "weighted avg": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 1.0
+            }
+          },
+          "support": {
+            "negativo": 0,
+            "neutral": 0,
+            "positivo": 1
+          },
+          "three_class_macro_comparable": false
+        }
+      }
+    },
+    "dummy": {
+      "ambiguity": {
+        "gold_sentiment_available": false,
+        "n": 6,
+        "referred_by_unchanged_DEMO_rules": 0,
+        "sentiment_accuracy": null
+      },
+      "classification": {
+        "abstention": {
+          "accepted": 30,
+          "automatic_negative_to_positive_count": 0,
+          "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+          "coverage": 1.0,
+          "error_risk_among_accepted": 0.6666666666666666,
+          "referred": 0,
+          "review_rate": 0.0
+        },
+        "accuracy": 0.3333333333333333,
+        "confusion_matrix": [
+          [
+            10,
+            0,
+            0
+          ],
+          [
+            10,
+            0,
+            0
+          ],
+          [
+            10,
+            0,
+            0
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.16666666666666666,
+        "n": 30,
+        "negative_to_neutral_count": 0,
+        "negative_to_neutral_rate": 0.0,
+        "negative_to_positive_count": 0,
+        "negative_to_positive_rate": 0.0,
+        "per_class": {
+          "accuracy": 0.3333333333333333,
+          "macro avg": {
+            "f1-score": 0.16666666666666666,
+            "precision": 0.1111111111111111,
+            "recall": 0.3333333333333333,
+            "support": 30.0
+          },
+          "negativo": {
+            "f1-score": 0.5,
+            "precision": 0.3333333333333333,
+            "recall": 1.0,
+            "support": 10.0
+          },
+          "neutral": {
+            "f1-score": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 10.0
+          },
+          "positivo": {
+            "f1-score": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 10.0
+          },
+          "weighted avg": {
+            "f1-score": 0.16666666666666666,
+            "precision": 0.1111111111111111,
+            "recall": 0.3333333333333333,
+            "support": 30.0
+          }
+        },
+        "support": {
+          "negativo": 10,
+          "neutral": 10,
+          "positivo": 10
+        },
+        "three_class_macro_comparable": true
+      },
+      "errors": [
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "neutral",
+          "family": "ctx_eval_shower_pressure",
+          "predicted": "negativo",
+          "review_id": "ctx_ad92adafd7b0e7777651",
+          "text": "El caño de la izquierda regula la temperatura y el de arriba abre la ducha. Dejé la toalla en el gancho de la puerta."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "positivo",
+          "family": "ctx_eval_shower_pressure",
+          "predicted": "negativo",
+          "review_id": "ctx_c4603195988e384bfd95",
+          "text": "Por fin una ducha con fuerza. No tuve que estar pegado a la pared para mojarme; después del viaje, ese baño me cayó de maravilla."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "neutral",
+          "family": "ctx_eval_meal_pacing",
+          "predicted": "negativo",
+          "review_id": "ctx_6684ee43f71a5d0cb74e",
+          "text": "Comí primero la entrada; mi acompañante dejó la suya para después del plato fuerte. No pedimos postre."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "positivo",
+          "family": "ctx_eval_meal_pacing",
+          "predicted": "negativo",
+          "review_id": "ctx_cd42f3dee13552a2d532",
+          "text": "Qué pena con el mesero: yo creía que se había olvidado del segundo plato, pero esperaba a que termináramos la entrada. Nos llevó la comida a nuestro ritmo y lo agradecimos."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "neutral",
+          "family": "ctx_eval_museum_handson_materials",
+          "predicted": "negativo",
+          "review_id": "ctx_aa47f45ed20ac24cb5f8",
+          "text": "Durante el taller usé arcilla gris y un molde de madera. Mi pieza quedó junto a las otras para secarse; la recogeré en otra visita. "
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "positivo",
+          "family": "ctx_eval_museum_handson_materials",
+          "predicted": "negativo",
+          "review_id": "ctx_41995f9ac49b421127e1",
+          "text": "No es verdad que aquí no te dejen probar. Pude amasar, equivocarme y empezar otra vez; me fui contenta con algo hecho por mí."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "neutral",
+          "family": "ctx_eval_digital_ticket_gate",
+          "predicted": "negativo",
+          "review_id": "ctx_84153e1f441ba2096259",
+          "text": "Mostré el código desde mi celular y crucé el torniquete. El boleto era de ida; el regreso lo compré en la ventanilla. "
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "positivo",
+          "family": "ctx_eval_digital_ticket_gate",
+          "predicted": "negativo",
+          "review_id": "ctx_bbf030f80c27f06b1fca",
+          "text": "Se me apagó el celular en la puerta. Pensé que ya había perdido el boleto, pero lo encontraron con mi comprobante y pasé al toque. Me sacaron de un apuro."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "neutral",
+          "family": "ctx_eval_wildlife_distance",
+          "predicted": "negativo",
+          "review_id": "ctx_49dd28468513e924d302",
+          "text": "Los animales estaban junto a la orilla opuesta. El bote se detuvo y miramos desde allí; yo usé los binoculares de mi compañero. No bajamos a tierra."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "positivo",
+          "family": "ctx_eval_wildlife_distance",
+          "predicted": "negativo",
+          "review_id": "ctx_514f1ae7513a1262ed82",
+          "text": "No vimos todo lo que imaginaba, pero me gustó que el guía no persiguiera a los animales. Observamos desde lejos y sin espantarlos; para mí, esa fue la parte valiosa del recorrido."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "neutral",
+          "family": "ctx_eval_breakfast_hours",
+          "predicted": "negativo",
+          "review_id": "ctx_11aa6e30590968dbb4be",
+          "text": "Desayuné a las siete el primer día y a las nueve el segundo. El comedor estaba en la planta baja; subí después a buscar mi mochila. "
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "positivo",
+          "family": "ctx_eval_breakfast_hours",
+          "predicted": "negativo",
+          "review_id": "ctx_fdbec2997909db66c459",
+          "text": "Llegué casi al cierre y todavía pude desayunar sin que me apuraran. Había poca variedad, aunque lo que necesitaba estaba fresco; empecé el día a gusto."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "neutral",
+          "family": "ctx_eval_dish_temperature",
+          "predicted": "negativo",
+          "review_id": "ctx_3e6574e2afb986d510f5",
+          "text": "Primero probé el caldo y después agregué el ají. Mi acompañante esperó antes de comer el suyo; yo terminé y pedí una infusión. "
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "positivo",
+          "family": "ctx_eval_dish_temperature",
+          "predicted": "negativo",
+          "review_id": "ctx_a329ccaa5eec8f1a1558",
+          "text": "Estaba recien hecha, no recalentada. La sopa llegó humeando y me sentó buenazo después de caminar con frío."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "neutral",
+          "family": "ctx_eval_photo_policy",
+          "predicted": "negativo",
+          "review_id": "ctx_c40810ff7874643c06ba",
+          "text": "Guardé la cámara en la sala de fotografía y usé el celular en el patio. No llevaba flash externo ni trípode."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "positivo",
+          "family": "ctx_eval_photo_policy",
+          "predicted": "negativo",
+          "review_id": "ctx_cf0ac1c39d7ee0fc5ad9",
+          "text": "La prohibición de fotos no me molestó: explicaron qué obras necesitaban ese cuidado y señalaron las zonas permitidas. Salí con lo que quería ver, sin discusiones ni confusiones."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "neutral",
+          "family": "ctx_eval_bicycle_return",
+          "predicted": "negativo",
+          "review_id": "ctx_aa99d9d3ca335748f345",
+          "text": "Dejé la bicicleta en el último anclaje. La aplicación mostraba la hora de inicio y la de devolución; guardé esa pantalla en el teléfono. "
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "positivo",
+          "family": "ctx_eval_bicycle_return",
+          "predicted": "negativo",
+          "review_id": "ctx_eaa4d255492d824a5c28",
+          "text": "No podía encajar la bicicleta a la primera. Una señal me indicó otro anclaje y el contador se detuvo enseguida; devolución resuelta sin llamar a nadie. Así da gusto moverse."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "neutral",
+          "family": "ctx_eval_cave_tide_change",
+          "predicted": "negativo",
+          "review_id": "ctx_24a340d79de32fd88190",
+          "text": "Fuimos hasta la entrada de la cueva y volvimos por la playa. No entré; me quedé tomando fotos mientras el resto miraba las rocas. Luego subimos juntos a la combi."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "positivo",
+          "family": "ctx_eval_cave_tide_change",
+          "predicted": "negativo",
+          "review_id": "ctx_f58939ea5dbd57dadddd",
+          "text": "No entrar a la cueva fue lo más sensato. Cambiaron la ruta por la marea, nos explicaron el motivo y acabamos viendo otras formaciones. Yo fui por el paisaje y lo disfruté sin pasar sustos."
+        }
+      ],
+      "slices": {
+        "contrast": {
+          "abstention": {
+            "accepted": 15,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.3333333333333333,
+            "referred": 0,
+            "review_rate": 0.0
+          },
+          "accuracy": 0.6666666666666666,
+          "confusion_matrix": [
+            [
+              10,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              5,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.26666666666666666,
+          "n": 15,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": 0.0,
+          "per_class": {
+            "accuracy": 0.6666666666666666,
+            "macro avg": {
+              "f1-score": 0.26666666666666666,
+              "precision": 0.2222222222222222,
+              "recall": 0.3333333333333333,
+              "support": 15.0
+            },
+            "negativo": {
+              "f1-score": 0.8,
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "support": 10.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 5.0
+            },
+            "weighted avg": {
+              "f1-score": 0.5333333333333333,
+              "precision": 0.4444444444444444,
+              "recall": 0.6666666666666666,
+              "support": 15.0
+            }
+          },
+          "support": {
+            "negativo": 10,
+            "neutral": 0,
+            "positivo": 5
+          },
+          "three_class_macro_comparable": false
+        },
+        "double_negation": {
+          "abstention": {
+            "accepted": 1,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": null,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 1.0,
+            "referred": 0,
+            "review_rate": 0.0
+          },
+          "accuracy": 0.0,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.0,
+          "n": 1,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": null,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": null,
+          "per_class": {
+            "accuracy": 0.0,
+            "macro avg": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 1.0
+            },
+            "negativo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 1.0
+            },
+            "weighted avg": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 1.0
+            }
+          },
+          "support": {
+            "negativo": 0,
+            "neutral": 0,
+            "positivo": 1
+          },
+          "three_class_macro_comparable": false
+        },
+        "length_band:medium": {
+          "abstention": {
+            "accepted": 30,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.6666666666666666,
+            "referred": 0,
+            "review_rate": 0.0
+          },
+          "accuracy": 0.3333333333333333,
+          "confusion_matrix": [
+            [
+              10,
+              0,
+              0
+            ],
+            [
+              10,
+              0,
+              0
+            ],
+            [
+              10,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.16666666666666666,
+          "n": 30,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": 0.0,
+          "per_class": {
+            "accuracy": 0.3333333333333333,
+            "macro avg": {
+              "f1-score": 0.16666666666666666,
+              "precision": 0.1111111111111111,
+              "recall": 0.3333333333333333,
+              "support": 30.0
+            },
+            "negativo": {
+              "f1-score": 0.5,
+              "precision": 0.3333333333333333,
+              "recall": 1.0,
+              "support": 10.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 10.0
+            },
+            "positivo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 10.0
+            },
+            "weighted avg": {
+              "f1-score": 0.16666666666666666,
+              "precision": 0.1111111111111111,
+              "recall": 0.3333333333333333,
+              "support": 30.0
+            }
+          },
+          "support": {
+            "negativo": 10,
+            "neutral": 10,
+            "positivo": 10
+          },
+          "three_class_macro_comparable": true
+        },
+        "mixed_aspects": {
+          "abstention": {
+            "accepted": 5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.2,
+            "referred": 0,
+            "review_rate": 0.0
+          },
+          "accuracy": 0.8,
+          "confusion_matrix": [
+            [
+              4,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.2962962962962963,
+          "n": 5,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": 0.0,
+          "per_class": {
+            "accuracy": 0.8,
+            "macro avg": {
+              "f1-score": 0.2962962962962963,
+              "precision": 0.26666666666666666,
+              "recall": 0.3333333333333333,
+              "support": 5.0
+            },
+            "negativo": {
+              "f1-score": 0.8888888888888888,
+              "precision": 0.8,
+              "recall": 1.0,
+              "support": 4.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 1.0
+            },
+            "weighted avg": {
+              "f1-score": 0.711111111111111,
+              "precision": 0.64,
+              "recall": 0.8,
+              "support": 5.0
+            }
+          },
+          "support": {
+            "negativo": 4,
+            "neutral": 0,
+            "positivo": 1
+          },
+          "three_class_macro_comparable": false
+        },
+        "negation": {
+          "abstention": {
+            "accepted": 18,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.6666666666666666,
+            "referred": 0,
+            "review_rate": 0.0
+          },
+          "accuracy": 0.3333333333333333,
+          "confusion_matrix": [
+            [
+              6,
+              0,
+              0
+            ],
+            [
+              4,
+              0,
+              0
+            ],
+            [
+              8,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.16666666666666666,
+          "n": 18,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": 0.0,
+          "per_class": {
+            "accuracy": 0.3333333333333333,
+            "macro avg": {
+              "f1-score": 0.16666666666666666,
+              "precision": 0.1111111111111111,
+              "recall": 0.3333333333333333,
+              "support": 18.0
+            },
+            "negativo": {
+              "f1-score": 0.5,
+              "precision": 0.3333333333333333,
+              "recall": 1.0,
+              "support": 6.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 4.0
+            },
+            "positivo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 8.0
+            },
+            "weighted avg": {
+              "f1-score": 0.16666666666666666,
+              "precision": 0.1111111111111111,
+              "recall": 0.3333333333333333,
+              "support": 18.0
+            }
+          },
+          "support": {
+            "negativo": 6,
+            "neutral": 4,
+            "positivo": 8
+          },
+          "three_class_macro_comparable": true
+        },
+        "positive_words_negative_context": {
+          "abstention": {
+            "accepted": 5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.0,
+            "referred": 0,
+            "review_rate": 0.0
+          },
+          "accuracy": 1.0,
+          "confusion_matrix": [
+            [
+              5,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.3333333333333333,
+          "n": 5,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": 0.0,
+          "per_class": {
+            "accuracy": 1.0,
+            "macro avg": {
+              "f1-score": 0.3333333333333333,
+              "precision": 0.3333333333333333,
+              "recall": 0.3333333333333333,
+              "support": 5.0
+            },
+            "negativo": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 5.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "weighted avg": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 5.0
+            }
+          },
+          "support": {
+            "negativo": 5,
+            "neutral": 0,
+            "positivo": 0
+          },
+          "three_class_macro_comparable": false
+        },
+        "region:es": {
+          "abstention": {
+            "accepted": 9,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.6666666666666666,
+            "referred": 0,
+            "review_rate": 0.0
+          },
+          "accuracy": 0.3333333333333333,
+          "confusion_matrix": [
+            [
+              3,
+              0,
+              0
+            ],
+            [
+              3,
+              0,
+              0
+            ],
+            [
+              3,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.16666666666666666,
+          "n": 9,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": 0.0,
+          "per_class": {
+            "accuracy": 0.3333333333333333,
+            "macro avg": {
+              "f1-score": 0.16666666666666666,
+              "precision": 0.1111111111111111,
+              "recall": 0.3333333333333333,
+              "support": 9.0
+            },
+            "negativo": {
+              "f1-score": 0.5,
+              "precision": 0.3333333333333333,
+              "recall": 1.0,
+              "support": 3.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 3.0
+            },
+            "positivo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 3.0
+            },
+            "weighted avg": {
+              "f1-score": 0.16666666666666666,
+              "precision": 0.1111111111111111,
+              "recall": 0.3333333333333333,
+              "support": 9.0
+            }
+          },
+          "support": {
+            "negativo": 3,
+            "neutral": 3,
+            "positivo": 3
+          },
+          "three_class_macro_comparable": true
+        },
+        "region:es-CO": {
+          "abstention": {
+            "accepted": 9,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.6666666666666666,
+            "referred": 0,
+            "review_rate": 0.0
+          },
+          "accuracy": 0.3333333333333333,
+          "confusion_matrix": [
+            [
+              3,
+              0,
+              0
+            ],
+            [
+              3,
+              0,
+              0
+            ],
+            [
+              3,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.16666666666666666,
+          "n": 9,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": 0.0,
+          "per_class": {
+            "accuracy": 0.3333333333333333,
+            "macro avg": {
+              "f1-score": 0.16666666666666666,
+              "precision": 0.1111111111111111,
+              "recall": 0.3333333333333333,
+              "support": 9.0
+            },
+            "negativo": {
+              "f1-score": 0.5,
+              "precision": 0.3333333333333333,
+              "recall": 1.0,
+              "support": 3.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 3.0
+            },
+            "positivo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 3.0
+            },
+            "weighted avg": {
+              "f1-score": 0.16666666666666666,
+              "precision": 0.1111111111111111,
+              "recall": 0.3333333333333333,
+              "support": 9.0
+            }
+          },
+          "support": {
+            "negativo": 3,
+            "neutral": 3,
+            "positivo": 3
+          },
+          "three_class_macro_comparable": true
+        },
+        "region:es-PE": {
+          "abstention": {
+            "accepted": 12,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.6666666666666666,
+            "referred": 0,
+            "review_rate": 0.0
+          },
+          "accuracy": 0.3333333333333333,
+          "confusion_matrix": [
+            [
+              4,
+              0,
+              0
+            ],
+            [
+              4,
+              0,
+              0
+            ],
+            [
+              4,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.16666666666666666,
+          "n": 12,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": 0.0,
+          "per_class": {
+            "accuracy": 0.3333333333333333,
+            "macro avg": {
+              "f1-score": 0.16666666666666666,
+              "precision": 0.1111111111111111,
+              "recall": 0.3333333333333333,
+              "support": 12.0
+            },
+            "negativo": {
+              "f1-score": 0.5,
+              "precision": 0.3333333333333333,
+              "recall": 1.0,
+              "support": 4.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 4.0
+            },
+            "positivo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 4.0
+            },
+            "weighted avg": {
+              "f1-score": 0.16666666666666666,
+              "precision": 0.1111111111111111,
+              "recall": 0.3333333333333333,
+              "support": 12.0
+            }
+          },
+          "support": {
+            "negativo": 4,
+            "neutral": 4,
+            "positivo": 4
+          },
+          "three_class_macro_comparable": true
+        },
+        "regionalism": {
+          "abstention": {
+            "accepted": 6,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.8333333333333334,
+            "referred": 0,
+            "review_rate": 0.0
+          },
+          "accuracy": 0.16666666666666666,
+          "confusion_matrix": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ],
+            [
+              3,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.09523809523809523,
+          "n": 6,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": 0.0,
+          "per_class": {
+            "accuracy": 0.16666666666666666,
+            "macro avg": {
+              "f1-score": 0.09523809523809523,
+              "precision": 0.05555555555555555,
+              "recall": 0.3333333333333333,
+              "support": 6.0
+            },
+            "negativo": {
+              "f1-score": 0.2857142857142857,
+              "precision": 0.16666666666666666,
+              "recall": 1.0,
+              "support": 1.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 2.0
+            },
+            "positivo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 3.0
+            },
+            "weighted avg": {
+              "f1-score": 0.047619047619047616,
+              "precision": 0.027777777777777776,
+              "recall": 0.16666666666666666,
+              "support": 6.0
+            }
+          },
+          "support": {
+            "negativo": 1,
+            "neutral": 2,
+            "positivo": 3
+          },
+          "three_class_macro_comparable": true
+        },
+        "typo": {
+          "abstention": {
+            "accepted": 1,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": null,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 1.0,
+            "referred": 0,
+            "review_rate": 0.0
+          },
+          "accuracy": 0.0,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.0,
+          "n": 1,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": null,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": null,
+          "per_class": {
+            "accuracy": 0.0,
+            "macro avg": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 1.0
+            },
+            "negativo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 1.0
+            },
+            "weighted avg": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 1.0
+            }
+          },
+          "support": {
+            "negativo": 0,
+            "neutral": 0,
+            "positivo": 1
+          },
+          "three_class_macro_comparable": false
+        }
+      }
+    },
+    "lr": {
+      "ambiguity": {
+        "gold_sentiment_available": false,
+        "n": 6,
+        "referred_by_unchanged_DEMO_rules": 6,
+        "sentiment_accuracy": null
+      },
+      "classification": {
+        "abstention": {
+          "accepted": 7,
+          "automatic_negative_to_positive_count": 0,
+          "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+          "coverage": 0.23333333333333334,
+          "error_risk_among_accepted": 0.14285714285714285,
+          "referred": 23,
+          "review_rate": 0.7666666666666667
+        },
+        "accuracy": 0.7666666666666667,
+        "confusion_matrix": [
+          [
+            8,
+            1,
+            1
+          ],
+          [
+            2,
+            8,
+            0
+          ],
+          [
+            2,
+            1,
+            7
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.7683501683501683,
+        "n": 30,
+        "negative_to_neutral_count": 1,
+        "negative_to_neutral_rate": 0.1,
+        "negative_to_positive_count": 1,
+        "negative_to_positive_rate": 0.1,
+        "per_class": {
+          "accuracy": 0.7666666666666667,
+          "macro avg": {
+            "f1-score": 0.7683501683501683,
+            "precision": 0.7805555555555556,
+            "recall": 0.7666666666666666,
+            "support": 30.0
+          },
+          "negativo": {
+            "f1-score": 0.7272727272727273,
+            "precision": 0.6666666666666666,
+            "recall": 0.8,
+            "support": 10.0
+          },
+          "neutral": {
+            "f1-score": 0.8,
+            "precision": 0.8,
+            "recall": 0.8,
+            "support": 10.0
+          },
+          "positivo": {
+            "f1-score": 0.7777777777777778,
+            "precision": 0.875,
+            "recall": 0.7,
+            "support": 10.0
+          },
+          "weighted avg": {
+            "f1-score": 0.7683501683501684,
+            "precision": 0.7805555555555554,
+            "recall": 0.7666666666666667,
+            "support": 30.0
+          }
+        },
+        "support": {
+          "negativo": 10,
+          "neutral": 10,
+          "positivo": 10
+        },
+        "three_class_macro_comparable": true
+      },
+      "errors": [
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "negativo",
+          "family": "ctx_eval_shower_pressure",
+          "predicted": "positivo",
+          "review_id": "ctx_e0b792a25ca90e987797",
+          "text": "La ducha parecía nueva. Abrí el caño y apenas goteaba; tardé un montón en quitarme el champú. No me sirve un baño lindo si no puedo bañarme."
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "positivo",
+          "family": "ctx_eval_shower_pressure",
+          "predicted": "negativo",
+          "review_id": "ctx_c4603195988e384bfd95",
+          "text": "Por fin una ducha con fuerza. No tuve que estar pegado a la pared para mojarme; después del viaje, ese baño me cayó de maravilla."
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "positivo",
+          "family": "ctx_eval_meal_pacing",
+          "predicted": "negativo",
+          "review_id": "ctx_cd42f3dee13552a2d532",
+          "text": "Qué pena con el mesero: yo creía que se había olvidado del segundo plato, pero esperaba a que termináramos la entrada. Nos llevó la comida a nuestro ritmo y lo agradecimos."
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "neutral",
+          "family": "ctx_eval_museum_handson_materials",
+          "predicted": "negativo",
+          "review_id": "ctx_aa47f45ed20ac24cb5f8",
+          "text": "Durante el taller usé arcilla gris y un molde de madera. Mi pieza quedó junto a las otras para secarse; la recogeré en otra visita. "
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "positivo",
+          "family": "ctx_eval_dish_temperature",
+          "predicted": "neutral",
+          "review_id": "ctx_a329ccaa5eec8f1a1558",
+          "text": "Estaba recien hecha, no recalentada. La sopa llegó humeando y me sentó buenazo después de caminar con frío."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "neutral",
+          "family": "ctx_eval_photo_policy",
+          "predicted": "negativo",
+          "review_id": "ctx_c40810ff7874643c06ba",
+          "text": "Guardé la cámara en la sala de fotografía y usé el celular en el patio. No llevaba flash externo ni trípode."
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "negativo",
+          "family": "ctx_eval_cave_tide_change",
+          "predicted": "neutral",
+          "review_id": "ctx_50f9da85924c4ddba8ca",
+          "text": "La marea estaba subiendo y nos metieron igual a la cueva. Al regreso caminamos con agua hasta la cintura. Qué aventura tan bien organizada: terminé asustado y con mis cosas mojadas."
+        }
+      ],
+      "slices": {
+        "contrast": {
+          "abstention": {
+            "accepted": 2,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.13333333333333333,
+            "error_risk_among_accepted": 0.0,
+            "referred": 13,
+            "review_rate": 0.8666666666666667
+          },
+          "accuracy": 0.8,
+          "confusion_matrix": [
+            [
+              8,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              4
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.5473684210526316,
+          "n": 15,
+          "negative_to_neutral_count": 1,
+          "negative_to_neutral_rate": 0.1,
+          "negative_to_positive_count": 1,
+          "negative_to_positive_rate": 0.1,
+          "per_class": {
+            "accuracy": 0.8,
+            "macro avg": {
+              "f1-score": 0.5473684210526316,
+              "precision": 0.562962962962963,
+              "recall": 0.5333333333333333,
+              "support": 15.0
+            },
+            "negativo": {
+              "f1-score": 0.8421052631578947,
+              "precision": 0.8888888888888888,
+              "recall": 0.8,
+              "support": 10.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 0.8,
+              "precision": 0.8,
+              "recall": 0.8,
+              "support": 5.0
+            },
+            "weighted avg": {
+              "f1-score": 0.8280701754385965,
+              "precision": 0.8592592592592593,
+              "recall": 0.8,
+              "support": 15.0
+            }
+          },
+          "support": {
+            "negativo": 10,
+            "neutral": 0,
+            "positivo": 5
+          },
+          "three_class_macro_comparable": false
+        },
+        "double_negation": {
+          "abstention": {
+            "accepted": 1,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": null,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.0,
+            "referred": 0,
+            "review_rate": 0.0
+          },
+          "accuracy": 1.0,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.3333333333333333,
+          "n": 1,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": null,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": null,
+          "per_class": {
+            "accuracy": 1.0,
+            "macro avg": {
+              "f1-score": 0.3333333333333333,
+              "precision": 0.3333333333333333,
+              "recall": 0.3333333333333333,
+              "support": 1.0
+            },
+            "negativo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 1.0
+            },
+            "weighted avg": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 1.0
+            }
+          },
+          "support": {
+            "negativo": 0,
+            "neutral": 0,
+            "positivo": 1
+          },
+          "three_class_macro_comparable": false
+        },
+        "length_band:medium": {
+          "abstention": {
+            "accepted": 7,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.23333333333333334,
+            "error_risk_among_accepted": 0.14285714285714285,
+            "referred": 23,
+            "review_rate": 0.7666666666666667
+          },
+          "accuracy": 0.7666666666666667,
+          "confusion_matrix": [
+            [
+              8,
+              1,
+              1
+            ],
+            [
+              2,
+              8,
+              0
+            ],
+            [
+              2,
+              1,
+              7
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.7683501683501683,
+          "n": 30,
+          "negative_to_neutral_count": 1,
+          "negative_to_neutral_rate": 0.1,
+          "negative_to_positive_count": 1,
+          "negative_to_positive_rate": 0.1,
+          "per_class": {
+            "accuracy": 0.7666666666666667,
+            "macro avg": {
+              "f1-score": 0.7683501683501683,
+              "precision": 0.7805555555555556,
+              "recall": 0.7666666666666666,
+              "support": 30.0
+            },
+            "negativo": {
+              "f1-score": 0.7272727272727273,
+              "precision": 0.6666666666666666,
+              "recall": 0.8,
+              "support": 10.0
+            },
+            "neutral": {
+              "f1-score": 0.8,
+              "precision": 0.8,
+              "recall": 0.8,
+              "support": 10.0
+            },
+            "positivo": {
+              "f1-score": 0.7777777777777778,
+              "precision": 0.875,
+              "recall": 0.7,
+              "support": 10.0
+            },
+            "weighted avg": {
+              "f1-score": 0.7683501683501684,
+              "precision": 0.7805555555555554,
+              "recall": 0.7666666666666667,
+              "support": 30.0
+            }
+          },
+          "support": {
+            "negativo": 10,
+            "neutral": 10,
+            "positivo": 10
+          },
+          "three_class_macro_comparable": true
+        },
+        "mixed_aspects": {
+          "abstention": {
+            "accepted": 0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 5,
+            "review_rate": 1.0
+          },
+          "accuracy": 0.8,
+          "confusion_matrix": [
+            [
+              3,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.5079365079365079,
+          "n": 5,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 1,
+          "negative_to_positive_rate": 0.25,
+          "per_class": {
+            "accuracy": 0.8,
+            "macro avg": {
+              "f1-score": 0.5079365079365079,
+              "precision": 0.5,
+              "recall": 0.5833333333333334,
+              "support": 5.0
+            },
+            "negativo": {
+              "f1-score": 0.8571428571428571,
+              "precision": 1.0,
+              "recall": 0.75,
+              "support": 4.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 0.6666666666666666,
+              "precision": 0.5,
+              "recall": 1.0,
+              "support": 1.0
+            },
+            "weighted avg": {
+              "f1-score": 0.819047619047619,
+              "precision": 0.9,
+              "recall": 0.8,
+              "support": 5.0
+            }
+          },
+          "support": {
+            "negativo": 4,
+            "neutral": 0,
+            "positivo": 1
+          },
+          "three_class_macro_comparable": false
+        },
+        "negation": {
+          "abstention": {
+            "accepted": 6,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.3333333333333333,
+            "error_risk_among_accepted": 0.16666666666666666,
+            "referred": 12,
+            "review_rate": 0.6666666666666666
+          },
+          "accuracy": 0.7777777777777778,
+          "confusion_matrix": [
+            [
+              5,
+              0,
+              1
+            ],
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              1,
+              1,
+              6
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.773076923076923,
+          "n": 18,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 1,
+          "negative_to_positive_rate": 0.16666666666666666,
+          "per_class": {
+            "accuracy": 0.7777777777777778,
+            "macro avg": {
+              "f1-score": 0.773076923076923,
+              "precision": 0.7738095238095238,
+              "recall": 0.7777777777777778,
+              "support": 18.0
+            },
+            "negativo": {
+              "f1-score": 0.7692307692307693,
+              "precision": 0.7142857142857143,
+              "recall": 0.8333333333333334,
+              "support": 6.0
+            },
+            "neutral": {
+              "f1-score": 0.75,
+              "precision": 0.75,
+              "recall": 0.75,
+              "support": 4.0
+            },
+            "positivo": {
+              "f1-score": 0.8,
+              "precision": 0.8571428571428571,
+              "recall": 0.75,
+              "support": 8.0
+            },
+            "weighted avg": {
+              "f1-score": 0.7786324786324786,
+              "precision": 0.7857142857142857,
+              "recall": 0.7777777777777778,
+              "support": 18.0
+            }
+          },
+          "support": {
+            "negativo": 6,
+            "neutral": 4,
+            "positivo": 8
+          },
+          "three_class_macro_comparable": true
+        },
+        "positive_words_negative_context": {
+          "abstention": {
+            "accepted": 2,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.4,
+            "error_risk_among_accepted": 0.0,
+            "referred": 3,
+            "review_rate": 0.6
+          },
+          "accuracy": 0.6,
+          "confusion_matrix": [
+            [
+              3,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.25,
+          "n": 5,
+          "negative_to_neutral_count": 1,
+          "negative_to_neutral_rate": 0.2,
+          "negative_to_positive_count": 1,
+          "negative_to_positive_rate": 0.2,
+          "per_class": {
+            "accuracy": 0.6,
+            "macro avg": {
+              "f1-score": 0.25,
+              "precision": 0.3333333333333333,
+              "recall": 0.19999999999999998,
+              "support": 5.0
+            },
+            "negativo": {
+              "f1-score": 0.75,
+              "precision": 1.0,
+              "recall": 0.6,
+              "support": 5.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "weighted avg": {
+              "f1-score": 0.75,
+              "precision": 1.0,
+              "recall": 0.6,
+              "support": 5.0
+            }
+          },
+          "support": {
+            "negativo": 5,
+            "neutral": 0,
+            "positivo": 0
+          },
+          "three_class_macro_comparable": false
+        },
+        "region:es": {
+          "abstention": {
+            "accepted": 2,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.2222222222222222,
+            "error_risk_among_accepted": 0.0,
+            "referred": 7,
+            "review_rate": 0.7777777777777778
+          },
+          "accuracy": 0.8888888888888888,
+          "confusion_matrix": [
+            [
+              3,
+              0,
+              0
+            ],
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              3
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.8857142857142857,
+          "n": 9,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": 0.0,
+          "per_class": {
+            "accuracy": 0.8888888888888888,
+            "macro avg": {
+              "f1-score": 0.8857142857142857,
+              "precision": 0.9166666666666666,
+              "recall": 0.8888888888888888,
+              "support": 9.0
+            },
+            "negativo": {
+              "f1-score": 0.8571428571428571,
+              "precision": 0.75,
+              "recall": 1.0,
+              "support": 3.0
+            },
+            "neutral": {
+              "f1-score": 0.8,
+              "precision": 1.0,
+              "recall": 0.6666666666666666,
+              "support": 3.0
+            },
+            "positivo": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 3.0
+            },
+            "weighted avg": {
+              "f1-score": 0.8857142857142857,
+              "precision": 0.9166666666666666,
+              "recall": 0.8888888888888888,
+              "support": 9.0
+            }
+          },
+          "support": {
+            "negativo": 3,
+            "neutral": 3,
+            "positivo": 3
+          },
+          "three_class_macro_comparable": true
+        },
+        "region:es-CO": {
+          "abstention": {
+            "accepted": 3,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.3333333333333333,
+            "error_risk_among_accepted": 0.3333333333333333,
+            "referred": 6,
+            "review_rate": 0.6666666666666666
+          },
+          "accuracy": 0.7777777777777778,
+          "confusion_matrix": [
+            [
+              3,
+              0,
+              0
+            ],
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              1,
+              0,
+              2
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.7833333333333333,
+          "n": 9,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": 0.0,
+          "per_class": {
+            "accuracy": 0.7777777777777778,
+            "macro avg": {
+              "f1-score": 0.7833333333333333,
+              "precision": 0.8666666666666667,
+              "recall": 0.7777777777777777,
+              "support": 9.0
+            },
+            "negativo": {
+              "f1-score": 0.75,
+              "precision": 0.6,
+              "recall": 1.0,
+              "support": 3.0
+            },
+            "neutral": {
+              "f1-score": 0.8,
+              "precision": 1.0,
+              "recall": 0.6666666666666666,
+              "support": 3.0
+            },
+            "positivo": {
+              "f1-score": 0.8,
+              "precision": 1.0,
+              "recall": 0.6666666666666666,
+              "support": 3.0
+            },
+            "weighted avg": {
+              "f1-score": 0.7833333333333334,
+              "precision": 0.8666666666666667,
+              "recall": 0.7777777777777778,
+              "support": 9.0
+            }
+          },
+          "support": {
+            "negativo": 3,
+            "neutral": 3,
+            "positivo": 3
+          },
+          "three_class_macro_comparable": true
+        },
+        "region:es-PE": {
+          "abstention": {
+            "accepted": 2,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.16666666666666666,
+            "error_risk_among_accepted": 0.0,
+            "referred": 10,
+            "review_rate": 0.8333333333333334
+          },
+          "accuracy": 0.6666666666666666,
+          "confusion_matrix": [
+            [
+              2,
+              1,
+              1
+            ],
+            [
+              0,
+              4,
+              0
+            ],
+            [
+              1,
+              1,
+              2
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.6476190476190476,
+          "n": 12,
+          "negative_to_neutral_count": 1,
+          "negative_to_neutral_rate": 0.25,
+          "negative_to_positive_count": 1,
+          "negative_to_positive_rate": 0.25,
+          "per_class": {
+            "accuracy": 0.6666666666666666,
+            "macro avg": {
+              "f1-score": 0.6476190476190476,
+              "precision": 0.6666666666666666,
+              "recall": 0.6666666666666666,
+              "support": 12.0
+            },
+            "negativo": {
+              "f1-score": 0.5714285714285714,
+              "precision": 0.6666666666666666,
+              "recall": 0.5,
+              "support": 4.0
+            },
+            "neutral": {
+              "f1-score": 0.8,
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "support": 4.0
+            },
+            "positivo": {
+              "f1-score": 0.5714285714285714,
+              "precision": 0.6666666666666666,
+              "recall": 0.5,
+              "support": 4.0
+            },
+            "weighted avg": {
+              "f1-score": 0.6476190476190476,
+              "precision": 0.6666666666666666,
+              "recall": 0.6666666666666666,
+              "support": 12.0
+            }
+          },
+          "support": {
+            "negativo": 4,
+            "neutral": 4,
+            "positivo": 4
+          },
+          "three_class_macro_comparable": true
+        },
+        "regionalism": {
+          "abstention": {
+            "accepted": 1,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.16666666666666666,
+            "error_risk_among_accepted": 0.0,
+            "referred": 5,
+            "review_rate": 0.8333333333333334
+          },
+          "accuracy": 0.5,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.4000000000000001,
+          "n": 6,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 1,
+          "negative_to_positive_rate": 1.0,
+          "per_class": {
+            "accuracy": 0.5,
+            "macro avg": {
+              "f1-score": 0.4000000000000001,
+              "precision": 0.38888888888888884,
+              "recall": 0.4444444444444444,
+              "support": 6.0
+            },
+            "negativo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 1.0
+            },
+            "neutral": {
+              "f1-score": 0.8,
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "support": 2.0
+            },
+            "positivo": {
+              "f1-score": 0.4,
+              "precision": 0.5,
+              "recall": 0.3333333333333333,
+              "support": 3.0
+            },
+            "weighted avg": {
+              "f1-score": 0.46666666666666673,
+              "precision": 0.47222222222222215,
+              "recall": 0.5,
+              "support": 6.0
+            }
+          },
+          "support": {
+            "negativo": 1,
+            "neutral": 2,
+            "positivo": 3
+          },
+          "three_class_macro_comparable": true
+        },
+        "typo": {
+          "abstention": {
+            "accepted": 0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": null,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 1,
+            "review_rate": 1.0
+          },
+          "accuracy": 0.0,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.0,
+          "n": 1,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": null,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": null,
+          "per_class": {
+            "accuracy": 0.0,
+            "macro avg": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 1.0
+            },
+            "negativo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 1.0
+            },
+            "weighted avg": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 1.0
+            }
+          },
+          "support": {
+            "negativo": 0,
+            "neutral": 0,
+            "positivo": 1
+          },
+          "three_class_macro_comparable": false
+        }
+      }
+    },
+    "svm": {
+      "ambiguity": {
+        "gold_sentiment_available": false,
+        "n": 6,
+        "referred_by_unchanged_DEMO_rules": 3,
+        "sentiment_accuracy": null
+      },
+      "classification": {
+        "abstention": {
+          "accepted": 15,
+          "automatic_negative_to_positive_count": 0,
+          "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+          "coverage": 0.5,
+          "error_risk_among_accepted": 0.2,
+          "referred": 15,
+          "review_rate": 0.5
+        },
+        "accuracy": 0.7,
+        "confusion_matrix": [
+          [
+            8,
+            1,
+            1
+          ],
+          [
+            3,
+            7,
+            0
+          ],
+          [
+            4,
+            0,
+            6
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.7078867102396514,
+        "n": 30,
+        "negative_to_neutral_count": 1,
+        "negative_to_neutral_rate": 0.1,
+        "negative_to_positive_count": 1,
+        "negative_to_positive_rate": 0.1,
+        "per_class": {
+          "accuracy": 0.7,
+          "macro avg": {
+            "f1-score": 0.7078867102396514,
+            "precision": 0.7551587301587301,
+            "recall": 0.7000000000000001,
+            "support": 30.0
+          },
+          "negativo": {
+            "f1-score": 0.64,
+            "precision": 0.5333333333333333,
+            "recall": 0.8,
+            "support": 10.0
+          },
+          "neutral": {
+            "f1-score": 0.7777777777777778,
+            "precision": 0.875,
+            "recall": 0.7,
+            "support": 10.0
+          },
+          "positivo": {
+            "f1-score": 0.7058823529411765,
+            "precision": 0.8571428571428571,
+            "recall": 0.6,
+            "support": 10.0
+          },
+          "weighted avg": {
+            "f1-score": 0.7078867102396514,
+            "precision": 0.7551587301587301,
+            "recall": 0.7,
+            "support": 30.0
+          }
+        },
+        "support": {
+          "negativo": 10,
+          "neutral": 10,
+          "positivo": 10
+        },
+        "three_class_macro_comparable": true
+      },
+      "errors": [
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "negativo",
+          "family": "ctx_eval_shower_pressure",
+          "predicted": "positivo",
+          "review_id": "ctx_e0b792a25ca90e987797",
+          "text": "La ducha parecía nueva. Abrí el caño y apenas goteaba; tardé un montón en quitarme el champú. No me sirve un baño lindo si no puedo bañarme."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "positivo",
+          "family": "ctx_eval_shower_pressure",
+          "predicted": "negativo",
+          "review_id": "ctx_c4603195988e384bfd95",
+          "text": "Por fin una ducha con fuerza. No tuve que estar pegado a la pared para mojarme; después del viaje, ese baño me cayó de maravilla."
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "positivo",
+          "family": "ctx_eval_meal_pacing",
+          "predicted": "negativo",
+          "review_id": "ctx_cd42f3dee13552a2d532",
+          "text": "Qué pena con el mesero: yo creía que se había olvidado del segundo plato, pero esperaba a que termináramos la entrada. Nos llevó la comida a nuestro ritmo y lo agradecimos."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "neutral",
+          "family": "ctx_eval_museum_handson_materials",
+          "predicted": "negativo",
+          "review_id": "ctx_aa47f45ed20ac24cb5f8",
+          "text": "Durante el taller usé arcilla gris y un molde de madera. Mi pieza quedó junto a las otras para secarse; la recogeré en otra visita. "
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "positivo",
+          "family": "ctx_eval_wildlife_distance",
+          "predicted": "negativo",
+          "review_id": "ctx_514f1ae7513a1262ed82",
+          "text": "No vimos todo lo que imaginaba, pero me gustó que el guía no persiguiera a los animales. Observamos desde lejos y sin espantarlos; para mí, esa fue la parte valiosa del recorrido."
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "positivo",
+          "family": "ctx_eval_dish_temperature",
+          "predicted": "negativo",
+          "review_id": "ctx_a329ccaa5eec8f1a1558",
+          "text": "Estaba recien hecha, no recalentada. La sopa llegó humeando y me sentó buenazo después de caminar con frío."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "neutral",
+          "family": "ctx_eval_photo_policy",
+          "predicted": "negativo",
+          "review_id": "ctx_c40810ff7874643c06ba",
+          "text": "Guardé la cámara en la sala de fotografía y usé el celular en el patio. No llevaba flash externo ni trípode."
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "neutral",
+          "family": "ctx_eval_bicycle_return",
+          "predicted": "negativo",
+          "review_id": "ctx_aa99d9d3ca335748f345",
+          "text": "Dejé la bicicleta en el último anclaje. La aplicación mostraba la hora de inicio y la de devolución; guardé esa pantalla en el teléfono. "
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "negativo",
+          "family": "ctx_eval_cave_tide_change",
+          "predicted": "neutral",
+          "review_id": "ctx_50f9da85924c4ddba8ca",
+          "text": "La marea estaba subiendo y nos metieron igual a la cueva. Al regreso caminamos con agua hasta la cintura. Qué aventura tan bien organizada: terminé asustado y con mis cosas mojadas."
+        }
+      ],
+      "slices": {
+        "contrast": {
+          "abstention": {
+            "accepted": 6,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.4,
+            "error_risk_among_accepted": 0.0,
+            "referred": 9,
+            "review_rate": 0.6
+          },
+          "accuracy": 0.7333333333333333,
+          "confusion_matrix": [
+            [
+              8,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              3
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.48888888888888893,
+          "n": 15,
+          "negative_to_neutral_count": 1,
+          "negative_to_neutral_rate": 0.1,
+          "negative_to_positive_count": 1,
+          "negative_to_positive_rate": 0.1,
+          "per_class": {
+            "accuracy": 0.7333333333333333,
+            "macro avg": {
+              "f1-score": 0.48888888888888893,
+              "precision": 0.5166666666666667,
+              "recall": 0.4666666666666666,
+              "support": 15.0
+            },
+            "negativo": {
+              "f1-score": 0.8,
+              "precision": 0.8,
+              "recall": 0.8,
+              "support": 10.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 0.6666666666666666,
+              "precision": 0.75,
+              "recall": 0.6,
+              "support": 5.0
+            },
+            "weighted avg": {
+              "f1-score": 0.7555555555555554,
+              "precision": 0.7833333333333333,
+              "recall": 0.7333333333333333,
+              "support": 15.0
+            }
+          },
+          "support": {
+            "negativo": 10,
+            "neutral": 0,
+            "positivo": 5
+          },
+          "three_class_macro_comparable": false
+        },
+        "double_negation": {
+          "abstention": {
+            "accepted": 1,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": null,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.0,
+            "referred": 0,
+            "review_rate": 0.0
+          },
+          "accuracy": 1.0,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.3333333333333333,
+          "n": 1,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": null,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": null,
+          "per_class": {
+            "accuracy": 1.0,
+            "macro avg": {
+              "f1-score": 0.3333333333333333,
+              "precision": 0.3333333333333333,
+              "recall": 0.3333333333333333,
+              "support": 1.0
+            },
+            "negativo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 1.0
+            },
+            "weighted avg": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 1.0
+            }
+          },
+          "support": {
+            "negativo": 0,
+            "neutral": 0,
+            "positivo": 1
+          },
+          "three_class_macro_comparable": false
+        },
+        "length_band:medium": {
+          "abstention": {
+            "accepted": 15,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5,
+            "error_risk_among_accepted": 0.2,
+            "referred": 15,
+            "review_rate": 0.5
+          },
+          "accuracy": 0.7,
+          "confusion_matrix": [
+            [
+              8,
+              1,
+              1
+            ],
+            [
+              3,
+              7,
+              0
+            ],
+            [
+              4,
+              0,
+              6
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.7078867102396514,
+          "n": 30,
+          "negative_to_neutral_count": 1,
+          "negative_to_neutral_rate": 0.1,
+          "negative_to_positive_count": 1,
+          "negative_to_positive_rate": 0.1,
+          "per_class": {
+            "accuracy": 0.7,
+            "macro avg": {
+              "f1-score": 0.7078867102396514,
+              "precision": 0.7551587301587301,
+              "recall": 0.7000000000000001,
+              "support": 30.0
+            },
+            "negativo": {
+              "f1-score": 0.64,
+              "precision": 0.5333333333333333,
+              "recall": 0.8,
+              "support": 10.0
+            },
+            "neutral": {
+              "f1-score": 0.7777777777777778,
+              "precision": 0.875,
+              "recall": 0.7,
+              "support": 10.0
+            },
+            "positivo": {
+              "f1-score": 0.7058823529411765,
+              "precision": 0.8571428571428571,
+              "recall": 0.6,
+              "support": 10.0
+            },
+            "weighted avg": {
+              "f1-score": 0.7078867102396514,
+              "precision": 0.7551587301587301,
+              "recall": 0.7,
+              "support": 30.0
+            }
+          },
+          "support": {
+            "negativo": 10,
+            "neutral": 10,
+            "positivo": 10
+          },
+          "three_class_macro_comparable": true
+        },
+        "mixed_aspects": {
+          "abstention": {
+            "accepted": 1,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.2,
+            "error_risk_among_accepted": 0.0,
+            "referred": 4,
+            "review_rate": 0.8
+          },
+          "accuracy": 0.8,
+          "confusion_matrix": [
+            [
+              3,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.5079365079365079,
+          "n": 5,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 1,
+          "negative_to_positive_rate": 0.25,
+          "per_class": {
+            "accuracy": 0.8,
+            "macro avg": {
+              "f1-score": 0.5079365079365079,
+              "precision": 0.5,
+              "recall": 0.5833333333333334,
+              "support": 5.0
+            },
+            "negativo": {
+              "f1-score": 0.8571428571428571,
+              "precision": 1.0,
+              "recall": 0.75,
+              "support": 4.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 0.6666666666666666,
+              "precision": 0.5,
+              "recall": 1.0,
+              "support": 1.0
+            },
+            "weighted avg": {
+              "f1-score": 0.819047619047619,
+              "precision": 0.9,
+              "recall": 0.8,
+              "support": 5.0
+            }
+          },
+          "support": {
+            "negativo": 4,
+            "neutral": 0,
+            "positivo": 1
+          },
+          "three_class_macro_comparable": false
+        },
+        "negation": {
+          "abstention": {
+            "accepted": 12,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.6666666666666666,
+            "error_risk_among_accepted": 0.16666666666666666,
+            "referred": 6,
+            "review_rate": 0.3333333333333333
+          },
+          "accuracy": 0.7222222222222222,
+          "confusion_matrix": [
+            [
+              5,
+              0,
+              1
+            ],
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              3,
+              0,
+              5
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.746031746031746,
+          "n": 18,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 1,
+          "negative_to_positive_rate": 0.16666666666666666,
+          "per_class": {
+            "accuracy": 0.7222222222222222,
+            "macro avg": {
+              "f1-score": 0.746031746031746,
+              "precision": 0.7962962962962963,
+              "recall": 0.7361111111111112,
+              "support": 18.0
+            },
+            "negativo": {
+              "f1-score": 0.6666666666666666,
+              "precision": 0.5555555555555556,
+              "recall": 0.8333333333333334,
+              "support": 6.0
+            },
+            "neutral": {
+              "f1-score": 0.8571428571428571,
+              "precision": 1.0,
+              "recall": 0.75,
+              "support": 4.0
+            },
+            "positivo": {
+              "f1-score": 0.7142857142857143,
+              "precision": 0.8333333333333334,
+              "recall": 0.625,
+              "support": 8.0
+            },
+            "weighted avg": {
+              "f1-score": 0.7301587301587301,
+              "precision": 0.7777777777777778,
+              "recall": 0.7222222222222222,
+              "support": 18.0
+            }
+          },
+          "support": {
+            "negativo": 6,
+            "neutral": 4,
+            "positivo": 8
+          },
+          "three_class_macro_comparable": true
+        },
+        "positive_words_negative_context": {
+          "abstention": {
+            "accepted": 3,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.6,
+            "error_risk_among_accepted": 0.0,
+            "referred": 2,
+            "review_rate": 0.4
+          },
+          "accuracy": 0.6,
+          "confusion_matrix": [
+            [
+              3,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.25,
+          "n": 5,
+          "negative_to_neutral_count": 1,
+          "negative_to_neutral_rate": 0.2,
+          "negative_to_positive_count": 1,
+          "negative_to_positive_rate": 0.2,
+          "per_class": {
+            "accuracy": 0.6,
+            "macro avg": {
+              "f1-score": 0.25,
+              "precision": 0.3333333333333333,
+              "recall": 0.19999999999999998,
+              "support": 5.0
+            },
+            "negativo": {
+              "f1-score": 0.75,
+              "precision": 1.0,
+              "recall": 0.6,
+              "support": 5.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "weighted avg": {
+              "f1-score": 0.75,
+              "precision": 1.0,
+              "recall": 0.6,
+              "support": 5.0
+            }
+          },
+          "support": {
+            "negativo": 5,
+            "neutral": 0,
+            "positivo": 0
+          },
+          "three_class_macro_comparable": false
+        },
+        "region:es": {
+          "abstention": {
+            "accepted": 5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5555555555555556,
+            "error_risk_among_accepted": 0.2,
+            "referred": 4,
+            "review_rate": 0.4444444444444444
+          },
+          "accuracy": 0.7777777777777778,
+          "confusion_matrix": [
+            [
+              3,
+              0,
+              0
+            ],
+            [
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              3
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.75,
+          "n": 9,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": 0.0,
+          "per_class": {
+            "accuracy": 0.7777777777777778,
+            "macro avg": {
+              "f1-score": 0.75,
+              "precision": 0.8666666666666667,
+              "recall": 0.7777777777777777,
+              "support": 9.0
+            },
+            "negativo": {
+              "f1-score": 0.75,
+              "precision": 0.6,
+              "recall": 1.0,
+              "support": 3.0
+            },
+            "neutral": {
+              "f1-score": 0.5,
+              "precision": 1.0,
+              "recall": 0.3333333333333333,
+              "support": 3.0
+            },
+            "positivo": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 3.0
+            },
+            "weighted avg": {
+              "f1-score": 0.75,
+              "precision": 0.8666666666666667,
+              "recall": 0.7777777777777778,
+              "support": 9.0
+            }
+          },
+          "support": {
+            "negativo": 3,
+            "neutral": 3,
+            "positivo": 3
+          },
+          "three_class_macro_comparable": true
+        },
+        "region:es-CO": {
+          "abstention": {
+            "accepted": 6,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.6666666666666666,
+            "error_risk_among_accepted": 0.16666666666666666,
+            "referred": 3,
+            "review_rate": 0.3333333333333333
+          },
+          "accuracy": 0.6666666666666666,
+          "confusion_matrix": [
+            [
+              3,
+              0,
+              0
+            ],
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              2,
+              0,
+              1
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.6555555555555556,
+          "n": 9,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": 0.0,
+          "per_class": {
+            "accuracy": 0.6666666666666666,
+            "macro avg": {
+              "f1-score": 0.6555555555555556,
+              "precision": 0.8333333333333334,
+              "recall": 0.6666666666666666,
+              "support": 9.0
+            },
+            "negativo": {
+              "f1-score": 0.6666666666666666,
+              "precision": 0.5,
+              "recall": 1.0,
+              "support": 3.0
+            },
+            "neutral": {
+              "f1-score": 0.8,
+              "precision": 1.0,
+              "recall": 0.6666666666666666,
+              "support": 3.0
+            },
+            "positivo": {
+              "f1-score": 0.5,
+              "precision": 1.0,
+              "recall": 0.3333333333333333,
+              "support": 3.0
+            },
+            "weighted avg": {
+              "f1-score": 0.6555555555555556,
+              "precision": 0.8333333333333334,
+              "recall": 0.6666666666666666,
+              "support": 9.0
+            }
+          },
+          "support": {
+            "negativo": 3,
+            "neutral": 3,
+            "positivo": 3
+          },
+          "three_class_macro_comparable": true
+        },
+        "region:es-PE": {
+          "abstention": {
+            "accepted": 4,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.3333333333333333,
+            "error_risk_among_accepted": 0.25,
+            "referred": 8,
+            "review_rate": 0.6666666666666666
+          },
+          "accuracy": 0.6666666666666666,
+          "confusion_matrix": [
+            [
+              2,
+              1,
+              1
+            ],
+            [
+              0,
+              4,
+              0
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.6534391534391534,
+          "n": 12,
+          "negative_to_neutral_count": 1,
+          "negative_to_neutral_rate": 0.25,
+          "negative_to_positive_count": 1,
+          "negative_to_positive_rate": 0.25,
+          "per_class": {
+            "accuracy": 0.6666666666666666,
+            "macro avg": {
+              "f1-score": 0.6534391534391534,
+              "precision": 0.6555555555555556,
+              "recall": 0.6666666666666666,
+              "support": 12.0
+            },
+            "negativo": {
+              "f1-score": 0.5,
+              "precision": 0.5,
+              "recall": 0.5,
+              "support": 4.0
+            },
+            "neutral": {
+              "f1-score": 0.8888888888888888,
+              "precision": 0.8,
+              "recall": 1.0,
+              "support": 4.0
+            },
+            "positivo": {
+              "f1-score": 0.5714285714285714,
+              "precision": 0.6666666666666666,
+              "recall": 0.5,
+              "support": 4.0
+            },
+            "weighted avg": {
+              "f1-score": 0.6534391534391534,
+              "precision": 0.6555555555555556,
+              "recall": 0.6666666666666666,
+              "support": 12.0
+            }
+          },
+          "support": {
+            "negativo": 4,
+            "neutral": 4,
+            "positivo": 4
+          },
+          "three_class_macro_comparable": true
+        },
+        "regionalism": {
+          "abstention": {
+            "accepted": 1,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.16666666666666666,
+            "error_risk_among_accepted": 0.0,
+            "referred": 5,
+            "review_rate": 0.8333333333333334
+          },
+          "accuracy": 0.5,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              2,
+              0,
+              1
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.4666666666666666,
+          "n": 6,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": 0.0,
+          "negative_to_positive_count": 1,
+          "negative_to_positive_rate": 1.0,
+          "per_class": {
+            "accuracy": 0.5,
+            "macro avg": {
+              "f1-score": 0.4666666666666666,
+              "precision": 0.5,
+              "recall": 0.4444444444444444,
+              "support": 6.0
+            },
+            "negativo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 1.0
+            },
+            "neutral": {
+              "f1-score": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "support": 2.0
+            },
+            "positivo": {
+              "f1-score": 0.4,
+              "precision": 0.5,
+              "recall": 0.3333333333333333,
+              "support": 3.0
+            },
+            "weighted avg": {
+              "f1-score": 0.5333333333333333,
+              "precision": 0.5833333333333334,
+              "recall": 0.5,
+              "support": 6.0
+            }
+          },
+          "support": {
+            "negativo": 1,
+            "neutral": 2,
+            "positivo": 3
+          },
+          "three_class_macro_comparable": true
+        },
+        "typo": {
+          "abstention": {
+            "accepted": 0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": null,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 1,
+            "review_rate": 1.0
+          },
+          "accuracy": 0.0,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            "negativo",
+            "neutral",
+            "positivo"
+          ],
+          "macro_f1": 0.0,
+          "n": 1,
+          "negative_to_neutral_count": 0,
+          "negative_to_neutral_rate": null,
+          "negative_to_positive_count": 0,
+          "negative_to_positive_rate": null,
+          "per_class": {
+            "accuracy": 0.0,
+            "macro avg": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 1.0
+            },
+            "negativo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "neutral": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 0.0
+            },
+            "positivo": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 1.0
+            },
+            "weighted avg": {
+              "f1-score": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 1.0
+            }
+          },
+          "support": {
+            "negativo": 0,
+            "neutral": 0,
+            "positivo": 1
+          },
+          "three_class_macro_comparable": false
+        }
+      }
+    }
+  },
+  "schema": "contextual-supervised-report-v1",
+  "scope": "NEW_SMALL_SYNTHETIC_ASSESSMENT_AUTHOR_INTENT_NOT_HUMAN_GOLD",
+  "selection_sha256": "c017523cff36794b39b0bbe195b309d6ff197200fa47a9c77708aa9e2d9b0dbd"
+}

@@ -1,0 +1,678 @@
+{
+  "version": "contextual-supervised-v1",
+  "provenance": {
+    "human_authors": false,
+    "label_origin": "AUTHOR_INTENT_NOT_HUMAN_GOLD",
+    "generation": "Original assistant drafting; fixed catalog replay, seed only training",
+    "purpose": "Representation experiment, not volume expansion",
+    "real_venues_or_review_authors_claimed": false,
+    "historical_evaluated_examples_consulted": false,
+    "limits": "Roles and semantic components were assigned during drafting before predictions. Shared authorship and broad tourism concepts prevent claiming proven semantic independence or human population validity."
+  },
+  "families": [
+    {
+      "family": "ctx_dev_blackout_curtains",
+      "role": "development",
+      "semantic_component": "ctx_dev_blackout_curtains",
+      "domain": "hotel",
+      "region": "es-CO",
+      "cases": [
+        {
+          "text": "Prometían descanso total. Las cortinas dejaban pasar la luz del letrero y terminé con una toalla sobre los ojos; muy bonito el cuarto, pésima noche.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "contrast",
+            "mixed_aspects",
+            "positive_words_negative_context"
+          ],
+          "rationale": "La apariencia favorable contrasta con la falta de descanso que domina el juicio."
+        },
+        {
+          "text": "Dormí con la cortina cerrada y mi hermana la dejó abierta en su habitación. El letrero de la calle se apagaba después de medianoche.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "rationale": "Descripción de dos habitaciones y de un horario, sin aprobación ni rechazo."
+        },
+        {
+          "text": "No es cierto que no se pueda descansar por estar sobre la avenida: cerré la cortina y dormí de corrido. Qué buen descanso.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "double_negation"
+          ],
+          "rationale": "Dos negaciones rechazan la imposibilidad de descansar y se confirma una valoración favorable."
+        }
+      ]
+    },
+    {
+      "family": "ctx_dev_sharing_portions",
+      "role": "development",
+      "semantic_component": "ctx_dev_sharing_portions",
+      "domain": "restaurant",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "Para compartir entre cuatro, decía la carta. Llegaron tres bocados; nos cobraron como almuerzo completo. Pucha, salimos a buscar qué comer.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "contrast",
+            "regionalism"
+          ],
+          "rationale": "El contraste implícito entre cantidad anunciada y recibida y el gasto expresan insatisfacción."
+        },
+        {
+          "text": "Éramos cuatro. Pusieron dos platos al centro y cada uno se sirvió con una cuchara; yo además pedí arroz.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "rationale": "Relato factual de la forma de servir y de la elección personal, sin valoración."
+        },
+        {
+          "text": "Pensé que no alcanzaría, pero sobró para llevar. La porción para compartir estuvo bien calculada y comimos a gusto.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "rationale": "La expectativa negativa es superada por una evaluación final favorable de la cantidad."
+        }
+      ]
+    },
+    {
+      "family": "ctx_dev_audio_narration",
+      "role": "development",
+      "semantic_component": "ctx_dev_audio_narration",
+      "domain": "museum",
+      "region": "es",
+      "cases": [
+        {
+          "text": "Qué útil la audioguía: describía una sala que estaba en otro piso. Entre cambios de pista no entendí la exposición; la devolví sin terminar.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "contrast",
+            "positive_words_negative_context"
+          ],
+          "rationale": "El elogio inicial es irónico y el desajuste de la narración sustenta el rechazo."
+        },
+        {
+          "text": "La grabación alternaba una voz adulta y otra infantil. Yo escuché las pistas pares mientras recorría las vitrinas; al salir entregué el aparato. ",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "rationale": "Descripción del uso de un dispositivo sin afirmar que resulte bueno o malo."
+        },
+        {
+          "text": "Me enganchó la narración. Aunque duraba más de lo previsto, conectó las piezas de una forma que pude seguir sin perderme.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "rationale": "La duración es una reserva menor frente al valor comprensivo explícitamente favorable."
+        }
+      ]
+    },
+    {
+      "family": "ctx_dev_cablecar_weather_updates",
+      "role": "development",
+      "semantic_component": "ctx_dev_cablecar_weather_updates",
+      "domain": "transport",
+      "region": "es-CO",
+      "cases": [
+        {
+          "text": "Esperamos bajo la lluvia porque el tablero seguía diciendo «salida inmediata». Nadie actualizó la suspensión del cable; esa desinformacion nos hizo perder la tarde.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "typo",
+            "contrast"
+          ],
+          "rationale": "El estado anunciado contradice la suspensión y se atribuye una consecuencia desfavorable."
+        },
+        {
+          "text": "El tablero cambió de salida inmediata a servicio suspendido a las once. Tomamos un tinto en la estación y bajamos caminando.",
+          "intended_label": "neutral",
+          "phenomena": [
+            "regionalism"
+          ],
+          "rationale": "Registro de cambios y acciones, sin valorar la suspensión ni el servicio."
+        },
+        {
+          "text": "Nos avisaron de una que el cable no iba a salir por la tormenta. Cancelamos la espera y aprovechamos la tarde; agradecí que hablaran claro.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "regionalism"
+          ],
+          "rationale": "La suspensión no se confunde con sentimiento negativo: se valora la información oportuna."
+        }
+      ]
+    },
+    {
+      "family": "ctx_dev_telescope_turns",
+      "role": "development",
+      "semantic_component": "ctx_dev_telescope_turns",
+      "domain": "tour",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "Una noche despejada y el telescopio apuntando al cielo. Todo pintaba bacán, hasta que acabó la actividad sin que me tocara mirar: habían vendido más turnos de los que podían atender. No valió lo pagado.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "contrast",
+            "mixed_aspects",
+            "positive_words_negative_context",
+            "regionalism"
+          ],
+          "rationale": "Las condiciones favorables no compensan que el participante quede sin el servicio principal."
+        },
+        {
+          "text": "En mi turno miré dos objetos por el telescopio. Después me quedé junto a la mesa de mapas mientras otras personas pasaban al ocular. Antes del regreso nos reunimos alrededor de una linterna roja. No usé el segundo equipo porque estaba en otra fila.",
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "rationale": "Relato de turnos y acciones; no expresa satisfacción ni queja por la elección de equipo."
+        },
+        {
+          "text": "No me dejaron sin turno, como temía. El cielo estaba algo velado, pero esperaron una apertura y pude ver el planeta; la paciencia de la astrónoma hizo que el paseo tuviera sentido para mí.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "rationale": "La negación revoca el temor y la valoración global favorece la gestión de la observación."
+        }
+      ]
+    },
+    {
+      "family": "ctx_dev_terrace_smoke",
+      "role": "development",
+      "semantic_component": "ctx_dev_terrace_smoke",
+      "domain": "restaurant",
+      "region": "es",
+      "cases": [
+        {
+          "text": "Se anunciaba una terraza para comer sin humo. La mesa de al lado fumó durante toda la cena y nadie hizo cumplir la separación. La comida estaba rica; aun así, acabé con dolor de cabeza y no repetiría.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "contrast",
+            "mixed_aspects"
+          ],
+          "rationale": "La comida favorable queda subordinada al humo y al rechazo explícito de repetir."
+        },
+        {
+          "text": "Elegí la terraza. Había mesas a ambos lados de una mampara, con un cenicero en las del fondo. La persona que me acompañaba fumó después de comer y yo pedí la cuenta desde la entrada. No nos cambiamos de mesa.",
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "rationale": "Observaciones y acciones sobre la ubicación; no se deduce polaridad del tabaco por sí solo."
+        },
+        {
+          "text": "Tener una terraza sin humo no fue una promesa vacía. Nos sentaron lejos de la zona de fumadores y pude disfrutar la cena sin molestias.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "rationale": "Se rechaza la expectativa de incumplimiento y se afirma satisfacción con la separación."
+        }
+      ]
+    },
+    {
+      "family": "ctx_eval_shower_pressure",
+      "role": "assessment",
+      "semantic_component": "ctx_eval_shower_pressure",
+      "domain": "hotel",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "La ducha parecía nueva. Abrí el caño y apenas goteaba; tardé un montón en quitarme el champú. No me sirve un baño lindo si no puedo bañarme.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "contrast",
+            "mixed_aspects",
+            "positive_words_negative_context",
+            "regionalism"
+          ],
+          "rationale": "La apariencia positiva se contrapone al fallo de la función principal del baño."
+        },
+        {
+          "text": "El caño de la izquierda regula la temperatura y el de arriba abre la ducha. Dejé la toalla en el gancho de la puerta.",
+          "intended_label": "neutral",
+          "phenomena": [
+            "regionalism"
+          ],
+          "rationale": "Descripción de mandos y colocación de una toalla, sin evaluar su funcionamiento."
+        },
+        {
+          "text": "Por fin una ducha con fuerza. No tuve que estar pegado a la pared para mojarme; después del viaje, ese baño me cayó de maravilla.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "rationale": "Se valora explícitamente la presión y la comodidad del baño."
+        }
+      ]
+    },
+    {
+      "family": "ctx_eval_meal_pacing",
+      "role": "assessment",
+      "semantic_component": "ctx_eval_meal_pacing",
+      "domain": "restaurant",
+      "region": "es-CO",
+      "cases": [
+        {
+          "text": "La entrada llegó con el postre y el plato fuerte seguía en la cocina. El mesero era amable. Hambre y desorden fue lo que nos llevamos.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "contrast",
+            "mixed_aspects"
+          ],
+          "rationale": "El trato amable no compensa la secuencia fallida de la comida."
+        },
+        {
+          "text": "Comí primero la entrada; mi acompañante dejó la suya para después del plato fuerte. No pedimos postre.",
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "rationale": "Secuencia y pedidos sin evaluación de rapidez o calidad."
+        },
+        {
+          "text": "Qué pena con el mesero: yo creía que se había olvidado del segundo plato, pero esperaba a que termináramos la entrada. Nos llevó la comida a nuestro ritmo y lo agradecimos.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "contrast",
+            "regionalism"
+          ],
+          "rationale": "La expresión regional no equivale a queja; la confusión se resuelve con una evaluación positiva."
+        }
+      ]
+    },
+    {
+      "family": "ctx_eval_museum_handson_materials",
+      "role": "assessment",
+      "semantic_component": "ctx_eval_museum_handson_materials",
+      "domain": "museum",
+      "region": "es",
+      "cases": [
+        {
+          "text": "El taller figuraba como «haz tu propia pieza». Nos dieron un cuaderno para mirar cómo trabajaba otra persona. Ni pude tocar el material ni hacer nada: publicidad estupenda para una actividad decepcionante.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "contrast",
+            "positive_words_negative_context"
+          ],
+          "rationale": "El elogio aparente a la publicidad es irónico y el incumplimiento domina la evaluación."
+        },
+        {
+          "text": "Durante el taller usé arcilla gris y un molde de madera. Mi pieza quedó junto a las otras para secarse; la recogeré en otra visita. ",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "rationale": "Descripción de materiales, resultado y recogida, sin juzgar el taller."
+        },
+        {
+          "text": "No es verdad que aquí no te dejen probar. Pude amasar, equivocarme y empezar otra vez; me fui contenta con algo hecho por mí.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "double_negation"
+          ],
+          "rationale": "La doble negación rechaza la restricción y la experiencia se evalúa favorablemente."
+        }
+      ]
+    },
+    {
+      "family": "ctx_eval_digital_ticket_gate",
+      "role": "assessment",
+      "semantic_component": "ctx_eval_digital_ticket_gate",
+      "domain": "transport",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "Mi boleto decía válido y el lector no lo aceptaba. Me mandaron de una fila a otra hasta que perdí la salida. De digital tuvo mucho; de solución, nada.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "contrast",
+            "positive_words_negative_context"
+          ],
+          "rationale": "La validez declarada contrasta con el rechazo y la pérdida del transporte."
+        },
+        {
+          "text": "Mostré el código desde mi celular y crucé el torniquete. El boleto era de ida; el regreso lo compré en la ventanilla. ",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "rationale": "Relato del formato del billete y de los pasos realizados, sin valoración."
+        },
+        {
+          "text": "Se me apagó el celular en la puerta. Pensé que ya había perdido el boleto, pero lo encontraron con mi comprobante y pasé al toque. Me sacaron de un apuro.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "contrast",
+            "regionalism"
+          ],
+          "rationale": "El problema inicial se resuelve y se expresa gratitud por la atención."
+        }
+      ]
+    },
+    {
+      "family": "ctx_eval_wildlife_distance",
+      "role": "assessment",
+      "semantic_component": "ctx_eval_wildlife_distance",
+      "domain": "tour",
+      "region": "es-CO",
+      "cases": [
+        {
+          "text": "Le decían encuentro respetuoso con la fauna. El bote se acercó tanto que los animales se dispersaron; nos quedamos sin observarlos y con una sensación muy fea. No recomendaría esa salida.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "rationale": "Se desaprueba la conducta y su consecuencia; el nombre favorable no determina el sentimiento."
+        },
+        {
+          "text": "Los animales estaban junto a la orilla opuesta. El bote se detuvo y miramos desde allí; yo usé los binoculares de mi compañero. No bajamos a tierra.",
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "rationale": "Hechos de posición y observación, sin evaluación ética o emocional explícita."
+        },
+        {
+          "text": "No vimos todo lo que imaginaba, pero me gustó que el guía no persiguiera a los animales. Observamos desde lejos y sin espantarlos; para mí, esa fue la parte valiosa del recorrido.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "rationale": "Una expectativa parcial incumplida no impide valorar positivamente el respeto y la observación."
+        }
+      ]
+    },
+    {
+      "family": "ctx_eval_breakfast_hours",
+      "role": "assessment",
+      "semantic_component": "ctx_eval_breakfast_hours",
+      "domain": "hotel",
+      "region": "es",
+      "cases": [
+        {
+          "text": "Bajé dentro del horario anunciado y ya habían retirado el desayuno. Me ofrecieron señalarme una cafetería de pago. Muy atentos, sí; desayunar donde ya había pagado habría sido mejor.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "contrast",
+            "positive_words_negative_context"
+          ],
+          "rationale": "La cortesía irónica no compensa el servicio pagado que no se prestó."
+        },
+        {
+          "text": "Desayuné a las siete el primer día y a las nueve el segundo. El comedor estaba en la planta baja; subí después a buscar mi mochila. ",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "rationale": "Horas y movimientos del huésped, sin atribuir calidad al desayuno."
+        },
+        {
+          "text": "Llegué casi al cierre y todavía pude desayunar sin que me apuraran. Había poca variedad, aunque lo que necesitaba estaba fresco; empecé el día a gusto.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "contrast",
+            "mixed_aspects"
+          ],
+          "rationale": "La reserva sobre variedad se subordina a la satisfacción con disponibilidad y trato."
+        }
+      ]
+    },
+    {
+      "family": "ctx_eval_dish_temperature",
+      "role": "assessment",
+      "semantic_component": "ctx_eval_dish_temperature",
+      "domain": "restaurant",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "La sopa llegó tibia. Pedí calentarla y volvió igual, con la cuchara puesta. El sabor prometía, pero comerla así me quitó las ganas.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "contrast",
+            "mixed_aspects"
+          ],
+          "rationale": "La buena expectativa de sabor se ve superada por el problema de temperatura no resuelto."
+        },
+        {
+          "text": "Primero probé el caldo y después agregué el ají. Mi acompañante esperó antes de comer el suyo; yo terminé y pedí una infusión. ",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "rationale": "Descripción de consumo y decisiones, sin juzgar la temperatura ni el sabor."
+        },
+        {
+          "text": "Estaba recien hecha, no recalentada. La sopa llegó humeando y me sentó buenazo después de caminar con frío.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "regionalism",
+            "typo"
+          ],
+          "rationale": "Se aprecia la preparación y el efecto reconfortante, con regionalismo y falta de tilde realista."
+        }
+      ]
+    },
+    {
+      "family": "ctx_eval_photo_policy",
+      "role": "assessment",
+      "semantic_component": "ctx_eval_photo_policy",
+      "domain": "museum",
+      "region": "es-CO",
+      "cases": [
+        {
+          "text": "En la entrada me dijeron que podía tomar fotos sin flash. En la sala me reprendieron por sacar el celular, aunque no había fotografiado nada. Las indicaciones se contradecían y me hicieron pasar un mal rato.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "rationale": "La contradicción de normas y la experiencia desagradable expresan valoración negativa."
+        },
+        {
+          "text": "Guardé la cámara en la sala de fotografía y usé el celular en el patio. No llevaba flash externo ni trípode.",
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "rationale": "Acciones y equipo utilizado sin aprobación o rechazo de la política."
+        },
+        {
+          "text": "La prohibición de fotos no me molestó: explicaron qué obras necesitaban ese cuidado y señalaron las zonas permitidas. Salí con lo que quería ver, sin discusiones ni confusiones.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "rationale": "La presencia de una prohibición no determina negatividad; se aprueba la claridad y el resultado."
+        }
+      ]
+    },
+    {
+      "family": "ctx_eval_bicycle_return",
+      "role": "assessment",
+      "semantic_component": "ctx_eval_bicycle_return",
+      "domain": "transport",
+      "region": "es",
+      "cases": [
+        {
+          "text": "Al devolver la bicicleta, el anclaje se puso verde y el cobro siguió corriendo. Intenté avisar desde la aplicación sin conseguir respuesta. Un paseo agradable terminó en un gasto que no correspondía.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "contrast",
+            "mixed_aspects"
+          ],
+          "rationale": "El paseo favorable queda superado por el fallo de devolución y facturación."
+        },
+        {
+          "text": "Dejé la bicicleta en el último anclaje. La aplicación mostraba la hora de inicio y la de devolución; guardé esa pantalla en el teléfono. ",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "rationale": "Procedimiento de devolución y registro sin valoración de precio o funcionamiento."
+        },
+        {
+          "text": "No podía encajar la bicicleta a la primera. Una señal me indicó otro anclaje y el contador se detuvo enseguida; devolución resuelta sin llamar a nadie. Así da gusto moverse.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "rationale": "La dificultad inicial se resuelve y el cierre expresa satisfacción explícita."
+        }
+      ]
+    },
+    {
+      "family": "ctx_eval_cave_tide_change",
+      "role": "assessment",
+      "semantic_component": "ctx_eval_cave_tide_change",
+      "domain": "tour",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "La marea estaba subiendo y nos metieron igual a la cueva. Al regreso caminamos con agua hasta la cintura. Qué aventura tan bien organizada: terminé asustado y con mis cosas mojadas.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "contrast",
+            "positive_words_negative_context"
+          ],
+          "rationale": "La alabanza irónica se desmiente con temor y daños atribuidos a la organización."
+        },
+        {
+          "text": "Fuimos hasta la entrada de la cueva y volvimos por la playa. No entré; me quedé tomando fotos mientras el resto miraba las rocas. Luego subimos juntos a la combi.",
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation",
+            "regionalism"
+          ],
+          "rationale": "Decisiones y recorrido sin evaluar seguridad, emoción o calidad."
+        },
+        {
+          "text": "No entrar a la cueva fue lo más sensato. Cambiaron la ruta por la marea, nos explicaron el motivo y acabamos viendo otras formaciones. Yo fui por el paisaje y lo disfruté sin pasar sustos.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "rationale": "La renuncia al plan original se valora positivamente por prudencia y disfrute."
+        }
+      ]
+    },
+    {
+      "family": "ctx_amb_latecheckout_tradeoff",
+      "role": "ambiguity",
+      "semantic_component": "ctx_amb_latecheckout_tradeoff",
+      "domain": "hotel",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "Me dejaron salir más tarde, aunque pasaron a limpiar mientras seguía trabajando en el cuarto. No sé si eso compensó lo otro.",
+          "intended_label": null,
+          "phenomena": [
+            "negation",
+            "contrast",
+            "mixed_aspects"
+          ],
+          "rationale": "Beneficio y molestia sin predominio declarado; no se asigna sentimiento gold."
+        }
+      ]
+    },
+    {
+      "family": "ctx_amb_spice_preference",
+      "role": "ambiguity",
+      "semantic_component": "ctx_amb_spice_preference",
+      "domain": "restaurant",
+      "region": "es-CO",
+      "cases": [
+        {
+          "text": "El plato picaba como me avisaron. Lo terminé y pedí otra bebida; todavía no sé si volvería a pedirlo.",
+          "intended_label": null,
+          "phenomena": [
+            "negation"
+          ],
+          "rationale": "No queda resuelta la valoración personal de una característica prevista."
+        }
+      ]
+    },
+    {
+      "family": "ctx_amb_display_darkness",
+      "role": "ambiguity",
+      "semantic_component": "ctx_amb_display_darkness",
+      "domain": "museum",
+      "region": "es",
+      "cases": [
+        {
+          "text": "La sala estaba tan oscura que costaba leer, pero esa penumbra era parte de la obra. Me quedé un buen rato dándole vueltas.",
+          "intended_label": null,
+          "phenomena": [
+            "contrast",
+            "mixed_aspects"
+          ],
+          "rationale": "Coexisten dificultad y una decisión artística sin conclusión evaluativa."
+        }
+      ]
+    },
+    {
+      "family": "ctx_amb_train_social_noise",
+      "role": "ambiguity",
+      "semantic_component": "ctx_amb_train_social_noise",
+      "domain": "transport",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "Toda la gente conversaba en el vagón. Por momentos fue chévere; también quería dormir. Llegué sin decidir qué me pareció el viaje.",
+          "intended_label": null,
+          "phenomena": [
+            "contrast",
+            "mixed_aspects",
+            "regionalism"
+          ],
+          "rationale": "Se declaran efectos opuestos y ausencia de una conclusión global."
+        }
+      ]
+    },
+    {
+      "family": "ctx_amb_route_surprise",
+      "role": "ambiguity",
+      "semantic_component": "ctx_amb_route_surprise",
+      "domain": "tour",
+      "region": "es-CO",
+      "cases": [
+        {
+          "text": "Cambiaron el itinerario sin avisar. Vimos algo que no esperaba y todavía no sé si la sorpresa me gustó o me incomodó.",
+          "intended_label": null,
+          "phenomena": [
+            "negation"
+          ],
+          "rationale": "El propio texto mantiene abierta la polaridad de la sorpresa."
+        }
+      ]
+    },
+    {
+      "family": "ctx_amb_evocative_workshop",
+      "role": "ambiguity",
+      "semantic_component": "ctx_amb_evocative_workshop",
+      "domain": "tour",
+      "region": "es",
+      "cases": [
+        {
+          "text": "El taller me removió recuerdos y acabé llorando. No lo llamaría una mala experiencia, pero tampoco encuentro cómo valorarla.",
+          "intended_label": null,
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "rationale": "Una reacción emocional intensa y la ausencia de evaluación resuelta no autorizan una clase polar."
+        }
+      ]
+    }
+  ]
+}

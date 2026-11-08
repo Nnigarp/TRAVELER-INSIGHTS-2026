@@ -18,6 +18,7 @@ from traveler_agent.batch import (
 )
 from traveler_agent.demo_data import DEMO
 from traveler_agent.model import MODEL_KINDS, load_model, save_model, train
+from traveler_agent.model_runtime import configured_artifact, run_selected
 
 MODEL_PATH = Path("artifacts/demo_model.joblib")
 if not MODEL_PATH.exists():
@@ -102,7 +103,7 @@ def _analysis_card(record: dict, *, model_kind: str, audio: bool = False) -> str
     review = "Sí, requiere revisión" if record["revision_humana"] else "No activada"
     sections = [
         "### Resumen de la experiencia",
-        f"**Sentimiento DEMO:** {record['sentimiento']} · **Modelo:** {model_kind.upper()}",
+        f"**Sentimiento {'experimental' if model_kind == 'beto' else 'DEMO'}:** {record['sentimiento']} · **Modelo:** {model_kind.upper()}",
         f"**Puntuaciones no calibradas:** {values}",
         f"**Aspectos exploratorios:** {aspects}",
         f"**Revisión humana:** {review}",
@@ -113,13 +114,21 @@ def _analysis_card(record: dict, *, model_kind: str, audio: bool = False) -> str
         sections.insert(2, "**Transcripción corregida:** " + ("Sí" if is_corrected else "No"))
     sections.append("*Modelo DEMO entrenado con ejemplos ficticios. "
                     "Las puntuaciones no acreditan precisión turística.*")
+    selection = record.get("seleccion_modelo")
+    if selection:
+        if selection["fallback"]:
+            sections.append("**BETO no completó el análisis; resultado ejecutado con LR de respaldo.**")
+        else:
+            sections.append("**BETO supervisado experimental, entrenado con datos sintéticos. "
+                            "La regla histórica de revisión no valida automatizar sus decisiones.**")
     return "\n\n".join(sections)
 
 def analyze(review: str, model_kind: str = "lr"):
     try:
-        record = inspect_review(review, get_demo_model(model_kind))
-        record["modelo_utilizado"] = model_kind
-        summary = _analysis_card(record, model_kind=model_kind)
+        record, effective = run_selected(model_kind, get_demo_model,
+                                        lambda classifier: inspect_review(review, classifier))
+        record["modelo_utilizado"] = effective
+        summary = _analysis_card(record, model_kind=effective)
         return summary, json.dumps(record, ensure_ascii=False, indent=2)
     except (ValueError, TypeError) as exc:
         return f"Error de validación: {exc}", "{}"
@@ -150,7 +159,12 @@ def _render_batch(records: list[dict]):
 
 def run_batch_lines(raw: str, model_kind: str = "lr"):
     try:
-        return _render_batch(analyze_batch(parse_review_lines(raw), get_demo_model(model_kind), model_kind=model_kind)) + ("Lote de demostración analizado.",)
+        reviews = parse_review_lines(raw)
+        records, effective = run_selected(model_kind, get_demo_model,
+            lambda classifier: analyze_batch(reviews, classifier, model_kind=model_kind))
+        status = "Lote de demostración analizado."
+        if model_kind == "beto": status += " BETO experimental." if effective == "beto" else " BETO falló; se ejecutó LR de respaldo."
+        return _render_batch(records) + (status,)
     except ValueError as exc:
         return _render_batch([]) + (f"Error de validación: {exc}",)
 
@@ -162,7 +176,12 @@ def run_batch_csv(filepath: str | None, model_kind: str = "lr"):
         path = Path(filepath)
         if path.stat().st_size > 1024 * 1024:
             raise ValueError("El archivo supera el límite de 1 MiB.")
-        return _render_batch(analyze_batch(parse_review_csv(path.read_bytes()), get_demo_model(model_kind), model_kind=model_kind)) + ("CSV de demostración analizado.",)
+        reviews = parse_review_csv(path.read_bytes())
+        records, effective = run_selected(model_kind, get_demo_model,
+            lambda classifier: analyze_batch(reviews, classifier, model_kind=model_kind))
+        status = "CSV de demostración analizado."
+        if model_kind == "beto": status += " BETO experimental." if effective == "beto" else " BETO falló; se ejecutó LR de respaldo."
+        return _render_batch(records) + (status,)
     except (OSError, ValueError) as exc:
         return _render_batch([]) + (f"Error de validación: {exc}",)
 
@@ -205,11 +224,10 @@ def transcribe_audio_ui(filepath: str | None, language: str):
 
 def analyze_audio_ui(edited_text: str, provenance: dict, model_kind: str):
     try:
-        result = analyze_edited_transcript(
-            edited_text, provenance, get_demo_model(model_kind),
-            model_kind=model_kind,
-        )
-        summary = _analysis_card(result, model_kind=model_kind, audio=True)
+        result, effective = run_selected(model_kind, get_demo_model,
+            lambda classifier: analyze_edited_transcript(edited_text, provenance, classifier,
+                                                        model_kind=model_kind))
+        summary = _analysis_card(result, model_kind=effective, audio=True)
         return summary, json.dumps(result, ensure_ascii=False, indent=2)
     except (AudioInputError, ValueError, TypeError) as exc:
         return f"Error: {exc}", "{}"
@@ -232,8 +250,13 @@ with gr.Blocks(title="Traveler Insights 2026 | Demo académico", **_BLOCKS_THEME
             "**PROTOTIPO ACADÉMICO · MODELOS DEMO:** entrenados con ejemplos ficticios; "
             "sin métricas científicas ni probabilidades externamente calibradas."
         )
-    model_choice = gr.Dropdown(label="Modelo de demostración", choices=[("TF-IDF + regresión logística", "lr"), ("TF-IDF + SVM lineal", "svm")], value="lr")
+    _MODEL_CHOICES = [("TF-IDF + regresión logística", "lr"), ("TF-IDF + SVM lineal", "svm")]
+    if configured_artifact(): _MODEL_CHOICES.append(("BETO supervisado (experimental sintético)", "beto"))
+    model_choice = gr.Dropdown(label="Modelo de demostración", choices=_MODEL_CHOICES, value="lr")
     gr.Markdown("Ambos modelos se entrenan con ejemplos **ficticios**. La selección no demuestra rendimiento ni calibración externa.")
+    if configured_artifact():
+        gr.Markdown("BETO es un clasificador supervisado **experimental sintético**. "
+                    "Su selección es opcional; LR permanece como valor inicial y respaldo explícito.")
     with gr.Tab("Reseña individual"):
         gr.Markdown("### Interpretar una experiencia\nEscribe una reseña para ver inferencia y evidencia descriptiva.")
         inp = gr.Textbox(label="Reseña turística", lines=4,

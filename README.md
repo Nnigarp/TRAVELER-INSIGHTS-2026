@@ -69,7 +69,7 @@ Reseña + ID --> Validación --> Vectorización TF-IDF --> Clasificación 3 clas
 ## Qué **no** hace aún
 
 - No utiliza todavía los archivos originales de Kaggle ni tiene etiquetas o métricas reales.
-- No incluye un Transformer, LLM, RAG ni un sistema ABSA supervisado; son líneas de experimentación posteriores, no mejoras demostradas.
+- La DEMO predeterminada conserva LR/SVM. [BETO supervisado experimental](docs/AVANCE_EJECUTABLE_BETO_Y_DEMO_2026-11-07.md) puede habilitarse expresamente; sus resultados son sintéticos. LLM, recuperación, RAG y ABSA supervisado siguen pendientes.
 - El valor mostrado como confianza es **puntuación no calibrada**. No debe tratarse como probabilidad fiable.
 - El extractor de aspectos y la selección de fragmentos son heurísticos. Las recomendaciones requieren supervisión humana.
 - No se publica automáticamente a GitHub ni se despliega públicamente.

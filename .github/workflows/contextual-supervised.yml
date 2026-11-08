@@ -1,0 +1,64 @@
+name: Contextual supervised — CPU reproduction
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/traveler_agent/beto_classifier.py'
+      - 'src/traveler_agent/contextual_*.py'
+      - 'src/traveler_agent/model_runtime.py'
+      - 'src/traveler_agent/demo_validation.py'
+      - 'src/traveler_agent/batch.py'
+      - 'src/traveler_agent/research_data/contextual_*.json'
+      - 'tests/test_contextual_supervised.py'
+      - 'tests/test_model_runtime.py'
+      - 'tests/test_demo_validation.py'
+      - 'research/requirements-contextual-v1.txt'
+      - 'scripts/verify_contextual_reproduction.py'
+      - 'scripts/smoke_gradio_http.py'
+      - 'docs/research/contextual-supervised-v1-predictions.json'
+      - 'app.py'
+      - '.github/workflows/contextual-supervised.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  supervised-cpu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install explicit CPU research environment
+        run: |
+          python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r research/requirements-contextual-v1.txt -e '.[test,ui]'
+      - name: Test including real head optimizer
+        run: python -m pytest -q tests/test_contextual_supervised.py tests/test_model_runtime.py tests/test_demo_validation.py
+      - name: Supervised training and new synthetic assessment
+        run: python -m traveler_agent.contextual_benchmark --download --output artifacts/contextual-ci
+      - name: Compare fixed predictions and describe uncertainty
+        run: |
+          python scripts/verify_contextual_reproduction.py --actual artifacts/contextual-ci/assessment_predictions.json --reference docs/research/contextual-supervised-v1-predictions.json
+          python -m traveler_agent.contextual_analysis --run artifacts/contextual-ci --out artifacts/contextual-ci/descriptive-analysis.json
+      - name: Execute optional BETO UI callbacks and unchanged classical flows
+        run: python -m traveler_agent.demo_validation --ui --beto-artifact artifacts/contextual-ci/models/beto_frozen --out artifacts/contextual-ci/functional.json
+      - name: Real local Gradio HTTP and queue
+        run: python scripts/smoke_gradio_http.py --beto-artifact artifacts/contextual-ci/models/beto_frozen --out artifacts/contextual-ci/http-smoke.json
+      - name: Save only authored synthetic reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: contextual-supervised-synthetic-reports
+          path: |
+            artifacts/contextual-ci/report.json
+            artifacts/contextual-ci/selection.json
+            artifacts/contextual-ci/assessment_predictions.json
+            artifacts/contextual-ci/descriptive-analysis.json
+            artifacts/contextual-ci/functional.json
+            artifacts/contextual-ci/http-smoke.json
+          if-no-files-found: error

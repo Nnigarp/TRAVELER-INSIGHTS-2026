@@ -1,0 +1,104 @@
+name: BETO Training V2 — CPU and Windows
+on:
+  pull_request:
+    branches: [main, 'feat/beto-supervised-demo-20261107']
+    paths:
+      - 'src/traveler_agent/beto_training_v2*.py'
+      - 'src/traveler_agent/research_data/beto_v2_*.json'
+      - 'src/traveler_agent/research_data/beto_training_v2_protocol.json'
+      - 'src/traveler_agent/model_runtime.py'
+      - 'tests/test_beto_training_v2.py'
+      - 'scripts/verify_beto_v2_reproduction.py'
+      - 'docs/research/beto-v2-predictions.json'
+      - '.github/workflows/beto-training-v2.yml'
+      - '.gitattributes'
+  workflow_dispatch:
+permissions:
+  contents: read
+env:
+  PYTHONUTF8: '1'
+  TOKENIZERS_PARALLELISM: 'false'
+  OMP_NUM_THREADS: '2'
+  MKL_NUM_THREADS: '2'
+jobs:
+  cpu-research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Explicit CPU environment
+        run: |
+          python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r research/requirements-contextual-v1.txt -e '.[ui,test]'
+      - name: Tests including staged gradients and fixed-schedule replay
+        run: python -m pytest -q tests/test_beto_training_v2.py tests/test_model_runtime.py tests/test_contextual_supervised.py
+      - name: Verify registration and develop on new tune only
+        run: |
+          python -m traveler_agent.beto_training_v2 register --output artifacts/beto-v2-registration
+          python -m traveler_agent.beto_training_v2 develop --download --registration-commit 7dd51a7c689873b5e3b000e482bfd2bc481adc3e --output artifacts/beto-v2-ci
+      - name: Save selection for independent Windows replay
+        uses: actions/upload-artifact@v4
+        with:
+          name: beto-v2-selected-configuration
+          path: artifacts/beto-v2-ci/selected-configuration.json
+          if-no-files-found: error
+      - name: Calibrate, select review on development, assess and repeat fixed seeds
+        run: |
+          python -m traveler_agent.beto_training_v2 assess --registration-commit 7dd51a7c689873b5e3b000e482bfd2bc481adc3e --output artifacts/beto-v2-ci
+          python -m traveler_agent.beto_training_v2_analysis --run artifacts/beto-v2-ci --out artifacts/beto-v2-ci/analysis.json
+          python scripts/verify_beto_v2_reproduction.py --actual artifacts/beto-v2-ci/assessment-predictions.json --reference docs/research/beto-v2-predictions.json
+      - name: Execute selected supervised adapter in real Gradio HTTP
+        run: |
+          python -c "import json,pathlib; p=pathlib.Path('artifacts/beto-v2-ci'); s=json.loads((p/'development-selection.json').read_text()); e=next(e for e in s['model_entries'] if e['key']==s['selected_model_key']); (p/'chosen-artifact.txt').write_text(str(p/e['artifact']))"
+          export TRAVELER_BETO_ARTIFACT="$(cat artifacts/beto-v2-ci/chosen-artifact.txt)"
+          python scripts/smoke_gradio_http.py --beto-artifact "$TRAVELER_BETO_ARTIFACT" --out artifacts/beto-v2-ci/http.json
+      - name: Save synthetic reports only, never checkpoints/private contributions
+        uses: actions/upload-artifact@v4
+        with:
+          name: beto-v2-synthetic-results
+          path: |
+            artifacts/beto-v2-ci/assessment.json
+            artifacts/beto-v2-ci/assessment-predictions.json
+            artifacts/beto-v2-ci/development-selection.json
+            artifacts/beto-v2-ci/calibration-policy-selection.json
+            artifacts/beto-v2-ci/training-diagnostics.json
+            artifacts/beto-v2-ci/analysis.json
+            artifacts/beto-v2-ci/http.json
+          if-no-files-found: error
+  windows-selected:
+    needs: cpu-research
+    runs-on: windows-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Explicit Windows CPU environment
+        run: |
+          python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r research/requirements-contextual-v1.txt -e '.[ui,test]'
+      - uses: actions/download-artifact@v4
+        with:
+          name: beto-v2-selected-configuration
+          path: artifacts/selection-input
+      - name: Tests and actual fixed supervised replay, without assessment tuning
+        run: |
+          python -m pytest -q tests/test_beto_training_v2.py tests/test_model_runtime.py
+          python -m traveler_agent.beto_training_v2 register --output artifacts/beto-v2-registration
+          python -m traveler_agent.beto_training_v2 replay --download --registration-commit 7dd51a7c689873b5e3b000e482bfd2bc481adc3e --selection artifacts/selection-input/selected-configuration.json --seed 42 --output artifacts/beto-v2-windows
+          python scripts/smoke_gradio_http.py --beto-artifact artifacts/beto-v2-windows/model --out artifacts/beto-v2-windows/http.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: beto-v2-windows-observed
+          path: |
+            artifacts/beto-v2-windows/replay.json
+            artifacts/beto-v2-windows/http.json
+          if-no-files-found: error

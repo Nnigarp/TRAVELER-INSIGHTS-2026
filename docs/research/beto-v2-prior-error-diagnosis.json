@@ -1,0 +1,192 @@
+{
+  "scope": "DIAGNOSIS_FROM_FROZEN_V1_SAVED_PREDICTIONS_NOT_NEW_MODEL_SELECTION",
+  "source_sha256": "073732985fbecf9eb07e5decb66ee291d25e75f36f51bfa25c2a5f8db01d831d",
+  "models": {
+    "beto_frozen": {
+      "negative_to_positive": [
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "negativo",
+          "family": "ctx_eval_museum_handson_materials",
+          "predicted": "positivo",
+          "review_id": "ctx_c8cf7e6328ac8b426467",
+          "text": "El taller figuraba como «haz tu propia pieza». Nos dieron un cuaderno para mirar cómo trabajaba otra persona. Ni pude tocar el material ni hacer nada: publicidad estupenda para una actividad decepcionante."
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "negativo",
+          "family": "ctx_eval_wildlife_distance",
+          "predicted": "positivo",
+          "review_id": "ctx_a2e05d8bbae070f1a5d9",
+          "text": "Le decían encuentro respetuoso con la fauna. El bote se acercó tanto que los animales se dispersaron; nos quedamos sin observarlos y con una sensación muy fea. No recomendaría esa salida."
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "negativo",
+          "family": "ctx_eval_breakfast_hours",
+          "predicted": "positivo",
+          "review_id": "ctx_43074b89ed92787b9355",
+          "text": "Bajé dentro del horario anunciado y ya habían retirado el desayuno. Me ofrecieron señalarme una cafetería de pago. Muy atentos, sí; desayunar donde ya había pagado habría sido mejor."
+        }
+      ],
+      "accepted_dangerous_errors": 0,
+      "linguistic_slices": {
+        "contrast": {
+          "n": 15,
+          "class_support": {
+            "negativo": 10,
+            "neutral": 0,
+            "positivo": 5
+          },
+          "macro_comparable": false,
+          "macro_f1": 0.48148148148148145,
+          "negative_to_positive": 3
+        },
+        "double_negation": {
+          "n": 1,
+          "class_support": {
+            "negativo": 0,
+            "neutral": 0,
+            "positivo": 1
+          },
+          "macro_comparable": false,
+          "macro_f1": 0.3333333333333333,
+          "negative_to_positive": 0
+        },
+        "mixed_aspects": {
+          "n": 5,
+          "class_support": {
+            "negativo": 4,
+            "neutral": 0,
+            "positivo": 1
+          },
+          "macro_comparable": false,
+          "macro_f1": 0.6666666666666666,
+          "negative_to_positive": 0
+        },
+        "negation": {
+          "n": 18,
+          "class_support": {
+            "negativo": 6,
+            "neutral": 4,
+            "positivo": 8
+          },
+          "macro_comparable": true,
+          "macro_f1": 0.8962962962962964,
+          "negative_to_positive": 2
+        },
+        "positive_words_negative_context": {
+          "n": 5,
+          "class_support": {
+            "negativo": 5,
+            "neutral": 0,
+            "positivo": 0
+          },
+          "macro_comparable": false,
+          "macro_f1": 0.25,
+          "negative_to_positive": 2
+        }
+      }
+    },
+    "beto_partial": {
+      "negative_to_positive": [
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "negativo",
+          "family": "ctx_eval_museum_handson_materials",
+          "predicted": "positivo",
+          "review_id": "ctx_c8cf7e6328ac8b426467",
+          "text": "El taller figuraba como «haz tu propia pieza». Nos dieron un cuaderno para mirar cómo trabajaba otra persona. Ni pude tocar el material ni hacer nada: publicidad estupenda para una actividad decepcionante."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "negativo",
+          "family": "ctx_eval_wildlife_distance",
+          "predicted": "positivo",
+          "review_id": "ctx_a2e05d8bbae070f1a5d9",
+          "text": "Le decían encuentro respetuoso con la fauna. El bote se acercó tanto que los animales se dispersaron; nos quedamos sin observarlos y con una sensación muy fea. No recomendaría esa salida."
+        },
+        {
+          "accepted_by_unchanged_rules": true,
+          "author_intent": "negativo",
+          "family": "ctx_eval_breakfast_hours",
+          "predicted": "positivo",
+          "review_id": "ctx_43074b89ed92787b9355",
+          "text": "Bajé dentro del horario anunciado y ya habían retirado el desayuno. Me ofrecieron señalarme una cafetería de pago. Muy atentos, sí; desayunar donde ya había pagado habría sido mejor."
+        },
+        {
+          "accepted_by_unchanged_rules": false,
+          "author_intent": "negativo",
+          "family": "ctx_eval_bicycle_return",
+          "predicted": "positivo",
+          "review_id": "ctx_493de0bc338ca515beda",
+          "text": "Al devolver la bicicleta, el anclaje se puso verde y el cobro siguió corriendo. Intenté avisar desde la aplicación sin conseguir respuesta. Un paseo agradable terminó en un gasto que no correspondía."
+        }
+      ],
+      "accepted_dangerous_errors": 2,
+      "linguistic_slices": {
+        "contrast": {
+          "n": 15,
+          "class_support": {
+            "negativo": 10,
+            "neutral": 0,
+            "positivo": 5
+          },
+          "macro_comparable": false,
+          "macro_f1": 0.4134615384615385,
+          "negative_to_positive": 4
+        },
+        "double_negation": {
+          "n": 1,
+          "class_support": {
+            "negativo": 0,
+            "neutral": 0,
+            "positivo": 1
+          },
+          "macro_comparable": false,
+          "macro_f1": 0.3333333333333333,
+          "negative_to_positive": 0
+        },
+        "mixed_aspects": {
+          "n": 5,
+          "class_support": {
+            "negativo": 4,
+            "neutral": 0,
+            "positivo": 1
+          },
+          "macro_comparable": false,
+          "macro_f1": 0.4444444444444444,
+          "negative_to_positive": 1
+        },
+        "negation": {
+          "n": 18,
+          "class_support": {
+            "negativo": 6,
+            "neutral": 4,
+            "positivo": 8
+          },
+          "macro_comparable": true,
+          "macro_f1": 0.8362573099415204,
+          "negative_to_positive": 3
+        },
+        "positive_words_negative_context": {
+          "n": 5,
+          "class_support": {
+            "negativo": 5,
+            "neutral": 0,
+            "positivo": 0
+          },
+          "macro_comparable": false,
+          "macro_f1": 0.25,
+          "negative_to_positive": 2
+        }
+      }
+    }
+  },
+  "hypotheses_not_causal_findings": [
+    "Positive-looking expressions can coexist with negative outcomes in observed errors; composition and global judgement need stronger training evidence.",
+    "Mean pooling and very small supervised data may contribute, but V1 did not identify a causal component.",
+    "Partial training disabled encoder dropout, used one train seed and selected on 18 examples; the new grid studies regularization and actual train-mode updates.",
+    "Double-negation V1 slice has only one case, so its three-class Macro-F1 is not a meaningful generalization estimate."
+  ]
+}

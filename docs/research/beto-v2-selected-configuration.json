@@ -1,0 +1,98 @@
+{
+  "primary_seed": 42,
+  "protocol_sha256": "6e682359ce077674b80d574e288cd25d4fbfbb437d735f654c8d56d05f7f6c16",
+  "records_sha256": "908850b47a21811df447cda83ab9d36fb75eab771ad4ed22270dee4459239766",
+  "registration_commit": "7dd51a7c689873b5e3b000e482bfd2bc481adc3e",
+  "schema": "beto-training-v2-development",
+  "selected_candidate": {
+    "configuration": {
+      "encoder_lr": 1e-05,
+      "epochs": 4,
+      "head_dropout": 0.1,
+      "head_lr": 0.0005,
+      "id": "top2_low128",
+      "label_smoothing": 0.0,
+      "max_length": 128,
+      "mode": "top2",
+      "pooling": "mean_l2",
+      "weight_decay": 0.01
+    },
+    "head_epoch": 80,
+    "id": "top2_low128",
+    "selected_epoch": 1,
+    "status": "EXECUTED",
+    "training": {
+      "adaptation_sha256": "5c6db2fcad88a7271ef0e0cd028e41998d6e360691c7e642998ed5e378004584",
+      "encoder_trainable_parameters": 14175744,
+      "first_encoder_gradient_norm": 1.3173723220825195,
+      "fit_wall_seconds": 73.4301534340002,
+      "frozen_parameter_gradients_absent": true,
+      "head_trainable_parameters": 2307,
+      "history": [
+        {
+          "epoch": 1,
+          "gradient_norm_mean_before_clip": 8.427567503849666,
+          "last_encoder_lr": 8.333333333333334e-06,
+          "train_cross_entropy_smoothed_if_configured": 0.17184487416719396,
+          "tune": {
+            "cross_entropy": 0.1214933956652408,
+            "macro_f1": 0.9665831244778613,
+            "negative_to_positive": 0
+          }
+        },
+        {
+          "epoch": 2,
+          "gradient_norm_mean_before_clip": 5.158956115444501,
+          "last_encoder_lr": 5.555555555555557e-06,
+          "train_cross_entropy_smoothed_if_configured": 0.08805565076569716,
+          "tune": {
+            "cross_entropy": 0.14326769203720705,
+            "macro_f1": 0.9312169312169312,
+            "negative_to_positive": 1
+          }
+        },
+        {
+          "epoch": 3,
+          "gradient_norm_mean_before_clip": 4.781694418688615,
+          "last_encoder_lr": 2.7777777777777783e-06,
+          "train_cross_entropy_smoothed_if_configured": 0.06048690174939111,
+          "tune": {
+            "cross_entropy": 0.10873761833430767,
+            "macro_f1": 0.9312169312169312,
+            "negative_to_positive": 1
+          }
+        },
+        {
+          "epoch": 4,
+          "gradient_norm_mean_before_clip": 3.1008906637628875,
+          "last_encoder_lr": 0.0,
+          "train_cross_entropy_smoothed_if_configured": 0.033584486095545193,
+          "tune": {
+            "cross_entropy": 0.09420871458210356,
+            "macro_f1": 0.9665831244778612,
+            "negative_to_positive": 1
+          }
+        }
+      ],
+      "probe_tensor_l2_update": 0.06474443525075912,
+      "seed": 42,
+      "selected": {
+        "epoch": 1,
+        "gradient_norm_mean_before_clip": 8.427567503849666,
+        "last_encoder_lr": 8.333333333333334e-06,
+        "train_cross_entropy_smoothed_if_configured": 0.17184487416719396,
+        "tune": {
+          "cross_entropy": 0.1214933956652408,
+          "macro_f1": 0.9665831244778613,
+          "negative_to_positive": 0
+        }
+      }
+    },
+    "tune": {
+      "cross_entropy": 0.1214933956652408,
+      "macro_f1": 0.9665831244778613,
+      "negative_to_positive": 0
+    }
+  },
+  "selected_model_key": "beto_top2_low128"
+}

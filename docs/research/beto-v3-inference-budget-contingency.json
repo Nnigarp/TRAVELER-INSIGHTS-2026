@@ -1,0 +1,26 @@
+{
+  "activation": "ONLY if the original bounded phase interrupts; retain its interruption record and every observation lock.",
+  "assessment_observation_marker_absent_at_registration": true,
+  "maximum_combined_postselection_seconds": 1350,
+  "maximum_extra_fixed_inference_seconds": 450,
+  "measured_development_wall_seconds": 1135.902192504,
+  "measured_seed7_replay_wall_seconds": 314.2453280880002,
+  "original_development_cap_seconds": 2400,
+  "original_replica_and_assessment_cap_seconds": 900,
+  "reason": "Seed 7 fixed replay measured 314.25 s including feature extraction versus the planning estimate of selected encoder fit + 30 s. Ten planned backends may not complete all calibration and inference within the original 900 s phase.",
+  "records_sha256": "1ca1521e303325bb314eb6d8c2d8e8b42e1510ac5352a541ab119bd403c16f9d",
+  "registered_at_utc": "2026-11-10T20:41:49.849155+00:00",
+  "registered_before_first_assessment_prediction": true,
+  "rules": [
+    "No new corpus, classifier, seed, hyperparameter, epoch, calibration temperature or review policy is selected.",
+    "Reuse only the original ten predeclared backends and existing trained artifacts; never retrain in the contingency.",
+    "After the original final lock, preserve its policy/model hashes and completed prediction prefix. Fill missing inference only; this is continuation of an observed assessment, never a new test.",
+    "Any uncompleted calibration/policy selection prevents locked continuation; report pending rather than use final outcomes to select.",
+    "Preserve original and contingency costs separately; total measured development plus both phases must stay <=3300 s.",
+    "A successful original run does not activate or authorize additional assessment calls."
+  ],
+  "schema": "beto-v3-inference-budget-contingency-v1",
+  "scope": "COMPUTE_ONLY_RESOURCE_CONTINGENCY_NO_MODEL_OR_DATA_DECISION_CHANGE",
+  "selection_commit": "a6675d08fa9645725107f059443ddc0ed15d125f",
+  "unchanged_combined_compute_cap_seconds": 3300
+}

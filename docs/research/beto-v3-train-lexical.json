@@ -1,0 +1,724 @@
+{
+  "classes": {
+    "negativo": 100,
+    "neutral": 100,
+    "positivo": 100
+  },
+  "limits": [
+    "Descriptive associations with synthetic author intent, not causal importance or human validity.",
+    "A sentiment-bearing word can be legitimate evidence; a high association alone is not proof of leakage.",
+    "No significance test or independent generalization claim; short word ngrams do not prove syntactic diversity."
+  ],
+  "minimum_document_frequency": 6,
+  "model_or_data_decisions_changed": false,
+  "most_repeated_two_to_four_word_phrases": [
+    {
+      "documents": 108,
+      "documents_by_class": {
+        "negativo": 23,
+        "neutral": 37,
+        "positivo": 48
+      },
+      "families": 71,
+      "phrase": "antes de"
+    },
+    {
+      "documents": 114,
+      "documents_by_class": {
+        "negativo": 31,
+        "neutral": 49,
+        "positivo": 34
+      },
+      "families": 68,
+      "phrase": "de la"
+    },
+    {
+      "documents": 108,
+      "documents_by_class": {
+        "negativo": 38,
+        "neutral": 40,
+        "positivo": 30
+      },
+      "families": 64,
+      "phrase": "en la"
+    },
+    {
+      "documents": 100,
+      "documents_by_class": {
+        "negativo": 29,
+        "neutral": 45,
+        "positivo": 26
+      },
+      "families": 60,
+      "phrase": "en el"
+    },
+    {
+      "documents": 79,
+      "documents_by_class": {
+        "negativo": 19,
+        "neutral": 38,
+        "positivo": 22
+      },
+      "families": 58,
+      "phrase": "a la"
+    },
+    {
+      "documents": 56,
+      "documents_by_class": {
+        "negativo": 20,
+        "neutral": 16,
+        "positivo": 20
+      },
+      "families": 46,
+      "phrase": "con el"
+    },
+    {
+      "documents": 49,
+      "documents_by_class": {
+        "negativo": 9,
+        "neutral": 25,
+        "positivo": 15
+      },
+      "families": 39,
+      "phrase": "y el"
+    },
+    {
+      "documents": 48,
+      "documents_by_class": {
+        "negativo": 12,
+        "neutral": 19,
+        "positivo": 17
+      },
+      "families": 39,
+      "phrase": "y la"
+    },
+    {
+      "documents": 47,
+      "documents_by_class": {
+        "negativo": 16,
+        "neutral": 14,
+        "positivo": 17
+      },
+      "families": 36,
+      "phrase": "con la"
+    },
+    {
+      "documents": 43,
+      "documents_by_class": {
+        "negativo": 16,
+        "neutral": 21,
+        "positivo": 6
+      },
+      "families": 33,
+      "phrase": "en una"
+    },
+    {
+      "documents": 41,
+      "documents_by_class": {
+        "negativo": 7,
+        "neutral": 19,
+        "positivo": 15
+      },
+      "families": 31,
+      "phrase": "junto al"
+    },
+    {
+      "documents": 34,
+      "documents_by_class": {
+        "negativo": 12,
+        "neutral": 10,
+        "positivo": 12
+      },
+      "families": 31,
+      "phrase": "después de"
+    },
+    {
+      "documents": 36,
+      "documents_by_class": {
+        "negativo": 5,
+        "neutral": 23,
+        "positivo": 8
+      },
+      "families": 30,
+      "phrase": "junto a"
+    },
+    {
+      "documents": 34,
+      "documents_by_class": {
+        "negativo": 6,
+        "neutral": 21,
+        "positivo": 7
+      },
+      "families": 29,
+      "phrase": "de las"
+    },
+    {
+      "documents": 35,
+      "documents_by_class": {
+        "negativo": 7,
+        "neutral": 20,
+        "positivo": 8
+      },
+      "families": 28,
+      "phrase": "la puerta"
+    },
+    {
+      "documents": 32,
+      "documents_by_class": {
+        "negativo": 8,
+        "neutral": 13,
+        "positivo": 11
+      },
+      "families": 28,
+      "phrase": "por la"
+    },
+    {
+      "documents": 29,
+      "documents_by_class": {
+        "negativo": 7,
+        "neutral": 8,
+        "positivo": 14
+      },
+      "families": 23,
+      "phrase": "de una"
+    },
+    {
+      "documents": 25,
+      "documents_by_class": {
+        "negativo": 2,
+        "neutral": 13,
+        "positivo": 10
+      },
+      "families": 23,
+      "phrase": "las dos"
+    },
+    {
+      "documents": 25,
+      "documents_by_class": {
+        "negativo": 7,
+        "neutral": 13,
+        "positivo": 5
+      },
+      "families": 21,
+      "phrase": "en un"
+    },
+    {
+      "documents": 25,
+      "documents_by_class": {
+        "negativo": 6,
+        "neutral": 6,
+        "positivo": 13
+      },
+      "families": 21,
+      "phrase": "y me"
+    },
+    {
+      "documents": 24,
+      "documents_by_class": {
+        "negativo": 12,
+        "neutral": 5,
+        "positivo": 7
+      },
+      "families": 21,
+      "phrase": "que el"
+    },
+    {
+      "documents": 24,
+      "documents_by_class": {
+        "negativo": 9,
+        "neutral": 8,
+        "positivo": 7
+      },
+      "families": 20,
+      "phrase": "por el"
+    },
+    {
+      "documents": 23,
+      "documents_by_class": {
+        "negativo": 4,
+        "neutral": 15,
+        "positivo": 4
+      },
+      "families": 20,
+      "phrase": "junto a la"
+    },
+    {
+      "documents": 21,
+      "documents_by_class": {
+        "negativo": 11,
+        "neutral": 4,
+        "positivo": 6
+      },
+      "families": 20,
+      "phrase": "así que"
+    },
+    {
+      "documents": 23,
+      "documents_by_class": {
+        "negativo": 12,
+        "neutral": 2,
+        "positivo": 9
+      },
+      "families": 19,
+      "phrase": "que no"
+    },
+    {
+      "documents": 21,
+      "documents_by_class": {
+        "negativo": 6,
+        "neutral": 11,
+        "positivo": 4
+      },
+      "families": 19,
+      "phrase": "con una"
+    },
+    {
+      "documents": 21,
+      "documents_by_class": {
+        "negativo": 5,
+        "neutral": 8,
+        "positivo": 8
+      },
+      "families": 18,
+      "phrase": "el número"
+    },
+    {
+      "documents": 21,
+      "documents_by_class": {
+        "negativo": 2,
+        "neutral": 12,
+        "positivo": 7
+      },
+      "families": 18,
+      "phrase": "la entrada"
+    },
+    {
+      "documents": 20,
+      "documents_by_class": {
+        "negativo": 3,
+        "neutral": 13,
+        "positivo": 4
+      },
+      "families": 18,
+      "phrase": "y una"
+    },
+    {
+      "documents": 19,
+      "documents_by_class": {
+        "negativo": 4,
+        "neutral": 15,
+        "positivo": 0
+      },
+      "families": 18,
+      "phrase": "a las"
+    }
+  ],
+  "records_sha256": "1ca1521e303325bb314eb6d8c2d8e8b42e1510ac5352a541ab119bd403c16f9d",
+  "rows": 300,
+  "schema": "beto-v3-train-lexical-descriptive",
+  "scope": "TRAIN_ONLY_NO_FITTING_SELECTION_OR_ASSESSMENT",
+  "top_terms_by_class": {
+    "negativo": [
+      {
+        "class_fraction_given_term": 1.0,
+        "documents": 9,
+        "documents_by_class": {
+          "negativo": 9,
+          "neutral": 0,
+          "positivo": 0
+        },
+        "smoothed_one_vs_rest_log_odds": 3.7289142536315887,
+        "term": "acabé"
+      },
+      {
+        "class_fraction_given_term": 1.0,
+        "documents": 6,
+        "documents_by_class": {
+          "negativo": 6,
+          "neutral": 0,
+          "positivo": 0
+        },
+        "smoothed_one_vs_rest_log_odds": 3.3171637697084635,
+        "term": "hubiera"
+      },
+      {
+        "class_fraction_given_term": 0.796875,
+        "documents": 64,
+        "documents_by_class": {
+          "negativo": 51,
+          "neutral": 1,
+          "positivo": 12
+        },
+        "smoothed_one_vs_rest_log_odds": 2.670698298061128,
+        "term": "pero"
+      },
+      {
+        "class_fraction_given_term": 0.8888888888888888,
+        "documents": 9,
+        "documents_by_class": {
+          "negativo": 8,
+          "neutral": 0,
+          "positivo": 1
+        },
+        "smoothed_one_vs_rest_log_odds": 2.503206647199645,
+        "term": "respondió"
+      },
+      {
+        "class_fraction_given_term": 0.875,
+        "documents": 8,
+        "documents_by_class": {
+          "negativo": 7,
+          "neutral": 0,
+          "positivo": 1
+        },
+        "smoothed_one_vs_rest_log_odds": 2.3672907124693774,
+        "term": "enviaron"
+      },
+      {
+        "class_fraction_given_term": 0.8333333333333334,
+        "documents": 12,
+        "documents_by_class": {
+          "negativo": 10,
+          "neutral": 0,
+          "positivo": 2
+        },
+        "smoothed_one_vs_rest_log_odds": 2.2205237747106876,
+        "term": "apenas"
+      },
+      {
+        "class_fraction_given_term": 0.8571428571428571,
+        "documents": 7,
+        "documents_by_class": {
+          "negativo": 6,
+          "neutral": 0,
+          "positivo": 1
+        },
+        "smoothed_one_vs_rest_log_odds": 2.213551470623648,
+        "term": "entonces"
+      },
+      {
+        "class_fraction_given_term": 0.8571428571428571,
+        "documents": 7,
+        "documents_by_class": {
+          "negativo": 6,
+          "neutral": 0,
+          "positivo": 1
+        },
+        "smoothed_one_vs_rest_log_odds": 2.213551470623648,
+        "term": "esperando"
+      },
+      {
+        "class_fraction_given_term": 0.8571428571428571,
+        "documents": 7,
+        "documents_by_class": {
+          "negativo": 6,
+          "neutral": 1,
+          "positivo": 0
+        },
+        "smoothed_one_vs_rest_log_odds": 2.213551470623648,
+        "term": "llegaron"
+      },
+      {
+        "class_fraction_given_term": 0.8571428571428571,
+        "documents": 7,
+        "documents_by_class": {
+          "negativo": 6,
+          "neutral": 0,
+          "positivo": 1
+        },
+        "smoothed_one_vs_rest_log_odds": 2.213551470623648,
+        "term": "terminé"
+      },
+      {
+        "class_fraction_given_term": 0.7555555555555555,
+        "documents": 45,
+        "documents_by_class": {
+          "negativo": 34,
+          "neutral": 5,
+          "positivo": 6
+        },
+        "smoothed_one_vs_rest_log_odds": 2.145799365528782,
+        "term": "solo"
+      },
+      {
+        "class_fraction_given_term": 0.8333333333333334,
+        "documents": 6,
+        "documents_by_class": {
+          "negativo": 5,
+          "neutral": 1,
+          "positivo": 0
+        },
+        "smoothed_one_vs_rest_log_odds": 2.0359709729734945,
+        "term": "cobraron"
+      }
+    ],
+    "neutral": [
+      {
+        "class_fraction_given_term": 0.8125,
+        "documents": 16,
+        "documents_by_class": {
+          "negativo": 1,
+          "neutral": 13,
+          "positivo": 2
+        },
+        "smoothed_one_vs_rest_log_odds": 2.164026507926623,
+        "term": "central"
+      },
+      {
+        "class_fraction_given_term": 0.8181818181818182,
+        "documents": 11,
+        "documents_by_class": {
+          "negativo": 1,
+          "neutral": 9,
+          "positivo": 1
+        },
+        "smoothed_one_vs_rest_log_odds": 2.1094511945781096,
+        "term": "azul"
+      },
+      {
+        "class_fraction_given_term": 0.8181818181818182,
+        "documents": 11,
+        "documents_by_class": {
+          "negativo": 1,
+          "neutral": 9,
+          "positivo": 1
+        },
+        "smoothed_one_vs_rest_log_odds": 2.1094511945781096,
+        "term": "derecha"
+      },
+      {
+        "class_fraction_given_term": 0.8333333333333334,
+        "documents": 6,
+        "documents_by_class": {
+          "negativo": 0,
+          "neutral": 5,
+          "positivo": 1
+        },
+        "smoothed_one_vs_rest_log_odds": 2.0359709729734945,
+        "term": "cuyo"
+      },
+      {
+        "class_fraction_given_term": 0.8333333333333334,
+        "documents": 6,
+        "documents_by_class": {
+          "negativo": 1,
+          "neutral": 5,
+          "positivo": 0
+        },
+        "smoothed_one_vs_rest_log_odds": 2.0359709729734945,
+        "term": "doce"
+      },
+      {
+        "class_fraction_given_term": 0.8333333333333334,
+        "documents": 6,
+        "documents_by_class": {
+          "negativo": 0,
+          "neutral": 5,
+          "positivo": 1
+        },
+        "smoothed_one_vs_rest_log_odds": 2.0359709729734945,
+        "term": "habitación"
+      },
+      {
+        "class_fraction_given_term": 0.8333333333333334,
+        "documents": 6,
+        "documents_by_class": {
+          "negativo": 0,
+          "neutral": 5,
+          "positivo": 1
+        },
+        "smoothed_one_vs_rest_log_odds": 2.0359709729734945,
+        "term": "pusimos"
+      },
+      {
+        "class_fraction_given_term": 0.8333333333333334,
+        "documents": 6,
+        "documents_by_class": {
+          "negativo": 0,
+          "neutral": 5,
+          "positivo": 1
+        },
+        "smoothed_one_vs_rest_log_odds": 2.0359709729734945,
+        "term": "recoger"
+      },
+      {
+        "class_fraction_given_term": 0.75,
+        "documents": 20,
+        "documents_by_class": {
+          "negativo": 3,
+          "neutral": 15,
+          "positivo": 2
+        },
+        "smoothed_one_vs_rest_log_odds": 1.8631359351694816,
+        "term": "luego"
+      },
+      {
+        "class_fraction_given_term": 0.7222222222222222,
+        "documents": 18,
+        "documents_by_class": {
+          "negativo": 2,
+          "neutral": 13,
+          "positivo": 3
+        },
+        "smoothed_one_vs_rest_log_odds": 1.70186317926781,
+        "term": "números"
+      },
+      {
+        "class_fraction_given_term": 0.75,
+        "documents": 8,
+        "documents_by_class": {
+          "negativo": 0,
+          "neutral": 6,
+          "positivo": 2
+        },
+        "smoothed_one_vs_rest_log_odds": 1.6977007106549844,
+        "term": "franja"
+      },
+      {
+        "class_fraction_given_term": 0.75,
+        "documents": 8,
+        "documents_by_class": {
+          "negativo": 1,
+          "neutral": 6,
+          "positivo": 1
+        },
+        "smoothed_one_vs_rest_log_odds": 1.6977007106549844,
+        "term": "izquierda"
+      }
+    ],
+    "positivo": [
+      {
+        "class_fraction_given_term": 0.9615384615384616,
+        "documents": 26,
+        "documents_by_class": {
+          "negativo": 1,
+          "neutral": 0,
+          "positivo": 25
+        },
+        "smoothed_one_vs_rest_log_odds": 3.804894924131155,
+        "term": "pude"
+      },
+      {
+        "class_fraction_given_term": 1.0,
+        "documents": 7,
+        "documents_by_class": {
+          "negativo": 0,
+          "neutral": 0,
+          "positivo": 7
+        },
+        "smoothed_one_vs_rest_log_odds": 3.470903011554193,
+        "term": "gracias"
+      },
+      {
+        "class_fraction_given_term": 0.875,
+        "documents": 16,
+        "documents_by_class": {
+          "negativo": 0,
+          "neutral": 2,
+          "positivo": 14
+        },
+        "smoothed_one_vs_rest_log_odds": 2.5885026037417855,
+        "term": "dejó"
+      },
+      {
+        "class_fraction_given_term": 0.875,
+        "documents": 8,
+        "documents_by_class": {
+          "negativo": 0,
+          "neutral": 1,
+          "positivo": 7
+        },
+        "smoothed_one_vs_rest_log_odds": 2.3672907124693774,
+        "term": "todas"
+      },
+      {
+        "class_fraction_given_term": 0.8333333333333334,
+        "documents": 12,
+        "documents_by_class": {
+          "negativo": 2,
+          "neutral": 0,
+          "positivo": 10
+        },
+        "smoothed_one_vs_rest_log_odds": 2.2205237747106876,
+        "term": "pudimos"
+      },
+      {
+        "class_fraction_given_term": 0.8181818181818182,
+        "documents": 11,
+        "documents_by_class": {
+          "negativo": 1,
+          "neutral": 1,
+          "positivo": 9
+        },
+        "smoothed_one_vs_rest_log_odds": 2.1094511945781096,
+        "term": "tener"
+      },
+      {
+        "class_fraction_given_term": 0.8333333333333334,
+        "documents": 6,
+        "documents_by_class": {
+          "negativo": 1,
+          "neutral": 0,
+          "positivo": 5
+        },
+        "smoothed_one_vs_rest_log_odds": 2.0359709729734945,
+        "term": "agradecí"
+      },
+      {
+        "class_fraction_given_term": 0.8333333333333334,
+        "documents": 6,
+        "documents_by_class": {
+          "negativo": 1,
+          "neutral": 0,
+          "positivo": 5
+        },
+        "smoothed_one_vs_rest_log_odds": 2.0359709729734945,
+        "term": "estar"
+      },
+      {
+        "class_fraction_given_term": 0.8333333333333334,
+        "documents": 6,
+        "documents_by_class": {
+          "negativo": 1,
+          "neutral": 0,
+          "positivo": 5
+        },
+        "smoothed_one_vs_rest_log_odds": 2.0359709729734945,
+        "term": "preparar"
+      },
+      {
+        "class_fraction_given_term": 0.8333333333333334,
+        "documents": 6,
+        "documents_by_class": {
+          "negativo": 0,
+          "neutral": 1,
+          "positivo": 5
+        },
+        "smoothed_one_vs_rest_log_odds": 2.0359709729734945,
+        "term": "repetir"
+      },
+      {
+        "class_fraction_given_term": 0.7777777777777778,
+        "documents": 9,
+        "documents_by_class": {
+          "negativo": 1,
+          "neutral": 1,
+          "positivo": 7
+        },
+        "smoothed_one_vs_rest_log_odds": 1.851439952500714,
+        "term": "explicaron"
+      },
+      {
+        "class_fraction_given_term": 0.5441176470588235,
+        "documents": 136,
+        "documents_by_class": {
+          "negativo": 49,
+          "neutral": 13,
+          "positivo": 74
+        },
+        "smoothed_one_vs_rest_log_odds": 1.8293581612783747,
+        "term": "sin"
+      }
+    ]
+  }
+}

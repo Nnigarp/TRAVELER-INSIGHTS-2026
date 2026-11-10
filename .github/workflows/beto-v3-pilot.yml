@@ -1,0 +1,77 @@
+name: BETO V3 pilot — fixed CPU and Windows replay
+on:
+  pull_request:
+    branches: [main, 'feat/beto-supervised-demo-20261107']
+    paths:
+      - 'src/traveler_agent/beto_training_v3*.py'
+      - 'src/traveler_agent/research_data/beto_v3*.json'
+      - 'tests/test_beto_training_v3*.py'
+      - 'scripts/*beto_v3*.py'
+      - 'research/requirements-beto-v3.txt'
+      - 'docs/research/beto-v3-predictions.json'
+      - 'docs/research/beto-v3-selection.json'
+      - '.github/workflows/beto-v3-pilot.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+env:
+  PYTHONUTF8: '1'
+  TOKENIZERS_PARALLELISM: 'false'
+  OMP_NUM_THREADS: '2'
+  MKL_NUM_THREADS: '2'
+jobs:
+  scientific-cpu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install fixed research dependencies
+        run: |
+          python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r research/requirements-beto-v3.txt -e '.[ui,test]'
+      - name: Regression and scientific contract tests
+        run: python -m pytest -q
+      - name: Reproduce six fixed models on observed assessment, no selection
+        run: python scripts/reproduce_beto_v3.py --download --output artifacts/beto-v3-ci
+      - name: Real Gradio HTTP with the trained V3 adapter
+        run: python scripts/smoke_gradio_http.py --beto-artifact artifacts/beto-v3-ci/selected-replay/model --out artifacts/beto-v3-ci/http.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: beto-v3-observed-cpu-reproduction
+          path: |
+            artifacts/beto-v3-ci/reproduction.json
+            artifacts/beto-v3-ci/selected-replay/replay.json
+            artifacts/beto-v3-ci/http.json
+          if-no-files-found: error
+  windows-replay:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install Windows CPU dependencies
+        run: |
+          python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r research/requirements-beto-v3.txt -e '.[ui,test]'
+      - name: Windows regression and fixed supervised training
+        run: |
+          python -m pytest -q tests/test_beto_training_v3_model.py tests/test_beto_training_v3_runtime.py tests/test_beto_training_v3_data.py tests/test_model_runtime.py
+          python scripts/reproduce_beto_v3.py --download --primary-only --output artifacts/beto-v3-windows
+          python scripts/smoke_gradio_http.py --beto-artifact artifacts/beto-v3-windows/selected-replay/model --out artifacts/beto-v3-windows/http.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: beto-v3-native-windows-reproduction
+          path: |
+            artifacts/beto-v3-windows/reproduction.json
+            artifacts/beto-v3-windows/selected-replay/replay.json
+            artifacts/beto-v3-windows/http.json
+          if-no-files-found: error

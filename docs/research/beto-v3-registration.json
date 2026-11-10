@@ -1,0 +1,609 @@
+{
+  "schema": "beto-v3-preregistered-pilot",
+  "status_at_registration": "ADMITTED_CORPUS_NO_CLASSIFIER_TRAINING_OR_ASSESSMENT_OUTCOMES",
+  "protocol_commit": "e4c52c18c146355ab955debc1255e680af8df2a4",
+  "raw_corpus_commit": "d05c9bd1883efc1e5a91f068449e378f0e04fd3b",
+  "style_revision_protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+  "data_manifest": {
+    "schema": "beto-v3-pilot-manifest",
+    "records_sha256": "1ca1521e303325bb314eb6d8c2d8e8b42e1510ac5352a541ab119bd403c16f9d",
+    "protocol_sha256": "019503c68a79dbc4c4d2fa5eb0afff2b753007f9cd093db5e4e247a50f95f5e3",
+    "scenario_sha256": "11aa86a2cb459528b13a2817171609fe4bc4e8c163cb699b53ddac1d7ed02f52",
+    "source_sha256": {
+      "beto_v3_batch_assessment.json": "11caf1121faa470e2b160e30f1dab17b11d80c509e4b8880c4ad371c36444786",
+      "beto_v3_batch_co.json": "6a0a47403980423040189a3865398464aa6b6c2e92a4408438811aa538327982",
+      "beto_v3_batch_es.json": "dfa0b68c90bde3faba407af7b75026b6f605294859ec6be7e4e6a682c0840851",
+      "beto_v3_batch_mx.json": "6ca735c6fd6965b0765cd1a0b75d64ea39fb18db91acd73840986f6fe8e8ce0e",
+      "beto_v3_batch_other.json": "b8a2dffb014c864779ee0d241dd582e50778ee6a50b40aba06fc69c50b49c05b",
+      "beto_v3_batch_pe.json": "b400359d4ed4de13a303df5ade10335519910ec54a1bb0d2185d0c8ef7197b9d"
+    },
+    "role_sha256": {
+      "train": "ec65443a57e9581f8331e98a6bf076714e9eab608f17639947b45456b4d27b70",
+      "tune": "053c4f2669470fad7a4a679a7f582d84c7f538e4755db20710d92a1b14d37a54",
+      "calibration": "0a3dbc7ce8a702a7820736e5a90d4cc06344f1ada60c84acde46642535ff67b9",
+      "policy_dev": "6f02a990ce45011687601d3ee1e6f6ca5b75d3509c342403a14efedf374bf721",
+      "assessment": "7d66d87ea38f13cd6a5fc836b38841c82dfbd8d393d0c6a7ddba27adeff56503",
+      "ambiguity_policy": "0889bddfbb63c940a66590746a3642655d6eeeccffac953e5650207f02c8bfed",
+      "ambiguity_assessment": "d11a26ebb115794989745ef87ce0b92cdeff8a74d797d1754cb3f98a9ca969df"
+    },
+    "counts": {
+      "train": {
+        "rows": 300,
+        "families": 100,
+        "classes": {
+          "negativo": 100,
+          "neutral": 100,
+          "positivo": 100
+        },
+        "regions": {
+          "Colombia": 60,
+          "Spain": 60,
+          "Mexico": 60,
+          "other_hispanic": 60,
+          "Peru": 60
+        },
+        "length_by_class": {
+          "negativo": {
+            "short": 33,
+            "medium": 34,
+            "long": 33
+          },
+          "neutral": {
+            "short": 33,
+            "medium": 34,
+            "long": 33
+          },
+          "positivo": {
+            "short": 33,
+            "medium": 34,
+            "long": 33
+          }
+        }
+      },
+      "tune": {
+        "rows": 60,
+        "families": 20,
+        "classes": {
+          "negativo": 20,
+          "neutral": 20,
+          "positivo": 20
+        },
+        "regions": {
+          "Colombia": 12,
+          "Spain": 12,
+          "Mexico": 12,
+          "other_hispanic": 12,
+          "Peru": 12
+        },
+        "length_by_class": {
+          "negativo": {
+            "long": 7,
+            "short": 7,
+            "medium": 6
+          },
+          "neutral": {
+            "long": 7,
+            "short": 7,
+            "medium": 6
+          },
+          "positivo": {
+            "long": 7,
+            "short": 7,
+            "medium": 6
+          }
+        }
+      },
+      "calibration": {
+        "rows": 60,
+        "families": 20,
+        "classes": {
+          "negativo": 20,
+          "neutral": 20,
+          "positivo": 20
+        },
+        "regions": {
+          "Colombia": 12,
+          "Spain": 12,
+          "Mexico": 12,
+          "other_hispanic": 12,
+          "Peru": 12
+        },
+        "length_by_class": {
+          "negativo": {
+            "short": 7,
+            "medium": 7,
+            "long": 6
+          },
+          "neutral": {
+            "short": 7,
+            "medium": 7,
+            "long": 6
+          },
+          "positivo": {
+            "short": 7,
+            "medium": 7,
+            "long": 6
+          }
+        }
+      },
+      "policy_dev": {
+        "rows": 60,
+        "families": 20,
+        "classes": {
+          "negativo": 20,
+          "neutral": 20,
+          "positivo": 20
+        },
+        "regions": {
+          "Colombia": 12,
+          "Spain": 12,
+          "Mexico": 12,
+          "other_hispanic": 12,
+          "Peru": 12
+        },
+        "length_by_class": {
+          "negativo": {
+            "medium": 7,
+            "long": 7,
+            "short": 6
+          },
+          "neutral": {
+            "medium": 7,
+            "long": 7,
+            "short": 6
+          },
+          "positivo": {
+            "medium": 7,
+            "long": 7,
+            "short": 6
+          }
+        }
+      },
+      "assessment": {
+        "rows": 60,
+        "families": 20,
+        "classes": {
+          "negativo": 20,
+          "neutral": 20,
+          "positivo": 20
+        },
+        "regions": {
+          "Colombia": 12,
+          "Peru": 12,
+          "Mexico": 12,
+          "Spain": 12,
+          "other_hispanic": 12
+        },
+        "length_by_class": {
+          "negativo": {
+            "long": 7,
+            "short": 7,
+            "medium": 6
+          },
+          "neutral": {
+            "long": 7,
+            "short": 7,
+            "medium": 6
+          },
+          "positivo": {
+            "long": 7,
+            "short": 7,
+            "medium": 6
+          }
+        }
+      },
+      "ambiguity_policy": {
+        "rows": 12,
+        "families": 12,
+        "classes": {},
+        "regions": {
+          "Colombia": 3,
+          "Peru": 3,
+          "Mexico": 2,
+          "Spain": 2,
+          "other_hispanic": 2
+        },
+        "length_by_class": {
+          "negativo": {},
+          "neutral": {},
+          "positivo": {}
+        }
+      },
+      "ambiguity_assessment": {
+        "rows": 12,
+        "families": 12,
+        "classes": {},
+        "regions": {
+          "Colombia": 2,
+          "Peru": 2,
+          "Mexico": 3,
+          "Spain": 3,
+          "other_hispanic": 2
+        },
+        "length_by_class": {
+          "negativo": {},
+          "neutral": {},
+          "positivo": {}
+        }
+      }
+    },
+    "human_gold": false,
+    "population_independence_proven": false,
+    "ai_review_sha256": "2bf190d13241571137af0a54c2c603f326d9e10ed6586e29f01e151357f419ea",
+    "quality_sha256": "7ea93ea5c313d2f430c6b2a17de267c248daa3bab5376197cb029f5b1624becc",
+    "quarantined_families": [
+      "v3-ambiguity_assessment-mx-001",
+      "v3-ambiguity_policy-pe-001"
+    ],
+    "admitted_role_rows": {
+      "train": 300,
+      "tune": 60,
+      "calibration": 60,
+      "policy_dev": 60,
+      "assessment": 60,
+      "ambiguity_policy": 11,
+      "ambiguity_assessment": 11
+    },
+    "assessment_membership": [
+      {
+        "review_id": "b3_41abeb8742d7424d491b",
+        "family": "v3-assessment-co-001",
+        "intended_label": "negativo"
+      },
+      {
+        "review_id": "b3_f50fc52847c45a022887",
+        "family": "v3-assessment-co-001",
+        "intended_label": "neutral"
+      },
+      {
+        "review_id": "b3_b677dc87546bd913847f",
+        "family": "v3-assessment-co-001",
+        "intended_label": "positivo"
+      },
+      {
+        "review_id": "b3_22eae224ab2def3e467e",
+        "family": "v3-assessment-co-002",
+        "intended_label": "negativo"
+      },
+      {
+        "review_id": "b3_e00631d57ae56a46ab4b",
+        "family": "v3-assessment-co-002",
+        "intended_label": "neutral"
+      },
+      {
+        "review_id": "b3_e134c3fd7f6c8789db1e",
+        "family": "v3-assessment-co-002",
+        "intended_label": "positivo"
+      },
+      {
+        "review_id": "b3_90079d951b1c77e5e991",
+        "family": "v3-assessment-co-003",
+        "intended_label": "negativo"
+      },
+      {
+        "review_id": "b3_fb9214c9cfe3424d3802",
+        "family": "v3-assessment-co-003",
+        "intended_label": "neutral"
+      },
+      {
+        "review_id": "b3_f194903d3f39c2b621f7",
+        "family": "v3-assessment-co-003",
+        "intended_label": "positivo"
+      },
+      {
+        "review_id": "b3_5a9de31b0a65e34a3d05",
+        "family": "v3-assessment-co-004",
+        "intended_label": "negativo"
+      },
+      {
+        "review_id": "b3_73558d7f85ee9b1cf1c1",
+        "family": "v3-assessment-co-004",
+        "intended_label": "neutral"
+      },
+      {
+        "review_id": "b3_3193a839aff54557acff",
+        "family": "v3-assessment-co-004",
+        "intended_label": "positivo"
+      },
+      {
+        "review_id": "b3_636a4eefffc17a931ffb",
+        "family": "v3-assessment-pe-001",
+        "intended_label": "negativo"
+      },
+      {
+        "review_id": "b3_d2d8b3e77fd1c39f421f",
+        "family": "v3-assessment-pe-001",
+        "intended_label": "neutral"
+      },
+      {
+        "review_id": "b3_32deaea83866b266ccf9",
+        "family": "v3-assessment-pe-001",
+        "intended_label": "positivo"
+      },
+      {
+        "review_id": "b3_22a3db8a12917bf612f3",
+        "family": "v3-assessment-pe-002",
+        "intended_label": "negativo"
+      },
+      {
+        "review_id": "b3_ba7c3e422488853e9876",
+        "family": "v3-assessment-pe-002",
+        "intended_label": "neutral"
+      },
+      {
+        "review_id": "b3_3d73dd590f2918af5d05",
+        "family": "v3-assessment-pe-002",
+        "intended_label": "positivo"
+      },
+      {
+        "review_id": "b3_f0240d279ebac2df6671",
+        "family": "v3-assessment-pe-003",
+        "intended_label": "negativo"
+      },
+      {
+        "review_id": "b3_cb36cd36edba850c973f",
+        "family": "v3-assessment-pe-003",
+        "intended_label": "neutral"
+      },
+      {
+        "review_id": "b3_3bef2ee60ad7bbc9cd02",
+        "family": "v3-assessment-pe-003",
+        "intended_label": "positivo"
+      },
+      {
+        "review_id": "b3_75c45479040618158070",
+        "family": "v3-assessment-pe-004",
+        "intended_label": "negativo"
+      },
+      {
+        "review_id": "b3_839c021fc2ebeb3db753",
+        "family": "v3-assessment-pe-004",
+        "intended_label": "neutral"
+      },
+      {
+        "review_id": "b3_74567343c2e74d81d246",
+        "family": "v3-assessment-pe-004",
+        "intended_label": "positivo"
+      },
+      {
+        "review_id": "b3_80dddb1f22cdda54ad6a",
+        "family": "v3-assessment-mx-001",
+        "intended_label": "negativo"
+      },
+      {
+        "review_id": "b3_d2ca310e90103eb7f82b",
+        "family": "v3-assessment-mx-001",
+        "intended_label": "neutral"
+      },
+      {
+        "review_id": "b3_6357f752aef7cc86f713",
+        "family": "v3-assessment-mx-001",
+        "intended_label": "positivo"
+      },
+      {
+        "review_id": "b3_28cc748ed98623bb45c8",
+        "family": "v3-assessment-mx-002",
+        "intended_label": "negativo"
+      },
+      {
+        "review_id": "b3_c35baa79d83b39391413",
+        "family": "v3-assessment-mx-002",
+        "intended_label": "neutral"
+      },
+      {
+        "review_id": "b3_8939a0ca05dfe5ef741c",
+        "family": "v3-assessment-mx-002",
+        "intended_label": "positivo"
+      },
+      {
+        "review_id": "b3_c67a675aad4d84426f96",
+        "family": "v3-assessment-mx-003",
+        "intended_label": "negativo"
+      },
+      {
+        "review_id": "b3_8344a53764da5b0b37b5",
+        "family": "v3-assessment-mx-003",
+        "intended_label": "neutral"
+      },
+      {
+        "review_id": "b3_2cd7e85e69ba5100ee2b",
+        "family": "v3-assessment-mx-003",
+        "intended_label": "positivo"
+      },
+      {
+        "review_id": "b3_114fc5ce80cc95244f7f",
+        "family": "v3-assessment-mx-004",
+        "intended_label": "negativo"
+      },
+      {
+        "review_id": "b3_d8111e55a017dc9a4b3c",
+        "family": "v3-assessment-mx-004",
+        "intended_label": "neutral"
+      },
+      {
+        "review_id": "b3_4ffd0b77bf229ec2df5c",
+        "family": "v3-assessment-mx-004",
+        "intended_label": "positivo"
+      },
+      {
+        "review_id": "b3_6a8c4685c04af4626677",
+        "family": "v3-assessment-es-001",
+        "intended_label": "negativo"
+      },
+      {
+        "review_id": "b3_4c426c759872efd76256",
+        "family": "v3-assessment-es-001",
+        "intended_label": "neutral"
+      },
+      {
+        "review_id": "b3_c18fd6733aebfe8b71ee",
+        "family": "v3-assessment-es-001",
+        "intended_label": "positivo"
+      },
+      {
+        "review_id": "b3_0db62c36eac6330bc2ed",
+        "family": "v3-assessment-es-002",
+        "intended_label": "negativo"
+      },
+      {
+        "review_id": "b3_02333f46b723b1941d78",
+        "family": "v3-assessment-es-002",
+        "intended_label": "neutral"
+      },
+      {
+        "review_id": "b3_4c02997dde7e1efbc8a2",
+        "family": "v3-assessment-es-002",
+        "intended_label": "positivo"
+      },
+      {
+        "review_id": "b3_b63390b3e42b0a3321f1",
+        "family": "v3-assessment-es-003",
+        "intended_label": "negativo"
+      },
+      {
+        "review_id": "b3_9bc269e6abc21fd49612",
+        "family": "v3-assessment-es-003",
+        "intended_label": "neutral"
+      },
+      {
+        "review_id": "b3_6fda6d191a1888f9e417",
+        "family": "v3-assessment-es-003",
+        "intended_label": "positivo"
+      },
+      {
+        "review_id": "b3_5e8ef14aa4181a706c1e",
+        "family": "v3-assessment-es-004",
+        "intended_label": "negativo"
+      },
+      {
+        "review_id": "b3_f31727a79cce23977c0f",
+        "family": "v3-assessment-es-004",
+        "intended_label": "neutral"
+      },
+      {
+        "review_id": "b3_48898ef52b337fc874e8",
+        "family": "v3-assessment-es-004",
+        "intended_label": "positivo"
+      },
+      {
+        "review_id": "b3_8736e009024c12c7888c",
+        "family": "v3-assessment-oh-001",
+        "intended_label": "negativo"
+      },
+      {
+        "review_id": "b3_8ad1ebf04a5388c5b2bf",
+        "family": "v3-assessment-oh-001",
+        "intended_label": "neutral"
+      },
+      {
+        "review_id": "b3_027beecf93d236098ff9",
+        "family": "v3-assessment-oh-001",
+        "intended_label": "positivo"
+      },
+      {
+        "review_id": "b3_1ac11f2142ac78840040",
+        "family": "v3-assessment-oh-002",
+        "intended_label": "negativo"
+      },
+      {
+        "review_id": "b3_0c2973d3133d80dfb28a",
+        "family": "v3-assessment-oh-002",
+        "intended_label": "neutral"
+      },
+      {
+        "review_id": "b3_9d41abefb91f3425a179",
+        "family": "v3-assessment-oh-002",
+        "intended_label": "positivo"
+      },
+      {
+        "review_id": "b3_1ac7652cb6e87c8516d1",
+        "family": "v3-assessment-oh-003",
+        "intended_label": "negativo"
+      },
+      {
+        "review_id": "b3_74fe4c192a02879210ea",
+        "family": "v3-assessment-oh-003",
+        "intended_label": "neutral"
+      },
+      {
+        "review_id": "b3_85a093b84a9fe68e41de",
+        "family": "v3-assessment-oh-003",
+        "intended_label": "positivo"
+      },
+      {
+        "review_id": "b3_9037139ac33a4f07c47e",
+        "family": "v3-assessment-oh-004",
+        "intended_label": "negativo"
+      },
+      {
+        "review_id": "b3_8ee2b8d4ebcbaea064a7",
+        "family": "v3-assessment-oh-004",
+        "intended_label": "neutral"
+      },
+      {
+        "review_id": "b3_cdfcd85ef8c5ec3a8514",
+        "family": "v3-assessment-oh-004",
+        "intended_label": "positivo"
+      }
+    ]
+  },
+  "generated_rows": 564,
+  "admitted_rows": 562,
+  "excluded_ambiguity_not_forced_into_sentiment": [
+    "v3-ambiguity_assessment-mx-001",
+    "v3-ambiguity_policy-pe-001"
+  ],
+  "quality": {
+    "original_shape_macro_f1": 0.49863388733024055,
+    "revised_shape_macro_f1": 0.3854073109544698,
+    "unchanged_limit": 0.45,
+    "nontrain_role_hashes_unchanged": true,
+    "blind_ai_labeled_sample": 90,
+    "two_ai_review_author_agreement": [
+      1.0,
+      1.0
+    ],
+    "ai_pairwise_kappa": 1.0,
+    "human_gold": false
+  },
+  "checkpoint": {
+    "model": "dccuchile/bert-base-spanish-wwm-cased",
+    "revision": "c4d86612f51b4f46759c8390d1798c2febe71b93",
+    "weight_sha256": "e131a95091c777bbd45250fb647fec415010cb8cd1ad6e1d59babeb82a0be360"
+  },
+  "environment": {
+    "python": "3.12",
+    "torch": "2.9.1+cpu",
+    "transformers": "4.57.6",
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1"
+  },
+  "primary_seed": 42,
+  "replica_seeds": [
+    7,
+    101
+  ],
+  "reproduction_tolerance_before_assessment": {
+    "raw_probabilities_max_abs": 0.003,
+    "class_predictions_exact": true
+  },
+  "selection_protection": "Develop only TRAIN/tune; Git-committed selection verified before assessment. Separate calibration and policy. Exclusive corpus-wide observed marker. Fixed replay only after observation.",
+  "target_5000_plan": {
+    "train": 3501,
+    "tune": 450,
+    "calibration": 300,
+    "policy_dev": 249,
+    "assessment": 450,
+    "ambiguity_policy": 25,
+    "ambiguity_assessment": 25,
+    "status": "PLANNED_NOT_GENERATED_NOT_TRAINED",
+    "assessment_rule": "All full-scale final450 and ambiguity25 must be newly authored and frozen before full-scale model predictions; never relabel pilot60 as an intact final test. Only pilot TRAIN may be carried into full TRAIN; all new roles preserve family/source/related-episode separation."
+  },
+  "scope": "540 labeled and24 unlabeled ambiguity drafts; two ambiguityitems quarantined, no claim5000generated ortrained.",
+  "remaining_limits": [
+    "AI agreement and lexical audits are not human validation or proof of semantic/population independence.",
+    "TRAIN style revision reduced orthographic noise; typo slices have sparse support.",
+    "Generator model/checkpoint/seed not exposed by platform; authored texts are versioned rather than deterministically regenerable.",
+    "Additional final independent code-audit agent was blocked by platform usage quota; no audit completion claimed. Earlier independent findings led to tested admission, deadline and observation-lock fixes."
+  ]
+}

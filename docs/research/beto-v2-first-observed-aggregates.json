@@ -1,0 +1,289 @@
+{
+  "scope": "AGGREGATES_RETAINED_IN_SESSION_FROM_FIRST_OBSERVED_ASSESSMENT_NOT_RAW_PROBABILITIES",
+  "original_unpublished_probability_arrays_available": false,
+  "development_lock_commit": "d067c8aad31cf23a12ea2cd76f78c2f71f4cdcca",
+  "labels_order": [
+    "negativo",
+    "neutral",
+    "positivo"
+  ],
+  "models": {
+    "dummy_mixed240": {
+      "macro_f1": 0.16666666666666666,
+      "confusion_matrix": [
+        [
+          30,
+          0,
+          0
+        ],
+        [
+          30,
+          0,
+          0
+        ],
+        [
+          30,
+          0,
+          0
+        ]
+      ],
+      "negative_to_positive": 0
+    },
+    "lr_existing120": {
+      "macro_f1": 0.7941432963172094,
+      "confusion_matrix": [
+        [
+          25,
+          3,
+          2
+        ],
+        [
+          7,
+          23,
+          0
+        ],
+        [
+          7,
+          0,
+          23
+        ]
+      ],
+      "negative_to_positive": 2
+    },
+    "svm_existing120": {
+      "macro_f1": 0.7730929201517437,
+      "confusion_matrix": [
+        [
+          28,
+          1,
+          1
+        ],
+        [
+          9,
+          21,
+          0
+        ],
+        [
+          10,
+          0,
+          20
+        ]
+      ],
+      "negative_to_positive": 1
+    },
+    "lr_new120": {
+      "macro_f1": 0.8447031793343269,
+      "confusion_matrix": [
+        [
+          26,
+          2,
+          2
+        ],
+        [
+          3,
+          27,
+          0
+        ],
+        [
+          5,
+          2,
+          23
+        ]
+      ],
+      "negative_to_positive": 2
+    },
+    "svm_new120": {
+      "macro_f1": 0.7794710171795822,
+      "confusion_matrix": [
+        [
+          22,
+          1,
+          7
+        ],
+        [
+          5,
+          25,
+          0
+        ],
+        [
+          5,
+          2,
+          23
+        ]
+      ],
+      "negative_to_positive": 7
+    },
+    "lr_mixed240": {
+      "macro_f1": 0.8461309523809524,
+      "confusion_matrix": [
+        [
+          25,
+          3,
+          2
+        ],
+        [
+          3,
+          27,
+          0
+        ],
+        [
+          6,
+          0,
+          24
+        ]
+      ],
+      "negative_to_positive": 2
+    },
+    "svm_mixed240": {
+      "macro_f1": 0.8584645693836581,
+      "confusion_matrix": [
+        [
+          27,
+          1,
+          2
+        ],
+        [
+          4,
+          26,
+          0
+        ],
+        [
+          6,
+          0,
+          24
+        ]
+      ],
+      "negative_to_positive": 2
+    },
+    "beto_frozen_mean_l2_128_existing120": {
+      "macro_f1": 0.7928917659567815,
+      "confusion_matrix": [
+        [
+          25,
+          2,
+          3
+        ],
+        [
+          6,
+          23,
+          1
+        ],
+        [
+          7,
+          0,
+          23
+        ]
+      ],
+      "negative_to_positive": 3
+    },
+    "beto_frozen_mean_l2_128_new120": {
+      "macro_f1": 0.8870457108162025,
+      "confusion_matrix": [
+        [
+          23,
+          2,
+          5
+        ],
+        [
+          1,
+          29,
+          0
+        ],
+        [
+          2,
+          0,
+          28
+        ]
+      ],
+      "negative_to_positive": 5
+    },
+    "beto_frozen_mean_l2_128_mixed240": {
+      "macro_f1": 0.8642119871628068,
+      "confusion_matrix": [
+        [
+          22,
+          3,
+          5
+        ],
+        [
+          2,
+          28,
+          0
+        ],
+        [
+          2,
+          0,
+          28
+        ]
+      ],
+      "negative_to_positive": 5
+    },
+    "beto_top2_low128": {
+      "macro_f1": 0.845366751336439,
+      "confusion_matrix": [
+        [
+          26,
+          3,
+          1
+        ],
+        [
+          2,
+          28,
+          0
+        ],
+        [
+          8,
+          0,
+          22
+        ]
+      ],
+      "negative_to_positive": 1
+    },
+    "beto_selected_seed7": {
+      "macro_f1": 0.8962498244299827,
+      "confusion_matrix": [
+        [
+          22,
+          3,
+          5
+        ],
+        [
+          1,
+          29,
+          0
+        ],
+        [
+          0,
+          0,
+          30
+        ]
+      ],
+      "negative_to_positive": 5
+    },
+    "beto_selected_seed101": {
+      "macro_f1": 0.8487688541419884,
+      "confusion_matrix": [
+        [
+          19,
+          3,
+          8
+        ],
+        [
+          1,
+          29,
+          0
+        ],
+        [
+          0,
+          1,
+          29
+        ]
+      ],
+      "negative_to_positive": 8
+    }
+  },
+  "limits": [
+    "Reconstructed from observed aggregate output retained in the session, not recovered from an original report file.",
+    "An exact probability-array comparison with the lost first assessment cannot be made."
+  ]
+}

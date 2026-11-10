@@ -1,0 +1,102 @@
+{
+  "scope": "ISOLATED_INFERENCE_BACKENDS_NOT_TRAINING_MEMORY",
+  "models": {
+    "lr_existing120": {
+      "model": "lr_existing120",
+      "peak_rss_mib": 157.35546875,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "fresh process; imports, load and 9 tune inferences; no assessment calls",
+      "launch_parent": "stdlib-only script; no numpy/torch/optimizer imports"
+    },
+    "svm_existing120": {
+      "model": "svm_existing120",
+      "peak_rss_mib": 161.44921875,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "fresh process; imports, load and 9 tune inferences; no assessment calls",
+      "launch_parent": "stdlib-only script; no numpy/torch/optimizer imports"
+    },
+    "lr_new120": {
+      "model": "lr_new120",
+      "peak_rss_mib": 158.38671875,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "fresh process; imports, load and 9 tune inferences; no assessment calls",
+      "launch_parent": "stdlib-only script; no numpy/torch/optimizer imports"
+    },
+    "svm_new120": {
+      "model": "svm_new120",
+      "peak_rss_mib": 162.8984375,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "fresh process; imports, load and 9 tune inferences; no assessment calls",
+      "launch_parent": "stdlib-only script; no numpy/torch/optimizer imports"
+    },
+    "dummy_mixed240": {
+      "model": "dummy_mixed240",
+      "peak_rss_mib": 158.64453125,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "fresh process; imports, load and 9 tune inferences; no assessment calls",
+      "launch_parent": "stdlib-only script; no numpy/torch/optimizer imports"
+    },
+    "lr_mixed240": {
+      "model": "lr_mixed240",
+      "peak_rss_mib": 159.52734375,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "fresh process; imports, load and 9 tune inferences; no assessment calls",
+      "launch_parent": "stdlib-only script; no numpy/torch/optimizer imports"
+    },
+    "svm_mixed240": {
+      "model": "svm_mixed240",
+      "peak_rss_mib": 166.2109375,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "fresh process; imports, load and 9 tune inferences; no assessment calls",
+      "launch_parent": "stdlib-only script; no numpy/torch/optimizer imports"
+    },
+    "beto_frozen_mean_l2_128_existing120": {
+      "model": "beto_frozen_mean_l2_128_existing120",
+      "peak_rss_mib": 773.9296875,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "fresh process; imports, load and 9 tune inferences; no assessment calls",
+      "launch_parent": "stdlib-only script; no numpy/torch/optimizer imports"
+    },
+    "beto_frozen_mean_l2_128_new120": {
+      "model": "beto_frozen_mean_l2_128_new120",
+      "peak_rss_mib": 772.91796875,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "fresh process; imports, load and 9 tune inferences; no assessment calls",
+      "launch_parent": "stdlib-only script; no numpy/torch/optimizer imports"
+    },
+    "beto_frozen_mean_l2_128_mixed240": {
+      "model": "beto_frozen_mean_l2_128_mixed240",
+      "peak_rss_mib": 774.15625,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "fresh process; imports, load and 9 tune inferences; no assessment calls",
+      "launch_parent": "stdlib-only script; no numpy/torch/optimizer imports"
+    },
+    "beto_top2_low128": {
+      "model": "beto_top2_low128",
+      "peak_rss_mib": 779.671875,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "fresh process; imports, load and 9 tune inferences; no assessment calls",
+      "launch_parent": "stdlib-only script; no numpy/torch/optimizer imports"
+    },
+    "beto_selected_seed7": {
+      "model": "beto_selected_seed7",
+      "peak_rss_mib": 778.70703125,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "fresh process; imports, load and 9 tune inferences; no assessment calls",
+      "launch_parent": "stdlib-only script; no numpy/torch/optimizer imports"
+    },
+    "beto_selected_seed101": {
+      "model": "beto_selected_seed101",
+      "peak_rss_mib": 780.2265625,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "fresh process; imports, load and 9 tune inferences; no assessment calls",
+      "launch_parent": "stdlib-only script; no numpy/torch/optimizer imports"
+    }
+  },
+  "telemetry_comparison_valid": true,
+  "limits": [
+    "Includes imports, load and nine tune requests per process.",
+    "No assessment calls or threshold changes; training memory is separate.",
+    "Repeated identical high-water marks are rejected as uninformative telemetry."
+  ]
+}

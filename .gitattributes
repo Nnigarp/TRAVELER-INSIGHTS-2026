@@ -1,0 +1,4 @@
+# Keep registered source/data bytes identical in Windows and Linux checkouts.
+*.py text eol=lf
+*.json text eol=lf
+*.yml text eol=lf

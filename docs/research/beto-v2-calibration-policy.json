@@ -1,0 +1,5667 @@
+{
+  "beto_frozen_mean_l2_128_existing120": {
+    "policy": {
+      "candidates": [
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 37,
+            "accepted_components": 20,
+            "accepted_negatives": 12,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.6166666666666667,
+            "error_risk_among_accepted": 0.10810810810810811,
+            "referred": 23,
+            "review_rate": 0.38333333333333336,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 31,
+            "accepted_components": 20,
+            "accepted_negatives": 12,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5166666666666667,
+            "error_risk_among_accepted": 0.12903225806451613,
+            "referred": 29,
+            "review_rate": 0.48333333333333334,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 33,
+            "accepted_components": 20,
+            "accepted_negatives": 12,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.55,
+            "error_risk_among_accepted": 0.12121212121212122,
+            "referred": 27,
+            "review_rate": 0.45,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 30,
+            "accepted_components": 20,
+            "accepted_negatives": 12,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5,
+            "error_risk_among_accepted": 0.13333333333333333,
+            "referred": 30,
+            "review_rate": 0.5,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 30,
+            "accepted_components": 20,
+            "accepted_negatives": 9,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5,
+            "error_risk_among_accepted": 0.1,
+            "referred": 30,
+            "review_rate": 0.5,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 24,
+            "accepted_components": 19,
+            "accepted_negatives": 9,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.4,
+            "error_risk_among_accepted": 0.125,
+            "referred": 36,
+            "review_rate": 0.6,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 26,
+            "accepted_components": 19,
+            "accepted_negatives": 9,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.43333333333333335,
+            "error_risk_among_accepted": 0.11538461538461539,
+            "referred": 34,
+            "review_rate": 0.5666666666666667,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 23,
+            "accepted_components": 19,
+            "accepted_negatives": 9,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.38333333333333336,
+            "error_risk_among_accepted": 0.13043478260869565,
+            "referred": 37,
+            "review_rate": 0.6166666666666667,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 20,
+            "accepted_components": 14,
+            "accepted_negatives": 6,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.3333333333333333,
+            "error_risk_among_accepted": 0.05,
+            "referred": 40,
+            "review_rate": 0.6666666666666666,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": true,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 14,
+            "accepted_components": 13,
+            "accepted_negatives": 6,
+            "ambiguity_review_rate": 0.875,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.23333333333333334,
+            "error_risk_among_accepted": 0.07142857142857142,
+            "referred": 46,
+            "review_rate": 0.7666666666666667,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 16,
+            "accepted_components": 12,
+            "accepted_negatives": 6,
+            "ambiguity_review_rate": 0.875,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.26666666666666666,
+            "error_risk_among_accepted": 0.0625,
+            "referred": 44,
+            "review_rate": 0.7333333333333333,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": true,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 13,
+            "accepted_components": 12,
+            "accepted_negatives": 6,
+            "ambiguity_review_rate": 0.875,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.21666666666666667,
+            "error_risk_among_accepted": 0.07692307692307693,
+            "referred": 47,
+            "review_rate": 0.7833333333333333,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        }
+      ],
+      "guarantee": "NONE; multiplicity and synthetic group dependence preclude a deployment guarantee",
+      "selected": null,
+      "status": "NO_POLICY_ADMITTED_NOT_REVIEW_ALL_SOLUTION"
+    },
+    "temperature": {
+      "candidates": [
+        {
+          "fit_nll": 0.4622681699903578,
+          "temperature": 0.5
+        },
+        {
+          "fit_nll": 0.5576898674943281,
+          "temperature": 0.75
+        },
+        {
+          "fit_nll": 0.6372242338965101,
+          "temperature": 1.0
+        },
+        {
+          "fit_nll": 0.7480853421183196,
+          "temperature": 1.5
+        },
+        {
+          "fit_nll": 0.8181005141098734,
+          "temperature": 2.0
+        },
+        {
+          "fit_nll": 0.8993077382718089,
+          "temperature": 3.0
+        }
+      ],
+      "fitted_on": "calibration only; fit NLL is not an unbiased evaluation",
+      "temperature": 0.5
+    }
+  },
+  "beto_frozen_mean_l2_128_mixed240": {
+    "policy": {
+      "candidates": [
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 50,
+            "accepted_components": 20,
+            "accepted_negatives": 16,
+            "ambiguity_review_rate": 0.125,
+            "automatic_negative_to_positive_count": 1,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.05,
+            "coverage": 0.8333333333333334,
+            "error_risk_among_accepted": 0.06,
+            "referred": 10,
+            "review_rate": 0.16666666666666666,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 37,
+            "accepted_components": 19,
+            "accepted_negatives": 16,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 1,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.05,
+            "coverage": 0.6166666666666667,
+            "error_risk_among_accepted": 0.08108108108108109,
+            "referred": 23,
+            "review_rate": 0.38333333333333336,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 47,
+            "accepted_components": 20,
+            "accepted_negatives": 15,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.7833333333333333,
+            "error_risk_among_accepted": 0.0425531914893617,
+            "referred": 13,
+            "review_rate": 0.21666666666666667,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 36,
+            "accepted_components": 19,
+            "accepted_negatives": 15,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.6,
+            "error_risk_among_accepted": 0.05555555555555555,
+            "referred": 24,
+            "review_rate": 0.4,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 49,
+            "accepted_components": 20,
+            "accepted_negatives": 16,
+            "ambiguity_review_rate": 0.125,
+            "automatic_negative_to_positive_count": 1,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.05,
+            "coverage": 0.8166666666666667,
+            "error_risk_among_accepted": 0.04081632653061224,
+            "referred": 11,
+            "review_rate": 0.18333333333333332,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 36,
+            "accepted_components": 19,
+            "accepted_negatives": 16,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 1,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.05,
+            "coverage": 0.6,
+            "error_risk_among_accepted": 0.05555555555555555,
+            "referred": 24,
+            "review_rate": 0.4,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 46,
+            "accepted_components": 20,
+            "accepted_negatives": 15,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.7666666666666667,
+            "error_risk_among_accepted": 0.021739130434782608,
+            "referred": 14,
+            "review_rate": 0.23333333333333334,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 35,
+            "accepted_components": 19,
+            "accepted_negatives": 15,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5833333333333334,
+            "error_risk_among_accepted": 0.02857142857142857,
+            "referred": 25,
+            "review_rate": 0.4166666666666667,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 47,
+            "accepted_components": 20,
+            "accepted_negatives": 14,
+            "ambiguity_review_rate": 0.125,
+            "automatic_negative_to_positive_count": 1,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.05,
+            "coverage": 0.7833333333333333,
+            "error_risk_among_accepted": 0.0425531914893617,
+            "referred": 13,
+            "review_rate": 0.21666666666666667,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 34,
+            "accepted_components": 18,
+            "accepted_negatives": 14,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 1,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.05,
+            "coverage": 0.5666666666666667,
+            "error_risk_among_accepted": 0.058823529411764705,
+            "referred": 26,
+            "review_rate": 0.43333333333333335,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 44,
+            "accepted_components": 20,
+            "accepted_negatives": 13,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.7333333333333333,
+            "error_risk_among_accepted": 0.022727272727272728,
+            "referred": 16,
+            "review_rate": 0.26666666666666666,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 33,
+            "accepted_components": 18,
+            "accepted_negatives": 13,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.55,
+            "error_risk_among_accepted": 0.030303030303030304,
+            "referred": 27,
+            "review_rate": 0.45,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        }
+      ],
+      "guarantee": "NONE; multiplicity and synthetic group dependence preclude a deployment guarantee",
+      "selected": null,
+      "status": "NO_POLICY_ADMITTED_NOT_REVIEW_ALL_SOLUTION"
+    },
+    "temperature": {
+      "candidates": [
+        {
+          "fit_nll": 0.2675349575515084,
+          "temperature": 0.5
+        },
+        {
+          "fit_nll": 0.277748875932251,
+          "temperature": 0.75
+        },
+        {
+          "fit_nll": 0.3181936889976528,
+          "temperature": 1.0
+        },
+        {
+          "fit_nll": 0.41642855574524645,
+          "temperature": 1.5
+        },
+        {
+          "fit_nll": 0.5062467689667568,
+          "temperature": 2.0
+        },
+        {
+          "fit_nll": 0.6402466473388752,
+          "temperature": 3.0
+        }
+      ],
+      "fitted_on": "calibration only; fit NLL is not an unbiased evaluation",
+      "temperature": 0.5
+    }
+  },
+  "beto_frozen_mean_l2_128_new120": {
+    "policy": {
+      "candidates": [
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 50,
+            "accepted_components": 20,
+            "accepted_negatives": 17,
+            "ambiguity_review_rate": 0.25,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.8333333333333334,
+            "error_risk_among_accepted": 0.08,
+            "referred": 10,
+            "review_rate": 0.16666666666666666,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 39,
+            "accepted_components": 20,
+            "accepted_negatives": 17,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.65,
+            "error_risk_among_accepted": 0.10256410256410256,
+            "referred": 21,
+            "review_rate": 0.35,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 49,
+            "accepted_components": 20,
+            "accepted_negatives": 17,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.8166666666666667,
+            "error_risk_among_accepted": 0.08163265306122448,
+            "referred": 11,
+            "review_rate": 0.18333333333333332,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 39,
+            "accepted_components": 20,
+            "accepted_negatives": 17,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.65,
+            "error_risk_among_accepted": 0.10256410256410256,
+            "referred": 21,
+            "review_rate": 0.35,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 50,
+            "accepted_components": 20,
+            "accepted_negatives": 17,
+            "ambiguity_review_rate": 0.25,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.8333333333333334,
+            "error_risk_among_accepted": 0.08,
+            "referred": 10,
+            "review_rate": 0.16666666666666666,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 39,
+            "accepted_components": 20,
+            "accepted_negatives": 17,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.65,
+            "error_risk_among_accepted": 0.10256410256410256,
+            "referred": 21,
+            "review_rate": 0.35,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 49,
+            "accepted_components": 20,
+            "accepted_negatives": 17,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.8166666666666667,
+            "error_risk_among_accepted": 0.08163265306122448,
+            "referred": 11,
+            "review_rate": 0.18333333333333332,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 39,
+            "accepted_components": 20,
+            "accepted_negatives": 17,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.65,
+            "error_risk_among_accepted": 0.10256410256410256,
+            "referred": 21,
+            "review_rate": 0.35,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 42,
+            "accepted_components": 20,
+            "accepted_negatives": 13,
+            "ambiguity_review_rate": 0.375,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.7,
+            "error_risk_among_accepted": 0.07142857142857142,
+            "referred": 18,
+            "review_rate": 0.3,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": true,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": true,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 31,
+            "accepted_components": 19,
+            "accepted_negatives": 13,
+            "ambiguity_review_rate": 0.875,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5166666666666667,
+            "error_risk_among_accepted": 0.0967741935483871,
+            "referred": 29,
+            "review_rate": 0.48333333333333334,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 41,
+            "accepted_components": 20,
+            "accepted_negatives": 13,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.6833333333333333,
+            "error_risk_among_accepted": 0.07317073170731707,
+            "referred": 19,
+            "review_rate": 0.31666666666666665,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": true,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": true,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 31,
+            "accepted_components": 19,
+            "accepted_negatives": 13,
+            "ambiguity_review_rate": 0.875,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5166666666666667,
+            "error_risk_among_accepted": 0.0967741935483871,
+            "referred": 29,
+            "review_rate": 0.48333333333333334,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        }
+      ],
+      "guarantee": "NONE; multiplicity and synthetic group dependence preclude a deployment guarantee",
+      "selected": {
+        "global": 0.8,
+        "guard": true,
+        "margin": 0.1,
+        "positive": 0.85
+      },
+      "status": "EMPIRICAL_DEVELOPMENT_CANDIDATE_ONLY"
+    },
+    "temperature": {
+      "candidates": [
+        {
+          "fit_nll": 0.3433596874529314,
+          "temperature": 0.5
+        },
+        {
+          "fit_nll": 0.3691164227926132,
+          "temperature": 0.75
+        },
+        {
+          "fit_nll": 0.42259249324000514,
+          "temperature": 1.0
+        },
+        {
+          "fit_nll": 0.5320517341335796,
+          "temperature": 1.5
+        },
+        {
+          "fit_nll": 0.6203576168421233,
+          "temperature": 2.0
+        },
+        {
+          "fit_nll": 0.7401507820821757,
+          "temperature": 3.0
+        }
+      ],
+      "fitted_on": "calibration only; fit NLL is not an unbiased evaluation",
+      "temperature": 0.5
+    }
+  },
+  "beto_selected_seed101": {
+    "policy": {
+      "candidates": [
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": false,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 55,
+            "accepted_components": 20,
+            "accepted_negatives": 16,
+            "ambiguity_review_rate": 0.125,
+            "automatic_negative_to_positive_count": 3,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.15,
+            "coverage": 0.9166666666666666,
+            "error_risk_among_accepted": 0.09090909090909091,
+            "referred": 5,
+            "review_rate": 0.08333333333333333,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": false,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 39,
+            "accepted_components": 20,
+            "accepted_negatives": 15,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 2,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.1,
+            "coverage": 0.65,
+            "error_risk_among_accepted": 0.10256410256410256,
+            "referred": 21,
+            "review_rate": 0.35,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": false,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 52,
+            "accepted_components": 20,
+            "accepted_negatives": 16,
+            "ambiguity_review_rate": 0.125,
+            "automatic_negative_to_positive_count": 3,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.15,
+            "coverage": 0.8666666666666667,
+            "error_risk_among_accepted": 0.09615384615384616,
+            "referred": 8,
+            "review_rate": 0.13333333333333333,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": false,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 38,
+            "accepted_components": 20,
+            "accepted_negatives": 15,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 2,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.1,
+            "coverage": 0.6333333333333333,
+            "error_risk_among_accepted": 0.10526315789473684,
+            "referred": 22,
+            "review_rate": 0.36666666666666664,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": false,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 55,
+            "accepted_components": 20,
+            "accepted_negatives": 16,
+            "ambiguity_review_rate": 0.125,
+            "automatic_negative_to_positive_count": 3,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.15,
+            "coverage": 0.9166666666666666,
+            "error_risk_among_accepted": 0.09090909090909091,
+            "referred": 5,
+            "review_rate": 0.08333333333333333,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": false,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 39,
+            "accepted_components": 20,
+            "accepted_negatives": 15,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 2,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.1,
+            "coverage": 0.65,
+            "error_risk_among_accepted": 0.10256410256410256,
+            "referred": 21,
+            "review_rate": 0.35,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": false,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 52,
+            "accepted_components": 20,
+            "accepted_negatives": 16,
+            "ambiguity_review_rate": 0.125,
+            "automatic_negative_to_positive_count": 3,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.15,
+            "coverage": 0.8666666666666667,
+            "error_risk_among_accepted": 0.09615384615384616,
+            "referred": 8,
+            "review_rate": 0.13333333333333333,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": false,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 38,
+            "accepted_components": 20,
+            "accepted_negatives": 15,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 2,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.1,
+            "coverage": 0.6333333333333333,
+            "error_risk_among_accepted": 0.10526315789473684,
+            "referred": 22,
+            "review_rate": 0.36666666666666664,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": false,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 54,
+            "accepted_components": 20,
+            "accepted_negatives": 16,
+            "ambiguity_review_rate": 0.25,
+            "automatic_negative_to_positive_count": 3,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.15,
+            "coverage": 0.9,
+            "error_risk_among_accepted": 0.09259259259259259,
+            "referred": 6,
+            "review_rate": 0.1,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": false,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 38,
+            "accepted_components": 19,
+            "accepted_negatives": 15,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 2,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.1,
+            "coverage": 0.6333333333333333,
+            "error_risk_among_accepted": 0.10526315789473684,
+            "referred": 22,
+            "review_rate": 0.36666666666666664,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": false,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 51,
+            "accepted_components": 20,
+            "accepted_negatives": 16,
+            "ambiguity_review_rate": 0.25,
+            "automatic_negative_to_positive_count": 3,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.15,
+            "coverage": 0.85,
+            "error_risk_among_accepted": 0.09803921568627451,
+            "referred": 9,
+            "review_rate": 0.15,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": false,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 37,
+            "accepted_components": 19,
+            "accepted_negatives": 15,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 2,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.1,
+            "coverage": 0.6166666666666667,
+            "error_risk_among_accepted": 0.10810810810810811,
+            "referred": 23,
+            "review_rate": 0.38333333333333336,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        }
+      ],
+      "guarantee": "NONE; multiplicity and synthetic group dependence preclude a deployment guarantee",
+      "selected": null,
+      "status": "NO_POLICY_ADMITTED_NOT_REVIEW_ALL_SOLUTION"
+    },
+    "temperature": {
+      "candidates": [
+        {
+          "fit_nll": 0.2629159509119369,
+          "temperature": 0.5
+        },
+        {
+          "fit_nll": 0.27364948589147814,
+          "temperature": 0.75
+        },
+        {
+          "fit_nll": 0.30109886486334747,
+          "temperature": 1.0
+        },
+        {
+          "fit_nll": 0.3695137798265816,
+          "temperature": 1.5
+        },
+        {
+          "fit_nll": 0.43976691597188466,
+          "temperature": 2.0
+        },
+        {
+          "fit_nll": 0.5609355272432018,
+          "temperature": 3.0
+        }
+      ],
+      "fitted_on": "calibration only; fit NLL is not an unbiased evaluation",
+      "temperature": 0.5
+    }
+  },
+  "beto_selected_seed7": {
+    "policy": {
+      "candidates": [
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": false,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 49,
+            "accepted_components": 20,
+            "accepted_negatives": 16,
+            "ambiguity_review_rate": 0.125,
+            "automatic_negative_to_positive_count": 2,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.1,
+            "coverage": 0.8166666666666667,
+            "error_risk_among_accepted": 0.08163265306122448,
+            "referred": 11,
+            "review_rate": 0.18333333333333332,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": false,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 36,
+            "accepted_components": 19,
+            "accepted_negatives": 16,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 2,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.1,
+            "coverage": 0.6,
+            "error_risk_among_accepted": 0.1111111111111111,
+            "referred": 24,
+            "review_rate": 0.4,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 46,
+            "accepted_components": 20,
+            "accepted_negatives": 14,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.7666666666666667,
+            "error_risk_among_accepted": 0.043478260869565216,
+            "referred": 14,
+            "review_rate": 0.23333333333333334,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 34,
+            "accepted_components": 19,
+            "accepted_negatives": 14,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5666666666666667,
+            "error_risk_among_accepted": 0.058823529411764705,
+            "referred": 26,
+            "review_rate": 0.43333333333333335,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": false,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 47,
+            "accepted_components": 20,
+            "accepted_negatives": 14,
+            "ambiguity_review_rate": 0.125,
+            "automatic_negative_to_positive_count": 2,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.1,
+            "coverage": 0.7833333333333333,
+            "error_risk_among_accepted": 0.06382978723404255,
+            "referred": 13,
+            "review_rate": 0.21666666666666667,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": false,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 34,
+            "accepted_components": 18,
+            "accepted_negatives": 14,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 2,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.1,
+            "coverage": 0.5666666666666667,
+            "error_risk_among_accepted": 0.08823529411764706,
+            "referred": 26,
+            "review_rate": 0.43333333333333335,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 44,
+            "accepted_components": 20,
+            "accepted_negatives": 12,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.7333333333333333,
+            "error_risk_among_accepted": 0.022727272727272728,
+            "referred": 16,
+            "review_rate": 0.26666666666666666,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 32,
+            "accepted_components": 18,
+            "accepted_negatives": 12,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5333333333333333,
+            "error_risk_among_accepted": 0.03125,
+            "referred": 28,
+            "review_rate": 0.4666666666666667,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": false,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 47,
+            "accepted_components": 20,
+            "accepted_negatives": 14,
+            "ambiguity_review_rate": 0.25,
+            "automatic_negative_to_positive_count": 2,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.1,
+            "coverage": 0.7833333333333333,
+            "error_risk_among_accepted": 0.06382978723404255,
+            "referred": 13,
+            "review_rate": 0.21666666666666667,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": false,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 34,
+            "accepted_components": 18,
+            "accepted_negatives": 14,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 2,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.1,
+            "coverage": 0.5666666666666667,
+            "error_risk_among_accepted": 0.08823529411764706,
+            "referred": 26,
+            "review_rate": 0.43333333333333335,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 44,
+            "accepted_components": 20,
+            "accepted_negatives": 12,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.7333333333333333,
+            "error_risk_among_accepted": 0.022727272727272728,
+            "referred": 16,
+            "review_rate": 0.26666666666666666,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 32,
+            "accepted_components": 18,
+            "accepted_negatives": 12,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5333333333333333,
+            "error_risk_among_accepted": 0.03125,
+            "referred": 28,
+            "review_rate": 0.4666666666666667,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        }
+      ],
+      "guarantee": "NONE; multiplicity and synthetic group dependence preclude a deployment guarantee",
+      "selected": null,
+      "status": "NO_POLICY_ADMITTED_NOT_REVIEW_ALL_SOLUTION"
+    },
+    "temperature": {
+      "candidates": [
+        {
+          "fit_nll": 0.2588991358318433,
+          "temperature": 0.5
+        },
+        {
+          "fit_nll": 0.25845510609056804,
+          "temperature": 0.75
+        },
+        {
+          "fit_nll": 0.2835363733986064,
+          "temperature": 1.0
+        },
+        {
+          "fit_nll": 0.35518171385531033,
+          "temperature": 1.5
+        },
+        {
+          "fit_nll": 0.43016604727152996,
+          "temperature": 2.0
+        },
+        {
+          "fit_nll": 0.5575158165717853,
+          "temperature": 3.0
+        }
+      ],
+      "fitted_on": "calibration only; fit NLL is not an unbiased evaluation",
+      "temperature": 0.75
+    }
+  },
+  "beto_top2_low128": {
+    "policy": {
+      "candidates": [
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 49,
+            "accepted_components": 20,
+            "accepted_negatives": 17,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.8166666666666667,
+            "error_risk_among_accepted": 0.08163265306122448,
+            "referred": 11,
+            "review_rate": 0.18333333333333332,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 40,
+            "accepted_components": 19,
+            "accepted_negatives": 17,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.6666666666666666,
+            "error_risk_among_accepted": 0.1,
+            "referred": 20,
+            "review_rate": 0.3333333333333333,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 41,
+            "accepted_components": 19,
+            "accepted_negatives": 17,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.6833333333333333,
+            "error_risk_among_accepted": 0.0975609756097561,
+            "referred": 19,
+            "review_rate": 0.31666666666666665,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 39,
+            "accepted_components": 19,
+            "accepted_negatives": 17,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.65,
+            "error_risk_among_accepted": 0.10256410256410256,
+            "referred": 21,
+            "review_rate": 0.35,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 46,
+            "accepted_components": 20,
+            "accepted_negatives": 16,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.7666666666666667,
+            "error_risk_among_accepted": 0.043478260869565216,
+            "referred": 14,
+            "review_rate": 0.23333333333333334,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 37,
+            "accepted_components": 19,
+            "accepted_negatives": 16,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.6166666666666667,
+            "error_risk_among_accepted": 0.05405405405405406,
+            "referred": 23,
+            "review_rate": 0.38333333333333336,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 38,
+            "accepted_components": 19,
+            "accepted_negatives": 16,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.6333333333333333,
+            "error_risk_among_accepted": 0.05263157894736842,
+            "referred": 22,
+            "review_rate": 0.36666666666666664,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 36,
+            "accepted_components": 19,
+            "accepted_negatives": 16,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.6,
+            "error_risk_among_accepted": 0.05555555555555555,
+            "referred": 24,
+            "review_rate": 0.4,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 43,
+            "accepted_components": 20,
+            "accepted_negatives": 14,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.7166666666666667,
+            "error_risk_among_accepted": 0.023255813953488372,
+            "referred": 17,
+            "review_rate": 0.2833333333333333,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 34,
+            "accepted_components": 19,
+            "accepted_negatives": 14,
+            "ambiguity_review_rate": 0.625,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5666666666666667,
+            "error_risk_among_accepted": 0.029411764705882353,
+            "referred": 26,
+            "review_rate": 0.43333333333333335,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 35,
+            "accepted_components": 19,
+            "accepted_negatives": 14,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5833333333333334,
+            "error_risk_among_accepted": 0.02857142857142857,
+            "referred": 25,
+            "review_rate": 0.4166666666666667,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 33,
+            "accepted_components": 19,
+            "accepted_negatives": 14,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.55,
+            "error_risk_among_accepted": 0.030303030303030304,
+            "referred": 27,
+            "review_rate": 0.45,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        }
+      ],
+      "guarantee": "NONE; multiplicity and synthetic group dependence preclude a deployment guarantee",
+      "selected": null,
+      "status": "NO_POLICY_ADMITTED_NOT_REVIEW_ALL_SOLUTION"
+    },
+    "temperature": {
+      "candidates": [
+        {
+          "fit_nll": 0.36774028478665455,
+          "temperature": 0.5
+        },
+        {
+          "fit_nll": 0.30554788640096137,
+          "temperature": 0.75
+        },
+        {
+          "fit_nll": 0.30343276139274206,
+          "temperature": 1.0
+        },
+        {
+          "fit_nll": 0.3556824777423288,
+          "temperature": 1.5
+        },
+        {
+          "fit_nll": 0.4257173708679251,
+          "temperature": 2.0
+        },
+        {
+          "fit_nll": 0.5518512365479997,
+          "temperature": 3.0
+        }
+      ],
+      "fitted_on": "calibration only; fit NLL is not an unbiased evaluation",
+      "temperature": 1.0
+    }
+  },
+  "dummy_mixed240": {
+    "policy": {
+      "candidates": [
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 60,
+            "accepted_components": 20,
+            "accepted_negatives": 20,
+            "ambiguity_review_rate": 0.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.6666666666666666,
+            "referred": 0,
+            "review_rate": 0.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 60,
+            "accepted_components": 20,
+            "accepted_negatives": 20,
+            "ambiguity_review_rate": 0.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.6666666666666666,
+            "referred": 0,
+            "review_rate": 0.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 60,
+            "accepted_components": 20,
+            "accepted_negatives": 20,
+            "ambiguity_review_rate": 0.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.6666666666666666,
+            "referred": 0,
+            "review_rate": 0.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 60,
+            "accepted_components": 20,
+            "accepted_negatives": 20,
+            "ambiguity_review_rate": 0.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.6666666666666666,
+            "referred": 0,
+            "review_rate": 0.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 60,
+            "accepted_components": 20,
+            "accepted_negatives": 20,
+            "ambiguity_review_rate": 0.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.6666666666666666,
+            "referred": 0,
+            "review_rate": 0.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 60,
+            "accepted_components": 20,
+            "accepted_negatives": 20,
+            "ambiguity_review_rate": 0.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.6666666666666666,
+            "referred": 0,
+            "review_rate": 0.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 60,
+            "accepted_components": 20,
+            "accepted_negatives": 20,
+            "ambiguity_review_rate": 0.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.6666666666666666,
+            "referred": 0,
+            "review_rate": 0.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 60,
+            "accepted_components": 20,
+            "accepted_negatives": 20,
+            "ambiguity_review_rate": 0.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.6666666666666666,
+            "referred": 0,
+            "review_rate": 0.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 60,
+            "accepted_components": 20,
+            "accepted_negatives": 20,
+            "ambiguity_review_rate": 0.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.6666666666666666,
+            "referred": 0,
+            "review_rate": 0.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 60,
+            "accepted_components": 20,
+            "accepted_negatives": 20,
+            "ambiguity_review_rate": 0.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.6666666666666666,
+            "referred": 0,
+            "review_rate": 0.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 60,
+            "accepted_components": 20,
+            "accepted_negatives": 20,
+            "ambiguity_review_rate": 0.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.6666666666666666,
+            "referred": 0,
+            "review_rate": 0.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 60,
+            "accepted_components": 20,
+            "accepted_negatives": 20,
+            "ambiguity_review_rate": 0.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 1.0,
+            "error_risk_among_accepted": 0.6666666666666666,
+            "referred": 0,
+            "review_rate": 0.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        }
+      ],
+      "guarantee": "NONE; multiplicity and synthetic group dependence preclude a deployment guarantee",
+      "selected": null,
+      "status": "NO_POLICY_ADMITTED_NOT_REVIEW_ALL_SOLUTION"
+    },
+    "temperature": {
+      "candidates": [
+        {
+          "fit_nll": 23.025850929940454,
+          "temperature": 0.5
+        },
+        {
+          "fit_nll": 23.025850929940454,
+          "temperature": 0.75
+        },
+        {
+          "fit_nll": 23.025850929940454,
+          "temperature": 1.0
+        },
+        {
+          "fit_nll": 15.350567286826971,
+          "temperature": 1.5
+        },
+        {
+          "fit_nll": 11.51292552821578,
+          "temperature": 2.0
+        },
+        {
+          "fit_nll": 7.6753036431134865,
+          "temperature": 3.0
+        }
+      ],
+      "fitted_on": "calibration only; fit NLL is not an unbiased evaluation",
+      "temperature": 3.0
+    }
+  },
+  "lr_existing120": {
+    "policy": {
+      "candidates": [
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        }
+      ],
+      "guarantee": "NONE; multiplicity and synthetic group dependence preclude a deployment guarantee",
+      "selected": null,
+      "status": "NO_POLICY_ADMITTED_NOT_REVIEW_ALL_SOLUTION"
+    },
+    "temperature": {
+      "candidates": [
+        {
+          "fit_nll": 1.0078411044647233,
+          "temperature": 0.5
+        },
+        {
+          "fit_nll": 1.0367617244256322,
+          "temperature": 0.75
+        },
+        {
+          "fit_nll": 1.051724999635464,
+          "temperature": 1.0
+        },
+        {
+          "fit_nll": 1.0670222217808598,
+          "temperature": 1.5
+        },
+        {
+          "fit_nll": 1.074795617305162,
+          "temperature": 2.0
+        },
+        {
+          "fit_nll": 1.082651921579554,
+          "temperature": 3.0
+        }
+      ],
+      "fitted_on": "calibration only; fit NLL is not an unbiased evaluation",
+      "temperature": 0.5
+    }
+  },
+  "lr_mixed240": {
+    "policy": {
+      "candidates": [
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        }
+      ],
+      "guarantee": "NONE; multiplicity and synthetic group dependence preclude a deployment guarantee",
+      "selected": null,
+      "status": "NO_POLICY_ADMITTED_NOT_REVIEW_ALL_SOLUTION"
+    },
+    "temperature": {
+      "candidates": [
+        {
+          "fit_nll": 0.9294290826248182,
+          "temperature": 0.5
+        },
+        {
+          "fit_nll": 0.9823771334329432,
+          "temperature": 0.75
+        },
+        {
+          "fit_nll": 1.0101481605688223,
+          "temperature": 1.0
+        },
+        {
+          "fit_nll": 1.0387811964077855,
+          "temperature": 1.5
+        },
+        {
+          "fit_nll": 1.0534195720138013,
+          "temperature": 2.0
+        },
+        {
+          "fit_nll": 1.0682715105432987,
+          "temperature": 3.0
+        }
+      ],
+      "fitted_on": "calibration only; fit NLL is not an unbiased evaluation",
+      "temperature": 0.5
+    }
+  },
+  "lr_new120": {
+    "policy": {
+      "candidates": [
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": false,
+            "accepted_support": false,
+            "ambiguity_review": true,
+            "component_support": false,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 0,
+            "accepted_components": 0,
+            "accepted_negatives": 0,
+            "ambiguity_review_rate": 1.0,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.0,
+            "error_risk_among_accepted": null,
+            "referred": 60,
+            "review_rate": 1.0,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        }
+      ],
+      "guarantee": "NONE; multiplicity and synthetic group dependence preclude a deployment guarantee",
+      "selected": null,
+      "status": "NO_POLICY_ADMITTED_NOT_REVIEW_ALL_SOLUTION"
+    },
+    "temperature": {
+      "candidates": [
+        {
+          "fit_nll": 0.9900210827527147,
+          "temperature": 0.5
+        },
+        {
+          "fit_nll": 1.0247894864805234,
+          "temperature": 0.75
+        },
+        {
+          "fit_nll": 1.042708199272598,
+          "temperature": 1.0
+        },
+        {
+          "fit_nll": 1.0609845563346565,
+          "temperature": 1.5
+        },
+        {
+          "fit_nll": 1.07025705028053,
+          "temperature": 2.0
+        },
+        {
+          "fit_nll": 1.0796191556204195,
+          "temperature": 3.0
+        }
+      ],
+      "fitted_on": "calibration only; fit NLL is not an unbiased evaluation",
+      "temperature": 0.5
+    }
+  },
+  "svm_existing120": {
+    "policy": {
+      "candidates": [
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 33,
+            "accepted_components": 18,
+            "accepted_negatives": 12,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.55,
+            "error_risk_among_accepted": 0.18181818181818182,
+            "referred": 27,
+            "review_rate": 0.45,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 32,
+            "accepted_components": 18,
+            "accepted_negatives": 12,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5333333333333333,
+            "error_risk_among_accepted": 0.1875,
+            "referred": 28,
+            "review_rate": 0.4666666666666667,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 31,
+            "accepted_components": 18,
+            "accepted_negatives": 12,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5166666666666667,
+            "error_risk_among_accepted": 0.1935483870967742,
+            "referred": 29,
+            "review_rate": 0.48333333333333334,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 31,
+            "accepted_components": 18,
+            "accepted_negatives": 12,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5166666666666667,
+            "error_risk_among_accepted": 0.1935483870967742,
+            "referred": 29,
+            "review_rate": 0.48333333333333334,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 21,
+            "accepted_components": 14,
+            "accepted_negatives": 9,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.35,
+            "error_risk_among_accepted": 0.14285714285714285,
+            "referred": 39,
+            "review_rate": 0.65,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 20,
+            "accepted_components": 13,
+            "accepted_negatives": 9,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.3333333333333333,
+            "error_risk_among_accepted": 0.15,
+            "referred": 40,
+            "review_rate": 0.6666666666666666,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": false,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 19,
+            "accepted_components": 13,
+            "accepted_negatives": 9,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.31666666666666665,
+            "error_risk_among_accepted": 0.15789473684210525,
+            "referred": 41,
+            "review_rate": 0.6833333333333333,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": false,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 19,
+            "accepted_components": 13,
+            "accepted_negatives": 9,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.31666666666666665,
+            "error_risk_among_accepted": 0.15789473684210525,
+            "referred": 41,
+            "review_rate": 0.6833333333333333,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": false,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 14,
+            "accepted_components": 11,
+            "accepted_negatives": 7,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.23333333333333334,
+            "error_risk_among_accepted": 0.07142857142857142,
+            "referred": 46,
+            "review_rate": 0.7666666666666667,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": false,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 13,
+            "accepted_components": 10,
+            "accepted_negatives": 7,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.21666666666666667,
+            "error_risk_among_accepted": 0.07692307692307693,
+            "referred": 47,
+            "review_rate": 0.7833333333333333,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": false,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 12,
+            "accepted_components": 10,
+            "accepted_negatives": 7,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.2,
+            "error_risk_among_accepted": 0.08333333333333333,
+            "referred": 48,
+            "review_rate": 0.8,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": false,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": false,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 12,
+            "accepted_components": 10,
+            "accepted_negatives": 7,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.2,
+            "error_risk_among_accepted": 0.08333333333333333,
+            "referred": 48,
+            "review_rate": 0.8,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        }
+      ],
+      "guarantee": "NONE; multiplicity and synthetic group dependence preclude a deployment guarantee",
+      "selected": null,
+      "status": "NO_POLICY_ADMITTED_NOT_REVIEW_ALL_SOLUTION"
+    },
+    "temperature": {
+      "candidates": [
+        {
+          "fit_nll": 0.6642798561417604,
+          "temperature": 0.5
+        },
+        {
+          "fit_nll": 0.6478707381271758,
+          "temperature": 0.75
+        },
+        {
+          "fit_nll": 0.6734012554060749,
+          "temperature": 1.0
+        },
+        {
+          "fit_nll": 0.7396593129409533,
+          "temperature": 1.5
+        },
+        {
+          "fit_nll": 0.7952279663266494,
+          "temperature": 2.0
+        },
+        {
+          "fit_nll": 0.8707999133872614,
+          "temperature": 3.0
+        }
+      ],
+      "fitted_on": "calibration only; fit NLL is not an unbiased evaluation",
+      "temperature": 0.75
+    }
+  },
+  "svm_mixed240": {
+    "policy": {
+      "candidates": [
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 39,
+            "accepted_components": 19,
+            "accepted_negatives": 15,
+            "ambiguity_review_rate": 0.375,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.65,
+            "error_risk_among_accepted": 0.1282051282051282,
+            "referred": 21,
+            "review_rate": 0.35,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 35,
+            "accepted_components": 19,
+            "accepted_negatives": 15,
+            "ambiguity_review_rate": 0.375,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5833333333333334,
+            "error_risk_among_accepted": 0.14285714285714285,
+            "referred": 25,
+            "review_rate": 0.4166666666666667,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 36,
+            "accepted_components": 19,
+            "accepted_negatives": 15,
+            "ambiguity_review_rate": 0.375,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.6,
+            "error_risk_among_accepted": 0.1388888888888889,
+            "referred": 24,
+            "review_rate": 0.4,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 35,
+            "accepted_components": 19,
+            "accepted_negatives": 15,
+            "ambiguity_review_rate": 0.375,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5833333333333334,
+            "error_risk_among_accepted": 0.14285714285714285,
+            "referred": 25,
+            "review_rate": 0.4166666666666667,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 30,
+            "accepted_components": 18,
+            "accepted_negatives": 10,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5,
+            "error_risk_among_accepted": 0.03333333333333333,
+            "referred": 30,
+            "review_rate": 0.5,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 26,
+            "accepted_components": 18,
+            "accepted_negatives": 10,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.43333333333333335,
+            "error_risk_among_accepted": 0.038461538461538464,
+            "referred": 34,
+            "review_rate": 0.5666666666666667,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 27,
+            "accepted_components": 18,
+            "accepted_negatives": 10,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.45,
+            "error_risk_among_accepted": 0.037037037037037035,
+            "referred": 33,
+            "review_rate": 0.55,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 26,
+            "accepted_components": 18,
+            "accepted_negatives": 10,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.43333333333333335,
+            "error_risk_among_accepted": 0.038461538461538464,
+            "referred": 34,
+            "review_rate": 0.5666666666666667,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": true,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": true,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 24,
+            "accepted_components": 15,
+            "accepted_negatives": 8,
+            "ambiguity_review_rate": 0.875,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.4,
+            "error_risk_among_accepted": 0.041666666666666664,
+            "referred": 36,
+            "review_rate": 0.6,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": true,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": true,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 20,
+            "accepted_components": 15,
+            "accepted_negatives": 8,
+            "ambiguity_review_rate": 0.875,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.3333333333333333,
+            "error_risk_among_accepted": 0.05,
+            "referred": 40,
+            "review_rate": 0.6666666666666666,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": true,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": true,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 21,
+            "accepted_components": 15,
+            "accepted_negatives": 8,
+            "ambiguity_review_rate": 0.875,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.35,
+            "error_risk_among_accepted": 0.047619047619047616,
+            "referred": 39,
+            "review_rate": 0.65,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": true,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": true,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": true
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 20,
+            "accepted_components": 15,
+            "accepted_negatives": 8,
+            "ambiguity_review_rate": 0.875,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.3333333333333333,
+            "error_risk_among_accepted": 0.05,
+            "referred": 40,
+            "review_rate": 0.6666666666666666,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        }
+      ],
+      "guarantee": "NONE; multiplicity and synthetic group dependence preclude a deployment guarantee",
+      "selected": {
+        "global": 0.8,
+        "guard": false,
+        "margin": 0.1,
+        "positive": 0.85
+      },
+      "status": "EMPIRICAL_DEVELOPMENT_CANDIDATE_ONLY"
+    },
+    "temperature": {
+      "candidates": [
+        {
+          "fit_nll": 0.42027359590419444,
+          "temperature": 0.5
+        },
+        {
+          "fit_nll": 0.40331583827313133,
+          "temperature": 0.75
+        },
+        {
+          "fit_nll": 0.4339567736905482,
+          "temperature": 1.0
+        },
+        {
+          "fit_nll": 0.522274171221334,
+          "temperature": 1.5
+        },
+        {
+          "fit_nll": 0.602656441891473,
+          "temperature": 2.0
+        },
+        {
+          "fit_nll": 0.7186092312901327,
+          "temperature": 3.0
+        }
+      ],
+      "fitted_on": "calibration only; fit NLL is not an unbiased evaluation",
+      "temperature": 0.75
+    }
+  },
+  "svm_new120": {
+    "policy": {
+      "candidates": [
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 40,
+            "accepted_components": 20,
+            "accepted_negatives": 11,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 1,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.05,
+            "coverage": 0.6666666666666666,
+            "error_risk_among_accepted": 0.175,
+            "referred": 20,
+            "review_rate": 0.3333333333333333,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 32,
+            "accepted_components": 19,
+            "accepted_negatives": 10,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5333333333333333,
+            "error_risk_among_accepted": 0.1875,
+            "referred": 28,
+            "review_rate": 0.4666666666666667,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 33,
+            "accepted_components": 19,
+            "accepted_negatives": 10,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.55,
+            "error_risk_among_accepted": 0.18181818181818182,
+            "referred": 27,
+            "review_rate": 0.45,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 30,
+            "accepted_components": 19,
+            "accepted_negatives": 10,
+            "ambiguity_review_rate": 0.5,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5,
+            "error_risk_among_accepted": 0.2,
+            "referred": 30,
+            "review_rate": 0.5,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.6,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 38,
+            "accepted_components": 19,
+            "accepted_negatives": 10,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 1,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.05,
+            "coverage": 0.6333333333333333,
+            "error_risk_among_accepted": 0.15789473684210525,
+            "referred": 22,
+            "review_rate": 0.36666666666666664,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 30,
+            "accepted_components": 18,
+            "accepted_negatives": 9,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5,
+            "error_risk_among_accepted": 0.16666666666666666,
+            "referred": 30,
+            "review_rate": 0.5,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 31,
+            "accepted_components": 18,
+            "accepted_negatives": 9,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.5166666666666667,
+            "error_risk_among_accepted": 0.16129032258064516,
+            "referred": 29,
+            "review_rate": 0.48333333333333334,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 28,
+            "accepted_components": 18,
+            "accepted_negatives": 9,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.4666666666666667,
+            "error_risk_among_accepted": 0.17857142857142858,
+            "referred": 32,
+            "review_rate": 0.5333333333333333,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.7,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 30,
+            "accepted_components": 17,
+            "accepted_negatives": 10,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 1,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.05,
+            "coverage": 0.5,
+            "error_risk_among_accepted": 0.13333333333333333,
+            "referred": 30,
+            "review_rate": 0.5,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 22,
+            "accepted_components": 14,
+            "accepted_negatives": 9,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.36666666666666664,
+            "error_risk_among_accepted": 0.13636363636363635,
+            "referred": 38,
+            "review_rate": 0.6333333333333333,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.85
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 23,
+            "accepted_components": 16,
+            "accepted_negatives": 9,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.38333333333333336,
+            "error_risk_among_accepted": 0.13043478260869565,
+            "referred": 37,
+            "review_rate": 0.6166666666666667,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": false,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        },
+        {
+          "all_empirical_criteria_pass": false,
+          "criteria": {
+            "accepted_negative_support": true,
+            "accepted_support": true,
+            "ambiguity_review": false,
+            "component_support": true,
+            "coverage": true,
+            "dangerous_errors": true,
+            "negative_support": true,
+            "risk": false
+          },
+          "human_or_population_risk_certified": false,
+          "metrics": {
+            "accepted": 20,
+            "accepted_components": 14,
+            "accepted_negatives": 9,
+            "ambiguity_review_rate": 0.75,
+            "automatic_negative_to_positive_count": 0,
+            "automatic_negative_to_positive_rate_over_all_negatives": 0.0,
+            "coverage": 0.3333333333333333,
+            "error_risk_among_accepted": 0.15,
+            "referred": 40,
+            "review_rate": 0.6666666666666666,
+            "total_negatives": 20
+          },
+          "policy": {
+            "global": 0.8,
+            "guard": true,
+            "margin": 0.1,
+            "positive": 0.95
+          }
+        }
+      ],
+      "guarantee": "NONE; multiplicity and synthetic group dependence preclude a deployment guarantee",
+      "selected": null,
+      "status": "NO_POLICY_ADMITTED_NOT_REVIEW_ALL_SOLUTION"
+    },
+    "temperature": {
+      "candidates": [
+        {
+          "fit_nll": 0.4135192699259279,
+          "temperature": 0.5
+        },
+        {
+          "fit_nll": 0.4424311793173103,
+          "temperature": 0.75
+        },
+        {
+          "fit_nll": 0.4964029558920579,
+          "temperature": 1.0
+        },
+        {
+          "fit_nll": 0.5998844102539803,
+          "temperature": 1.5
+        },
+        {
+          "fit_nll": 0.6796913760686039,
+          "temperature": 2.0
+        },
+        {
+          "fit_nll": 0.7852167379637643,
+          "temperature": 3.0
+        }
+      ],
+      "fitted_on": "calibration only; fit NLL is not an unbiased evaluation",
+      "temperature": 0.5
+    }
+  }
+}

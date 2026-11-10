@@ -1,0 +1,131 @@
+{
+  "schema": "beto-v2-observed-reconstruction-ledger",
+  "archived_at_utc": "2026-11-08T09:41:06.938197+00:00",
+  "preassessment_development_commit": "d067c8aad31cf23a12ea2cd76f78c2f71f4cdcca",
+  "original_development_selection_sha256": "e1f1551435b8d62f3e9e4cbb8c39d019b853e270ca20f4379af0cacb96d81460",
+  "reproduced_development_selection_sha256": "c8403842ee9357f3857cee1e87dea82a4354fe68cffabb2675e8b8eb9d97c878",
+  "choices_compared_before_assessment": true,
+  "choices_changed": false,
+  "original_assessment_probability_arrays_available": false,
+  "raw_probability_comparison_with_lost_original_performed": false,
+  "originally_observed_aggregate_comparison": {
+    "dummy_mixed240": {
+      "confusion_matrix_equal": true,
+      "macro_f1_absolute_delta": 0.0,
+      "negative_to_positive_equal": true
+    },
+    "lr_existing120": {
+      "confusion_matrix_equal": true,
+      "macro_f1_absolute_delta": 0.0,
+      "negative_to_positive_equal": true
+    },
+    "svm_existing120": {
+      "confusion_matrix_equal": true,
+      "macro_f1_absolute_delta": 0.0,
+      "negative_to_positive_equal": true
+    },
+    "lr_new120": {
+      "confusion_matrix_equal": true,
+      "macro_f1_absolute_delta": 0.0,
+      "negative_to_positive_equal": true
+    },
+    "svm_new120": {
+      "confusion_matrix_equal": true,
+      "macro_f1_absolute_delta": 0.0,
+      "negative_to_positive_equal": true
+    },
+    "lr_mixed240": {
+      "confusion_matrix_equal": true,
+      "macro_f1_absolute_delta": 0.0,
+      "negative_to_positive_equal": true
+    },
+    "svm_mixed240": {
+      "confusion_matrix_equal": true,
+      "macro_f1_absolute_delta": 0.0,
+      "negative_to_positive_equal": true
+    },
+    "beto_frozen_mean_l2_128_existing120": {
+      "confusion_matrix_equal": true,
+      "macro_f1_absolute_delta": 0.0,
+      "negative_to_positive_equal": true
+    },
+    "beto_frozen_mean_l2_128_new120": {
+      "confusion_matrix_equal": true,
+      "macro_f1_absolute_delta": 0.0,
+      "negative_to_positive_equal": true
+    },
+    "beto_frozen_mean_l2_128_mixed240": {
+      "confusion_matrix_equal": true,
+      "macro_f1_absolute_delta": 0.0,
+      "negative_to_positive_equal": true
+    },
+    "beto_top2_low128": {
+      "confusion_matrix_equal": true,
+      "macro_f1_absolute_delta": 0.0,
+      "negative_to_positive_equal": true
+    },
+    "beto_selected_seed7": {
+      "confusion_matrix_equal": true,
+      "macro_f1_absolute_delta": 0.0,
+      "negative_to_positive_equal": true
+    },
+    "beto_selected_seed101": {
+      "confusion_matrix_equal": true,
+      "macro_f1_absolute_delta": 0.0,
+      "negative_to_positive_equal": true
+    }
+  },
+  "original_model_manifest_or_classical_pipeline_hashes": {
+    "lr_existing120": "1e3de8b0e79e7424a82af6bbca2a75c8267f687bffcf470ab7c426d9ab08aa2f",
+    "svm_existing120": "abc524e2224251d7229112cb043d9e63bf9a6f97a68af4379c6dcb0a21ebd15b",
+    "lr_new120": "d0e72a3c92fddbbdf9a2a1a60489925537181a6d2fec4048c8fbfd8fad4dd578",
+    "svm_new120": "6bab4e04be149db35ca82a3be768abb815ea52c778a55f5346fa1824bd29c8d1",
+    "dummy_mixed240": "47b7526a28e1eaf9a0734a158f69df880216fc13b11370639b270b461386337b",
+    "lr_mixed240": "530b374a964c957d7666bb7280a5f882b96396da27934920e8284d1b7b9afbcc",
+    "svm_mixed240": "d2082ff4ae1a01db340d97b799d294cce162efdd21b9f6e5d2e410bc04e02c73",
+    "beto_frozen_mean_l2_128_existing120": "216bd83154ec149270361f122ecfac9941f60a9a0573766ffd76bd6bbc80e6ba",
+    "beto_frozen_mean_l2_128_new120": "4cb5375ec0157cc50aed7cf2343393310e04d29ab368fcdf5a8571aeca472d48",
+    "beto_frozen_mean_l2_128_mixed240": "9180fbcc8f126aff1a82dc96787cb3a529eba4dd458a04423e3cb4af16097d68",
+    "beto_top2_low128": "7c6185f53010da1f648beb62001741c535f603fafbc70ac8f8c0c0665a1a045a"
+  },
+  "all_11_reproduced_primary_artifact_hashes_match_original": true,
+  "all_6_reproduced_encoder_state_hashes_match_original": true,
+  "new_reference_predictions": {
+    "file": "beto-v2-predictions.json",
+    "sha256": "3b208a3c28faa559188a170efbc78154adc92fd52d6a12f2e68e8f545591dc8d",
+    "rows": 1170,
+    "origin": "ACTUAL_RECONSTRUCTION_RUN_NOT_INVENTED_OR_RECOVERED_ORIGINAL_ARRAYS"
+  },
+  "cost": {
+    "original_development": {
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "peak_rss_mib": 2945.3671875,
+      "wall_seconds": 988.7575000209999
+    },
+    "reconstructed_development": {
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "peak_rss_mib": 2913.78515625,
+      "wall_seconds": 1361.1530890600002
+    },
+    "reconstructed_assessment_with_replicas": {
+      "assessment_and_replica_wall_seconds": 236.54119501500008,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "peak_rss_mib": 1153.05859375
+    }
+  },
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+    "torch": "2.9.1+cpu",
+    "transformers": "4.57.6",
+    "scikit-learn": "1.9.1",
+    "threads": 2,
+    "gpu_used": false
+  },
+  "limits": [
+    "Assessment already observed; reproduction does not create a fresh evaluation.",
+    "Original aggregate observations retained in session; original unpublished probability arrays were lost on snapshot rollback.",
+    "Development reconstruction ran alongside automated verification; wall times are host-specific, not isolated hardware comparisons.",
+    "Original incomplete attempt, data drafting, dependency installation/download and monetary/GPU cost not fully measured."
+  ]
+}

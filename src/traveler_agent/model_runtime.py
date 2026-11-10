@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from functools import lru_cache
 import os
+import json
 from pathlib import Path
 
 from .corpus import file_sha
@@ -20,6 +21,9 @@ def configured_artifact():
 
 @lru_cache(maxsize=1)
 def _load(path, manifest_sha256):
+    if json.loads((Path(path)/'model_manifest.json').read_text(encoding='utf-8')).get('schema')=='traveler-beto-supervised-v2':
+        from .beto_training_v2_model import load_model_v2
+        return load_model_v2(Path(path))
     from .beto_classifier import load_classifier
     return load_classifier(Path(path))
 

@@ -1,0 +1,38 @@
+{
+  "version": "beto-training-v2",
+  "hypotheses": [
+    "Compare 120 existing TRAIN rows, 120 new diverse TRAIN rows and their 240-row mixture with fixed family-disjoint development/evaluation; source and diversity effects remain confounded.",
+    "A supervised head may lose discourse information; compare mean/CLS representations, two-block staged training, full fine-tuning, sequence length and regularization on NEW tune only.",
+    "Calibration and asymmetric/text-guard abstention are separate studies and may fail independent evaluation despite confidence."
+  ],
+  "label_origin": "AUTHOR_INTENT_NOT_HUMAN_GOLD",
+  "human_validation": false,
+  "primary_seed": 42,
+  "replica_seeds": [7, 101],
+  "threads": 2,
+  "role_rows": {"train": 240, "tune": 30, "calibration": 60, "policy_dev": 60, "assessment": 90, "ambiguity_policy": 8, "ambiguity_assessment": 8},
+  "near_duplicate_jaccard": 0.7,
+  "baseline_C": [0.1, 1.0, 10.0],
+  "head": {"epochs": 80, "selection_epochs": [20, 40, 80], "learning_rate": 0.01, "batch_size": 32, "weight_decay": 0.01, "dropout": 0.1},
+  "candidates": [
+    {"id": "frozen_mean128", "mode": "frozen", "pooling": "mean_l2", "max_length": 128},
+    {"id": "frozen_cls128", "mode": "frozen", "pooling": "cls_l2", "max_length": 128},
+    {"id": "top2_low128", "mode": "top2", "pooling": "mean_l2", "max_length": 128, "epochs": 4, "encoder_lr": 0.00001, "head_lr": 0.0005, "weight_decay": 0.01, "head_dropout": 0.1, "label_smoothing": 0.0},
+    {"id": "top2_high128", "mode": "top2", "pooling": "mean_l2", "max_length": 128, "epochs": 4, "encoder_lr": 0.00003, "head_lr": 0.0005, "weight_decay": 0.01, "head_dropout": 0.1, "label_smoothing": 0.0},
+    {"id": "full_low128", "mode": "full", "pooling": "cls_l2", "max_length": 128, "epochs": 3, "encoder_lr": 0.00001, "head_lr": 0.0002, "weight_decay": 0.01, "head_dropout": 0.1, "label_smoothing": 0.0},
+    {"id": "full_high128", "mode": "full", "pooling": "cls_l2", "max_length": 128, "epochs": 3, "encoder_lr": 0.00003, "head_lr": 0.0002, "weight_decay": 0.01, "head_dropout": 0.1, "label_smoothing": 0.0},
+    {"id": "full_long256", "mode": "full", "pooling": "cls_l2", "max_length": 256, "epochs": 3, "encoder_lr": 0.00001, "head_lr": 0.0002, "weight_decay": 0.01, "head_dropout": 0.1, "label_smoothing": 0.0},
+    {"id": "full_regularized128", "mode": "full", "pooling": "cls_l2", "max_length": 128, "epochs": 3, "encoder_lr": 0.00001, "head_lr": 0.0002, "weight_decay": 0.1, "head_dropout": 0.3, "label_smoothing": 0.05}
+  ],
+  "finetune_batch_size": 4,
+  "warmup_fraction": 0.1,
+  "gradient_clip_norm": 1.0,
+  "class_balance": "80/80/80 in mixture by design; no oversampling or class weights",
+  "selection": "NEW tune Macro-F1, ties fewer negative-to-positive errors, lower NLL, then earlier candidate/epoch. Primary seed only. No assessment selection.",
+  "replicas": "Retrain only the selected mixed candidate with fixed selected head/encoder epochs for seeds7/101, no retuning or best-seed choice. Primary artifact remains seed42.",
+  "calibration": {"temperatures": [0.5, 0.75, 1.0, 1.5, 2.0, 3.0], "ece_bins": 5},
+  "policy": {"global_thresholds": [0.6, 0.7, 0.8], "positive_thresholds": [0.85, 0.95], "text_guards": [false, true], "margin": 0.1, "min_accepted": 20, "min_accepted_negatives": 5, "min_total_negatives": 20, "min_accepted_components": 10, "min_coverage": 0.25, "max_empirical_risk": 0.1, "max_automatic_negative_to_positive_rate": 0.05, "min_ambiguity_review_rate": 0.8},
+  "compute_budget": {"device": "cpu", "max_development_wall_seconds": 1800, "estimated_memory_budget_gib": 8, "windows_validation": "retrain selected configuration and execute actual Gradio HTTP; not human/real-voice evidence"},
+  "evaluation": "All model and epoch choices durable before new assessment predictions; save predictions once and derive slices/errors without additional fitting. Reproduction is not a fresh test.",
+  "limits": ["All new labels are AI author intent, not human gold or tourism-population performance.", "Training/development authors saw prior error context; new assessment was drafted separately without model/training/development outcomes.", "Synthetic family separation and lexical screening do not prove semantic or population independence.", "No policy is certified for deployment, regardless of synthetic pass/fail. DEMO thresholds stay unchanged."]
+}

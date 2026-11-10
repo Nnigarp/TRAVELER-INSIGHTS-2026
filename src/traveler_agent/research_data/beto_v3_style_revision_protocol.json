@@ -1,0 +1,24 @@
+{
+  "version": "beto-v3-training-style-revision-v1",
+  "predecessor_corpus_commit": "d05c9bd1883efc1e5a91f068449e378f0e04fd3b",
+  "predecessor_records_sha256": "7219d60d1c3dcef52b8f336cf72d8e611b1194706e8969f61c5789d45b28e241",
+  "reason": "Initial TRAIN-only length/punctuation OOF Macro-F1 .49863388733024055 exceeds preregistered .45 gate; no BETO or final classifier predictions performed.",
+  "scope": "One pretraining revision of TRAIN prose only, no new rows, no label/scenario changes, no edits to tune/calibration/policy/evaluation/ambiguity.",
+  "style_design": "Three natural prose styles rotated by (sorted_family_index+class_index)%3 to counterbalance style across author-intended classes; labels withheld from editors. Structured metadata never enters sentiment feature input.",
+  "styles": {
+    "fluido": "Connected clauses, natural paragraphs. Approximate sentence targets short1,medium2-3,long5-6; commas where natural.",
+    "fragmentado": "Short complete sentences. Approximate sentence targets short2-3,medium5-6,long10-12; fewer comma chains.",
+    "mixto": "Balanced reporting and narration. Approximate sentence targets short2,medium4,long7-9."
+  },
+  "constraints": [
+    "Preserve every material fact, global stance and logical scope of negation.",
+    "Individually edit prose without stock templates, padding, emotion-word substitutions or automatic punctuation deletion.",
+    "Keep original 15–30/50–85/140–180 word bands; target22/65/160.",
+    "Root verifies non-TRAIN normalized role hashes unchanged.",
+    "Repeat the complete automatic audit and independent blind review; unchanged .45 gate.",
+    "No second automatic revision loop if quality remains blocked; report measured blocker."
+  ],
+  "assessment_status": "All new assessment texts already authored and frozen in predecessor commit; no model predictions observed.",
+  "adjudication": "Same registered procedure; original author labels remain unchanged and unsupported families are quarantined.",
+  "scaling": "5000 remains a plan, never asserted as achieved. Expansion requires admitted quality and measured compute feasibility."
+}

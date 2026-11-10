@@ -1,0 +1,1553 @@
+{
+  "schema": "traveler-beto-v3-author-batch-v1",
+  "provenance": {
+    "synthetic": true,
+    "human_authors": false,
+    "actual_task": "/root/v3_writer_co",
+    "protocol_version": "beto-v3-quality-pilot-v1",
+    "generator_version": "original-writer-brief-v1",
+    "model_version": "NOT_EXPOSED_BY_PLATFORM",
+    "generation_seed": null,
+    "method": "individually authored freeform synthetic drafts; scripts only assemble/validate metadata"
+  },
+  "reviews": [
+    {
+      "family": "v3-train-co-001",
+      "semantic_component": "sg-v3-train-co-001",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "hotel",
+      "length_band": "short",
+      "text": "Dejé tres camisas en bolsa marcada; devolvieron dos y nadie supo rastrear la tercera. El horario anunciado tampoco se cumplió.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R01: entrega y devolución incompleta",
+      "author_rationale": "La pérdida de una prenda y la ausencia de seguimiento sostienen el juicio negativo."
+    },
+    {
+      "family": "v3-train-co-001",
+      "semantic_component": "sg-v3-train-co-001",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "hotel",
+      "length_band": "short",
+      "text": "Recogí la ropa a las seis. Al entregarla habían anotado mi habitación en una cinta azul; conservé el recibo hasta contar las prendas.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R02: recogida y reconstrucción del registro",
+      "author_rationale": "Describe identificación y recogida sin expresar satisfacción ni queja."
+    },
+    {
+      "family": "v3-train-co-001",
+      "semantic_component": "sg-v3-train-co-001",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "hotel",
+      "length_band": "short",
+      "text": "Necesitaba lavar un pantalón para salir temprano: registraron la bolsa, aclararon el precio y lo devolvieron seco antes del desayuno. Una ayuda tremenda.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "expectation"
+      ],
+      "structure": "R03: necesidad de ropa para la salida",
+      "author_rationale": "El servicio resuelve a tiempo una necesidad concreta y recibe valoración favorable."
+    },
+    {
+      "family": "v3-train-co-002",
+      "semantic_component": "sg-v3-train-co-002",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "restaurant",
+      "length_band": "medium",
+      "text": "Preguntamos si podían dividir la cuenta y nos dijeron que sí. Después cargaron la jarra completa a dos personas; la respuesta fue que arregláramos entre nosotros. No faltó nadie por pagar: sobraba un cobro. Perdimos media hora haciendo cuentas mientras retenían los comprobantes. La comida estuvo bien, pero ese cierre convirtió una almorzada sencilla en una discusión que nadie buscaba.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast",
+        "mixed_aspects"
+      ],
+      "structure": "R05: consulta sobre división y consecuencias del registro",
+      "author_rationale": "La duplicación no resuelta y el trato al cobrar dominan la evaluación pese a la comida adecuada."
+    },
+    {
+      "family": "v3-train-co-002",
+      "semantic_component": "sg-v3-train-co-002",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "restaurant",
+      "length_band": "medium",
+      "text": "El recibo largo quedó en medio de la mesa. Cada quien señaló su plato y anotamos al lado qué parte de las dos entradas compartidas le correspondía. El mesero pasó esos valores a cuatro comprobantes, con una línea de bebidas en cada uno. Pagamos dos con tarjeta y dos en efectivo. Guardé el comprobante de mi consumo en el bolsillo del morral.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R06: circulación del recibo entre mesa y caja",
+      "author_rationale": "Relata el reparto y las formas de pago sin valoración del procedimiento."
+    },
+    {
+      "family": "v3-train-co-002",
+      "semantic_component": "sg-v3-train-co-002",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "restaurant",
+      "length_band": "medium",
+      "text": "Ya en la puerta revisamos los cuatro recibos: cada uno tenía su plato y un cuarto de la picada. Al sentarnos habíamos pedido cuentas separadas, aunque fuéramos a compartir varias cosas. El mesero dejó eso anotado desde el primer pedido y nos consultó cómo repartir la propina. Qué descanso salir sin calcular deudas entre amigos; todavía alcanzamos la función de la tarde.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "implicit_contrast"
+      ],
+      "structure": "R04: revisión final y regreso al pedido inicial",
+      "author_rationale": "El registro anticipado permite una salida sin cálculos ni demoras y el narrador lo aprecia."
+    },
+    {
+      "family": "v3-train-co-003",
+      "semantic_component": "sg-v3-train-co-003",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "taxi",
+      "length_band": "long",
+      "text": "Yo estaba frente al puesto de frutas cuando vi el taxi arrancar con mi chaqueta adentro. Habíamos acordado diez minutos de espera y regresar por la misma calle; apenas iban seis en el reloj del celular. Alcancé a llamar al número del recibo, pero nadie contestó hasta que ya había comprado todo. El conductor volvió media hora después y quiso sumar ese tiempo a la tarifa, como si su vuelta por el barrio hubiera sido una espera mía. Le mostré la hora de la llamada y los mensajes. Terminamos pagando el recorrido original y buscando otro carro para seguir al alojamiento. No es que no hubiera lugar para estacionar: al volver dejó el taxi exactamente en el espacio donde lo habíamos parado. La compra fue breve; recuperar la chaqueta y discutir el cobro consumió casi toda la mañana. En la bolsa llevaba queso que ya estaba tibio cuando pudimos guardarlo en la nevera.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "double_negation",
+        "explicit_contrast"
+      ],
+      "structure": "R09: posición en el mercado y desplazamientos del vehículo",
+      "author_rationale": "El incumplimiento de la espera y el intento de cobrar el tiempo propio generan consecuencias negativas."
+    },
+    {
+      "family": "v3-train-co-003",
+      "semantic_component": "sg-v3-train-co-003",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "taxi",
+      "length_band": "long",
+      "text": "La idea era parar en el mercado por café y continuar hasta la casa donde nos alojábamos. Antes de bajar acordamos ocho minutos incluidos y una tarifa por cada minuto adicional. El conductor escribió la hora en la parte de atrás de un recibo y dejó el carro en la zona de estacionamiento lateral. Yo entré por el pasillo de las flores; mi hermana se quedó con las maletas. El vendedor pesó dos paquetes, los selló y nos entregó cambio en billetes pequeños. Regresé cuando el cronómetro del celular marcaba nueve minutos. Comparamos ese dato con la hora anotada y se agregó un minuto al valor del trayecto. Luego salimos por una calle distinta porque la entrada funcionaba en un solo sentido. El conductor preguntó cuál de las dos puertas de la casa usábamos. Le indiqué la que tenía reja verde y bajamos allí, con el café dentro de una bolsa de papel.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R07: parada prevista, compra y continuación del trayecto",
+      "author_rationale": "Reconstruye el acuerdo temporal y su aplicación sin calificar el precio o el servicio."
+    },
+    {
+      "family": "v3-train-co-003",
+      "semantic_component": "sg-v3-train-co-003",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "taxi",
+      "length_band": "long",
+      "text": "Esperé bajo el alero del mercado hasta que el taxi quedó frente a mí. Un momento antes le había escrito al conductor que la fila del molino avanzaba despacio y necesitaba otros cinco minutos. Me contestó con el valor exacto de esa ampliación y cambió de sitio para que yo no cruzara la avenida con los paquetes. Ese cuidado me quitó bastante estrés: viajaba sola con una maleta que permanecía en el baúl. Al subir comparó conmigo el tiempo inicial y el añadido, sin redondear hacia arriba. No puedo decir que no avisara; incluso dejó un mensaje cuando empezó el tramo adicional. Seguimos al alojamiento por la ruta pactada y recibí un comprobante separado para la espera. A mitad del camino noté que había dejado una bolsa abierta; me prestó una pinza que llevaba en la guantera y pudimos sujetarla. Llegué con las compras completas, y el tiempo cobrado coincidía con las horas guardadas en el chat.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "double_negation",
+        "negation",
+        "resolved_incident"
+      ],
+      "structure": "R08: espera tras compra y reanudación con comprobación",
+      "author_rationale": "La comunicación precisa y el cuidado práctico sustentan una experiencia favorable."
+    },
+    {
+      "family": "v3-train-co-004",
+      "semantic_component": "sg-v3-train-co-004",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "airport",
+      "length_band": "short",
+      "text": "El plástico crujió al levantar la maleta: habían tapado el asa y cobrado un extra sin avisar. Tuve que romper la envoltura recién pagada.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R10: ruido del plástico y problema de uso",
+      "author_rationale": "El embalaje impide cargar la maleta y el precio adicional no fue informado."
+    },
+    {
+      "family": "v3-train-co-004",
+      "semantic_component": "sg-v3-train-co-004",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "airport",
+      "length_band": "short",
+      "text": "Elegí la envoltura de una sola capa. Midieron la maleta, dejaron libres asa y ruedas, y anotaron material y mano de obra en el recibo.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R11: selección de capa y trámite de envoltura",
+      "author_rationale": "Enumera dimensiones y conceptos cobrados sin juicio evaluativo."
+    },
+    {
+      "family": "v3-train-co-004",
+      "semantic_component": "sg-v3-train-co-004",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "airport",
+      "length_band": "short",
+      "text": "Mi mamá probó el asa antes de pagar; ajustaron el plástico de una y explicaron cada cobro. La maleta rodó firme hasta facturación.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "regionalism",
+        "resolved_incident"
+      ],
+      "structure": "R12: prueba de la acompañante y ajuste previo al pago",
+      "author_rationale": "El ajuste inmediato y la explicación del precio facilitan el traslado."
+    },
+    {
+      "family": "v3-train-co-005",
+      "semantic_component": "sg-v3-train-co-005",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "transport",
+      "length_band": "medium",
+      "text": "Necesitaba saber cuántos minutos teníamos para ir al baño. El auxiliar respondió “un ratico” y luego empezó a pitar cuando aún había pasajeros haciendo fila. Nadie había dicho dónde volver a abordar; el bus se movió al otro costado del restaurante. Encontrarlo con las bolsas y la llovizna fue angustiante. Una parada anunciada para descansar terminó siendo una carrera sin explicación.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "regionalism",
+        "expectation"
+      ],
+      "structure": "R13: pregunta por duración y búsqueda del vehículo",
+      "author_rationale": "La información insuficiente provoca desorientación y prisa durante el descanso."
+    },
+    {
+      "family": "v3-train-co-005",
+      "semantic_component": "sg-v3-train-co-005",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "transport",
+      "length_band": "medium",
+      "text": "A mitad de la parada cambié el tiquete del bolsillo del pantalón al morral. Habíamos bajado frente a un comedor después del anuncio de veinte minutos de descanso. El auxiliar indicó que el regreso sería por la puerta lateral del bus y señaló el número del vehículo. Compré agua, fui al baño y abordé cuando llamó por segunda vez. Salimos a las once y cuarenta.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R14: acción durante la pausa y reconstrucción del anuncio",
+      "author_rationale": "Presenta los pasos de una parada sin una postura de satisfacción o desagrado."
+    },
+    {
+      "family": "v3-train-co-005",
+      "semantic_component": "sg-v3-train-co-005",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "transport",
+      "length_band": "medium",
+      "text": "El letrero con la hora de salida y la bandera al lado del bus nos dieron una referencia clarísima. El conductor había explicado la pausa antes de llegar, incluyendo dónde quedaban los baños y por cuál puerta se subía. Pude comer sin estar pendiente de cada pitazo. Cuando una señora confundió dos vehículos, el auxiliar la acompañó hasta su asiento; arrancamos todos con calma.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "resolved_incident"
+      ],
+      "structure": "R15: relación entre referencias visuales y uso del descanso",
+      "author_rationale": "La información y la ayuda permiten descansar y resuelven una confusión."
+    },
+    {
+      "family": "v3-train-co-006",
+      "semantic_component": "sg-v3-train-co-006",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "transport",
+      "length_band": "long",
+      "text": "El aviso de la taquilla decía que el saldo quedaba disponible al terminar la recarga. Pagué una tarjeta y dos viajes, pero al acercarla al lector apareció un mensaje de saldo cero. La persona del acceso me devolvió a la fila sin revisar el recibo. En la ventanilla dijeron que esperara; tras diez minutos seguía igual. No faltaba dinero ni estaba usando otra tarjeta: el número impreso coincidía. Me hicieron pasar de un puesto a otro con el mismo papel en la mano mientras salían los buses que necesitaba. Finalmente activaron el saldo desde una terminal, aunque nadie me explicó qué habían cambiado. Para entonces tuve que modificar el enlace de mi recorrido y caminar varias cuadras adicionales. El sistema aceptó la tarjeta al último intento, sí, pero resolver una compra tan pequeña ocupó casi una hora de la visita. Guardé el recibo por si el saldo volvía a desaparecer en el siguiente acceso.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects",
+        "resolved_incident"
+      ],
+      "structure": "R16: promesa escrita y discrepancia en la activación",
+      "author_rationale": "La solución tardía no compensa el traslado entre puestos ni la pérdida de tiempo."
+    },
+    {
+      "family": "v3-train-co-006",
+      "semantic_component": "sg-v3-train-co-006",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "transport",
+      "length_band": "long",
+      "text": "Al pasar de la taquilla a los torniquetes saqué la tarjeta del sobre de cartón. Había comprado el soporte y cargado tres pasajes; ambos conceptos figuraban en el recibo. Una auxiliar indicó que debía apoyar la tarjeta sobre el círculo, sin deslizarla por el borde. El primer contacto mostró una luz amarilla mientras se registraba la activación y el segundo abrió la barrera. En la pantalla quedó visible el saldo después del descuento de un viaje. Mi acompañante repitió la operación con su propia tarjeta y entramos al andén central. Allí miramos el mapa de rutas para identificar la letra del bus que nos llevaba hacia el barrio de alojamiento. No se entrega otro tiquete al abordar: conservamos la tarjeta para el trayecto de regreso. Antes de subir la puse en un compartimento distinto al de las tarjetas bancarias. El vehículo que tomamos se detenía también en la estación donde cambiaríamos de línea al día siguiente.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "negation",
+        "objective_chronology"
+      ],
+      "structure": "R17: tránsito entre compra, acceso y abordaje",
+      "author_rationale": "Explica activación, descuento y conservación de la tarjeta sin evaluarlos."
+    },
+    {
+      "family": "v3-train-co-006",
+      "semantic_component": "sg-v3-train-co-006",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "transport",
+      "length_band": "long",
+      "text": "Apoyé la tarjeta con la palma abierta, como me mostró la señora del acceso, y el lector dejó de marcar error. La estaba retirando demasiado rápido. Era mi primera mañana usando ese transporte y llevaba las indicaciones del hostal en un papel, así que agradecí que se tomara un minuto para mostrarme también dónde aparecía el saldo. No era imposible entenderlo; me faltaba esa demostración concreta. En la taquilla habían separado el costo de la tarjeta de la recarga y señalado que el primer uso la activaba. Una vez dentro, pude comprobar cuánto quedaba antes de decidir la vuelta. La auxiliar me orientó hacia el andén correspondiente y me avisó que no necesitaba comprar otra tarjeta para cambiar de bus en la misma estación. Con eso armé el recorrido sin volver a preguntar en cada puerta. Me fui tranquila, con dos viajes disponibles y el recibo doblado junto al mapa. En la tarde el mismo gesto de apoyo funcionó al primer intento.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "double_negation",
+        "litotes",
+        "resolved_incident"
+      ],
+      "structure": "R18: uso del lector mediante demostración y comprobación posterior",
+      "author_rationale": "La asistencia concreta resuelve el error de uso y permite viajar con confianza."
+    },
+    {
+      "family": "v3-train-co-007",
+      "semantic_component": "sg-v3-train-co-007",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "beach",
+      "length_band": "short",
+      "text": "El número borrado de la llave resultó ser de otro casillero; solo lo descubrí al volver mojado. Nadie registró cuál me habían entregado.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R19: identificación de una llave tras volver del agua",
+      "author_rationale": "El registro ausente impide identificar el compartimento al regreso."
+    },
+    {
+      "family": "v3-train-co-007",
+      "semantic_component": "sg-v3-train-co-007",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "beach",
+      "length_band": "short",
+      "text": "Las chanclas quedaron fuera del casillero. Me entregaron una llave con pulsera, probé el cierre y devolví ambas cosas al recoger el morral.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R20: detalle lateral y secuencia de custodia",
+      "author_rationale": "Describe uso y devolución de la llave sin evaluar la seguridad."
+    },
+    {
+      "family": "v3-train-co-007",
+      "semantic_component": "sg-v3-train-co-007",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "beach",
+      "length_band": "short",
+      "text": "Cerré el compartimento y jalé la puerta; quedó firme. Anotaron el número en mi recibo y la pulsera resistió el baño sin soltarse.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R01: comprobación inicial y conservación durante el baño",
+      "author_rationale": "Las verificaciones y la pulsera cumplen su función de custodia."
+    },
+    {
+      "family": "v3-train-co-008",
+      "semantic_component": "sg-v3-train-co-008",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "museum",
+      "length_band": "medium",
+      "text": "Acabé otra vez frente a las mismas vitrinas. Había seguido el plano desde el ala antigua, pero la flecha del patio llevaba a una puerta cerrada que nadie mencionó al entrar. El personal de esa sala me remitió a recepción en vez de indicar otra conexión. Las piezas me interesaban; gasté el tiempo de la visita buscando cómo llegar a la mitad que faltaba.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects"
+      ],
+      "structure": "R02: repetición de salas y reconstrucción del recorrido",
+      "author_rationale": "La orientación fallida consume la visita pese al interés de la colección."
+    },
+    {
+      "family": "v3-train-co-008",
+      "semantic_component": "sg-v3-train-co-008",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "museum",
+      "length_band": "medium",
+      "text": "Buscaba la sala de cerámica del segundo edificio. En recepción marcaron en el plano un recorrido por el patio, luego una galería y una escalera al fondo. Seguí los números pares hasta la conexión y continué con los impares en el ala siguiente. No entré a la sala de audiovisuales, que figuraba como desvío opcional. Doblé el plano al llegar a la vitrina central.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "negation",
+        "objective_chronology"
+      ],
+      "structure": "R03: localización de una sala y uso de un plano",
+      "author_rationale": "Narra una ruta y una elección de visita sin apreciación global."
+    },
+    {
+      "family": "v3-train-co-008",
+      "semantic_component": "sg-v3-train-co-008",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "museum",
+      "length_band": "medium",
+      "text": "En la segunda ala pude seguir las fechas sin devolverme una sola sala. Antes, junto a la entrada, una mediadora había dibujado en mi plano el paso cubierto que unía las colecciones. Ese trazo pequeño hizo rendir la tarde: vi el cambio entre las piezas de ambos edificios y todavía tuve tiempo para sentarme a mirar los dibujos. El plano cabía abierto en una mano.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R04: llegada a segunda ala y explicación previa del enlace",
+      "author_rationale": "La orientación evita repeticiones y permite aprovechar el tiempo de visita."
+    },
+    {
+      "family": "v3-train-co-009",
+      "semantic_component": "sg-v3-train-co-009",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "tour",
+      "length_band": "long",
+      "text": "Quería entender la historia de las fachadas, no pasar la mañana persiguiendo una voz. El recorrido salió con catorce personas y quien guiaba explicaba mientras seguía caminando delante. Yo iba en la mitad; al llegar a cada esquina solo alcanzaba la última frase. En una calle de talleres pedí que esperara a que estuviéramos juntos. Se detuvo unos segundos y empezó de nuevo mirando hacia el tráfico. Otra viajera intentó repetirnos lo que había oído, pero también tenía pedazos sueltos. No hubo forma de reconstruir por qué una casa era importante ni qué relación tenía con la plaza siguiente. El trayecto incluía sitios interesantes y nos dieron tiempo para fotos; eso no reemplaza las explicaciones por las que había pagado. Al final tenía imágenes de cinco portones y apenas una fecha anotada. La última parada quedó junto a un camión encendido, y terminé leyendo por mi cuenta una placa mientras el grupo escuchaba algo desde la otra acera.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects",
+        "expectation"
+      ],
+      "structure": "R07: propósito de aprendizaje y recorrido efectivo",
+      "author_rationale": "La audición insuficiente impide obtener el contenido contratado pese al interés de los lugares."
+    },
+    {
+      "family": "v3-train-co-009",
+      "semantic_component": "sg-v3-train-co-009",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "tour",
+      "length_band": "long",
+      "text": "Consulté si el recorrido usaba audífonos y me explicaron que las intervenciones se hacían con la voz, en puntos elegidos de cada cuadra. Empezamos en una plazoleta, formando un semicírculo alrededor de la guía. En la calle siguiente pasamos de a dos por la acera y nos reunimos en la entrada de un patio. Allí relató el uso anterior del edificio y señaló una fotografía del portón. Cuando llegó una moto dejó de hablar; continuó después de que doblara la esquina. Yo cambié de posición con otra persona para mirar el detalle que estaba señalando. En la tercera parada nos repartimos entre dos escalones y la guía quedó abajo, de frente al grupo. Hizo una pausa para preguntas y anoté el nombre de la plaza en mi libreta. El último tramo discurrió junto a una fila de locales cerrados; la explicación correspondiente se dio al llegar al cruce, con todos sobre la misma acera.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R05: consulta sobre medios de audición y distribución en cada parada",
+      "author_rationale": "Documenta la modalidad y las posiciones de escucha sin juicio sobre su calidad."
+    },
+    {
+      "family": "v3-train-co-009",
+      "semantic_component": "sg-v3-train-co-009",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "tour",
+      "length_band": "long",
+      "text": "El pequeño parlante pasó del hombro de la guía al borde de una banca cuando entramos al patio. Ahí entendí por qué había elegido hacer esa parada antes de cruzar la calle: podíamos escuchar y ver el mapa al mismo tiempo. Veníamos de un tramo con buses donde nos reunió a un lado, dejó pasar dos vehículos y retomó la frase completa. Qué diferencia poder seguir el hilo sin adivinar los finales. Yo suelo quedarme atrás para tomar fotos y esta vez también alcancé todas las explicaciones, porque esperaba a que cerráramos el grupo. Hubo una falla de batería cerca del mercado; guardó el equipo y nos llevó a un pasaje tranquilo para terminar el relato. No quedó ninguna pregunta a medias ni se perdió la conexión entre las dos plazas. Al salir, reconocí en la fachada de enfrente una marca que nos había descrito dentro. La señalé a mi compañera y todavía pudimos preguntarle qué significaba antes de continuar.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "resolved_incident",
+        "mixed_aspects"
+      ],
+      "structure": "R06: cambios de ubicación del parlante y adaptación tras su falla",
+      "author_rationale": "La guía adapta ubicación y equipo para mantener comprensible el contenido."
+    },
+    {
+      "family": "v3-train-co-010",
+      "semantic_component": "sg-v3-train-co-010",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "reservation",
+      "length_band": "short",
+      "text": "Aguardamos con los remos puestos: confirmaron seis cupos, pero solo había equipo para cuatro. Nos ofrecieron turnarnos después de cobrar la sesión completa.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "explicit_contrast"
+      ],
+      "structure": "R08: espera tras distribuir el equipo",
+      "author_rationale": "Los cupos cobrados exceden los equipos disponibles y alteran la sesión."
+    },
+    {
+      "family": "v3-train-co-010",
+      "semantic_component": "sg-v3-train-co-010",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "reservation",
+      "length_band": "short",
+      "text": "Desde el muelle conté cinco kayaks. La reserva agrupaba ocho personas: seis irían en dobles y dos en individuales, con chalecos registrados por talla.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R09: observación del muelle y asignación por grupo",
+      "author_rationale": "Presenta cantidad de embarcaciones y distribución sin valorarla."
+    },
+    {
+      "family": "v3-train-co-010",
+      "semantic_component": "sg-v3-train-co-010",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "reservation",
+      "length_band": "short",
+      "text": "El clic del chaleco cerró la comprobación: habían reservado nuestra talla y separado los tres kayaks. La confirmación sí correspondía al grupo completo.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "expectation"
+      ],
+      "structure": "R10: sonido del cierre al comprobar el equipo",
+      "author_rationale": "La reserva se corresponde con los cupos y tallas necesarios."
+    },
+    {
+      "family": "v3-train-co-011",
+      "semantic_component": "sg-v3-train-co-011",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "nature_excursion",
+      "length_band": "medium",
+      "text": "Podíamos limpiar las botas en el cepillo fijo o con uno de mano. Escogí el segundo porque llevaba barro entre los tacos, pero el mango se desprendió al primer intento. Pedí otro y me mandaron a compartir el único fijo con toda la fila. Nadie explicó cómo usar el líquido del balde. Entrar a una reserva así, sin saber si cumplí el procedimiento, me dejó intranquilo.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "explicit_contrast",
+        "negation"
+      ],
+      "structure": "R11: elección de útil y efecto de la avería",
+      "author_rationale": "El equipo defectuoso y la falta de instrucciones impiden comprobar la limpieza requerida."
+    },
+    {
+      "family": "v3-train-co-011",
+      "semantic_component": "sg-v3-train-co-011",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "nature_excursion",
+      "length_band": "medium",
+      "text": "Mi hermano apoyó la bota sobre una rejilla y pasó el cepillo por la suela. Yo leí el cartel: primero retirar tierra, luego usar la solución y esperar hasta que dejara de gotear. Hicimos esos pasos junto a la entrada de la reserva. Una persona recogía los cepillos usados en una bandeja diferente. Al terminar, nos movimos hacia el sendero señalizado con estacas amarillas.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R12: pasos de un acompañante y ejecución propia",
+      "author_rationale": "Expone el procedimiento y la separación de útiles sin evaluación."
+    },
+    {
+      "family": "v3-train-co-011",
+      "semantic_component": "sg-v3-train-co-011",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "nature_excursion",
+      "length_band": "medium",
+      "text": "Me preocupaba llevar semillas pegadas después de caminar por una finca. La encargada miró la suela, mostró cómo abrir los surcos con el cepillo y me hizo comprobarlos antes de aplicar la solución. No quedó nada sin revisar. Las instrucciones eran concretas y había dónde apoyar el pie; no tuve que hacer equilibrio con el morral. Salí de ese punto sabiendo qué había limpiado y por qué.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negative_concordance",
+        "negation"
+      ],
+      "structure": "R13: comprobación de la suela y verificación final",
+      "author_rationale": "La demostración y los apoyos permiten completar y comprender la limpieza."
+    },
+    {
+      "family": "v3-train-co-012",
+      "semantic_component": "sg-v3-train-co-012",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "hotel",
+      "length_band": "long",
+      "text": "Ya había colocado una toalla bajo la puerta cuando volvieron a preguntar si el ventilador estaba conectado. Al llegar de la caminata lo encendí con el mando que encontré en un cajón; giraba, pero la velocidad alta apenas movía el aire junto a las aspas. Probé las otras posiciones y orienté la base hacia la cama. No cambió nada. En recepción me hicieron repetir los mismos pasos por teléfono y anunciaron que subirían a mirar. Una hora después vino alguien, tocó el enchufe y dijo que el aparato funcionaba porque se veía girar. Esa fue toda la revisión. El cuarto conservó el calor hasta pasada la medianoche y acabé durmiendo con la puerta entreabierta, pendiente de los ruidos del pasillo. No pedía aire acondicionado ni un frío imposible; necesitaba que el equipo anunciado sirviera para ventilar el espacio. Por la mañana devolví el mando al cajón, junto al papel donde estaban impresas las tres velocidades que no lograron refrescar la cama.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast"
+      ],
+      "structure": "R14: intento de adaptación, regreso al encendido y noche posterior",
+      "author_rationale": "La asistencia no corrige la ventilación insuficiente y afecta el descanso."
+    },
+    {
+      "family": "v3-train-co-012",
+      "semantic_component": "sg-v3-train-co-012",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "hotel",
+      "length_band": "long",
+      "text": "El ventilador de pedestal y una mesa baja ocupaban el espacio entre la cama y la ventana. Volvimos de una salida a las cuatro, abrimos la cortina y buscamos el mando. Estaba en el cajón superior, junto al directorio del alojamiento. Tenía botones para tres velocidades, oscilación y temporizador. Lo pusimos en la segunda posición mientras organizábamos la ropa, luego activamos la oscilación para que el giro alcanzara ambos lados de la cama. El botón del temporizador encendía luces con intervalos de una hora. Llamé a recepción para confirmar si esas luces indicaban el tiempo restante o el tiempo programado; me respondieron que mostraban la duración elegida desde el último ajuste. Anoté el dato en el margen de mi itinerario. Antes de salir a cenar lo apagamos desde el mismo mando y cerramos la ventana. Al regresar, dejamos la cortina recogida con una cinta para que no rozara la rejilla cuando el ventilador girara hacia ese lado del cuarto.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R15: relación entre ventilador, mobiliario y ajustes de uso",
+      "author_rationale": "Describe controles y organización de la habitación sin una valoración de confort."
+    },
+    {
+      "family": "v3-train-co-012",
+      "semantic_component": "sg-v3-train-co-012",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "hotel",
+      "length_band": "long",
+      "text": "La tarjeta junto al ventilador indicaba que el mando estaba en recepción. Bajé a pedirlo al regresar de una salida con bastante calor y aprovecharon para mostrarme los controles en otro aparato del vestíbulo. Subí sabiendo cómo fijar la dirección y programar el apagado. Al principio no respondía desde la cama; escribí al número de atención y trajeron pilas nuevas en unos minutos. No fue cierto que no pudieran ayudar, como yo había supuesto por la hora. Con el mando activo pude bajar la velocidad sin levantarme, y el aire llegaba hasta donde tenía extendidos los mapas. Me resultó muy cómodo para pasar la tarde preparando el viaje siguiente. El ruido era perceptible, aunque constante, y pude leer sin distraerme. Al acostarme elegí dos horas de funcionamiento; en la madrugada el aparato ya estaba apagado y la habitación conservaba una temperatura agradable. Dejé las pilas usadas sobre la tarjeta para que no volvieran a guardarlas en el mando.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "double_negation",
+        "resolved_incident",
+        "explicit_contrast",
+        "mixed_aspects",
+        "expectation"
+      ],
+      "structure": "R16: instrucciones escritas, cambio de pilas y uso nocturno",
+      "author_rationale": "La atención resuelve el mando y permite regular el aire y descansar."
+    },
+    {
+      "family": "v3-train-co-013",
+      "semantic_component": "sg-v3-train-co-013",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "restaurant",
+      "length_band": "short",
+      "text": "Pasamos del pedido al plato y no aclararon nada: pregunté qué llevaba el plátano y respondieron “lo normal”. Llegó con carne que quería evitar.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "negative_concordance"
+      ],
+      "structure": "R17: paso del pedido a la entrega del plato",
+      "author_rationale": "La respuesta no permite conocer ingredientes relevantes antes de elegir."
+    },
+    {
+      "family": "v3-train-co-013",
+      "semantic_component": "sg-v3-train-co-013",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "restaurant",
+      "length_band": "short",
+      "text": "Partí el plátano maduro con el borde de la cuchara. Venía relleno de queso; elegí ensalada entre los dos acompañamientos descritos por la mesera.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R18: modo de comer y composición elegida",
+      "author_rationale": "Señala ingredientes y elección sin apreciar su calidad."
+    },
+    {
+      "family": "v3-train-co-013",
+      "semantic_component": "sg-v3-train-co-013",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "restaurant",
+      "length_band": "short",
+      "text": "Las dos salsas se veían iguales; al preguntar distinguieron ingredientes y picante sin afán. Elegí la de hogao: le dio justo el sabor que buscaba.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "expectation"
+      ],
+      "structure": "R19: distinción de salsas tras una consulta",
+      "author_rationale": "La explicación concreta permite elegir un acompañamiento satisfactorio."
+    },
+    {
+      "family": "v3-train-co-014",
+      "semantic_component": "sg-v3-train-co-014",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "taxi",
+      "length_band": "medium",
+      "text": "El muñeco del niño se cayó mientras intentábamos acomodar la bolsa sobre nuestras piernas. Habíamos avisado que llevábamos coche plegado, pero el baúl estaba ocupado y el conductor insistió en meterlo entre los asientos. Un extremo presionaba mi rodilla y no podía alcanzar la hebilla del cinturón. Pedí reorganizar antes de arrancar; siguió diciendo que era una carrera corta. Nos bajamos sin hacer el trayecto.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "explicit_contrast",
+        "negation"
+      ],
+      "structure": "R20: objeto del acompañante y problema de acomodo",
+      "author_rationale": "La negativa a reorganizar una carga que bloquea el cinturón lleva a abandonar el viaje."
+    },
+    {
+      "family": "v3-train-co-014",
+      "semantic_component": "sg-v3-train-co-014",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "taxi",
+      "length_band": "medium",
+      "text": "Plegué el coche y lo apoyé junto a la puerta del taxi. El conductor abrió el baúl, retiró una caja y colocamos allí el coche de lado. La bolsa quedó en el piso del asiento delantero. Atrás viajamos dos adultos y el niño en su silla; ajustamos los cinturones antes de salir. Al llegar bajé primero para recibir el coche mientras mi pareja soltaba la silla.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R01: plegado, carga y descarga del equipo",
+      "author_rationale": "Cuenta la distribución de bultos y pasajeros sin formular juicio de comodidad o servicio."
+    },
+    {
+      "family": "v3-train-co-014",
+      "semantic_component": "sg-v3-train-co-014",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "taxi",
+      "length_band": "medium",
+      "text": "Llegamos sin las rodillas apretadas ni el coche rebotando entre los asientos, que era mi temor. Antes de subir, el conductor había medido a ojo el baúl, retirado su organizador y pedido que verificáramos el cierre del coche. La bolsa fue aparte y dejó accesibles todas las hebillas. Se tomó ese trabajo con calma mientras acomodábamos al niño. El organizador quedó sujeto detrás de su asiento.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "expectation"
+      ],
+      "structure": "R02: efecto del acomodo y reconstrucción de la carga",
+      "author_rationale": "La adaptación del espacio permite viajar con cinturones accesibles y sin la incomodidad prevista."
+    },
+    {
+      "family": "v3-train-co-015",
+      "semantic_component": "sg-v3-train-co-015",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "airport",
+      "length_band": "long",
+      "text": "Tenía que pasar a la otra terminal con una maleta mediana y seguí las señales del transporte interno desde llegadas. La primera flecha llevaba a un ascensor; al salir de él no había ninguna continuación. Pregunté en un mostrador y me indicaron bajar al nivel de antes. Muy completa la orientación: terminé viendo la misma máquina de bebidas por tercera vez. Cuando por fin encontré el vehículo, el tablero frontal nombraba las dos terminales sin señalar cuál era el destino inmediato. Subí después de consultar a otro pasajero y acabamos en el extremo opuesto al que necesitaba. El conductor aclaró entonces que primero completaba una vuelta por estacionamientos, dato que no figuraba en la parada. Nadie me había informado ese sentido del recorrido. Llegué con el tiempo tan recortado que tuve que hacer el resto del trayecto sin detenerme a comer. La maleta traqueteó por dos rampas adicionales mientras buscaba un acceso que estaba a pocos metros del ascensor inicial.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "irony",
+        "sarcasm"
+      ],
+      "structure": "R03: necesidad de enlace y búsqueda de señales de acceso",
+      "author_rationale": "Las señales incompletas y el sentido no identificado producen rodeos y pérdida de tiempo."
+    },
+    {
+      "family": "v3-train-co-015",
+      "semantic_component": "sg-v3-train-co-015",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "airport",
+      "length_band": "long",
+      "text": "En el vehículo de regreso reconocí la marquesina donde había empezado el traslado. Antes de embarcar hacia la terminal de salidas, consulté un plano situado a la salida del corredor de llegadas. Mostraba un circuito con tres paradas y flechas en un solo sentido. Caminé por el pasillo exterior hasta el poste marcado con la letra B. La pantalla del vehículo alternaba la terminal siguiente con la palabra circular; el conductor confirmó que la segunda parada correspondía a mi destino. Coloqué la maleta en el área lateral y me senté frente a la puerta central. Pasamos junto a un estacionamiento, recogimos a dos personas y continuamos al edificio de salidas. Más tarde hice el circuito restante para volver a reunirme con mi acompañante, que llegaba en otro vuelo. El poste del inicio quedaba entonces del lado contrario a mi asiento. Había una franja gris dibujada en el piso entre la marquesina y el acceso cubierto al corredor donde nos encontraríamos.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R04: reconocimiento en el regreso y reconstrucción del primer traslado",
+      "author_rationale": "Describe circuito, referencias y posiciones sin evaluar la señalización."
+    },
+    {
+      "family": "v3-train-co-015",
+      "semantic_component": "sg-v3-train-co-015",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "airport",
+      "length_band": "long",
+      "text": "Pregunté si el vehículo interno me dejaba junto al acceso para viajeros con equipaje y la auxiliar señaló la parada exacta en un plano de bolsillo. Me explicó que ambos sentidos usaban el mismo color, pero tenían el destino escrito arriba, y marcó cuál debía buscar. Esa aclaración me ahorró dar una vuelta completa. La señal del corredor coincidía con el número de la parada; pude seguirla sin arrastrar la maleta de un mostrador a otro. Cuando llegó el vehículo, el conductor anunció la terminal y esperó a que asegurara el equipaje en el espacio reservado. Mi temor era subir al que volvía a llegadas, así que comprobar el destino antes de arrancar me dejó tranquila. El recorrido incluyó una parada corta en estacionamientos y luego nos dejó bajo techo. Desde allí se veía la puerta que tenía marcada en el plano. Guardé el papel para enseñárselo a mi hermano, que haría el mismo traslado al día siguiente con dos maletas.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "explicit_contrast",
+        "negation",
+        "expectation"
+      ],
+      "structure": "R05: consulta de destino y aplicación de indicaciones durante el enlace",
+      "author_rationale": "La orientación verificable permite tomar el vehículo correcto y completar el enlace con confianza."
+    },
+    {
+      "family": "v3-train-co-016",
+      "semantic_component": "sg-v3-train-co-016",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "beach",
+      "length_band": "short",
+      "text": "La ficha se atascó; no ofrecieron ninguna reposición. Pagué otra para quitarme el jabón. Encima el letrero decia tres minutos.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negative_concordance",
+        "negation",
+        "typo"
+      ],
+      "structure": "R06: recorrido de una ficha atascada hasta la recompra",
+      "author_rationale": "La avería sin reposición obliga a pagar de nuevo durante el aseo."
+    },
+    {
+      "family": "v3-train-co-016",
+      "semantic_component": "sg-v3-train-co-016",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "beach",
+      "length_band": "short",
+      "text": "Llevábamos dos fichas para ducharnos después del baño. Las compramos en la entrada, usamos una por persona y dejamos los recibos en la mochila.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R07: preparación de fichas y uso después del baño",
+      "author_rationale": "Presenta compra y cantidad de fichas sin evaluación."
+    },
+    {
+      "family": "v3-train-co-016",
+      "semantic_component": "sg-v3-train-co-016",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "beach",
+      "length_band": "short",
+      "text": "Mientras esperaba, abrieron otra ventanilla para fichas. Avisaron la duración antes de cobrar y pude enjuagarme completo con una; qué alivio salir sin arena.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R08: espera, apertura de ventanilla y continuación del aseo",
+      "author_rationale": "La atención y la duración informada permiten resolver el aseo satisfactoriamente."
+    },
+    {
+      "family": "v3-train-co-017",
+      "semantic_component": "sg-v3-train-co-017",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "museum",
+      "length_band": "medium",
+      "text": "Elegí la mesa de objetos que se podían tocar porque quería reconocer los relieves con las manos. La encargada entregó una réplica al mismo visitante tres veces y retiró las demás antes de que nos tocara. Había una instrucción sobre sostener las piezas con ambas manos, pero ninguna sobre los turnos. A mí me quedó una explicación desde lejos; para eso habría mirado la vitrina.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "explicit_contrast",
+        "negation",
+        "expectation"
+      ],
+      "structure": "R11: elección de actividad táctil y efecto del reparto de turnos",
+      "author_rationale": "La distribución impide realizar la experiencia táctil elegida."
+    },
+    {
+      "family": "v3-train-co-017",
+      "semantic_component": "sg-v3-train-co-017",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "museum",
+      "length_band": "medium",
+      "text": "Sobre la mesa: dos recipientes, una figura y una herramienta, todos identificados como réplicas. Me senté en el taburete de la derecha. La mediadora mostró cómo sostener la base y señaló que no se levantaban por las asas. Cada visitante recibió un objeto y lo pasó a la izquierda cuando sonó una campana. Hicimos cuatro rotaciones; después devolvimos las piezas al paño del centro.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "negation",
+        "objective_chronology"
+      ],
+      "structure": "R09: posición de observación y rotación espacial de objetos",
+      "author_rationale": "Documenta disposición, manejo y rotación de las réplicas sin evaluación."
+    },
+    {
+      "family": "v3-train-co-017",
+      "semantic_component": "sg-v3-train-co-017",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "museum",
+      "length_band": "medium",
+      "text": "Sentí las ranuras bajo los dedos y por fin entendí la forma que desde la vitrina no distinguía. Antes de repartir las réplicas, nos mostraron cómo apoyar cada base y dieron el mismo tiempo a todos. Cuando mi papá pidió repetir una pieza, organizaron otra vuelta y no le quitaron el turno a nadie. Esa mesa nos abrió una manera distinta de conocer la colección.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "resolved_incident"
+      ],
+      "structure": "R10: sensación táctil vinculada a instrucciones y turnos",
+      "author_rationale": "El acceso táctil y el reparto equitativo amplían la comprensión de la colección."
+    },
+    {
+      "family": "v3-train-co-018",
+      "semantic_component": "sg-v3-train-co-018",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "tour",
+      "length_band": "long",
+      "text": "Mi hermana cerró el paraguas porque el guía había dicho que íbamos a entrar a un corredor cubierto. Yo lo seguí con el mapa doblado, y el resto del grupo llegó detrás. El supuesto resguardo era una cornisa estrecha donde apenas cabían tres personas; los demás quedamos bajo la lluvia mientras él explicaba desde la parte seca. Preguntamos por el salón abierto de la esquina, pero dijo que movernos cortaba el relato. No es cierto que no hubiera otra opción: al terminar la explicación atravesamos justamente ese salón para salir a la calle siguiente. Para entonces el mapa se había deshecho por los pliegues y mi hermana tenía mojado el interior del morral. La pausa tampoco sirvió para escuchar; entre el agua del techo y los carros solo entendimos frases sueltas. Nos retiramos antes del último tramo para cambiar la ropa del niño. Al abrir el paraguas en la esquina encontramos una hoja del recorrido pegada al forro húmedo.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "double_negation",
+        "explicit_contrast"
+      ],
+      "structure": "R12: decisión de una acompañante y efectos compartidos de la pausa",
+      "author_rationale": "La elección del resguardo expone al grupo y no permite seguir las explicaciones."
+    },
+    {
+      "family": "v3-train-co-018",
+      "semantic_component": "sg-v3-train-co-018",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "tour",
+      "length_band": "long",
+      "text": "Necesitaba comprobar si la pausa por lluvia cambiaba el punto de finalización. El guía señaló en el mapa que terminaríamos en la misma plaza y que durante el aguacero permaneceríamos en un corredor lateral. Entramos por una puerta de reja y dejamos los paraguas abiertos junto al muro. Él se colocó frente a un plano del barrio y retomó la historia del edificio que acabábamos de ver. Una parte del grupo se sentó en el banco de madera; yo permanecí de pie, al lado del soporte de los folletos. Hicimos dos preguntas mientras pasaba la lluvia. Luego el guía salió hasta el borde del techo, miró hacia el tramo siguiente y nos indicó recoger las cosas. La pausa duró diecisiete minutos según las fotos del celular. Continuamos por una calle con balcones y llegamos a la plaza indicada. En mi mapa quedaron marcados tanto el corredor usado durante la pausa como el punto de salida del recorrido a pie.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R13: comprobación del destino y registro de la pausa en el mapa",
+      "author_rationale": "Describe la continuidad y la duración del paseo sin calificarlas."
+    },
+    {
+      "family": "v3-train-co-018",
+      "semantic_component": "sg-v3-train-co-018",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "tour",
+      "length_band": "long",
+      "text": "Ya estábamos sentados en el corredor cuando empezó el aguacero fuerte. Diez minutos antes habían caído unas gotas y el guía nos pidió guardar las cámaras; luego nos llevó a ese patio que conocía, con permiso de la persona que lo cuidaba. Me gustó que la pausa tuviera contenido: desplegó unas fotos antiguas sobre una mesa y comparó las fachadas con las que habíamos visto, en lugar de dejarnos esperando sin hacer nada. Mi hija pudo sentarse a dibujar un balcón mientras yo escuchaba. No quedó nadie por fuera del techo y había espacio para los paraguas sin tapar la salida. Cuando bajó la lluvia, comprobó si todos queríamos seguir o preferíamos terminar allí. Continuamos el tramo corto, con el cambio de ruta explicado, y vimos la plaza desde un acceso cubierto. La hoja del dibujo llegó seca al alojamiento; atrás mi hija había escrito el nombre de la calle que alcanzó a reconocer en una de las fotos.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "resolved_incident"
+      ],
+      "structure": "R14: escena bajo techo, preparación previa y reanudación",
+      "author_rationale": "La anticipación, el resguardo y una actividad útil mantienen disfrutable la visita."
+    },
+    {
+      "family": "v3-train-co-019",
+      "semantic_component": "sg-v3-train-co-019",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "reservation",
+      "length_band": "short",
+      "text": "La ficha decía sin maní y la mesa tenía su salsa. Nadie había leído mis datos; cancelé antes de cocinar, sin la devolución prometida.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R15: discrepancia entre ficha y material preparado",
+      "author_rationale": "El material contradice la restricción informada y la cancelación no recibe la devolución prometida."
+    },
+    {
+      "family": "v3-train-co-019",
+      "semantic_component": "sg-v3-train-co-019",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "reservation",
+      "length_band": "short",
+      "text": "Marqué los ingredientes que evitaba en la ficha. No pedían justificar el motivo; al confirmar la inscripción adjuntaron el listado del material de mi mesa.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "negation",
+        "objective_chronology"
+      ],
+      "structure": "R16: lectura del formulario y confirmación del material",
+      "author_rationale": "Explica los datos solicitados y el documento recibido sin evaluación."
+    },
+    {
+      "family": "v3-train-co-019",
+      "semantic_component": "sg-v3-train-co-019",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "reservation",
+      "length_band": "short",
+      "text": "Al pasar de inscripción a preparación, revisaron conmigo cada ingrediente y reservaron utensilios aparte. Pude participar tranquila; la ficha sí llegó a quien cocinaba.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "expectation"
+      ],
+      "structure": "R17: relevo de información entre inscripción y preparación",
+      "author_rationale": "La verificación y la transmisión de datos permiten participar con tranquilidad."
+    },
+    {
+      "family": "v3-train-co-020",
+      "semantic_component": "sg-v3-train-co-020",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "nature_excursion",
+      "length_band": "medium",
+      "text": "Agarré la cuerda como vi hacer al primero, porque la demostración ocurrió cuando todavía veníamos bajando. Al llegar al arroyo el guía ya estaba al otro lado y gritaba que siguiéramos. No definió quién pasaba después ni dónde esperar. Dos personas entraron juntas y tiraron en direcciones distintas. Me quedé en la orilla; cruzar así, a la loca, no me dio ninguna confianza.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "regionalism"
+      ],
+      "structure": "R18: uso observado del recurso y decisión de permanecer en la orilla",
+      "author_rationale": "La demostración y el orden insuficientes hacen que el viajero rechace el cruce."
+    },
+    {
+      "family": "v3-train-co-020",
+      "semantic_component": "sg-v3-train-co-020",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "nature_excursion",
+      "length_band": "medium",
+      "text": "Solo al llegar a la otra orilla vi la marca roja en el extremo de la cuerda. Durante la demostración nos habían mostrado esa marca como límite del tramo de agarre. Cruzamos uno por uno, esperando la señal de quien estaba al frente. Yo pasé cuarto, con el morral cerrado y ambas manos sobre la cuerda. Dejamos el paso libre antes de reunirnos junto al árbol.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R19: reconocimiento de una marca tras el cruce y relación con la demostración",
+      "author_rationale": "Registra instrucciones y secuencia del cruce sin expresar aprobación o temor."
+    },
+    {
+      "family": "v3-train-co-020",
+      "semantic_component": "sg-v3-train-co-020",
+      "role": "train",
+      "region": "Colombia",
+      "experience_type": "nature_excursion",
+      "length_band": "medium",
+      "text": "Una rana se metió entre las piedras mientras practicábamos el agarre en seco. Ese ensayo me sirvió mucho: nunca había cruzado un arroyo con cuerda y estaba tenso. El guía mostró dónde apoyar las manos, nos pidió repetirlo y esperó a que cada persona llegara antes de dar la siguiente señal. Pasé sin prisas, con alguien atento en ambas orillas. Hasta me animé a mirar el agua.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "expectation"
+      ],
+      "structure": "R20: observación lateral y desarrollo de un ensayo y cruce",
+      "author_rationale": "La práctica y el acompañamiento reducen la tensión y permiten disfrutar el paso."
+    },
+    {
+      "family": "v3-tune-co-001",
+      "semantic_component": "sg-v3-tune-co-001",
+      "role": "tune",
+      "region": "Colombia",
+      "experience_type": "hotel",
+      "length_band": "long",
+      "text": "Extendí la reserva del vuelo sobre el escritorio y descubrí que no cabía junto al computador sin sobresalir del borde. Moví la bandeja del café a la cama para ganar espacio, pero la base fija de la lámpara seguía ocupando casi media superficie. La silla era tan baja que al escribir levantaba los hombros. Pregunté si tenían otra o algún apoyo; trajeron un cojín blando que se hundía al sentarme. Trabajé de lado durante una hora y terminé con dolor en el cuello, alternando los documentos entre las piernas y la mesa. La luz alumbraba la pared en lugar del papel y el brazo no permitía orientarla hacia abajo. El cuarto tenía una ventana amplia y estaba ordenado, pero necesitaba organizar trámites al anochecer, cuando esa ventana ya no ayudaba. Acabé revisando los pasajes en el piso junto a la cama. Dejé sobre el escritorio únicamente el cargador, que sí encontraba allí espacio de sobra entre la lámpara y el teléfono.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects"
+      ],
+      "structure": "R01: colocación de documentos y sucesivos intentos de adaptación",
+      "author_rationale": "El tamaño, la altura y la luz impiden trabajar y producen molestia física pese a otros aspectos adecuados."
+    },
+    {
+      "family": "v3-tune-co-001",
+      "semantic_component": "sg-v3-tune-co-001",
+      "role": "tune",
+      "region": "Colombia",
+      "experience_type": "hotel",
+      "length_band": "long",
+      "text": "Los documentos quedaron repartidos en tres grupos: transporte, alojamiento y entradas. Para separarlos usé el escritorio de la habitación después de retirar el directorio y la bandeja de vasos. Había una silla sin brazos que entraba bajo la mesa y una lámpara con interruptor en el cable. Sentado, tenía los antebrazos a la altura de la superficie. Puse el computador al fondo y dejé el pasaporte a la derecha, bajo el haz de la lámpara. El enchufe quedaba a un lado de la pata; pasé por allí el cable para mantener libre el frente. Mi acompañante fue leyendo los números de reserva mientras yo los anotaba en una hoja. No usamos la luz del techo durante ese rato. Cuando terminamos, guardamos cada grupo en una carpeta distinta y devolvimos los objetos a su lugar. Antes de empezar había medido el espacio con una hoja doblada para decidir dónde poner la bandeja, que terminó sobre el mueble junto a la puerta.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "negation",
+        "objective_chronology"
+      ],
+      "structure": "R02: organización final y reconstrucción del uso de la mesa",
+      "author_rationale": "Describe distribución, postura y luz sin convertirlas en una apreciación."
+    },
+    {
+      "family": "v3-tune-co-001",
+      "semantic_component": "sg-v3-tune-co-001",
+      "role": "tune",
+      "region": "Colombia",
+      "experience_type": "hotel",
+      "length_band": "long",
+      "text": "Tenía que reunir comprobantes de varios trayectos y completar un formulario antes de salir temprano. El escritorio me permitió hacerlo de una sentada, con la pantalla al fondo y dos hojas abiertas al frente. La altura de la silla coincidía con la mesa; pude apoyar los brazos sin encogerme. Pedí más luz porque la lámpara estaba orientada hacia la pared. La persona de recepción subió, liberó una articulación que yo creía fija y dejó el foco sobre el área de escritura. Ahí pude leer incluso los números pequeños de los recibos. No era un mueble de adorno, como había temido al ver las fotos: tenía espacio real para trabajar. También había una toma a mano y pude cargar el celular mientras copiaba un código del correo. Terminé los trámites antes de cenar y todavía usé el mismo sitio para ordenar el mapa del día siguiente. Dejé la carpeta lista dentro del morral; el formulario quedó encima, firmado y con todas las casillas legibles.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "expectation",
+        "resolved_incident"
+      ],
+      "structure": "R03: necesidad de preparar trámites y recursos encontrados",
+      "author_rationale": "La mesa funcional y el ajuste de luz permiten completar cómodamente el trabajo previsto."
+    },
+    {
+      "family": "v3-tune-co-002",
+      "semantic_component": "sg-v3-tune-co-002",
+      "role": "tune",
+      "region": "Colombia",
+      "experience_type": "restaurant",
+      "length_band": "short",
+      "text": "Después del pago siguieron figurando dos porciones; antes habíamos mostrado que pedimos una. “Ya quedó así”, dijeron. Salí con un cobro de más.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R04: revisión posterior al pago y reclamación previa",
+      "author_rationale": "El doble cobro permanece a pesar de la comprobación del pedido."
+    },
+    {
+      "family": "v3-tune-co-002",
+      "semantic_component": "sg-v3-tune-co-002",
+      "role": "tune",
+      "region": "Colombia",
+      "experience_type": "restaurant",
+      "length_band": "short",
+      "text": "Pregunté por las dos líneas de guarnición. Compararon la comanda con la cuenta: una correspondía al plato y otra a la porción adicional que compartimos.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R05: consulta de dos líneas y cotejo con la comanda",
+      "author_rationale": "Aclara la composición del pedido sin juicio sobre el cobro."
+    },
+    {
+      "family": "v3-tune-co-002",
+      "semantic_component": "sg-v3-tune-co-002",
+      "role": "tune",
+      "region": "Colombia",
+      "experience_type": "restaurant",
+      "length_band": "short",
+      "text": "El recibo nuevo reemplazó al duplicado sin vueltas: revisaron la comanda, quitaron la guarnición repetida y me devolvieron la diferencia antes de salir.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "resolved_incident"
+      ],
+      "structure": "R06: sustitución del recibo y devolución del dinero",
+      "author_rationale": "La revisión y devolución completas resuelven el error de cobro."
+    },
+    {
+      "family": "v3-tune-co-003",
+      "semantic_component": "sg-v3-tune-co-003",
+      "role": "tune",
+      "region": "Colombia",
+      "experience_type": "taxi",
+      "length_band": "medium",
+      "text": "Pensaba recoger el sombrero antes de viajar. Reporté la carrera con hora, placa y recibo; confirmaron que el conductor lo tenía y fijaron una entrega. No apareció nadie ni avisaron el cambio. Al llamar dijeron que debía iniciar otra solicitud porque había cerrado el turno. No es que no supieran dónde estaba: su mensaje incluía una foto. Me fui sin poder recuperarlo y sin otra fecha acordada.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negative_concordance",
+        "negation",
+        "double_negation"
+      ],
+      "structure": "R07: plan de recuperación y trámite que no se concreta",
+      "author_rationale": "La entrega confirmada se incumple pese a identificar y localizar el objeto."
+    },
+    {
+      "family": "v3-tune-co-003",
+      "semantic_component": "sg-v3-tune-co-003",
+      "role": "tune",
+      "region": "Colombia",
+      "experience_type": "taxi",
+      "length_band": "medium",
+      "text": "Mientras esperaba respuesta revisé las fotos del trayecto para precisar la hora. Había escrito al servicio de taxis porque mi termo no estaba en el morral. Envié el recibo y describí color, tapa y tamaño. Registraron el reporte con un número y preguntaron cuál de dos puntos usaría para la entrega si aparecía. Elegí la oficina cercana al alojamiento y anoté su horario en la agenda.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "negation",
+        "objective_chronology"
+      ],
+      "structure": "R08: espera del reporte y reconstrucción de los datos aportados",
+      "author_rationale": "Expone un trámite pendiente sin atribuir satisfacción, perjuicio o juicio al resultado aún desconocido."
+    },
+    {
+      "family": "v3-tune-co-003",
+      "semantic_component": "sg-v3-tune-co-003",
+      "role": "tune",
+      "region": "Colombia",
+      "experience_type": "taxi",
+      "length_band": "medium",
+      "text": "Desde la recepción vi llegar el taxi con la funda del instrumento. La había dejado atrás y pensé que ya tocaba comprar otra. El servicio relacionó mi recibo con el vehículo, pidió una descripción del cierre y coordinó la devolución en el alojamiento. Qué alegria recuperarla esa misma tarde. Firmé la entrega y comprobamos juntos el bolsillo interior; todo seguía donde lo había guardado.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "typo",
+        "expectation",
+        "resolved_incident"
+      ],
+      "structure": "R09: llegada del objeto y comprobación en recepción",
+      "author_rationale": "La identificación y devolución rápidas recuperan un objeto que el narrador temía reemplazar."
+    },
+    {
+      "family": "v3-tune-co-004",
+      "semantic_component": "sg-v3-tune-co-004",
+      "role": "tune",
+      "region": "Colombia",
+      "experience_type": "airport",
+      "length_band": "long",
+      "text": "El golpe de las bandejas vacías contra el piso se oía desde el comienzo de la fila. Llegué al control con computador y chaqueta en la mano, pero el carro de recipientes estaba del otro lado del escáner y no los acercaba nadie. Nos pidieron avanzar igual, así que acabé sosteniendo todo frente a la banda detenida. Una persona de atrás pasó dos bandejas por encima de los demás; una se inclinó y tuve que agarrar mi computador antes de que resbalara. Qué maravilla, hacer malabares justo donde se supone que debemos separar el equipaje. La ironía me duró poco porque luego me reclamaron por no haber puesto la chaqueta aparte. No había tenido cómo hacerlo ni dónde apoyar las cosas mientras llegaban más recipientes. Al final atravesé el arco, reuní el equipo y salí de esa zona temblando de rabia. En la mesa de recogida había una pila de bandejas vacías; seguía creciendo mientras la fila de entrada continuaba esperando.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "irony",
+        "sarcasm"
+      ],
+      "structure": "R10: ruido de bandejas y consecuencias de su circulación interrumpida",
+      "author_rationale": "La falta de coordinación provoca riesgo de caída del equipo y recriminaciones al viajero."
+    },
+    {
+      "family": "v3-tune-co-004",
+      "semantic_component": "sg-v3-tune-co-004",
+      "role": "tune",
+      "region": "Colombia",
+      "experience_type": "airport",
+      "length_band": "long",
+      "text": "Había dos filas de acceso al control y elegimos la que tenía el carrito de bandejas junto a la cinta. Coloqué el computador en un recipiente y la chaqueta con el morral en otro, siguiendo la indicación de la persona del puesto. Los empujé hasta una línea marcada sobre los rodillos. A partir de allí el personal los movió hacia el escáner mientras yo pasaba por el arco. Del otro lado había una mesa donde saqué mis cosas antes de apilar los recipientes vacíos. Una auxiliar trasladaba esas pilas en un carro por un pasillo paralelo a la cinta y las dejaba otra vez en la entrada. Mi acompañante pasó unos minutos después con una bandeja para sus zapatos y otra para la bolsa. Esperé fuera de la zona de rodillos para reunirnos. No llevábamos ningún objeto para revisión adicional; una vez guardados los computadores, caminamos hacia el panel que mostraba las puertas de embarque de los vuelos.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "objective_chronology"
+      ],
+      "structure": "R11: elección de fila, paso del equipo y circulación de recipientes",
+      "author_rationale": "Detalla movimientos y distribución de objetos sin valorar el funcionamiento."
+    },
+    {
+      "family": "v3-tune-co-004",
+      "semantic_component": "sg-v3-tune-co-004",
+      "role": "tune",
+      "region": "Colombia",
+      "experience_type": "airport",
+      "length_band": "long",
+      "text": "Mi papá alcanzó una bandeja y la auxiliar le acercó otra antes de que tuviera que soltar el bastón. Ese gesto nos hizo el paso mucho más llevadero. Yo llevaba los dos morrales y necesitaba sacar el computador, así que nos indicaron una sección de la mesa para organizar todo sin que la fila nos empujara. Había recipientes de dos tamaños y nos mostraron cuál servía para la bolsa que no quedaba plana. Pasamos el equipo hacia los rodillos; la auxiliar mantuvo las bandejas juntas mientras yo acompañaba a mi papá hasta el arco. Al salir, pude recogerlas en el mismo orden y comprobar que no faltaba nada. También había una mesa libre para volver a empacar, con una silla al lado donde él se calzó. No nos metieron afán y cada instrucción llegó cuando la necesitábamos. Dejamos las bandejas vacías en el carro indicado y continuamos hacia la sala con las manos libres para llevar el bastón y los documentos.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "negative_concordance"
+      ],
+      "structure": "R12: acción del acompañante y coordinación del equipo compartido",
+      "author_rationale": "La coordinación y el apoyo permiten atravesar el control con movilidad y equipaje manejables."
+    },
+    {
+      "family": "v3-calibration-co-001",
+      "semantic_component": "sg-v3-calibration-co-001",
+      "role": "calibration",
+      "region": "Colombia",
+      "experience_type": "tour",
+      "length_band": "short",
+      "text": "Anoté una fecha que resultó parte de una leyenda. El guía mezcló archivos y rumores sin distinguirlos; me fui con información imposible de verificar.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R01: anotación y descubrimiento de atribución confusa",
+      "author_rationale": "La falta de distinción impide utilizar la información como antecedente histórico."
+    },
+    {
+      "family": "v3-calibration-co-001",
+      "semantic_component": "sg-v3-calibration-co-001",
+      "role": "calibration",
+      "region": "Colombia",
+      "experience_type": "tour",
+      "length_band": "short",
+      "text": "En mis notas quedaron dos apartados. Al iniciar cada explicación, la guía indicaba si provenía de un registro municipal o de una narración popular.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R02: organización de apuntes y reconstrucción de las fuentes indicadas",
+      "author_rationale": "Describe clasificación de fuentes sin tomar postura sobre su tratamiento."
+    },
+    {
+      "family": "v3-calibration-co-001",
+      "semantic_component": "sg-v3-calibration-co-001",
+      "role": "calibration",
+      "region": "Colombia",
+      "experience_type": "tour",
+      "length_band": "short",
+      "text": "Buscaba historia y encontré también cuentos, bien diferenciados. Nombraron los documentos y aclararon qué era tradición oral; pude disfrutar ambos sin confundirlos.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R03: búsqueda de contenido y recursos para distinguir procedencias",
+      "author_rationale": "La atribución clara permite comprender y disfrutar los dos tipos de relato."
+    },
+    {
+      "family": "v3-calibration-co-002",
+      "semantic_component": "sg-v3-calibration-co-002",
+      "role": "calibration",
+      "region": "Colombia",
+      "experience_type": "reservation",
+      "length_band": "medium",
+      "text": "Cuando nos llamaron, la van seguía en la dirección equivocada. Dos días antes había corregido el número del alojamiento y recibido un “listo” por mensaje. Ese cambio nunca llegó a la hoja del conductor. Nos tocó caminar con las maletas hasta otra cuadra para que nos recogiera. No perdimos la salida, pero sí pagamos con tiempo y cansancio una corrección que daban por hecha.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects"
+      ],
+      "structure": "R04: llamada desde dirección incorrecta y corrección comunicada antes",
+      "author_rationale": "El cambio aceptado no se transmite y obliga a trasladar equipaje para mantener la reserva."
+    },
+    {
+      "family": "v3-calibration-co-002",
+      "semantic_component": "sg-v3-calibration-co-002",
+      "role": "calibration",
+      "region": "Colombia",
+      "experience_type": "reservation",
+      "length_band": "medium",
+      "text": "Consulté cómo cambiar la direccion de recogida porque había invertido dos cifras al reservar. Me pidieron enviar el código y escribir el nuevo dato completo, incluyendo el nombre del alojamiento. Respondieron con una ficha donde aparecían la dirección anterior tachada y la nueva debajo. Revisé los números, confirmé por el mismo chat y añadieron una nota al registro de pasajeros de la van del martes.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "typo",
+        "objective_chronology"
+      ],
+      "structure": "R05: consulta del procedimiento y registro de la enmienda",
+      "author_rationale": "Relata envío, cotejo y registro de una dirección sin evaluar la respuesta."
+    },
+    {
+      "family": "v3-calibration-co-002",
+      "semantic_component": "sg-v3-calibration-co-002",
+      "role": "calibration",
+      "region": "Colombia",
+      "experience_type": "reservation",
+      "length_band": "medium",
+      "text": "La confirmación corregida quedó en mi celular y en la hoja del conductor: comprobé ambas al subir. Había escrito mal una cifra de la dirección y me preocupaba perder la recogida. Al avisar, me devolvieron el dato completo para revisarlo y enviaron una captura del registro actualizado. Así sí pude quedarme tranquilo. La van llegó a esa puerta a la hora acordada, sin llamadas para buscarnos.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "resolved_incident",
+        "expectation"
+      ],
+      "structure": "R06: recorrido de la confirmación entre celular y hoja operativa",
+      "author_rationale": "La corrección verificada se refleja en una recogida puntual en el lugar correcto."
+    },
+    {
+      "family": "v3-calibration-co-003",
+      "semantic_component": "sg-v3-calibration-co-003",
+      "role": "calibration",
+      "region": "Colombia",
+      "experience_type": "nature_excursion",
+      "length_band": "long",
+      "text": "Tenía pensado observar las aves del borde del bosque con los prismáticos compartidos del mirador. Los recibí después de tres personas, todavía con los ajustes del visitante anterior. Pregunté qué debía mover porque veía dos círculos separados y una mancha al centro. La respuesta fue que girara la ruedita, sin mostrar cuál: había dos piezas móviles y una estaba tan dura que preferí no forzarla. Mi turno transcurrió intentando encontrar una imagen mientras el encargado atendía una llamada. Cuando por fin se acercó, me pidió pasarlos al siguiente porque el grupo debía continuar. Me quedé sin distinguir siquiera la rama que señalaba; a simple vista veía más. El paisaje era amplio y había un banco para sentarse, pero la actividad de observación quedó vacía para mí. No hubo otro turno ni una revisión del equipo antes de guardarlo. En el camino de salida escuché la explicación de un ave que otros habían visto mientras yo seguía tratando de juntar los dos círculos.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast",
+        "mixed_aspects",
+        "expectation"
+      ],
+      "structure": "R07: propósito de observación y desarrollo de un turno sin ajuste",
+      "author_rationale": "La asistencia insuficiente consume el turno y frustra la observación prevista."
+    },
+    {
+      "family": "v3-calibration-co-003",
+      "semantic_component": "sg-v3-calibration-co-003",
+      "role": "calibration",
+      "region": "Colombia",
+      "experience_type": "nature_excursion",
+      "length_band": "long",
+      "text": "Esperé junto a la baranda mientras otra visitante utilizaba los prismáticos. Antes de comenzar, el guía había señalado el árbol que usaríamos como referencia y mostrado una rueda central y un ajuste en uno de los oculares. Al recibirlos separé los dos lados hasta situarlos frente a mis ojos. Luego moví la rueda mirando hacia el tronco indicado. Llevo gafas, por lo que consulté si debía quitármelas; el guía mostró dos posiciones de las piezas que rodeaban los oculares y probé ambas. Mi compañera eligió una posición diferente al tomar su turno. Cada persona observaba primero el árbol y después podía mover los prismáticos hacia las ramas cercanas. Cuando llegaron a la última visitante, el guía los recibió por la correa y los guardó en un estuche acolchado. La espera inicial coincidió con una explicación sobre los distintos niveles del bosque. Al continuar la caminata, pasamos por debajo de la ladera donde estaba el árbol que habíamos usado para el enfoque.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R08: espera entre turnos y operaciones previas y posteriores",
+      "author_rationale": "Presenta ajustes, turnos y referencias sin juzgar el equipo o la ayuda."
+    },
+    {
+      "family": "v3-calibration-co-003",
+      "semantic_component": "sg-v3-calibration-co-003",
+      "role": "calibration",
+      "region": "Colombia",
+      "experience_type": "nature_excursion",
+      "length_band": "long",
+      "text": "Desde la esquina del mirador veía una rama ocupada, pero no sabía qué estaba mirando. Con los prismáticos ajustados pude distinguir el pico y las manchas del pecho; fue el momento que más disfruté de la caminata. No me los entregaron y ya: el guía hizo una prueba conmigo mirando una hoja inmóvil y mostró cómo adaptar la separación a mi cara. Después comprobó que veía una sola imagen antes de señalar el ave. Mi pareja, que usa gafas, necesitó otra posición y también recibió ese tiempo. Aunque el equipo era compartido, hubo una segunda vuelta para quienes queríamos repetir. Me ayudó a recordar detalles que en las fotos del celular quedaban como un punto oscuro. Al pasarlos a la persona siguiente sostuve la correa mientras ajustaba el agarre, tal como nos habían mostrado. Más abajo encontramos un dibujo de la misma especie en un panel; reconocí las manchas sin tener que buscar el nombre en mis notas.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "resolved_incident"
+      ],
+      "structure": "R09: punto de observación y desplazamiento hasta la referencia posterior",
+      "author_rationale": "La ayuda individual permite reconocer rasgos y disfrutar de la observación compartida."
+    },
+    {
+      "family": "v3-calibration-co-004",
+      "semantic_component": "sg-v3-calibration-co-004",
+      "role": "calibration",
+      "region": "Colombia",
+      "experience_type": "hotel",
+      "length_band": "short",
+      "text": "El roce de una maleta bloqueó la puerta; habían insistido en subirnos todos. Nadie coordinó otra vuelta y acabamos bajando bultos por la escalera.",
+      "intended_label": "negativo",
+      "phenomena": [],
+      "structure": "R10: roce de equipaje y consecuencias del acomodo",
+      "author_rationale": "La coordinación insuficiente bloquea el acceso y termina imponiendo un traslado por escaleras."
+    },
+    {
+      "family": "v3-calibration-co-004",
+      "semantic_component": "sg-v3-calibration-co-004",
+      "role": "calibration",
+      "region": "Colombia",
+      "experience_type": "hotel",
+      "length_band": "short",
+      "text": "Elegimos hacer dos viajes en el ascensor pequeño: primero dos personas y una maleta; después subí yo con las otras dos hasta el tercer piso.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R11: elección de reparto y ejecución de dos viajes",
+      "author_rationale": "Señala una distribución de capacidad sin calificarla."
+    },
+    {
+      "family": "v3-calibration-co-004",
+      "semantic_component": "sg-v3-calibration-co-004",
+      "role": "calibration",
+      "region": "Colombia",
+      "experience_type": "hotel",
+      "length_band": "short",
+      "text": "Mi hermano sujetó la puerta mientras recepción organizaba dos viajes. Las maletas llegaron con nosotros sin apretujarnos; coordinaron hasta recoger el último bolso.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R12: acción de acompañante y traslado coordinado del equipaje",
+      "author_rationale": "La organización permite trasladar personas y bultos sin incomodidad."
+    },
+    {
+      "family": "v3-policy_dev-co-001",
+      "semantic_component": "sg-v3-policy_dev-co-001",
+      "role": "policy_dev",
+      "region": "Colombia",
+      "experience_type": "museum",
+      "length_band": "medium",
+      "text": "Abrí el enlace junto a la vitrina vacía buscando la pieza anunciada. La pantalla mostró una imagen sin fecha ni aviso de que era reproducción; parecía señalar que el original estaba en la sala contigua. Di dos vueltas antes de preguntar. Entonces aclararon que estaba guardado fuera de exhibición. El recurso terminó confundiendo mi visita y tampoco permitía ampliar los detalles que quería consultar.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R01: apertura de enlace y búsqueda inducida por una imagen sin contexto",
+      "author_rationale": "La reproducción no identificada desorienta y no permite examinar los detalles buscados."
+    },
+    {
+      "family": "v3-policy_dev-co-001",
+      "semantic_component": "sg-v3-policy_dev-co-001",
+      "role": "policy_dev",
+      "region": "Colombia",
+      "experience_type": "museum",
+      "length_band": "medium",
+      "text": "La imagen quedó abierta en una tableta del museo. Para localizarla había buscado el número de inventario escrito en la ficha de sala y seleccionado la pestaña de reproducciones digitales. Bajo la foto aparecía la indicación de que el original no estaba expuesto. Consulté la vista frontal y el reverso, luego leí la medida registrada. Al terminar regresé al menú donde se listaban otras piezas.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "negation",
+        "objective_chronology"
+      ],
+      "structure": "R02: consulta de imagen y reconstrucción de su localización",
+      "author_rationale": "Explica acceso e identificación de una reproducción sin una evaluación del recurso."
+    },
+    {
+      "family": "v3-policy_dev-co-001",
+      "semantic_component": "sg-v3-policy_dev-co-001",
+      "role": "policy_dev",
+      "region": "Colombia",
+      "experience_type": "museum",
+      "length_band": "medium",
+      "text": "Quería ver el grabado de una pieza que estaba en depósito. La mediadora buscó conmigo su código y abrió una reproducción identificada como tal, con fotos desde varios ángulos. Chévere poder ampliar las letras y compararlas con la transcripción al lado. No reemplazaba tener el objeto enfrente, pero sí respondió mi pregunta sobre una marca que en el folleto apenas se alcanzaba a ver.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "regionalism",
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects"
+      ],
+      "structure": "R03: pregunta sobre un grabado y uso de imágenes ampliables",
+      "author_rationale": "El recurso permite resolver una duda concreta reconociendo su diferencia frente al original."
+    },
+    {
+      "family": "v3-policy_dev-co-002",
+      "semantic_component": "sg-v3-policy_dev-co-002",
+      "role": "policy_dev",
+      "region": "Colombia",
+      "experience_type": "tour",
+      "length_band": "long",
+      "text": "Alcanzamos al grupo dos calles después de la feria, cuando ya habían comenzado la explicación siguiente. Antes del rato libre, la guía había dicho que levantaría una bandera junto al puesto de artesanías para reunirnos. Había cuatro puestos con ese tipo de productos y dos salidas; no precisó cuál ni una hora de encuentro. Mi compañero y yo nos quedamos cerca de la entrada, mirando por encima de la gente. No vimos la bandera en ningún momento. Cuando llamamos, respondió que ya salían y que siguiéramos hacia una iglesia, sin esperar a comprobar dónde estábamos. Terminamos cruzando la feria de prisa con las compras para encontrar la calle indicada. Haber pagado un recorrido guiado y acabar buscándolo por teléfono me pareció un desorden serio. Al reunirnos nadie verificó cuántos faltaban; otra pareja llegó después, también buscando. La feria me había gustado, pero pasé el resto del paseo pendiente de no perder de vista la mochila de la guía, en vez de mirar lo que explicaba.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast",
+        "mixed_aspects"
+      ],
+      "structure": "R04: reencuentro tardío y reconstrucción de señal y ubicación imprecisas",
+      "author_rationale": "La señal y la comprobación fallidas provocan persecución del grupo y deterioran el resto de la visita."
+    },
+    {
+      "family": "v3-policy_dev-co-002",
+      "semantic_component": "sg-v3-policy_dev-co-002",
+      "role": "policy_dev",
+      "region": "Colombia",
+      "experience_type": "tour",
+      "length_band": "long",
+      "text": "Pregunté dónde sería la reunión después del intervalo en la feria. El guía indicó el costado de una fuente y mostró una bandera naranja que levantaría al cumplirse veinte minutos. Repetí la referencia a mi acompañante y entramos por el pasillo de alimentos. Compramos dos amasijos y miramos un puesto donde trabajaban fibras vegetales. Cinco minutos antes de la hora caminamos hacia la fuente, deteniéndonos en un mostrador de tejidos. Desde allí vimos la bandera levantada. Al llegar, el guía comparó su lista con las pulseras numeradas que nos habían dado al inicio; cada pareja confirmó sus dos números. Una persona fue al baño mientras los demás permanecíamos junto a la fuente. Cuando volvió, guardaron la bandera en una funda y continuamos hacia el corredor de flores. El intervalo ocupó la parte central del recorrido, entre una explicación sobre los edificios de la plaza y otra sobre los productos que llegaban desde las veredas cercanas a la población.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R05: consulta de referencia y aplicación del procedimiento de reunión",
+      "author_rationale": "Describe señal, tiempo y recuento sin valorar el procedimiento."
+    },
+    {
+      "family": "v3-policy_dev-co-002",
+      "semantic_component": "sg-v3-policy_dev-co-002",
+      "role": "policy_dev",
+      "region": "Colombia",
+      "experience_type": "tour",
+      "length_band": "long",
+      "text": "La cinta azul seguía atada a la vara cuando la guía nos dejó explorar la feria. La había mostrado desde la entrada y señaló un quiosco alto como punto fijo, por si desde los puestos no veíamos la señal. Esa doble referencia funcionó muy bien entre tanta gente. Pudimos curiosear las canastas y probar un dulce sin estar adivinando hacia dónde se movería el grupo. A la hora acordada levantó la vara, nos reunió a un lado del paso y comprobó los números de las tarjetas. Faltaba una señora; en lugar de arrancar, la llamó y supimos que estaba en la fila para recoger una compra. Un auxiliar fue hasta el puesto mientras la guía nos contó cómo se organizaban los vendedores. Esperamos bajo sombra y continuamos con todos cuando volvió. La tarjeta con mi número quedó enganchada al morral durante el resto del recorrido; la entregué al final junto a la vara, que ya tenía la cinta enrollada para guardarla.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "expectation",
+        "resolved_incident"
+      ],
+      "structure": "R06: ubicación de la señal y verificación mediante tarjetas",
+      "author_rationale": "Las referencias claras y el recuento permiten explorar y resolver una ausencia sin abandonar a nadie."
+    },
+    {
+      "family": "v3-policy_dev-co-003",
+      "semantic_component": "sg-v3-policy_dev-co-003",
+      "role": "policy_dev",
+      "region": "Colombia",
+      "experience_type": "reservation",
+      "length_band": "short",
+      "text": "Pensábamos entrar con los dos niños. Cobraron cuatro cupos y solo al confirmar explicaron que el menor no podía participar; tampoco ofrecieron ajustar el pago.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "expectation"
+      ],
+      "structure": "R07: plan familiar y condición comunicada después del cobro",
+      "author_rationale": "La restricción tardía deja un cupo cobrado sin participación ni ajuste."
+    },
+    {
+      "family": "v3-policy_dev-co-003",
+      "semantic_component": "sg-v3-policy_dev-co-003",
+      "role": "policy_dev",
+      "region": "Colombia",
+      "experience_type": "reservation",
+      "length_band": "short",
+      "text": "Durante la confirmación revisaron las edades. Dos adultos y la adolescente ocuparían tres cupos; el niño de seis quedaba inscrito como acompañante, con tarifa diferente.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R08: revisión durante confirmación y distribución posterior de cupos",
+      "author_rationale": "Presenta edades, participación y categorías de tarifa sin juzgarlas."
+    },
+    {
+      "family": "v3-policy_dev-co-003",
+      "semantic_component": "sg-v3-policy_dev-co-003",
+      "role": "policy_dev",
+      "region": "Colombia",
+      "experience_type": "reservation",
+      "length_band": "short",
+      "text": "Desde el mostrador nos explicaron los grupos por edad y calcularon cada tarifa. Quedó claro quién participaba; pudimos reservar juntos sin sorpresas al llegar.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R09: consulta en mostrador y confirmación de participantes",
+      "author_rationale": "La información previa permite una reserva familiar clara y sin discrepancias posteriores."
+    },
+    {
+      "family": "v3-policy_dev-co-004",
+      "semantic_component": "sg-v3-policy_dev-co-004",
+      "role": "policy_dev",
+      "region": "Colombia",
+      "experience_type": "nature_excursion",
+      "length_band": "medium",
+      "text": "Un chasquido salió del bastón al apoyarlo en el primer desnivel. Se había recogido el cierre y tuve que devolverme al punto de préstamo. Me dieron otro, pero no cambiaron el número en la ficha. Al terminar me reclamaron el inicial y retuvieron mi depósito mientras lo buscaban. No revisaron nunca el registro del cambio; perdí el transporte que salía con mis compañeros por ese enredo.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "explicit_contrast",
+        "negation",
+        "negative_concordance",
+        "resolved_incident"
+      ],
+      "structure": "R10: sonido de falla y consecuencias del registro desactualizado",
+      "author_rationale": "La falla y el registro sin corregir ocasionan retención del depósito y pérdida del transporte."
+    },
+    {
+      "family": "v3-policy_dev-co-004",
+      "semantic_component": "sg-v3-policy_dev-co-004",
+      "role": "policy_dev",
+      "region": "Colombia",
+      "experience_type": "nature_excursion",
+      "length_band": "medium",
+      "text": "Podía llevar un bastón corto o uno regulable. Elegí el segundo y anotaron el número dieciocho junto a mi ficha de caminante. Ajusté la longitud en el patio antes de salir con el grupo. Al regresar, puse el bastón sobre una lona y una persona cotejó la placa con el registro; otra comprobó el cierre y la punta. Retiraron la ficha de la carpeta de préstamos.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R11: elección de bastón y comprobación de salida y devolución",
+      "author_rationale": "Describe selección, identificación y devolución sin una apreciación del servicio."
+    },
+    {
+      "family": "v3-policy_dev-co-004",
+      "semantic_component": "sg-v3-policy_dev-co-004",
+      "role": "policy_dev",
+      "region": "Colombia",
+      "experience_type": "nature_excursion",
+      "length_band": "medium",
+      "text": "Mi mamá levantó un bastón que le quedaba largo y el encargado le acercó otro para probar. Revisaron el ajuste caminando por el patio, anotaron ambos números y nos mostraron dónde devolverlos. Ese cuidado se agradeció en las bajadas: íbamos con apoyos a nuestra medida. Al final comprobaron puntas y cierres delante de nosotros, cerraron el préstamo y entregaron los depósitos completos, sin demora.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R12: selección de acompañante y uso y devolución del equipo",
+      "author_rationale": "La comprobación individual y la devolución ágil sostienen una experiencia favorable."
+    }
+  ]
+}

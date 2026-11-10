@@ -1,0 +1,1186 @@
+{
+  "scope": "INITIAL_BLIND_AI_REVIEW_NOT_HUMAN_GOLD",
+  "records_sha256": "7219d60d1c3dcef52b8f336cf72d8e611b1194706e8969f61c5789d45b28e241",
+  "reviewers": [
+    {
+      "actual_task": "/root/v3_blind_reviewer_a",
+      "synthetic_ai_review": true,
+      "human": false,
+      "annotations": [
+        {
+          "id": "b3_0b00517b3575a3963ba9",
+          "label": "positivo",
+          "rationale": "La ayuda anticipada y sostenida del chofer produce alivio explícito."
+        },
+        {
+          "id": "b3_b48d7fdbb254468a99c5",
+          "label": "neutral",
+          "rationale": "Describe la sustitución y registro de una tarjeta, sin valorar el fallo previo ni la atención recibida."
+        },
+        {
+          "id": "b3_aed63fc80066f5261458",
+          "label": "ambiguo",
+          "rationale": "Presenta apreciaciones opuestas de la iluminación y mantiene ambas abiertas, sin establecer una valoración global."
+        },
+        {
+          "id": "b3_73558d7f85ee9b1cf1c1",
+          "label": "neutral",
+          "rationale": "Relata ajustes del visor y pasos de la visita, sin expresar satisfacción, incomodidad ni juicio sobre el servicio."
+        },
+        {
+          "id": "b3_24ccc1112ccdb8f6f3b3",
+          "label": "positivo",
+          "rationale": "Aprueba la utilidad de la tapa y destaca que ambos platos llegaron calientes y sin esperas.",
+          "issue_flags": [
+            "formulacion_poco_natural_levantaba_aire"
+          ]
+        },
+        {
+          "id": "b3_14f87273db583bdff589",
+          "label": "negativo",
+          "rationale": "Cobran seis plazas completas pese a disponer de equipo para cuatro y proponen compartir después del pago.",
+          "issue_flags": [
+            "expresion_poco_natural_remos_puestos"
+          ]
+        },
+        {
+          "id": "b3_3bf9e4cc28d143129b8e",
+          "label": "positivo",
+          "rationale": "La preparación y comprobación de seguridad generan confianza y permiten disfrutar sin preocupación constante por la niña."
+        },
+        {
+          "id": "b3_1645cc5790b9b2cd1a3b",
+          "label": "negativo",
+          "rationale": "La información obsoleta provoca espera y gasto extraordinario; el elogio aparente es ironía respaldada por esos perjuicios."
+        },
+        {
+          "id": "b3_ee9dd12c47384cb822a9",
+          "label": "positivo",
+          "rationale": "El transporte de la bicicleta resulta sencillo, seguro y sin cobros adicionales, permitiendo continuar pedaleando."
+        },
+        {
+          "id": "b3_f7bab1513cfa7c337bc8",
+          "label": "negativo",
+          "rationale": "El fallo de conexión del cobro termina trasladando al pasajero el coste de un desvío no previsto."
+        },
+        {
+          "id": "b3_7fd6c57b818d776c61c9",
+          "label": "positivo",
+          "rationale": "Valora el cuidado del conductor, que facilita conversar sin esfuerzo; la negación coloquial refuerza esa aprobación."
+        },
+        {
+          "id": "b3_eb12f652604081ef1157",
+          "label": "positivo",
+          "rationale": "La organización de la guía funciona de maravilla y facilita circular con seguridad y tranquilidad."
+        },
+        {
+          "id": "b3_e9549aa7556a3722cc0f",
+          "label": "positivo",
+          "rationale": "Destaca señalización comprensible, acceso firme y una disposición útil para desechar envases con su hija."
+        },
+        {
+          "id": "b3_38d856f00c5133f6dae1",
+          "label": "neutral",
+          "rationale": "Enumera instrucciones, desplazamiento y recogida del taxi, sin añadir valoración favorable o desfavorable."
+        },
+        {
+          "id": "b3_547f428a5c083cec87d2",
+          "label": "ambiguo",
+          "rationale": "El mismo aislamiento invita a quedarse y a buscar compañía, sin que se imponga una preferencia."
+        },
+        {
+          "id": "b3_ab6916df6c3c9e2b41b7",
+          "label": "ambiguo",
+          "rationale": "El alcance desconocido de la lista de espera determina si siente alivio o decepción."
+        },
+        {
+          "id": "b3_25aaf51348529dd277a1",
+          "label": "ambiguo",
+          "rationale": "La valoración depende de expectativas omitidas y el texto mantiene abiertas la satisfacción y la lectura irónica."
+        },
+        {
+          "id": "b3_1eef256a019c8a70281b",
+          "label": "negativo",
+          "rationale": "Aunque el paseo estuvo bien, domina la reclamación por depósito incierto, registros deficientes y una devolución que exige otra visita."
+        },
+        {
+          "id": "b3_216b74a0475ca7a7ca82",
+          "label": "positivo",
+          "rationale": "La única valoración expresada elogia la salida; la incertidumbre sobre quién la adopta no introduce una opinión negativa.",
+          "issue_flags": [
+            "incertidumbre_de_atribucion_sin_polaridad_opuesta"
+          ]
+        },
+        {
+          "id": "b3_8df536712e96ea58d7a1",
+          "label": "neutral",
+          "rationale": "Describe comprobar una credencial e incorporarse al grupo, sin evaluar la experiencia."
+        },
+        {
+          "id": "b3_1d2b393fffdb9b365de1",
+          "label": "ambiguo",
+          "rationale": "El olor se recuerda como acogedor o indeseado según una secuencia que el narrador no logra establecer."
+        },
+        {
+          "id": "b3_41107647977db168d52d",
+          "label": "neutral",
+          "rationale": "Detalla tarifas, equipaje y comprobantes del taxi sin elogiar ni cuestionar esos procedimientos."
+        },
+        {
+          "id": "b3_36d104485b29ec2498c5",
+          "label": "neutral",
+          "rationale": "Expone condiciones, comunicaciones y registro de llegada, sin juicio emocional ni evaluación del servicio."
+        },
+        {
+          "id": "b3_4595318282772f16e796",
+          "label": "positivo",
+          "rationale": "El ensayo y acompañamiento del guía reducen la tensión y permiten cruzar con confianza."
+        },
+        {
+          "id": "b3_ba8f76e01aeac1b53349",
+          "label": "ambiguo",
+          "rationale": "Conserva alivio y fastidio, pero falta la causa que permitiría valorar el cambio de habitación."
+        },
+        {
+          "id": "b3_2beb570e9106b15af194",
+          "label": "ambiguo",
+          "rationale": "Contrapone ganar tiempo libre y perder el recorrido de montaña, sin decidir qué beneficio pesa más."
+        },
+        {
+          "id": "b3_5e8ef14aa4181a706c1e",
+          "label": "negativo",
+          "rationale": "Denuncia una revisión de seguridad engañosa que termina en resbalón y abandono del recorrido."
+        },
+        {
+          "id": "b3_079bd64501c60b1ec5b5",
+          "label": "negativo",
+          "rationale": "El frenazo y la salida antes de sentarse sustentan la ironía crítica sobre la ayuda al embarque."
+        },
+        {
+          "id": "b3_fc08c73926ae6805635f",
+          "label": "ambiguo",
+          "rationale": "La mejora resulta favorable o perjudicial según una condición de salida todavía sin confirmar."
+        },
+        {
+          "id": "b3_eb4c3cc5375ca16b3bc7",
+          "label": "neutral",
+          "rationale": "Relata comprobaciones de dirección y uso del sistema de conversación sin expresar valoración del traslado."
+        },
+        {
+          "id": "b3_6238e119d8261cfa9e05",
+          "label": "neutral",
+          "rationale": "Describe el registro y seguimiento de un objeto perdido, cuyo desenlace aún no se conoce, sin juzgar la gestión."
+        },
+        {
+          "id": "b3_57f727fc309c9b23896d",
+          "label": "negativo",
+          "rationale": "Recepción conoce las quejas y el horario de silencio, pero deja continuar el ruido nocturno."
+        },
+        {
+          "id": "b3_a082d29a14c06e5980d4",
+          "label": "positivo",
+          "rationale": "La lavandería cumple el plazo necesario y el narrador la califica de ayuda tremenda."
+        },
+        {
+          "id": "b3_f6a7433e7a364ce43d75",
+          "label": "negativo",
+          "rationale": "La disposición incumple la condición central de la reserva e impide conversar juntos, aunque haya espacio para los platos."
+        },
+        {
+          "id": "b3_0a1d8422903582428b58",
+          "label": "positivo",
+          "rationale": "Destaca ajuste inmediato, cobros explicados y buen funcionamiento de la maleta tras el servicio."
+        },
+        {
+          "id": "b3_2aac12fe3e1e4a3157ad",
+          "label": "ambiguo",
+          "rationale": "Dos comensales valoran el mismo picante de maneras opuestas y el narrador no prioriza ninguna."
+        },
+        {
+          "id": "b3_a23d663a6fc8f8d42401",
+          "label": "ambiguo",
+          "rationale": "La futura ruta despierta ilusión y reservas por posibles sacrificios; ninguna alternativa determina el balance."
+        },
+        {
+          "id": "b3_f08773047a648cb2725a",
+          "label": "neutral",
+          "rationale": "Describe texturas, una cartela y el recorrido de los dedos sin evaluar su utilidad o calidad."
+        },
+        {
+          "id": "b3_e476e1baee59a3894d4b",
+          "label": "positivo",
+          "rationale": "La orientación permite aprovechar la tarde, comprender las colecciones y disponer de tiempo para observar."
+        },
+        {
+          "id": "b3_c3325284dd6ab2f9756b",
+          "label": "neutral",
+          "rationale": "Narra la distribución del toldo y los cruces del corredor de servicio sin expresar aprobación ni molestias."
+        },
+        {
+          "id": "b3_be8bcf4dce4c8dccd822",
+          "label": "negativo",
+          "rationale": "La dirección equivocada y la falta de respuesta obligan a buscar la entrada de madrugada por ensayo."
+        },
+        {
+          "id": "b3_dd556d57c4feeda96a67",
+          "label": "negativo",
+          "rationale": "El montaje deficiente y el cobro adicional dejan sin protección y añaden preocupación por el cortavientos."
+        },
+        {
+          "id": "b3_48ca086a919daaab4816",
+          "label": "negativo",
+          "rationale": "La talla equivocada, la prueba ineficaz y el segundo cobro se juzgan abusivos; la ironía tiene fundamento explícito."
+        },
+        {
+          "id": "b3_a619577fdf9a88a5292d",
+          "label": "neutral",
+          "rationale": "Pregunta por la cantidad de piezas y vuelve a contarlas, sin afirmar admiración ni desagrado."
+        },
+        {
+          "id": "b3_9037139ac33a4f07c47e",
+          "label": "negativo",
+          "rationale": "No puede recuperar la maleta dentro del horario anunciado y tampoco obtiene atención por el interfono."
+        },
+        {
+          "id": "b3_ba7c3e422488853e9876",
+          "label": "neutral",
+          "rationale": "Registra fechas, horarios y entrega del comprobante durante una salida de madrugada, sin juicio sobre su organización."
+        },
+        {
+          "id": "b3_24da0587944001ce43d6",
+          "label": "ambiguo",
+          "rationale": "La vista parece justificar la salida, pero persiste la decepción por no caminar hasta la laguna; ninguna impresión prevalece."
+        },
+        {
+          "id": "b3_6cb411f47d40dfa2a145",
+          "label": "negativo",
+          "rationale": "Las respuestas evasivas y el cobro por pan no consumido generan discusión y desconfianza hacia los cargos."
+        },
+        {
+          "id": "b3_8971f0a2f249ca20696f",
+          "label": "positivo",
+          "rationale": "La confirmación personal evita errores, resuelve dudas y da continuidad tranquilizadora al aprendizaje."
+        },
+        {
+          "id": "b3_3ab78e4d74c64693055c",
+          "label": "ambiguo",
+          "rationale": "El relato declara irresuelto si la frase es elogio o ironía y omite las expectativas que permitirían decidir.",
+          "issue_flags": [
+            "lectura_ironica_sugerida_sin_perjuicio_concreto"
+          ]
+        },
+        {
+          "id": "b3_b9156b6a2efb5bf07158",
+          "label": "negativo",
+          "rationale": "Las indicaciones contradictorias y tardías fuerzan una búsqueda entre tráfico que el encuentro final no compensa."
+        },
+        {
+          "id": "b3_ff6d889c206c9c6b30d4",
+          "label": "neutral",
+          "rationale": "Describe un itinerario interior y sus desvíos sin atribuirles calidad ni efecto emocional."
+        },
+        {
+          "id": "b3_be6791dd89741f8523d4",
+          "label": "negativo",
+          "rationale": "Critica reproches y reglas fotográficas mal comunicadas e inconsistentes que desaniman la visita."
+        },
+        {
+          "id": "b3_abe520b136353c2d74f1",
+          "label": "neutral",
+          "rationale": "Informa de la orientación del cuarto y la retirada de mesas conforme al horario, sin expresar satisfacción."
+        },
+        {
+          "id": "b3_c719038acc4de6eca31b",
+          "label": "neutral",
+          "rationale": "Relata ubicación, conexión y retirada del cargador sin añadir una evaluación del equipamiento."
+        },
+        {
+          "id": "b3_d40993bd49ddd146febd",
+          "label": "negativo",
+          "rationale": "El elevador prometido resulta incompatible y el aviso tardío obliga a cancelar el viaje."
+        },
+        {
+          "id": "b3_a510dd847ee029ea4933",
+          "label": "neutral",
+          "rationale": "Expone la práctica de señales, reparto de tarjetas y comienzo del sendero sin valorar la instrucción."
+        },
+        {
+          "id": "b3_f36e2d029e9105c12e9d",
+          "label": "positivo",
+          "rationale": "La orientación hacia otro acceso evita perder el turno y permite encontrar las salas despejadas."
+        },
+        {
+          "id": "b3_79bec7460d16734dd0bf",
+          "label": "negativo",
+          "rationale": "La comunicación deficiente causa un desvío, pérdida de tiempo y cobro del recorrido pese a llegar finalmente al destino."
+        },
+        {
+          "id": "b3_e03398f7aafe5131a922",
+          "label": "negativo",
+          "rationale": "La falta de desglose y los suplementos inesperados obligan a pagar más para no perder el anticipo."
+        },
+        {
+          "id": "b3_ee3f4a02ab797ea3de84",
+          "label": "ambiguo",
+          "rationale": "La escena genera anticipaciones favorables y desfavorables, ambas reconocidas como posibilidades y ninguna confirmada."
+        },
+        {
+          "id": "b3_e134c3fd7f6c8789db1e",
+          "label": "positivo",
+          "rationale": "La señal visible y la apertura coordinada permiten pasar con el morral grande sin impedimentos."
+        },
+        {
+          "id": "b3_0defc695609c7fde4289",
+          "label": "neutral",
+          "rationale": "Describe posición del observador, grupo y herramienta sin valorar la demostración."
+        },
+        {
+          "id": "b3_3e16f29b896be454014a",
+          "label": "positivo",
+          "rationale": "El vuelto llega rápidamente y a tiempo, sin tener que reclamarlo ni apresurarse."
+        },
+        {
+          "id": "b3_442808d977df7d72dbf1",
+          "label": "negativo",
+          "rationale": "La ubicación inútil del banco y la falta de alternativas hacen difícil descansar durante una visita con dolor de rodilla."
+        },
+        {
+          "id": "b3_da614dfc3b3b6be76317",
+          "label": "neutral",
+          "rationale": "Detalla colocación y manejo del ventilador, incluida una consulta técnica, sin evaluar el confort."
+        },
+        {
+          "id": "b3_c07fd2c615facb3043e3",
+          "label": "neutral",
+          "rationale": "Describe la división y reunión del grupo durante una parada de tienda, sin aprobarla ni criticarla."
+        },
+        {
+          "id": "b3_9fed0b0a6f42c2ff44b0",
+          "label": "neutral",
+          "rationale": "Relata decisiones sobre ventanas y ventilación durante el trayecto sin juicio sobre la atención o el viaje."
+        },
+        {
+          "id": "b3_8736e009024c12c7888c",
+          "label": "negativo",
+          "rationale": "El desayuno acordado no está disponible porque lo entregaron a otra persona sin comprobar destinatario."
+        },
+        {
+          "id": "b3_626faaeb7ac9ef2c3182",
+          "label": "ambiguo",
+          "rationale": "La bocina provoca expectación y recelo; su función desconocida impide fijar una interpretación valorativa."
+        },
+        {
+          "id": "b3_f94e50984ad1e3f03d0f",
+          "label": "neutral",
+          "rationale": "Enumera turno, ficha, materiales y duración de ducha, sin evaluar esas condiciones."
+        },
+        {
+          "id": "b3_9f1f371e62bb2f0ba78a",
+          "label": "neutral",
+          "rationale": "Narra el ajuste de volumen solicitado y la conversación posterior, sin manifestar satisfacción ni crítica."
+        },
+        {
+          "id": "b3_58c1531f95e915fd2c9b",
+          "label": "positivo",
+          "rationale": "La información clara y las revisiones compartidas permiten presupuestar y recuperar la fianza con rapidez y tranquilidad."
+        },
+        {
+          "id": "b3_8ae5d7e3056dfcef685a",
+          "label": "neutral",
+          "rationale": "Describe la aproximación al taxi, carga y ubicación de objetos durante la lluvia sin emitir juicio."
+        },
+        {
+          "id": "b3_8b18aa5bce6305db10b6",
+          "label": "neutral",
+          "rationale": "Informa medidas, orientación y distribución de la parcela según croquis y fotografía, sin valoración."
+        },
+        {
+          "id": "b3_c10fe1480f5b6e66795c",
+          "label": "neutral",
+          "rationale": "Describe cómo comprobar y operar la puerta con ayuda del conductor, sin valorar esa ayuda."
+        },
+        {
+          "id": "b3_e18e00162a560878da58",
+          "label": "positivo",
+          "rationale": "La comunicación previa permite entrar de madrugada al primer intento y encontrar las llaves preparadas."
+        },
+        {
+          "id": "b3_8a257dda8e707552f98a",
+          "label": "positivo",
+          "rationale": "La frase expresa alivio por precio y prestaciones; confundir promesas y recuerdos no aporta una valoración contraria.",
+          "issue_flags": [
+            "incertidumbre_de_fuente_sin_polaridad_opuesta"
+          ]
+        },
+        {
+          "id": "b3_69412897937f33f59dee",
+          "label": "neutral",
+          "rationale": "Detalla reserva, movimiento permitido y uso de los camastros sin elogio ni queja."
+        },
+        {
+          "id": "b3_3960f4f06e859ce1e515",
+          "label": "positivo",
+          "rationale": "Expresa alegría por recuperar pronto el objeto completo gracias a la coordinación del servicio."
+        },
+        {
+          "id": "b3_c18fd6733aebfe8b71ee",
+          "label": "positivo",
+          "rationale": "La orientación y referencias luminosas permiten disfrutar con autonomía; la doble negación rechaza una supuesta imposibilidad."
+        },
+        {
+          "id": "b3_996b97f5c48669ddba75",
+          "label": "ambiguo",
+          "rationale": "El borrador admite alivio o reproche y la respuesta que decidiría entre ambos todavía no existe."
+        },
+        {
+          "id": "b3_822e9170ee4abd4ed578",
+          "label": "negativo",
+          "rationale": "Exigen un pago adicional al embarcar por una ubicación previamente confirmada, cambiando las condiciones."
+        },
+        {
+          "id": "b3_ab14bd23fd777a684c73",
+          "label": "negativo",
+          "rationale": "La falta de advertencia lleva a llenar una botella en una salida de agua destinada a limpieza."
+        },
+        {
+          "id": "b3_0d9af2b9534dd7bf300f",
+          "label": "positivo",
+          "rationale": "La doble negación afirma atención nocturna efectiva, rápida y sin cargo, que resuelve la necesidad de abrigo."
+        },
+        {
+          "id": "b3_b44562f9793d0e0a3c95",
+          "label": "positivo",
+          "rationale": "El conductor resuelve la conexión y permite completar el pago sin trasladar costes al pasajero."
+        },
+        {
+          "id": "b3_2f77c8251014453bbef8",
+          "label": "positivo",
+          "rationale": "Las indicaciones precisas evitan una vuelta innecesaria y aportan tranquilidad durante el traslado con equipaje."
+        },
+        {
+          "id": "b3_e791baeba17bc656f99e",
+          "label": "negativo",
+          "rationale": "Las referencias imprecisas causan búsqueda agotadora; llamar inconfundible al punto es una ironía respaldada por las vueltas."
+        },
+        {
+          "id": "b3_9dc29e4590ac1d06eb60",
+          "label": "negativo",
+          "rationale": "La información contradictoria sobre el transbordo deriva en rechazo y un segundo pago sin revisión de la indicación previa."
+        },
+        {
+          "id": "b3_d8111e55a017dc9a4b3c",
+          "label": "neutral",
+          "rationale": "Describe colocar paneles y alternar el uso de un espacio para cambiarse, sin evaluarlo."
+        },
+        {
+          "id": "b3_3d73dd590f2918af5d05",
+          "label": "positivo",
+          "rationale": "La revisión y corrección gratuitas evitan una espera en la madrugada equivocada, beneficio reconocido por el narrador."
+        },
+        {
+          "id": "b3_a58ac38df1300d8c7e94",
+          "label": "ambiguo",
+          "rationale": "La duración prometida puede significar profundidad o interferir con otro plan; el relato no resuelve esa valoración."
+        },
+        {
+          "id": "b3_e374c01983bc347c97c9",
+          "label": "negativo",
+          "rationale": "El equipo falla y el registro incorrecto del reemplazo provoca retención del depósito y pérdida del transporte."
+        },
+        {
+          "id": "b3_c5df2b4c79c9a8227360",
+          "label": "ambiguo",
+          "rationale": "La nueva cinta podría resolver la entrega o prolongar la espera; aún no hay resultado que incline el juicio."
+        },
+        {
+          "id": "b3_58ac0f6c059aa08b4595",
+          "label": "neutral",
+          "rationale": "Relata una corrección documental y el cargo mostrado, sin expresar conformidad ni protesta."
+        },
+        {
+          "id": "b3_d9458bf2e0f85a5a2e8a",
+          "label": "ambiguo",
+          "rationale": "Menudo recorrido queda explícitamente entre elogio y reproche porque falta la comparación que fijaría su sentido."
+        },
+        {
+          "id": "b3_dee15fb732db66a92abb",
+          "label": "ambiguo",
+          "rationale": "Dos participantes interpretan el mismo balanceo como diversión o incomodidad, sin convertir ninguna versión en valoración global."
+        },
+        {
+          "id": "b3_d2ca310e90103eb7f82b",
+          "label": "neutral",
+          "rationale": "Describe correspondencias numéricas y reparto de platos, sin valorar la comida ni el servicio."
+        },
+        {
+          "id": "b3_162b5f709264c2a88063",
+          "label": "neutral",
+          "rationale": "Detalla bloques de alquiler, ampliación y pago de sillas sin evaluación positiva o negativa."
+        },
+        {
+          "id": "b3_320498f6e193c027e15a",
+          "label": "neutral",
+          "rationale": "Describe comparación, prueba y registro de botas sin declarar comodidad, satisfacción ni inconvenientes."
+        },
+        {
+          "id": "b3_5bb0e9a6da8590ae2d1f",
+          "label": "positivo",
+          "rationale": "La cocina y la respuesta rápida resuelven una necesidad concreta con comodidad, sin que pequeñas limitaciones dominen la experiencia."
+        },
+        {
+          "id": "b3_67d3c5f60e427a102e38",
+          "label": "negativo",
+          "rationale": "Los avisos incompletos y las indicaciones erróneas provocan un recorrido agotador para una persona con bastón."
+        },
+        {
+          "id": "b3_2002b8b0cc20f25538b3",
+          "label": "positivo",
+          "rationale": "La adaptación de la guía permite escuchar y comprender todo, incluso cuando falla la batería."
+        },
+        {
+          "id": "b3_046d5b98ccc2153d0121",
+          "label": "negativo",
+          "rationale": "Resbala pese a seguir la indicación y denuncia ausencia de apoyo en una pasarela con verdín."
+        },
+        {
+          "id": "b3_1c5ce5c92059eea3d072",
+          "label": "neutral",
+          "rationale": "Describe croquis, distribución y retirada de sillas sin juzgar la atención ni el resultado."
+        },
+        {
+          "id": "b3_be9d5366b4d749583f9a",
+          "label": "ambiguo",
+          "rationale": "El cambio de plan podría ser ganancia o pérdida; el narrador omite expresamente el contexto que permitiría decidir."
+        },
+        {
+          "id": "b3_64d4ddf7b2da40c6c308",
+          "label": "positivo",
+          "rationale": "La organización bilingüe y el tiempo para preguntas permiten cumplir ambos objetivos y seguir todo el recorrido."
+        },
+        {
+          "id": "b3_91678e9ab4fa3b6d065a",
+          "label": "negativo",
+          "rationale": "Aunque la comida es aceptable, la desorganización de filas y reposición impide desayunar juntos y con calma."
+        },
+        {
+          "id": "b3_077707c3015d8cfbbf16",
+          "label": "positivo",
+          "rationale": "La coordinación de dos viajes permite trasladar personas y todo el equipaje cómodamente."
+        },
+        {
+          "id": "b3_3282ed69c32a717f1efc",
+          "label": "positivo",
+          "rationale": "La reproducción accesible satisface la consulta y suscita aprobación explícita, aunque no sustituya el objeto original."
+        },
+        {
+          "id": "b3_5544b253354cf2878797",
+          "label": "ambiguo",
+          "rationale": "La luz deseada y el calor incómodo producen preferencias contrapuestas que permanecen sin resolver."
+        },
+        {
+          "id": "b3_0e478b911fb037a37711",
+          "label": "positivo",
+          "rationale": "La distinción clara entre documentos y tradición oral permite disfrutar ambos sin confusiones."
+        },
+        {
+          "id": "b3_a32c1e55fa12d3dded4a",
+          "label": "neutral",
+          "rationale": "Describe comprobar un rebaje y continuar por una vereda, sin evaluar el recorrido."
+        },
+        {
+          "id": "b3_dd8f63c0279795917e2c",
+          "label": "negativo",
+          "rationale": "La pausa mal explicada y el cambio de lugar del bus convierten el descanso en una búsqueda angustiante."
+        }
+      ]
+    },
+    {
+      "actual_task": "/root/v3_blind_reviewer_b",
+      "synthetic_ai_review": true,
+      "human": false,
+      "annotations": [
+        {
+          "id": "b3_0b00517b3575a3963ba9",
+          "label": "positivo",
+          "rationale": "La ayuda prevista para abrir y bajar produce alivio explícito y atiende la limitación de fuerza."
+        },
+        {
+          "id": "b3_b48d7fdbb254468a99c5",
+          "label": "neutral",
+          "rationale": "Relata la sustitución y registro de una tarjeta sin valorar el fallo previo ni la atención recibida."
+        },
+        {
+          "id": "b3_aed63fc80066f5261458",
+          "label": "ambiguo",
+          "rationale": "Presenta valoraciones opuestas de la iluminación y mantiene ambas abiertas, sin adoptar un balance global."
+        },
+        {
+          "id": "b3_73558d7f85ee9b1cf1c1",
+          "label": "neutral",
+          "rationale": "Describe ajustes del visor, reproducción y limpieza sin elogio, queja ni conclusión evaluativa."
+        },
+        {
+          "id": "b3_24ccc1112ccdb8f6f3b3",
+          "label": "positivo",
+          "rationale": "Considera apropiada la tapa y destaca que los alimentos llegan calientes y sin esperar."
+        },
+        {
+          "id": "b3_14f87273db583bdff589",
+          "label": "negativo",
+          "rationale": "La cantidad de equipos incumple los cupos confirmados y exigen turnarse pese a cobrar la sesión completa."
+        },
+        {
+          "id": "b3_3bf9e4cc28d143129b8e",
+          "label": "positivo",
+          "rationale": "La preparación de seguridad genera confianza y permite viajar sin preocupación constante por el chaleco infantil."
+        },
+        {
+          "id": "b3_1645cc5790b9b2cd1a3b",
+          "label": "negativo",
+          "rationale": "El horario desactualizado provoca gastos y desorientación; el elogio aparente de conservarlo es irónico."
+        },
+        {
+          "id": "b3_ee9dd12c47384cb822a9",
+          "label": "positivo",
+          "rationale": "Destaca el transporte seguro de la bicicleta, sin desmontajes adicionales ni suplemento, y su devolución intacta."
+        },
+        {
+          "id": "b3_f7bab1513cfa7c337bc8",
+          "label": "negativo",
+          "rationale": "El pasajero asume el coste del desvío pese a la aceptación previamente asegurada del pago con tarjeta."
+        },
+        {
+          "id": "b3_7fd6c57b818d776c61c9",
+          "label": "positivo",
+          "rationale": "El conductor adapta el audio y facilita la conversación; la expresión negativa funciona como aprobación del cuidado."
+        },
+        {
+          "id": "b3_eb12f652604081ef1157",
+          "label": "positivo",
+          "rationale": "Califica de maravilloso el funcionamiento de las instrucciones, que evitan conflictos y permiten orientarse al niño."
+        },
+        {
+          "id": "b3_e9549aa7556a3722cc0f",
+          "label": "positivo",
+          "rationale": "Señala la utilidad del acceso, los dibujos comprensibles y la abertura baja para desechar residuos con su hija."
+        },
+        {
+          "id": "b3_38d856f00c5133f6dae1",
+          "label": "neutral",
+          "rationale": "Narra la localización y recogida del taxi mediante referencias concretas, sin evaluación del servicio."
+        },
+        {
+          "id": "b3_547f428a5c083cec87d2",
+          "label": "ambiguo",
+          "rationale": "El silencio despierta impulsos contrarios y no se decide si la soledad es deseable o incómoda."
+        },
+        {
+          "id": "b3_ab6916df6c3c9e2b41b7",
+          "label": "ambiguo",
+          "rationale": "El alcance desconocido de la lista de espera impide decidir entre alivio y perjuicio."
+        },
+        {
+          "id": "b3_25aaf51348529dd277a1",
+          "label": "ambiguo",
+          "rationale": "Faltan las expectativas que permitirían interpretar los tres bocados como satisfacción o reproche."
+        },
+        {
+          "id": "b3_1eef256a019c8a70281b",
+          "label": "negativo",
+          "rationale": "Aunque el paseo agradó, predomina el conflicto del depósito y la obligación de volver sin constancia de lo pendiente."
+        },
+        {
+          "id": "b3_216b74a0475ca7a7ca82",
+          "label": "positivo",
+          "rationale": "La única valoración expresada es entusiasta; la incertidumbre sobre quién la adopta no introduce un juicio contrario."
+        },
+        {
+          "id": "b3_8df536712e96ea58d7a1",
+          "label": "neutral",
+          "rationale": "Se limita a comprobar una credencial y unirse al grupo, sin expresar una valoración."
+        },
+        {
+          "id": "b3_1d2b393fffdb9b365de1",
+          "label": "ambiguo",
+          "rationale": "El olor se recuerda como acogedor o indeseado y la secuencia desconocida mantiene irresuelta su valoración."
+        },
+        {
+          "id": "b3_41107647977db168d52d",
+          "label": "neutral",
+          "rationale": "Expone tarifas, equipaje y comprobantes como hechos del trayecto, sin satisfacción ni queja."
+        },
+        {
+          "id": "b3_36d104485b29ec2498c5",
+          "label": "neutral",
+          "rationale": "Detalla condiciones, comunicaciones y registro de llegada sin emitir un juicio sobre su conveniencia o calidad."
+        },
+        {
+          "id": "b3_4595318282772f16e796",
+          "label": "positivo",
+          "rationale": "El ensayo y acompañamiento resultan muy útiles, reducen la tensión y permiten cruzar con confianza."
+        },
+        {
+          "id": "b3_ba8f76e01aeac1b53349",
+          "label": "ambiguo",
+          "rationale": "El alivio por el cambio y el fastidio de reinstalarse no se resuelven; falta la causa que orientaría el juicio."
+        },
+        {
+          "id": "b3_2beb570e9106b15af194",
+          "label": "ambiguo",
+          "rationale": "La tarde libre y la pérdida del paisaje conservan igual fuerza; el narrador no decide qué cambio prefiere."
+        },
+        {
+          "id": "b3_5e8ef14aa4181a706c1e",
+          "label": "negativo",
+          "rationale": "Denuncia una revisión engañosa, dudas desatendidas y un resbalón que obliga a abandonar parte del recorrido."
+        },
+        {
+          "id": "b3_079bd64501c60b1ec5b5",
+          "label": "negativo",
+          "rationale": "El frenazo y la salida prematura sustentan el reproche irónico al supuesto servicio de ayuda."
+        },
+        {
+          "id": "b3_fc08c73926ae6805635f",
+          "label": "ambiguo",
+          "rationale": "La valoración de la mejora depende de una condición de salida que sigue sin confirmarse."
+        },
+        {
+          "id": "b3_eb4c3cc5375ca16b3bc7",
+          "label": "neutral",
+          "rationale": "Describe el uso del intercomunicador y la confirmación de una entrada sin valorar la experiencia."
+        },
+        {
+          "id": "b3_6238e119d8261cfa9e05",
+          "label": "neutral",
+          "rationale": "Registra los pasos de un reporte de objeto perdido; no comunica recuperación ni juicio sobre la gestión."
+        },
+        {
+          "id": "b3_57f727fc309c9b23896d",
+          "label": "negativo",
+          "rationale": "Critica la inacción de recepción frente al ruido nocturno, pese a dos avisos y un horario de silencio."
+        },
+        {
+          "id": "b3_a082d29a14c06e5980d4",
+          "label": "positivo",
+          "rationale": "La lavandería resuelve a tiempo una necesidad y recibe el elogio explícito de ser una gran ayuda."
+        },
+        {
+          "id": "b3_f6a7433e7a364ce43d75",
+          "label": "negativo",
+          "rationale": "La distribución incumple la condición decisiva de la reserva y dificulta la conversación familiar."
+        },
+        {
+          "id": "b3_0a1d8422903582428b58",
+          "label": "positivo",
+          "rationale": "Destaca el ajuste inmediato, la explicación de los cobros y el funcionamiento firme de la maleta."
+        },
+        {
+          "id": "b3_2aac12fe3e1e4a3157ad",
+          "label": "ambiguo",
+          "rationale": "Las opiniones contrapuestas sobre el picante quedan sin una preferencia propia ni una síntesis global."
+        },
+        {
+          "id": "b3_a23d663a6fc8f8d42401",
+          "label": "ambiguo",
+          "rationale": "La anticipación alterna sencillez y posibles sacrificios sin experiencia ni preferencia que resuelva el balance."
+        },
+        {
+          "id": "b3_f08773047a648cb2725a",
+          "label": "neutral",
+          "rationale": "Describe la exploración táctil de un relieve y sus indicaciones sin evaluarlas."
+        },
+        {
+          "id": "b3_e476e1baee59a3894d4b",
+          "label": "positivo",
+          "rationale": "Atribuye al plano una visita más provechosa, sin retrocesos y con tiempo para disfrutar los dibujos."
+        },
+        {
+          "id": "b3_c3325284dd6ab2f9756b",
+          "label": "neutral",
+          "rationale": "Relata la circulación de carros y el uso del cruce sin expresar comodidad, molestia ni evaluación del sistema."
+        },
+        {
+          "id": "b3_be8bcf4dce4c8dccd822",
+          "label": "negativo",
+          "rationale": "El mensaje dirige a otra puerta y la falta de respuesta obliga a encontrar la entrada por ensayo."
+        },
+        {
+          "id": "b3_dd556d57c4feeda96a67",
+          "label": "negativo",
+          "rationale": "La fijación deficiente y el cobro adicional frustran la protección alquilada y convierten el equipo en una preocupación."
+        },
+        {
+          "id": "b3_48ca086a919daaab4816",
+          "label": "negativo",
+          "rationale": "La talla equivocada, la prueba insuficiente y el recobro son criticados expresamente como abuso; la ironía refuerza la queja."
+        },
+        {
+          "id": "b3_a619577fdf9a88a5292d",
+          "label": "ambiguo",
+          "rationale": "La pregunta enfatiza la abundancia de piezas, pero no permite distinguir admiración de sensación de exceso."
+        },
+        {
+          "id": "b3_9037139ac33a4f07c47e",
+          "label": "negativo",
+          "rationale": "No puede recuperar la maleta dentro del horario anunciado y tampoco obtiene asistencia."
+        },
+        {
+          "id": "b3_ba7c3e422488853e9876",
+          "label": "neutral",
+          "rationale": "Detalla el cambio de fecha y las comprobaciones del traslado nocturno sin expresar aprobación ni inconveniente."
+        },
+        {
+          "id": "b3_24da0587944001ce43d6",
+          "label": "ambiguo",
+          "rationale": "La vista parece justificar la salida, pero persiste la decepción por no caminar a la laguna; ninguna impresión prevalece."
+        },
+        {
+          "id": "b3_6cb411f47d40dfa2a145",
+          "label": "negativo",
+          "rationale": "La información evasiva termina en un cobro discutido y una sensación explícita de tener que vigilar la mesa."
+        },
+        {
+          "id": "b3_8971f0a2f249ca20696f",
+          "label": "positivo",
+          "rationale": "La confirmación personal evita una confusión y da continuidad a las instrucciones, permitiéndoles concentrarse en aprender."
+        },
+        {
+          "id": "b3_3ab78e4d74c64693055c",
+          "label": "ambiguo",
+          "rationale": "El relato declara irrecuperable el tono del elogio y deja abierta su posible ironía sin fijar expectativas."
+        },
+        {
+          "id": "b3_b9156b6a2efb5bf07158",
+          "label": "negativo",
+          "rationale": "Las instrucciones contradictorias y la matrícula tardía obligan a buscar entre tráfico; encontrar el taxi no compensa la dificultad."
+        },
+        {
+          "id": "b3_ff6d889c206c9c6b30d4",
+          "label": "neutral",
+          "rationale": "Enumera el recorrido seguido entre edificios y salas, sin calificar las indicaciones ni la visita."
+        },
+        {
+          "id": "b3_be6791dd89741f8523d4",
+          "label": "negativo",
+          "rationale": "Las reglas mal señalizadas y contradictorias generan reproches desagradables y hacen abandonar las fotografías."
+        },
+        {
+          "id": "b3_abe520b136353c2d74f1",
+          "label": "neutral",
+          "rationale": "Constata la ubicación y retirada de mesas conforme a un horario, sin expresar un efecto valorado."
+        },
+        {
+          "id": "b3_c719038acc4de6eca31b",
+          "label": "neutral",
+          "rationale": "Narra dónde conecta y guarda un cargador, sin satisfacción, queja ni balance del servicio."
+        },
+        {
+          "id": "b3_d40993bd49ddd146febd",
+          "label": "negativo",
+          "rationale": "El equipo prometido no sirve para el asiento y la advertencia tardía obliga a cancelar el traslado."
+        },
+        {
+          "id": "b3_a510dd847ee029ea4933",
+          "label": "neutral",
+          "rationale": "Expone una práctica de señales y el control del material sin evaluar la preparación recibida."
+        },
+        {
+          "id": "b3_f36e2d029e9105c12e9d",
+          "label": "positivo",
+          "rationale": "La orientación permite entrar sin perder el turno y encontrar las salas despejadas, con beneficios concretos destacados."
+        },
+        {
+          "id": "b3_79bec7460d16734dd0bf",
+          "label": "negativo",
+          "rationale": "La comunicación deficiente causa un desvío cobrado y pérdida del margen previo a la cita, aunque termina en la entrada correcta."
+        },
+        {
+          "id": "b3_e03398f7aafe5131a922",
+          "label": "negativo",
+          "rationale": "Los cargos no desglosados antes del anticipo fuerzan un pago adicional y se califican como una experiencia desagradable."
+        },
+        {
+          "id": "b3_ee3f4a02ab797ea3de84",
+          "label": "ambiguo",
+          "rationale": "La escena suscita expectativas de atención detallada o gestión pesada, sin datos que confirmen ninguna."
+        },
+        {
+          "id": "b3_e134c3fd7f6c8789db1e",
+          "label": "positivo",
+          "rationale": "Destaca que el acceso ancho y la coordinación permiten pasar con un bolso grande sin engancharse."
+        },
+        {
+          "id": "b3_0defc695609c7fde4289",
+          "label": "neutral",
+          "rationale": "Describe la posición del observador y la herramienta mostrada sin atribuir cualidades a la actividad."
+        },
+        {
+          "id": "b3_3e16f29b896be454014a",
+          "label": "positivo",
+          "rationale": "Resalta la devolución rápida y oportuna del cambio, sin necesidad de insistir."
+        },
+        {
+          "id": "b3_442808d977df7d72dbf1",
+          "label": "negativo",
+          "rationale": "La falta de asientos útiles dificulta la visita y la respuesta del personal no atiende la necesidad de descansar."
+        },
+        {
+          "id": "b3_da614dfc3b3b6be76317",
+          "label": "neutral",
+          "rationale": "Explica el uso del ventilador y una consulta técnica sin juicio sobre confort o servicio."
+        },
+        {
+          "id": "b3_c07fd2c615facb3043e3",
+          "label": "neutral",
+          "rationale": "Relata la separación y reunión de dos grupos durante una parada comercial, sin aprobarla ni criticarla."
+        },
+        {
+          "id": "b3_9fed0b0a6f42c2ff44b0",
+          "label": "neutral",
+          "rationale": "Detalla las decisiones sobre ventanas y ventilación como una secuencia factual, sin valoración de comodidad o atención."
+        },
+        {
+          "id": "b3_8736e009024c12c7888c",
+          "label": "negativo",
+          "rationale": "El desayuno comprometido no está disponible por una entrega a otra persona sin verificar su identidad."
+        },
+        {
+          "id": "b3_626faaeb7ac9ef2c3182",
+          "label": "ambiguo",
+          "rationale": "El sonido provoca celebración y recelo mientras su función desconocida impide orientar la reacción."
+        },
+        {
+          "id": "b3_f94e50984ad1e3f03d0f",
+          "label": "neutral",
+          "rationale": "Describe elección de turno, entrega de materiales y duración de la ducha sin valoración."
+        },
+        {
+          "id": "b3_9f1f371e62bb2f0ba78a",
+          "label": "neutral",
+          "rationale": "Cuenta el ajuste solicitado de audio y la conversación posterior sin expresar satisfacción ni evaluar al conductor."
+        },
+        {
+          "id": "b3_58c1531f95e915fd2c9b",
+          "label": "positivo",
+          "rationale": "El desglose anticipado y la revisión compartida facilitan el presupuesto y una devolución rápida; la negación expresa aprobación."
+        },
+        {
+          "id": "b3_8ae5d7e3056dfcef685a",
+          "label": "neutral",
+          "rationale": "Describe ubicación de parada, carga y acomodo de bolsas bajo la lluvia sin emitir un juicio global."
+        },
+        {
+          "id": "b3_8b18aa5bce6305db10b6",
+          "label": "neutral",
+          "rationale": "Expone dimensiones y colocación del equipo en la parcela sin calificar sus condiciones."
+        },
+        {
+          "id": "b3_c10fe1480f5b6e66795c",
+          "label": "neutral",
+          "rationale": "Relata la comprobación y manejo de una puerta con ayuda del conductor, sin una evaluación explícita o balance de beneficio."
+        },
+        {
+          "id": "b3_e18e00162a560878da58",
+          "label": "positivo",
+          "rationale": "Las instrucciones verificadas permiten entrar de madrugada al primer intento y encontrar las llaves preparadas."
+        },
+        {
+          "id": "b3_8a257dda8e707552f98a",
+          "label": "positivo",
+          "rationale": "El alivio por el precio y las comodidades es favorable; la confusión entre promesas y recuerdos no cambia esa polaridad."
+        },
+        {
+          "id": "b3_69412897937f33f59dee",
+          "label": "neutral",
+          "rationale": "Cuenta el alquiler y desplazamiento de camastros según las instrucciones, sin valorar la sombra ni la gestión."
+        },
+        {
+          "id": "b3_3960f4f06e859ce1e515",
+          "label": "positivo",
+          "rationale": "Expresa alegría por la recuperación rápida e intacta del objeto mediante una devolución coordinada."
+        },
+        {
+          "id": "b3_c18fd6733aebfe8b71ee",
+          "label": "positivo",
+          "rationale": "La orientación adaptada permite disfrutar con autonomía; la doble negación rechaza la supuesta imposibilidad de hacerlo con bastón."
+        },
+        {
+          "id": "b3_996b97f5c48669ddba75",
+          "label": "ambiguo",
+          "rationale": "La expresión sobre flexibilidad carece todavía de respuesta que permita distinguir alivio de reproche."
+        },
+        {
+          "id": "b3_822e9170ee4abd4ed578",
+          "label": "negativo",
+          "rationale": "Exigen al embarcar un pago no previsto para cumplir lo prometido, cambiando las condiciones después de confirmar."
+        },
+        {
+          "id": "b3_ab14bd23fd777a684c73",
+          "label": "negativo",
+          "rationale": "La ausencia de advertencia permite confundir agua de limpieza con agua para llenar una botella."
+        },
+        {
+          "id": "b3_0d9af2b9534dd7bf300f",
+          "label": "positivo",
+          "rationale": "La doble negación afirma atención nocturna eficaz; la entrega rápida y gratuita resuelve la necesidad de abrigo."
+        },
+        {
+          "id": "b3_b44562f9793d0e0a3c95",
+          "label": "positivo",
+          "rationale": "El conductor resuelve el pago pese a la falta de señal y evita trasladar el coste al pasajero."
+        },
+        {
+          "id": "b3_2f77c8251014453bbef8",
+          "label": "positivo",
+          "rationale": "La información precisa evita vueltas con equipaje y genera tranquilidad; el conductor además espera a que quede asegurado."
+        },
+        {
+          "id": "b3_e791baeba17bc656f99e",
+          "label": "negativo",
+          "rationale": "Las referencias incongruentes provocan vueltas y agotamiento; llamar inconfundible al punto constituye ironía sustentada en la búsqueda fallida."
+        },
+        {
+          "id": "b3_9dc29e4590ac1d06eb60",
+          "label": "negativo",
+          "rationale": "La información contradictoria sobre el transbordo obliga a pagar otra vez y nadie revisa el error."
+        },
+        {
+          "id": "b3_d8111e55a017dc9a4b3c",
+          "label": "neutral",
+          "rationale": "Describe la colocación de paneles y el cambio de ropa sin juzgar privacidad, utilidad o dificultad."
+        },
+        {
+          "id": "b3_3d73dd590f2918af5d05",
+          "label": "positivo",
+          "rationale": "La corrección proactiva y gratuita evita esperar en una fecha equivocada y se presenta como una ayuda efectiva."
+        },
+        {
+          "id": "b3_a58ac38df1300d8c7e94",
+          "label": "ambiguo",
+          "rationale": "La frase del guía puede prometer profundidad o interferir con otro plan; falta el tono que decida su valoración."
+        },
+        {
+          "id": "b3_e374c01983bc347c97c9",
+          "label": "negativo",
+          "rationale": "El fallo del bastón y el cambio sin registrar generan retención del depósito y pérdida del transporte."
+        },
+        {
+          "id": "b3_c5df2b4c79c9a8227360",
+          "label": "ambiguo",
+          "rationale": "La cinta anunciada aún puede resolver o prolongar el problema; no llega equipaje que permita valorar el cambio."
+        },
+        {
+          "id": "b3_58ac0f6c059aa08b4595",
+          "label": "neutral",
+          "rationale": "Narra la corrección de un apellido y el cargo informado sin juzgar su coste ni el resultado."
+        },
+        {
+          "id": "b3_d9458bf2e0f85a5a2e8a",
+          "label": "ambiguo",
+          "rationale": "La comparación omitida impide saber si el recorrido se celebra o se critica por innecesario."
+        },
+        {
+          "id": "b3_dee15fb732db66a92abb",
+          "label": "ambiguo",
+          "rationale": "Las reacciones opuestas al balanceo quedan atribuidas a personas distintas y ninguna representa una valoración del grupo."
+        },
+        {
+          "id": "b3_d2ca310e90103eb7f82b",
+          "label": "neutral",
+          "rationale": "Describe la identificación y distribución de platos por números sin valorar la comida ni el servicio."
+        },
+        {
+          "id": "b3_162b5f709264c2a88063",
+          "label": "neutral",
+          "rationale": "Explica ampliación, registro y pago del alquiler de sillas sin expresar satisfacción o inconveniente."
+        },
+        {
+          "id": "b3_320498f6e193c027e15a",
+          "label": "neutral",
+          "rationale": "Detalla pruebas y registro de botas de distintas tallas sin calificar el equipo o la atención."
+        },
+        {
+          "id": "b3_5bb0e9a6da8590ae2d1f",
+          "label": "positivo",
+          "rationale": "La cocina y la rápida reposición del utensilio resuelven una necesidad concreta sin demoras ni presión."
+        },
+        {
+          "id": "b3_67d3c5f60e427a102e38",
+          "label": "negativo",
+          "rationale": "Los avisos incompletos y contradictorios causan un regreso físicamente exigente y dejan al viajero descansando en el suelo."
+        },
+        {
+          "id": "b3_2002b8b0cc20f25538b3",
+          "label": "positivo",
+          "rationale": "La guía adapta las paradas y supera una falla de batería, permitiendo escuchar y completar todas las explicaciones."
+        },
+        {
+          "id": "b3_046d5b98ccc2153d0121",
+          "label": "negativo",
+          "rationale": "La ruta indicada sigue resbalosa y carece de apoyo; el aviso de humedad no evita el problema."
+        },
+        {
+          "id": "b3_1c5ce5c92059eea3d072",
+          "label": "neutral",
+          "rationale": "Describe el croquis, los lugares y un ajuste de sillas como hechos de la reserva, sin evaluación."
+        },
+        {
+          "id": "b3_be9d5366b4d749583f9a",
+          "label": "ambiguo",
+          "rationale": "El cambio de plan puede ser ganancia o pérdida y se omite la información necesaria para decidir."
+        },
+        {
+          "id": "b3_64d4ddf7b2da40c6c308",
+          "label": "positivo",
+          "rationale": "La organización bilingüe y el tiempo para preguntas permiten cumplir el objetivo de aprender sin perder la historia."
+        },
+        {
+          "id": "b3_91678e9ab4fa3b6d065a",
+          "label": "negativo",
+          "rationale": "La organización del desayuno impide comer juntos y obliga a buscar utensilios; la comida aceptable no compensa la dificultad dominante."
+        },
+        {
+          "id": "b3_077707c3015d8cfbbf16",
+          "label": "positivo",
+          "rationale": "La coordinación permite trasladar a las personas y todo el equipaje sin apretujarse."
+        },
+        {
+          "id": "b3_3282ed69c32a717f1efc",
+          "label": "positivo",
+          "rationale": "Celebra la reproducción ampliable que responde su pregunta, aun reconociendo que no sustituye ver el objeto."
+        },
+        {
+          "id": "b3_5544b253354cf2878797",
+          "label": "ambiguo",
+          "rationale": "La luz para leer y el calor incómodo mantienen preferencias contrapuestas sin que ninguna se imponga."
+        },
+        {
+          "id": "b3_0e478b911fb037a37711",
+          "label": "positivo",
+          "rationale": "La distinción entre documentos y tradición oral permite disfrutar ambos contenidos sin confusión."
+        },
+        {
+          "id": "b3_a32c1e55fa12d3dded4a",
+          "label": "neutral",
+          "rationale": "Relata la comprobación del rebaje y la continuación del grupo, sin valorar accesibilidad ni acompañamiento."
+        },
+        {
+          "id": "b3_dd8f63c0279795917e2c",
+          "label": "negativo",
+          "rationale": "La duración imprecisa y el cambio de punto de embarque convierten el descanso en una carrera angustiante."
+        }
+      ]
+    }
+  ],
+  "labeled_sample_n": 90,
+  "author_intent_agreement": [
+    1.0,
+    1.0
+  ],
+  "pairwise_kappa": 1.0,
+  "ambiguity_disputes": 3,
+  "limits": [
+    "These are observed AI review agreements, not human validation or proof of population quality.",
+    "Automatic style gate failed, so these agreements do not admit training."
+  ]
+}

@@ -1,0 +1,1494 @@
+{
+  "automatic_gates_pass": false,
+  "checks": {
+    "long_training_context": true,
+    "near_duplicates": true,
+    "repeated_endings": true,
+    "shape_shortcuts": false
+  },
+  "diversity": {
+    "limits": [
+      "Lexical/structural proxies; no POS/dependency parser or human naturalness validation.",
+      "Structure and phenomena are AI author annotations, not independent human labels."
+    ],
+    "roles": {
+      "ambiguity_assessment": {
+        "distinct_ngrams": {
+          "1": 513,
+          "2": 941,
+          "3": 997
+        },
+        "experience_types": {
+          "airport": 2,
+          "beach": 1,
+          "hotel": 1,
+          "museum": 1,
+          "nature_excursion": 1,
+          "reservation": 1,
+          "restaurant": 1,
+          "taxi": 1,
+          "tour": 1,
+          "transport": 2
+        },
+        "phenomena_by_class": {
+          "contrast": {
+            "null": 3
+          },
+          "expectation": {
+            "null": 7
+          },
+          "explicit_contrast": {
+            "null": 3
+          },
+          "mixed_aspects": {
+            "null": 4
+          },
+          "negation": {
+            "null": 9
+          }
+        },
+        "rows": 12,
+        "self_reported_structures": {
+          "R04: segunda esquina, frase inicial y continuación sin desenlace": 1,
+          "R05: consulta sobre olor y reconstrucción temporal incompleta": 1,
+          "R06: movimiento del objeto y relatos opuestos de sus usuarios": 1,
+          "R07: plan de preguntar y observación externa que suscita anticipaciones opuestas": 1,
+          "R10: anuncio oído y expectativa suspendida antes del equipaje": 1,
+          "R11: decisión de ampliar el grupo y mensaje de alcance incierto": 1,
+          "R12: recuento del acompañante y frase dependiente del objetivo": 1,
+          "R13: pregunta sobre cantidad y comprobación visual sin entonación decisiva": 1,
+          "R17: fila en la rampa, aviso y transición aún sin referente": 1,
+          "R18: prueba del eco y valoración de procedencia indeterminada": 1,
+          "R19: recibo releído y comparación sin referencia identificable": 1,
+          "R20: reflejo lateral y elección indecisa entre dos condiciones del asiento": 1
+        },
+        "syntax_proxy_clause_markers": {
+          "aunque": 1,
+          "cuando": 4,
+          "mientras": 4,
+          "pero": 1,
+          "si": 2
+        },
+        "type_token_ratio_length_sensitive": 0.5024485798237023,
+        "vocabulary": 513,
+        "word_total": 1021
+      },
+      "ambiguity_policy": {
+        "distinct_ngrams": {
+          "1": 520,
+          "2": 936,
+          "3": 985
+        },
+        "experience_types": {
+          "airport": 1,
+          "beach": 1,
+          "hotel": 2,
+          "museum": 1,
+          "nature_excursion": 1,
+          "reservation": 1,
+          "restaurant": 1,
+          "taxi": 1,
+          "tour": 1,
+          "transport": 2
+        },
+        "phenomena_by_class": {
+          "contrast": {
+            "null": 7
+          },
+          "expectation": {
+            "null": 7
+          },
+          "explicit_contrast": {
+            "null": 7
+          },
+          "mixed_aspects": {
+            "null": 7
+          },
+          "negation": {
+            "null": 8
+          }
+        },
+        "rows": 12,
+        "self_reported_structures": {
+          "R01: oferta recibida y condición pendiente": 1,
+          "R02: nota evaluativa conservada junto a la oferta": 1,
+          "R03: necesidad de decidir ante el aislamiento de la cala": 1,
+          "R04: revisión presente de una consulta aún no enviada": 1,
+          "R08: espera del acompañamiento y reacciones divergentes al plato común": 1,
+          "R09: desvío observado desde el asiento y prioridades competidoras": 1,
+          "R10: campana de inicio y valoración de un cambio sin referencia": 1,
+          "R11: elección parcial frente al cierre y juicios no resueltos": 1,
+          "R15: reflejos fotografiados y nota de intención irrecuperable": 1,
+          "R16: plano futuro convertido en dos itinerarios anticipados": 1,
+          "R17: transición de iluminación y dos valoraciones personales del mismo tramo": 1,
+          "R18: reinstalación del escritorio y atribución causal ausente": 1
+        },
+        "syntax_proxy_clause_markers": {
+          "aunque": 1,
+          "cuando": 3,
+          "mientras": 1,
+          "pero": 2,
+          "porque": 1,
+          "si": 2
+        },
+        "type_token_ratio_length_sensitive": 0.5138339920948617,
+        "vocabulary": 520,
+        "word_total": 1012
+      },
+      "assessment": {
+        "distinct_ngrams": {
+          "1": 1494,
+          "2": 3993,
+          "3": 4772
+        },
+        "experience_types": {
+          "airport": 6,
+          "beach": 6,
+          "hotel": 6,
+          "museum": 6,
+          "nature_excursion": 6,
+          "reservation": 6,
+          "restaurant": 6,
+          "taxi": 6,
+          "tour": 6,
+          "transport": 6
+        },
+        "phenomena_by_class": {
+          "contrast": {
+            "negativo": 13,
+            "neutral": 1,
+            "positivo": 8
+          },
+          "double_negation": {
+            "negativo": 1,
+            "positivo": 5
+          },
+          "expectation": {
+            "negativo": 4,
+            "positivo": 6
+          },
+          "explicit_contrast": {
+            "negativo": 12,
+            "neutral": 1,
+            "positivo": 5
+          },
+          "implicit_contrast": {
+            "negativo": 1,
+            "positivo": 3
+          },
+          "irony": {
+            "negativo": 2
+          },
+          "litotes": {
+            "positivo": 1
+          },
+          "mixed_aspects": {
+            "negativo": 6,
+            "positivo": 2
+          },
+          "negation": {
+            "negativo": 18,
+            "neutral": 5,
+            "positivo": 18
+          },
+          "negative_concordance": {
+            "negativo": 8,
+            "positivo": 2
+          },
+          "objective_chronology": {
+            "negativo": 6,
+            "neutral": 20,
+            "positivo": 4
+          },
+          "regionalism": {
+            "neutral": 2,
+            "positivo": 1
+          },
+          "resolved_incident": {
+            "positivo": 10
+          },
+          "sarcasm": {
+            "negativo": 2
+          },
+          "typo": {
+            "neutral": 1,
+            "positivo": 1
+          }
+        },
+        "rows": 60,
+        "self_reported_structures": {
+          "R01: ajuste inicial del material y uso autónomo durante el recorrido": 1,
+          "R01: entrega, enlace y recuperación por reconocimiento propio": 1,
+          "R01: llegada por parejas y rotación alrededor de la maqueta": 1,
+          "R02: comprensión alcanzada y reconstrucción del reparto de turnos": 1,
+          "R02: disputa final vinculada al inventario de llegada": 1,
+          "R02: entrega final reconstruida desde los talones del enlace": 1,
+          "R03: consulta de precios y registro inicial": 1,
+          "R03: necesidad conjunta y segunda plaza sin confirmar": 1,
+          "R03: necesidad de transportar un objeto frágil y solución del enlace": 1,
+          "R04: daño observado tras recordar la entrada": 1,
+          "R04: factura final y revisión previa": 1,
+          "R04: segunda validación vinculada con el acceso anterior": 1,
+          "R05: consulta desatendida y clasificación improvisada de platos": 1,
+          "R05: consulta previa, modificación y uso del pase": 1,
+          "R05: consulta, indicación y apertura": 1,
+          "R06: estado de las zapatillas y revisión omitida antes del paso": 1,
+          "R06: seguimiento de la mochila hasta atravesar el acceso": 1,
+          "R06: traslado de la charola y retirada de identificadores": 1,
+          "R07: plan de iniciación interrumpido por instrucciones incompatibles": 1,
+          "R07: plan de probar cocciones y corrección durante el reparto": 1,
+          "R07: preparación del calzado, opciones y detalle de una funda": 1,
+          "R08: espera de revisión y continuación por una alternativa explicada": 1,
+          "R08: espera entre datos incompatibles y confirmación tardía": 1,
+          "R08: pausa, relevo y continuación de ejercicios": 1,
+          "R09: recepción al salir y destino equivocado de la bolsa": 1,
+          "R09: recorrido espacial desde la puerta hasta el taxi reservado": 1,
+          "R09: ubicación del alumno y continuidad visible entre responsables": 1,
+          "R10: nombre oído, verificación por dos soportes y embarque": 1,
+          "R10: presión de la montura vinculada al ajuste y al turno perdido": 1,
+          "R10: sonido de cocina y recogida anterior a la salida": 1,
+          "R11: decisión de esperar y apoyo impuesto": 1,
+          "R11: elección de horario y recogida identificada": 1,
+          "R11: elección de soporte, ajuste y retirada del equipo": 1,
+          "R12: acciones de dos comensales y cruces por instrucciones incompatibles": 1,
+          "R12: acciones separadas de acompañante y narrador": 1,
+          "R12: prueba de la acompañante y adaptación del equipo al narrador": 1,
+          "R13: comprobación del apoyo y acuerdo de entrega": 1,
+          "R13: comprobación del orden, pago y devolución": 1,
+          "R13: intento fallido de comprobar una orientación": 1,
+          "R14: escena central con regreso a la colocación inicial": 1,
+          "R14: olvido a mitad del circuito y solución mediante el esquema": 1,
+          "R14: ráfaga a mitad del cambio y regreso a la consulta inicial": 1,
+          "R15: dispositivo y tarjeta contrastados con la llegada sin aviso": 1,
+          "R15: relación entre dibujo y colocación del grupo": 1,
+          "R15: relación entre paneles y cuerda, alternancia de usuarios": 1,
+          "R16: fechas escritas, consulta y consecuencia económica": 1,
+          "R16: instrucciones escritas, prueba y activación al llegar": 1,
+          "R16: instrucción visible y comprobación práctica bajo el viento": 1,
+          "R17: final de la proyección y salida sin referencias estables": 1,
+          "R17: relevo al conductor, prueba adaptada y reconocimiento de llegada": 1,
+          "R17: transición de fecha y entrega del comprobante": 1,
+          "R18: uso de la confirmación tras corregir el cambio de día": 1,
+          "R18: uso de las referencias del suelo antes y después de la pieza": 1,
+          "R18: uso del código dentro de la franja y acceso fallido": 1,
+          "R19: mancha interpretada al revisar el cierre y los tamaños disponibles": 1,
+          "R19: segunda lectura de las marcas y utilidad durante la salida": 1,
+          "R19: segunda lectura del resguardo y uso del código": 1,
+          "R20: detalle lateral de la maqueta y acceso impedido": 1,
+          "R20: puesto de secado, selección, uso y devolución": 1,
+          "R20: reloj lateral y utilidad del aviso temporal": 1
+        },
+        "syntax_proxy_clause_markers": {
+          "aunque": 6,
+          "cuando": 21,
+          "mientras": 17,
+          "pero": 12,
+          "porque": 9,
+          "si": 10,
+          "sino": 1
+        },
+        "type_token_ratio_length_sensitive": 0.30012053033346725,
+        "vocabulary": 1494,
+        "word_total": 4978
+      },
+      "calibration": {
+        "distinct_ngrams": {
+          "1": 1463,
+          "2": 3833,
+          "3": 4569
+        },
+        "experience_types": {
+          "airport": 6,
+          "beach": 6,
+          "hotel": 6,
+          "museum": 6,
+          "nature_excursion": 6,
+          "reservation": 6,
+          "restaurant": 6,
+          "taxi": 6,
+          "tour": 6,
+          "transport": 6
+        },
+        "phenomena_by_class": {
+          "contrast": {
+            "negativo": 15,
+            "positivo": 2
+          },
+          "double_negation": {
+            "positivo": 2
+          },
+          "expectation": {
+            "negativo": 2,
+            "positivo": 3
+          },
+          "explicit_contrast": {
+            "negativo": 12,
+            "positivo": 2
+          },
+          "implicit_contrast": {
+            "negativo": 3
+          },
+          "litotes": {
+            "negativo": 1,
+            "positivo": 3
+          },
+          "mixed_aspects": {
+            "negativo": 4,
+            "positivo": 1
+          },
+          "negation": {
+            "negativo": 15,
+            "neutral": 4,
+            "positivo": 17
+          },
+          "negative_concordance": {
+            "negativo": 6,
+            "neutral": 1,
+            "positivo": 3
+          },
+          "objective_chronology": {
+            "negativo": 5,
+            "neutral": 19,
+            "positivo": 3
+          },
+          "resolved_incident": {
+            "negativo": 1,
+            "positivo": 12
+          },
+          "sarcasm": {
+            "negativo": 1
+          },
+          "typo": {
+            "negativo": 1,
+            "neutral": 1
+          }
+        },
+        "rows": 60,
+        "self_reported_structures": {
+          "Cambio de iluminación durante la espera": 1,
+          "Comodidad final explicada por los relevos de vajilla": 1,
+          "Consulta de alternativa escrita y comprobación compartida": 1,
+          "Destino alcanzado y reconstrucción de su confirmación": 1,
+          "Detalle lateral que conduce a la acumulación de vajilla": 1,
+          "Distribución de objetos después de la ducha": 1,
+          "Estado de una persiana y petición sin solución": 1,
+          "Necesidad de destino preciso y comprobación tardía": 1,
+          "Orden de retirada y colocación durante varios servicios": 1,
+          "Plan de asiento y cambio de la luz": 1,
+          "R01": 1,
+          "R01: anotación y descubrimiento de atribución confusa": 1,
+          "R02": 1,
+          "R02: organización de apuntes y reconstrucción de las fuentes indicadas": 1,
+          "R03": 1,
+          "R03: búsqueda de contenido y recursos para distinguir procedencias": 1,
+          "R04": 1,
+          "R04: llamada desde dirección incorrecta y corrección comunicada antes": 1,
+          "R05: Respuesta recibida y uso que se hizo de ella.": 1,
+          "R05: consulta del procedimiento y registro de la enmienda": 1,
+          "R06: Seguir sus cambios de lugar, uso o custodia.": 1,
+          "R06: recorrido de la confirmación entre celular y hoja operativa": 1,
+          "R07: Acciones reales y un detalle lateral pertinente.": 1,
+          "R07: propósito de observación y desarrollo de un turno sin ajuste": 1,
+          "R08: Explicar qué ocurrió inmediatamente antes y después.": 1,
+          "R08: espera entre turnos y operaciones previas y posteriores": 1,
+          "R09: Recorrido espacial por los puntos relevantes.": 1,
+          "R09: posición en el pasillo y búsqueda de sujeción": 1,
+          "R09: punto de observación y desplazamiento hasta la referencia posterior": 1,
+          "R10: Conectar la señal con el funcionamiento observado.": 1,
+          "R10: cierre de bodega y reconstrucción de la colocación": 1,
+          "R10: roce de equipaje y consecuencias del acomodo": 1,
+          "R11: Selección, trámite y efecto inmediato.": 1,
+          "R11: elección de modalidad y recuperación lista para usar": 1,
+          "R11: elección de reparto y ejecución de dos viajes": 1,
+          "R12: Alternar esa observación con hechos propios, manteniendo clara la voz.": 1,
+          "R12: acción de acompañante y traslado coordinado del equipaje": 1,
+          "R12: foto de la acompañante y comprobación fallida del último servicio": 1,
+          "R13": 1,
+          "R13: Mostrar cómo lo comprobó y cómo actuó con esa información.": 1,
+          "R13: verificación de columnas, sentido y destino final": 1,
+          "R14": 1,
+          "R14: Breve regreso al comienzo y continuación desde el punto inicial.": 1,
+          "R14: llegada del último vehículo y ayuda previa para localizarlo": 1,
+          "R15": 1,
+          "R15: Explicar su relación mediante acciones observadas.": 1,
+          "R15: estado de dos piezas y disputa en la devolución": 1,
+          "R16": 1,
+          "R16: Seguir su interpretación y su contraste con la práctica.": 1,
+          "R16: correspondencia entre ficha y material devuelto": 1,
+          "R17": 1,
+          "R17: devolución y cierre del registro de material": 1,
+          "R18": 1,
+          "R18: uso del visor y ajustes sin comprobación": 1,
+          "R19": 1,
+          "R19: coincidencia de números y configuración anterior del dispositivo": 1,
+          "R20": 1,
+          "R20: bandeja de préstamo y seguimiento de dos instalaciones": 1,
+          "Salida de la ducha y conflicto de espacio": 1,
+          "Segunda observación del gancho y efecto de uso": 1
+        },
+        "syntax_proxy_clause_markers": {
+          "aunque": 2,
+          "cuando": 20,
+          "mientras": 13,
+          "pero": 13,
+          "porque": 13,
+          "si": 11
+        },
+        "type_token_ratio_length_sensitive": 0.3057471264367816,
+        "vocabulary": 1463,
+        "word_total": 4785
+      },
+      "policy_dev": {
+        "distinct_ngrams": {
+          "1": 1524,
+          "2": 4087,
+          "3": 4949
+        },
+        "experience_types": {
+          "airport": 6,
+          "beach": 6,
+          "hotel": 6,
+          "museum": 6,
+          "nature_excursion": 6,
+          "reservation": 6,
+          "restaurant": 6,
+          "taxi": 6,
+          "tour": 6,
+          "transport": 6
+        },
+        "phenomena_by_class": {
+          "contrast": {
+            "negativo": 16,
+            "positivo": 4
+          },
+          "double_negation": {
+            "negativo": 1,
+            "positivo": 1
+          },
+          "expectation": {
+            "negativo": 6,
+            "positivo": 3
+          },
+          "explicit_contrast": {
+            "negativo": 14,
+            "positivo": 4
+          },
+          "implicit_contrast": {
+            "negativo": 2
+          },
+          "litotes": {
+            "positivo": 2
+          },
+          "mixed_aspects": {
+            "negativo": 4,
+            "positivo": 1
+          },
+          "negation": {
+            "negativo": 18,
+            "neutral": 4,
+            "positivo": 19
+          },
+          "negative_concordance": {
+            "negativo": 8,
+            "positivo": 5
+          },
+          "objective_chronology": {
+            "negativo": 7,
+            "neutral": 20,
+            "positivo": 3
+          },
+          "regionalism": {
+            "positivo": 1
+          },
+          "resolved_incident": {
+            "negativo": 1,
+            "positivo": 12
+          },
+          "typo": {
+            "positivo": 2
+          }
+        },
+        "rows": 60,
+        "self_reported_structures": {
+          "Cambio de fase sin tiempo para utilizar el material": 1,
+          "Consulta y verificación del punto de unión": 1,
+          "Detalle del material comprendido durante una segunda pausa": 1,
+          "Devolución conseguida y reconstrucción de las condiciones": 1,
+          "Espera de comprobación y reasignación antes de subir": 1,
+          "Forma de apoyo y usos del cuaderno durante las pausas": 1,
+          "Necesidad de orientación y final sin salida": 1,
+          "Observación del resguardo y revelación del desglose posterior": 1,
+          "R01": 1,
+          "R01: apertura de enlace y búsqueda inducida por una imagen sin contexto": 1,
+          "R02": 1,
+          "R02: consulta de imagen y reconstrucción de su localización": 1,
+          "R03": 1,
+          "R03: pregunta sobre un grabado y uso de imágenes ampliables": 1,
+          "R04": 1,
+          "R04: reencuentro tardío y reconstrucción de señal y ubicación imprecisas": 1,
+          "R05: Respuesta recibida y uso que se hizo de ella.": 1,
+          "R05: consulta de referencia y aplicación del procedimiento de reunión": 1,
+          "R06: Seguir sus cambios de lugar, uso o custodia.": 1,
+          "R06: ubicación de la señal y verificación mediante tarjetas": 1,
+          "R07: Acciones reales y un detalle lateral pertinente.": 1,
+          "R07: plan familiar y condición comunicada después del cobro": 1,
+          "R08: Explicar qué ocurrió inmediatamente antes y después.": 1,
+          "R08: revisión durante confirmación y distribución posterior de cupos": 1,
+          "R09: Recorrido espacial por los puntos relevantes.": 1,
+          "R09: consulta en mostrador y confirmación de participantes": 1,
+          "R09: mesa junto a cocina y recorrido por opciones de cambio": 1,
+          "R10: Conectar la señal con el funcionamiento observado.": 1,
+          "R10: sonido de falla y consecuencias del registro desactualizado": 1,
+          "R10: variación del sonido y cambio de ubicación": 1,
+          "R11: Selección, trámite y efecto inmediato.": 1,
+          "R11: elección de bastón y comprobación de salida y devolución": 1,
+          "R11: elección inicial y nueva ubicación tras comprobar el aire": 1,
+          "R12: Alternar esa observación con hechos propios, manteniendo clara la voz.": 1,
+          "R12: intento de la acompañante y ausencia de ayuda": 1,
+          "R12: selección de acompañante y uso y devolución del equipo": 1,
+          "R13": 1,
+          "R13: Mostrar cómo lo comprobó y cómo actuó con esa información.": 1,
+          "R13: identificación del mecanismo antes de bajar": 1,
+          "R14": 1,
+          "R14: Breve regreso al comienzo y continuación desde el punto inicial.": 1,
+          "R14: puerta abierta y solicitud previa de asistencia": 1,
+          "R15": 1,
+          "R15: Explicar su relación mediante acciones observadas.": 1,
+          "R15: manta y formulario con condiciones incompatibles": 1,
+          "R16": 1,
+          "R16: Seguir su interpretación y su contraste con la práctica.": 1,
+          "R16: condiciones del cartel y elección de punto de retorno": 1,
+          "R17": 1,
+          "R17: relevo del punto de retorno y descanso durante la espera": 1,
+          "R18": 1,
+          "R18: búsqueda preventiva en carteles y consultas circulares": 1,
+          "R19": 1,
+          "R19: horario observado de nuevo desde otro acceso": 1,
+          "R20": 1,
+          "R20: dibujo observado por el niño y consulta preventiva": 1,
+          "Reincorporación y referencia al inicio del desvío": 1,
+          "Reserva y comprobación de importes e inventario": 1,
+          "Solicitud previa y comprobación de la conexión interior": 1,
+          "Tarjetas asignadas y discrepancia con la reserva": 1
+        },
+        "syntax_proxy_clause_markers": {
+          "aunque": 3,
+          "cuando": 18,
+          "mientras": 15,
+          "pero": 15,
+          "porque": 10,
+          "si": 11
+        },
+        "type_token_ratio_length_sensitive": 0.29206592564200845,
+        "vocabulary": 1524,
+        "word_total": 5218
+      },
+      "train": {
+        "distinct_ngrams": {
+          "1": 3923,
+          "2": 16090,
+          "3": 22576
+        },
+        "experience_types": {
+          "airport": 30,
+          "beach": 30,
+          "hotel": 30,
+          "museum": 30,
+          "nature_excursion": 30,
+          "reservation": 30,
+          "restaurant": 30,
+          "taxi": 30,
+          "tour": 30,
+          "transport": 30
+        },
+        "phenomena_by_class": {
+          "contrast": {
+            "negativo": 77,
+            "neutral": 2,
+            "positivo": 24
+          },
+          "double_negation": {
+            "negativo": 10,
+            "positivo": 9
+          },
+          "expectation": {
+            "negativo": 15,
+            "positivo": 17
+          },
+          "explicit_contrast": {
+            "negativo": 63,
+            "neutral": 2,
+            "positivo": 21
+          },
+          "implicit_contrast": {
+            "negativo": 15,
+            "positivo": 3
+          },
+          "irony": {
+            "negativo": 10
+          },
+          "litotes": {
+            "positivo": 3
+          },
+          "mixed_aspects": {
+            "negativo": 30,
+            "positivo": 7
+          },
+          "negation": {
+            "negativo": 84,
+            "neutral": 25,
+            "positivo": 86
+          },
+          "negative_concordance": {
+            "negativo": 19,
+            "neutral": 1,
+            "positivo": 15
+          },
+          "objective_chronology": {
+            "negativo": 27,
+            "neutral": 96,
+            "positivo": 20
+          },
+          "regionalism": {
+            "negativo": 4,
+            "neutral": 3,
+            "positivo": 7
+          },
+          "resolved_incident": {
+            "negativo": 1,
+            "positivo": 53
+          },
+          "sarcasm": {
+            "negativo": 8
+          },
+          "typo": {
+            "negativo": 3,
+            "neutral": 4,
+            "positivo": 1
+          }
+        },
+        "rows": 300,
+        "self_reported_structures": {
+          "Acción de una acompañante y secuencia de una pausa fallida": 1,
+          "Comprobación del tiempo y distribución de posiciones": 1,
+          "Comprobación eléctrica con consecuencia para el viajero": 1,
+          "Confirmación recibida durante la gestión": 1,
+          "Consecuencia al salir y reconstrucción de la entrega": 1,
+          "Consulta de preparación y consecuencias durante la visita": 1,
+          "Consulta inicial y devolución cerca del destino": 1,
+          "Consulta resuelta mediante explicación y acompañamiento": 1,
+          "Consulta sobre importes y registro del pedido": 1,
+          "Contradicción entre código válido y localización": 1,
+          "Cuenta final reconstruida desde el pedido": 1,
+          "Detalle de señalización y coordinación fallida": 1,
+          "Detalle del recipiente explicado por las condiciones": 1,
+          "Detalle lateral del material y coordinación de movimientos": 1,
+          "Devolución y reconstrucción del recorrido del carrito": 1,
+          "Distancia entre señal visible y explicación ausente": 1,
+          "Dos tipos de luz vinculados a fases distintas": 1,
+          "Elección de asiento y espera de un segundo grupo": 1,
+          "Elección de pausa que permite continuar contemplando": 1,
+          "Encuentro ya conseguido y explicación de sus referencias": 1,
+          "Escena de conexión con regreso al embarque": 1,
+          "Escena fotográfica con regreso a la organización inicial": 1,
+          "Espera breve seguida de recorrido continuo": 1,
+          "Espera de confirmación con consecuencia en taquilla": 1,
+          "Espera entre cocina y servicio exterior": 1,
+          "Espera inicial y sucesión de operaciones de embarque": 1,
+          "Expectativa del paseo y cruce imprevisto": 1,
+          "Indicación escrita y contraste con las bifurcaciones": 1,
+          "Información de acceso y circuito de reposición observado": 1,
+          "Instrucción anticipada comprobada en un cruce": 1,
+          "Intervención del auxiliar antes de partir": 1,
+          "Lectura del plano y sucesión de tramos": 1,
+          "Llegada y problema práctico de acceso": 1,
+          "Mensaje leído y orden de operaciones": 1,
+          "Movimiento del autobús antes de completar el acceso": 1,
+          "Necesidad de depósito y sistema de recuperación": 1,
+          "Necesidad de manos libres resuelta": 1,
+          "Necesidad de transporte y dos obstáculos con el depósito": 1,
+          "Objetivo de escucha y adaptación del equipo": 1,
+          "Objeto informativo seguido hasta la confirmación": 1,
+          "Panel lateral y delimitación verbal de la zona": 1,
+          "Plan de traslado y vigilancia de la maniobra": 1,
+          "Posición del asiento y necesidad de descanso": 1,
+          "R01": 3,
+          "R01: Secuencia cronológica de dos a cuatro momentos según la longitud.": 3,
+          "R01: baño, intervención y salida del agua": 1,
+          "R01: comprobación inicial y conservación durante el baño": 1,
+          "R01: entrega y devolución incompleta": 1,
+          "R01: plegado, carga y descarga del equipo": 1,
+          "R01: recarga autónoma y señalización de temperatura": 1,
+          "R01: regreso, bloqueo y comprobación tardía": 1,
+          "R01: salida del café, subida y arranque": 1,
+          "R02": 3,
+          "R02: Retroceder para explicar los pasos que la produjeron.": 3,
+          "R02: efecto del acomodo y reconstrucción de la carga": 1,
+          "R02: pérdida de una sala y reconstrucción del pago": 1,
+          "R02: recogida y reconstrucción del registro": 1,
+          "R02: repetición de salas y reconstrucción del recorrido": 1,
+          "R02: resultado práctico y reconstrucción de la maniobra": 1,
+          "R02: tarjeta actual y reconstrucción del reemplazo": 1,
+          "R03": 3,
+          "R03: Intento de resolverla y recursos que encontró.": 3,
+          "R03: compra para un grupo y registro del efectivo": 1,
+          "R03: localización de equipaje con señales contradictorias": 1,
+          "R03: localización de una sala y uso de un plano": 1,
+          "R03: necesidad de enlace y búsqueda de señales de acceso": 1,
+          "R03: necesidad de ropa para la salida": 1,
+          "R03: necesidad puntual y verificación acompañada": 1,
+          "R04": 3,
+          "R04: Relacionarlo con una escena anterior mediante un cambio temporal explícito.": 3,
+          "R04: lectura de la guía y retrospectiva de la compra": 1,
+          "R04: llegada a segunda ala y explicación previa del enlace": 1,
+          "R04: recogida y comprobaciones previas": 1,
+          "R04: reconocimiento en el regreso y reconstrucción del primer traslado": 1,
+          "R04: reemplazo tardío y regreso a la consulta inicial": 1,
+          "R04: revisión final y regreso al pedido inicial": 1,
+          "R05": 3,
+          "R05: Respuesta recibida y uso que se hizo de ella.": 3,
+          "R05: consulta de composición, alternativa y servicio": 1,
+          "R05: consulta de destino y aplicación de indicaciones durante el enlace": 1,
+          "R05: consulta de idioma y efecto del avance": 1,
+          "R05: consulta sobre división y consecuencias del registro": 1,
+          "R05: consulta sobre medios de audición y distribución en cada parada": 1,
+          "R05: consulta y actualización utilizable": 1,
+          "R06": 3,
+          "R06: Seguir sus cambios de lugar, uso o custodia.": 3,
+          "R06: cambios de ubicación del parlante y adaptación tras su falla": 1,
+          "R06: circulación del mapa durante dos versiones": 1,
+          "R06: circulación del recibo entre mesa y caja": 1,
+          "R06: recorrido de una botella sin punto de depósito accesible": 1,
+          "R06: recorrido de una ficha atascada hasta la recompra": 1,
+          "R06: seguimiento de la jarra y adaptación del plato": 1,
+          "R07": 3,
+          "R07: Acciones reales y un detalle lateral pertinente.": 3,
+          "R07: objetivo lingüístico y organización que lo permite": 1,
+          "R07: parada prevista, compra y continuación del trayecto": 1,
+          "R07: preparación de fichas y uso después del baño": 1,
+          "R07: presupuesto previsto y obstáculo concreto": 1,
+          "R07: propósito de aprendizaje y recorrido efectivo": 1,
+          "R07: separación prevista y recorrido de regreso": 1,
+          "R08": 3,
+          "R08: Explicar qué ocurrió inmediatamente antes y después.": 3,
+          "R08: armado interrumpido y revisión de la confirmación": 1,
+          "R08: espera de secado y uso del punto de residuos": 1,
+          "R08: espera inicial y ubicación del indicador": 1,
+          "R08: espera tras compra y reanudación con comprobación": 1,
+          "R08: espera tras distribuir el equipo": 1,
+          "R08: espera, apertura de ventanilla y continuación del aseo": 1,
+          "R09": 3,
+          "R09: Recorrido espacial por los puntos relevantes.": 3,
+          "R09: búsqueda espacial de un punto sin reflejos": 1,
+          "R09: observación del muelle y asignación por grupo": 1,
+          "R09: posición de observación y rotación espacial de objetos": 1,
+          "R09: posición del pasajero y ajuste visible": 1,
+          "R09: posición en el mercado y desplazamientos del vehículo": 1,
+          "R09: recorrido espacial de parcela y plataforma": 1,
+          "R10": 3,
+          "R10: Conectar la señal con el funcionamiento observado.": 3,
+          "R10: olor, reemplazo de material y tiempo consumido": 1,
+          "R10: ruido del plástico y problema de uso": 1,
+          "R10: sensación táctil vinculada a instrucciones y turnos": 1,
+          "R10: señal luminosa y desplazamientos de observación": 1,
+          "R10: sonido de lluvia y funcionamiento de la pendiente prevista": 1,
+          "R10: sonido del cierre al comprobar el equipo": 1,
+          "R11": 3,
+          "R11: Selección, trámite y efecto inmediato.": 3,
+          "R11: decisión de permanecer y uso de puntos alternativos": 1,
+          "R11: elección de actividad táctil y efecto del reparto de turnos": 1,
+          "R11: elección de útil y efecto de la avería": 1,
+          "R11: elección entre turnos y devolución de material": 1,
+          "R11: selección de capa y trámite de envoltura": 1,
+          "R12": 3,
+          "R12: Alternar esa observación con hechos propios, manteniendo clara la voz.": 3,
+          "R12: consulta de la acompañante y aprovechamiento personal": 1,
+          "R12: decisión de una acompañante y efectos compartidos de la pausa": 1,
+          "R12: movimiento del acompañante y separación del recorrido": 1,
+          "R12: pasos de un acompañante y ejecución propia": 1,
+          "R12: prueba de la acompañante y ajuste previo al pago": 1,
+          "R13": 3,
+          "R13: Mostrar cómo lo comprobó y cómo actuó con esa información.": 3,
+          "R13: comprobación de la suela y verificación final": 1,
+          "R13: comprobación de talla y decisión de desembarcar": 1,
+          "R13: comprobación del destino y registro de la pausa en el mapa": 1,
+          "R13: pregunta por duración y búsqueda del vehículo": 1,
+          "R13: verificación del cruce y continuación": 1,
+          "R14": 3,
+          "R14: Breve regreso al comienzo y continuación desde el punto inicial.": 3,
+          "R14: acción durante la pausa y reconstrucción del anuncio": 1,
+          "R14: cruce en marcha y reconocimiento previo": 1,
+          "R14: demostración en curso y reconstrucción del embarque": 1,
+          "R14: escena bajo techo, preparación previa y reanudación": 1,
+          "R14: intento de adaptación, regreso al encendido y noche posterior": 1,
+          "R15": 3,
+          "R15: Explicar su relación mediante acciones observadas.": 3,
+          "R15: chalecos y balanza como preparación del embarque": 1,
+          "R15: dirección y monto frente a datos de participación ausentes": 1,
+          "R15: discrepancia entre ficha y material preparado": 1,
+          "R15: relación entre referencias visuales y uso del descanso": 1,
+          "R15: relación entre ventilador, mobiliario y ajustes de uso": 1,
+          "R16": 3,
+          "R16: Seguir su interpretación y su contraste con la práctica.": 3,
+          "R16: indicación del boleto frente a instrucción oral": 1,
+          "R16: instrucciones escritas, cambio de pilas y uso nocturno": 1,
+          "R16: lectura de una confirmación adjunta y uso al ingresar": 1,
+          "R16: lectura del formulario y confirmación del material": 1,
+          "R16: promesa escrita y discrepancia en la activación": 1,
+          "R16: protocolo escrito y demostración insuficiente": 1,
+          "R17": 3,
+          "R17: Contar el relevo de personas, espacios o recursos.": 3,
+          "R17: control de nivel y preparación mediante el comprobante": 1,
+          "R17: paso de la comida al cobro y sucesivas boletas": 1,
+          "R17: paso de venta a control y andén": 1,
+          "R17: paso del pedido a la entrega del plato": 1,
+          "R17: relevo de información entre inscripción y preparación": 1,
+          "R17: transición de la práctica al inicio del sendero": 1,
+          "R17: tránsito entre compra, acceso y abordaje": 1,
+          "R18": 3,
+          "R18: Condiciones del lugar y adaptación realizada por una persona.": 3,
+          "R18: intento de usar el apoyo y organización del mirador": 1,
+          "R18: modo de comer y composición elegida": 1,
+          "R18: práctica del recurso y aplicación posterior": 1,
+          "R18: uso de calculadora y formas de registrar la gratificación": 1,
+          "R18: uso del lector mediante demostración y comprobación posterior": 1,
+          "R18: uso del plano y correspondencia de flechas": 1,
+          "R18: uso observado del recurso y decisión de permanecer en la orilla": 1,
+          "R19": 3,
+          "R19: Relacionar ambas observaciones sin forzar un giro sorprendente.": 3,
+          "R19: distinción de salsas tras una consulta": 1,
+          "R19: identificación de una llave tras volver del agua": 1,
+          "R19: marcas interpretadas con la llegada de otro grupo": 1,
+          "R19: paso de una lancha que cambia la lectura de las boyas": 1,
+          "R19: reconocimiento de una marca tras el cruce y relación con la demostración": 1,
+          "R19: segunda lectura que aclara dos comprobantes": 1,
+          "R19: segundo dato que cambia la interpretación del grifo": 1,
+          "R20": 3,
+          "R20: Acercarse al hecho principal y mostrar su desarrollo.": 3,
+          "R20: descarga de remos y recorrido hacia el sector de baño": 1,
+          "R20: detalle lateral y secuencia de custodia": 1,
+          "R20: gotas del portal y dificultad principal de acceso": 1,
+          "R20: objeto del acompañante y problema de acomodo": 1,
+          "R20: observación lateral y desarrollo de un ensayo y cruce": 1,
+          "R20: recipientes e identificación de dos grifos": 1,
+          "R20: uso inesperado de una banqueta y observación compartida": 1,
+          "Recogida con regreso al cuidado inicial": 1,
+          "Recorrido espacial y adaptación acordada con la viajera": 1,
+          "Recorrido previsto y punto final de las tablas": 1,
+          "Relación entre disposición del bufé y circulación": 1,
+          "Relación entre toma eléctrica y soporte del cable": 1,
+          "Relevo entre recepción presencial y acceso nocturno": 1,
+          "Secuencia de encuentro mediante referencias escritas": 1,
+          "Segundo momento del desayuno y reconstrucción de la espera": 1,
+          "Sonido situado y desplazamiento entre asientos": 1,
+          "Sucesión de recipientes durante la comida": 1,
+          "Tabla como obstáculo al avance": 1,
+          "Transición entre niveles y comprobación del andén": 1,
+          "Trayectoria de un equipo desde la entrega hasta la devolución": 1,
+          "Tres pasos de entrada a la habitación": 1,
+          "Trámite situado y campos de la nueva entrada": 1,
+          "Uso del itinerario accesible con desvío temporal": 1,
+          "Uso insuficiente de abrigo y cambios de posición": 1
+        },
+        "syntax_proxy_clause_markers": {
+          "aunque": 16,
+          "cuando": 77,
+          "mientras": 70,
+          "pero": 77,
+          "porque": 45,
+          "si": 46,
+          "sino": 1
+        },
+        "type_token_ratio_length_sensitive": 0.15990054618081032,
+        "vocabulary": 3923,
+        "word_total": 24534
+      },
+      "tune": {
+        "distinct_ngrams": {
+          "1": 1485,
+          "2": 4025,
+          "3": 4839
+        },
+        "experience_types": {
+          "airport": 6,
+          "beach": 6,
+          "hotel": 6,
+          "museum": 6,
+          "nature_excursion": 6,
+          "reservation": 6,
+          "restaurant": 6,
+          "taxi": 6,
+          "tour": 6,
+          "transport": 6
+        },
+        "phenomena_by_class": {
+          "contrast": {
+            "negativo": 15,
+            "positivo": 6
+          },
+          "double_negation": {
+            "negativo": 1,
+            "positivo": 2
+          },
+          "expectation": {
+            "negativo": 3,
+            "positivo": 6
+          },
+          "explicit_contrast": {
+            "negativo": 11,
+            "positivo": 6
+          },
+          "implicit_contrast": {
+            "negativo": 6
+          },
+          "irony": {
+            "negativo": 3
+          },
+          "mixed_aspects": {
+            "negativo": 3,
+            "positivo": 3
+          },
+          "negation": {
+            "negativo": 16,
+            "neutral": 9,
+            "positivo": 16
+          },
+          "negative_concordance": {
+            "negativo": 4,
+            "neutral": 1,
+            "positivo": 3
+          },
+          "objective_chronology": {
+            "negativo": 6,
+            "neutral": 20,
+            "positivo": 4
+          },
+          "regionalism": {
+            "negativo": 1,
+            "neutral": 1
+          },
+          "resolved_incident": {
+            "positivo": 10
+          },
+          "sarcasm": {
+            "negativo": 1
+          },
+          "typo": {
+            "positivo": 2
+          }
+        },
+        "rows": 60,
+        "self_reported_structures": {
+          "Búsqueda de una sala y dificultad de entrada": 1,
+          "Cambios de una delimitación durante el uso de la playa": 1,
+          "Consulta de dimensiones y uso con equipaje": 1,
+          "Escena interior con reconstrucción del acceso": 1,
+          "Espera anticipada y apertura de un paso separado": 1,
+          "Pantalla del terminal y consecuencia económica": 1,
+          "Plan de llegada y sucesión de sectores de limpieza": 1,
+          "Pérdida de información entre fases del servicio": 1,
+          "R01": 1,
+          "R01: colocación de documentos y sucesivos intentos de adaptación": 1,
+          "R02": 1,
+          "R02: organización final y reconstrucción del uso de la mesa": 1,
+          "R03": 1,
+          "R03: necesidad de preparar trámites y recursos encontrados": 1,
+          "R04": 1,
+          "R04: revisión posterior al pago y reclamación previa": 1,
+          "R05: Respuesta recibida y uso que se hizo de ella.": 1,
+          "R05: consulta de dos líneas y cotejo con la comanda": 1,
+          "R06: Seguir sus cambios de lugar, uso o custodia.": 1,
+          "R06: sustitución del recibo y devolución del dinero": 1,
+          "R07: Acciones reales y un detalle lateral pertinente.": 1,
+          "R07: plan de recuperación y trámite que no se concreta": 1,
+          "R08: Explicar qué ocurrió inmediatamente antes y después.": 1,
+          "R08: espera del reporte y reconstrucción de los datos aportados": 1,
+          "R09: Recorrido espacial por los puntos relevantes.": 1,
+          "R09: asiento posterior y visibilidad impedida": 1,
+          "R09: llegada del objeto y comprobación en recepción": 1,
+          "R10: Conectar la señal con el funcionamiento observado.": 1,
+          "R10: ruido de bandejas y consecuencias de su circulación interrumpida": 1,
+          "R10: sonido de herramientas y giro de la demostración": 1,
+          "R11: Selección, trámite y efecto inmediato.": 1,
+          "R11: elección de asiento y ajuste de posición": 1,
+          "R11: elección de fila, paso del equipo y circulación de recipientes": 1,
+          "R12: Alternar esa observación con hechos propios, manteniendo clara la voz.": 1,
+          "R12: acción del acompañante y coordinación del equipo compartido": 1,
+          "R12: pregunta del acompañante y pérdida de su contenido": 1,
+          "R13": 1,
+          "R13: Mostrar cómo lo comprobó y cómo actuó con esa información.": 1,
+          "R13: comprobación de fecha mediante mediación": 1,
+          "R14": 1,
+          "R14: Breve regreso al comienzo y continuación desde el punto inicial.": 1,
+          "R14: respuesta ante la maqueta y reconstrucción de la consulta": 1,
+          "R15": 1,
+          "R15: Explicar su relación mediante acciones observadas.": 1,
+          "R15: pronóstico y recibo frente a una condición sobrevenida": 1,
+          "R16": 1,
+          "R16: Seguir su interpretación y su contraste con la práctica.": 1,
+          "R16: condiciones escritas y aplicación a un cambio de pronóstico": 1,
+          "R17": 1,
+          "R17: transición de la salida prevista a una reorganización": 1,
+          "R18": 1,
+          "R18: seguimiento de una indicación en superficie resbalosa": 1,
+          "R19": 1,
+          "R19: identificación de franjas tras acercarse": 1,
+          "R20": 1,
+          "R20: observación lateral y recorrido sobre malla": 1,
+          "Resultado del pago y reconstrucción de la solución": 1,
+          "Secuencia de pago y comprobante": 1,
+          "Significado de una etiqueta revelado por la preparación": 1,
+          "Uso de tarjeta de ingredientes y seguimiento de la anotación": 1
+        },
+        "syntax_proxy_clause_markers": {
+          "aunque": 2,
+          "cuando": 20,
+          "mientras": 13,
+          "pero": 11,
+          "porque": 12,
+          "si": 13,
+          "sino": 2
+        },
+        "type_token_ratio_length_sensitive": 0.2928416485900217,
+        "vocabulary": 1485,
+        "word_total": 5071
+      }
+    }
+  },
+  "duplicates": {
+    "blocking_candidates": 0,
+    "candidates": [],
+    "limits": "Lexical screening and declared semantic families do not prove semantic independence.",
+    "pairs_screened": 158766,
+    "threshold": 0.7
+  },
+  "human_validated": false,
+  "limits": [
+    "This checks lexical and declared-family independence, not unseen semantic overlap or population independence.",
+    "No final sentiment classifier predictions or metrics were used for these audits."
+  ],
+  "manifest": {
+    "counts": {
+      "ambiguity_assessment": {
+        "classes": {},
+        "families": 12,
+        "length_by_class": {
+          "negativo": {},
+          "neutral": {},
+          "positivo": {}
+        },
+        "regions": {
+          "Colombia": 2,
+          "Mexico": 3,
+          "Peru": 2,
+          "Spain": 3,
+          "other_hispanic": 2
+        },
+        "rows": 12
+      },
+      "ambiguity_policy": {
+        "classes": {},
+        "families": 12,
+        "length_by_class": {
+          "negativo": {},
+          "neutral": {},
+          "positivo": {}
+        },
+        "regions": {
+          "Colombia": 3,
+          "Mexico": 2,
+          "Peru": 3,
+          "Spain": 2,
+          "other_hispanic": 2
+        },
+        "rows": 12
+      },
+      "assessment": {
+        "classes": {
+          "negativo": 20,
+          "neutral": 20,
+          "positivo": 20
+        },
+        "families": 20,
+        "length_by_class": {
+          "negativo": {
+            "long": 7,
+            "medium": 6,
+            "short": 7
+          },
+          "neutral": {
+            "long": 7,
+            "medium": 6,
+            "short": 7
+          },
+          "positivo": {
+            "long": 7,
+            "medium": 6,
+            "short": 7
+          }
+        },
+        "regions": {
+          "Colombia": 12,
+          "Mexico": 12,
+          "Peru": 12,
+          "Spain": 12,
+          "other_hispanic": 12
+        },
+        "rows": 60
+      },
+      "calibration": {
+        "classes": {
+          "negativo": 20,
+          "neutral": 20,
+          "positivo": 20
+        },
+        "families": 20,
+        "length_by_class": {
+          "negativo": {
+            "long": 6,
+            "medium": 7,
+            "short": 7
+          },
+          "neutral": {
+            "long": 6,
+            "medium": 7,
+            "short": 7
+          },
+          "positivo": {
+            "long": 6,
+            "medium": 7,
+            "short": 7
+          }
+        },
+        "regions": {
+          "Colombia": 12,
+          "Mexico": 12,
+          "Peru": 12,
+          "Spain": 12,
+          "other_hispanic": 12
+        },
+        "rows": 60
+      },
+      "policy_dev": {
+        "classes": {
+          "negativo": 20,
+          "neutral": 20,
+          "positivo": 20
+        },
+        "families": 20,
+        "length_by_class": {
+          "negativo": {
+            "long": 7,
+            "medium": 7,
+            "short": 6
+          },
+          "neutral": {
+            "long": 7,
+            "medium": 7,
+            "short": 6
+          },
+          "positivo": {
+            "long": 7,
+            "medium": 7,
+            "short": 6
+          }
+        },
+        "regions": {
+          "Colombia": 12,
+          "Mexico": 12,
+          "Peru": 12,
+          "Spain": 12,
+          "other_hispanic": 12
+        },
+        "rows": 60
+      },
+      "train": {
+        "classes": {
+          "negativo": 100,
+          "neutral": 100,
+          "positivo": 100
+        },
+        "families": 100,
+        "length_by_class": {
+          "negativo": {
+            "long": 33,
+            "medium": 34,
+            "short": 33
+          },
+          "neutral": {
+            "long": 33,
+            "medium": 34,
+            "short": 33
+          },
+          "positivo": {
+            "long": 33,
+            "medium": 34,
+            "short": 33
+          }
+        },
+        "regions": {
+          "Colombia": 60,
+          "Mexico": 60,
+          "Peru": 60,
+          "Spain": 60,
+          "other_hispanic": 60
+        },
+        "rows": 300
+      },
+      "tune": {
+        "classes": {
+          "negativo": 20,
+          "neutral": 20,
+          "positivo": 20
+        },
+        "families": 20,
+        "length_by_class": {
+          "negativo": {
+            "long": 7,
+            "medium": 6,
+            "short": 7
+          },
+          "neutral": {
+            "long": 7,
+            "medium": 6,
+            "short": 7
+          },
+          "positivo": {
+            "long": 7,
+            "medium": 6,
+            "short": 7
+          }
+        },
+        "regions": {
+          "Colombia": 12,
+          "Mexico": 12,
+          "Peru": 12,
+          "Spain": 12,
+          "other_hispanic": 12
+        },
+        "rows": 60
+      }
+    },
+    "human_gold": false,
+    "population_independence_proven": false,
+    "protocol_sha256": "019503c68a79dbc4c4d2fa5eb0afff2b753007f9cd093db5e4e247a50f95f5e3",
+    "records_sha256": "7219d60d1c3dcef52b8f336cf72d8e611b1194706e8969f61c5789d45b28e241",
+    "role_sha256": {
+      "ambiguity_assessment": "d11a26ebb115794989745ef87ce0b92cdeff8a74d797d1754cb3f98a9ca969df",
+      "ambiguity_policy": "0889bddfbb63c940a66590746a3642655d6eeeccffac953e5650207f02c8bfed",
+      "assessment": "7d66d87ea38f13cd6a5fc836b38841c82dfbd8d393d0c6a7ddba27adeff56503",
+      "calibration": "0a3dbc7ce8a702a7820736e5a90d4cc06344f1ada60c84acde46642535ff67b9",
+      "policy_dev": "6f02a990ce45011687601d3ee1e6f6ca5b75d3509c342403a14efedf374bf721",
+      "train": "34e4084ded527947e8db4c083aa99df6520d97e8022338c7034c69e689f6cff5",
+      "tune": "053c4f2669470fad7a4a679a7f582d84c7f538e4755db20710d92a1b14d37a54"
+    },
+    "scenario_sha256": "11aa86a2cb459528b13a2817171609fe4bc4e8c163cb699b53ddac1d7ed02f52",
+    "schema": "beto-v3-pilot-manifest",
+    "source_sha256": {
+      "beto_v3_batch_assessment.json": "11caf1121faa470e2b160e30f1dab17b11d80c509e4b8880c4ad371c36444786",
+      "beto_v3_batch_co.json": "c6719a4477d6b0a1f4ebdc72b361810490b8f10a90dc547cbd5165ff61d543e9",
+      "beto_v3_batch_es.json": "228f3fbd7fa7260df603bcbaf84b5cc60eb5cc7c264d48fb4f0b66ab641d8082",
+      "beto_v3_batch_mx.json": "a136e3787420ac1ed015ae2cca9a2ec947d1e6dc492b4b983b60753da04b7272",
+      "beto_v3_batch_other.json": "45f47c9976e6d47c8c705de26fd6edb921707f38b242687919ac43d7923a93f4",
+      "beto_v3_batch_pe.json": "108c84b82d181b3817a567bdbacbf2d17294d792d360ffa6a2c6d547c48b5f37"
+    }
+  },
+  "schema": "beto-v3-automatic-quality",
+  "shortcuts": {
+    "length_and_punctuation": {
+      "accuracy": 0.5,
+      "confusion_matrix": [
+        [
+          46,
+          24,
+          30
+        ],
+        [
+          27,
+          46,
+          27
+        ],
+        [
+          24,
+          18,
+          58
+        ]
+      ],
+      "confusion_matrix_labels": [
+        "negativo",
+        "neutral",
+        "positivo"
+      ],
+      "macro_f1": 0.49863388733024055,
+      "n": 300,
+      "negative_to_neutral_count": 24,
+      "negative_to_neutral_rate": 0.24,
+      "negative_to_positive_count": 30,
+      "negative_to_positive_rate": 0.3,
+      "per_class": {
+        "accuracy": 0.5,
+        "macro avg": {
+          "f1-score": 0.49863388733024055,
+          "precision": 0.5004339676459802,
+          "recall": 0.5,
+          "support": 300.0
+        },
+        "negativo": {
+          "f1-score": 0.467005076142132,
+          "precision": 0.4742268041237113,
+          "recall": 0.46,
+          "support": 100.0
+        },
+        "neutral": {
+          "f1-score": 0.48936170212765956,
+          "precision": 0.5227272727272727,
+          "recall": 0.46,
+          "support": 100.0
+        },
+        "positivo": {
+          "f1-score": 0.5395348837209303,
+          "precision": 0.5043478260869565,
+          "recall": 0.58,
+          "support": 100.0
+        },
+        "weighted avg": {
+          "f1-score": 0.49863388733024067,
+          "precision": 0.5004339676459801,
+          "recall": 0.5,
+          "support": 300.0
+        }
+      },
+      "support": {
+        "negativo": 100,
+        "neutral": 100,
+        "positivo": 100
+      },
+      "three_class_macro_comparable": true
+    },
+    "max_ending_family_fraction": 0.01,
+    "metadata_only": {
+      "accuracy": 0.3333333333333333,
+      "confusion_matrix": [
+        [
+          100,
+          0,
+          0
+        ],
+        [
+          100,
+          0,
+          0
+        ],
+        [
+          100,
+          0,
+          0
+        ]
+      ],
+      "confusion_matrix_labels": [
+        "negativo",
+        "neutral",
+        "positivo"
+      ],
+      "macro_f1": 0.16666666666666666,
+      "n": 300,
+      "negative_to_neutral_count": 0,
+      "negative_to_neutral_rate": 0.0,
+      "negative_to_positive_count": 0,
+      "negative_to_positive_rate": 0.0,
+      "per_class": {
+        "accuracy": 0.3333333333333333,
+        "macro avg": {
+          "f1-score": 0.16666666666666666,
+          "precision": 0.1111111111111111,
+          "recall": 0.3333333333333333,
+          "support": 300.0
+        },
+        "negativo": {
+          "f1-score": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "support": 100.0
+        },
+        "neutral": {
+          "f1-score": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "support": 100.0
+        },
+        "positivo": {
+          "f1-score": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "support": 100.0
+        },
+        "weighted avg": {
+          "f1-score": 0.16666666666666666,
+          "precision": 0.11111111111111109,
+          "recall": 0.3333333333333333,
+          "support": 300.0
+        }
+      },
+      "support": {
+        "negativo": 100,
+        "neutral": 100,
+        "positivo": 100
+      },
+      "three_class_macro_comparable": true
+    },
+    "repeated_endings": [],
+    "scope": "TRAIN_ONLY_NUISANCE_CORRELATIONS_NOT_CAUSAL_FEATURE_IMPORTANCE"
+  },
+  "tokenization": {
+    "ambiguity_assessment": {
+      "maximum": 200,
+      "over_128": 4,
+      "over_128_fraction": 0.3333333333333333,
+      "over_256": 0,
+      "rows": 12
+    },
+    "ambiguity_policy": {
+      "maximum": 196,
+      "over_128": 4,
+      "over_128_fraction": 0.3333333333333333,
+      "over_256": 0,
+      "rows": 12
+    },
+    "assessment": {
+      "maximum": 198,
+      "over_128": 21,
+      "over_128_fraction": 0.35,
+      "over_256": 0,
+      "rows": 60
+    },
+    "calibration": {
+      "maximum": 206,
+      "over_128": 18,
+      "over_128_fraction": 0.3,
+      "over_256": 0,
+      "rows": 60
+    },
+    "policy_dev": {
+      "maximum": 205,
+      "over_128": 21,
+      "over_128_fraction": 0.35,
+      "over_256": 0,
+      "rows": 60
+    },
+    "train": {
+      "maximum": 206,
+      "over_128": 99,
+      "over_128_fraction": 0.33,
+      "over_256": 0,
+      "rows": 300
+    },
+    "tune": {
+      "maximum": 202,
+      "over_128": 21,
+      "over_128_fraction": 0.35,
+      "over_256": 0,
+      "rows": 60
+    }
+  },
+  "tokenizer_revision": "c4d86612f51b4f46759c8390d1798c2febe71b93"
+}

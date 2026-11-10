@@ -1,0 +1,260 @@
+{
+  "version": "beto-v3-quality-pilot-v1",
+  "registered_before": "review generation, model training and all new assessment predictions",
+  "status_at_registration": "PROTOCOL_ONLY_NO_CORPUS_OR_MODEL_OUTCOMES",
+  "hypotheses": [
+    "Counterbalancing length and style within semantic families can reduce nuisance-only sentiment prediction, while regional and episode diversity supplies genuinely different training situations.",
+    "Long narratives may benefit from 256 rather than128 tokens; frozen128/256 and staged adaptation compare this on new development only.",
+    "Partial adaptation, regularization and class-balanced difficult-case sampling may improve global composition; they can also fail and are not guaranteed to beat TF-IDF.",
+    "Separate calibration and policy cohorts may still fail independent ambiguity/risk criteria despite high confidence."
+  ],
+  "label_origin": "AI_AUTHOR_INTENT_WITH_STRATIFIED_BLIND_AI_REVIEW_NOT_HUMAN_GOLD",
+  "human_validation": false,
+  "pilot_role_rows": {
+    "train": 300,
+    "tune": 60,
+    "calibration": 60,
+    "policy_dev": 60,
+    "assessment": 60,
+    "ambiguity_policy": 12,
+    "ambiguity_assessment": 12
+  },
+  "pilot_labeled_family_rows": 3,
+  "regions": [
+    "Colombia",
+    "Peru",
+    "Mexico",
+    "Spain",
+    "other_hispanic"
+  ],
+  "experience_types": [
+    "hotel",
+    "restaurant",
+    "taxi",
+    "airport",
+    "transport",
+    "beach",
+    "museum",
+    "tour",
+    "reservation",
+    "nature_excursion"
+  ],
+  "length_words": {
+    "short": [
+      15,
+      30
+    ],
+    "medium": [
+      50,
+      85
+    ],
+    "long": [
+      140,
+      180
+    ]
+  },
+  "generation": {
+    "scenario_planner": "separate actual agent; metadata only; no historical catalog access",
+    "training_development_writers": "one original writer per region, no model outcomes, only assigned non-assessment scenarios",
+    "assessment_writer": "fresh independent agent without inherited conversation, train/development texts or historical outcomes",
+    "reviewers": "two separate fresh agents see text and random identifier only; no author label, role, model prediction or review from the other",
+    "adjudication": "coordinator considers author intent plus both independent AI reviews; records disagreement, may quarantine entire family, never invents human gold",
+    "forbidden": [
+      "noun/adjective or ending-template multiplication",
+      "invented human authors",
+      "real identifiable businesses accused of fictional incidents",
+      "historical evaluated text reuse",
+      "label words or IDs embedded as artificial sentiment markers"
+    ],
+    "counterbalance": "one positive/neutral/negative per scenario family with the same target length band; style/structure rotate independently of sentiment; no common stock endings"
+  },
+  "data_admission": {
+    "exact_duplicates_allowed": 0,
+    "cross_role_component_overlap_allowed": 0,
+    "near_duplicate_char5_or_word3_jaccard": 0.7,
+    "shape_only_group_oof_macro_f1_max": 0.45,
+    "minimum_train_rows_over_128_tokens_fraction": 0.2,
+    "stratified_blind_labeled_review_rows": 90,
+    "review_seed": 20261110,
+    "minimum_per_nontrain_role_review_rows": 10,
+    "minimum_pairwise_ai_review_kappa": 0.6,
+    "minimum_author_intent_agreement_each_reviewer": 0.85,
+    "maximum_unresolved_sample_fraction": 0.05,
+    "maximum_quarantined_labeled_families_fraction": 0.05,
+    "max_repeated_four_word_ending_family_fraction_per_class": 0.1,
+    "gate_action": "Do not train before admission. Failed gate means explicit quality-blocked pilot, not adjusted thresholds or automatic scale-up. Any pretraining revision gets a new data hash and full audit; never edit observed evaluations."
+  },
+  "primary_seed": 42,
+  "replica_seeds": [
+    7,
+    101
+  ],
+  "threads": 2,
+  "head": {
+    "epochs": 80,
+    "selection_epochs": [
+      20,
+      40,
+      80
+    ],
+    "learning_rate": 0.01,
+    "batch_size": 32,
+    "weight_decay": 0.01,
+    "dropout": 0.1
+  },
+  "baseline_C": [
+    0.1,
+    1.0,
+    10.0
+  ],
+  "candidates": [
+    {
+      "id": "frozen128",
+      "mode": "frozen",
+      "pooling": "mean_l2",
+      "max_length": 128
+    },
+    {
+      "id": "frozen256",
+      "mode": "frozen",
+      "pooling": "mean_l2",
+      "max_length": 256
+    },
+    {
+      "id": "top2_256",
+      "mode": "top2",
+      "pooling": "mean_l2",
+      "max_length": 256,
+      "epochs": 3,
+      "encoder_lr": 1e-05,
+      "head_lr": 0.0005,
+      "weight_decay": 0.01,
+      "head_dropout": 0.1,
+      "label_smoothing": 0.0,
+      "hard_weight": 1.0,
+      "patience": 1
+    },
+    {
+      "id": "top2_256_regularized",
+      "mode": "top2",
+      "pooling": "mean_l2",
+      "max_length": 256,
+      "epochs": 3,
+      "encoder_lr": 2e-05,
+      "head_lr": 0.0005,
+      "weight_decay": 0.1,
+      "head_dropout": 0.2,
+      "label_smoothing": 0.05,
+      "hard_weight": 1.0,
+      "patience": 1
+    },
+    {
+      "id": "top2_256_hard",
+      "mode": "top2",
+      "pooling": "mean_l2",
+      "max_length": 256,
+      "epochs": 3,
+      "encoder_lr": 1e-05,
+      "head_lr": 0.0005,
+      "weight_decay": 0.01,
+      "head_dropout": 0.1,
+      "label_smoothing": 0.0,
+      "hard_weight": 1.5,
+      "patience": 1
+    },
+    {
+      "id": "full256_budgeted",
+      "mode": "full",
+      "pooling": "mean_l2",
+      "max_length": 256,
+      "epochs": 1,
+      "encoder_lr": 1e-05,
+      "head_lr": 0.0002,
+      "weight_decay": 0.01,
+      "head_dropout": 0.1,
+      "label_smoothing": 0.0,
+      "hard_weight": 1.0,
+      "patience": 1
+    }
+  ],
+  "hard_tags": [
+    "negation",
+    "double_negation",
+    "implicit_contrast",
+    "mixed_aspects",
+    "irony",
+    "sarcasm",
+    "resolved_incident"
+  ],
+  "hard_sampling": "Replacement sampling with class-normalized weights so each class has equal total probability; TRAIN tags only, capped multiplier1.5, exactly TRAIN row-count draws per epoch. The hard arm isolates sampling from standard; the regularized arm jointly varies LR/decay/dropout/smoothing and does not isolate their individual effects.",
+  "finetune_batch_size": 4,
+  "warmup_fraction": 0.1,
+  "gradient_clip_norm": 1.0,
+  "early_stopping": "Encoder tune once per epoch, patience1; checkpoint improvement requires Macro-F1 gain>=1e-6, or tied F1 with fewer negative-to-positive, or tied both with NLL reduction>=1e-4. Restore paired best head/encoder and stop at first non-improving epoch. Replicas use selected epochs without tune inference/reselection and preserve the original maximum-epoch LR schedule.",
+  "selection": "Tune only Macro-F1; ties fewer negative-to-positive, lower NLL, then earlier candidate/epoch. Primary seed42 remains primary; never choose best seed from assessment. Record both best overall and best executed adjusted candidate before assessment; replicas target the latter and all preselected comparisons remain explicit.",
+  "comparison": "Dummy/LR/SVM/frozen128/frozen256/selected adjusted model on identical new assessment rows; fixed seed replicas for the selected adjusted configuration if feasible. Historical locked V1/V2 training references optional only within budget, never read their evaluated cohorts for selection. No direct claim of improvement across different evaluations.",
+  "calibration": {
+    "temperatures": [
+      0.5,
+      0.75,
+      1.0,
+      1.5,
+      2.0,
+      3.0
+    ],
+    "ece_bins": 5
+  },
+  "policy": {
+    "global_thresholds": [
+      0.6,
+      0.7,
+      0.8
+    ],
+    "positive_thresholds": [
+      0.85,
+      0.95
+    ],
+    "text_guards": [
+      false,
+      true
+    ],
+    "margin": 0.1,
+    "min_accepted": 20,
+    "min_accepted_negatives": 5,
+    "min_total_negatives": 20,
+    "min_accepted_components": 10,
+    "min_coverage": 0.25,
+    "max_empirical_risk": 0.1,
+    "max_automatic_negative_to_positive_rate": 0.05,
+    "min_ambiguity_review_rate": 0.8
+  },
+  "compute_budget": {
+    "device": "cpu",
+    "max_development_wall_seconds": 2400,
+    "max_replica_and_assessment_wall_seconds": 900,
+    "threads": 2,
+    "memory_planning_gib": 8,
+    "optional_full_gate": "After one timed epoch of the first partial candidate, conservatively project full256 as3x per-epoch time; skip full candidate if projection plus elapsed exceeds development budget. Record skipped as unmeasured, not equivalent performance.",
+    "scale_development_wall_seconds_cap": 3600,
+    "scale_action": "Use measured costs and admitted quality to assess 3501-row TRAIN feasibility; do not commit to an unbudgeted multi-hour full grid. Smaller operational first phase is explicitly permitted by user."
+  },
+  "target_5000_plan": {
+    "train": 3501,
+    "tune": 450,
+    "calibration": 300,
+    "policy_dev": 249,
+    "assessment": 450,
+    "ambiguity_policy": 25,
+    "ambiguity_assessment": 25,
+    "status": "PLANNED_NOT_GENERATED_NOT_TRAINED",
+    "assessment_rule": "All full-scale final450 and ambiguity25 must be newly authored and frozen before full-scale model predictions; never relabel pilot60 as an intact final test. Only pilot TRAIN may be carried into full TRAIN; all new roles preserve family/source/related-episode separation."
+  },
+  "limits": [
+    "All corpus items and reviews are AI synthetic; neither author intent nor agreement between AI reviewers is human validation.",
+    "Semantic and lexical audits cannot prove population independence or a lack of generator style.",
+    "Regional naturalness and tourism utility are not validated by native human speakers.",
+    "Pilot60 assessment and small phenomenon supports are exploratory; once observed they remain frozen.",
+    "No model or policy automatically replaces DEMO defaults; all five agents and UI/Whisper/contracts remain unchanged."
+  ],
+  "assessment_lock": "Persist all selected configurations, fixed seed artifacts and calibration/policy choices before assessment. Create exclusive assessment-start marker before the first prediction. Interruption leaves it observed/locked; do not silently rerun or overwrite."
+}

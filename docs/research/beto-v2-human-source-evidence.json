@@ -1,0 +1,26 @@
+{
+  "checked_at_utc": "2026-11-08T09:26:42.111759+00:00",
+  "source_url": "https://zenodo.org/api/records/13240643",
+  "record_url": "https://zenodo.org/records/13240643",
+  "doi": "10.5281/zenodo.13240643",
+  "title": "Dataset of Tourist Profiles in Sucre",
+  "declared_license": {
+    "id": "cc-by-4.0"
+  },
+  "declared_access": "open",
+  "file_metadata_only": [
+    {
+      "filename": "Detalles_y_Comentarios_completo -four-tip.xlsx",
+      "bytes": 226838,
+      "checksum": "md5:0cf685f93f1bdb2385e166ea5909073f"
+    }
+  ],
+  "dataset_content_downloaded": false,
+  "admitted_for_training": false,
+  "pending_evidence": [
+    "Scope of permissions for platform-authored comments",
+    "Relation to exact Kaggle TRAIN",
+    "Label ontology and annotation procedure",
+    "Author/place/related-text grouping and privacy audit"
+  ]
+}

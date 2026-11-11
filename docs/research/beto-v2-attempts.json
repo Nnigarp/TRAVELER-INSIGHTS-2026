@@ -1,0 +1,31 @@
+{
+  "registration_commit": "7dd51a7c689873b5e3b000e482bfd2bc481adc3e",
+  "attempts": [
+    {
+      "directory": "beto-v2-run1",
+      "status": "INCOMPLETE_NO_RELIABLE_COMPLETION_OR_EXIT_CAUSE_RECORDED",
+      "assessment_executed": false,
+      "cost": "NOT_FULLY_ACCOUNTED; partial artifacts existed before snapshot rollback and are now unavailable"
+    },
+    {
+      "directory": "beto-v2-run2",
+      "status": "DEVELOPMENT_COMPLETED_BEFORE_ASSESSMENT",
+      "assessment_executed": false,
+      "cost": {
+        "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+        "peak_rss_mib": 2945.3671875,
+        "wall_seconds": 988.7575000209999
+      }
+    }
+  ],
+  "tune_only_selection": "top2_low128",
+  "data_or_hyperparameters_changed_between_attempts": false,
+  "local_snapshot_restoration_2026_11_08": {
+    "original_partial_artifacts_available": false,
+    "reason": "workspace restored to older snapshot",
+    "durable_selection_commit": "d067c8aad31cf23a12ea2cd76f78c2f71f4cdcca",
+    "original_unpublished_assessment_probability_arrays_available": false,
+    "original_aggregate_metrics_retained_in_session": true,
+    "reconstruction": "unchanged original grid; verify locked choices before assessment; do not retune"
+  }
+}

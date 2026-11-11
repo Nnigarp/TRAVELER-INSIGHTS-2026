@@ -1,0 +1,148 @@
+{
+  "group_oof": {
+    "shape_only": {
+      "accuracy": 0.5833333333333334,
+      "confusion_matrix": [
+        [
+          43,
+          20,
+          17
+        ],
+        [
+          9,
+          63,
+          8
+        ],
+        [
+          18,
+          28,
+          34
+        ]
+      ],
+      "confusion_matrix_labels": [
+        "negativo",
+        "neutral",
+        "positivo"
+      ],
+      "macro_f1": 0.5740759434337347,
+      "n": 240,
+      "negative_to_neutral_count": 20,
+      "negative_to_neutral_rate": 0.25,
+      "negative_to_positive_count": 17,
+      "negative_to_positive_rate": 0.2125,
+      "per_class": {
+        "accuracy": 0.5833333333333334,
+        "macro avg": {
+          "f1-score": 0.5740759434337347,
+          "precision": 0.58604148943132,
+          "recall": 0.5833333333333334,
+          "support": 240.0
+        },
+        "negativo": {
+          "f1-score": 0.5733333333333334,
+          "precision": 0.6142857142857143,
+          "recall": 0.5375,
+          "support": 80.0
+        },
+        "neutral": {
+          "f1-score": 0.6596858638743456,
+          "precision": 0.5675675675675675,
+          "recall": 0.7875,
+          "support": 80.0
+        },
+        "positivo": {
+          "f1-score": 0.4892086330935252,
+          "precision": 0.576271186440678,
+          "recall": 0.425,
+          "support": 80.0
+        },
+        "weighted avg": {
+          "f1-score": 0.5740759434337347,
+          "precision": 0.58604148943132,
+          "recall": 0.5833333333333334,
+          "support": 240.0
+        }
+      },
+      "support": {
+        "negativo": 80,
+        "neutral": 80,
+        "positivo": 80
+      },
+      "three_class_macro_comparable": true
+    },
+    "source_domain_region_only": {
+      "accuracy": 0.3333333333333333,
+      "confusion_matrix": [
+        [
+          80,
+          0,
+          0
+        ],
+        [
+          80,
+          0,
+          0
+        ],
+        [
+          80,
+          0,
+          0
+        ]
+      ],
+      "confusion_matrix_labels": [
+        "negativo",
+        "neutral",
+        "positivo"
+      ],
+      "macro_f1": 0.16666666666666666,
+      "n": 240,
+      "negative_to_neutral_count": 0,
+      "negative_to_neutral_rate": 0.0,
+      "negative_to_positive_count": 0,
+      "negative_to_positive_rate": 0.0,
+      "per_class": {
+        "accuracy": 0.3333333333333333,
+        "macro avg": {
+          "f1-score": 0.16666666666666666,
+          "precision": 0.1111111111111111,
+          "recall": 0.3333333333333333,
+          "support": 240.0
+        },
+        "negativo": {
+          "f1-score": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "support": 80.0
+        },
+        "neutral": {
+          "f1-score": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "support": 80.0
+        },
+        "positivo": {
+          "f1-score": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "support": 80.0
+        },
+        "weighted avg": {
+          "f1-score": 0.16666666666666666,
+          "precision": 0.1111111111111111,
+          "recall": 0.3333333333333333,
+          "support": 240.0
+        }
+      },
+      "support": {
+        "negativo": 80,
+        "neutral": 80,
+        "positivo": 80
+      },
+      "three_class_macro_comparable": true
+    }
+  },
+  "interpretation": "Nuisance correlation diagnostic, not feature contribution or proof of shortcut-free data. Metadata never enters sentiment models.",
+  "repeated_four_word_endings": [],
+  "scope": "TRAIN_ONLY_NO_EVALUATION_OR_FEATURE_LEAKAGE",
+  "shape_macro_f1_above_0_6_flag": false
+}

@@ -1,0 +1,650 @@
+{
+  "catalog_sha256": {
+    "beto_v2_assessment.json": "2366b37fad19f577f1bf23f7c0e3c1d9a9deb517ef255816eeff6439be7673bc",
+    "beto_v2_development.json": "71b01a317a88be438b9b0261be0a6feee3aa7d9f0e62469e398c5c732af17192",
+    "beto_v2_train.json": "e7d83a00dba1c52add921bd791b65720380c5a3221217e18f12a8ab5290aa552"
+  },
+  "counts": {
+    "ambiguity_assessment": {
+      "classes": {},
+      "components": 8,
+      "length_by_class": {
+        "negativo": {},
+        "neutral": {},
+        "positivo": {}
+      },
+      "phenomena_by_class": {
+        "contrast": {},
+        "mixed_aspects": {},
+        "negation": {}
+      },
+      "rows": 8
+    },
+    "ambiguity_policy": {
+      "classes": {},
+      "components": 8,
+      "length_by_class": {
+        "negativo": {},
+        "neutral": {},
+        "positivo": {}
+      },
+      "phenomena_by_class": {
+        "contrast": {},
+        "mixed_aspects": {},
+        "negation": {}
+      },
+      "rows": 8
+    },
+    "assessment": {
+      "classes": {
+        "negativo": 30,
+        "neutral": 30,
+        "positivo": 30
+      },
+      "components": 30,
+      "length_by_class": {
+        "negativo": {
+          "long": 4,
+          "medium": 26
+        },
+        "neutral": {
+          "long": 4,
+          "medium": 26
+        },
+        "positivo": {
+          "long": 4,
+          "medium": 26
+        }
+      },
+      "phenomena_by_class": {
+        "contrast": {
+          "negativo": 25,
+          "positivo": 13
+        },
+        "double_negation": {
+          "negativo": 4,
+          "positivo": 2
+        },
+        "implicit_contrast": {
+          "negativo": 3,
+          "positivo": 11
+        },
+        "mixed_aspects": {
+          "negativo": 3,
+          "positivo": 1
+        },
+        "negation": {
+          "negativo": 20,
+          "neutral": 4,
+          "positivo": 26
+        },
+        "positive_words_negative_context": {
+          "negativo": 13
+        },
+        "regionalism": {
+          "negativo": 6,
+          "neutral": 4,
+          "positivo": 5
+        },
+        "typo": {
+          "negativo": 2,
+          "neutral": 2,
+          "positivo": 2
+        }
+      },
+      "rows": 90
+    },
+    "calibration": {
+      "classes": {
+        "negativo": 20,
+        "neutral": 20,
+        "positivo": 20
+      },
+      "components": 20,
+      "length_by_class": {
+        "negativo": {
+          "long": 5,
+          "medium": 14,
+          "short": 1
+        },
+        "neutral": {
+          "long": 5,
+          "medium": 14,
+          "short": 1
+        },
+        "positivo": {
+          "long": 5,
+          "medium": 14,
+          "short": 1
+        }
+      },
+      "phenomena_by_class": {
+        "contrast": {
+          "negativo": 9,
+          "positivo": 1
+        },
+        "double_negation": {
+          "positivo": 3
+        },
+        "implicit_contrast": {
+          "negativo": 1
+        },
+        "mixed_aspects": {
+          "negativo": 3
+        },
+        "negation": {
+          "negativo": 15,
+          "positivo": 19
+        },
+        "positive_words_negative_context": {
+          "negativo": 8
+        },
+        "regionalism": {
+          "negativo": 1,
+          "neutral": 1,
+          "positivo": 3
+        },
+        "typo": {
+          "negativo": 1,
+          "neutral": 1,
+          "positivo": 1
+        }
+      },
+      "rows": 60
+    },
+    "policy_dev": {
+      "classes": {
+        "negativo": 20,
+        "neutral": 20,
+        "positivo": 20
+      },
+      "components": 20,
+      "length_by_class": {
+        "negativo": {
+          "medium": 18,
+          "short": 2
+        },
+        "neutral": {
+          "medium": 18,
+          "short": 2
+        },
+        "positivo": {
+          "medium": 18,
+          "short": 2
+        }
+      },
+      "phenomena_by_class": {
+        "contrast": {
+          "negativo": 2,
+          "positivo": 2
+        },
+        "double_negation": {
+          "positivo": 1
+        },
+        "implicit_contrast": {
+          "negativo": 2
+        },
+        "mixed_aspects": {
+          "negativo": 1
+        },
+        "negation": {
+          "negativo": 15,
+          "positivo": 15
+        },
+        "positive_words_negative_context": {
+          "negativo": 4
+        },
+        "regionalism": {
+          "negativo": 1,
+          "positivo": 2
+        },
+        "typo": {
+          "negativo": 4,
+          "neutral": 4,
+          "positivo": 4
+        }
+      },
+      "rows": 60
+    },
+    "train": {
+      "classes": {
+        "negativo": 80,
+        "neutral": 80,
+        "positivo": 80
+      },
+      "components": 60,
+      "length_by_class": {
+        "negativo": {
+          "long": 4,
+          "medium": 71,
+          "short": 5
+        },
+        "neutral": {
+          "long": 4,
+          "medium": 71,
+          "short": 5
+        },
+        "positivo": {
+          "long": 4,
+          "medium": 71,
+          "short": 5
+        }
+      },
+      "phenomena_by_class": {
+        "contrast": {
+          "negativo": 9,
+          "neutral": 6,
+          "positivo": 9
+        },
+        "double_negation": {
+          "negativo": 2,
+          "neutral": 1,
+          "positivo": 4
+        },
+        "implicit_contrast": {
+          "negativo": 49,
+          "neutral": 4,
+          "positivo": 9
+        },
+        "mixed_aspects": {
+          "negativo": 6,
+          "positivo": 4
+        },
+        "negation": {
+          "negativo": 35,
+          "neutral": 29,
+          "positivo": 36
+        },
+        "positive_words_negative_context": {
+          "negativo": 11
+        },
+        "regionalism": {
+          "negativo": 6,
+          "neutral": 6,
+          "positivo": 15
+        },
+        "typo": {
+          "negativo": 3,
+          "neutral": 3,
+          "positivo": 3
+        }
+      },
+      "rows": 240
+    },
+    "tune": {
+      "classes": {
+        "negativo": 10,
+        "neutral": 10,
+        "positivo": 10
+      },
+      "components": 10,
+      "length_by_class": {
+        "negativo": {
+          "medium": 10
+        },
+        "neutral": {
+          "medium": 10
+        },
+        "positivo": {
+          "medium": 10
+        }
+      },
+      "phenomena_by_class": {
+        "contrast": {
+          "negativo": 2,
+          "positivo": 1
+        },
+        "implicit_contrast": {
+          "negativo": 1
+        },
+        "negation": {
+          "negativo": 8,
+          "positivo": 8
+        },
+        "positive_words_negative_context": {
+          "negativo": 3
+        },
+        "regionalism": {
+          "positivo": 3
+        }
+      },
+      "rows": 30
+    }
+  },
+  "duplicates": {
+    "candidate_count": 0,
+    "pairs": [
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_751123810ff4ea41ecd7",
+          "b2_40bfcf0a72c3c28aa6fa"
+        ],
+        "maximum_similarity": 0.06887755102040816,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_assessment",
+          "ambiguity_policy"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_1575601648c4303d9e26",
+          "b2_aef1404b27d67e5c9ee9"
+        ],
+        "maximum_similarity": 0.07851239669421488,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_assessment",
+          "assessment"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_fb3c1ac645d0c266a26d",
+          "b2_3a6aff1bf53f5cc047ca"
+        ],
+        "maximum_similarity": 0.08859060402684564,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_assessment",
+          "calibration"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_1608a3d74a6ef29aca4f",
+          "b2_f658343dc50c32a6e060"
+        ],
+        "maximum_similarity": 0.06293706293706294,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_assessment",
+          "policy_dev"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_37203357a1b44a1c6476",
+          "b2_aef1404b27d67e5c9ee9"
+        ],
+        "maximum_similarity": 0.08101851851851852,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_assessment",
+          "train"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_869e447df4deca693eac",
+          "b2_aef1404b27d67e5c9ee9"
+        ],
+        "maximum_similarity": 0.07658643326039387,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_assessment",
+          "tune"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_039e8be537293703b751",
+          "b2_1cee6ba996df24ce740e"
+        ],
+        "maximum_similarity": 0.07395498392282958,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_policy",
+          "assessment"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_3c2338afd8012791712a",
+          "b2_90ceae933aaec9439ce3"
+        ],
+        "maximum_similarity": 0.08540925266903915,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_policy",
+          "calibration"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_72f2360b7f6d2850802a",
+          "b2_86d364e5a3b7d3c798f8"
+        ],
+        "maximum_similarity": 0.05976095617529881,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_policy",
+          "policy_dev"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_c72f7f7c9b871c2f40de",
+          "b2_751123810ff4ea41ecd7"
+        ],
+        "maximum_similarity": 0.08235294117647059,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_policy",
+          "train"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_0e147a22c8cfa3ccd3d9",
+          "b2_2cfbe368349d3ea555c9"
+        ],
+        "maximum_similarity": 0.06896551724137931,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "ambiguity_policy",
+          "tune"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_fb3c1ac645d0c266a26d",
+          "b2_899a0376613a4a56f4dd"
+        ],
+        "maximum_similarity": 0.11173814898419865,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "assessment",
+          "calibration"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_72f2360b7f6d2850802a",
+          "b2_7e00ca0c1ff8df172639"
+        ],
+        "maximum_similarity": 0.12,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "assessment",
+          "policy_dev"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_9eac46ec3452075e5295",
+          "b2_f93dbd78d23d6689768f"
+        ],
+        "maximum_similarity": 0.15354330708661418,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "assessment",
+          "train"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_337c2f5699266b000150",
+          "b2_f73b4363245e3a112a7f"
+        ],
+        "maximum_similarity": 0.10638297872340426,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "assessment",
+          "tune"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_7530f763130b02eeb672",
+          "b2_8d7f220155c1b0698bae"
+        ],
+        "maximum_similarity": 0.11764705882352941,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "calibration",
+          "policy_dev"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_a13cc37dfb17693fdfef",
+          "b2_089a0f425c9b3909259e"
+        ],
+        "maximum_similarity": 0.15384615384615385,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "calibration",
+          "train"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_bf2767b1a827c509f5aa",
+          "b2_a3f00cd017037eba52e1"
+        ],
+        "maximum_similarity": 0.10416666666666667,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "calibration",
+          "tune"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_0f7223480c62e21ff744",
+          "b2_31354143303d0a35ba8b"
+        ],
+        "maximum_similarity": 0.24444444444444444,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "policy_dev",
+          "train"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_869e447df4deca693eac",
+          "b2_c312bf1a7e67c60ff145"
+        ],
+        "maximum_similarity": 0.10903426791277258,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "policy_dev",
+          "tune"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      },
+      {
+        "candidates": [],
+        "maximum_pair_ids": [
+          "b2_fb2268caefe68bd3b0a2",
+          "b2_578b3db6d7feeea98236"
+        ],
+        "maximum_similarity": 0.1446280991735537,
+        "method": "unfitted_char5_word3_jaccard_all_pairs_across_new_roles",
+        "roles": [
+          "train",
+          "tune"
+        ],
+        "semantic_paraphrase_independence_proven": false,
+        "threshold": 0.7
+      }
+    ],
+    "semantic_independence_proven": false
+  },
+  "historical_test_used_for_selection": false,
+  "human_gold": false,
+  "population_independence_proven": false,
+  "protocol_sha256": "6e682359ce077674b80d574e288cd25d4fbfbb437d735f654c8d56d05f7f6c16",
+  "records_sha256": "908850b47a21811df447cda83ab9d36fb75eab771ad4ed22270dee4459239766",
+  "role_hashes": {
+    "ambiguity_assessment": "4d2794caf2d8281673f3ad74b0fdc9670fb13b2b424ea7faa87791034892fb67",
+    "ambiguity_policy": "83ccd57050b656d0431a91c153196b972f8e8cad95dcc8cc869c287db4640615",
+    "assessment": "9be6680d4696d798d497f7742f8f19414091fbb44cf1d2bbe78cf3d9f7c1020f",
+    "calibration": "f2a7a14029d3825a78ec3579327804e4c32069d36381821e5af2e76584a19bf2",
+    "policy_dev": "54403205ea795ff29fae4d79bc9ca63ba74a2dd3545ea63b7408c9a722d68dd2",
+    "train": "944fab36fec8d15e98a18c13060bbd750d453a2fe16bd507c07db0de09327746",
+    "tune": "227a90941ffc8c2dab4ed620dcd198c48e7bc423ed29e26dd80b730fe620e7da"
+  },
+  "schema": "beto-training-v2-data"
+}

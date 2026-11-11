@@ -1,0 +1,38 @@
+{
+  "scope": "REAL_LOCAL_HTTP_QUEUE_NOT_BROWSER_VISUAL_OR_REAL_VOICE",
+  "models": {
+    "lr": {
+      "executed_model": "lr",
+      "sentiment": "positivo",
+      "human_review": true,
+      "trace_events": 10,
+      "roundtrip_seconds": 0.14385316400012016,
+      "violations": []
+    },
+    "svm": {
+      "executed_model": "svm",
+      "sentiment": "positivo",
+      "human_review": true,
+      "trace_events": 10,
+      "roundtrip_seconds": 0.12729846599995653,
+      "violations": []
+    },
+    "beto": {
+      "executed_model": "beto",
+      "sentiment": "negativo",
+      "human_review": true,
+      "trace_events": 10,
+      "roundtrip_seconds": 4.929973891999907,
+      "violations": []
+    }
+  },
+  "errors": [],
+  "frontend_http_status": 200,
+  "config_http_status": 200,
+  "configured_models": [
+    "lr",
+    "svm",
+    "beto"
+  ],
+  "status": "PASSED"
+}

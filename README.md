@@ -70,6 +70,7 @@ Reseña + ID --> Validación --> Vectorización TF-IDF --> Clasificación 3 clas
 
 - No utiliza todavía los archivos originales de Kaggle ni tiene etiquetas o métricas reales.
 - La DEMO predeterminada conserva LR/SVM. [BETO supervisado experimental](docs/AVANCE_EJECUTABLE_BETO_Y_DEMO_2026-11-07.md) puede habilitarse expresamente; sus resultados son sintéticos. LLM, recuperación, RAG y ABSA supervisado siguen pendientes.
+- [BETO Training V2](docs/BETO_TRAINING_V2_2026-11-08.md) compara entrenamiento por etapas/completo, datos sintéticos identificados y calibración separada; incluye matrices, costos y receta Windows. No demuestra aún superioridad estable ni valida reseñas humanas.
 - El valor mostrado como confianza es **puntuación no calibrada**. No debe tratarse como probabilidad fiable.
 - El extractor de aspectos y la selección de fragmentos son heurísticos. Las recomendaciones requieren supervisión humana.
 - No se publica automáticamente a GitHub ni se despliega públicamente.

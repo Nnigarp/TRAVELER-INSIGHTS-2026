@@ -1,0 +1,1279 @@
+{
+  "version": "beto-training-v2",
+  "provenance": {
+    "human_authors": false,
+    "label_origin": "AUTHOR_INTENT_NOT_HUMAN_GOLD",
+    "historical_evaluated_examples_consulted": false,
+    "independence": "Drafted in separate context without training, development or model outcomes; shared AI authorship does not establish human-population validity"
+  },
+  "families": [
+    {
+      "family": "b2test_hotel_mattress_firmness",
+      "semantic_component": "b2test_hotel_mattress_firmness",
+      "role": "assessment",
+      "domain": "hotel",
+      "region": "es-CO",
+      "cases": [
+        {
+          "text": "Pedí un colchón firme porque en los blanditos me hundo, y en recepción me aseguraron que este era el indicado. Firme no significa sentir cada tabla al voltearse. La primera noche intenté acomodarme con una cobija debajo; la segunda ya sabía en qué lado quedaba cada resorte. No es verdad que no se sienta la base, como me dijeron al revisar la cama: se siente hasta con el cubrecolchón puesto. La habitación tenía unas flores bonitas y olía rico, pero a esa altura yo solo quería descansar. Me fui agotada y con la impresión de haber pagado dos noches para ensayar posiciones.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "double_negation",
+            "contrast",
+            "mixed_aspects",
+            "positive_words_negative_context",
+            "regionalism"
+          ],
+          "structure": "Solicitud inicial seguida por dos noches fallidas y réplica a una negación del personal",
+          "rationale": "El cansancio y la incomodidad sostenida dominan sobre los detalles decorativos favorables."
+        },
+        {
+          "text": "Duermo de lado. En esta cama el colchón no se hundía cuando me sentaba, y dejé las dos almohadas juntas para leer un rato antes de apagar la luz.",
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "Observación personal de postura y uso de la cama",
+          "rationale": "Se describen la firmeza y una rutina sin valorar si resultaron convenientes."
+        },
+        {
+          "text": "Al acostarme pensé que iba a estar demasiado duro. A los diez minutos ya había encontrado la postura y dormí de un tirón; por fin una cama que me sostuvo sin hundirme.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "contrast",
+            "implicit_contrast"
+          ],
+          "structure": "Preocupación inicial resuelta mediante una experiencia de sueño completa",
+          "rationale": "La sorpresa termina en comodidad y descanso claramente valorados."
+        }
+      ]
+    },
+    {
+      "family": "b2test_hotel_evacuation_briefing",
+      "semantic_component": "b2test_hotel_evacuation_briefing",
+      "role": "assessment",
+      "domain": "hotel",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "La charla de evacuación fue rapidita, sí: tan rápida que nadie alcanzó a ubicar la escalera. Cuando pregunté por el punto de reunión, señalaron hacia la ventana y siguieron hablando. Salí más confundido.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "contrast",
+            "positive_words_negative_context"
+          ],
+          "structure": "Ironía sobre la brevedad seguida por una pregunta sin respuesta útil",
+          "rationale": "La supuesta ventaja de una charla corta deja al huésped sin orientación."
+        },
+        {
+          "text": "Antes de subir al cuarto nos mostraron una tarjeta con dos salidas. Yo tenía la mochila abierta buscando mis lentes; la guardé en el bolsillo del costado y después vi el dibujo junto al ascensor.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Recuerdo cotidiano de la entrega de una tarjeta y su ubicación",
+          "rationale": "El relato registra acciones sin atribuir claridad, seguridad o molestia a la explicación."
+        },
+        {
+          "text": "No nos llenaron de siglas: caminaron con nosotros hasta la escalera y cada quien ubicó dónde reunirse. Me quedó clarísimo incluso sin conocer el edificio. Esa explicación sí me dejó tranquila.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "structure": "Descripción de demostración práctica y efecto de tranquilidad",
+          "rationale": "La claridad del recorrido y la calma final sostienen la valoración favorable."
+        }
+      ]
+    },
+    {
+      "family": "b2test_hotel_garden_smoking_boundary",
+      "semantic_component": "b2test_hotel_garden_smoking_boundary",
+      "role": "assessment",
+      "domain": "hotel",
+      "region": "es",
+      "cases": [
+        {
+          "text": "El cartel de jardín sin humo queda precioso en la entrada. Dentro, el cenicero está pegado al banco de quienes no fumamos; pasé el rato moviéndome para escapar de la nube. La separación solo existe en el letrero.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "positive_words_negative_context",
+            "contrast",
+            "negation"
+          ],
+          "structure": "Contraste irónico entre señal y distribución material",
+          "rationale": "La exposición al humo y la inutilidad de la separación dominan el relato."
+        },
+        {
+          "text": "Salí con una novela al jardín. A la izquierda había dos mesas con cenicero y una línea de macetas; puse mi vaso en una mesa del otro lado y leí hasta que empezó a oscurecer.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Secuencia de lectura con descripción espacial del límite",
+          "rationale": "Se cuenta dónde se sentó la persona sin juzgar el límite entre zonas."
+        },
+        {
+          "text": "Pensé que las macetas no iban a separar nada, pero marcaron bien la zona y la gente respetó el límite. Pude tomar café afuera sin humo alrrededor. Un gusto usar el jardín así.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "contrast",
+            "typo"
+          ],
+          "structure": "Duda inicial corregida por el uso efectivo de dos zonas",
+          "rationale": "El beneficio explícito de tomar café sin humo determina el sentimiento positivo."
+        }
+      ]
+    },
+    {
+      "family": "b2test_hotel_inroom_safe",
+      "semantic_component": "b2test_hotel_inroom_safe",
+      "role": "assessment",
+      "domain": "hotel",
+      "region": "es-CO",
+      "cases": [
+        {
+          "text": "Qué maravilla de caja: aceptó mi clave y luego no quiso abrir con esa misma. Perdí la mañana espernado que vinieran a sacar mis documentos. El dibujito de las instrucciones no explica cómo salir de ese enredo.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "positive_words_negative_context",
+            "negation",
+            "regionalism",
+            "typo"
+          ],
+          "structure": "Exclamación irónica seguida de fallo y pérdida de tiempo",
+          "rationale": "La alabanza inicial es sarcástica y queda desmentida por el problema de acceso."
+        },
+        {
+          "text": "Guardé el pasaporte en la caja del clóset y usé cuatro números. Al regresar de almorzar lo saqué; la cámara la dejé en el bolso porque no cabían las dos cosas juntas.",
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "Registro de objetos guardados y capacidad observada",
+          "rationale": "No se expresa satisfacción ni disgusto por el funcionamiento o el espacio."
+        },
+        {
+          "text": "No puedo decir que no me sirvió la demostración: la probé vacía, entendí el botón y después guardé todo sin dudas. Por una vez no tuve que llamar a recepción para abrirla.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "double_negation",
+            "negation",
+            "implicit_contrast"
+          ],
+          "structure": "Reconocimiento mediante doble negación de una ayuda práctica",
+          "rationale": "La demostración reduce dudas y permite utilizar la caja con autonomía."
+        }
+      ]
+    },
+    {
+      "family": "b2test_hotel_baby_changing_corner",
+      "semantic_component": "b2test_hotel_baby_changing_corner",
+      "role": "assessment",
+      "domain": "hotel",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "El rincón para cambiar al bebé tenía un mural lindo y ni una superficie donde apoyar la muda. Con el bolso en el suelo y la puerta chocándome en el brazo, terminé cambiándolo en el coche. Pura decoración.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "contrast",
+            "mixed_aspects",
+            "positive_words_negative_context"
+          ],
+          "structure": "Contraste entre decoración y tarea que no se pudo completar",
+          "rationale": "La falta de espacio útil invalida el propósito del rincón."
+        },
+        {
+          "text": "Cambié a mi hija en el rincón junto al baño del vestíbulo. Mi pareja se quedó con el coche afuera; al terminar, metí el pañal en el recipiente con tapa y volvimos a buscar las maletas.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Relato familiar de una tarea de paso",
+          "rationale": "La secuencia cotidiana no atribuye calidad favorable o desfavorable al lugar."
+        },
+        {
+          "text": "Se nos había olvidado la bolsita para la ropa mojada y había una justo en el cambiador. Además pude apoyar la muda sin hacer malabares. Un espacio pequeño que nos resolvió la salida con la bebé.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "implicit_contrast",
+            "regionalism"
+          ],
+          "structure": "Problema concreto solucionado con dos recursos del rincón",
+          "rationale": "El espacio se valora por resolver necesidades prácticas de la familia."
+        }
+      ]
+    },
+    {
+      "family": "b2test_hotel_booking_photo_room_size",
+      "semantic_component": "b2test_hotel_booking_photo_room_size",
+      "role": "assessment",
+      "domain": "hotel",
+      "region": "es",
+      "cases": [
+        {
+          "text": "En la foto cabían una mesa y dos sillas junto a la cama. En mi habitación tuve que poner la maleta sobre una silla para poder pasar. No esperaba un palacio, pero sí el espacio que me enseñaron al reservar.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "structure": "Comparación entre composición de la foto y circulación real",
+          "rationale": "La expectativa moderada sobre el tamaño queda incumplida."
+        },
+        {
+          "text": "La foto de la reserva estaba tomada desde la puerta. Cuando llegué hice una desde la ventana para mandársela a mi hermana; se veía la cama de frente y la maleta quedó fuera del encuadre.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Comparación de encuadres al enviar una foto familiar",
+          "rationale": "El cambio de perspectiva se narra sin evaluar amplitud o fidelidad."
+        },
+        {
+          "text": "Reservé con cierta desconfianza porque las fotos de habitaciones siempre me hacen imaginar más espacio del que luego encuentro. Aquí pude abrir la maleta entera al lado de la cama y mi pareja seguía pasando hacia el baño. La mesa que aparecía junto a la ventana también estaba, con sitio para sentarme a revisar el itinerario. No era una habitación enorme ni pretendía serlo. Lo que agradecí fue reconocer el lugar de la foto sin tener que buscar un ángulo imposible. Hasta dejamos los zapatos afuera de la maleta y no estuvimos tropezando con ellos durante la estancia.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "contrast",
+            "implicit_contrast"
+          ],
+          "structure": "Expectativa cauta verificada mediante usos concretos del espacio",
+          "rationale": "La fidelidad de la foto y la circulación cómoda dominan la evaluación."
+        }
+      ]
+    },
+    {
+      "family": "b2test_restaurant_dietary_translation",
+      "semantic_component": "b2test_restaurant_dietary_translation",
+      "role": "assessment",
+      "domain": "restaurant",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "Pedí la traducción del menú para saber cuál plato no llevaba queso. La versión decía que ninguno, el mozo dijo que todos y recién en cocina aclararon dos opciones. Se me fue el almuerzo descifrando respuestas; acabé pidiendo arroz solo.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "structure": "Consulta dietaria con versiones incompatibles y renuncia al plato",
+          "rationale": "La información contradictoria impide elegir la comida deseada."
+        },
+        {
+          "text": "Llevaba anotados en el celular los ingredientes que mi hermana quería evitar y puse el menú traducido al lado del original. Primero miramos las entradas, después los fondos. Leí en voz alta una palabra que ella no conocía y buscó su equivalente en la lista que había preparado antes del viaje. El mozo nos preguntó si queríamos algo de tomar mientras seguíamos viendo la carta; pedimos agua. Al final cada una señaló un plato en la versión en castellano y yo guardé la hoja traducida debajo de la servilleta. Durante la comida volvimos a abrirla para mirar cómo habían escrito el nombre de una salsa.",
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation",
+            "regionalism"
+          ],
+          "structure": "Reconstrucción de una consulta de ingredientes sin juicio sobre su calidad",
+          "rationale": "Se detallan lectura y elección, sin establecer acierto, dificultad o preferencia por la traducción."
+        },
+        {
+          "text": "No sería justo decir que no nos tuvieron en cuenta: la carta traducida distinguía la salsa del acompañamiento y el mozo confirmó lo que preguntamos. Mi hermano eligió sin adivinar ingredientes y disfrutamos el almuerzo.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "double_negation",
+            "negation"
+          ],
+          "structure": "Reconocimiento de atención dietaria con consecuencia en la elección",
+          "rationale": "La claridad de la información permite elegir y disfrutar de la comida."
+        }
+      ]
+    },
+    {
+      "family": "b2test_restaurant_soup_garnish",
+      "semantic_component": "b2test_restaurant_soup_garnish",
+      "role": "assessment",
+      "domain": "restaurant",
+      "region": "es-CO",
+      "cases": [
+        {
+          "text": "Me preguntaron si quería cilantro en la sopa. Dije que no, lo anotaron y llegó cubierta de cilantro. Qué detalle preguntar para después hacer lo mismo de siempre.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "positive_words_negative_context",
+            "implicit_contrast"
+          ],
+          "structure": "Elección solicitada e ignorada con cierre irónico",
+          "rationale": "El pedido explícito no se respeta y la cortesía se interpreta como vacía."
+        },
+        {
+          "text": "Yo le puse cebolla a la sopa y mi mamá dejó la suya sin nada. El cilantro venía en un pocillito al centro; al recoger la mesa todavía quedaba la mitad.",
+          "intended_label": "neutral",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "Descripción de elecciones distintas dentro de una mesa familiar",
+          "rationale": "Las preferencias y cantidades se reportan sin evaluar el servicio."
+        },
+        {
+          "text": "La sopa ya estaba buena y poder agregar el ají de a poquitos fue la clave. Cada uno la terminó a su gusto; hasta quien no come picante se la tomó completa.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "regionalism"
+          ],
+          "structure": "Ajuste gradual del acompañamiento y satisfacción compartida",
+          "rationale": "La opción de personalizar la sopa mejora una experiencia explícitamente buena."
+        }
+      ]
+    },
+    {
+      "family": "b2test_restaurant_live_music_volume",
+      "semantic_component": "b2test_restaurant_live_music_volume",
+      "role": "assessment",
+      "domain": "restaurant",
+      "region": "es",
+      "cases": [
+        {
+          "text": "Fuimos a cenar para ponernos al día después de meses sin vernos. Al principio sonaba una guitarra agradable, pero cuando comenzó la segunda parte subieron tanto el volumen que acabamos leyendo los labios. La cantante tenía buena voz; el problema era no poder escuchar a la persona de enfrente. Pedimos movernos a otra mesa y allí vibraba hasta la jarra. Entre canciones intentábamos terminar una frase, con la sensación de que teníamos que correr antes del siguiente acorde. La comida estaba bien, aunque al salir solo hablamos de buscar otro lugar donde conversar. Ese concierto nos dejó sin la cena que habíamos ido a compartir.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "contrast",
+            "negation",
+            "mixed_aspects"
+          ],
+          "structure": "Escalada del volumen que frustra el propósito social de la cena",
+          "rationale": "Los méritos de la voz y la comida son secundarios frente a la conversación imposible."
+        },
+        {
+          "text": "El trío tocó mientras estábamos con el segundo plato. Yo reconocí una canción y mi tío otra; entre las dos pedimos la cuenta, y salimos cuando empezaron a afinar de nuevo.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Recuerdo de canciones asociado a momentos de la comida",
+          "rationale": "Reconocer temas y salir en una pausa no implica agrado ni molestia."
+        },
+        {
+          "text": "Se escuchaba la voz sin que nos tocara gritar sobre la mesa. Hicieron una pausa cuando entraron los platos y retomaron suavecito. La música acompañó la noche de una manera muy agradable.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "Evaluación del volumen y del ritmo de la actuación",
+          "rationale": "La música se considera un acompañamiento agradable compatible con conversar."
+        }
+      ]
+    },
+    {
+      "family": "b2test_restaurant_receipt_item_names",
+      "semantic_component": "b2test_restaurant_receipt_item_names",
+      "role": "assessment",
+      "domain": "restaurant",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "En la boleta todo era “especial uno” y “especial dos”. Ni el mozo pudo decirnos cuál correspondía a cada plato; pagar entre cuatro se volvió una discusión innecesaria. Terminamos haciendo cuentas de memoria.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "regionalism"
+          ],
+          "structure": "Nombres opacos del recibo con consecuencia al dividir la cuenta",
+          "rationale": "La falta de correspondencia entre nombres y consumos genera confusión y conflicto."
+        },
+        {
+          "text": "Le saqué una foto a la boleta porque mi prima me pidió el nombre del postre. Allí figuraba abreviado; le mandé también una foto del plato que todavia tenía en el celular.",
+          "intended_label": "neutral",
+          "phenomena": [
+            "regionalism",
+            "typo"
+          ],
+          "structure": "Uso del recibo para recordar un postre a otra persona",
+          "rationale": "La abreviatura motiva una segunda foto sin un juicio sobre su utilidad."
+        },
+        {
+          "text": "Cada plato salió en la cuenta con el mismo nombre de la carta. Pudimos repartir el pago en un minuto, incluso el jugo que compartimos. Se agradece no tener que descifrar códigos al final.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "Correspondencia de nombres que simplifica el pago compartido",
+          "rationale": "La identificación clara se aprecia por ahorrar esfuerzo al terminar."
+        }
+      ]
+    },
+    {
+      "family": "b2test_restaurant_wine_by_glass",
+      "semantic_component": "b2test_restaurant_wine_by_glass",
+      "role": "assessment",
+      "domain": "restaurant",
+      "region": "es",
+      "cases": [
+        {
+          "text": "La copa llegó con un fondo mínimo y la siguiente, del mismo vino y al mismo precio, casi al borde. No pido que midan con regla, pero esa diferencia me hizo sentir que el cobro dependía de quién servía.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "structure": "Comparación de dos servicios equivalentes y percepción de arbitrariedad",
+          "rationale": "La variación marcada de cantidad produce desconfianza en el servicio."
+        },
+        {
+          "text": "Pedimos el vino por copas porque mi acompañante quería blanco y yo tinto. La persona que atendía abrió una botella detrás de la barra y trajo primero la copa de ella. Mientras esperaba la mía, saqué una foto de la etiqueta que había en la carta para acordarme del nombre. Después dejamos las copas a cada lado de la jarra de agua y pedimos dos platos distintos. Con el postre ella siguió con lo que le quedaba; yo pedí café. En la mesa de al lado estaban compartiendo una botella del mismo vino que yo había elegido, y comentamos esa coincidencia antes de irnos.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Relato de decisiones de bebida y coincidencia con otra mesa",
+          "rationale": "La cantidad, calidad y atención no se juzgan; se registran elecciones personales."
+        },
+        {
+          "text": "Quería probar ese vino sin comprar la botella entera y la copa tuvo una porción sensata. Me lo sirvieron de la botella delante de mí y estaba en su punto. La elección me salió redonda.",
+          "intended_label": "positivo",
+          "phenomena": [],
+          "structure": "Elección por copa seguida de confirmación satisfactoria",
+          "rationale": "La porción y el estado del vino cumplen una intención expresamente valorada."
+        }
+      ]
+    },
+    {
+      "family": "b2test_restaurant_cooling_fans",
+      "semantic_component": "b2test_restaurant_cooling_fans",
+      "role": "assessment",
+      "domain": "restaurant",
+      "region": "es-CO",
+      "cases": [
+        {
+          "text": "No es cierto que no dé aire el ventilador: da tanto que nos mandó las servilletas al piso y enfrió el plato antes de terminar. La solución al calor acabó incomodándonos más que el calor.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "double_negation",
+            "negation",
+            "contrast"
+          ],
+          "structure": "Corrección de una negación que desemboca en exceso perjudicial",
+          "rationale": "Se reconoce el aire para señalar que su intensidad arruina la comida."
+        },
+        {
+          "text": "Nos sentamos en la mesa que quedaba entre dos ventiladores. Mi sobrino miraba las aspas y contaba las vueltas del botón; yo puse el menú encima de la servilleta mientras elegíamos.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Escena familiar centrada en objetos y ubicación",
+          "rationale": "Las acciones no califican la temperatura ni la comodidad del aire."
+        },
+        {
+          "text": "Yo ya estaba buscando dónde amarrarme el pelo del calor. Prendieron los ventiladores del comedor y pude comer a gusto, sin el chorro directo en la cara. Ese airecito nos salvó la tarde.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "regionalism"
+          ],
+          "structure": "Alivio del calor descrito a través de comodidad corporal",
+          "rationale": "El ajuste del aire produce un alivio explícito durante la comida."
+        }
+      ]
+    },
+    {
+      "family": "b2test_museum_interactive_screen_response",
+      "semantic_component": "b2test_museum_interactive_screen_response",
+      "role": "assessment",
+      "domain": "museum",
+      "region": "es",
+      "cases": [
+        {
+          "text": "Tocar, esperar, volver a tocar. La pantaya prometía recorrer la ciudad antigua, pero solo conseguí ver el círculo de carga. Mi hija dejó de preguntar qué venía después y se fue a otra sala.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "contrast",
+            "typo"
+          ],
+          "structure": "Repetición de intentos con abandono de una actividad",
+          "rationale": "La falta de respuesta impide acceder a la experiencia anunciada."
+        },
+        {
+          "text": "En la pantalla elegí el mapa, amplié el puerto y cambié la vista al año siguiente. Mi hija seleccionó después los edificios azules mientras yo anotaba un nombre en la libreta.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Registro de una exploración conjunta por opciones de pantalla",
+          "rationale": "El funcionamiento se describe sin elogio ni queja."
+        },
+        {
+          "text": "Pensé que no había leído mi toque, pero en seguida se abrió el detalle y pude comparar los dos mapas sin perderme. Me quedé explorando más de lo previsto; la pantalla realmente invitaba a curiosear.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "structure": "Breve incertidumbre resuelta en exploración prolongada",
+          "rationale": "La respuesta y la navegación fomentan una curiosidad apreciada."
+        }
+      ]
+    },
+    {
+      "family": "b2test_museum_conservation_donation",
+      "semantic_component": "b2test_museum_conservation_donation",
+      "role": "assessment",
+      "domain": "museum",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "Pregunté qué conservaban con el aporte y me contestaron “el patrimonio”, tres veces. Había una alcancía bonita, pero ni una explicación concreta. No me molestó que pidieran; me molestó salir sin saber para qué.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "contrast",
+            "positive_words_negative_context"
+          ],
+          "structure": "Petición de explicación respondida con una frase repetida",
+          "rationale": "La crítica apunta a la falta de contenido informativo sobre el destino del aporte."
+        },
+        {
+          "text": "En el descanso de la escalera había un cartel sobre aportes para conservación. Leí la parte del papel y mi papá la de las herramientas; luego guardó unas monedas en la caja y seguimos hacia las cerámicas.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Lectura repartida entre familiares y continuación de la visita",
+          "rationale": "Aportar y leer se presentan como hechos sin evaluación del mensaje."
+        },
+        {
+          "text": "Había visto la caja de aportes al entrar y pensé que sería otra petición sin mayor explicación. Más tarde una conservadora nos mostró en una lámina cómo sujetaban un borde desprendido y señaló qué materiales se compraban con esas contribuciones. No convirtió la charla en una presión para donar; nos dejó preguntar y volvió al ejemplo de la pieza. Ahí entendí que conservar también era hacer trabajos pequeños que uno ni mira cuando entra a una sala. Dejé mi aporte con gusto porque pude relacionarlo con algo concreto. Esa explicación fue de lo que más recordé al conversar sobre el museo esa noche.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "contrast",
+            "implicit_contrast"
+          ],
+          "structure": "Expectativa de petición genérica transformada por explicación material",
+          "rationale": "La información concreta y la ausencia de presión llevan a una donación satisfecha."
+        }
+      ]
+    },
+    {
+      "family": "b2test_museum_docent_pronunciation",
+      "semantic_component": "b2test_museum_docent_pronunciation",
+      "role": "assessment",
+      "domain": "museum",
+      "region": "es-CO",
+      "cases": [
+        {
+          "text": "No esperaba un acento idéntico al del lugar, solo entender los nombres. La guía cambiaba la pronunciación del mismo artista a cada rato y cuando pedí repetirlo se rio de mi pregunta. Me quitó las ganas de seguir consultando.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "structure": "Expectativa moderada y petición de aclaración mal recibida",
+          "rationale": "La inconsistencia y la respuesta despectiva perjudican la participación."
+        },
+        {
+          "text": "Anoté el apellido como lo escuché durante la visita. Al volver a casa lo comparé con el folleto: tenía una letra distinta, así que corregí la nota antes de pasarle el dato a mi hermano.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Corrección posterior de una transcripción personal",
+          "rationale": "La diferencia entre sonido y escritura no se atribuye a mala o buena pronunciación."
+        },
+        {
+          "text": "Se detenía un segundo en los nombres que yo no conocía y los repetía sin hacernos sentir examinados. Salí pudiendo decir el nombre de mi obra favorita. Fue una guía cercana y fácil de seguir.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "Forma de pronunciar vinculada al aprendizaje sin vergüenza",
+          "rationale": "La accesibilidad de la explicación y el resultado personal se valoran expresamente."
+        }
+      ]
+    },
+    {
+      "family": "b2test_museum_elevator_artwork_access",
+      "semantic_component": "b2test_museum_elevator_artwork_access",
+      "role": "assessment",
+      "domain": "museum",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "El ascensor llega al piso de las pinturas, pero la puerta de esa sala tiene tres escalones. Mi mamá se quedó mirando desde el pasillo. Qué gran acceso: subir juntas para terminar separadas frente a la obra que queríamos ver.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "contrast",
+            "positive_words_negative_context"
+          ],
+          "structure": "Acceso parcial que falla al alcanzar una sala concreta",
+          "rationale": "El ascensor no permite la visita conjunta esperada y el elogio es irónico."
+        },
+        {
+          "text": "Subimos en ascensor al segundo piso y empezamos por los retratos. Mi tía llevaba el plano; yo iba señalando en él los números de las salas para volver después a la planta de entrada.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Organización del recorrido desde el desembarque del ascensor",
+          "rationale": "No se evalúan facilidad, obstáculos o satisfacción del acceso."
+        },
+        {
+          "text": "No tuvimos que dejar a mi abuelo esperando: el ascensor abría junto a la sala y pudimos rodear la escultura con su silla. Verla juntos, sin inventarnos otra ruta, hizo toda la diferencia.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "implicit_contrast"
+          ],
+          "structure": "Acceso continuo a una obra compartida en familia",
+          "rationale": "El recorrido accesible permite una experiencia conjunta expresamente apreciada."
+        }
+      ]
+    },
+    {
+      "family": "b2test_museum_exhibition_chronology",
+      "semantic_component": "b2test_museum_exhibition_chronology",
+      "role": "assessment",
+      "domain": "museum",
+      "region": "es",
+      "cases": [
+        {
+          "text": "Salté del siglo diecisiete al veinte y después al dieciocho siguiendo las flechas. Puede ser una propuesta original, pero sin una explicación del orden solo acabé perdiendo el hilo. El catálogo tuvo que arreglar lo que las salas confundían.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "contrast",
+            "negation",
+            "positive_words_negative_context"
+          ],
+          "structure": "Recorrido temporal quebrado sin justificación percibida",
+          "rationale": "La supuesta originalidad no compensa la confusión de la secuencia."
+        },
+        {
+          "text": "Empecé por la sala que tenía el año más antiguo en el panel y fui anotando las fechas de tres objetos para una conversación con mi sobrino. En la segunda sala aparecían dos periodos juntos; los dibujé en columnas distintas en la libreta. Después regresé al primer panel porque no recordaba si una pieza era anterior o posterior al retrato que habíamos visto. Mi sobrino se quedó mirando una maqueta mientras yo completaba el apunte. Al salir pusimos las fotos del celular en el orden de las fechas anotadas, y dejamos la foto de la entrada al comienzo del álbum.",
+          "intended_label": "neutral",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "Método personal de apuntes y organización temporal de fotografías",
+          "rationale": "Las idas y vueltas se narran sin atribuir claridad o defecto al orden de la muestra."
+        },
+        {
+          "text": "Las fechas eran pocas, pero estaban justo donde cambiaba la etapa. Entendí cómo una técnica llevaba a la siguiente sin ir sumando años de memoria. Por fin pude seguir una exposición histórica sin perder el hilo.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "contrast",
+            "negation",
+            "implicit_contrast"
+          ],
+          "structure": "Comprensión de transiciones mediante fechas seleccionadas",
+          "rationale": "La cronología facilita una comprensión global explícitamente satisfactoria."
+        }
+      ]
+    },
+    {
+      "family": "b2test_museum_rotating_bench_seating",
+      "semantic_component": "b2test_museum_rotating_bench_seating",
+      "role": "assessment",
+      "domain": "museum",
+      "region": "es-CO",
+      "cases": [
+        {
+          "text": "La banca gira, eso sí, y cruje cada vez que uno intenta mirar otra pared. Me senté para descansar y terminé pendiente de no hacer ruido en toda la sala. Mucha novedad para una pausa tan incómoda.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "contrast",
+            "negation"
+          ],
+          "structure": "Reconocimiento de función seguido de molestia durante el descanso",
+          "rationale": "El movimiento y ruido de la banca frustran la posibilidad de descansar."
+        },
+        {
+          "text": "Me senté de espaldas a la puerta y giré la banca hacia el cuadro rojo. Mi amiga se quedó de pie junto al cuadro de al lado; hablamos de los dos marcos y después cambiamos de sala.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Uso del giro dentro de una conversación sobre cuadros",
+          "rationale": "La acción de girar se registra sin calificar comodidad o utilidad."
+        },
+        {
+          "text": "Con las piernas cansadas, poder girar la banca para ver las otras obras fue un descanso de verdad. No tuve que levantarme cada dos minutos y me quedé mirando detalles que antes había pasado por alto.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "implicit_contrast"
+          ],
+          "structure": "Alivio físico que prolonga la observación de obras",
+          "rationale": "El giro aporta descanso y atención a detalles, ambos valorados."
+        }
+      ]
+    },
+    {
+      "family": "b2test_transport_flight_delay_waiting",
+      "semantic_component": "b2test_transport_flight_delay_waiting",
+      "role": "assessment",
+      "domain": "transport",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "El vuelo se demoró y avisé apenas apareció el nuevo horario. Me respondieron que el traslado esperaba, así que dejé de preocuparme por ese tramo del viaje. Al salir, con la maleta en la mano, no había nadie. Tras varias llamadas me dijeron que el tiempo de espera se contaba desde la hora original y que debía pagar otro servicio. No fue que no hubieran recibido el aviso: lo tenían en el mismo chat donde me habían asegurado que esperaban. Había imaginado un recibimiento sencillo después del vuelo; terminé buscando movilidad de noche y pagando dos veces para llegar al hotel.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "double_negation",
+            "contrast",
+            "regionalism"
+          ],
+          "structure": "Aviso confirmado y promesa de espera incumplida tras un retraso",
+          "rationale": "La contradicción documentada y el gasto duplicado dominan la experiencia."
+        },
+        {
+          "text": "Mi vuelo llegó cuarenta minutos después de lo previsto. Mandé un mensaje desde la fila de salida y el conductor respondió con el número de la puerta; nos encontramos cuando recogí la maleta azul.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Secuencia de comunicación y encuentro tras una demora aérea",
+          "rationale": "Se informa cómo ocurrió el encuentro sin valorar la espera."
+        },
+        {
+          "text": "Llegué pensando que el retraso nos dejaría sin traslado. El conductor había revisado el vuelo y seguía allí, sin apurarnos ni añadir cobros. Después de tantas horas, encontrarlo fue un alivio enorme.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "structure": "Temor por demora resuelto mediante una espera cumplida",
+          "rationale": "La continuidad del traslado y el alivio explícito fijan el sentimiento favorable."
+        }
+      ]
+    },
+    {
+      "family": "b2test_transport_luggage_carousel_signs",
+      "semantic_component": "b2test_transport_luggage_carousel_signs",
+      "role": "assessment",
+      "domain": "transport",
+      "region": "es",
+      "cases": [
+        {
+          "text": "La pantalla mandaba a la cinta cuatro y el cartel del pasillo a la siete. Después de cargar el equipaje de mano de un extremo al otro, encontré mi maleta en la dos. Las señales me hicieron caminar por puro gusto.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "contrast"
+          ],
+          "structure": "Tres indicaciones incompatibles resueltas al hallar la maleta",
+          "rationale": "La señalización causa esfuerzo inútil y confusión."
+        },
+        {
+          "text": "Busqué el número de vuelo en la pantalla y fui a la cinta indicada. Mientras esperaba vi pasar dos maletas verdes; la mía, con una cinta naranja en el asa, salió después de una caja de cartón.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Búsqueda visual y reconocimiento del equipaje propio",
+          "rationale": "La espera y el uso de la señal se describen sin un juicio."
+        },
+        {
+          "text": "Con sueño y sin conocer la termial, seguí las flechas hasta la cinta sin dar una vuelta de más. El número se veía desde la entrada y coincidía con la pantalla. Una orientación que agradecí de verdad.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "typo"
+          ],
+          "structure": "Orientación comprobada por coincidencia de señales y recorrido directo",
+          "rationale": "La legibilidad evita esfuerzo adicional y recibe agradecimiento explícito."
+        }
+      ]
+    },
+    {
+      "family": "b2test_transport_sleeper_berth_bedding",
+      "semantic_component": "b2test_transport_sleeper_berth_bedding",
+      "role": "assessment",
+      "domain": "transport",
+      "region": "es-CO",
+      "cases": [
+        {
+          "text": "Me entregaron la sábana doblada como de estreno, pero al abrirla tenía migas en el centro. La cobija olía a encierro y no había otra. Pagué por dormir acostado y terminé sentado sobre mi chaqueta.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "contrast",
+            "negation",
+            "positive_words_negative_context"
+          ],
+          "structure": "Apariencia pulcra desmentida al desplegar la ropa de litera",
+          "rationale": "La suciedad y falta de reemplazo impiden usar la litera para dormir."
+        },
+        {
+          "text": "La sábana estaba en una bolsa encima de la litera y la cobija en el compartimiento de los pies. Yo tendí primero la de abajo; mi primo subió con su almohada de viaje cuando apagaron las luces.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Preparación de dos literas durante el embarque nocturno",
+          "rationale": "La ubicación y el uso de la ropa se narran sin valorar su estado."
+        },
+        {
+          "text": "Viajaba con la idea de que dormiría poco porque llevaba años sin usar una litera. Abrí el paquete de ropa de cama, extendí la sábana y encontré una cobija que abrigaba sin dejarme acalorado. La almohada era más baja que la de mi casa, detalle que al principio me hizo acomodarla dos veces, pero luego ni me acordé de ella. Me desperté cuando anunciaron la parada de la mañana, no cada vez que el vehículo se movía. Para mí ese tramo pasó volando. Llegué con ganas de caminar y agradecí haber elegido una litera donde sí pude descansar toda la noche.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "contrast",
+            "mixed_aspects"
+          ],
+          "structure": "Reserva inicial y pequeño ajuste superados por descanso sostenido",
+          "rationale": "El descanso completo domina sobre la diferencia menor de la almohada."
+        }
+      ]
+    },
+    {
+      "family": "b2test_transport_onboard_printed_map",
+      "semantic_component": "b2test_transport_onboard_printed_map",
+      "role": "assessment",
+      "domain": "transport",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "El mapa impreso todavía mostraba una parada que ya no existe y no marcaba donde debíamos bajar. Nos enteramos al pasar de largo. De recuerdo puede servir; para orientarse en ese bus, no.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "structure": "Información desactualizada con pérdida de la parada",
+          "rationale": "La posible utilidad decorativa ironiza sobre el fallo principal de orientación."
+        },
+        {
+          "text": "Abrí el mapa que estaba detrás del asiento y marqué el río con el dedo para enseñárselo a mi hija. Ella buscó después el dibujo del puente; lo doblamos por la misma línea y lo dejamos allí.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Interacción familiar con elementos del plano impreso",
+          "rationale": "El uso narrado no concluye si el mapa orienta bien o mal."
+        },
+        {
+          "text": "El celular se me quedó sin batería y ese mapa del asiento me sacó del apuro. Los nombres coincidían con los avisos de las paradas; pude preparar la bajada sin estar preguntando a cada rato.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "implicit_contrast"
+          ],
+          "structure": "Recurso impreso que sustituye una orientación digital agotada",
+          "rationale": "La coincidencia de nombres y la autonomía resultante se valoran como una ayuda."
+        }
+      ]
+    },
+    {
+      "family": "b2test_transport_rural_timetable_update",
+      "semantic_component": "b2test_transport_rural_timetable_update",
+      "role": "assessment",
+      "domain": "transport",
+      "region": "es-CO",
+      "cases": [
+        {
+          "text": "Madrugué por el horario que tenían pegado y el bus había pasado una hora antes. La señora de la tienda ya sabía del cambio; el aviso seguía diciendo lo de siempre. Actualizarlo les habría ahorrado la mañana perdida a varios.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "Horario público antiguo frente a conocimiento local del cambio",
+          "rationale": "El aviso desactualizado provoca pérdida de tiempo y malestar explícito."
+        },
+        {
+          "text": "En la parada había un papel nuevo encima del horario anterior. Copié en mi agenda las salidas del miércoles y luego fui a comprar pan; mi hermano llevaba anotadas las del domingo.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Copia de días distintos en un horario reemplazado",
+          "rationale": "Se registran acciones de planificación sin juzgar la actualización."
+        },
+        {
+          "text": "No tenía señal para revisar nada, pero en la parada habían puesto la fecha del cambio y los nuevos horarios bien grandes. Alcancé a reorganizar la salida antes de bajar al pueblo. Ese aviso nos vino de perlas.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "contrast",
+            "regionalism"
+          ],
+          "structure": "Aviso físico oportuno ante ausencia de conexión",
+          "rationale": "La actualización permite reorganizar el viaje y se agradece expresamente."
+        }
+      ]
+    },
+    {
+      "family": "b2test_transport_shared_taxi_change",
+      "semantic_component": "b2test_transport_shared_taxi_change",
+      "role": "assessment",
+      "domain": "transport",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "El chofer recibió mi billete, dijo que me daría el vuelto al bajar y arrancó. Al llegar me mandó a pedir monedas a los otros pasajeros. Cobrar sí fue rapidito; devolver la diferencia quedó por mi cuenta.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "contrast",
+            "regionalism"
+          ],
+          "structure": "Promesa de vuelto desplazada al pasajero al terminar",
+          "rationale": "La gestión del cambio incumple la promesa y transfiere una carga injustificada."
+        },
+        {
+          "text": "Pagué con un billete y el chofer me devolvió dos monedas cuando bajó la persona de adelante. Las metí en el bolsillo pequeño de la mochila, donde llevaba el pasaje del día anterior.",
+          "intended_label": "neutral",
+          "phenomena": [
+            "regionalism"
+          ],
+          "structure": "Intercambio de pago y guardado del vuelto",
+          "rationale": "El momento y las monedas se reportan sin atribuir demora o mérito."
+        },
+        {
+          "text": "Me equivoqué al contar el vuelto y el chofer me llamó antes de irme para darme la moneda que faltaba. No la habría notado. Ese gesto me dejó una muy buena impresión del viaje.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "Corrección espontánea de un cambio incompleto",
+          "rationale": "La devolución sin reclamación se valora expresamente como un buen gesto."
+        }
+      ]
+    },
+    {
+      "family": "b2test_tour_snorkeling_visibility",
+      "semantic_component": "b2test_tour_snorkeling_visibility",
+      "role": "assessment",
+      "domain": "tour",
+      "region": "es",
+      "cases": [
+        {
+          "text": "Nos vendieron agua transparente y aun con el cielo despejado apenas se veía la propia mano. El guía admitió después que llevaba días así. No me molesta que el mar cambie; me molesta pagar con una expectativa que ya sabían imposible.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "structure": "Promesa de visibilidad contrapuesta a condiciones conocidas",
+          "rationale": "La falta de información previa sobre la visibilidad motiva una crítica clara."
+        },
+        {
+          "text": "Antes de entrar al agua pregunté hasta qué distancia se vería ese día. El guía levantó un brazo y señaló una boya como referencia; yo dejé las gafas puestas mientras mi compañero ajustaba las aletas. Nadamos por el lado de la cuerda y al llegar al primer punto miré hacia abajo para ubicar la roca que habían mencionado en la charla. En el segundo hice una foto y la comparé en la lancha con la que había tomado mi compañero. Él había apuntado hacia la superficie y yo hacia el fondo. Después guardamos los equipos y anoté la hora en que habíamos entrado.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Secuencia de consulta, observación y fotografías sin evaluación del agua",
+          "rationale": "La visibilidad se incorpora al relato de actividades sin satisfacción ni decepción."
+        },
+        {
+          "text": "Nos dijeron desde el inicio que habría algo de arena en suspensión y señalaron dónde se veía mejor. Con esa expectativa entré tranquilo y alcancé a distinguir los peces que buscaba. La explicación honesta hizo que disfrutara mucho la salida.",
+          "intended_label": "positivo",
+          "phenomena": [],
+          "structure": "Expectativa ajustada antes de una observación satisfactoria",
+          "rationale": "La información clara y la observación lograda sostienen el disfrute explícito."
+        }
+      ]
+    },
+    {
+      "family": "b2test_tour_archaeological_sun_shelters",
+      "semantic_component": "b2test_tour_archaeological_sun_shelters",
+      "role": "assessment",
+      "domain": "tour",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "El “refugio de sombra” eran dos palos con una tela que tapaba a una sola persona. El grupo entero esperaba al sol mientras explicaban la excavación. Buen nombre para una comodidad que casi nadie pudo usar.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "positive_words_negative_context",
+            "contrast"
+          ],
+          "structure": "Denominación prometedora desmentida por capacidad insuficiente",
+          "rationale": "La sombra inaccesible para casi todo el grupo determina la queja."
+        },
+        {
+          "text": "En el primer refugio me paré junto al panel del sitio y saqué el agua de la mochila. Mi hermana tomó una foto desde la esquina de la tela; seguimos hacia los muros cuando el grupo terminó de reunirse.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Pausa de recorrido bajo un refugio sin calificar su efecto",
+          "rationale": "Las acciones de beber y fotografiar no juzgan la protección solar."
+        },
+        {
+          "text": "Pensé que no aguantaría la explicación del mediodía. Los toldos daban espacio a todo el grupo y el guía hizo las paradas allí; pude mirar el sitio con calma sin estar pendiente del sol.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "structure": "Preocupación por el sol resuelta mediante paradas cubiertas",
+          "rationale": "La sombra suficiente permite escuchar y observar con comodidad."
+        }
+      ]
+    },
+    {
+      "family": "b2test_tour_binocular_focus",
+      "semantic_component": "b2test_tour_binocular_focus",
+      "role": "assessment",
+      "domain": "tour",
+      "region": "es-CO",
+      "cases": [
+        {
+          "text": "El guía me pasó los binoculares diciendo que ya estaban listos. Para sus ojos, tal vez: yo veía dos manchas y cada vez que pedía ajustar el enfoque el ave ya se había ido. Bonita actividad para mirar borroso toda la mañana.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "contrast",
+            "positive_words_negative_context"
+          ],
+          "structure": "Supuesto ajuste previo que no responde al usuario durante la actividad",
+          "rationale": "La imposibilidad repetida de enfocar impide disfrutar la observación."
+        },
+        {
+          "text": "Primero giré la rueda central y después el aro del lado derecho. Mi compañra miró con los mismos binoculares y volvió a moverlo; al cambiarlos de mano pusimos la correa sobre la banca.",
+          "intended_label": "neutral",
+          "phenomena": [
+            "typo"
+          ],
+          "structure": "Descripción del ajuste sucesivo por dos observadores",
+          "rationale": "Se cuentan movimientos y turnos sin evaluar nitidez o ayuda."
+        },
+        {
+          "text": "Yo juraba que los binoculares estaban dañados. Me explicaron los dos ajustes sin afán y apareció el plumaje con una nitidez que no había visto nunca. Quedé feliz de poder reconocer el ave por mi cuenta.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "implicit_contrast",
+            "regionalism"
+          ],
+          "structure": "Atribución inicial de avería corregida por instrucción personalizada",
+          "rationale": "El enfoque logrado permite reconocimiento autónomo y felicidad explícita."
+        }
+      ]
+    },
+    {
+      "family": "b2test_tour_chocolate_tasting_portions",
+      "semantic_component": "b2test_tour_chocolate_tasting_portions",
+      "role": "assessment",
+      "domain": "tour",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "La degustación tenía seis chocolates, pero las porciones eran tan chicas que ni partir una para comparar podía. Me quedé con el nombre de cada uno y ninguna idea del sabor. Mucha variedad en el cartel, poquísima en la boca.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "structure": "Cantidad de variedades contrapuesta a porciones insuficientes",
+          "rationale": "Las muestras no permiten la comparación prometida por la actividad."
+        },
+        {
+          "text": "Nos dieron cuatro trozos en una tarjeta con números. Probé el segundo antes del primero porque mi hermana estaba leyendo ese envase; dejamos el último sobre la servilleta mientras traían agua.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Orden personal de prueba durante una degustación",
+          "rationale": "Las cantidades y el orden se narran sin juzgar suficiencia o sabor."
+        },
+        {
+          "text": "Al ver los trocitos pensé que la degustación se iba a acabar antes de empezar. La persona que guiaba nos propuso guardar la mitad de cada uno para compararlo con el siguiente, y había porción suficiente para hacerlo sin andar buscando migajas. Entre muestras nos dieron agua y tiempo para comentar lo que notábamos. Yo creía que todos los chocolates oscuros me sabían igual; al repetir los bocados empecé a distinguir dos que me gustaban por razones distintas. Salí sin la pesadez de haber comido demasiado, pero con la sensación de haber probado de verdad. Las porciones estaban pensadas para aprender y disfrutar.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "contrast",
+            "negation",
+            "implicit_contrast"
+          ],
+          "structure": "Impresión de escasez transformada en comparación pausada y suficiente",
+          "rationale": "La cantidad permite aprender, repetir y disfrutar sin exceso, con clara valoración favorable."
+        }
+      ]
+    },
+    {
+      "family": "b2test_tour_cityview_stop_duration",
+      "semantic_component": "b2test_tour_cityview_stop_duration",
+      "role": "assessment",
+      "domain": "tour",
+      "region": "es",
+      "cases": [
+        {
+          "text": "Tardamos más en bajar del vehículo que en mirar la ciudad. Apenas saqué la cámara ya estaban llamando para volver. A esa parada panorámica solo le faltó darnos tiempo para ver el panorama.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "implicit_contrast"
+          ],
+          "structure": "Parada tan breve que impide la actividad prevista",
+          "rationale": "La duración frustra la observación y la fotografía."
+        },
+        {
+          "text": "En el mirador puse un temporizador de diez minutos porque había quedado de llamar a mi madre. Hice la llamada desde el muro y volví al vehículo cuando el guía empezó a reunir al grupo.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Uso del tiempo de una parada para una llamada personal",
+          "rationale": "No se indica si el tiempo disponible resulta suficiente o insuficiente para mirar."
+        },
+        {
+          "text": "Nos dieron tiempo de mirar sin la cámara y después hacer fotos. Cuando pensé en sentarme un rato todavía quedaban varios minutos; salí del mirador con la ciudad en la cabeza y sin sentirme arreado.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation"
+          ],
+          "structure": "Distribución de una parada entre observación, fotografías y descanso",
+          "rationale": "La ausencia de prisa y el disfrute visual expresan satisfacción con la duración."
+        }
+      ]
+    },
+    {
+      "family": "b2test_tour_market_photo_consent",
+      "semantic_component": "b2test_tour_market_photo_consent",
+      "role": "assessment",
+      "domain": "tour",
+      "region": "es-CO",
+      "cases": [
+        {
+          "text": "Al llegar al mercado el guía dijo que podíamos preguntar antes de tomar fotos, y eso me pareció bien. El problema vino en el puesto de una señora que estaba preparando su mercancía: ella negó con la mano y él insistió en que era solo una fotico para el recuerdo. Varios guardamos el celular, pero el guía volvió a pedir que sonriera y la señora se quedó tiesa. No es que no hubiera una respuesta clara; la había dado desde el comienzo. Me sentí metida en una situación muy incómoda. Dejé de disfrutar el recorrido porque el supuesto recuerdo bonito dependía de pasar por encima de su decisión.",
+          "intended_label": "negativo",
+          "phenomena": [
+            "negation",
+            "double_negation",
+            "contrast",
+            "positive_words_negative_context",
+            "regionalism"
+          ],
+          "structure": "Regla inicial de consentimiento contradicha por presión tras una negativa",
+          "rationale": "La insistencia ante una respuesta clara genera malestar que domina el recorrido."
+        },
+        {
+          "text": "En el puesto de frutas pregunté si podía fotografiar la balanza. La vendedora movió una bolsa y señaló el lado por donde entraba la luz; hice dos fotos y luego el guía siguió hablando de las cosechas.",
+          "intended_label": "neutral",
+          "phenomena": [],
+          "structure": "Solicitud de fotografía y continuación del recorrido",
+          "rationale": "Se registra un intercambio de consentimiento sin una valoración explícita de la experiencia."
+        },
+        {
+          "text": "Me gustó que el guía preguntara quién quería salir en las fotos y recordara guardar el celular donde dijeron que no. Hubo retratos espontáneos con quienes sí se animaron. Me llevé fotos que da gusto recordar, sin ese momento incómodo de insistir.",
+          "intended_label": "positivo",
+          "phenomena": [
+            "negation",
+            "contrast"
+          ],
+          "structure": "Respeto de decisiones diferentes que permite recuerdos agradables",
+          "rationale": "La práctica de consentimiento se aprecia y mejora el recuerdo del recorrido."
+        }
+      ]
+    },
+    {
+      "family": "b2test_hotel_corridor_fragrance",
+      "semantic_component": "b2test_hotel_corridor_fragrance",
+      "role": "ambiguity_assessment",
+      "domain": "hotel",
+      "region": "es",
+      "cases": [
+        {
+          "text": "Habían puesto un aroma de cítricos en el pasillo. Al volver de la calle dejaba de notar el olor de la cocina y me daban ganas de respirar hondo; llegando a mi puerta empezaban los estornudos. Pasé las dos noches asociando ese mismo olor con la bienvenida y con tener que buscar un pañuelo.",
+          "intended_label": null,
+          "phenomena": [
+            "contrast",
+            "mixed_aspects"
+          ],
+          "structure": "Un aroma único produce acogida y molestia corporal con igual presencia",
+          "rationale": "Se puede leer como un detalle acogedor con una incomodidad o como una molestia persistente suavizada por su olor agradable; no hay prioridad final."
+        }
+      ]
+    },
+    {
+      "family": "b2test_hotel_shared_rooftop",
+      "semantic_component": "b2test_hotel_shared_rooftop",
+      "role": "ambiguity_assessment",
+      "domain": "hotel",
+      "region": "es-CO",
+      "cases": [
+        {
+          "text": "La terraza del último piso era compartida. Subí buscando estar solo y terminé conversando hasta tarde con otros viajeros, que me dieron ideas para el día siguiente. También dejé el libro sin abrir y nunca tuve ese rato de silencio. Todavía pienso en la charla y en las páginas que había apartado para esa noche.",
+          "intended_label": null,
+          "phenomena": [
+            "contrast",
+            "mixed_aspects"
+          ],
+          "structure": "Encuentro social valioso que desplaza un descanso solitario deseado",
+          "rationale": "Las conexiones nuevas y la pérdida de intimidad admiten balances opuestos sin que el autor privilegie uno."
+        }
+      ]
+    },
+    {
+      "family": "b2test_restaurant_communal_table",
+      "semantic_component": "b2test_restaurant_communal_table",
+      "role": "ambiguity_assessment",
+      "domain": "restaurant",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "Nos sentaron en una mesa larga con otras personas. Una pareja nos contó de una caminata que luego hicimos, y la conversación se puso animada. A la vez, cada intento de hablar entre nosotros acabó metiendo a alguien más. Celebrábamos nuestro aniversario: esa noche tuvo compañía y casi ningún momento a solas.",
+          "intended_label": null,
+          "phenomena": [
+            "contrast",
+            "mixed_aspects"
+          ],
+          "structure": "Mesa compartida que aporta un encuentro y limita una celebración íntima",
+          "rationale": "La compañía enriquecedora y la intimidad frustrada sostienen lecturas generales legítimas de signo contrario."
+        }
+      ]
+    },
+    {
+      "family": "b2test_restaurant_surprise_course",
+      "semantic_component": "b2test_restaurant_surprise_course",
+      "role": "ambiguity_assessment",
+      "domain": "restaurant",
+      "region": "es",
+      "cases": [
+        {
+          "text": "El último plato era sorpresa y no nos dejaron escoger entre las dos opciones que llevaban a otras mesas. Probé una combinación que jamás habría pedido y seguimos hablando de ella al día siguiente. También pasé buena parte del postre mirando la otra opción, la que normalmente habría elegido. La curiosidad y el antojo quedaron ahí juntos.",
+          "intended_label": null,
+          "phenomena": [
+            "negation",
+            "contrast",
+            "mixed_aspects"
+          ],
+          "structure": "Sorpresa culinaria memorable junto a deseo insatisfecho de elegir",
+          "rationale": "El descubrimiento puede dominar una lectura positiva o la pérdida de elección una negativa; el cierre conserva ambas."
+        }
+      ]
+    },
+    {
+      "family": "b2test_museum_dark_installation",
+      "semantic_component": "b2test_museum_dark_installation",
+      "role": "ambiguity_assessment",
+      "domain": "museum",
+      "region": "es-CO",
+      "cases": [
+        {
+          "text": "En la instalación a oscuras las figuras aparecían como flotando y me quedé un buen rato mirándolas. Para leer los textos tenía que acercar tanto la cara que perdía la figura completa; luego me alejaba y perdía las palabras. La oscuridad era precisamente lo que me atrapaba y lo que no me dejaba seguir la explicación.",
+          "intended_label": null,
+          "phenomena": [
+            "negation",
+            "contrast",
+            "mixed_aspects"
+          ],
+          "structure": "Misma decisión de iluminación produce inmersión y barrera de lectura",
+          "rationale": "El atractivo visual y la dificultad informativa derivan del mismo rasgo sin jerarquía explícita."
+        }
+      ]
+    },
+    {
+      "family": "b2test_transport_reassigned_seats",
+      "semantic_component": "b2test_transport_reassigned_seats",
+      "role": "ambiguity_assessment",
+      "domain": "transport",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "Al cambiar la distribución nos pusieron juntos a los cuatro, algo que no habíamos conseguido al comprar. Nos tocó la fila central, sin la ventana por la que yo pensaba mirar todo el trayecto. Jugamos y conversamos como pocas veces, mientras yo giraba la cabeza buscando ver los cerros entre los demás asientos.",
+          "intended_label": null,
+          "phenomena": [
+            "negation",
+            "contrast",
+            "mixed_aspects"
+          ],
+          "structure": "Reasignación que facilita convivencia y elimina una vista deseada",
+          "rationale": "La ganancia familiar y la pérdida de la experiencia del paisaje permiten balances completos diferentes."
+        }
+      ]
+    },
+    {
+      "family": "b2test_tour_multilingual_pacing",
+      "semantic_component": "b2test_tour_multilingual_pacing",
+      "role": "ambiguity_assessment",
+      "domain": "tour",
+      "region": "es",
+      "cases": [
+        {
+          "text": "El guía repetía cada explicación en tres idiomas. Me gustaba escuchar cómo cambiaban los nombres y aprendí un par de palabras, pero entre una versión y otra mi atención se iba al paisaje. Cuando volvía a escuchar, ya estaba respondiendo preguntas de otro grupo. El ritmo me dio espacio para mirar y me dejó la historia a pedazos.",
+          "intended_label": null,
+          "phenomena": [
+            "contrast",
+            "mixed_aspects"
+          ],
+          "structure": "Repetición multilingüe que abre observación y fragmenta la atención",
+          "rationale": "El tiempo para mirar y aprender palabras compite con una comprensión incompleta sin resolución final."
+        }
+      ]
+    },
+    {
+      "family": "b2test_tour_craft_hand_guidance",
+      "semantic_component": "b2test_tour_craft_hand_guidance",
+      "role": "ambiguity_assessment",
+      "domain": "tour",
+      "region": "es-PE",
+      "cases": [
+        {
+          "text": "En el taller la artesana puso sus manos sobre las mías para terminar el borde de la pieza. Así pude sentir el movimiento y salió una forma que yo solo no lograba. Al verla terminada me enorgullecía llevármela, aunque no sabía cuánto de ese borde podía llamar mío. La ayuda quedó visible justo en la parte que más me gustaba.",
+          "intended_label": null,
+          "phenomena": [
+            "negation",
+            "contrast",
+            "mixed_aspects"
+          ],
+          "structure": "Guía manual que logra aprendizaje y resultado con autoría incierta",
+          "rationale": "El éxito asistido y la pérdida de sensación de autoría pueden dar evaluaciones opuestas del taller."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1497 @@
+{
+  "schema": "traveler-beto-v3-author-batch-v1",
+  "provenance": {
+    "synthetic": true,
+    "human_authors": false,
+    "actual_task": "/root/v3_assessment_author",
+    "protocol_version": "beto-v3-quality-pilot-v1",
+    "generator_version": "original-writer-brief-v1",
+    "model_version": "NOT_EXPOSED_BY_PLATFORM",
+    "generation_seed": null,
+    "method": "individually authored freeform synthetic drafts; scripts only assemble/validate metadata"
+  },
+  "reviews": [
+    {
+      "text": "Entregué la maleta al salir del pueblo y me dieron una etiqueta azul con el número dieciocho. En el enlace, el ayudante empezó a pasar los bultos al segundo vehículo sin comparar ningún comprobante. Mi maleta terminó debajo de unas cajas destinadas a otro recorrido. Cuando mostré el papel, me mandaron a buscarla yo mismo entre los carros que estaban arrancando. No había nadie que asumiera la revisión, aunque el cambio de vehículo formaba parte del pasaje. Recuperé la maleta porque reconocí la cinta que llevaba en el asa, no por el sistema de etiquetas. Después apareció otro viajero preguntando por un costal marcado con mi mismo número. Con semejante confusión, el enlace me dejó pendiente del equipaje durante todo el trayecto restante. Antes de subir tuve que limpiar el barro de las ruedas, pues habían dejado mi bulto en el borde de la carretera mientras despejaban el compartimiento. El conductor recibió el comprobante sin siquiera mirarlo.",
+      "intended_label": "negativo",
+      "family": "v3-assessment-co-001",
+      "semantic_component": "sg-v3-assessment-co-001",
+      "role": "assessment",
+      "region": "Colombia",
+      "experience_type": "transport",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast",
+        "mixed_aspects",
+        "objective_chronology"
+      ],
+      "structure": "R01: entrega, enlace y recuperación por reconocimiento propio",
+      "author_rationale": "La recuperación exige una intervención insegura del viajero; el sistema contratado no funciona.",
+      "experience_subtype": "intercity_transport"
+    },
+    {
+      "text": "En la terminal de llegada recogí dos bultos con etiquetas verdes y entregué el talón correspondiente a cada uno. Habíamos cambiado de vehículo en un paradero situado junto a un cruce. Allí, quienes continuábamos hacia el mismo pueblo bajamos por la puerta delantera y esperamos detrás de una línea pintada. Un empleado leyó los números desde una hoja; otro sacó las maletas del compartimiento y las colocó en una fila. La mía tenía una etiqueta en el asa lateral y la mochila llevaba otra sujeta a la cremallera. Las contaron por separado, aunque ambas figuraban bajo una sola reserva. Cuando llamaron mi número, señalé los dos objetos y los cargaron en el vehículo siguiente. No retiraron las etiquetas durante el enlace. El segundo conductor llevaba una copia de la lista dentro de una carpeta transparente. Al revisar mis fotos del viaje vi que, antes de salir, había guardado los dos talones en el bolsillo donde llevaba las monedas.",
+      "intended_label": "neutral",
+      "family": "v3-assessment-co-001",
+      "semantic_component": "sg-v3-assessment-co-001",
+      "role": "assessment",
+      "region": "Colombia",
+      "experience_type": "transport",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "objective_chronology"
+      ],
+      "structure": "R02: entrega final reconstruida desde los talones del enlace",
+      "author_rationale": "Describe controles, recorrido de los bultos y documentos sin formular una valoración.",
+      "experience_subtype": "intercity_transport"
+    },
+    {
+      "text": "Necesitaba continuar hasta un pueblo pequeño llevando una mochila y una caja de cerámica, así que me preocupaba el transbordo anunciado. En la primera salida pusieron etiquetas distintas a cada bulto y me explicaron que conservara ambos talones. Al llegar al cruce, la caja no apareció entre las primeras maletas. Un ayudante cotejó su número, avisó al otro conductor y la encontró en el espacio reservado para objetos frágiles. No es verdad que no revisaran los comprobantes: también pidieron el mío antes de moverla, incluso después de reconocerme. Eso me permitió esperar sentado y dejar de vigilar cada puerta abierta. La mochila pasó al segundo vehículo mientras preparaban una base para la caja. Fue un enlace cuidadoso, con responsables visibles en los dos lados y sin encargarnos a los pasajeros la búsqueda. Seguí el viaje con ambas piezas identificadas en mi recibo. En el destino, el conductor me entregó primero la caja y dejó la mochila sobre el banco del paradero.",
+      "intended_label": "positivo",
+      "family": "v3-assessment-co-001",
+      "semantic_component": "sg-v3-assessment-co-001",
+      "role": "assessment",
+      "region": "Colombia",
+      "experience_type": "transport",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "double_negation",
+        "resolved_incident",
+        "expectation",
+        "objective_chronology"
+      ],
+      "structure": "R03: necesidad de transportar un objeto frágil y solución del enlace",
+      "author_rationale": "El procedimiento resuelve una preocupación concreta y conserva la custodia del equipaje.",
+      "experience_subtype": "intercity_transport"
+    },
+    {
+      "text": "Ya dentro, llevaba una correa rasgada: antes me señalaron el torniquete común y cerraron el paso ancho mientras empujaba la mochila.",
+      "intended_label": "negativo",
+      "family": "v3-assessment-co-002",
+      "semantic_component": "sg-v3-assessment-co-002",
+      "role": "assessment",
+      "region": "Colombia",
+      "experience_type": "transport",
+      "length_band": "short",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R04: daño observado tras recordar la entrada",
+      "author_rationale": "La coordinación incorrecta provoca daño material.",
+      "experience_subtype": "local_transport"
+    },
+    {
+      "text": "Pregunté por dónde pasar con la mochila. El auxiliar indicó la puerta ancha junto al lector y la abrió después de validar mi tarjeta.",
+      "intended_label": "neutral",
+      "family": "v3-assessment-co-002",
+      "semantic_component": "sg-v3-assessment-co-002",
+      "role": "assessment",
+      "region": "Colombia",
+      "experience_type": "transport",
+      "length_band": "short",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R05: consulta, indicación y apertura",
+      "author_rationale": "Relata el procedimiento sin evaluación afectiva o de calidad.",
+      "experience_subtype": "local_transport"
+    },
+    {
+      "text": "Mi morral enorme pasó sin engancharse; la señal del acceso ancho se veía desde la fila y el auxiliar coordinó la apertura conmigo.",
+      "intended_label": "positivo",
+      "family": "v3-assessment-co-002",
+      "semantic_component": "sg-v3-assessment-co-002",
+      "role": "assessment",
+      "region": "Colombia",
+      "experience_type": "transport",
+      "length_band": "short",
+      "phenomena": [
+        "negation",
+        "regionalism"
+      ],
+      "structure": "R06: seguimiento de la mochila hasta atravesar el acceso",
+      "author_rationale": "La señal y la coordinación permiten un acceso cómodo.",
+      "experience_subtype": "local_transport"
+    },
+    {
+      "text": "Íbamos a aprender lo básico antes de entrar al agua. A mitad de la práctica cambiaron de monitor y no nos presentó nadie al reemplazo. El nuevo pidió soltar una cuerda que la primera monitora había dicho que mantuviéramos agarrada. Pregunté cuál instrucción seguía vigente; contestaron desde sitios distintos. Terminé saliendo a la arena porque no tenía una referencia segura para continuar, aunque ya había pagado la sesión completa.",
+      "intended_label": "negativo",
+      "family": "v3-assessment-co-003",
+      "semantic_component": "sg-v3-assessment-co-003",
+      "role": "assessment",
+      "region": "Colombia",
+      "experience_type": "beach",
+      "length_band": "medium",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast",
+        "expectation"
+      ],
+      "structure": "R07: plan de iniciación interrumpido por instrucciones incompatibles",
+      "author_rationale": "La falta de un responsable claro obliga a abandonar por inseguridad.",
+      "experience_subtype": "beaches"
+    },
+    {
+      "text": "Durante la pausa dejamos las tablas apoyadas en la arena. La monitora que había explicado la posición de los pies presentó al compañero encargado de la segunda parte y le enumeró los ejercicios realizados. Después volvimos al agua en parejas. Él usó las mismas señales con las manos para indicar el giro y el regreso. Al terminar, cada pareja llevó su tabla hasta el soporte de madera.",
+      "intended_label": "neutral",
+      "family": "v3-assessment-co-003",
+      "semantic_component": "sg-v3-assessment-co-003",
+      "role": "assessment",
+      "region": "Colombia",
+      "experience_type": "beach",
+      "length_band": "medium",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R08: pausa, relevo y continuación de ejercicios",
+      "author_rationale": "La continuidad se presenta como secuencia observada, sin elogio ni queja.",
+      "experience_subtype": "beaches"
+    },
+    {
+      "text": "Desde la orilla podía distinguir siempre a quién seguir. La primera monitora se quedó a mi lado cuando llegó su relevo y le contó que todavía me costaba frenar. El compañero retomó justo ese ejercicio, sin hacernos empezar todo de nuevo. No esperaba un acompañamiento tan personal en una clase colectiva. Acabé practicando el regreso por mi cuenta, con él pendiente desde la zona de boyas.",
+      "intended_label": "positivo",
+      "family": "v3-assessment-co-003",
+      "semantic_component": "sg-v3-assessment-co-003",
+      "role": "assessment",
+      "region": "Colombia",
+      "experience_type": "beach",
+      "length_band": "medium",
+      "phenomena": [
+        "negation",
+        "expectation",
+        "implicit_contrast"
+      ],
+      "structure": "R09: ubicación del alumno y continuidad visible entre responsables",
+      "author_rationale": "El relevo atiende una necesidad individual y permite avanzar con confianza.",
+      "experience_subtype": "beaches"
+    },
+    {
+      "text": "Sentí la montura clavándose en la nariz apenas encendieron el visor. Había avisado que llevaba gafas y me dijeron que el aparato se acomodaba solo. Intenté aflojar la cinta, pero el borde interior seguía empujando los cristales. La persona encargada miró el contador de la sesión y me pidió que no me lo quitara todavía, porque ya estaba corriendo el tiempo. Así disfruté de su gran viaje virtual: sujetando el visor con ambas manos para poder ver una esquina de la imagen. Tras dos minutos salí del programa. Entonces ofrecieron probar otra almohadilla, cuando mi turno ya había terminado y debía volver a hacer la fila. El resto del museo tenía cartelas que podía leer sin dificultad; esta actividad, en cambio, se convirtió en un gasto para apretarme la cara. Guardé las gafas en su estuche para revisar si se habían torcido. Todavía llevaba la marca roja del puente al pasar a la sala de mapas.",
+      "intended_label": "negativo",
+      "family": "v3-assessment-co-004",
+      "semantic_component": "sg-v3-assessment-co-004",
+      "role": "assessment",
+      "region": "Colombia",
+      "experience_type": "museum",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects",
+        "irony",
+        "sarcasm",
+        "objective_chronology"
+      ],
+      "structure": "R10: presión de la montura vinculada al ajuste y al turno perdido",
+      "author_rationale": "La ironía está anclada en dolor, ayuda tardía y pérdida de la actividad.",
+      "experience_subtype": "museums"
+    },
+    {
+      "text": "Podía ver la pieza en una pantalla lateral o utilizar un visor con las gafas puestas. Elegí la segunda opción y dejé el bolso debajo del asiento. La asistente me mostró una rueda situada detrás de la cabeza y dos posiciones de la almohadilla frontal. Probamos primero la posición superior; luego acercó una pieza de espuma para separar el borde del visor de la montura. Me pidió mirar un punto fijo mientras movía el aparato hacia los lados. Tras ese ajuste inició una escena de tres minutos sobre el recorrido de una embarcación. La imagen cambiaba al girar la cabeza y había una narración por los auriculares. Al acabar, retiré el visor por arriba, manteniendo las gafas sujetas con la otra mano. La asistente colocó la espuma en una bandeja y limpió la superficie de contacto antes del siguiente turno. Yo recogí el bolso y pasé a la pantalla donde figuraban los créditos de la pieza.",
+      "intended_label": "neutral",
+      "family": "v3-assessment-co-004",
+      "semantic_component": "sg-v3-assessment-co-004",
+      "role": "assessment",
+      "region": "Colombia",
+      "experience_type": "museum",
+      "length_band": "long",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R11: elección de soporte, ajuste y retirada del equipo",
+      "author_rationale": "Registra opciones y manipulación del visor sin juicio global.",
+      "experience_subtype": "museums"
+    },
+    {
+      "text": "Mi hermana se puso el visor primero y yo avisé que con mis gafas solía tener problemas. La encargada no encendió nada hasta comprobar el espacio de la montura: trajo un separador, aflojó las correas y me dejó hacer varios movimientos de prueba. No tuve que elegir entre ver borroso y soportar presión en la nariz. Una vez dentro de la escena pude leer los nombres pequeños que aparecían en el muelle virtual. Mi hermana terminó antes y se quedó mirando la pantalla exterior, desde donde seguía mis giros. A mí me sorprendió poder olvidarme del aparato durante la proyección; el ajuste previo había resuelto lo que normalmente me distrae. Cuando una patilla rozó la espuma, levanté la mano y pausaron la pieza para recolocarla, sin consumir ese tiempo del turno. Después continué desde el mismo punto. Al salir, mi hermana me alcanzó el bolso mientras la encargada guardaba el separador para otra persona con gafas.",
+      "intended_label": "positivo",
+      "family": "v3-assessment-co-004",
+      "semantic_component": "sg-v3-assessment-co-004",
+      "role": "assessment",
+      "region": "Colombia",
+      "experience_type": "museum",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "resolved_incident",
+        "expectation",
+        "mixed_aspects"
+      ],
+      "structure": "R12: prueba de la acompañante y adaptación del equipo al narrador",
+      "author_rationale": "La asistencia previa y una pausa efectiva permiten disfrutar la pieza con gafas.",
+      "experience_subtype": "museums"
+    },
+    {
+      "text": "Quería ubicar el norte del mapa, pero el guía permaneció sobre esa marca y siguió explicando sin mover al grupo. Solo vi espaldas.",
+      "intended_label": "negativo",
+      "family": "v3-assessment-pe-001",
+      "semantic_component": "sg-v3-assessment-pe-001",
+      "role": "assessment",
+      "region": "Peru",
+      "experience_type": "tour",
+      "length_band": "short",
+      "phenomena": [
+        "negation",
+        "explicit_contrast"
+      ],
+      "structure": "R13: intento fallido de comprobar una orientación",
+      "author_rationale": "La disposición impide seguir el contenido central de la explicación.",
+      "experience_subtype": "guided_tours"
+    },
+    {
+      "text": "Estábamos alrededor del dibujo cuando señalaron la primera constelación. Al llegar habíamos rodeado el borde exterior; después seguimos las marcas azules hacia el centro.",
+      "intended_label": "neutral",
+      "family": "v3-assessment-pe-001",
+      "semantic_component": "sg-v3-assessment-pe-001",
+      "role": "assessment",
+      "region": "Peru",
+      "experience_type": "tour",
+      "length_band": "short",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R14: escena central con regreso a la colocación inicial",
+      "author_rationale": "Describe posición y recorrido visual sin evaluación.",
+      "experience_subtype": "guided_tours"
+    },
+    {
+      "text": "Las estrellas del suelo y nuestras posiciones encajaron: el guía abrió un hueco delante de mí y pude seguir cada trazo sin agacharme.",
+      "intended_label": "positivo",
+      "family": "v3-assessment-pe-001",
+      "semantic_component": "sg-v3-assessment-pe-001",
+      "role": "assessment",
+      "region": "Peru",
+      "experience_type": "tour",
+      "length_band": "short",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R15: relación entre dibujo y colocación del grupo",
+      "author_rationale": "La intervención permite acceder con comodidad a la explicación.",
+      "experience_subtype": "guided_tours"
+    },
+    {
+      "text": "El comprobante decía martes, cero treinta, y debajo aparecía lunes como fecha del servicio. Consulté por escrito cuándo debía presentarme; respondieron repitiendo exactamente esos dos datos. Fui el lunes por la noche y el vehículo ya había salido la madrugada anterior. Para conseguir otro traslado pagué de nuevo. La precisión del reloj no sirve mucho cuando no hay nadie que aclare a qué noche se refiere la reserva.",
+      "intended_label": "negativo",
+      "family": "v3-assessment-pe-002",
+      "semantic_component": "sg-v3-assessment-pe-002",
+      "role": "assessment",
+      "region": "Peru",
+      "experience_type": "reservation",
+      "length_band": "medium",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "implicit_contrast"
+      ],
+      "structure": "R16: fechas escritas, consulta y consecuencia económica",
+      "author_rationale": "La confirmación no resuelve una contradicción y el viajero pierde el traslado.",
+      "experience_subtype": "reservations"
+    },
+    {
+      "text": "El cambio de lunes a martes ocurrió mientras esperaba en el vestíbulo. La reserva indicaba salida el martes a las cero cuarenta y presentación el lunes a las veintitrés cincuenta. En recepción anotaron ambas fechas en una hoja junto al número de personas. A medianoche cambiaron el cartel del mostrador. El conductor llegó después, leyó nuestros nombres y nos pidió entregar la copia del comprobante.",
+      "intended_label": "neutral",
+      "family": "v3-assessment-pe-002",
+      "semantic_component": "sg-v3-assessment-pe-002",
+      "role": "assessment",
+      "region": "Peru",
+      "experience_type": "reservation",
+      "length_band": "medium",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R17: transición de fecha y entrega del comprobante",
+      "author_rationale": "Expone dos referencias temporales y su uso sin juicio.",
+      "experience_subtype": "reservations"
+    },
+    {
+      "text": "Guardé la confirmación como imagen para enseñarla sin conexión. Había escrito mal la fecha al reservar el traslado de las cero veinte; me llamaron, distinguieron la noche de llegada del día del calendario y corrigieron el billete sin recargo. No era imposible deducirlo yo, pero esa revisión evitó que esperara una madrugada equivocada. En la imagen quedaron las dos fechas y la hora de presentación, ya corregidas.",
+      "intended_label": "positivo",
+      "family": "v3-assessment-pe-002",
+      "semantic_component": "sg-v3-assessment-pe-002",
+      "role": "assessment",
+      "region": "Peru",
+      "experience_type": "reservation",
+      "length_band": "medium",
+      "phenomena": [
+        "negation",
+        "double_negation",
+        "litotes",
+        "resolved_incident",
+        "explicit_contrast"
+      ],
+      "structure": "R18: uso de la confirmación tras corregir el cambio de día",
+      "author_rationale": "La revisión proactiva corrige un error y evita una espera equivocada sin coste.",
+      "experience_subtype": "reservations"
+    },
+    {
+      "text": "La mancha del cuaderno se extendió cuando volvimos a abrir la bolsa en el embarcadero. Durante la salida creí que aquellas gotas estaban por fuera, porque habíamos pasado muy cerca de una caída de agua. Nos habían prestado bolsas estancas, pero la mía apenas admitía la cámara y el cuaderno juntos. Pregunté si el borde debía doblarse varias veces; el encargado juntó las dos hebillas sin revisar el cierre y nos apuró hacia el bote. No es cierto que no hubiera tamaños mayores: al regresar vi varios colgados detrás de la mesa de entrega. Bastaba con ofrecernos uno de esos antes de salir. La cámara encendió después de secarla, aunque perdí las anotaciones de la primera parte del viaje. La provisión de material anunciada no me dio la protección por la que la había elegido. Dejé el cuaderno abierto sobre una banca mientras el guía contaba las bolsas devueltas, todas registradas como si fueran intercambiables.",
+      "intended_label": "negativo",
+      "family": "v3-assessment-pe-003",
+      "semantic_component": "sg-v3-assessment-pe-003",
+      "role": "assessment",
+      "region": "Peru",
+      "experience_type": "nature_excursion",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "double_negation",
+        "explicit_contrast",
+        "mixed_aspects",
+        "objective_chronology"
+      ],
+      "structure": "R19: mancha interpretada al revisar el cierre y los tamaños disponibles",
+      "author_rationale": "El asesoramiento insuficiente provoca daño pese a disponer de equipo adecuado.",
+      "experience_subtype": "nature_excursions"
+    },
+    {
+      "text": "Una cuerda con pinzas atravesaba el puesto donde entregaban las bolsas estancas. Las pequeñas estaban a un lado y las grandes al otro, cada una con una tarjeta numerada. Elegí una para la cámara y otra para la ropa. El guía mostró cómo enrollar la boca tres veces antes de unir las hebillas y pidió dejar aire dentro para comprobar si salía por algún punto. Hicimos esa prueba junto a la mesa. Luego caminamos hasta el bote y colocamos las bolsas a los pies, debajo del banco central. Durante el tramo de rocío bajamos las cabezas y mantuvimos las pertenencias en ese sitio. No abrí ninguna hasta volver al sendero cubierto. Saqué la cámara, separé la correa de la hebilla y entregué ambas bolsas en el mismo puesto. La persona de la mesa apuntó sus números en una libreta. Al marcharnos quedaban cuatro piezas escurriendo sobre la cuerda y otras dobladas dentro de una caja.",
+      "intended_label": "neutral",
+      "family": "v3-assessment-pe-003",
+      "semantic_component": "sg-v3-assessment-pe-003",
+      "role": "assessment",
+      "region": "Peru",
+      "experience_type": "nature_excursion",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "objective_chronology"
+      ],
+      "structure": "R20: puesto de secado, selección, uso y devolución",
+      "author_rationale": "Relata el circuito de préstamo y la técnica sin aprobar ni censurar el servicio.",
+      "experience_subtype": "nature_excursions"
+    },
+    {
+      "text": "Llegué a la mesa con una cámara que no cabía en la bolsa que me habían asignado. Antes de que intentara meterla a presión, la guía trajo otra más ancha y me enseñó a plegar el borde por encima del cierre. Le pedí repetirlo porque nunca había usado una. Hicimos juntos una prueba con aire y comprobamos la unión de las hebillas. Ya en el bote, el rocío terminó empapándonos las mangas; adentro, el equipo siguió seco. No puedo decir que la preparación fuera un trámite vacío: esa explicación me permitió abrir la bolsa para cambiar una batería y volver a cerrarla sin ayuda. La salida conservó el lado aventurero que buscaba sin obligarme a apostar la cámara. Al desembarcar pude enseñar las fotos inmediatamente, mientras otras personas colgaban sus chaquetas. Devolví la bolsa con la tarjeta aún sujeta al asa y dejé la batería usada en el estuche pequeño de mi mochila.",
+      "intended_label": "positivo",
+      "family": "v3-assessment-pe-003",
+      "semantic_component": "sg-v3-assessment-pe-003",
+      "role": "assessment",
+      "region": "Peru",
+      "experience_type": "nature_excursion",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "resolved_incident",
+        "explicit_contrast",
+        "expectation"
+      ],
+      "structure": "R01: ajuste inicial del material y uso autónomo durante el recorrido",
+      "author_rationale": "La adaptación y explicación protegen el equipo y dan autonomía al viajero.",
+      "experience_subtype": "nature_excursions"
+    },
+    {
+      "text": "Tuve que discutir un cobro por agua ya ausente al entrar. No registraron el minibar conmigo y la lista de precios estaba desactualizada.",
+      "intended_label": "negativo",
+      "family": "v3-assessment-pe-004",
+      "semantic_component": "sg-v3-assessment-pe-004",
+      "role": "assessment",
+      "region": "Peru",
+      "experience_type": "hotel",
+      "length_band": "short",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R02: disputa final vinculada al inventario de llegada",
+      "author_rationale": "Falta de inventario y precio fiable causa un cobro cuestionado.",
+      "experience_subtype": "hotels"
+    },
+    {
+      "text": "Busqué el precio de las bebidas en la carpeta del escritorio. Después marqué las existencias del minibar en una hoja que dejé en recepción.",
+      "intended_label": "neutral",
+      "family": "v3-assessment-pe-004",
+      "semantic_component": "sg-v3-assessment-pe-004",
+      "role": "assessment",
+      "region": "Peru",
+      "experience_type": "hotel",
+      "length_band": "short",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R03: consulta de precios y registro inicial",
+      "author_rationale": "Describe dónde se consulta y cómo se entrega el inventario.",
+      "experience_subtype": "hotels"
+    },
+    {
+      "text": "Al pagar no hubo sorpresas: antes de instalarme revisaron el minibar conmigo y dejaron precios legibles junto a cada producto. Todo quedó registrado.",
+      "intended_label": "positivo",
+      "family": "v3-assessment-pe-004",
+      "semantic_component": "sg-v3-assessment-pe-004",
+      "role": "assessment",
+      "region": "Peru",
+      "experience_type": "hotel",
+      "length_band": "short",
+      "phenomena": [
+        "negation",
+        "objective_chronology"
+      ],
+      "structure": "R04: factura final y revisión previa",
+      "author_rationale": "La revisión compartida aporta claridad y evita discrepancias.",
+      "experience_subtype": "hotels"
+    },
+    {
+      "text": "Preguntamos cuál carne venía bien cocida, pues los tres platos llegaron juntos. El mesero dijo que no importaba, que eran iguales. Habíamos pedido tres términos distintos y las guarniciones tampoco permitían reconocerlos. Cortamos todos para averiguarlo; cuando quisieron cambiarlos ya estábamos compartiendo trozos. Muy práctica la bandeja: convirtió nuestra comida en un trabajo de clasificación. No volvió nadie a confirmar qué habíamos pedido.",
+      "intended_label": "negativo",
+      "family": "v3-assessment-mx-001",
+      "semantic_component": "sg-v3-assessment-mx-001",
+      "role": "assessment",
+      "region": "Mexico",
+      "experience_type": "restaurant",
+      "length_band": "medium",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "irony",
+        "sarcasm"
+      ],
+      "structure": "R05: consulta desatendida y clasificación improvisada de platos",
+      "author_rationale": "La identificación falla y la respuesta desestima pedidos distintos; ironía contextual.",
+      "experience_subtype": "restaurants"
+    },
+    {
+      "text": "La charola llevaba cuatro platos y una tarjeta con números del uno al cuatro. Cada carne tenía un palillo cuya marca correspondía a uno de esos números. La persona que servía leyó los términos de cocción desde la tarjeta y nosotros indicamos dónde debía dejar cada plato. Retiró los palillos antes de llevarse la charola. Las guarniciones estaban en recipientes separados, al centro de la mesa.",
+      "intended_label": "neutral",
+      "family": "v3-assessment-mx-001",
+      "semantic_component": "sg-v3-assessment-mx-001",
+      "role": "assessment",
+      "region": "Mexico",
+      "experience_type": "restaurant",
+      "length_band": "medium",
+      "phenomena": [
+        "objective_chronology",
+        "regionalism"
+      ],
+      "structure": "R06: traslado de la charola y retirada de identificadores",
+      "author_rationale": "Presenta un mecanismo de identificación sin valorar su calidad.",
+      "experience_subtype": "restaurants"
+    },
+    {
+      "text": "Queríamos probar distintas cocciones sin intercambiar platos a ciegas. Al traerlos, la mesera mostró las marcas del borde y confirmó cada pedido antes de repartir. Uno no coincidía con lo solicitado: lo retiró enseguida y explicó a cocina la diferencia. Volvió mientras los demás servíamos las guarniciones. Se agradece que una confusión se resuelva así, sin ponernos a demostrar quién había pedido qué ni dejarnos comer por turnos.",
+      "intended_label": "positivo",
+      "family": "v3-assessment-mx-001",
+      "semantic_component": "sg-v3-assessment-mx-001",
+      "role": "assessment",
+      "region": "Mexico",
+      "experience_type": "restaurant",
+      "length_band": "medium",
+      "phenomena": [
+        "negation",
+        "resolved_incident",
+        "mixed_aspects"
+      ],
+      "structure": "R07: plan de probar cocciones y corrección durante el reparto",
+      "author_rationale": "La identificación y corrección oportuna sostienen una experiencia satisfactoria.",
+      "experience_subtype": "restaurants"
+    },
+    {
+      "text": "Esperé junto a la salida con el mensaje de recogida abierto: coche blanco, número interno doce. Había tres vehículos blancos y ninguno mostraba ese número en un sitio visible. Pregunté al primero; señaló a otro conductor, que me pidió subir sin comprobar mi reserva. Me quedé afuera y llamé a la central. Allí me leyeron una placa distinta de la recibida y dijeron que el número doce podía corresponder al turno, no al coche. Entre esa explicación y la siguiente perdí media hora. Finalmente llegó un conductor que sí tenía mi nombre, aunque seguía usando otra numeración en la puerta. No me parece aceptable reconocer un taxi por eliminación entre desconocidos. El asiento estaba disponible desde el comienzo, según dijeron después, pero la información enviada no permitía encontrarlo con seguridad. Subí solo cuando la central confirmó la placa completa por escrito. Durante el trayecto conservé ambos mensajes para mostrar por qué había esperado junto a la salida.",
+      "intended_label": "negativo",
+      "family": "v3-assessment-mx-002",
+      "semantic_component": "sg-v3-assessment-mx-002",
+      "role": "assessment",
+      "region": "Mexico",
+      "experience_type": "taxi",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects",
+        "objective_chronology"
+      ],
+      "structure": "R08: espera entre datos incompatibles y confirmación tardía",
+      "author_rationale": "La información de recogida crea inseguridad y una demora evitable.",
+      "experience_subtype": "taxis"
+    },
+    {
+      "text": "Desde la puerta del edificio vi una fila de taxis con la misma combinación de colores. El mensaje de la reserva incluía la placa, el número interno y un dibujo que señalaba dónde buscar este último. Caminé hasta el extremo de la fila y miré los números colocados sobre las ventanillas traseras. Mi vehículo estaba en el segundo espacio. El conductor llevaba en el tablero una hoja con el destino abreviado; le mostré la confirmación en el teléfono y comparó la placa que aparecía allí con una copia impresa. Después abrió la cajuela para mi maleta. No entregué dinero en ese punto porque el traslado figuraba como pagado en el comprobante. Al acomodarme, guardé el teléfono en el bolsillo de la chamarra y abroché el cinturón. Otro taxi ocupó el espacio que dejamos libre. La fila quedaba detrás de unos postes amarillos que separaban la zona de recogida del carril de paso de la terminal.",
+      "intended_label": "neutral",
+      "family": "v3-assessment-mx-002",
+      "semantic_component": "sg-v3-assessment-mx-002",
+      "role": "assessment",
+      "region": "Mexico",
+      "experience_type": "taxi",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "objective_chronology",
+        "regionalism"
+      ],
+      "structure": "R09: recorrido espacial desde la puerta hasta el taxi reservado",
+      "author_rationale": "Detalla referencias, comprobación y ubicación sin juicio sobre el traslado.",
+      "experience_subtype": "taxis"
+    },
+    {
+      "text": "Oí que alguien decía mi nombre, pero antes de acercarme comprobé el número que venía en el mensaje. Había varios taxis del mismo color y agradecí que mandaran también una foto del lugar exacto donde se veía ese número. El conductor esperó a que yo comparara la placa, sin apurarme a subir. Mi teléfono tenía poca batería; él sacó una tarjeta de la central y pudimos contrastar el dato por segunda vez sin usar la aplicación. No es que no hubiera manera de confundirse entre tantos coches iguales, sino que habían previsto esa dificultad. Para mí, que llegaba por primera vez, la recogida dejó de ser una búsqueda a tientas. Cargó la maleta cuando le confirmé el destino y me indicó dónde estaba el cinturón trasero antes de arrancar. El sonido que había oído al salir se perdió al cerrar la puerta. Ya sentado, alcancé a mandar el número del coche a mi acompañante, que esperaba en el alojamiento.",
+      "intended_label": "positivo",
+      "family": "v3-assessment-mx-002",
+      "semantic_component": "sg-v3-assessment-mx-002",
+      "role": "assessment",
+      "region": "Mexico",
+      "experience_type": "taxi",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "double_negation",
+        "explicit_contrast",
+        "resolved_incident"
+      ],
+      "structure": "R10: nombre oído, verificación por dos soportes y embarque",
+      "author_rationale": "Las referencias verificables y la paciencia del conductor producen confianza.",
+      "experience_subtype": "taxis"
+    },
+    {
+      "text": "Elegí esperar mi bastón antes de caminar; me exigieron salir del escáner y lo dejaron lejos de mi alcance. Tuve que apoyarme en la mesa.",
+      "intended_label": "negativo",
+      "family": "v3-assessment-mx-003",
+      "semantic_component": "sg-v3-assessment-mx-003",
+      "role": "assessment",
+      "region": "Mexico",
+      "experience_type": "airport",
+      "length_band": "short",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R11: decisión de esperar y apoyo impuesto",
+      "author_rationale": "La coordinación priva temporalmente a la persona de un apoyo necesario.",
+      "experience_subtype": "airports"
+    },
+    {
+      "text": "Mi acompañante recogió la bandeja. Yo esperé junto al escáner hasta que el agente colocó el bastón en el soporte lateral y lo tomé.",
+      "intended_label": "neutral",
+      "family": "v3-assessment-mx-003",
+      "semantic_component": "sg-v3-assessment-mx-003",
+      "role": "assessment",
+      "region": "Mexico",
+      "experience_type": "airport",
+      "length_band": "short",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R12: acciones separadas de acompañante y narrador",
+      "author_rationale": "Secuencia factual de recuperación del bastón.",
+      "experience_subtype": "airports"
+    },
+    {
+      "text": "Comprobé que podía recuperar el bastón al salir: acordaron conmigo el punto de entrega y lo acercaron antes de pedirme que avanzara.",
+      "intended_label": "positivo",
+      "family": "v3-assessment-mx-003",
+      "semantic_component": "sg-v3-assessment-mx-003",
+      "role": "assessment",
+      "region": "Mexico",
+      "experience_type": "airport",
+      "length_band": "short",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R13: comprobación del apoyo y acuerdo de entrega",
+      "author_rationale": "El acuerdo preserva la autonomía durante el control.",
+      "experience_subtype": "airports"
+    },
+    {
+      "text": "Estaba sujetando una toalla contra la abertura cuando otra ráfaga giró el panel. Al llegar habíamos preguntado cómo asegurar la mampara; nos señalaron unas argollas, pero no había nada para unirlas. El dibujo de instrucciones mostraba un amarre inexistente. Terminé cambiándome con mi pareja sosteniendo dos lados a la vez. Una instalación pensada para dar privacidad acaba exponiéndote si ni siquiera incluye las piezas que anuncia.",
+      "intended_label": "negativo",
+      "family": "v3-assessment-mx-004",
+      "semantic_component": "sg-v3-assessment-mx-004",
+      "role": "assessment",
+      "region": "Mexico",
+      "experience_type": "beach",
+      "length_band": "medium",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast"
+      ],
+      "structure": "R14: ráfaga a mitad del cambio y regreso a la consulta inicial",
+      "author_rationale": "El cierre anunciado no puede montarse y se pierde privacidad.",
+      "experience_subtype": "beaches"
+    },
+    {
+      "text": "Los paneles formaban una esquina y una cuerda cruzaba la entrada. En el poste había un esquema con dos posiciones según la dirección del viento. Movimos el panel corto hasta la ranura señalada y enganchamos la cuerda a una argolla. Mi hermano esperó afuera mientras yo me cambiaba. Después intercambiamos lugares y dejamos la ropa seca dentro de una bolsa sobre el banco.",
+      "intended_label": "neutral",
+      "family": "v3-assessment-mx-004",
+      "semantic_component": "sg-v3-assessment-mx-004",
+      "role": "assessment",
+      "region": "Mexico",
+      "experience_type": "beach",
+      "length_band": "medium",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R15: relación entre paneles y cuerda, alternancia de usuarios",
+      "author_rationale": "Describe disposición y uso sin atribuir satisfacción o molestia.",
+      "experience_subtype": "beaches"
+    },
+    {
+      "text": "El aviso pedía cerrar primero el panel que daba al mar. Lo hice y descubrí que encajaba en una base, así que no tuve que pelearme con la mampara mientras me cambiaba. Afuera volaban las servilletas de una mesa; adentro pude doblar la ropa sin estar sujetando las paredes. La indicación era sencilla y estaba justo donde uno necesitaba verla, antes de entrar con todo en las manos.",
+      "intended_label": "positivo",
+      "family": "v3-assessment-mx-004",
+      "semantic_component": "sg-v3-assessment-mx-004",
+      "role": "assessment",
+      "region": "Mexico",
+      "experience_type": "beach",
+      "length_band": "medium",
+      "phenomena": [
+        "negation",
+        "implicit_contrast"
+      ],
+      "structure": "R16: instrucción visible y comprobación práctica bajo el viento",
+      "author_rationale": "La disposición y el aviso mantienen la privacidad sin esfuerzo añadido.",
+      "experience_subtype": "beaches"
+    },
+    {
+      "text": "Al terminar la proyección, la puerta que habíamos usado para entrar quedó oculta por una imagen de árboles. Esperábamos alguna referencia en el suelo, pero las tiras luminosas se apagaron al cambiar la escena y no hubo nadie que indicara por dónde salir. Una persona avanzó hacia lo que parecía un pasillo; era la propia pantalla. Yo llevaba a mi padre del brazo y decidimos quedarnos quietos. La música seguía y las figuras del suelo se movían, de modo que resultaba difícil distinguir un escalón real de una sombra proyectada. Cuando abrieron una puerta lateral ya había varias personas dando vueltas junto a ella. La explicación sobre la siguiente sesión se oyó desde fuera, sin que alguien viniera a orientarnos. Entramos para ver una obra inmersiva y acabamos buscando el suelo con los pies, bastante tensos. Mi padre salió agarrado a la pared. En el vestíbulo encontramos el cartel de salida, iluminado detrás del panel que acababan de desplazar.",
+      "intended_label": "negativo",
+      "family": "v3-assessment-es-001",
+      "semantic_component": "sg-v3-assessment-es-001",
+      "role": "assessment",
+      "region": "Spain",
+      "experience_type": "museum",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast",
+        "expectation"
+      ],
+      "structure": "R17: final de la proyección y salida sin referencias estables",
+      "author_rationale": "El relevo entre escena y salida deja a los visitantes desorientados y tensos.",
+      "experience_subtype": "museums"
+    },
+    {
+      "text": "Seguí la línea de puntos del suelo hasta uno de los bancos del fondo. La sala tenía dos accesos: el de entrada permaneció abierto durante la presentación inicial y el otro se utilizó al final. Una voz explicó que las franjas azules delimitaban la zona para sentarse y las blancas marcaban el recorrido hacia las puertas. Durante la proyección cambiaron las imágenes de las paredes; las franjas del suelo conservaron su color. A mi izquierda había un hueco entre dos bancos y, delante, una plataforma rectangular. Dejé la mochila debajo del asiento, con la correa recogida, y me puse los auriculares. Cuando acabó la narración aparecieron flechas blancas que apuntaban al acceso lateral. Recogimos nuestras cosas y salimos siguiendo esa dirección. La persona encargada contaba los auriculares en una cesta del vestíbulo. Yo busqué la ficha de la obra en el bolsilo del abrigo y anoté el nombre de la segunda pieza antes de volver a guardarla.",
+      "intended_label": "neutral",
+      "family": "v3-assessment-es-001",
+      "semantic_component": "sg-v3-assessment-es-001",
+      "role": "assessment",
+      "region": "Spain",
+      "experience_type": "museum",
+      "length_band": "long",
+      "phenomena": [
+        "objective_chronology",
+        "typo"
+      ],
+      "structure": "R18: uso de las referencias del suelo antes y después de la pieza",
+      "author_rationale": "Registra códigos espaciales y acciones sin evaluación; bolsilo es una errata deliberada.",
+      "experience_subtype": "museums"
+    },
+    {
+      "text": "La segunda vez que miré los puntos blancos entendí que rodeaban el banco y continuaban hasta la salida. Al entrar me había parecido que formaban parte de la proyección; la mediadora lo aclaró antes de bajar la luz y dejó que recorriéramos ese tramo. Esa pequeña comprobación me vino muy bien, porque suelo perder la orientación en salas oscuras. Durante una escena la pared del fondo parecía desplazarse, pero la referencia del suelo permaneció quieta. Pude concentrarme en las imágenes sin estar calculando dónde debía poner los pies al levantarme. Al final no se encendieron todas las luces de golpe: aumentaron gradualmente y una persona se situó junto a la puerta lateral. No era cierto que no pudiera disfrutarse aquella pieza llevando bastón; lo comprobé en mi propio recorrido, sin tener que agarrarme a mi acompañante. Salí por el mismo borde luminoso que había reconocido al principio. Junto a la puerta había una bandeja donde dejé los auriculares.",
+      "intended_label": "positivo",
+      "family": "v3-assessment-es-001",
+      "semantic_component": "sg-v3-assessment-es-001",
+      "role": "assessment",
+      "region": "Spain",
+      "experience_type": "museum",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "double_negation",
+        "explicit_contrast",
+        "expectation"
+      ],
+      "structure": "R19: segunda lectura de las marcas y utilidad durante la salida",
+      "author_rationale": "Una orientación anticipada y estable permite disfrutar de la obra con autonomía.",
+      "experience_subtype": "museums"
+    },
+    {
+      "text": "La maqueta tenía un puente diminuto. No llegué a tocarlo: el guía pasó de tema mientras dos personas ocupaban los relieves, sin organizar turnos.",
+      "intended_label": "negativo",
+      "family": "v3-assessment-es-002",
+      "semantic_component": "sg-v3-assessment-es-002",
+      "role": "assessment",
+      "region": "Spain",
+      "experience_type": "tour",
+      "length_band": "short",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R20: detalle lateral de la maqueta y acceso impedido",
+      "author_rationale": "La falta de turnos excluye al narrador de la explicación táctil.",
+      "experience_subtype": "guided_tours"
+    },
+    {
+      "text": "Rodeamos la maqueta por parejas. Cada persona exploró un sector mientras el guía lo describía; luego giramos una posición para tocar el relieve siguiente.",
+      "intended_label": "neutral",
+      "family": "v3-assessment-es-002",
+      "semantic_component": "sg-v3-assessment-es-002",
+      "role": "assessment",
+      "region": "Spain",
+      "experience_type": "tour",
+      "length_band": "short",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R01: llegada por parejas y rotación alrededor de la maqueta",
+      "author_rationale": "Presenta la organización de la exploración sin juicio.",
+      "experience_subtype": "guided_tours"
+    },
+    {
+      "text": "Pude entender el valle tocándolo, gracias a unos turnos que respetaban nuestro ritmo. Antes de seguir, el guía esperaba a que terminara cada pareja.",
+      "intended_label": "positivo",
+      "family": "v3-assessment-es-002",
+      "semantic_component": "sg-v3-assessment-es-002",
+      "role": "assessment",
+      "region": "Spain",
+      "experience_type": "tour",
+      "length_band": "short",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R02: comprensión alcanzada y reconstrucción del reparto de turnos",
+      "author_rationale": "Los turnos facilitan una comprensión personal y respetan tiempos distintos.",
+      "experience_subtype": "guided_tours"
+    },
+    {
+      "text": "Necesitaba un pase para dos actividades con plaza de acompañante. La confirmación incluía dos códigos, pero solo uno llevaba esa plaza asociada. Llamé antes de ir y me aseguraron que servía para todo. En la segunda actividad nos separaron porque el acompañante no figuraba en su lista; pagamos otra entrada para sentarnos juntos. Haberlo consultado con antelación no evitó repetir el trámite y abonar una plaza ya ofrecida.",
+      "intended_label": "negativo",
+      "family": "v3-assessment-es-003",
+      "semantic_component": "sg-v3-assessment-es-003",
+      "role": "assessment",
+      "region": "Spain",
+      "experience_type": "reservation",
+      "length_band": "medium",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "expectation"
+      ],
+      "structure": "R03: necesidad conjunta y segunda plaza sin confirmar",
+      "author_rationale": "Una confirmación incorrecta produce separación y pago adicional.",
+      "experience_subtype": "reservations"
+    },
+    {
+      "text": "En la segunda taquilla escanearon el código del acompañante y nos dieron dos números de asiento. Antes, en la primera actividad, habían usado el otro código del mismo pase. El documento contenía una página por actividad, con la fecha y la fila asignada. Conservamos las dos páginas en el teléfono. Al pasar al segundo recinto mostramos también el correo donde constaban los nombres de ambas personas.",
+      "intended_label": "neutral",
+      "family": "v3-assessment-es-003",
+      "semantic_component": "sg-v3-assessment-es-003",
+      "role": "assessment",
+      "region": "Spain",
+      "experience_type": "reservation",
+      "length_band": "medium",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R04: segunda validación vinculada con el acceso anterior",
+      "author_rationale": "Describe documentos y uso de los dos códigos sin valoración.",
+      "experience_subtype": "reservations"
+    },
+    {
+      "text": "Consulté si el asiento de mi acompañante quedaba reservado en las dos actividades. Me enviaron una confirmación con cada sesión por separado y, al detectar que una fila nos dividía, cambiaron ambas plazas antes de cobrar. Lo que ponia el pase coincidió luego con las dos listas de acceso. Así pudimos dedicar la tarde a las actividades, sin ir buscando asientos libres para juntarnos a última hora.",
+      "intended_label": "positivo",
+      "family": "v3-assessment-es-003",
+      "semantic_component": "sg-v3-assessment-es-003",
+      "role": "assessment",
+      "region": "Spain",
+      "experience_type": "reservation",
+      "length_band": "medium",
+      "phenomena": [
+        "negation",
+        "resolved_incident",
+        "typo"
+      ],
+      "structure": "R05: consulta previa, modificación y uso del pase",
+      "author_rationale": "La comprobación anticipada asegura plazas juntas; ponia es una errata deliberada.",
+      "experience_subtype": "reservations"
+    },
+    {
+      "text": "Mis zapatillas quedaron mojadas antes de pisar la primera roca. El guía había anunciado una revisión de suelas, pero al llegar al paso se limitó a mirar el grupo desde delante y levantar el pulgar. Cuando pregunté si las mías servían, contestó que todos estábamos allí por lo mismo. No ofreció una variante ni explicó cómo esperar fuera del tramo. Avancé dos metros, resbalé y me quedé sentado en una piedra hasta que otra excursionista pudo acercarme su mano. No sufrí una caída completa, aunque tampoco pude seguir la explicación del paisaje mientras intentaba volver al camino seco. Presentar aquella revisión como una garantía fue engañoso: no había comprobado nadie el agarre ni escuchado mis dudas. El resto del grupo continuó y mi pareja regresó conmigo al inicio. Dejé las zapatillas al sol durante la parada siguiente. Las marcas de la suela seguían llenas de arena, algo que el guía habría visto si las hubiera mirado de cerca.",
+      "intended_label": "negativo",
+      "family": "v3-assessment-es-004",
+      "semantic_component": "sg-v3-assessment-es-004",
+      "role": "assessment",
+      "region": "Spain",
+      "experience_type": "nature_excursion",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast",
+        "mixed_aspects"
+      ],
+      "structure": "R06: estado de las zapatillas y revisión omitida antes del paso",
+      "author_rationale": "La revisión aparente y la ausencia de alternativas generan un incidente inseguro.",
+      "experience_subtype": "nature_excursions"
+    },
+    {
+      "text": "Había previsto llevar botas y unas zapatillas de repuesto para la excursión. Antes del tramo húmedo nos reunimos al lado de un poste y la guía pidió ver las suelas. Se colocó frente a cada persona y señaló los surcos donde quedaban piedrecitas. Después indicó dos recorridos: uno sobre la roca y otro por una pasarela que llegaba al mismo mirador. Tres personas eligieron la pasarela; yo seguí por la roca con las botas. La guía explicó dónde apoyar el pie y avanzamos dejando un espacio entre participantes. No estaba permitido entrar en el agua que corría por el canal lateral. En el mirador volvimos a reunirnos y contamos las mochilas antes de continuar por tierra. Durante la parada cambié las botas por las zapatillas que llevaba en una bolsa. Mi acompañante recogió una funda que se había soltado de su bastón y la guardó en el bolsillo exterior, junto al mapa doblado del recorrido.",
+      "intended_label": "neutral",
+      "family": "v3-assessment-es-004",
+      "semantic_component": "sg-v3-assessment-es-004",
+      "role": "assessment",
+      "region": "Spain",
+      "experience_type": "nature_excursion",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "objective_chronology"
+      ],
+      "structure": "R07: preparación del calzado, opciones y detalle de una funda",
+      "author_rationale": "La revisión y las rutas se narran como hechos, sin evaluación del servicio.",
+      "experience_subtype": "nature_excursions"
+    },
+    {
+      "text": "Mientras esperábamos junto a la roca húmeda, la guía me pidió enseñar las suelas. Habíamos llegado hasta allí por una senda de tierra y yo daba por hecho que mis zapatillas bastaban para todo. Ella vio que el dibujo estaba gastado y explicó por qué ese tramo requería otro agarre. No me dejó sin excursión: señaló un paso paralelo, nos dijo dónde se reunían los dos caminos y ofreció acompañarnos hasta la entrada. Mi pareja eligió seguir conmigo y desde la pasarela vimos al resto avanzar sobre la roca. No fue una revisión de compromiso ni un sermón sobre mi calzado. Agradecí que convirtiera una limitación concreta en una decisión que podía tomar con información. Llegamos al mirador a tiempo para escuchar la explicación del arroyo y después seguimos todos por el mismo sendero. Antes de marcharnos, la guía comprobó que nadie hubiera dejado botellas junto al poste donde se había organizado el grupo.",
+      "intended_label": "positivo",
+      "family": "v3-assessment-es-004",
+      "semantic_component": "sg-v3-assessment-es-004",
+      "role": "assessment",
+      "region": "Spain",
+      "experience_type": "nature_excursion",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "resolved_incident",
+        "expectation",
+        "explicit_contrast"
+      ],
+      "structure": "R08: espera de revisión y continuación por una alternativa explicada",
+      "author_rationale": "La evaluación real del calzado permite participar de forma informada y segura.",
+      "experience_subtype": "nature_excursions"
+    },
+    {
+      "text": "En recepción no apareció mi bolsa de desayuno a la hora acordada. Habían entregado la única preparada a otra persona sin comprobar el destinatario.",
+      "intended_label": "negativo",
+      "family": "v3-assessment-oh-001",
+      "semantic_component": "sg-v3-assessment-oh-001",
+      "role": "assessment",
+      "region": "other_hispanic",
+      "experience_type": "hotel",
+      "length_band": "short",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R09: recepción al salir y destino equivocado de la bolsa",
+      "author_rationale": "Una entrega sin identificación deja al viajero sin lo acordado.",
+      "experience_subtype": "hotels"
+    },
+    {
+      "text": "Se oía cerrar la cocina cuando bajé. Recogí la bolsa marcada con mi habitación dentro de la franja anotada y dejé la llave en recepción.",
+      "intended_label": "neutral",
+      "family": "v3-assessment-oh-001",
+      "semantic_component": "sg-v3-assessment-oh-001",
+      "role": "assessment",
+      "region": "other_hispanic",
+      "experience_type": "hotel",
+      "length_band": "short",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R10: sonido de cocina y recogida anterior a la salida",
+      "author_rationale": "Describe franja e identificación sin valoración.",
+      "experience_subtype": "hotels"
+    },
+    {
+      "text": "Elegí recoger el desayuno antes del amanecer. La bolsa tenía mi número y verificaron el nombre; pude salir alimentado sin retrasar el viaje.",
+      "intended_label": "positivo",
+      "family": "v3-assessment-oh-001",
+      "semantic_component": "sg-v3-assessment-oh-001",
+      "role": "assessment",
+      "region": "other_hispanic",
+      "experience_type": "hotel",
+      "length_band": "short",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R11: elección de horario y recogida identificada",
+      "author_rationale": "El acuerdo permite desayunar y cumplir la salida temprana.",
+      "experience_subtype": "hotels"
+    },
+    {
+      "text": "Mi amiga tomó una bandeja; yo busqué los cubiertos siguiendo la flecha. La flecha llevaba a la caja y allí nos hicieron volver por los platos, que estaban detrás de una puerta sin señal. Preguntamos cómo funcionaba el recorrido y recibimos indicaciones opuestas. Acabamos cruzando varias veces frente a gente con comida caliente. Que la vajilla fuera reutilizable me parecía bien, pero organizarse allí requería adivinar el orden.",
+      "intended_label": "negativo",
+      "family": "v3-assessment-oh-002",
+      "semantic_component": "sg-v3-assessment-oh-002",
+      "role": "assessment",
+      "region": "other_hispanic",
+      "experience_type": "restaurant",
+      "length_band": "medium",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects"
+      ],
+      "structure": "R12: acciones de dos comensales y cruces por instrucciones incompatibles",
+      "author_rationale": "Valora un aspecto favorable pero la desorganización domina la experiencia.",
+      "experience_subtype": "restaurants"
+    },
+    {
+      "text": "Quise comprobar si los vasos se recogían antes o después de servir la comida. El cartel mostraba una bandeja, un plato y un vaso en ese orden. Tomé las tres piezas, pasé por las fuentes y llegué a la caja. Allí pesaron el plato y anotaron la bebida por separado. Tras comer dejamos la vajilla en un carro con compartimientos y las bandejas sobre un estante.",
+      "intended_label": "neutral",
+      "family": "v3-assessment-oh-002",
+      "semantic_component": "sg-v3-assessment-oh-002",
+      "role": "assessment",
+      "region": "other_hispanic",
+      "experience_type": "restaurant",
+      "length_band": "medium",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R13: comprobación del orden, pago y devolución",
+      "author_rationale": "Expone el recorrido del autoservicio sin juicio afectivo.",
+      "experience_subtype": "restaurants"
+    },
+    {
+      "text": "Ya estaba sirviéndome cuando noté que había olvidado el vaso. Al entrar, una persona nos había explicado el circuito; bastó mirar el esquema para encontrar un acceso lateral sin retroceder entre las bandejas. La vajilla se recogía por piezas y los cubiertos estaban junto a la caja. No fue necesario perseguir a nadie para entenderlo. Pude moverme a mi ritmo, algo que agradezco cuando viajo solo.",
+      "intended_label": "positivo",
+      "family": "v3-assessment-oh-002",
+      "semantic_component": "sg-v3-assessment-oh-002",
+      "role": "assessment",
+      "region": "other_hispanic",
+      "experience_type": "restaurant",
+      "length_band": "medium",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "resolved_incident"
+      ],
+      "structure": "R14: olvido a mitad del circuito y solución mediante el esquema",
+      "author_rationale": "La orientación permite resolver un olvido y conservar autonomía.",
+      "experience_subtype": "restaurants"
+    },
+    {
+      "text": "La luz del tablero y una tarjeta con instrucciones anunciaban el aviso visual de llegada. Lo pedí al subir, porque tengo audición limitada y no siempre entiendo al conductor desde el asiento trasero. Él tocó un botón y aseguró que estaba activado. Durante el recorrido miré varias veces la pantalla, donde seguía apareciendo un anuncio. Paramos junto a una entrada y el conductor habló sin girarse; yo pensé que esperábamos un semáforo. Solo entendí que habíamos llegado cuando otra persona abrió la puerta para subir. El aviso nunca apareció. Al preguntarlo, el conductor dijo que esa función no se utilizaba en todos los coches, pese a llevar la tarjeta delante. Me hizo sentir responsable de no haber entendido una señal que habían ofrecido precisamente para evitar esa dificultad. Recogí la mochila con prisa mientras el siguiente pasajero esperaba. En la acera revisé la dirección para asegurarme de estar en el lugar solicitado y no en una parada intermedia.",
+      "intended_label": "negativo",
+      "family": "v3-assessment-oh-003",
+      "semantic_component": "sg-v3-assessment-oh-003",
+      "role": "assessment",
+      "region": "other_hispanic",
+      "experience_type": "taxi",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "expectation"
+      ],
+      "structure": "R15: dispositivo y tarjeta contrastados con la llegada sin aviso",
+      "author_rationale": "Una función ofrecida y confirmada no se activa, causando confusión y trato desconsiderado.",
+      "experience_subtype": "taxis"
+    },
+    {
+      "text": "La tarjeta del asiento indicaba que el aviso visual se solicitaba al comienzo del trayecto. Al subir mostré ese texto al conductor y señalé mi audífono. Él abrió un menú en la pantalla del tablero, eligió una casilla y giró el aparato para enseñarme una prueba: un rectángulo amarillo con la palabra llegada. Después la pantalla regresó al mapa. Durante el viaje llevé la dirección escrita en una nota del teléfono; en una esquina aparecía también el número del destino. No hablamos por el camino. Cerca del edificio, el conductor redujo la marcha y el rectángulo de la prueba volvió a aparecer, esta vez encima del mapa. Cuando detuvo el coche, comprobé la numeración de la puerta y recogí mis cosas. El pago estaba incluido en la reserva, así que mostré el recibo antes de salir. El conductor desmarcó la casilla y la pantalla quedó mostrando otra vez las calles alrededor del punto de llegada.",
+      "intended_label": "neutral",
+      "family": "v3-assessment-oh-003",
+      "semantic_component": "sg-v3-assessment-oh-003",
+      "role": "assessment",
+      "region": "other_hispanic",
+      "experience_type": "taxi",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "objective_chronology"
+      ],
+      "structure": "R16: instrucciones escritas, prueba y activación al llegar",
+      "author_rationale": "Describe solicitud, prueba y señal final sin atribuir calidad o satisfacción.",
+      "experience_subtype": "taxis"
+    },
+    {
+      "text": "Al pasar del mostrador al taxi, entregué una nota explicando que oigo poco y necesitaba el aviso visual. El conductor la leyó conmigo y, antes de arrancar, hizo una prueba en la pantalla orientada hacia mi asiento. La primera señal duró demasiado poco para mí; ajustó el tiempo y la repitió hasta que pude reconocerla. Ese gesto cambió el viaje: dejé de mirar sus labios por el espejo para averiguar si me estaba diciendo algo. No es cierto que no pudiéramos comunicarnos sin conversar de viva voz. Usamos el mapa para confirmar el destino y un mensaje escrito cuando hubo que elegir la entrada del edificio. Al llegar, la pantalla mostró el mismo símbolo que habíamos ensayado y permaneció encendida mientras recogía la mochila. Bajé sabiendo que era mi parada, con el tiempo necesario para revisar el asiento. En recepción enseñé la reserva del alojamiento, que llevaba doblada junto a la nota inicial.",
+      "intended_label": "positivo",
+      "family": "v3-assessment-oh-003",
+      "semantic_component": "sg-v3-assessment-oh-003",
+      "role": "assessment",
+      "region": "other_hispanic",
+      "experience_type": "taxi",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "double_negation",
+        "resolved_incident",
+        "implicit_contrast"
+      ],
+      "structure": "R17: relevo al conductor, prueba adaptada y reconocimiento de llegada",
+      "author_rationale": "La adaptación concreta del aviso permite comunicación y llegada autónomas.",
+      "experience_subtype": "taxis"
+    },
+    {
+      "text": "Guardé la maleta siguiendo el horario anunciado. Al volver dentro de esa franja, el código no abrió y no atendía nadie el interfono de las consignas.",
+      "intended_label": "negativo",
+      "family": "v3-assessment-oh-004",
+      "semantic_component": "sg-v3-assessment-oh-004",
+      "role": "assessment",
+      "region": "other_hispanic",
+      "experience_type": "airport",
+      "length_band": "short",
+      "phenomena": [
+        "negation",
+        "negative_concordance"
+      ],
+      "structure": "R18: uso del código dentro de la franja y acceso fallido",
+      "author_rationale": "El acceso contratado falla y no existe respuesta disponible.",
+      "experience_subtype": "airports"
+    },
+    {
+      "text": "La segunda lectura mostró una hora adicional: era el límite de retirada. Anoté el código de la consigna y volví antes para abrirla.",
+      "intended_label": "neutral",
+      "family": "v3-assessment-oh-004",
+      "semantic_component": "sg-v3-assessment-oh-004",
+      "role": "assessment",
+      "region": "other_hispanic",
+      "experience_type": "airport",
+      "length_band": "short",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "R19: segunda lectura del resguardo y uso del código",
+      "author_rationale": "Aclara un dato temporal y relata la retirada sin juicio.",
+      "experience_subtype": "airports"
+    },
+    {
+      "text": "Había un reloj sobre las consignas. El aviso distinguía cierre de terminal y límite de retirada; con mi código abrí a tiempo, sin incertidumbre.",
+      "intended_label": "positivo",
+      "family": "v3-assessment-oh-004",
+      "semantic_component": "sg-v3-assessment-oh-004",
+      "role": "assessment",
+      "region": "other_hispanic",
+      "experience_type": "airport",
+      "length_band": "short",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R20: reloj lateral y utilidad del aviso temporal",
+      "author_rationale": "La información diferenciada permite una retirada sin incertidumbre.",
+      "experience_subtype": "airports"
+    },
+    {
+      "text": "La mejora de habitación suena a premio o a trampa: depende de si permiten salir temprano, condición que aún no han confirmado.",
+      "intended_label": null,
+      "family": "v3-ambiguity_policy-co-001",
+      "semantic_component": "sg-v3-ambiguity_policy-co-001",
+      "role": "ambiguity_policy",
+      "region": "Colombia",
+      "experience_type": "hotel",
+      "length_band": "short",
+      "phenomena": [
+        "negation",
+        "expectation"
+      ],
+      "structure": "R01: oferta recibida y condición pendiente",
+      "author_rationale": "Hay dos valoraciones subjetivas incompatibles sujetas a una condición necesaria aún desconocida; no es una simple descripción de la oferta.",
+      "experience_subtype": "hotels",
+      "ambiguity_mechanism": "conditional_unresolved"
+    },
+    {
+      "text": "Esperamos el arroz mientras la salsa seguía en el centro. Mi prima volvió a servirse y dijo que ese picante era la razón para regresar; mi hermano apartó su plato, pidió leche y lo llamó un castigo. Comían de la misma fuente. Yo había dividido las porciones y anoté ambas frases en el teléfono. La valoración de aquella comida cambia según cuál de esas dos voces quede delante.",
+      "intended_label": null,
+      "family": "v3-ambiguity_policy-co-002",
+      "semantic_component": "sg-v3-ambiguity_policy-co-002",
+      "role": "ambiguity_policy",
+      "region": "Colombia",
+      "experience_type": "restaurant",
+      "length_band": "medium",
+      "phenomena": [
+        "explicit_contrast",
+        "mixed_aspects"
+      ],
+      "structure": "R08: espera del acompañamiento y reacciones divergentes al plato común",
+      "author_rationale": "Se expresan placer y rechazo reales de personas distintas; el narrador conserva ambas voces sin asumir una como balance.",
+      "experience_subtype": "restaurants",
+      "ambiguity_mechanism": "attributed_opinions"
+    },
+    {
+      "text": "El espejo del taxi y el reflejo de mi teléfono aparecen juntos en varias fotos del paseo. En la libreta quedó esta frase: «Qué vistas, para volver a pedir el mismo recorrido». La escribí entre el importe y la hora, sin ninguna otra señal que me ayude ahora a recuperar el tono. Habíamos salido por una avenida, rodeado un depósito y subido hacia un barrio de calles estrechas. El conductor bajó la velocidad en dos puntos para que pudiéramos mirar desde el asiento. En uno de ellos saqué tres fotos; en el otro mantuve el teléfono guardado. Mi acompañante recuerda la frase como un elogio, aunque al releerla también cabe oírla con ironía. Las imágenes muestran trozos de edificios, cielo y la esquina del cristal, pero no devuelven lo que esperábamos ver aquella tarde. La hoja siguiente tiene únicamente la dirección de regreso. Sobre el asiento conservábamos un mapa plegado, con el itinerario turístico marcado a lápiz alrededor de la zona alta.",
+      "intended_label": null,
+      "family": "v3-ambiguity_policy-co-003",
+      "semantic_component": "sg-v3-ambiguity_policy-co-003",
+      "role": "ambiguity_policy",
+      "region": "Colombia",
+      "experience_type": "taxi",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "expectation"
+      ],
+      "structure": "R15: reflejos fotografiados y nota de intención irrecuperable",
+      "author_rationale": "La frase evaluativa admite elogio o sarcasmo; no se aporta la expectativa ni el tono necesarios para resolverla. Ironía posible, no afirmada como fenómeno cierto.",
+      "experience_subtype": "taxis",
+      "ambiguity_mechanism": "irony_without_anchor"
+    },
+    {
+      "text": "«Qué alivio por ese precio: sillones, ducha, café». Mi nota junto al anuncio de la sala mezcla promesas y recuerdos sin distinguir esas palabras.",
+      "intended_label": null,
+      "family": "v3-ambiguity_policy-pe-001",
+      "semantic_component": "sg-v3-ambiguity_policy-pe-001",
+      "role": "ambiguity_policy",
+      "region": "Peru",
+      "experience_type": "airport",
+      "length_band": "short",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R02: nota evaluativa conservada junto a la oferta",
+      "author_rationale": "El alivio es subjetivo, pero su atribución a publicidad o experiencia permanece indeterminada; no se inventa una visita comprobada.",
+      "experience_subtype": "airports",
+      "ambiguity_mechanism": "voice_attribution"
+    },
+    {
+      "text": "Junto a la ventanilla vi pasar el desvío al mirador; nuestro vehículo siguió directo y llegamos dos horas antes. Me atrajo tener esa tarde libre, pero sigo pensando en el tramo de montaña que desapareció del viaje. Había llevado la cámara cargada y también una lista de cosas por hacer al llegar. Cada plan reclama esas mismas horas. Cuando intento valorar el cambio, termino volviendo a las dos listas.",
+      "intended_label": null,
+      "family": "v3-ambiguity_policy-pe-002",
+      "semantic_component": "sg-v3-ambiguity_policy-pe-002",
+      "role": "ambiguity_policy",
+      "region": "Peru",
+      "experience_type": "transport",
+      "length_band": "medium",
+      "phenomena": [
+        "explicit_contrast",
+        "mixed_aspects",
+        "expectation"
+      ],
+      "structure": "R09: desvío observado desde el asiento y prioridades competidoras",
+      "author_rationale": "La ganancia de tiempo y la pérdida panorámica producen preferencias subjetivas sin una prioridad que sostenga un balance.",
+      "experience_subtype": "intercity_transport",
+      "ambiguity_mechanism": "unweighted_tradeoff"
+    },
+    {
+      "text": "El plano de la futura prolongación del tranvía coloca una parada frente al recinto que quiero visitar. Sobre el papel parece la oportunidad de llegar sin combinar buses, y ya me imagino bajando con la mochila directamente en esa plaza. A la vez, la línea rodea varios barrios antes de alcanzar ese punto y me pregunto si acabaría cambiando caminata por tiempo sentado. Ninguno de esos trayectos está abierto todavía. He trazado dos itinerarios para un próximo viaje: uno utiliza la prolongación y el otro mantiene el transbordo actual. La primera opción me ilusiona por su sencillez; la segunda conserva una entrada al barrio que también quiero conocer. En mis notas alterno «por fin» con «a ver qué sacrificamos», según cuál de las dos rutas miro. No tengo un recorrido vivido que incline esa anticipación hacia una conclusión. Dejé el plano sobre la mesa, con las dos opciones señaladas en colores y la fecha del posible viaje escrita aparte.",
+      "intended_label": null,
+      "family": "v3-ambiguity_policy-pe-003",
+      "semantic_component": "sg-v3-ambiguity_policy-pe-003",
+      "role": "ambiguity_policy",
+      "region": "Peru",
+      "experience_type": "transport",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects",
+        "expectation"
+      ],
+      "structure": "R16: plano futuro convertido en dos itinerarios anticipados",
+      "author_rationale": "Se refina la mera no experiencia futura mediante ilusión y reservas subjetivas contrapuestas; ninguna ruta existe aún para confirmar un resultado.",
+      "experience_subtype": "local_transport",
+      "ambiguity_mechanism": "future_nonexperience"
+    },
+    {
+      "text": "La cala está vacía y apartada. Ese silencio me tira hacia dos planes contrarios: quedarme a solas o buscar dónde haya gente.",
+      "intended_label": null,
+      "family": "v3-ambiguity_policy-mx-001",
+      "semantic_component": "sg-v3-ambiguity_policy-mx-001",
+      "role": "ambiguity_policy",
+      "region": "Mexico",
+      "experience_type": "beach",
+      "length_band": "short",
+      "phenomena": [
+        "mixed_aspects"
+      ],
+      "structure": "R03: necesidad de decidir ante el aislamiento de la cala",
+      "author_rationale": "El aislamiento provoca una preferencia personalmente indecisa, en lugar de quedar como un dato objetivo confundido con ambigüedad.",
+      "experience_subtype": "beaches",
+      "ambiguity_mechanism": "unstated_preference"
+    },
+    {
+      "text": "Sonó una campana al comenzar la presentación del museo y guardé el horario que llevaba doblado. Cuando terminó, nuestro plan de la tarde había cambiado. En la nota escribí «menudo giro nos dieron», una frase que todavía depende de lo que uno suponga que íbamos a hacer después. Conservo las entradas y la nueva hora de salida; he dejado fuera justamente la parte que permitiría llamarlo una ganancia o una pérdida.",
+      "intended_label": null,
+      "family": "v3-ambiguity_policy-mx-002",
+      "semantic_component": "sg-v3-ambiguity_policy-mx-002",
+      "role": "ambiguity_policy",
+      "region": "Mexico",
+      "experience_type": "museum",
+      "length_band": "medium",
+      "phenomena": [
+        "expectation"
+      ],
+      "structure": "R10: campana de inicio y valoración de un cambio sin referencia",
+      "author_rationale": "Existe una reacción subjetiva al cambio, pero faltan el plan previo y su resultado para determinar la valencia global.",
+      "experience_subtype": "museums",
+      "ambiguity_mechanism": "missing_comparison_basis"
+    },
+    {
+      "text": "Al dejar la plaza iluminada entramos en la parte estrecha de la ruta nocturna. Mi compañero agradeció que las lámparas fueran bajas: decía que así podía mirar los balcones sin tener un foco en la cara. Otra participante pidió más luz porque no distinguía el borde de los escalones y sentía que caminaba pendiente de cada paso. El guía reunió al grupo debajo de una farola para señalar una fachada. Allí se reanudó la discusión. Para el primero, aquel rincón conservaba el ambiente que buscaba; para la segunda, ese ambiente suponía esfuerzo y tensión. Ambos habían seguido el mismo recorrido y daban ejemplos de los mismos lugares. Yo llevaba las notas de la visita y apunté sus frases en columnas distintas, sin convertirlas en una votación. Cuando volvimos a movernos, él se quedó cerca de la pared y ella avanzó por el centro, donde alcanzaba la luz de la farola siguiente. Las dos columnas permanecen abiertas en mi cuaderno.",
+      "intended_label": null,
+      "family": "v3-ambiguity_policy-es-001",
+      "semantic_component": "sg-v3-ambiguity_policy-es-001",
+      "role": "ambiguity_policy",
+      "region": "Spain",
+      "experience_type": "tour",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects"
+      ],
+      "structure": "R17: transición de iluminación y dos valoraciones personales del mismo tramo",
+      "author_rationale": "Las preferencias incompatibles se mantienen atribuidas a sus hablantes; ninguna voz del narrador decide un balance colectivo.",
+      "experience_subtype": "guided_tours",
+      "ambiguity_mechanism": "multiple_unresolved_voices"
+    },
+    {
+      "text": "Sigo mirando el borrador sobre fechas del jardín: «vaya flexibilidad» puede ser alivio o reproche según la respuesta. Todavía no he enviado la consulta.",
+      "intended_label": null,
+      "family": "v3-ambiguity_policy-es-002",
+      "semantic_component": "sg-v3-ambiguity_policy-es-002",
+      "role": "ambiguity_policy",
+      "region": "Spain",
+      "experience_type": "reservation",
+      "length_band": "short",
+      "phenomena": [
+        "negation",
+        "expectation"
+      ],
+      "structure": "R04: revisión presente de una consulta aún no enviada",
+      "author_rationale": "La frase evaluativa tiene dos lecturas condicionadas por una respuesta inexistente; se evita confundir el mero borrador con ambigüedad sentimental.",
+      "experience_subtype": "reservations",
+      "ambiguity_mechanism": "incomplete_transaction"
+    },
+    {
+      "text": "Podíamos quedarnos en el mirador inicial o regresar al vehículo; el resto del sendero estaba cerrado temporalmente. Elegí mirar el valle y pensé que aquella vista ya justificaba salir. Al recoger la mochila volvió la otra idea: había venido para caminar hasta la laguna, no para verla dibujada en un cartel. Una impresión no termina de desplazar a la otra. Mis fotos acaban en el mismo punto donde empezó la excursión.",
+      "intended_label": null,
+      "family": "v3-ambiguity_policy-oh-001",
+      "semantic_component": "sg-v3-ambiguity_policy-oh-001",
+      "role": "ambiguity_policy",
+      "region": "other_hispanic",
+      "experience_type": "nature_excursion",
+      "length_band": "medium",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects",
+        "expectation"
+      ],
+      "structure": "R11: elección parcial frente al cierre y juicios no resueltos",
+      "author_rationale": "El goce del paisaje y la frustración del objetivo perdido son subjetivos y coexisten sin un peso global decidido.",
+      "experience_subtype": "nature_excursions",
+      "ambiguity_mechanism": "mixed_partial_experience"
+    },
+    {
+      "text": "Usé el escritorio de la segunda habitación para volver a ordenar las cosas que había sacado de la maleta. En la primera había dejado abierto el estuche de trabajo y había acercado una silla a la ventana. Luego hablamos en recepción y me entregaron otra llave. En mis mensajes quedó escrito «al final nos movieron», seguido de una cara que ahora admite más de una lectura. El cambio puede haber atendido lo que yo necesitaba para trabajar o corregido algo que el alojamiento debía haber preparado; la conversación donde se decidió no está en esas notas. Recuerdo el alivio de tener mis papeles extendidos y también el fastidio de rehacer la instalación. No he conservado qué desencadenó la petición ni quién la planteó primero. Con una causa, llamaría atento al servicio; con la otra, estaría describiendo el esfuerzo de arreglar una situación previa. Dejé la llave anterior sobre el mostrador y subí otra vez con el cargador enrollado alrededor del estuche.",
+      "intended_label": null,
+      "family": "v3-ambiguity_policy-oh-002",
+      "semantic_component": "sg-v3-ambiguity_policy-oh-002",
+      "role": "ambiguity_policy",
+      "region": "other_hispanic",
+      "experience_type": "hotel",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects"
+      ],
+      "structure": "R18: reinstalación del escritorio y atribución causal ausente",
+      "author_rationale": "El cambio suscita alivio y molestia; sin el motivo no puede asignarse el episodio a atención favorable o reparación de una falla.",
+      "experience_subtype": "hotels",
+      "ambiguity_mechanism": "causal_attribution_gap"
+    },
+    {
+      "text": "La posible cinta nueva suena a solución o a otro paseo con la maleta pendiente; todavía no llega equipaje que incline esa impresión.",
+      "intended_label": null,
+      "family": "v3-ambiguity_assessment-co-001",
+      "semantic_component": "sg-v3-ambiguity_assessment-co-001",
+      "role": "ambiguity_assessment",
+      "region": "Colombia",
+      "experience_type": "airport",
+      "length_band": "short",
+      "phenomena": [
+        "negation",
+        "expectation"
+      ],
+      "structure": "R10: anuncio oído y expectativa suspendida antes del equipaje",
+      "author_rationale": "La reasignación genera dos anticipaciones subjetivas de signo distinto; la narración se detiene antes de conocer el resultado.",
+      "experience_subtype": "airports",
+      "ambiguity_mechanism": "anticipated_outcome_unknown"
+    },
+    {
+      "text": "Cuando la fila alcanzó la rampa sonó una bocina junto al transbordador. Me puso en disposición de celebrar la salida y, al mismo tiempo, de contener el paso. Podía pertenecer a nuestro embarque, a una maniobra o a una prueba; desde donde estaba no veía quién la había activado. El sonido volvió mientras una persona recogía una cuerda. Sigo entre aquella expectación y aquel recelo, sin adjudicarle una función.",
+      "intended_label": null,
+      "family": "v3-ambiguity_assessment-co-002",
+      "semantic_component": "sg-v3-ambiguity_assessment-co-002",
+      "role": "ambiguity_assessment",
+      "region": "Colombia",
+      "experience_type": "transport",
+      "length_band": "medium",
+      "phenomena": [
+        "negation",
+        "mixed_aspects"
+      ],
+      "structure": "R17: fila en la rampa, aviso y transición aún sin referente",
+      "author_rationale": "Se refina la simple desconocida referencia sonora con expectación y recelo personales; no se afirma su utilidad ni su consecuencia.",
+      "experience_subtype": "local_transport",
+      "ambiguity_mechanism": "referent_unclear"
+    },
+    {
+      "text": "Ya en la segunda esquina volví a pensar en lo que había dicho el guía antes de arrancar: «Estas cuatro calles nos dan para toda la tarde». Podía ser su manera de bromear con la cantidad de historias o una indicación literal sobre cuánto caminaríamos. Habíamos quedado junto a un portal y cada persona llevaba un folleto doblado por la mitad. Él señaló el primer tramo con un lápiz, guardó el papel y comenzó a hablar de las fachadas. Después cruzamos una plaza y nos detuvimos ante una puerta con dos fechas talladas. Yo había reservado varias horas, aunque también llevaba otra dirección para visitar ese día. La frase me queda como una promesa de profundidad o como un aviso que alteraría ese segundo plan. No conservo un tono que decida entre ambas lecturas. Mi relato se queda en aquella esquina, con el guía buscando una fotografía dentro de la carpeta y el grupo acercándose al umbral para ver las fechas.",
+      "intended_label": null,
+      "family": "v3-ambiguity_assessment-pe-001",
+      "semantic_component": "sg-v3-ambiguity_assessment-pe-001",
+      "role": "ambiguity_assessment",
+      "region": "Peru",
+      "experience_type": "tour",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "expectation"
+      ],
+      "structure": "R04: segunda esquina, frase inicial y continuación sin desenlace",
+      "author_rationale": "La duración puede ser hipérbole amistosa o dato literal; cambia entre promesa y advertencia según la lectura, sin reacción ni final que la resuelva.",
+      "experience_subtype": "guided_tours",
+      "ambiguity_mechanism": "pragmatic_double_reading"
+    },
+    {
+      "text": "«Quedan en lista de espera». ¿Los cinco o la plaza añadida? Lo recibo como un alivio o un golpe según a quién incluya.",
+      "intended_label": null,
+      "family": "v3-ambiguity_assessment-pe-002",
+      "semantic_component": "sg-v3-ambiguity_assessment-pe-002",
+      "role": "ambiguity_assessment",
+      "region": "Peru",
+      "experience_type": "reservation",
+      "length_band": "short",
+      "phenomena": [
+        "expectation"
+      ],
+      "structure": "R11: decisión de ampliar el grupo y mensaje de alcance incierto",
+      "author_rationale": "El alcance del mensaje cambia una reacción subjetiva de alivio a rechazo; no se reduce a un dato administrativo desconocido.",
+      "experience_subtype": "reservations",
+      "ambiguity_mechanism": "scope_ambiguity"
+    },
+    {
+      "text": "Probamos el eco hablando hacia la pared y luego escuchamos desde el centro. «Vale cada paso, una maravilla de silencio cuando uno se calla»: esa valoración me acompaña al contar la salida. La recuerdo con la voz de mi acompañante y también entre las frases del folleto que leímos en el camino. Al repetirla puedo estar adoptándola o devolviendo palabras ajenas. No quedó claro quién hacía suyo aquel entusiasmo.",
+      "intended_label": null,
+      "family": "v3-ambiguity_assessment-mx-001",
+      "semantic_component": "sg-v3-ambiguity_assessment-mx-001",
+      "role": "ambiguity_assessment",
+      "region": "Mexico",
+      "experience_type": "nature_excursion",
+      "length_band": "medium",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "R18: prueba del eco y valoración de procedencia indeterminada",
+      "author_rationale": "Hay entusiasmo inequívocamente subjetivo, pero no se puede atribuir al narrador frente a folleto o acompañante.",
+      "experience_subtype": "nature_excursions",
+      "ambiguity_mechanism": "evaluation_source_unknown"
+    },
+    {
+      "text": "Pregunté por el olor que recordaba en la habitación, pero al contarlo mezclé varios momentos de la tarde. Había abierto la ventana, dejado una bolsa de comida sobre la mesa y colgado una prenda que venía del viaje. También recuerdo un carrito detenido cerca de la puerta y una botella de producto junto a las toallas. No tengo ordenada la secuencia entre esas imágenes y la primera vez que percibí el olor. En un recuerdo me resulta acogedor, como señal de una habitación recién preparada; en otro parece algo que permanecía allí y que yo habría preferido no encontrar. La misma descripción cambia de valor según el momento al que la una. La consulta quedó formulada sin esa precisión y no tengo una respuesta que establezca el origen. Mientras tanto, mis fotos muestran la ventana en posiciones distintas y la bolsa unas veces cerrada, otras abierta. Guardé el comprobante de la estancia entre ellas, sin anotaciones sobre esa parte del día.",
+      "intended_label": null,
+      "family": "v3-ambiguity_assessment-mx-002",
+      "semantic_component": "sg-v3-ambiguity_assessment-mx-002",
+      "role": "ambiguity_assessment",
+      "region": "Mexico",
+      "experience_type": "hotel",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects"
+      ],
+      "structure": "R05: consulta sobre olor y reconstrucción temporal incompleta",
+      "author_rationale": "El olor tiene lecturas subjetivas opuestas vinculadas a su origen y momento; no se atribuye fallo al alojamiento sin resolverlos.",
+      "experience_subtype": "hotels",
+      "ambiguity_mechanism": "temporal_causal_gap"
+    },
+    {
+      "text": "Mi pareja contó tres bocados por plato. «Justo lo que veníamos buscando» puede sonar de dos maneras; no he contado qué esperábamos de la degustación.",
+      "intended_label": null,
+      "family": "v3-ambiguity_assessment-mx-003",
+      "semantic_component": "sg-v3-ambiguity_assessment-mx-003",
+      "role": "ambiguity_assessment",
+      "region": "Mexico",
+      "experience_type": "restaurant",
+      "length_band": "short",
+      "phenomena": [
+        "negation",
+        "expectation"
+      ],
+      "structure": "R12: recuento del acompañante y frase dependiente del objetivo",
+      "author_rationale": "La frase admite satisfacción o ironía según una meta de comida completa o muestra que permanece ausente.",
+      "experience_subtype": "restaurants",
+      "ambiguity_mechanism": "goal_dependent_interpretation"
+    },
+    {
+      "text": "El trayecto del taxi terminó siendo distinto de aquel otro que tengo en la cabeza. Al mirar el recibo pensé «menudo recorrido», y sigo usando esa expresión sin fijar si celebro lo que vimos o señalo una vuelta que sobraba. La comparación se me mezcla con el tiempo, las calles y la forma de viajar que prefería ese día. Falta precisamente la referencia que daría dirección a ese juicio.",
+      "intended_label": null,
+      "family": "v3-ambiguity_assessment-es-001",
+      "semantic_component": "sg-v3-ambiguity_assessment-es-001",
+      "role": "ambiguity_assessment",
+      "region": "Spain",
+      "experience_type": "taxi",
+      "length_band": "medium",
+      "phenomena": [
+        "negation",
+        "expectation"
+      ],
+      "structure": "R19: recibo releído y comparación sin referencia identificable",
+      "author_rationale": "La evaluación comparativa puede ser aprobación o reproche; no se sabe qué trayecto, magnitud o preferencia funciona como referencia.",
+      "experience_subtype": "taxis",
+      "ambiguity_mechanism": "comparison_reference_missing"
+    },
+    {
+      "text": "La plataforma flotante subía por un extremo cuando alguien pisaba el otro y la cuerda lateral cambiaba de tensión. Mi prima regresó diciendo que ese movimiento era lo mejor de la actividad: le había parecido estar jugando con las olas sin alejarse de la playa. Mi hermano describió exactamente lo mismo como una razón para no volver. Según él, cada paso exigía pensar dónde agarrarse y no había podido relajarse. Habían ido en turnos consecutivos, con el mismo monitor y la misma cuerda. Dejaron sus pulseras sobre una toalla mientras comparaban la inclinación de la tabla con la de una pasarela fija. Ella defendía la gracia de perder el equilibrio un instante; él quería saber que el apoyo no iba a moverse. Desde la arena seguí la conversación y después recogí una botella que había rodado junto a nuestras bolsas. La plataforma continuaba balanceándose al fondo. Las dos versiones se refieren al mismo vaivén y ninguna queda convertida aquí en la experiencia del grupo.",
+      "intended_label": null,
+      "family": "v3-ambiguity_assessment-es-002",
+      "semantic_component": "sg-v3-ambiguity_assessment-es-002",
+      "role": "ambiguity_assessment",
+      "region": "Spain",
+      "experience_type": "beach",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects"
+      ],
+      "structure": "R06: movimiento del objeto y relatos opuestos de sus usuarios",
+      "author_rationale": "Se conservan evaluaciones incompatibles y atribuidas a dos usuarios; no se afirma que el narrador haya usado la plataforma ni adoptado una postura.",
+      "experience_subtype": "beaches",
+      "ambiguity_mechanism": "observer_with_conflicting_reports"
+    },
+    {
+      "text": "¿Tantas piezas para una sola mirada? Volví a contar las filas de la vitrina y repetí la pregunta, deteniéndome frente al cristal.",
+      "intended_label": null,
+      "family": "v3-ambiguity_assessment-es-003",
+      "semantic_component": "sg-v3-ambiguity_assessment-es-003",
+      "role": "ambiguity_assessment",
+      "region": "Spain",
+      "experience_type": "museum",
+      "length_band": "short",
+      "phenomena": [],
+      "structure": "R13: pregunta sobre cantidad y comprobación visual sin entonación decisiva",
+      "author_rationale": "La pregunta subjetiva puede expresar asombro interesado o reproche por saturación; ninguna reacción posterior determina su intención.",
+      "experience_subtype": "museums",
+      "ambiguity_mechanism": "question_intent_unresolved"
+    },
+    {
+      "text": "El reflejo de una página quedaba en el vidrio del vehículo. Desde ese asiento tenía luz para leer todas las notas del viaje, algo que venía deseando; también recibía el calor de la ventana y terminaba separando el brazo del apoyabrazos. Pasar al pasillo habría cambiado las dos cosas a la vez. Abría el cuaderno y pensaba en quedarme; sentía el calor y miraba el otro sitio. Ninguna preferencia ha terminado de imponerse.",
+      "intended_label": null,
+      "family": "v3-ambiguity_assessment-oh-001",
+      "semantic_component": "sg-v3-ambiguity_assessment-oh-001",
+      "role": "ambiguity_assessment",
+      "region": "other_hispanic",
+      "experience_type": "transport",
+      "length_band": "medium",
+      "phenomena": [
+        "mixed_aspects",
+        "expectation"
+      ],
+      "structure": "R20: reflejo lateral y elección indecisa entre dos condiciones del asiento",
+      "author_rationale": "El beneficio deseado de lectura y el malestar térmico son personales y no tienen prioridad global definida.",
+      "experience_subtype": "intercity_transport",
+      "ambiguity_mechanism": "unweighted_competing_aspects"
+    },
+    {
+      "text": "Pensaba acercarme al puesto de equipaje especial para preguntar cómo llevar una caja en mi próximo viaje. Desde el pasillo vi una fila de cuatro personas, un carro con fundas largas y una báscula detrás del mostrador. Una persona señalaba unos papeles mientras el empleado movía las manos sobre la superficie. No alcanzaba a oír la conversación. La escena me producía dos anticipaciones distintas: quizá allí atenderían con detalle una pieza como la mía, quizá tendría que dedicar la mañana a explicar lo mismo varias veces. No doy por ocurrido ninguno de esos resultados. Vi que cambiaban una funda de posición y que alguien salía un momento de la fila para buscar algo en una mochila. Otra persona sostuvo una etiqueta delante de su teléfono. Me quedé al otro lado de los postes, con la duda de si acercarme animado o prepararme para una gestión pesada. El carro seguía junto al mostrador cuando continué hacia la zona de llegadas de la terminal.",
+      "intended_label": null,
+      "family": "v3-ambiguity_assessment-oh-002",
+      "semantic_component": "sg-v3-ambiguity_assessment-oh-002",
+      "role": "ambiguity_assessment",
+      "region": "other_hispanic",
+      "experience_type": "airport",
+      "length_band": "long",
+      "phenomena": [
+        "negation",
+        "expectation"
+      ],
+      "structure": "R07: plan de preguntar y observación externa que suscita anticipaciones opuestas",
+      "author_rationale": "Se refina la mera observación con expectativas personales contradictorias; no se infiere el resultado de la fila ni la experiencia ajena.",
+      "experience_subtype": "airports",
+      "ambiguity_mechanism": "external_observation_only"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "architecture_and_demo_preservation": [
+    {
+      "identical_to_verified_main": true,
+      "path": "src/traveler_agent/multiagent.py",
+      "sha256": "3e9fcb208600ab9f40d576d1c12b5efcd086f432b03a6753808b89ed63f19451"
+    },
+    {
+      "identical_to_verified_main": true,
+      "path": "app.py",
+      "sha256": "18344b69ce67787c26a328040c8c7dbbd9a1cd5452282acc050ea5ec75690919"
+    },
+    {
+      "identical_to_verified_main": true,
+      "path": "src/traveler_agent/model_runtime.py",
+      "sha256": "e8e6ff2a3ac9e66fa665e9a65f4d2b1d70f731ae011323c69091cf0e46219b09"
+    }
+  ],
+  "human_voice_tested": false,
+  "known_xfail": 1,
+  "known_xfail_name": "test_negation_expected_positive_is_known_limitation",
+  "log_sha256": "a3c57a7d9a63da14f737bb6802313e50d250ebe8c17d45888ebd01c38f1d4f17",
+  "main_verified": "1628df6fe9a1c9ee68ab34096444177ba4c4a580",
+  "passed": 443,
+  "prior_validation": {
+    "log_sha256": "5455ed397a99cfe73ef51da7eb2cd87f94171d76472a092452f672bca28b25bd",
+    "passed": 437,
+    "tested_commit": "f8fb2f883631bbd71e3ff4c2f4994a16a934cf82",
+    "wall_seconds": 65.39
+  },
+  "schema": "beto-v3-local-regression-2026-11-13",
+  "source": "actual pytest output; integrated main checkout, pinned research environment",
+  "tested_base_commit": "9c7a6666664d3a151ca2d6f922f0e69d29ee23f1",
+  "tested_fix_source_sha256": {
+    "scripts/export_beto_v3_recovery.py": "8c4d9f05d381cb7cd003970fb145c06173185ddcebb0a94c071859d6d49886b1",
+    "scripts/export_beto_v3_representation.py": "4bbb37df9c5faf86c65f9ed48e4849026a1adc6c0d5e01e7ebe30b1cbff64e4f",
+    "scripts/reproduce_beto_v3.py": "d4d4db87a4909a162cb54461d97daf7f7dac1a51da0478307f993262cc8db8ed",
+    "src/traveler_agent/beto_training_v3_recovery.py": "dbb2df3be3ebbb3e6635376633923c542c176a628d7c23114c6ce10e49a60818",
+    "src/traveler_agent/beto_training_v3_representation.py": "a735d112589ba1b9f00d6a8c637da53e8cb5b56b9f45b119ee2dbf8cfbefdfba",
+    "src/traveler_agent/research_data/beto_v3_train_representation.json": "6000fd604b9536245bb2aa0743c9542e230a8ee6da6c2a1d2ba8977c24937be3",
+    "tests/test_beto_training_v2.py": "703a1c6dad68fe69c22cb37a4ccd890753aa70e5b89bc1111aa8e78412b0961a",
+    "tests/test_beto_training_v3_recovery.py": "20993af5eb103311b3ddbcf6a8855afe9245c5d776780b72b54c0a3a01e859fd",
+    "tests/test_beto_training_v3_representation.py": "19bcbeb666fd287f76622b4fad92b70340f940a13f8e7422beb31bc3210e1e31",
+    "tests/test_beto_training_v3_reproduction.py": "944f0b67ea3279e5ddfe91d3b2777e16a63c32f1d30738aa87fc8b02f6d93702"
+  },
+  "wall_seconds": 64.3,
+  "working_tree_representation_fix": true
+}

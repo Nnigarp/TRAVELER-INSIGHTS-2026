@@ -1,0 +1,80 @@
+{
+  "scope": "ISOLATED_INFERENCE_NOT_TRAINING_PEAK",
+  "models": {
+    "dummy": {
+      "model": "dummy",
+      "peak_rss_mib": 156.61328125,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "isolated inference process, imports/load/nine tune requests, no assessment calls",
+      "launch_parent": "stdlib-only; no numpy/torch/optimizer imports"
+    },
+    "lr": {
+      "model": "lr",
+      "peak_rss_mib": 157.7578125,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "isolated inference process, imports/load/nine tune requests, no assessment calls",
+      "launch_parent": "stdlib-only; no numpy/torch/optimizer imports"
+    },
+    "svm": {
+      "model": "svm",
+      "peak_rss_mib": 179.4453125,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "isolated inference process, imports/load/nine tune requests, no assessment calls",
+      "launch_parent": "stdlib-only; no numpy/torch/optimizer imports"
+    },
+    "beto_frozen128": {
+      "model": "beto_frozen128",
+      "peak_rss_mib": 784.67578125,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "isolated inference process, imports/load/nine tune requests, no assessment calls",
+      "launch_parent": "stdlib-only; no numpy/torch/optimizer imports"
+    },
+    "beto_frozen256": {
+      "model": "beto_frozen256",
+      "peak_rss_mib": 796.828125,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "isolated inference process, imports/load/nine tune requests, no assessment calls",
+      "launch_parent": "stdlib-only; no numpy/torch/optimizer imports"
+    },
+    "beto_full256_budgeted": {
+      "model": "beto_full256_budgeted",
+      "peak_rss_mib": 1260.13671875,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "isolated inference process, imports/load/nine tune requests, no assessment calls",
+      "launch_parent": "stdlib-only; no numpy/torch/optimizer imports"
+    },
+    "beto_reference_v1": {
+      "model": "beto_reference_v1",
+      "peak_rss_mib": 789.12890625,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "isolated inference process, imports/load/nine tune requests, no assessment calls",
+      "launch_parent": "stdlib-only; no numpy/torch/optimizer imports"
+    },
+    "beto_reference_v2": {
+      "model": "beto_reference_v2",
+      "peak_rss_mib": 790.46484375,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "isolated inference process, imports/load/nine tune requests, no assessment calls",
+      "launch_parent": "stdlib-only; no numpy/torch/optimizer imports"
+    },
+    "beto_seed7": {
+      "model": "beto_seed7",
+      "peak_rss_mib": 1260.515625,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "isolated inference process, imports/load/nine tune requests, no assessment calls",
+      "launch_parent": "stdlib-only; no numpy/torch/optimizer imports"
+    },
+    "beto_seed101": {
+      "model": "beto_seed101",
+      "peak_rss_mib": 1260.5390625,
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "scope": "isolated inference process, imports/load/nine tune requests, no assessment calls",
+      "launch_parent": "stdlib-only; no numpy/torch/optimizer imports"
+    }
+  },
+  "telemetry_comparison_valid": true,
+  "limits": [
+    "Process imports, admission verification, artifact load and nine tune requests; no assessment calls.",
+    "Host-specific RSS peaks, not guaranteed RAM requirements on another platform."
+  ]
+}

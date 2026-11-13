@@ -1,0 +1,105 @@
+{
+  "avx512_disabled": {
+    "conditions": {
+      "original_fitted_representation": {
+        "dummy": {
+          "classes_exact": true,
+          "max_raw_difference": 0.0
+        },
+        "lr": {
+          "classes_exact": true,
+          "max_raw_difference": 4.440892098500626e-16,
+          "vocabulary_sha256": {
+            "chars": "f9c6006b2fa497d04dba00295bd6dd3102a312c6ce5cdd13a0cfd7edf228e8ba",
+            "words": "cf670c0fc3ef5efda4ee780bd47636c364ae728ae781e92cd5798b4cf39ef737"
+          }
+        },
+        "svm": {
+          "classes_exact": true,
+          "max_raw_difference": 5.551115123125783e-16
+        }
+      },
+      "original_frequency_ranking": {
+        "dummy": {
+          "classes_exact": true,
+          "max_raw_difference": 0.0
+        },
+        "lr": {
+          "classes_exact": true,
+          "max_raw_difference": 0.004069487807597805,
+          "vocabulary_sha256": {
+            "chars": "1a64174d41fbe958c3238c76312d0a587e320d9e28d7510dc3fe6e6b8aa0c9b6",
+            "words": "cf670c0fc3ef5efda4ee780bd47636c364ae728ae781e92cd5798b4cf39ef737"
+          }
+        },
+        "svm": {
+          "classes_exact": true,
+          "max_raw_difference": 0.025767556564486066
+        }
+      }
+    },
+    "cpu_features_disabled": "AVX512F,AVX512_SKX,AVX512_CLX,AVX512_CNL,AVX512_ICL,AVX512_SPR,X86_V4",
+    "feature_strategy_or_reference_changed_to_match_scores": false,
+    "fit_source": "TRAIN ONLY, one original C, no search",
+    "numpy_version": "2.5.4",
+    "raw_atol_unchanged": 0.003,
+    "records_sha256": "1ca1521e303325bb314eb6d8c2d8e8b42e1510ac5352a541ab119bd403c16f9d"
+  },
+  "default_cpu": {
+    "conditions": {
+      "original_fitted_representation": {
+        "dummy": {
+          "classes_exact": true,
+          "max_raw_difference": 0.0
+        },
+        "lr": {
+          "classes_exact": true,
+          "max_raw_difference": 4.440892098500626e-16,
+          "vocabulary_sha256": {
+            "chars": "f9c6006b2fa497d04dba00295bd6dd3102a312c6ce5cdd13a0cfd7edf228e8ba",
+            "words": "cf670c0fc3ef5efda4ee780bd47636c364ae728ae781e92cd5798b4cf39ef737"
+          }
+        },
+        "svm": {
+          "classes_exact": true,
+          "max_raw_difference": 5.551115123125783e-16
+        }
+      },
+      "original_frequency_ranking": {
+        "dummy": {
+          "classes_exact": true,
+          "max_raw_difference": 0.0
+        },
+        "lr": {
+          "classes_exact": true,
+          "max_raw_difference": 7.771561172376096e-16,
+          "vocabulary_sha256": {
+            "chars": "f9c6006b2fa497d04dba00295bd6dd3102a312c6ce5cdd13a0cfd7edf228e8ba",
+            "words": "cf670c0fc3ef5efda4ee780bd47636c364ae728ae781e92cd5798b4cf39ef737"
+          }
+        },
+        "svm": {
+          "classes_exact": true,
+          "max_raw_difference": 0.0
+        }
+      }
+    },
+    "cpu_features_disabled": "NONE",
+    "feature_strategy_or_reference_changed_to_match_scores": false,
+    "fit_source": "TRAIN ONLY, one original C, no search",
+    "numpy_version": "2.5.4",
+    "raw_atol_unchanged": 0.003,
+    "records_sha256": "1ca1521e303325bb314eb6d8c2d8e8b42e1510ac5352a541ab119bd403c16f9d"
+  },
+  "evaluation_reference_probabilities_changed": false,
+  "legacy_fixture_note": "A separate V2 fixed-epoch toy test intermittently differed by small float32 weight values with parallel cold CPU reductions. Its exact assertion remains; the fixture now isolates one thread. No historical experiment code/data/results or real two-thread V3 protocol changed.",
+  "raw_atol": 0.003,
+  "raw_tolerance_changed": false,
+  "remedy": "Freeze the actual fitted TRAIN vocabularies and internal SVM fold memberships; refit IDF and classifiers only inside their original TRAIN folds.",
+  "schema": "beto-v3-classical-cpu-reproduction-diagnosis",
+  "scope": "OBSERVED_SOFTWARE_DIAGNOSIS_NOT_MODEL_SELECTION",
+  "sources": [
+    "https://numpy.org/doc/stable/reference/generated/numpy.argsort.html",
+    "https://github.com/scikit-learn/scikit-learn/issues/21446"
+  ]
+}

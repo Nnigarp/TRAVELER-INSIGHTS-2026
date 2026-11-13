@@ -1,0 +1,44 @@
+{
+  "limits": [
+    "Cannot verify original raw probabilities or calibration-policy file bytes.",
+    "Never generate old probabilities or row predictions from these aggregates.",
+    "Any new reference must come from actual fixed-recipe inference and be labeled observed reproduction, not original recovery or a fresh test."
+  ],
+  "original_error_records_available_as_files": false,
+  "raw_prediction_probabilities_available": false,
+  "records_sha256": "1ca1521e303325bb314eb6d8c2d8e8b42e1510ac5352a541ab119bd403c16f9d",
+  "reported_beto_policy": "No development candidate admitted; maximum ambiguity referrals 7/11.",
+  "reported_lr_policy": {
+    "global": 0.6,
+    "guard": false,
+    "margin": 0.1,
+    "positive": 0.85
+  },
+  "reported_macro_f1": {
+    "beto_frozen128": 0.9833229101521784,
+    "beto_frozen256": 0.9666666666666667,
+    "beto_full256_budgeted": 1.0,
+    "beto_reference_v1": 0.9326599326599326,
+    "beto_reference_v2": 0.9489698757991442,
+    "beto_seed101": 1.0,
+    "beto_seed7": 0.9833229101521784,
+    "dummy": 0.16666666666666666,
+    "lr": 0.9158015426308109,
+    "svm": 0.9158015426308109
+  },
+  "reported_negative_to_positive": {
+    "beto_full256_budgeted": 0,
+    "beto_seed101": 0,
+    "beto_seed7": 0,
+    "lr": 2,
+    "svm": 2
+  },
+  "reported_primary_seed": 42,
+  "reported_replica_seeds": [
+    7,
+    101
+  ],
+  "schema": "beto-v3-prior-session-reported-aggregates",
+  "source": "Preserved Work tool-output transcript and PR #27 draft body; original raw artifacts were not published before workspace rollback.",
+  "these_are_not_reconstructed_raw_results": true
+}

@@ -1,0 +1,41 @@
+{
+  "already_observed": true,
+  "assessment_report_sha256": "c9d5866460664fbc07eb8779470d246aa5cc49b3d3a3ecf3be646b897dcd8f29",
+  "data_commit": "07935b6dc5eee6d62d2f62c6d67ce47b21cc58b9",
+  "execution_status": "COMPLETED_WITH_DISCLOSED_FIXED_INFERENCE_CONTINUATION",
+  "human_gold": false,
+  "inference_continuation": {
+    "completed_original_prefix": [
+      "dummy",
+      "lr",
+      "svm",
+      "beto_frozen128",
+      "beto_frozen256"
+    ],
+    "filled_models": [
+      "beto_full256_budgeted",
+      "beto_reference_v1",
+      "beto_reference_v2",
+      "beto_seed7",
+      "beto_seed101"
+    ],
+    "new_training_calibration_or_selection": false,
+    "protocol_sha256": "f0a84d14b3b274f7e58551dd68f9063cd0ecf6ed1ad02f09190bb97f9c183b91",
+    "registration_commit": "f8fb2f883631bbd71e3ff4c2f4994a16a934cf82",
+    "wall_seconds": 98.57562744799998
+  },
+  "limits": [
+    "New probabilities came from actual fixed-recipe inference; missing old probabilities were not reconstructed.",
+    "CI compares software replay with this observed reproduction, not with unavailable original raw files.",
+    "No new final test, model/epoch selection or human validation."
+  ],
+  "original_raw_probabilities_available": false,
+  "original_selection_commit": "a6675d08fa9645725107f059443ddc0ed15d125f",
+  "predictions_sha256": "42ec26322884acf0500d8110f151032c3e042f672e5f946442333874943a6f33",
+  "records_sha256": "1ca1521e303325bb314eb6d8c2d8e8b42e1510ac5352a541ab119bd403c16f9d",
+  "recovery_registration_commit": "8b413d5560347f2e31f58a77348c636925bf0bcf",
+  "schema": "beto-v3-measured-reference-provenance",
+  "source_scope": "MEASURED_FIXED_REPRODUCTION_NOT_ORIGINAL_RAW_RECOVERY",
+  "train_representation_note": "Exact already fitted TRAIN vocabularies and per-fold memberships; preserves the original representation across NumPy CPU tie-sort paths. No evaluation-derived vocabulary selection.",
+  "train_representation_sha256": "6000fd604b9536245bb2aa0743c9542e230a8ee6da6c2a1d2ba8977c24937be3"
+}

@@ -1,0 +1,8 @@
+{
+  "assessment_predictions_used": false,
+  "automatic_gates_pass": true,
+  "model_or_data_decisions_changed": false,
+  "records_sha256": "1ca1521e303325bb314eb6d8c2d8e8b42e1510ac5352a541ab119bd403c16f9d",
+  "shape_only_macro_f1": 0.3854073109544698,
+  "status": "EXACT_FROZEN_AUDIT_REPRODUCED"
+}

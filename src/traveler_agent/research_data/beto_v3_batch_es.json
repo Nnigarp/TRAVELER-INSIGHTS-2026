@@ -1,0 +1,2454 @@
+{
+  "schema": "traveler-beto-v3-author-batch-v1",
+  "provenance": {
+    "synthetic": true,
+    "human_authors": false,
+    "actual_task": "/root/v3_writer_es",
+    "protocol_version": "beto-v3-quality-pilot-v1",
+    "generator_version": "original-writer-brief-v1",
+    "model_version": "NOT_EXPOSED_BY_PLATFORM",
+    "generation_seed": null,
+    "method": "individually authored freeform synthetic drafts; scripts only assemble/validate metadata",
+    "revision_protocol": "beto-v3-training-style-revision-v1"
+  },
+  "reviews": [
+    {
+      "family": "v3-train-es-001",
+      "semantic_component": "sg-v3-train-es-001",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "hotel",
+      "length_band": "short",
+      "text": "El sensor encendía la luz solo a mi espalda, así que arrastré la maleta hasta la puerta a oscuras. Busqué la cerradura con el móvil.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "implicit_contrast"
+      ],
+      "structure": "Llegada y problema práctico de acceso | mixto",
+      "author_rationale": "La iluminación impide encontrar la cerradura sin recurrir al móvil.",
+      "style_profile": "mixto",
+      "original_structure": "Llegada y problema práctico de acceso",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_545d72069790be9ac729",
+        "previous_text_sha256": "e6e97821876c6337628f9c43f371b30f5c654b828f92a75465629391276bbb14",
+        "editing_notes": "Separo la causa del recurso final en dos oraciones.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "implicit_contrast"
+      ]
+    },
+    {
+      "family": "v3-train-es-001",
+      "semantic_component": "sg-v3-train-es-001",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "hotel",
+      "length_band": "short",
+      "text": "Al salir del ascensor se iluminó el primer tramo y, tras dejar las bolsas ante la habitación y acercar la tarjeta, vi encenderse la cerradura.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Tres pasos de entrada a la habitación | fluido",
+      "author_rationale": "Relata la activación sucesiva de luces sin valorar su conveniencia.",
+      "style_profile": "fluido",
+      "original_structure": "Tres pasos de entrada a la habitación",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_1744739236e8505046a4",
+        "previous_text_sha256": "dbdb54f524118a9ccccfd898f0789e9edd8273653b11eba41d2994c9b5697bf2",
+        "editing_notes": "Conecto la secuencia de luces y tarjeta en una oración.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "objective_chronology"
+      ]
+    },
+    {
+      "family": "v3-train-es-001",
+      "semantic_component": "sg-v3-train-es-001",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "hotel",
+      "length_band": "short",
+      "text": "Llevaba dos bolsas y necesitaba las manos. La luz se encendía por delante de mis pasos. Leí el número y abrí sin soltar nada.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "negative_concordance"
+      ],
+      "structure": "Necesidad de manos libres resuelta | fragmentado",
+      "author_rationale": "Las luces permiten localizar y abrir la puerta llevando equipaje.",
+      "style_profile": "fragmentado",
+      "original_structure": "Necesidad de manos libres resuelta",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_d78285b53b90dc29898a",
+        "previous_text_sha256": "cbfceabbdfa253c2b788a61edd2a6cce1c1f66cd184652871a6946b3f03954ef",
+        "editing_notes": "Divido necesidad, iluminación y apertura en tres frases breves.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "negative_concordance"
+      ]
+    },
+    {
+      "family": "v3-train-es-002",
+      "semantic_component": "sg-v3-train-es-002",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "restaurant",
+      "length_band": "medium",
+      "text": "Elegimos el menú de la pizarra, donde el pescado figuraba bajo los demás platos sin precio al lado, y el camarero preguntó el punto sin advertir suplemento alguno. Cuando llegó el total ya tomábamos el postre: cuatro euros más por persona después de haberlo comido me parecieron una encerrona. Pedí explicaciones y él señaló una hoja que seguía detrás de la barra.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "implicit_contrast",
+        "expectation"
+      ],
+      "structure": "Cuenta final reconstruida desde el pedido | fluido",
+      "author_rationale": "El suplemento se revela después del consumo y se juzga engañosa la información.",
+      "style_profile": "fluido",
+      "original_structure": "Cuenta final reconstruida desde el pedido",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_17a45acdf5ef6c409511",
+        "previous_text_sha256": "7b85904af12227ac2edb5547c4bbff22d3840d16ae570d5942eaccd108eef4ae",
+        "editing_notes": "Enlazo elección, cobro y respuesta en tres oraciones sin cambiar el suplemento.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast"
+      ]
+    },
+    {
+      "family": "v3-train-es-002",
+      "semantic_component": "sg-v3-train-es-002",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "restaurant",
+      "length_band": "medium",
+      "text": "Consulté qué platos del menú tenían suplemento. La camarera señaló el arroz para dos y el pescado del día. Los importes figuraban en una segunda columna. Pedimos una ración de cada primero y escogimos segundos de la columna base. La comanda recogía dos menús, una botella aparte y la hora de envío a cocina. Mientras comíamos el entrante conservé la carta.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Consulta sobre importes y registro del pedido | fragmentado",
+      "author_rationale": "Describe información, elección y anotación sin evaluación global.",
+      "style_profile": "fragmentado",
+      "original_structure": "Consulta sobre importes y registro del pedido",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_d7ef154a500e3db555d5",
+        "previous_text_sha256": "b7cababe234fe8d88634dade9cb4000da2298d49259cd54a67ae1806772f15b5",
+        "editing_notes": "Desgloso consulta y comanda en seis oraciones sin valoración añadida.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": []
+    },
+    {
+      "family": "v3-train-es-002",
+      "semantic_component": "sg-v3-train-es-002",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "restaurant",
+      "length_band": "medium",
+      "text": "Podíamos leer cada suplemento junto a su plato en la carta plastificada y el precio final del menú aparecía al pie. Antes de anotar el entrecot volvieron a advertírmelo. Cambié el postre por fruta y me aclararon que el importe no variaba: así daba gusto decidir con la cuenta clara. La carta siguió en la mesa hasta que confirmamos los cuatro pedidos.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "Objeto informativo seguido hasta la confirmación | mixto",
+      "author_rationale": "La información anticipada y verificable permite decidir sin incertidumbre de precio.",
+      "style_profile": "mixto",
+      "original_structure": "Objeto informativo seguido hasta la confirmación",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_694fe2cbc36bfec5cfd8",
+        "previous_text_sha256": "db37ee6f643ab3ffbda66a06f8d918c0bd125b72c1e7373f19acaae5b815807a",
+        "editing_notes": "Alterno información de precios y decisión personal en cuatro frases.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation"
+      ]
+    },
+    {
+      "family": "v3-train-es-003",
+      "semantic_component": "sg-v3-train-es-003",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "taxi",
+      "length_band": "long",
+      "text": "Reservamos un taxi con rampa para ir de la pensión a una exposición. Mi hermana va en silla y habíamos acordado no pasarla a otro asiento. El conductor desplegó la rampa hacia una jardinera que impedía girar. Le pedimos avanzar unos metros hasta el rebaje de la acera. Insistió en hacerlo allí y tuvimos que parar la subida al quedar una rueda junto al borde. Empezar con aquella tensión era completamente evitable. Después cambió el coche de sitio. Sin embargo guardó una correa sin colocarla alegando que el viaje era corto. Nos negamos a salir y solo tras insistir otra vez fijó los cuatro puntos. Llegar llegamos, pero estuve vigilando cada operación en vez de acompañar a mi hermana. En destino volvimos a tardar en encontrar sitio para bajar. La entrada accesible de la exposición estaba al otro lado de la calle.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "resolved_incident"
+      ],
+      "structure": "Plan de traslado y vigilancia de la maniobra | fragmentado",
+      "author_rationale": "Las maniobras y la fijación requieren insistencia del pasajero y causan inseguridad.",
+      "style_profile": "fragmentado",
+      "original_structure": "Plan de traslado y vigilancia de la maniobra",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_fe10212bfbe8d4ab46c1",
+        "previous_text_sha256": "b41e2027cea976168dca422fa83fdb5929872b727b241c99bff2e1ef038ab9ba",
+        "editing_notes": "Desarrollo doce frases; mantengo el anclaje finalmente completo y las dificultades restantes.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects",
+        "objective_chronology"
+      ]
+    },
+    {
+      "family": "v3-train-es-003",
+      "semantic_component": "sg-v3-train-es-003",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "taxi",
+      "length_band": "long",
+      "text": "Junto a la parada vimos al conductor abrir el portón y sacar una rampa plegable de dos hojas. Mi padre seguía en su silla de ruedas y yo llevaba la mochila y una bolsa con la batería de repuesto. La trasera del coche quedó frente al rebaje de la acera. Después de subir mi padre retiraron los reposapiés y los guardaron en un compartimento lateral. El conductor sujetó dos correas delante y dos detrás, además de pasar el cinturón del vehículo sobre el hombro. Nos explicó qué cierre soltaría primero al llegar. Durante el viaje la mochila fue bajo mi asiento y la bolsa en el maletero, aparte de las piezas de la rampa. En el alojamiento bajé primero a recogerlas mientras mi padre aguardaba a que desplegaran ambas hojas y abrieran el paso hacia la acera. Salimos por la zona indicada para recogidas junto a la entrada del comedor.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Espera inicial y sucesión de operaciones de embarque | mixto",
+      "author_rationale": "Registra posiciones y procedimiento sin atribuirles una evaluación.",
+      "style_profile": "mixto",
+      "original_structure": "Espera inicial y sucesión de operaciones de embarque",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_c9e5e47afc8fdbecc719",
+        "previous_text_sha256": "77d090a76f57348ba0ce61b96d91e4ee5a7fb9a4561f5b553aef145ee06e188a",
+        "editing_notes": "Reordeno operaciones en nueve frases y conservo anclajes, equipaje y salida.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "objective_chronology"
+      ]
+    },
+    {
+      "family": "v3-train-es-003",
+      "semantic_component": "sg-v3-train-es-003",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "taxi",
+      "length_band": "long",
+      "text": "El conductor había aparcado en un tramo llano, separado de la salida del aparcamiento, y desde la acera vi que dejaba libre toda la anchura tras el taxi. Preguntarnos si, según nuestra silla, preferíamos subir de frente o de espaldas cambió el tono del viaje: por una vez no tenía que explicar cada necesidad desde cero. Mi pareja entró por una rampa completamente apoyada en el suelo sin que yo empujara desde un lateral, y dentro nos enseñaron dónde sujetaban el bastidor y comprobaron con ella las correas antes de guardar la rampa. Solo nos retrasó un poco una bolsa en el punto de giro, que trasladaron al asiento delantero. Al dar el destino acordamos bajar por una puerta lateral de acera ancha, de modo que al llegar sabía dónde recoger la mochila sin quitarle espacio. La silla quedó mirando hacia la puerta central, con los dos reposapiés colocados.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "implicit_contrast",
+        "resolved_incident",
+        "expectation"
+      ],
+      "structure": "Recorrido espacial y adaptación acordada con la viajera | fluido",
+      "author_rationale": "La preparación y la consulta a la usuaria facilitan una subida y bajada autónomas.",
+      "style_profile": "fluido",
+      "original_structure": "Recorrido espacial y adaptación acordada con la viajera",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_16ecf9efa91637825fa3",
+        "previous_text_sha256": "b22fc52ecc8ea77106278d3260defba59ef81b88ba697d7284f1254ac4968ed4",
+        "editing_notes": "Relaciono atención y operaciones en seis frases, manteniendo el retraso menor y su solución.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "resolved_incident",
+        "mixed_aspects",
+        "objective_chronology"
+      ]
+    },
+    {
+      "family": "v3-train-es-004",
+      "semantic_component": "sg-v3-train-es-004",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "airport",
+      "length_band": "short",
+      "text": "Todavía buscaba asiento cuando llegó el frenazo. Habían cerrado las puertas antes de que mi padre se sentara; vaya manera de prestar ayuda al embarque.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "implicit_contrast",
+        "irony",
+        "sarcasm",
+        "expectation"
+      ],
+      "structure": "Movimiento del autobús antes de completar el acceso | mixto",
+      "author_rationale": "La salida prematura y la ironía expresan una evaluación negativa de la ayuda.",
+      "style_profile": "mixto",
+      "original_structure": "Movimiento del autobús antes de completar el acceso",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_079bd64501c60b1ec5b5",
+        "previous_text_sha256": "2163aacaddd99cd7ab19b013803d491da74e993af60d40bbe3e7e5029f25539c",
+        "editing_notes": "Mantengo la ironía y separo frenazo y embarque en dos frases.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "irony",
+        "sarcasm"
+      ]
+    },
+    {
+      "family": "v3-train-es-004",
+      "semantic_component": "sg-v3-train-es-004",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "airport",
+      "length_band": "short",
+      "text": "Nos sentamos junto a la puerta central, con el equipaje entre las piernas, y el autobús permaneció allí hasta que subió otro grupo.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Elección de asiento y espera de un segundo grupo | fluido",
+      "author_rationale": "Relata distribución y espera sin expresar satisfacción o molestia.",
+      "style_profile": "fluido",
+      "original_structure": "Elección de asiento y espera de un segundo grupo",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_ba358d147f415106e65a",
+        "previous_text_sha256": "0e47a50dac97415a1d8930242c260488b6d6a3003f980f054d5e461641fc6b4b",
+        "editing_notes": "Integro elección de asientos y espera en una sola oración.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "objective_chronology"
+      ]
+    },
+    {
+      "family": "v3-train-es-004",
+      "semantic_component": "sg-v3-train-es-004",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "airport",
+      "length_band": "short",
+      "text": "Un asiento tenía mochilas y mi madre lo señaló. El auxiliar las recolocó y avisó al conductor solo cuando ella se sentó. Así da gusto.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "resolved_incident"
+      ],
+      "structure": "Intervención del auxiliar antes de partir | fragmentado",
+      "author_rationale": "La ayuda concreta y la espera permiten que la madre viaje sentada.",
+      "style_profile": "fragmentado",
+      "original_structure": "Intervención del auxiliar antes de partir",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_7fcd3feb937b0bb21ffb",
+        "previous_text_sha256": "a639d9e7b6721470b0aff5236ff0e184b718167d6b50461696e371f11472429f",
+        "editing_notes": "Expreso señalamiento, actuación y satisfacción en tres frases completas.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": []
+    },
+    {
+      "family": "v3-train-es-005",
+      "semantic_component": "sg-v3-train-es-005",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "transport",
+      "length_band": "medium",
+      "text": "Como llevaba en el móvil el billete del enlace, quise comprobar el enchufe del tren, pero la clavija no entraba entera en la toma situada bajo el asiento, detrás de una barra. El revisor me señaló otra igual cuando pregunté y siguió andando. Aunque en el vagón había sitio para la maleta, terminé veinte minutos de pie en la plataforma, junto al aseo, mientras cargaba el teléfono.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects",
+        "resolved_incident",
+        "regionalism"
+      ],
+      "structure": "Comprobación eléctrica con consecuencia para el viajero | fluido",
+      "author_rationale": "La ubicación impide usar el enchufe sentado y la consulta no aporta solución.",
+      "style_profile": "fluido",
+      "original_structure": "Comprobación eléctrica con consecuencia para el viajero",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_931f8f57f8fe8a759ea7",
+        "previous_text_sha256": "fd9e8289de76e17cc76deae305b6d0c5e3f6c29b3af71614cd4743ba9a7ed259",
+        "editing_notes": "Uno necesidad y obstáculo; mantengo el contraste del espacio y los veinte minutos.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects"
+      ]
+    },
+    {
+      "family": "v3-train-es-005",
+      "semantic_component": "sg-v3-train-es-005",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "transport",
+      "length_band": "medium",
+      "text": "Subimos en la estación anterior y pusimos las mochilas en la balda. Extendí el cable sobre la mesita para buscar la toma indicada en el respaldo. La encontré entre los dos asientos. Enchufé el cargador dejando el puerto USB hacia arriba. El móvil mostró en pantalla el símbolo de carga. Al anunciar nuestra parada retiré el cable y lo guardé en el bolsillo exterior.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Escena de conexión con regreso al embarque | fragmentado",
+      "author_rationale": "Describe ubicación y secuencia de uso del recurso sin juicio.",
+      "style_profile": "fragmentado",
+      "original_structure": "Escena de conexión con regreso al embarque",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_c719038acc4de6eca31b",
+        "previous_text_sha256": "9407f537febf89ce847778360c7365ecde136f190da92ef0c162dae1dfac0b51",
+        "editing_notes": "Cambio el inicio al embarque y distribuyo la carga en seis pasos completos.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "objective_chronology"
+      ]
+    },
+    {
+      "family": "v3-train-es-005",
+      "semantic_component": "sg-v3-train-es-005",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "transport",
+      "length_band": "medium",
+      "text": "Pude cargar el portátil sin atravesar el pasillo con el cable gracias al enchufe y la pinza del lateral de la mesa: me arreglaron el trayecto. La toma quedaba a la altura de la mano y un dibujo identificaba la conexión de cada plaza. No tuve que mover la maleta ni pedir permiso al vecino de asiento. Antes del siguiente enlace ya había terminado de organizar las fotos.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "negative_concordance"
+      ],
+      "structure": "Relación entre toma eléctrica y soporte del cable | mixto",
+      "author_rationale": "El diseño permite usar el portátil sentado sin interferir con el paso.",
+      "style_profile": "mixto",
+      "original_structure": "Relación entre toma eléctrica y soporte del cable",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_4e3af08a8ee25d19e5b0",
+        "previous_text_sha256": "ac86d49e6f62e4921f22381f37461285f36008f8e135193a72d051bba389b815",
+        "editing_notes": "Reordeno utilidad y características en cuatro frases manteniendo ambas acciones innecesarias.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation"
+      ]
+    },
+    {
+      "family": "v3-train-es-006",
+      "semantic_component": "sg-v3-train-es-006",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "transport",
+      "length_band": "long",
+      "text": "La flecha del vestíbulo anunciaba un andén accesible por ascensor. La seguí con el carrito hasta el distribuidor de tres salidas. Allí ya no aparecían ni el pictograma ni el número de línea. Elegí el pasillo de la izquierda al ver otra puerta de ascensor, pero aquel bajaba a una calle distinta. Volví arriba a buscar un plano. El único plano que encontré estaba tras los tornos y al pie de unas escaleras. No faltaban ascensores: faltaba saber en qué orden usarlos. Una limpiadora me indicó el paso por el extremo del vestíbulo: parecía una salida de emergencia. Había que subir una planta y después bajar dos. Era imposible deducirlo de las flechas anteriores. Entre tantas vueltas con el carrito perdí el tren previsto y llegué agotada al andén. En mi móvil, el plano aún representaba como directa la conexión donde habíamos comenzado.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast",
+        "implicit_contrast",
+        "resolved_incident",
+        "regionalism",
+        "expectation"
+      ],
+      "structure": "Indicación escrita y contraste con las bifurcaciones | fragmentado",
+      "author_rationale": "La falta de continuidad de las señales obliga a retroceder y perder el tren.",
+      "style_profile": "fragmentado",
+      "original_structure": "Indicación escrita y contraste con las bifurcaciones",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_c6803cb93d87464cc760",
+        "previous_text_sha256": "c67d8d4772b57feebd25b82083df83e720ae2c5e456b99f52b813df06a33407f",
+        "editing_notes": "Uso doce frases; preservo la existencia de ascensores y el fallo en el orden indicado.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "double_negation",
+        "explicit_contrast"
+      ]
+    },
+    {
+      "family": "v3-train-es-006",
+      "semantic_component": "sg-v3-train-es-006",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "transport",
+      "length_band": "long",
+      "text": "El primer ascensor desembocaba donde terminaba el vestíbulo y comenzaba el pasillo de correspondencia. En el suelo había una franja azul y en las señales del techo figuraban dos números de línea y una silla de ruedas. Siguiendo ese símbolo llegué a una puerta de cristal con pulsador. Pasada la puerta encontré otro ascensor, cuyos botones indicaban calle, distribución y andenes. Según el plano pegado junto a la botonera, mi vía estaba en la planta inferior. Con la maleta bajé hasta allí, giré a la derecha y crucé una galería con bancos sin usar las escaleras mecánicas que llegaban al mismo punto. Desde la galería se veía el panel de llegadas de ambos sentidos, y el mío seguía junto a la pared de azulejos blancos. Antes de atravesar la última puerta comprobé el nombre de la cabecera de línea. Mientras recogía el asa extensible de la maleta entró el tren anunciado.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "negation",
+        "objective_chronology"
+      ],
+      "structure": "Transición entre niveles y comprobación del andén | mixto",
+      "author_rationale": "Ofrece un itinerario concreto sin afirmar que resulte fácil o difícil.",
+      "style_profile": "mixto",
+      "original_structure": "Transición entre niveles y comprobación del andén",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_59b1973e6cb84828123d",
+        "previous_text_sha256": "c3b8842eae16fc8b5c981b7d9fc56620f2a38a6b1dde1f8ad93d087aef26c522",
+        "editing_notes": "Agrupo referencias del trayecto en nueve frases sin añadir valoración.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "objective_chronology"
+      ]
+    },
+    {
+      "family": "v3-train-es-006",
+      "semantic_component": "sg-v3-train-es-006",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "transport",
+      "length_band": "long",
+      "text": "Con el cochecito abierto pude moverme por la estación usando los ascensores sin preguntar en cada cruce, guiándome por el símbolo verde que se repetía antes y después de cada puerta. Las señales aclaraban además los cambios de ascensor, justo lo que más me preocupaba al consultar el plano. Al encontrar obras en el distribuidor central, la indicación dibujaba la vuelta por el vestíbulo y daba el número del ascensor disponible, en vez de limitarse a tachar el recorrido anterior. Ese desvío añadía unos minutos andando, pero las flechas estaban antes de las dos bifurcaciones y no dudé entre pasillos. Una empleada me confirmó que el niño podía seguir en el cochecito todo el camino y llegamos al andén con margen para darle agua y plegar una bolsa. Al entrar en el último ascensor vi, orientado hacia quienes salían, un pequeño plano que marcaba el sentido de los trenes a cada lado de la puerta.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "resolved_incident",
+        "expectation"
+      ],
+      "structure": "Uso del itinerario accesible con desvío temporal | fluido",
+      "author_rationale": "La señalización continua permite completar con autonomía el desvío por obras.",
+      "style_profile": "fluido",
+      "original_structure": "Uso del itinerario accesible con desvío temporal",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_ad44eb817659e5f0e9c3",
+        "previous_text_sha256": "0f59c6452e2af5e7309295dc5d9964bc495d332506190ab4538da29eaa29d80a",
+        "editing_notes": "Conecto señalización y recorrido en seis frases conservando obras y orientación del plano.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "explicit_contrast",
+        "resolved_incident",
+        "mixed_aspects"
+      ]
+    },
+    {
+      "family": "v3-train-es-007",
+      "semantic_component": "sg-v3-train-es-007",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "beach",
+      "length_band": "short",
+      "text": "De lejos se veía la bandera, cuya explicación quedaba detrás de un quiosco cerrado. Pedí concretar el límite de baño y solo señalaron el mar.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "implicit_contrast"
+      ],
+      "structure": "Distancia entre señal visible y explicación ausente | mixto",
+      "author_rationale": "La consulta no permite identificar la zona de baño.",
+      "style_profile": "mixto",
+      "original_structure": "Distancia entre señal visible y explicación ausente",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_b4504e6955c806f60edb",
+        "previous_text_sha256": "4b36bdb1bca76293047ff7c3c118477ec4e602b5e69f5871ddfed9d8b5eb65ba",
+        "editing_notes": "Contrapongo visibilidad y respuesta imprecisa en dos frases.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "implicit_contrast",
+        "negation"
+      ]
+    },
+    {
+      "family": "v3-train-es-007",
+      "semantic_component": "sg-v3-train-es-007",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "beach",
+      "length_band": "short",
+      "text": "El panel de banderas estaba al lado de las duchas y anotamos la referencia del socorrista: la zona de baño quedaba entre dos boyas.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Panel lateral y delimitación verbal de la zona | fluido",
+      "author_rationale": "Describe la referencia utilizada sin valorar el servicio.",
+      "style_profile": "fluido",
+      "original_structure": "Panel lateral y delimitación verbal de la zona",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_5a66c4ca30cf2f0b46a9",
+        "previous_text_sha256": "1f2db44511ac8a202767c41ca48e6c568bef133721f34b6a21316f55e82c33f9",
+        "editing_notes": "Conecto panel y referencia del socorrista en una sola oración descriptiva.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": []
+    },
+    {
+      "family": "v3-train-es-007",
+      "semantic_component": "sg-v3-train-es-007",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "beach",
+      "length_band": "short",
+      "text": "Preguntamos si la bandera incluía también la orilla. La socorrista nos acompañó hasta la zona permitida y explicó la corriente. Todo nos quedó claro.",
+      "intended_label": "positivo",
+      "phenomena": [],
+      "structure": "Consulta resuelta mediante explicación y acompañamiento | fragmentado",
+      "author_rationale": "La respuesta aclara el riesgo y la delimitación de baño.",
+      "style_profile": "fragmentado",
+      "original_structure": "Consulta resuelta mediante explicación y acompañamiento",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_def572be88bd5f040e3e",
+        "previous_text_sha256": "778e589e618b4098075639d80dc7a3be126e97f30d4236fef72451916d5222d6",
+        "editing_notes": "Distribuyo pregunta, explicación acompañada y claridad final en tres frases.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": []
+    },
+    {
+      "family": "v3-train-es-008",
+      "semantic_component": "sg-v3-train-es-008",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "museum",
+      "length_band": "medium",
+      "text": "En guardarropa me dieron una ficha y dejaron el paraguas chorreando en un cajón común, sin funda ni separación, hasta acabar abierto sobre varios abrigos. Para devolverlo levantaron prendas buscando el mango, y salí con la manga mojada y la ropa que llevaba bajo el brazo empapada. Es cierto que no perdieron nada, pero aquella manera de custodiarlo tuvo ese coste.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast",
+        "mixed_aspects"
+      ],
+      "structure": "Consecuencia al salir y reconstrucción de la entrega | fluido",
+      "author_rationale": "La falta de separación moja las prendas pese a conservar los objetos.",
+      "style_profile": "fluido",
+      "original_structure": "Consecuencia al salir y reconstrucción de la entrega",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_93a29affd0ce4b17da5f",
+        "previous_text_sha256": "2a174f0df61c43440d9968368e15953666ac9b9974814d0197d762b629d19a9f",
+        "editing_notes": "Conecto las consecuencias en tres frases y preservo que no se perdió nada.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast",
+        "mixed_aspects"
+      ]
+    },
+    {
+      "family": "v3-train-es-008",
+      "semantic_component": "sg-v3-train-es-008",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "museum",
+      "length_band": "medium",
+      "text": "Llevaba un paraguas de mango curvo al entrar en el museo. Pregunté dónde dejarlo y en guardarropa usaron una etiqueta con dos números iguales. Fijaron uno al mango y me dieron el otro en cartón. Colocaron el paraguas en un soporte con bandeja a la derecha de las perchas. A la salida enseñé la ficha y describí el color para recogerlo. Lo recibí cerrado y dejé el cartón en una caja.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Necesidad de depósito y sistema de recuperación | fragmentado",
+      "author_rationale": "Explica el procedimiento de custodia sin evaluarlo.",
+      "style_profile": "fragmentado",
+      "original_structure": "Necesidad de depósito y sistema de recuperación",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_c730a30175840740cbab",
+        "previous_text_sha256": "233cb67d2a8db653c8e60ca29f18b25c8c64160a0562d150575f0b4efa46a021",
+        "editing_notes": "Distribuyo depósito y recogida en seis oraciones descriptivas.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "objective_chronology"
+      ]
+    },
+    {
+      "family": "v3-train-es-008",
+      "semantic_component": "sg-v3-train-es-008",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "museum",
+      "length_band": "medium",
+      "text": "El paraguas me esperaba apartado de los abrigos, enfundado y con el mango hacia fuera. Me ofrecieron la funda antes de la visita al verme con mochila de tela, un detalle muy apañado que evitaba ir goteando. Perdí la ficha entre los folletos, pero bastó comprobar la etiqueta y la descripción para que me lo devolvieran sin pegas. Aunque llovía, salí con la mochila seca.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "resolved_incident",
+        "regionalism"
+      ],
+      "structure": "Recogida con regreso al cuidado inicial | mixto",
+      "author_rationale": "La protección del agua y la solución a la ficha extraviada favorecen la experiencia.",
+      "style_profile": "mixto",
+      "original_structure": "Recogida con regreso al cuidado inicial",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_98def1b780769036f878",
+        "previous_text_sha256": "b2e9093a9f2fc75b64b6528c8cd0052c14384ed895a2e61e405242f26c00a50c",
+        "editing_notes": "Equilibro descripción y valoración en cuatro frases; mantengo la pérdida de ficha resuelta.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "resolved_incident",
+        "regionalism"
+      ]
+    },
+    {
+      "family": "v3-train-es-009",
+      "semantic_component": "sg-v3-train-es-009",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "tour",
+      "length_band": "long",
+      "text": "Quise saber si sustituían entre visitas la pieza que se apoyaba en la oreja. El encargado respondió que estaban preparadas. Aun así tomó mi auricular del montón donde otro visitante acababa de dejar el suyo. Pedí espuma nueva al ver una marca húmeda en la que me entregaban. Solo ofrecieron pasarle una servilleta seca. En la mesa no había recambios. Empecé sin receptor mientras buscaban alternativa porque la explicación histórica se oía inicialmente por el altavoz del guía. En la siguiente sala el grupo se repartió y me perdí parte del comentario. A medio recorrido trajeron otro aparato cuya funda de papel se rompió al ajustarla. No veía justificado anunciar aquel sistema de audio como ventaja de la visita. En la devolución únicamente solicitaron el número del receptor. Auricular y cable terminaron sobre la lista de asistentes, al lado de equipos que seguían con las fundas iniciales.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "expectation"
+      ],
+      "structure": "Consulta de preparación y consecuencias durante la visita | fragmentado",
+      "author_rationale": "No se ofrece una pieza preparada verificable y la alternativa impide seguir parte del recorrido.",
+      "style_profile": "fragmentado",
+      "original_structure": "Consulta de preparación y consecuencias durante la visita",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_ffb62075efd90200662e",
+        "previous_text_sha256": "fa36bc0b43db4898301eb3fe15fb08d5d9a8055151f20311c505a0b63e7d9cb3",
+        "editing_notes": "Separo doce observaciones y mantengo la negativa a presentar el audio como ventaja.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects",
+        "objective_chronology"
+      ]
+    },
+    {
+      "family": "v3-train-es-009",
+      "semantic_component": "sg-v3-train-es-009",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "tour",
+      "length_band": "long",
+      "text": "En la mesa del patio recogí receptor y auricular mientras el personal anotaba qué aparato correspondía a cada entrada. El primero llevaba un número en una pegatina azul y el segundo venía aparte en una bolsa transparente. Antes de repartirlos, una trabajadora había pasado una toallita por las superficies de plástico y puesto las almohadillas de contacto en cada auricular. Nos explicó que la rueda lateral regulaba el volumen y que podíamos llevar el cable bajo la bufanda. Probamos a escuchar al guía desde el extremo opuesto del patio. Durante el recorrido guardé el receptor en el bolsillo de la chaqueta dejando la pinza fuera. En la última sala anunciaron que echáramos las bolsas a una papelera y dejáramos auriculares y receptores en bandejas distintas. Lo entregué todavía encendido para que verificaran el número. El cable quedó enrollado al lado de la pegatina azul y aparte de la pieza de contacto.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Trayectoria de un equipo desde la entrega hasta la devolución | mixto",
+      "author_rationale": "Detalla preparación y custodia sin atribuir una calidad al procedimiento.",
+      "style_profile": "mixto",
+      "original_structure": "Trayectoria de un equipo desde la entrega hasta la devolución",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_996c1be3870b6b783121",
+        "previous_text_sha256": "b520b182c7a4b6ddda71a1b91033b90ec182c2a1800933b7b7cd05c7c823e6c0",
+        "editing_notes": "Alterno descripción y acciones en nueve frases conservando preparación y separación al devolver.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "objective_chronology"
+      ]
+    },
+    {
+      "family": "v3-train-es-009",
+      "semantic_component": "sg-v3-train-es-009",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "tour",
+      "length_band": "long",
+      "text": "El receptor me permitió seguir la visita a mi ritmo, como quería, sin acercarme continuamente al guía. En la entrega pasamos por dos puestos, uno para comprobar el aparato y otro donde abrían la bolsita del auricular delante de cada persona. Me enseñaron a apoyarlo en la oreja sin tocar la zona recién preparada, pero mi audífono se estorbaba con aquella pieza al probarlos juntos. Buscaron entonces un auricular con otro apoyo y repitieron la prueba de volumen conmigo, sin obligarme a elegir entre mi equipo y escuchar al grupo, que aún miraba el plano del patio cuando me incorporé antes de la primera explicación. Más adelante pude quedarme ante una maqueta y oír desde allí el comentario de las ventanas. La devolución estaba explicada desde el principio con recipientes separados: puse el receptor en su hueco numerado y la pieza de contacto en la bandeja que retiraban para preparar la salida siguiente.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "resolved_incident",
+        "expectation"
+      ],
+      "structure": "Objetivo de escucha y adaptación del equipo | fluido",
+      "author_rationale": "La adaptación a un audífono permite seguir la visita con libertad de posición.",
+      "style_profile": "fluido",
+      "original_structure": "Objetivo de escucha y adaptación del equipo",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_12bc8b891c88da803c66",
+        "previous_text_sha256": "8cd98d29b1ab29800fd378d55e058705caf1d8edce718cd5423bb011fd08c158",
+        "editing_notes": "Uno los pasos en seis oraciones; mantengo la adaptación del auricular y su resolución.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "resolved_incident",
+        "objective_chronology"
+      ]
+    },
+    {
+      "family": "v3-train-es-010",
+      "semantic_component": "sg-v3-train-es-010",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "reservation",
+      "length_band": "short",
+      "text": "Llegué al recinto todavía esperando la confirmación: el correo mantenía la fecha antigua. Aunque llevaba justificante del trámite, en taquilla me exigieron otra entrada.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "explicit_contrast",
+        "expectation"
+      ],
+      "structure": "Espera de confirmación con consecuencia en taquilla | mixto",
+      "author_rationale": "El cambio tramitado no produce una entrada utilizable y obliga a comprar otra.",
+      "style_profile": "mixto",
+      "original_structure": "Espera de confirmación con consecuencia en taquilla",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_89852f62016bc23a70b9",
+        "previous_text_sha256": "86f1bf5db840cd0ee63a1d8648e5621c6474067eb03b6a215159c3cb78c910b7",
+        "editing_notes": "Mantengo la falta de confirmación y el justificante en dos frases.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "implicit_contrast"
+      ]
+    },
+    {
+      "family": "v3-train-es-010",
+      "semantic_component": "sg-v3-train-es-010",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "reservation",
+      "length_band": "short",
+      "text": "En la taquilla lateral cambié del martes al jueves la entrada, cuyo nuevo comprobante señala la franja de once a doce y anula el anterior.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Trámite situado y campos de la nueva entrada | fluido",
+      "author_rationale": "Expone fecha y validez sin juzgar condiciones del cambio.",
+      "style_profile": "fluido",
+      "original_structure": "Trámite situado y campos de la nueva entrada",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_39623145d79b3ff84bcf",
+        "previous_text_sha256": "443a32f2d5cbbae0fc92a4ccf20668c6de2bf096ec5203330b9dd9d5e6033978",
+        "editing_notes": "Integro cambio y comprobante en una única frase.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": []
+    },
+    {
+      "family": "v3-train-es-010",
+      "semantic_component": "sg-v3-train-es-010",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "reservation",
+      "length_band": "short",
+      "text": "Oí llegar el correo antes de terminar la llamada. Indicaba nueva fecha, el mismo precio y código válido. Reorganizamos la visita sin comprar entradas duplicadas.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "Confirmación recibida durante la gestión | fragmentado",
+      "author_rationale": "El cambio queda confirmado inmediatamente y permite reorganizar el viaje.",
+      "style_profile": "fragmentado",
+      "original_structure": "Confirmación recibida durante la gestión",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_7a67ff7c578e34775af0",
+        "previous_text_sha256": "9198ec09ae90ab43134717ec2acf42b27817bec8083cd5cd7cfe0744cb5f93bb",
+        "editing_notes": "Fracciono confirmación y resultado en tres oraciones completas.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "resolved_incident"
+      ]
+    },
+    {
+      "family": "v3-train-es-011",
+      "semantic_component": "sg-v3-train-es-011",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "nature_excursion",
+      "length_band": "medium",
+      "text": "Pese a anunciarse como un paseo tranquilo, la ruta nos metió en una pista compartida justo tras una curva, sin señal de reagrupamiento y con el guía delante sin ver a la cola del grupo. Dos ciclistas frenaron al encontrarnos ocupando todo el ancho, un susto innecesario que se habría evitado explicando antes por dónde caminar y en qué ensanche dejar paso. Solo nos avisaron después del cruce.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "expectation"
+      ],
+      "structure": "Expectativa del paseo y cruce imprevisto | fluido",
+      "author_rationale": "La falta de instrucciones antes del tramo compartido provoca un conflicto evitable.",
+      "style_profile": "fluido",
+      "original_structure": "Expectativa del paseo y cruce imprevisto",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_45ce80ec97c02dbf1d07",
+        "previous_text_sha256": "75467957f9b5ba2e2803971b998e521193642958cdaf733c27ab194a7cdb7bf3",
+        "editing_notes": "Concentro recorrido, susto y aviso tardío en tres frases conectadas.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast",
+        "expectation"
+      ]
+    },
+    {
+      "family": "v3-train-es-011",
+      "semantic_component": "sg-v3-train-es-011",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "nature_excursion",
+      "length_band": "medium",
+      "text": "En el mapa se distinguían la senda peatonal y la franja compartida con bicis. Seguimos la primera hasta un poste de madera. Desde ese punto el guía nos pidió caminar en fila. Había tres apartaderos identificados con letras. Paramos en el segundo para dejar pasar a dos ciclistas que venían de frente. Cruzamos luego un puente y tomamos el ramal al mirador que marcaba una flecha blanca.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Lectura del plano y sucesión de tramos | fragmentado",
+      "author_rationale": "Enumera los modos de paso y referencias sin evaluar su funcionamiento.",
+      "style_profile": "fragmentado",
+      "original_structure": "Lectura del plano y sucesión de tramos",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_07ce9e86c4b8cb8efb0f",
+        "previous_text_sha256": "d59558851352db77209a5eb0a52afdcb975f9ee3550ae84fc010cd9a646bf258",
+        "editing_notes": "Divido las indicaciones del recorrido en seis frases y corrijo la tilde de había.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "objective_chronology",
+        "typo"
+      ]
+    },
+    {
+      "family": "v3-train-es-011",
+      "semantic_component": "sg-v3-train-es-011",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "nature_excursion",
+      "length_band": "medium",
+      "text": "Nos detuvimos ante el dibujo del trazado antes de entrar en la pista ciclista. Allí la guía nos asignó posiciones y enseñó el gesto con que pararíamos en los ensanches. Cuando apareció una familia en bici, nos agrupamos fuera de la rodada y continuamos sin carreras ni gritos: funcionó de maravilla. Hasta mi sobrino tenía claro en qué lado ponerse al regresar al tramo común.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "negative_concordance"
+      ],
+      "structure": "Instrucción anticipada comprobada en un cruce | mixto",
+      "author_rationale": "Las pautas permiten compartir el recorrido sin sobresaltos.",
+      "style_profile": "mixto",
+      "original_structure": "Instrucción anticipada comprobada en un cruce",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_eb12f652604081ef1157",
+        "previous_text_sha256": "99ee678b64dc1a3e4cdada0c796d5e49810a330ce38d46b5a7a44ec9a6c5262a",
+        "editing_notes": "Distribuyo preparación, aplicación y resultado en cuatro frases.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "objective_chronology"
+      ]
+    },
+    {
+      "family": "v3-train-es-012",
+      "semantic_component": "sg-v3-train-es-012",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "hotel",
+      "length_band": "long",
+      "text": "Conseguir tazas y café nos obligó a atravesar tres veces la cola de entrada. Las tazas limpias estaban junto a la puerta y el café al fondo. El desayuno se convirtió en una búsqueda continua. Habíamos llegado en el horario de la tarjeta, pero nadie comprobaba reservas ni separaba a quienes aguardaban mesa de quienes recogían un plato. Ya sentados pregunté por el pan y me enviaron al mostrador que llevaba minutos vacío. La cesta que vi salir de cocina desapareció antes de mi turno. Reposición sí había: la vi, aunque los alimentos llegaban siempre donde se mezclaban las filas. Mi pareja tomó fruta con un tenedor prestado de otra mesa. Lo que conseguimos comer estaba bien. Apenas coincidimos sentados. Salimos justos para la excursión. Renunciamos al café porque en la bandeja de vajilla seguía sin aparecer una segunda taza.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast",
+        "implicit_contrast",
+        "mixed_aspects",
+        "expectation"
+      ],
+      "structure": "Relación entre disposición del bufé y circulación | fragmentado",
+      "author_rationale": "La reposición descoordinada y las filas cruzadas impiden desayunar juntos.",
+      "style_profile": "fragmentado",
+      "original_structure": "Relación entre disposición del bufé y circulación",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_91678e9ab4fa3b6d065a",
+        "previous_text_sha256": "e6b9ccb73c37b623ff23bf48a9809f34093ca53ec795af99e6c2f66413dabd56",
+        "editing_notes": "Divido en doce frases; conservo la reposición observada y la valoración de la comida.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "double_negation",
+        "explicit_contrast",
+        "mixed_aspects"
+      ]
+    },
+    {
+      "family": "v3-train-es-012",
+      "semantic_component": "sg-v3-train-es-012",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "hotel",
+      "length_band": "long",
+      "text": "Según la tarjeta, nuestra habitación tenía asignado el desayuno de ocho a nueve. En la entrada una persona llevaba la cuenta de mesas ocupadas y otra apuntaba los números de habitación en una hoja. Nos colocaron al lado del ventanal, donde había una cesta para cubiertos y dos tazas boca abajo. Al principio del bufé estaban los alimentos fríos y al fondo servían tortillas por encargo en un mostrador. Yo escogí yogur y fruta mientras mi acompañante encargaba dos cafés. A las ocho y veinte llegó de cocina un carro con platos, vasos y una bandeja de pan cortado. Pusieron los platos debajo de la encimera y distribuyeron el pan en dos cestas. Los tarros individuales de mermelada se cogían junto a la tostadora sin pasar por el mostrador caliente. Después de dejar nuestra vajilla usada en el extremo de la mesa, una trabajadora se la llevó en una bandeja y puso dos tazas más antes de entrar la siguiente pareja.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "negation",
+        "objective_chronology"
+      ],
+      "structure": "Información de acceso y circuito de reposición observado | mixto",
+      "author_rationale": "Relata asignación, elección y relevo de mesa sin valoración.",
+      "style_profile": "mixto",
+      "original_structure": "Información de acceso y circuito de reposición observado",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_78f862bbee69cb5f0cc8",
+        "previous_text_sha256": "34299b9126a7b8dfdb927009aa332f26da939597aa9ada8395140544a861201a",
+        "editing_notes": "Agrupo datos del desayuno en nueve frases y conservo horarios, utensilios y reposición.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "objective_chronology"
+      ]
+    },
+    {
+      "family": "v3-train-es-012",
+      "semantic_component": "sg-v3-train-es-012",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "hotel",
+      "length_band": "long",
+      "text": "Habíamos llegado cinco minutos antes, coincidiendo con la entrada de un grupo grande, y nos ofrecieron agua mientras veían qué mesas podían juntar; al liberarse las de la terraza el encargado avisó primero a quienes aguardábamos en el vestíbulo. Ese orden nos ahorró empezar el desayuno a codazos, y ya sentados vimos que había alguien para la vajilla y otra persona para los alimentos, sin tener que perseguir a quien servía café por una cuchara. Cuando se acabó el pan integral, colocaron un cartel anunciando la tanda siguiente en cuatro minutos y cumplieron, trayendo además pinzas nuevas. Aunque las fotos me habían hecho esperar más variedad, encontramos lo que solemos tomar y desayunamos tranquilos. Mi padre pudo repetir café mientras yo preparaba una tostada sin que abandonáramos todos la mesa al mismo tiempo. Al salir seguía sobre el mostrador el cartel con la hora de aquella tanda.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects",
+        "resolved_incident",
+        "expectation"
+      ],
+      "structure": "Segundo momento del desayuno y reconstrucción de la espera | fluido",
+      "author_rationale": "La gestión de la espera y la reposición permite desayunar con calma pese a menor variedad.",
+      "style_profile": "fluido",
+      "original_structure": "Segundo momento del desayuno y reconstrucción de la espera",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_7818468a124a4a56ccea",
+        "previous_text_sha256": "c356d4325d07a52b39770666194c3ffc1da4fe06657cf543d20555a424d229c9",
+        "editing_notes": "Enlazo espera y servicio en seis frases preservando la variedad menor y la reposición cumplida.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects",
+        "resolved_incident",
+        "expectation"
+      ]
+    },
+    {
+      "family": "v3-train-es-013",
+      "semantic_component": "sg-v3-train-es-013",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "restaurant",
+      "length_band": "short",
+      "text": "Los platos esperaron diez minutos en un aparador entre cocina y terraza. Llegaron con la salsa cuajada y la guarnición fría; el viento remató la faena.",
+      "intended_label": "negativo",
+      "phenomena": [],
+      "structure": "Espera entre cocina y servicio exterior | mixto",
+      "author_rationale": "La demora expone la comida y deteriora su temperatura.",
+      "style_profile": "mixto",
+      "original_structure": "Espera entre cocina y servicio exterior",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_bdaaafc0bb2458e397ae",
+        "previous_text_sha256": "35e218c8ebe0c850f9575eea1970216ba63c4926b650b99eec26f61ad6cb7200",
+        "editing_notes": "Separo espera y estado al llegar en dos frases manteniendo el efecto del viento.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": []
+    },
+    {
+      "family": "v3-train-es-013",
+      "semantic_component": "sg-v3-train-es-013",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "restaurant",
+      "length_band": "short",
+      "text": "En la terraza trajeron primero la ensalada en una fuente, que retiraron antes de servir el guiso dentro de una cazuela tapada.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Sucesión de recipientes durante la comida | fluido",
+      "author_rationale": "Describe orden y presentación sin evaluación.",
+      "style_profile": "fluido",
+      "original_structure": "Sucesión de recipientes durante la comida",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_ae7cb79103692dffa554",
+        "previous_text_sha256": "6af0c0a514086d3ddc48e64971933d1f323b74370685a8910796ec8c2db57d6f",
+        "editing_notes": "Subordino la retirada de la fuente en una única oración.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "objective_chronology"
+      ]
+    },
+    {
+      "family": "v3-train-es-013",
+      "semantic_component": "sg-v3-train-es-013",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "restaurant",
+      "length_band": "short",
+      "text": "Con aquel aire, la tapa tenía sentido: mantenía caliente el guiso. El pescado vino después directo a la mesa. No esperó fuera.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "Detalle del recipiente explicado por las condiciones | fragmentado",
+      "author_rationale": "El servicio conserva la temperatura pese al viento.",
+      "style_profile": "fragmentado",
+      "original_structure": "Detalle del recipiente explicado por las condiciones",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_24ccc1112ccdb8f6f3b3",
+        "previous_text_sha256": "66a67c977272227d9728d47c9cd6c22dd8964ee8905176d6ac63ec5d9eb8f050",
+        "editing_notes": "Separo función de la tapa y servicio del pescado en tres oraciones.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation"
+      ]
+    },
+    {
+      "family": "v3-train-es-014",
+      "semantic_component": "sg-v3-train-es-014",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "taxi",
+      "length_band": "medium",
+      "text": "Las instrucciones del taxi nos mandaban a la puerta contraria, aunque el cartel del carril seguía visible tras una fila de autobuses, y llamé desde allí. El conductor insistía en que buscásemos el coche entre los vehículos y solo facilitó la matrícula en la tercera llamada. Encontrarlo exigió arrastrar las maletas por carriles abiertos y no compensó el rato pendientes del tráfico sin una referencia clara.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "resolved_incident"
+      ],
+      "structure": "Detalle de señalización y coordinación fallida | fluido",
+      "author_rationale": "Las instrucciones insuficientes conducen a desplazarse con equipaje entre vehículos.",
+      "style_profile": "fluido",
+      "original_structure": "Detalle de señalización y coordinación fallida",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_b9156b6a2efb5bf07158",
+        "previous_text_sha256": "cd8cb669a873c89f22341bb6ace1778c00ed8d0e88b3f365673a11aa0a78ef37",
+        "editing_notes": "Concentro el desencuentro y su valoración en tres oraciones conectadas.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "explicit_contrast"
+      ]
+    },
+    {
+      "family": "v3-train-es-014",
+      "semantic_component": "sg-v3-train-es-014",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "taxi",
+      "length_band": "medium",
+      "text": "El mensaje de recogida daba la matrícula y el carril dos. Incluía una foto del techo de la parada. Salimos por la puerta de la estación junto a las consignas. Por la acera llegamos al poste de la imagen y avisamos dónde estábamos. El taxi paró en la zona pintada de azul después de la marquesina. Cargamos las maletas y confirmamos el destino antes de arrancar.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Secuencia de encuentro mediante referencias escritas | fragmentado",
+      "author_rationale": "Expone el proceso de identificación y recogida sin juzgarlo.",
+      "style_profile": "fragmentado",
+      "original_structure": "Secuencia de encuentro mediante referencias escritas",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_38d856f00c5133f6dae1",
+        "previous_text_sha256": "90eb369c50285e0b087c431c0eb7e987338836a72cde386a811456969147015a",
+        "editing_notes": "Reordeno mensaje y salida en seis frases breves, conservando las referencias.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "objective_chronology"
+      ]
+    },
+    {
+      "family": "v3-train-es-014",
+      "semantic_component": "sg-v3-train-es-014",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "taxi",
+      "length_band": "medium",
+      "text": "Con la estación a tope, aun así tardamos menos de un minuto en encontrarnos. Me habían enviado la matrícula y la indicación útil de esperar dentro de la acera, junto al poste amarillo, hasta que el coche entrase en el carril. El conductor nos vio, se detuvo a nuestra altura y abrió el maletero sin que cruzáramos detrás de ningún autobús. Subimos con las maletas pequeñas también colocadas.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast",
+        "regionalism"
+      ],
+      "structure": "Encuentro ya conseguido y explicación de sus referencias | mixto",
+      "author_rationale": "La coordinación permite identificar el coche y subir sin cruzar carriles.",
+      "style_profile": "mixto",
+      "original_structure": "Encuentro ya conseguido y explicación de sus referencias",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_b2cfc24b270ce0833607",
+        "previous_text_sha256": "787331a419b8c63503cf09632429e5e3646c4b721b27f49c65722545ead292aa",
+        "editing_notes": "Alterno resultado e instrucciones en cuatro frases conservando ubicación y ausencia de cruce.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "negative_concordance",
+        "regionalism"
+      ]
+    },
+    {
+      "family": "v3-train-es-015",
+      "semantic_component": "sg-v3-train-es-015",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "airport",
+      "length_band": "long",
+      "text": "Necesitaba llevar dos maletas y una caja hasta el autobús del aeropuerto en un carrito. El depósito exigía una moneda de un euro. Según el cartel, la máquina de cambio estaba al otro lado del vestíbulo. Fui allí dejando el equipaje con mi acompañante. Como la máquina devolvía el billete, compré una botella solo para conseguir cambio. Con el carrito liberado pudimos hacer el recorrido. Al devolverlo junto al autobús, el enganche entraba pero no devolvía el euro. Lo probé en dos posiciones siguiendo el dibujo. Un empleado señaló otro depósito una planta más arriba, sin poder acompañarnos ni liberar el cierre. Menuda facilidad con tanto equipaje y una salida esperando. Preferí alcanzar el autobús y dejé el carrito encadenado con la moneda dentro. Desde la cola todavía veía el aviso de devolución, que no decía cómo actuar ante un cierre atascado.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast",
+        "irony",
+        "sarcasm",
+        "resolved_incident"
+      ],
+      "structure": "Necesidad de transporte y dos obstáculos con el depósito | fragmentado",
+      "author_rationale": "Conseguir moneda y recuperarla exige desvíos y el viajero pierde el depósito.",
+      "style_profile": "fragmentado",
+      "original_structure": "Necesidad de transporte y dos obstáculos con el depósito",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_79467e32c073ffd16e80",
+        "previous_text_sha256": "525b76ed2ec9d925f5ed7715630ac3d1ae760daaa8eb50173914fde67e8c7852",
+        "editing_notes": "Fracciono la secuencia en doce frases, preservando ironía, moneda retenida y prioridad del autobús.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "explicit_contrast",
+        "irony",
+        "sarcasm"
+      ]
+    },
+    {
+      "family": "v3-train-es-015",
+      "semantic_component": "sg-v3-train-es-015",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "airport",
+      "length_band": "long",
+      "text": "Una hora antes de devolverlo había liberado el carrito en llegadas, poniendo un euro en el mecanismo del asa. El dibujo admitía como alternativa una ficha del mismo tamaño. Coloqué la caja en la plataforma baja y apoyé las dos maletas contra la barra delantera. Los símbolos del carrito nos llevaron luego hasta una puerta automática, tras la cual empezaba la zona cubierta de autobuses. Para devolverlo escogí la fila de soportes junto al ventanal, en vez de la situada al lado de una columna numerada, porque el enganche quedaba frente al asa. Mientras mi acompañante sostenía la caja fui sacando las maletas de una en una. Metí la cadena del soporte en la ranura y recogí la moneda por la abertura inferior. La cadena quedó dentro del mecanismo al salir el euro, que guardé en el bolsillo del abrigo. Con el equipaje seguimos hasta la parada cuyo número figuraba en el billete.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "explicit_contrast",
+        "objective_chronology"
+      ],
+      "structure": "Devolución y reconstrucción del recorrido del carrito | mixto",
+      "author_rationale": "Detalla obtención, carga y retorno de la moneda sin valorar la experiencia.",
+      "style_profile": "mixto",
+      "original_structure": "Devolución y reconstrucción del recorrido del carrito",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_1473feffd121c5428694",
+        "previous_text_sha256": "02a4334dd9020ae8997f099a656b573eed7dd54a58f07f10aee153c62e4dc7ca",
+        "editing_notes": "Presento el uso en orden cronológico y nueve frases, sin alterar el mecanismo.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "objective_chronology"
+      ]
+    },
+    {
+      "family": "v3-train-es-015",
+      "semantic_component": "sg-v3-train-es-015",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "airport",
+      "length_band": "long",
+      "text": "Acababa de llegar y solo llevaba billetes, así que pregunté en el mostrador cómo liberar un carrito y me señalaron la máquina de cambio del propio depósito, sin enviarme a una tienda. Dos dibujos grandes del cartel explicaban qué moneda usar y cómo mover el cierre, así que saqué uno y acomodé la mochila pequeña en la cesta y las maletas abajo. Agradecí especialmente poder devolverlo en otro punto del acceso al aparcamiento de recogidas, después de descargar junto al coche de mi familiar, sin recorrer otra vez toda la terminal. Había cogido primero la cadena de otro carrito, pero una trabajadora me enseñó el enganche fijo del soporte y al insertarlo salió la moneda. Sin tener que reclamar ni buscar a nadie más, guardaba ya el euro mientras mi familiar cerraba el maletero. Dejé el carrito sujeto con el asa mirando hacia el siguiente usuario que llegase desde las puertas.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast",
+        "resolved_incident",
+        "regionalism"
+      ],
+      "structure": "Consulta inicial y devolución cerca del destino | fluido",
+      "author_rationale": "La información y los puntos de retorno permiten mover el equipaje y recuperar el depósito.",
+      "style_profile": "fluido",
+      "original_structure": "Consulta inicial y devolución cerca del destino",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_00756fe36931ab4878e5",
+        "previous_text_sha256": "5e86573bc9501a088f4fc2b826705f89a249f8566121bf8a30fb3a8905ad7a4a",
+        "editing_notes": "Uno las gestiones en seis oraciones y mantengo la confusión de cadena resuelta.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "negative_concordance",
+        "resolved_incident"
+      ]
+    },
+    {
+      "family": "v3-train-es-016",
+      "semantic_component": "sg-v3-train-es-016",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "beach",
+      "length_band": "short",
+      "text": "La rueda del carrito quedó enganchada en una tabla saliente justo antes de la arena y levantó el eje. No había señal ni paso alternativo.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "negative_concordance"
+      ],
+      "structure": "Tabla como obstáculo al avance | mixto",
+      "author_rationale": "El desnivel atrapa una rueda y falta una alternativa señalizada.",
+      "style_profile": "mixto",
+      "original_structure": "Tabla como obstáculo al avance",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_8b64e606db5fd27dd9fb",
+        "previous_text_sha256": "9f67ebf1bfbaced10d11e1a020aed6feb373ce3ff20f662597d01a4d304ed2fd",
+        "editing_notes": "Reordeno tabla y enganche en una frase y separo la ausencia de alternativas.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation"
+      ]
+    },
+    {
+      "family": "v3-train-es-016",
+      "semantic_component": "sg-v3-train-es-016",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "beach",
+      "length_band": "short",
+      "text": "Íbamos con una bolsa con ruedas por la pasarela, cuyas tablas cambiaban de dirección a mitad del recorrido y terminaban junto al primer puesto de sombrillas.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Recorrido previsto y punto final de las tablas | fluido",
+      "author_rationale": "Describe material y dirección sin juicio sobre continuidad.",
+      "style_profile": "fluido",
+      "original_structure": "Recorrido previsto y punto final de las tablas",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_a53b7145f865f6438b2f",
+        "previous_text_sha256": "90e04cbe59fa1ddd4bb34dcd5347baec840856ed681211be7d9547ed9482da30",
+        "editing_notes": "Integro transporte y trazado de tablas mediante una relativa.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": []
+    },
+    {
+      "family": "v3-train-es-016",
+      "semantic_component": "sg-v3-train-es-016",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "beach",
+      "length_band": "short",
+      "text": "Dejamos pasar a otro carrito antes de seguir hasta la arena firme. Las juntas estaban a nivel. No tuvimos que levantar las ruedas en ningún tramo.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "negative_concordance"
+      ],
+      "structure": "Espera breve seguida de recorrido continuo | fragmentado",
+      "author_rationale": "La nivelación permite completar el acceso sin cargar el carrito.",
+      "style_profile": "fragmentado",
+      "original_structure": "Espera breve seguida de recorrido continuo",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_9b5f66691903885a2ae7",
+        "previous_text_sha256": "bc179a009708d42f8f255e5aedfc812ce27ef5acaecc875d8ea9d78ddc600ef4",
+        "editing_notes": "Expreso espera, nivelación y paso sin levantar ruedas en tres frases.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "negative_concordance"
+      ]
+    },
+    {
+      "family": "v3-train-es-017",
+      "semantic_component": "sg-v3-train-es-017",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "museum",
+      "length_band": "medium",
+      "text": "Sentada en el banco de la segunda sala solo veía la trasera de un panel, y para mirar los cuadros debía levantarme sin que encontráramos otro asiento entre esa sala y la siguiente. La rodilla me pedía pausas y la visita se me hizo cuesta arriba al quedarme castigada frente a una pared. Cuando pregunté por una silla móvil me remitieron al banco que acababa de dejar detrás del panel.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "implicit_contrast"
+      ],
+      "structure": "Posición del asiento y necesidad de descanso | fluido",
+      "author_rationale": "La ubicación de los bancos impide combinar descanso y contemplación de las piezas.",
+      "style_profile": "fluido",
+      "original_structure": "Posición del asiento y necesidad de descanso",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_442808d977df7d72dbf1",
+        "previous_text_sha256": "18cd7eabbda8fc0a0192bb84ee4bd982f1fc74342e4dcc7bdf64b9b5522db6cb",
+        "editing_notes": "Integro ubicación y limitación en tres frases; conservo la búsqueda de otro asiento.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "negative_concordance"
+      ]
+    },
+    {
+      "family": "v3-train-es-017",
+      "semantic_component": "sg-v3-train-es-017",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "museum",
+      "length_band": "medium",
+      "text": "Desde el banco central se escuchaban los pasos en la tarima. Consulté allí el plano, frente a dos vitrinas y con un retrato de cuerpo entero a la derecha. Mi acompañante entró en la sala contigua. Yo seguí anotando los números de las piezas. El siguiente asiento estaba bajo una ventana del distribuidor. Allí nos reunimos antes de subir a la planta de cerámica.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Sonido situado y desplazamiento entre asientos | fragmentado",
+      "author_rationale": "Describe vistas, pausas y puntos de encuentro sin evaluar el descanso.",
+      "style_profile": "fragmentado",
+      "original_structure": "Sonido situado y desplazamiento entre asientos",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_65664c7831b7eaf2682d",
+        "previous_text_sha256": "6d668c006894f237a04e43cdb97d94aca31294571a364c7290a83c734a523566",
+        "editing_notes": "Redistribuyo las referencias de salas y asientos en seis frases descriptivas.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "objective_chronology"
+      ]
+    },
+    {
+      "family": "v3-train-es-017",
+      "semantic_component": "sg-v3-train-es-017",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "museum",
+      "length_band": "medium",
+      "text": "Frente a los tapices había un banco donde podía parar en lugar de continuar hacia la sala grande. Al sentarme descubrí detalles del tejido que me habían pasado inadvertidos de pie entre la gente. Los asientos formaban parte del recorrido y dejaban ver las obras a la altura de los ojos, sin estar arrinconados. Mi padre alternó salas y descansos durante toda la visita sin esperarme en recepción.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast"
+      ],
+      "structure": "Elección de pausa que permite continuar contemplando | mixto",
+      "author_rationale": "La posición de los bancos permite descansar y completar la visita con interés.",
+      "style_profile": "mixto",
+      "original_structure": "Elección de pausa que permite continuar contemplando",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_c30c049849ce47de2b21",
+        "previous_text_sha256": "275bee2595911f41e5098df4bc238b0bd13092344e1f89578c16d3da412cc7ef",
+        "editing_notes": "Reorganizo elección y experiencia en cuatro frases, manteniendo la participación del padre.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "implicit_contrast"
+      ]
+    },
+    {
+      "family": "v3-train-es-018",
+      "semantic_component": "sg-v3-train-es-018",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "tour",
+      "length_band": "long",
+      "text": "Mi acompañante apenas había levantado la cámara cuando el guía ya nos llamaba para salir. En el mirador nos dejaron pegados a una barandilla. Las personas más altas quedaban delante y teníamos un carril de bicicletas a nuestra espalda. Intenté apartarme por un lateral para encuadrar el puente. Me hicieron regresar porque lo consideraban separarme del grupo. La pausa fotográfica parecía servir solo a una persona situada en el centro. No aclararon el tiempo disponible ni dieron turno a quienes estábamos detrás. Dos viajeros solicitaron otra posición y les contestaron que había que cumplir el horario. Comprendo que un paseo tenga límites, pero anunciaban aquella parada y no conseguí una foto sin cabezas. Al volver a caminar mi acompañante aún guardaba el objetivo. Tuvo que hacerlo andando entre quienes cruzaban el mirador. Después aún nos quedaban diez minutos de espera junto al autobús.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast",
+        "implicit_contrast",
+        "expectation"
+      ],
+      "structure": "Acción de una acompañante y secuencia de una pausa fallida | fragmentado",
+      "author_rationale": "La colocación y la prisa impiden usar la pausa fotográfica anunciada.",
+      "style_profile": "fragmentado",
+      "original_structure": "Acción de una acompañante y secuencia de una pausa fallida",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_71d652366ed2a63ad989",
+        "previous_text_sha256": "47ca222d85f5ad2d7bf4ae4601568ab39036cbb7f9eee19fb974c7e119d789a2",
+        "editing_notes": "Reparto las restricciones y su efecto en doce frases; conservo la espera posterior.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "explicit_contrast",
+        "expectation"
+      ]
+    },
+    {
+      "family": "v3-train-es-018",
+      "semantic_component": "sg-v3-train-es-018",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "tour",
+      "length_band": "long",
+      "text": "Con la cámara todavía en la mochila, comprobé a qué hora debíamos reunirnos: la guía indicó las doce y cuarto. Señaló una columna en el lado interior del mirador como referencia. De las doce personas, cuatro permanecieron cerca de la entrada y las demás avanzamos hacia la barandilla. El primer tramo permitía fotografiar la torre entera y el segundo mostraba el cauce del río. Mi hermano colocó el móvil en vertical mientras yo pasaba a un objetivo corto. Nos apartamos junto a la columna para dejar pasar a una pareja sin obstruir el camino entre las dos escaleras. Allí siguió la guía con la carpeta levantada y nos avisó a falta de dos minutos. Tras tapar el objetivo, guardar la cámara y consultar la hora en el teléfono, vi que el grupo se reunía por parejas. Cuando se contaron las doce personas, bajamos por la escalera del fondo hacia el paseo inferior.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "negation",
+        "regionalism",
+        "objective_chronology"
+      ],
+      "structure": "Comprobación del tiempo y distribución de posiciones | mixto",
+      "author_rationale": "Relata cómo se usaron tiempo y espacio sin juzgar la parada.",
+      "style_profile": "mixto",
+      "original_structure": "Comprobación del tiempo y distribución de posiciones",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_6195256d5ffa80bb148c",
+        "previous_text_sha256": "13d4741a0d1548a3018cf8951a3ba07f134bef9876e49616a91608d8ae7b9fef",
+        "editing_notes": "Reordeno la observación en nueve frases enlazadas, conservando tiempos y posiciones.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "objective_chronology"
+      ]
+    },
+    {
+      "family": "v3-train-es-018",
+      "semantic_component": "sg-v3-train-es-018",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "tour",
+      "length_band": "long",
+      "text": "La guía comenzó marcando una zona de espera y otra para fotos con el paso libre entre ellas, de manera que los vecinos y otros grupos que cruzaban no nos hacían amontonarnos en la salida. Desde el arco ancho fotografiamos primero el conjunto, después nos ofreció el lateral para los detalles de las ventanas y junto al segundo arco nos hizo comparar ambos encuadres. Mi padre, que usa bastón, esperó sentado en el banco y tuvo el mismo tiempo que todos cuando llegó su turno. Me gustó escuchar la explicación del edificio antes de usar la cámara, sin que compitiera luego con la voz de la guía. Nos detuvimos un momento al caerle a una niña la tapa del objetivo y la recuperamos debajo del banco. Conseguí las imágenes que quería y guardé el equipo antes de volver a caminar; la guía recogió después el pequeño cono que señalaba nuestra zona de espera.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "resolved_incident",
+        "expectation"
+      ],
+      "structure": "Escena fotográfica con regreso a la organización inicial | fluido",
+      "author_rationale": "La distribución, los turnos y el tiempo permiten fotografiar sin bloquear el paso.",
+      "style_profile": "fluido",
+      "original_structure": "Escena fotográfica con regreso a la organización inicial",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_047dbb96cf7b706c8b83",
+        "previous_text_sha256": "d8647181abce1da66e263d550c4a241fb03c4f488530e2cc36ea17a18c1f1628",
+        "editing_notes": "Reordeno la pausa en seis oraciones; mantengo transeúntes, turnos y recuperación de la tapa.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "double_negation",
+        "explicit_contrast",
+        "resolved_incident"
+      ]
+    },
+    {
+      "family": "v3-train-es-019",
+      "semantic_component": "sg-v3-train-es-019",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "reservation",
+      "length_band": "short",
+      "text": "El mensaje nos dirigía al portal contiguo aunque el código era correcto. A medianoche, tras tres llamadas sin respuesta, acertamos probando el siguiente número.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "resolved_incident"
+      ],
+      "structure": "Contradicción entre código válido y localización | mixto",
+      "author_rationale": "Las instrucciones erróneas dejan a los viajeros buscando entrada de madrugada.",
+      "style_profile": "mixto",
+      "original_structure": "Contradicción entre código válido y localización",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_be8bcf4dce4c8dccd822",
+        "previous_text_sha256": "4c8ec983451317c33091ef4b30ea738c40277b0ae96aa2a9017d4d527841854b",
+        "editing_notes": "Reformulo la contradicción y el acceso final en dos oraciones.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation",
+        "implicit_contrast"
+      ]
+    },
+    {
+      "family": "v3-train-es-019",
+      "semantic_component": "sg-v3-train-es-019",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "reservation",
+      "length_band": "short",
+      "text": "Llegamos después del cierre de recepción, con instrucciones que identificaban la puerta por una baldosa azul y pedían introducir el código antes de girar el pomo.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Mensaje leído y orden de operaciones | fluido",
+      "author_rationale": "Expone la identificación y el acceso fuera de horario sin juicio.",
+      "style_profile": "fluido",
+      "original_structure": "Mensaje leído y orden de operaciones",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_6d69d8aa609f84ac0d64",
+        "previous_text_sha256": "59cfac0eca7c12e3357513aca5da6d9daffceafbf8495648be1c83035c83ecce",
+        "editing_notes": "Conecto llegada e instrucciones en una oración sin afirmar un resultado adicional.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "objective_chronology"
+      ]
+    },
+    {
+      "family": "v3-train-es-019",
+      "semantic_component": "sg-v3-train-es-019",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "reservation",
+      "length_band": "short",
+      "text": "Al cerrar recepción enviaron foto y código. Comprobaron que los habíamos recibido. De madrugada entramos a la primera y encontramos las llaves dentro.",
+      "intended_label": "positivo",
+      "phenomena": [],
+      "structure": "Relevo entre recepción presencial y acceso nocturno | fragmentado",
+      "author_rationale": "La entrega y verificación de instrucciones hacen efectivo el acceso tardío.",
+      "style_profile": "fragmentado",
+      "original_structure": "Relevo entre recepción presencial y acceso nocturno",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_e18e00162a560878da58",
+        "previous_text_sha256": "ab9ef02bce66286e16b3436edfe8c8a4f164f0eb0c2ee1e988ee0a43516be305",
+        "editing_notes": "Marco tres pasos breves y mantengo el acceso resuelto.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": []
+    },
+    {
+      "family": "v3-train-es-020",
+      "semantic_component": "sg-v3-train-es-020",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "nature_excursion",
+      "length_band": "medium",
+      "text": "La manta doblada que me puse sobre las rodillas apenas tapaba las piernas y estaba húmeda por un lateral, así que tuvimos que levantarnos a oscuras a buscar otra porque nos habían sentado antes de repartirlas. En cada cambio nos apuntaban a la cara con linternas blancas y pasé más tiempo recuperando la vista del cielo que viendo estrellas. Aunque la explicación era interesante, la organización nos sacaba de ella continuamente.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects"
+      ],
+      "structure": "Uso insuficiente de abrigo y cambios de posición | fluido",
+      "author_rationale": "La distribución y las luces interrumpen repetidamente la observación.",
+      "style_profile": "fluido",
+      "original_structure": "Uso insuficiente de abrigo y cambios de posición",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_b6279db268d2a8785621",
+        "previous_text_sha256": "d2d101baad0f826be373918cbfdce3e9f3c9386a2d079f3995381c53d120eca3",
+        "editing_notes": "Relaciono las incidencias en tres frases y mantengo el interés por la explicación.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "explicit_contrast",
+        "mixed_aspects"
+      ]
+    },
+    {
+      "family": "v3-train-es-020",
+      "semantic_component": "sg-v3-train-es-020",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "nature_excursion",
+      "length_band": "medium",
+      "text": "Al bajar del vehículo habíamos usado luces blancas. La segunda tanda fue de luces rojas. Antes de acercarnos a las sillas el monitor explicó la diferencia. Había una manta doblada en cada respaldo y una pila más junto a las cajas del telescopio. Me cubrí los hombros y cambié de silla al girar el aparato. De regreso encendieron las blancas cuando llegamos al camino.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Dos tipos de luz vinculados a fases distintas | fragmentado",
+      "author_rationale": "Describe reparto y coordinación de recursos sin evaluación.",
+      "style_profile": "fragmentado",
+      "original_structure": "Dos tipos de luz vinculados a fases distintas",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_aec80057626aa50c1b20",
+        "previous_text_sha256": "bb650afc35f841ecbf1add837bcc5fef11a6619eec19e40d175ca241ba2ac5de",
+        "editing_notes": "Ordeno luces y mantas en seis frases sin valoración añadida.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "objective_chronology"
+      ]
+    },
+    {
+      "family": "v3-train-es-020",
+      "semantic_component": "sg-v3-train-es-020",
+      "role": "train",
+      "region": "Spain",
+      "experience_type": "nature_excursion",
+      "length_band": "medium",
+      "text": "La pinza de cada manta me había parecido una tontería, hasta que el aire me hizo agradecer poder sujetarla a la silla y mirar por el telescopio sin perseguir las esquinas. Antes de desplazarnos, la monitora avisaba de la linterna que encendería y de su dirección. Dejaba un minuto para levantarnos y recolocar los abrigos. Así seguimos el cielo con calma también al movernos al extremo opuesto de la explanada.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "implicit_contrast",
+        "expectation"
+      ],
+      "structure": "Detalle lateral del material y coordinación de movimientos | mixto",
+      "author_rationale": "Los recursos y avisos permiten mantener abrigo y atención durante la salida.",
+      "style_profile": "mixto",
+      "original_structure": "Detalle lateral del material y coordinación de movimientos",
+      "revision": {
+        "actual_task": "/root/v3_style_es",
+        "protocol_commit": "d0bde7e50dc7a101cd696a67f8fe0979bd881397",
+        "previous_review_id": "b3_aa6efcf14cb657848a9a",
+        "previous_text_sha256": "d738a2d25976e0bba015ddd527f0027c0a72017d8382b6143a410498b981eb9c",
+        "editing_notes": "Equilibro experiencia e instrucciones en cuatro frases, manteniendo la apreciación inicial.",
+        "phenomena_annotation_status": "REFRESHED_BY_EDITOR",
+        "phenomena_annotator_task": "/root/v3_style_es"
+      },
+      "original_phenomena": [
+        "negation"
+      ]
+    },
+    {
+      "family": "v3-tune-es-001",
+      "semantic_component": "sg-v3-tune-es-001",
+      "role": "tune",
+      "region": "Spain",
+      "experience_type": "restaurant",
+      "length_band": "long",
+      "text": "Al pasar mi pedido de sala a cocina desapareció la explicación sobre los utensilios. Había avisado al reservar de que necesitaba evitar el sésamo y volví a decirlo al sentarme. La camarera anotó la restricción y describió un juego de pinzas separado, así que acepté la ensalada propuesta. Cuando la trajeron llevaba semillas en el borde; la retiraron y regresó enseguida con ese borde limpio. Pregunté si era un plato nuevo o si habían quitado las semillas del anterior. Nadie pudo confirmarlo. Tampoco sabían si las pinzas mencionadas se habían usado para mi preparación o para apartar los ingredientes al final. No me servía que repitieran que estaba apuntado: necesitaba una respuesta sobre lo que acababan de hacer. Dejé el plato sin probar y pedí la cuenta de la bebida. El trato había sido amable hasta ese momento, pero la información se cortaba justamente donde debía resultar comprobable. En el papel de la comanda seguía figurando la observación junto al nombre de la ensalada.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects",
+        "objective_chronology"
+      ],
+      "structure": "Pérdida de información entre fases del servicio",
+      "author_rationale": "La preparación recibida contradice la restricción y no se aclara el procedimiento."
+    },
+    {
+      "family": "v3-tune-es-001",
+      "semantic_component": "sg-v3-tune-es-001",
+      "role": "tune",
+      "region": "Spain",
+      "experience_type": "restaurant",
+      "length_band": "long",
+      "text": "Para pedir una preparación sin huevo, entregué al camarero una tarjeta con los ingredientes que estaba evitando durante el viaje. Él la llevó a cocina y regresó con una hoja donde figuraban las opciones del día. Escogí arroz con verduras. Me explicó que se prepararía en una sartén guardada bajo la mesa lateral, con una espátula identificada mediante una cinta azul. También distinguió ese material de las cucharas empleadas en los recipientes del mostrador. Mi acompañante pidió el plato de la carta habitual; ambos pedidos quedaron separados en la comanda por una línea horizontal. Antes de servir, otra camarera leyó la anotación y preguntó a qué persona correspondía cada plato. Coloqué la tarjeta junto al vaso y recibí el arroz en una cazuela individual. En la nota entregada con la cuenta aparecía la misma observación sobre el huevo, debajo del nombre de la preparación. La tarjeta volvió a mi cartera y la hoja de opciones quedó en la mesa del servicio.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology",
+        "negation"
+      ],
+      "structure": "Uso de tarjeta de ingredientes y seguimiento de la anotación",
+      "author_rationale": "Describe la solicitud y las explicaciones sobre material separado sin juicio de seguridad o calidad."
+    },
+    {
+      "family": "v3-tune-es-001",
+      "semantic_component": "sg-v3-tune-es-001",
+      "role": "tune",
+      "region": "Spain",
+      "experience_type": "restaurant",
+      "length_band": "long",
+      "text": "La etiqueta azul que vi al entrar no era decoración: identificaba la caja donde guardaban el material destinado a mi pedido. Lo entendí cuando la cocinera salió a confirmar qué ingrediente debía excluirse. En vez de darme una respuesta general sobre la carta, explicó qué tabla, cuchillo y recipiente iba a utilizar y qué partes del plato habitual no podía ofrecer con ese procedimiento. Agradecí esa precisión más que una promesa de que se podía hacer todo. Elegimos una preparación distinta y corrigieron también la guarnición escrita en la comanda. Hubo que esperar unos minutos adicionales, avisados antes de confirmar; mi acompañante pidió que su plato saliera al mismo tiempo. Cuando trajeron ambos, identificaron el mío sin preguntarlo a toda la mesa y me devolvieron la tarjeta que había entregado. No se puede negar que atendieron el detalle: incluso el pan salió en un plato aparte para mi acompañante. Pude cenar sin repetir la misma explicación a cada persona que se acercaba.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "double_negation",
+        "mixed_aspects"
+      ],
+      "structure": "Significado de una etiqueta revelado por la preparación",
+      "author_rationale": "La explicación concreta y la continuidad del pedido permiten cenar con confianza."
+    },
+    {
+      "family": "v3-tune-es-002",
+      "semantic_component": "sg-v3-tune-es-002",
+      "role": "tune",
+      "region": "Spain",
+      "experience_type": "taxi",
+      "length_band": "short",
+      "text": "El datáfono seguía buscando cobertura. Después de asegurarme que aceptaba tarjeta, el conductor me hizo pagar un desvío al cajero: la conexión acabó costándome a mí.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "implicit_contrast"
+      ],
+      "structure": "Pantalla del terminal y consecuencia económica",
+      "author_rationale": "Una alternativa no anunciada traslada al pasajero el coste del fallo."
+    },
+    {
+      "family": "v3-tune-es-002",
+      "semantic_component": "sg-v3-tune-es-002",
+      "role": "tune",
+      "region": "Spain",
+      "experience_type": "taxi",
+      "length_band": "short",
+      "text": "Pasé la tarjeta al llegar al hotel. El terminal pidió conexión, el conductor activó los datos y repetimos la operación; salió un único recibo.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Secuencia de pago y comprobante",
+      "author_rationale": "Registra incidencia y operación final sin valorar el servicio."
+    },
+    {
+      "family": "v3-tune-es-002",
+      "semantic_component": "sg-v3-tune-es-002",
+      "role": "tune",
+      "region": "Spain",
+      "experience_type": "taxi",
+      "length_band": "short",
+      "text": "Pude entrar en la estación con el recibo guardado. El conductor había resuelto la falta de señal usando otra conexión, sin recargarme ni un céntimo.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "resolved_incident",
+        "objective_chronology"
+      ],
+      "structure": "Resultado del pago y reconstrucción de la solución",
+      "author_rationale": "El conductor resuelve la conexión sin coste añadido y permite continuar el viaje."
+    },
+    {
+      "family": "v3-tune-es-003",
+      "semantic_component": "sg-v3-tune-es-003",
+      "role": "tune",
+      "region": "Spain",
+      "experience_type": "airport",
+      "length_band": "medium",
+      "text": "Necesitábamos cambiar al bebé antes del embarque y seguimos el pictograma hasta los aseos. Dentro no había cambiador; una empleada nos mandó a otro pasillo, donde la señal reaparecía detrás de una puerta cerrada. Tuvimos que buscar de nuevo llevando el cochecito y la bolsa a cuestas. Cuando encontramos la sala, la puerta abría contra el espacio del carro. Entre dar vueltas y recolocarlo perdimos casi toda la espera.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "Búsqueda de una sala y dificultad de entrada",
+      "author_rationale": "La señalización discontinua y el acceso obstaculizado consumen el tiempo disponible."
+    },
+    {
+      "family": "v3-tune-es-003",
+      "semantic_component": "sg-v3-tune-es-003",
+      "role": "tune",
+      "region": "Spain",
+      "experience_type": "airport",
+      "length_band": "medium",
+      "text": "Ya dentro de la sala dejé la bolsa en una repisa a la izquierda. Antes, desde la zona de embarque, habíamos seguido dos señales con un biberón y otra con un cochecito. La puerta se abría hacia el pasillo y tenía un pulsador a media altura. Mi pareja sostuvo la hoja mientras pasaba el carro. El cambiador estaba frente a la entrada, junto a una pila con grifo.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Escena interior con reconstrucción del acceso",
+      "author_rationale": "Describe referencias y distribución sin pronunciarse sobre la comodidad."
+    },
+    {
+      "family": "v3-tune-es-003",
+      "semantic_component": "sg-v3-tune-es-003",
+      "role": "tune",
+      "region": "Spain",
+      "experience_type": "airport",
+      "length_band": "medium",
+      "text": "Pregunté si el cambiador admitía entrar con el cochecito completo. La trabajadora indicó la sala familiar y nos explicó el pulsador de apertura antes de que fuéramos. Cabíamos el carro, la bolsa y los dos adultos sin bloquear la puerta, un alivio viajando sin poder dejar nada fuera. Encontré una repisa al alcance del cambiador y un sitio separado para el abrigo. Salimos con tiempo para volver a nuestra puerta.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "negative_concordance"
+      ],
+      "structure": "Consulta de dimensiones y uso con equipaje",
+      "author_rationale": "La información y la distribución permiten cambiar al bebé conservando el equipaje dentro."
+    },
+    {
+      "family": "v3-tune-es-004",
+      "semantic_component": "sg-v3-tune-es-004",
+      "role": "tune",
+      "region": "Spain",
+      "experience_type": "beach",
+      "length_band": "long",
+      "text": "La cuerda que delimitaba la limpieza apareció atravesando la salida del agua cuando ya habíamos colocado las toallas. El cartel del acceso decía que el trabajo terminaba a las nueve; eran las nueve y media y la máquina acababa de entrar por el mismo paso que usábamos los bañistas. Una persona nos pidió mover las cosas, pero no señaló qué parte estaba ya libre. Levantamos la sombrilla y avanzamos hacia una franja que parecía terminada. Allí nos volvieron a mandar atrás porque el equipo tenía que girar. No esperaba que renunciaran a cuidar la arena; esperaba un horario fiable y una zona de espera reconocible. Entre ambos movimientos se llenó de arena la mochila abierta y dejamos de tener a la vista el punto por donde habían entrado nuestros acompañantes al agua. La recogida de residuos se estaba haciendo, eso sí. Nos marchamos al paseo con la toalla aún doblada y esperamos junto a la ducha a que retiraran otra vez la cuerda.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects",
+        "expectation"
+      ],
+      "structure": "Cambios de una delimitación durante el uso de la playa",
+      "author_rationale": "El horario incumplido y los límites móviles obligan a trasladarse sin orientación."
+    },
+    {
+      "family": "v3-tune-es-004",
+      "semantic_component": "sg-v3-tune-es-004",
+      "role": "tune",
+      "region": "Spain",
+      "experience_type": "beach",
+      "length_band": "long",
+      "text": "Habíamos previsto llegar a la playa a las ocho y encontramos el equipo trabajando en la franja junto al paseo. El panel del acceso dividía el cuidado de la arena en dos sectores, con una hora para cada uno. Permanecimos al otro lado de una línea de conos mientras el tractor avanzaba hasta una baliza y volvía por una pasada paralela. Una persona caminaba detrás recogiendo en un cubo los objetos que quedaban cerca de los postes. Al llegar la hora indicada movieron los conos hacia el segundo sector y abrieron un corredor desde la pasarela hasta la orilla. Bajamos por ese corredor con la sombrilla y escogimos sitio junto a una ducha. El vehículo continuó trabajando al fondo, separado por la nueva línea. Cuando mis acompañantes fueron a por agua al paseo utilizaron el mismo corredor; no cruzaron la zona de maniobra. A las ocho y media retiraron las últimas balizas y apilaron los conos sobre un remolque estacionado junto al acceso.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "negation",
+        "objective_chronology"
+      ],
+      "structure": "Plan de llegada y sucesión de sectores de limpieza",
+      "author_rationale": "Documenta horarios, delimitación y movimiento sin atribuir una valoración."
+    },
+    {
+      "family": "v3-tune-es-004",
+      "semantic_component": "sg-v3-tune-es-004",
+      "role": "tune",
+      "region": "Spain",
+      "experience_type": "beach",
+      "length_band": "long",
+      "text": "Esperamos unos minutos en el paseo porque el tramo de arena que queríamos usar seguía delimitado. El panel ya lo advertía en la pasarela, antes de bajar con el cochecito, y daba la hora de apertura del corredor a la orilla. Así pudimos dejar las cosas apoyadas en un banco en vez de trasladarlas dos veces. El encargado avisó al conductor de que había personas esperando y abrió el paso al terminar aquella franja, manteniendo cerrada la zona donde el vehículo aún tenía que girar. No quedaban dudas sobre por dónde pasar: la cinta seguía los bordes del trabajo y el corredor tenía conos de otro color. Nos gustó ver que recogían a mano junto a los soportes de las duchas, donde la máquina no entraba. Había algo de ruido, pero duró el rato anunciado y después retiraron todo el material. Acomodamos el cochecito bajo la sombrilla; la arena de ese tramo no tenía restos de la recogida ni huellas del vehículo cruzando hacia el mar.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects"
+      ],
+      "structure": "Espera anticipada y apertura de un paso separado",
+      "author_rationale": "La información y la separación de maniobras permiten usar la playa al finalizar el trabajo."
+    },
+    {
+      "family": "v3-calibration-es-001",
+      "semantic_component": "sg-v3-calibration-es-001",
+      "role": "calibration",
+      "region": "Spain",
+      "experience_type": "hotel",
+      "length_band": "short",
+      "text": "Después de ducharme busqué dónde colgar la toalla. El único gancho estaba sobre el enchufe, ocupado por mi neceser; acabó mojándose también la camisa.",
+      "intended_label": "negativo",
+      "phenomena": [],
+      "structure": "Salida de la ducha y conflicto de espacio",
+      "author_rationale": "La distribución no permite separar textiles mojados y ropa."
+    },
+    {
+      "family": "v3-calibration-es-001",
+      "semantic_component": "sg-v3-calibration-es-001",
+      "role": "calibration",
+      "region": "Spain",
+      "experience_type": "hotel",
+      "length_band": "short",
+      "text": "Colgué la toalla de ducha en la barra lateral y la de manos en un aro. La ropa quedó en dos ganchos detrás de la puerta.",
+      "intended_label": "neutral",
+      "phenomena": [],
+      "structure": "Distribución de objetos después de la ducha",
+      "author_rationale": "Enumera los lugares utilizados sin evaluar capacidad o higiene."
+    },
+    {
+      "family": "v3-calibration-es-001",
+      "semantic_component": "sg-v3-calibration-es-001",
+      "role": "calibration",
+      "region": "Spain",
+      "experience_type": "hotel",
+      "length_band": "short",
+      "text": "El gancho doble se desplegaba hacia fuera, cosa que descubrí al volver al baño. No está nada mal: toallas separadas y ropa seca al lado.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "litotes"
+      ],
+      "structure": "Segunda observación del gancho y efecto de uso",
+      "author_rationale": "La separación preserva la ropa seca y recibe una aprobación atenuada."
+    },
+    {
+      "family": "v3-calibration-es-002",
+      "semantic_component": "sg-v3-calibration-es-002",
+      "role": "calibration",
+      "region": "Spain",
+      "experience_type": "restaurant",
+      "length_band": "medium",
+      "text": "La cesta del pan iba pasando de mano en mano porque la mesa ya no tenía sitio. Trajeron los segundos sobre las fuentes vacías del entrante y nos pidieron sostenerlas mientras colocaban los platos. «Ahora las retiramos», dijeron; llegó el postre y seguían allí. Comer pendiente de que no cayera nada me quitó las ganas de alargar la sobremesa. El mantel acabó recogido bajo la base de una copa.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "negative_concordance"
+      ],
+      "structure": "Detalle lateral que conduce a la acumulación de vajilla",
+      "author_rationale": "La retirada tardía obliga a sostener vajilla y reduce el espacio útil para comer."
+    },
+    {
+      "family": "v3-calibration-es-002",
+      "semantic_component": "sg-v3-calibration-es-002",
+      "role": "calibration",
+      "region": "Spain",
+      "experience_type": "restaurant",
+      "length_band": "medium",
+      "text": "Dejamos los cubiertos juntos al terminar el primer plato. La camarera retiró dos platos y una fuente, colocó un recipiente para las cáscaras y trajo los segundos en otra bandeja. La mesa era cuadrada, con la botella de agua en la esquina interior. Antes del postre retiraron el recipiente y las copas de vino; mantuvimos los vasos y la cesta del pan hasta pedir los cafés.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Orden de retirada y colocación durante varios servicios",
+      "author_rationale": "Relata objetos y secuencia sin juzgar el ritmo del servicio."
+    },
+    {
+      "family": "v3-calibration-es-002",
+      "semantic_component": "sg-v3-calibration-es-002",
+      "role": "calibration",
+      "region": "Spain",
+      "experience_type": "restaurant",
+      "length_band": "medium",
+      "text": "Pudimos apoyar los brazos y seguir charlando incluso con los segundos servidos. La mesa era pequeña, pero antes habían retirado todas las fuentes del entrante y ofrecido dejar el agua en una mesita lateral. No arrasaron con todo: preguntaron si conservábamos el pan y la salsa que estábamos usando. Con cada cambio entraba lo necesario, sin hacernos sujetar platos ni reorganizar las copas por nuestra cuenta.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "mixed_aspects"
+      ],
+      "structure": "Comodidad final explicada por los relevos de vajilla",
+      "author_rationale": "La retirada selectiva conserva espacio y respeta los elementos que seguían en uso."
+    },
+    {
+      "family": "v3-calibration-es-003",
+      "semantic_component": "sg-v3-calibration-es-003",
+      "role": "calibration",
+      "region": "Spain",
+      "experience_type": "taxi",
+      "length_band": "long",
+      "text": "Necesitaba llegar a la entrada de consultas, no a la puerta principal del edificio, y enseñé la dirección al subir al taxi. La mampara dejaba pasar el ruido del motor, pero no la respuesta del conductor. Repetí el nombre de la calle y levantó un pulgar sin volverse. Pensé que había entendido el número, hasta que vi el mapa del salpicadero orientado hacia otra avenida. Llamé su atención golpeando suavemente el cristal y me pidió hablar más alto. No fue precisamente sencillo confirmar algo tan básico: cada frase se cortaba al cerrar la ventanilla y no había micrófono ni abertura por donde pasar el papel. Finalmente paró para leer la dirección en mi móvil, cuando ya habíamos rebasado el cruce. Dio la vuelta y me dejó en la entrada correcta, pero perdí el margen que había reservado antes de la cita. El recibo incluía todo ese recorrido. La calle y el número seguían escritos en la pantalla que había mostrado desde el comienzo.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast",
+        "mixed_aspects",
+        "litotes"
+      ],
+      "structure": "Necesidad de destino preciso y comprobación tardía",
+      "author_rationale": "La comunicación a través de la mampara falla y produce un rodeo con coste de tiempo."
+    },
+    {
+      "family": "v3-calibration-es-003",
+      "semantic_component": "sg-v3-calibration-es-003",
+      "role": "calibration",
+      "region": "Spain",
+      "experience_type": "taxi",
+      "length_band": "long",
+      "text": "Al llegar al acceso norte le señalé al conductor una puerta situada bajo una marquesina. Antes, en la estación, había mostrado la dirección a través de la mampara y él había indicado dos entradas en la pantalla de su navegador. Elegí la norte porque allí nos esperaba otra persona. Para hablar, pulsé el botón situado junto al asiento trasero; una luz verde permanecía encendida mientras el conductor respondía por el altavoz. El nombre de la calle apareció escrito con una abreviatura y comprobamos el número completo utilizando el teléfono. Mi acompañante guardó después la dirección en una nota, junto a la hora de llegada. Durante el trayecto el conductor preguntó si la marquesina era azul y confirmé el color mirando una fotografía del mensaje recibido. Al detenernos, la persona que esperábamos salió de esa puerta y se acercó a recoger una maleta. La luz del sistema de conversación se apagó cuando abrimos la puerta lateral y bajamos a la acera del acceso norte.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Destino alcanzado y reconstrucción de su confirmación",
+      "author_rationale": "Describe medios de comunicación y referencias comprobadas sin evaluación."
+    },
+    {
+      "family": "v3-calibration-es-003",
+      "semantic_component": "sg-v3-calibration-es-003",
+      "role": "calibration",
+      "region": "Spain",
+      "experience_type": "taxi",
+      "length_band": "long",
+      "text": "Consulté si podía pasarle la dirección escrita porque, con la mampara y mi voz tomada, no me oía bien. El conductor bajó la ventanilla de comunicación y leyó el papel antes de poner el coche en marcha. Después señaló en la pantalla dos calles con el mismo nombre, de barrios distintos, y me pidió confirmar el código postal. Esa comprobación nos evitó salir hacia la otra punta de la ciudad. No bastó con asentir: repitió calle, número y puerta lateral, y esperó a que yo le hiciera una señal. Durante el viaje utilizamos el pequeño micrófono del asiento cuando quiso preguntar por la forma de entrar en la plaza. Mi acompañante podía escuchar también la respuesta, así que no tuve que volver a explicársela hablando a gritos. Al llegar vimos el portal señalado y el conductor mostró otra vez el papel para confirmar que era aquel. Me devolvió la nota junto al recibo, mientras mi acompañante abría la puerta hacia el tramo peatonal.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "resolved_incident"
+      ],
+      "structure": "Consulta de alternativa escrita y comprobación compartida",
+      "author_rationale": "El conductor adapta la comunicación y verifica datos que evitan un destino equivocado."
+    },
+    {
+      "family": "v3-calibration-es-004",
+      "semantic_component": "sg-v3-calibration-es-004",
+      "role": "calibration",
+      "region": "Spain",
+      "experience_type": "airport",
+      "length_band": "short",
+      "text": "La persiana quedó a media altura y el sol daba en todos los asientos libres. Pedimos bajarla; respondieron que el mando estaba en otra sala.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "implicit_contrast"
+      ],
+      "structure": "Estado de una persiana y petición sin solución",
+      "author_rationale": "No se ofrece una forma de evitar el sol en los asientos disponibles."
+    },
+    {
+      "family": "v3-calibration-es-004",
+      "semantic_component": "sg-v3-calibration-es-004",
+      "role": "calibration",
+      "region": "Spain",
+      "experience_type": "airport",
+      "length_band": "short",
+      "text": "Queríamos sentarnos junto al ventanal. A las diez bajaron las persianas de esa fila; escogimos dos sillas al lado del panel de nuestra puerta.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Plan de asiento y cambio de la luz",
+      "author_rationale": "Describe elección y operación de persianas sin valorar su efecto."
+    },
+    {
+      "family": "v3-calibration-es-004",
+      "semantic_component": "sg-v3-calibration-es-004",
+      "role": "calibration",
+      "region": "Spain",
+      "experience_type": "airport",
+      "length_band": "short",
+      "text": "Mientras esperábamos bajaron la persiana del ventanal y nos señalaron dos butacas a la sombra. Pude leer la pantalla del portátil sin taparla con la chaqueta.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "Cambio de iluminación durante la espera",
+      "author_rationale": "El ajuste y la orientación permiten usar el portátil con comodidad."
+    },
+    {
+      "family": "v3-policy_dev-es-001",
+      "semantic_component": "sg-v3-policy_dev-es-001",
+      "role": "policy_dev",
+      "region": "Spain",
+      "experience_type": "tour",
+      "length_band": "medium",
+      "text": "Entregaron el cuaderno al terminar la explicación inicial y enseguida echaron a andar. Se suponía que dibujaríamos detalles de las fachadas, pero cada vez que abría una página el grupo ya se movía hacia la siguiente esquina. Pregunté cuándo habría pausa y me dijeron que aprovechara mientras escuchaba. Para eso habría preferido llevar una tabla: el cuaderno se doblaba de pie y acabé guardándolo con apenas dos líneas.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "explicit_contrast",
+        "expectation"
+      ],
+      "structure": "Cambio de fase sin tiempo para utilizar el material",
+      "author_rationale": "La organización no permite realizar la actividad de dibujo ofrecida."
+    },
+    {
+      "family": "v3-policy_dev-es-001",
+      "semantic_component": "sg-v3-policy_dev-es-001",
+      "role": "policy_dev",
+      "region": "Spain",
+      "experience_type": "tour",
+      "length_band": "medium",
+      "text": "Apoyé el cuaderno en la tapa rígida y dibujé una de las rejas señaladas en el recorrido. El material se había repartido al salir: seis hojas, lápiz corto y una goma sujeta con una cinta. En cada pausa podíamos elegir entre escribir o dibujar. Dejé en blanco la página de la fuente y anoté la fecha bajo el dibujo de la reja, antes de continuar hacia el patio.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Forma de apoyo y usos del cuaderno durante las pausas",
+      "author_rationale": "Describe material y elecciones de uso sin evaluar la propuesta."
+    },
+    {
+      "family": "v3-policy_dev-es-001",
+      "semantic_component": "sg-v3-policy_dev-es-001",
+      "role": "policy_dev",
+      "region": "Spain",
+      "experience_type": "tour",
+      "length_band": "medium",
+      "text": "La hoja desplegable cobró sentido en la segunda parada: cabía el arco entero sin dibujarlo diminuto. Al principio yo había pensado que el cuaderno sería un recuerdo más, pero nos dieron tiempo para probar trazos y mirar de nuevo el edificio. La guia trajo un lapiz más grueso para mi sobrino y explicó dónde apoyar la tapa sin bloquear el paso. Nos llevamos dibujos distintos de la misma ventana.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "explicit_contrast",
+        "expectation",
+        "typo"
+      ],
+      "structure": "Detalle del material comprendido durante una segunda pausa",
+      "author_rationale": "El tiempo y la adaptación del lápiz permiten participar y observar con atención."
+    },
+    {
+      "family": "v3-policy_dev-es-002",
+      "semantic_component": "sg-v3-policy_dev-es-002",
+      "role": "policy_dev",
+      "region": "Spain",
+      "experience_type": "reservation",
+      "length_band": "long",
+      "text": "En el resguardo aparecía un dibujo de una caña con carrete y entendí que ese era el equipo incluido en la reserva. La descripción hablaba de préstamo de material y pedía un anticipo del treinta por ciento. Al llegar al embarcadero encontramos las cañas preparadas, pero nos cobraron aparte carrete, sedal y una bolsa de aparejos básicos. Pregunté qué cubría entonces el anticipo: una persona decía que descontaba todo el material y otra que únicamente aseguraba la plaza. Nadie pudo mostrar un desglose anterior al pago, porque el correo de confirmación repetía la misma frase general. Cancelar allí suponía perder lo adelantado. Acabamos pagando la diferencia para poder hacer la salida que habíamos organizado entre los cuatro, una manera bastante desagradable de empezar la mañana. Al volver entregamos cada pieza y nos dieron otro papel con importes separados. Ese era justamente el detalle que necesitábamos antes de reservar, cuando todavía podíamos comparar el coste completo con otras actividades de nuestro viaje y decidir sin prisas.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "explicit_contrast",
+        "expectation",
+        "negation"
+      ],
+      "structure": "Observación del resguardo y revelación del desglose posterior",
+      "author_rationale": "Los materiales y el uso del anticipo solo se aclaran tras quedar comprometido el pago."
+    },
+    {
+      "family": "v3-policy_dev-es-002",
+      "semantic_component": "sg-v3-policy_dev-es-002",
+      "role": "policy_dev",
+      "region": "Spain",
+      "experience_type": "reservation",
+      "length_band": "long",
+      "text": "Abrí el formulario de la salida de pesca y seleccioné dos plazas con préstamo de equipo. El desglose mostraba el precio de la actividad, el anticipo a descontar del total y una fianza separada por cada conjunto. Debajo figuraban caña, carrete y caja de aparejos; el cebo se elegía en otra casilla según la modalidad de la salida. Guardé el documento de reserva en el teléfono. En el embarcadero nos pidieron el número de confirmación y asignaron un conjunto marcado con cinta naranja a cada plaza. Las cajas llevaban un inventario pegado por dentro de la tapa, con cantidades y fotografías de las piezas. Comprobamos esas cantidades junto a la persona encargada y pagamos el resto antes de subir. A la vuelta dejamos los conjuntos sobre un banco y se revisó el inventario de nuevo. El anticipo constaba ya descontado en la factura y la devolución de las fianzas apareció en un recibo distinto, que guardé junto al documento descargado del formulario.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Reserva y comprobación de importes e inventario",
+      "author_rationale": "Registra partidas, asignación y devolución sin valorar sus condiciones."
+    },
+    {
+      "family": "v3-policy_dev-es-002",
+      "semantic_component": "sg-v3-policy_dev-es-002",
+      "role": "policy_dev",
+      "region": "Spain",
+      "experience_type": "reservation",
+      "length_band": "long",
+      "text": "Recuperé la fianza antes de salir del embarcadero, con un recibo que identificaba los dos equipos entregados. Todo había empezado al reservar la excursión: pregunté si el anticipo era un coste adicional o una parte del precio y me mandaron un ejemplo completo con las dos plazas que necesitábamos. Se distinguían la cantidad descontable, la fianza recuperable y el cebo opcional, sin mezclarlo todo bajo la palabra material. Eso me permitió fijar el presupuesto del día antes de pagar. Al recoger las cañas, comparamos las cintas numeradas con el inventario de la reserva; faltaba un pequeño recipiente en una caja y lo incorporaron antes de firmar la entrega. No estuvo nada mal poder dejar esa comprobación hecha entre ambas partes, sin prisas por subir al barco. La revisión final siguió la misma lista y terminó en un par de minutos. Mi acompañante guardó la caja vacía de nuestra comida mientras yo recogía el papel de devolución, fechado y con los números de equipo al pie.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "litotes",
+        "resolved_incident"
+      ],
+      "structure": "Devolución conseguida y reconstrucción de las condiciones",
+      "author_rationale": "El desglose previo y el inventario compartido hacen previsible el coste y la devolución."
+    },
+    {
+      "family": "v3-policy_dev-es-003",
+      "semantic_component": "sg-v3-policy_dev-es-003",
+      "role": "policy_dev",
+      "region": "Spain",
+      "experience_type": "nature_excursion",
+      "length_band": "short",
+      "text": "Necesitábamos rodear las obras sin perder la senda. La flecha apareció después del cruce y nos dejó en una alambrada, sin indicación para reincorporarnos.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation"
+      ],
+      "structure": "Necesidad de orientación y final sin salida",
+      "author_rationale": "El desvío mal situado no permite encontrar la continuidad del sendero."
+    },
+    {
+      "family": "v3-policy_dev-es-003",
+      "semantic_component": "sg-v3-policy_dev-es-003",
+      "role": "policy_dev",
+      "region": "Spain",
+      "experience_type": "nature_excursion",
+      "length_band": "short",
+      "text": "Volvimos a la senda junto al depósito. Antes habíamos tomado el desvío de mantenimiento, marcado con estacas naranjas desde el cruce de los pinos.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Reincorporación y referencia al inicio del desvío",
+      "author_rationale": "Relata referencias del recorrido sin evaluar su claridad."
+    },
+    {
+      "family": "v3-policy_dev-es-003",
+      "semantic_component": "sg-v3-policy_dev-es-003",
+      "role": "policy_dev",
+      "region": "Spain",
+      "experience_type": "nature_excursion",
+      "length_band": "short",
+      "text": "Pregunté si el desvío volvía al mismo sendero. El plano indicaba distancia y punto de unión; seguimos las marcas y reaparecimos justo donde decía.",
+      "intended_label": "positivo",
+      "phenomena": [],
+      "structure": "Consulta y verificación del punto de unión",
+      "author_rationale": "La información permite completar el desvío con certeza."
+    },
+    {
+      "family": "v3-policy_dev-es-004",
+      "semantic_component": "sg-v3-policy_dev-es-004",
+      "role": "policy_dev",
+      "region": "Spain",
+      "experience_type": "hotel",
+      "length_band": "medium",
+      "text": "Las dos tarjetas abrían habitaciones de plantas distintas. Habíamos solicitado comunicadas para estar cerca de los niños, y la confirmación describía una puerta interior compartida. En recepción dijeron que aquello era una preferencia, aunque figuraba como tipo de habitación pagado. No pudieron juntarnos ni devolver la diferencia durante la estancia. Acabamos repartiéndonos un adulto en cada planta, con las maletas cambiando de ascensor antes de poder acostarnos.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "negative_concordance",
+        "explicit_contrast"
+      ],
+      "structure": "Tarjetas asignadas y discrepancia con la reserva",
+      "author_rationale": "La asignación incumple la comunicación registrada y altera la organización familiar."
+    },
+    {
+      "family": "v3-policy_dev-es-004",
+      "semantic_component": "sg-v3-policy_dev-es-004",
+      "role": "policy_dev",
+      "region": "Spain",
+      "experience_type": "hotel",
+      "length_band": "medium",
+      "text": "Solicitamos dos habitaciones comunicadas al hacer la reserva de cuatro personas. La respuesta detallaba dos puertas interiores, una por habitación, que debían abrirse desde ambos lados. Al llegar recibimos las tarjetas de los números 214 y 216; en el plano de planta aparecían unidas por un trazo. Cada persona abrió la puerta correspondiente y dejamos las dos hojas sujetas durante el reparto de equipaje. Después anotamos quién guardaba cada tarjeta.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "structure": "Solicitud previa y comprobación de la conexión interior",
+      "author_rationale": "Describe configuración y asignación sin valoración de la estancia."
+    },
+    {
+      "family": "v3-policy_dev-es-004",
+      "semantic_component": "sg-v3-policy_dev-es-004",
+      "role": "policy_dev",
+      "region": "Spain",
+      "experience_type": "hotel",
+      "length_band": "medium",
+      "text": "Esperamos en recepción mientras comprobaban qué pareja de habitaciones tenía el paso interior disponible. En la primera asignación una puerta seguía bloqueada por mantenimiento; lo detectaron antes de darnos las tarjetas y cambiaron ambos números juntos. Nos enseñaron a abrir las dos hojas desde cada lado y confirmaron que seguíamos en la misma tarifa. Esa gestión nos ahorró subir con los niños y las maletas para descubrir el problema arriba.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "resolved_incident",
+        "objective_chronology"
+      ],
+      "structure": "Espera de comprobación y reasignación antes de subir",
+      "author_rationale": "La comprobación y el cambio conservan las habitaciones comunicadas sin sobrecoste."
+    }
+  ]
+}

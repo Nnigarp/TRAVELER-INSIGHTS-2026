@@ -1,0 +1,33 @@
+{
+  "assessment_lock_retained": true,
+  "assessment_prediction_calls_returned": 50,
+  "assessment_prediction_calls_started": 50,
+  "assessment_predictions_attempted": true,
+  "completed_model_keys": [
+    "dummy",
+    "lr",
+    "svm",
+    "beto_frozen128",
+    "beto_frozen256"
+  ],
+  "corpus_observation_marker_retained": true,
+  "error_type": "BudgetExceeded",
+  "last_inference_stage": "latency:beto_frozen256:11",
+  "records_sha256": "1ca1521e303325bb314eb6d8c2d8e8b42e1510ac5352a541ab119bd403c16f9d",
+  "replica_status": [
+    {
+      "seed": 7,
+      "status": "EXECUTED"
+    },
+    {
+      "seed": 101,
+      "status": "EXECUTED"
+    }
+  ],
+  "scope": "REPRODUCTION_OF_OBSERVED_SYNTHETIC_PILOT_NOT_A_FRESH_TEST",
+  "selection_commit": "a6675d08fa9645725107f059443ddc0ed15d125f",
+  "stage": "assessment_load:beto_full256_budgeted:after",
+  "status": "INTERRUPTED_COMPUTE_BUDGET",
+  "wall_seconds": 903.4632880449999,
+  "wall_seconds_cap": 900
+}

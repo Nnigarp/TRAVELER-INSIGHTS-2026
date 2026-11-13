@@ -1,0 +1,67 @@
+{
+  "metrics": {
+    "beto_frozen128": {
+      "difference": 0.0,
+      "new_measured_macro_f1": 0.9833229101521784,
+      "prior_reported_macro_f1": 0.9833229101521784,
+      "status": "OBSERVED"
+    },
+    "beto_frozen256": {
+      "difference": 0.0,
+      "new_measured_macro_f1": 0.9666666666666667,
+      "prior_reported_macro_f1": 0.9666666666666667,
+      "status": "OBSERVED"
+    },
+    "beto_full256_budgeted": {
+      "difference": 0.0,
+      "new_measured_macro_f1": 1.0,
+      "prior_reported_macro_f1": 1.0,
+      "status": "OBSERVED"
+    },
+    "beto_reference_v1": {
+      "difference": 0.0,
+      "new_measured_macro_f1": 0.9326599326599326,
+      "prior_reported_macro_f1": 0.9326599326599326,
+      "status": "OBSERVED"
+    },
+    "beto_reference_v2": {
+      "difference": 0.0,
+      "new_measured_macro_f1": 0.9489698757991442,
+      "prior_reported_macro_f1": 0.9489698757991442,
+      "status": "OBSERVED"
+    },
+    "beto_seed101": {
+      "difference": 0.0,
+      "new_measured_macro_f1": 1.0,
+      "prior_reported_macro_f1": 1.0,
+      "status": "OBSERVED"
+    },
+    "beto_seed7": {
+      "difference": 0.0,
+      "new_measured_macro_f1": 0.9833229101521784,
+      "prior_reported_macro_f1": 0.9833229101521784,
+      "status": "OBSERVED"
+    },
+    "dummy": {
+      "difference": 0.0,
+      "new_measured_macro_f1": 0.16666666666666666,
+      "prior_reported_macro_f1": 0.16666666666666666,
+      "status": "OBSERVED"
+    },
+    "lr": {
+      "difference": 0.0,
+      "new_measured_macro_f1": 0.9158015426308109,
+      "prior_reported_macro_f1": 0.9158015426308109,
+      "status": "OBSERVED"
+    },
+    "svm": {
+      "difference": 0.0,
+      "new_measured_macro_f1": 0.9158015426308109,
+      "prior_reported_macro_f1": 0.9158015426308109,
+      "status": "OBSERVED"
+    }
+  },
+  "model_configuration_changed_to_match": false,
+  "original_raw_probability_equality_verifiable": false,
+  "scope": "NEW_MEASUREMENTS_VERSUS_PRIOR_REPORTED_AGGREGATES_NOT_RAW_EQUALITY"
+}

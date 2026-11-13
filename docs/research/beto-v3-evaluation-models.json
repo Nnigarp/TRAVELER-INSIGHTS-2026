@@ -1,0 +1,4407 @@
+[
+  {
+    "artifact": "classical/dummy.joblib",
+    "key": "dummy",
+    "kind": "classical",
+    "sha256": "fb7a8aafa86a4dd51279e14e285b6ee15e3cbd2baa7ab613cfa8d9871c22671a",
+    "training": {
+      "scope": "FIXED_TRAIN_ONLY_RECOVERY"
+    }
+  },
+  {
+    "artifact": "classical/lr.joblib",
+    "key": "lr",
+    "kind": "classical",
+    "sha256": "1e7d1d46183e0795f7632b9204fe0481d837fa42599b876555b024b632830576",
+    "training": {
+      "scope": "FIXED_TRAIN_ONLY_RECOVERY"
+    }
+  },
+  {
+    "artifact": "classical/svm.joblib",
+    "key": "svm",
+    "kind": "classical",
+    "sha256": "8b37929c01f49f69d917b09cf4eb1d3eef6772fc7e4f467e5cba745821447fb4",
+    "training": {
+      "scope": "FIXED_TRAIN_ONLY_RECOVERY"
+    }
+  },
+  {
+    "artifact": "models/beto_frozen128",
+    "configuration": {
+      "id": "frozen128",
+      "max_length": 128,
+      "mode": "frozen",
+      "pooling": "mean_l2"
+    },
+    "key": "beto_frozen128",
+    "kind": "beto",
+    "manifest_sha256": "69a55a6b4b329f0be425a1ee9346ab09646df5e239e70d51dd9a516aeefc6984",
+    "training": {
+      "device": "cpu",
+      "encoder_trainable_parameters": 0,
+      "executed_epochs": 80,
+      "fit_wall_seconds": 0.796234585999855,
+      "head_trainable_parameters": 2307,
+      "history": [
+        {
+          "epoch": 1,
+          "train_cross_entropy": 1.0917813634872438
+        },
+        {
+          "epoch": 2,
+          "train_cross_entropy": 1.029587755203247
+        },
+        {
+          "epoch": 3,
+          "train_cross_entropy": 0.9823316550254821
+        },
+        {
+          "epoch": 4,
+          "train_cross_entropy": 0.9355706596374511
+        },
+        {
+          "epoch": 5,
+          "train_cross_entropy": 0.8948735117912292
+        },
+        {
+          "epoch": 6,
+          "train_cross_entropy": 0.8539056690533956
+        },
+        {
+          "epoch": 7,
+          "train_cross_entropy": 0.817362752755483
+        },
+        {
+          "epoch": 8,
+          "train_cross_entropy": 0.7836825076738994
+        },
+        {
+          "epoch": 9,
+          "train_cross_entropy": 0.7529131404558818
+        },
+        {
+          "epoch": 10,
+          "train_cross_entropy": 0.7226912124951681
+        },
+        {
+          "epoch": 11,
+          "train_cross_entropy": 0.6970482110977173
+        },
+        {
+          "epoch": 12,
+          "train_cross_entropy": 0.6706393051147461
+        },
+        {
+          "epoch": 13,
+          "train_cross_entropy": 0.6519686778386434
+        },
+        {
+          "epoch": 14,
+          "train_cross_entropy": 0.6257670879364013
+        },
+        {
+          "epoch": 15,
+          "train_cross_entropy": 0.6114251327514648
+        },
+        {
+          "epoch": 16,
+          "train_cross_entropy": 0.5911113182703654
+        },
+        {
+          "epoch": 17,
+          "train_cross_entropy": 0.5698191634813945
+        },
+        {
+          "epoch": 18,
+          "train_cross_entropy": 0.5583558408419291
+        },
+        {
+          "epoch": 19,
+          "train_cross_entropy": 0.5442812991142273
+        },
+        {
+          "epoch": 20,
+          "train_cross_entropy": 0.5257269291083018
+        },
+        {
+          "epoch": 21,
+          "train_cross_entropy": 0.5094677146275838
+        },
+        {
+          "epoch": 22,
+          "train_cross_entropy": 0.5005546573797862
+        },
+        {
+          "epoch": 23,
+          "train_cross_entropy": 0.48708735426266986
+        },
+        {
+          "epoch": 24,
+          "train_cross_entropy": 0.47796714345614116
+        },
+        {
+          "epoch": 25,
+          "train_cross_entropy": 0.4646324253082275
+        },
+        {
+          "epoch": 26,
+          "train_cross_entropy": 0.4494555922349294
+        },
+        {
+          "epoch": 27,
+          "train_cross_entropy": 0.4465530987580617
+        },
+        {
+          "epoch": 28,
+          "train_cross_entropy": 0.4299612824122111
+        },
+        {
+          "epoch": 29,
+          "train_cross_entropy": 0.4263734765847524
+        },
+        {
+          "epoch": 30,
+          "train_cross_entropy": 0.4148506041367849
+        },
+        {
+          "epoch": 31,
+          "train_cross_entropy": 0.402080104748408
+        },
+        {
+          "epoch": 32,
+          "train_cross_entropy": 0.39976330161094664
+        },
+        {
+          "epoch": 33,
+          "train_cross_entropy": 0.3922154239813487
+        },
+        {
+          "epoch": 34,
+          "train_cross_entropy": 0.38095980366071064
+        },
+        {
+          "epoch": 35,
+          "train_cross_entropy": 0.37853186249732973
+        },
+        {
+          "epoch": 36,
+          "train_cross_entropy": 0.3665698540210724
+        },
+        {
+          "epoch": 37,
+          "train_cross_entropy": 0.3593959176540375
+        },
+        {
+          "epoch": 38,
+          "train_cross_entropy": 0.35778892079989116
+        },
+        {
+          "epoch": 39,
+          "train_cross_entropy": 0.35352028648058575
+        },
+        {
+          "epoch": 40,
+          "train_cross_entropy": 0.3457746744155884
+        },
+        {
+          "epoch": 41,
+          "train_cross_entropy": 0.3399443312486013
+        },
+        {
+          "epoch": 42,
+          "train_cross_entropy": 0.333302085796992
+        },
+        {
+          "epoch": 43,
+          "train_cross_entropy": 0.33141563097635907
+        },
+        {
+          "epoch": 44,
+          "train_cross_entropy": 0.3213517010211945
+        },
+        {
+          "epoch": 45,
+          "train_cross_entropy": 0.31273886481920876
+        },
+        {
+          "epoch": 46,
+          "train_cross_entropy": 0.31457157373428346
+        },
+        {
+          "epoch": 47,
+          "train_cross_entropy": 0.30580689907073977
+        },
+        {
+          "epoch": 48,
+          "train_cross_entropy": 0.2985835150877635
+        },
+        {
+          "epoch": 49,
+          "train_cross_entropy": 0.29893968264261883
+        },
+        {
+          "epoch": 50,
+          "train_cross_entropy": 0.28762954274813335
+        },
+        {
+          "epoch": 51,
+          "train_cross_entropy": 0.28662259380022687
+        },
+        {
+          "epoch": 52,
+          "train_cross_entropy": 0.2873373107115428
+        },
+        {
+          "epoch": 53,
+          "train_cross_entropy": 0.2853734131654104
+        },
+        {
+          "epoch": 54,
+          "train_cross_entropy": 0.27407913009325663
+        },
+        {
+          "epoch": 55,
+          "train_cross_entropy": 0.2773304637273153
+        },
+        {
+          "epoch": 56,
+          "train_cross_entropy": 0.2768260872364044
+        },
+        {
+          "epoch": 57,
+          "train_cross_entropy": 0.26950643459955853
+        },
+        {
+          "epoch": 58,
+          "train_cross_entropy": 0.27503130594889325
+        },
+        {
+          "epoch": 59,
+          "train_cross_entropy": 0.26312312920888264
+        },
+        {
+          "epoch": 60,
+          "train_cross_entropy": 0.2553994325796763
+        },
+        {
+          "epoch": 61,
+          "train_cross_entropy": 0.2628809916973114
+        },
+        {
+          "epoch": 62,
+          "train_cross_entropy": 0.2518560947974523
+        },
+        {
+          "epoch": 63,
+          "train_cross_entropy": 0.2440210388104121
+        },
+        {
+          "epoch": 64,
+          "train_cross_entropy": 0.23627034187316895
+        },
+        {
+          "epoch": 65,
+          "train_cross_entropy": 0.2497665027777354
+        },
+        {
+          "epoch": 66,
+          "train_cross_entropy": 0.23523897012074788
+        },
+        {
+          "epoch": 67,
+          "train_cross_entropy": 0.2397387476762136
+        },
+        {
+          "epoch": 68,
+          "train_cross_entropy": 0.2306222015619278
+        },
+        {
+          "epoch": 69,
+          "train_cross_entropy": 0.23568405826886496
+        },
+        {
+          "epoch": 70,
+          "train_cross_entropy": 0.22530596872170766
+        },
+        {
+          "epoch": 71,
+          "train_cross_entropy": 0.22088650325934092
+        },
+        {
+          "epoch": 72,
+          "train_cross_entropy": 0.22955218652884166
+        },
+        {
+          "epoch": 73,
+          "train_cross_entropy": 0.2244579553604126
+        },
+        {
+          "epoch": 74,
+          "train_cross_entropy": 0.22105619112650554
+        },
+        {
+          "epoch": 75,
+          "train_cross_entropy": 0.21936274449030557
+        },
+        {
+          "epoch": 76,
+          "train_cross_entropy": 0.2143785399198532
+        },
+        {
+          "epoch": 77,
+          "train_cross_entropy": 0.21689751982688904
+        },
+        {
+          "epoch": 78,
+          "train_cross_entropy": 0.21438188870747885
+        },
+        {
+          "epoch": 79,
+          "train_cross_entropy": 0.20850193818410237
+        },
+        {
+          "epoch": 80,
+          "train_cross_entropy": 0.20288480420907337
+        }
+      ],
+      "optimizer_steps": 800,
+      "planned_epochs": 80,
+      "scope": "TRAIN_ONLY_FIXED_EPOCH_REPLAY",
+      "seed": 42,
+      "selected": {
+        "epoch": 80,
+        "train_cross_entropy": 0.20288480420907337
+      },
+      "selection_retuned": false,
+      "stop_reason": "FIXED_EPOCHS",
+      "stopped_early": false,
+      "threads": 2,
+      "tune_inference_executed": false
+    }
+  },
+  {
+    "artifact": "models/beto_frozen256",
+    "configuration": {
+      "id": "frozen256",
+      "max_length": 256,
+      "mode": "frozen",
+      "pooling": "mean_l2"
+    },
+    "key": "beto_frozen256",
+    "kind": "beto",
+    "manifest_sha256": "e4ba2efdd33f828e83e831260ebe12bb2fc4dfa563fbfdc42e08b581a574be57",
+    "training": {
+      "device": "cpu",
+      "encoder_trainable_parameters": 0,
+      "executed_epochs": 80,
+      "fit_wall_seconds": 0.8853544869998586,
+      "head_trainable_parameters": 2307,
+      "history": [
+        {
+          "epoch": 1,
+          "train_cross_entropy": 1.0915515677134195
+        },
+        {
+          "epoch": 2,
+          "train_cross_entropy": 1.0291413736343384
+        },
+        {
+          "epoch": 3,
+          "train_cross_entropy": 0.9820845119158427
+        },
+        {
+          "epoch": 4,
+          "train_cross_entropy": 0.9345487650235494
+        },
+        {
+          "epoch": 5,
+          "train_cross_entropy": 0.8941841316223145
+        },
+        {
+          "epoch": 6,
+          "train_cross_entropy": 0.853186264038086
+        },
+        {
+          "epoch": 7,
+          "train_cross_entropy": 0.8165098818143209
+        },
+        {
+          "epoch": 8,
+          "train_cross_entropy": 0.7822332978248596
+        },
+        {
+          "epoch": 9,
+          "train_cross_entropy": 0.7514803496996562
+        },
+        {
+          "epoch": 10,
+          "train_cross_entropy": 0.7212496280670166
+        },
+        {
+          "epoch": 11,
+          "train_cross_entropy": 0.6945153792699178
+        },
+        {
+          "epoch": 12,
+          "train_cross_entropy": 0.6682672015825908
+        },
+        {
+          "epoch": 13,
+          "train_cross_entropy": 0.649029479821523
+        },
+        {
+          "epoch": 14,
+          "train_cross_entropy": 0.6233357262611389
+        },
+        {
+          "epoch": 15,
+          "train_cross_entropy": 0.6083212836583456
+        },
+        {
+          "epoch": 16,
+          "train_cross_entropy": 0.5885856223106384
+        },
+        {
+          "epoch": 17,
+          "train_cross_entropy": 0.5661820356051127
+        },
+        {
+          "epoch": 18,
+          "train_cross_entropy": 0.5558662549654643
+        },
+        {
+          "epoch": 19,
+          "train_cross_entropy": 0.5407338182131449
+        },
+        {
+          "epoch": 20,
+          "train_cross_entropy": 0.5220421651999155
+        },
+        {
+          "epoch": 21,
+          "train_cross_entropy": 0.5058305629094442
+        },
+        {
+          "epoch": 22,
+          "train_cross_entropy": 0.4973933092753092
+        },
+        {
+          "epoch": 23,
+          "train_cross_entropy": 0.48256587704022724
+        },
+        {
+          "epoch": 24,
+          "train_cross_entropy": 0.47438236276308693
+        },
+        {
+          "epoch": 25,
+          "train_cross_entropy": 0.4608777364095052
+        },
+        {
+          "epoch": 26,
+          "train_cross_entropy": 0.44587613781293234
+        },
+        {
+          "epoch": 27,
+          "train_cross_entropy": 0.4419999579588572
+        },
+        {
+          "epoch": 28,
+          "train_cross_entropy": 0.4259646439552307
+        },
+        {
+          "epoch": 29,
+          "train_cross_entropy": 0.422136599222819
+        },
+        {
+          "epoch": 30,
+          "train_cross_entropy": 0.4109189462661743
+        },
+        {
+          "epoch": 31,
+          "train_cross_entropy": 0.3969195981820424
+        },
+        {
+          "epoch": 32,
+          "train_cross_entropy": 0.395674763917923
+        },
+        {
+          "epoch": 33,
+          "train_cross_entropy": 0.3874979670842489
+        },
+        {
+          "epoch": 34,
+          "train_cross_entropy": 0.3763053703308106
+        },
+        {
+          "epoch": 35,
+          "train_cross_entropy": 0.37290507833162945
+        },
+        {
+          "epoch": 36,
+          "train_cross_entropy": 0.36145310203234354
+        },
+        {
+          "epoch": 37,
+          "train_cross_entropy": 0.3549246958891551
+        },
+        {
+          "epoch": 38,
+          "train_cross_entropy": 0.3527022993564606
+        },
+        {
+          "epoch": 39,
+          "train_cross_entropy": 0.3481175820032755
+        },
+        {
+          "epoch": 40,
+          "train_cross_entropy": 0.3421695903937022
+        },
+        {
+          "epoch": 41,
+          "train_cross_entropy": 0.3344823197523753
+        },
+        {
+          "epoch": 42,
+          "train_cross_entropy": 0.32919347246487934
+        },
+        {
+          "epoch": 43,
+          "train_cross_entropy": 0.32647464632987977
+        },
+        {
+          "epoch": 44,
+          "train_cross_entropy": 0.3166824543476105
+        },
+        {
+          "epoch": 45,
+          "train_cross_entropy": 0.3068873647848765
+        },
+        {
+          "epoch": 46,
+          "train_cross_entropy": 0.3092926931381226
+        },
+        {
+          "epoch": 47,
+          "train_cross_entropy": 0.30174420634905497
+        },
+        {
+          "epoch": 48,
+          "train_cross_entropy": 0.2942645927270254
+        },
+        {
+          "epoch": 49,
+          "train_cross_entropy": 0.294165318608284
+        },
+        {
+          "epoch": 50,
+          "train_cross_entropy": 0.2841224388281504
+        },
+        {
+          "epoch": 51,
+          "train_cross_entropy": 0.28060707767804466
+        },
+        {
+          "epoch": 52,
+          "train_cross_entropy": 0.28255272189776104
+        },
+        {
+          "epoch": 53,
+          "train_cross_entropy": 0.28200724283854167
+        },
+        {
+          "epoch": 54,
+          "train_cross_entropy": 0.26837637623151145
+        },
+        {
+          "epoch": 55,
+          "train_cross_entropy": 0.2740807910760244
+        },
+        {
+          "epoch": 56,
+          "train_cross_entropy": 0.27128840804100035
+        },
+        {
+          "epoch": 57,
+          "train_cross_entropy": 0.26576956232388815
+        },
+        {
+          "epoch": 58,
+          "train_cross_entropy": 0.27007390817006427
+        },
+        {
+          "epoch": 59,
+          "train_cross_entropy": 0.25877453287442526
+        },
+        {
+          "epoch": 60,
+          "train_cross_entropy": 0.2518197556336721
+        },
+        {
+          "epoch": 61,
+          "train_cross_entropy": 0.2562784429391225
+        },
+        {
+          "epoch": 62,
+          "train_cross_entropy": 0.2487679926554362
+        },
+        {
+          "epoch": 63,
+          "train_cross_entropy": 0.23992457409699758
+        },
+        {
+          "epoch": 64,
+          "train_cross_entropy": 0.23308741291364035
+        },
+        {
+          "epoch": 65,
+          "train_cross_entropy": 0.2457087711493174
+        },
+        {
+          "epoch": 66,
+          "train_cross_entropy": 0.23017292181650797
+        },
+        {
+          "epoch": 67,
+          "train_cross_entropy": 0.23565444111824035
+        },
+        {
+          "epoch": 68,
+          "train_cross_entropy": 0.22787796278794606
+        },
+        {
+          "epoch": 69,
+          "train_cross_entropy": 0.23062708417574565
+        },
+        {
+          "epoch": 70,
+          "train_cross_entropy": 0.2205743185679118
+        },
+        {
+          "epoch": 71,
+          "train_cross_entropy": 0.2171667581796646
+        },
+        {
+          "epoch": 72,
+          "train_cross_entropy": 0.22411507368087769
+        },
+        {
+          "epoch": 73,
+          "train_cross_entropy": 0.2196077076594035
+        },
+        {
+          "epoch": 74,
+          "train_cross_entropy": 0.21682028671105702
+        },
+        {
+          "epoch": 75,
+          "train_cross_entropy": 0.2157504012187322
+        },
+        {
+          "epoch": 76,
+          "train_cross_entropy": 0.21186266680558521
+        },
+        {
+          "epoch": 77,
+          "train_cross_entropy": 0.21246206243832907
+        },
+        {
+          "epoch": 78,
+          "train_cross_entropy": 0.21141569554805756
+        },
+        {
+          "epoch": 79,
+          "train_cross_entropy": 0.20407237927118937
+        },
+        {
+          "epoch": 80,
+          "train_cross_entropy": 0.1996031842629115
+        }
+      ],
+      "optimizer_steps": 800,
+      "planned_epochs": 80,
+      "scope": "TRAIN_ONLY_FIXED_EPOCH_REPLAY",
+      "seed": 42,
+      "selected": {
+        "epoch": 80,
+        "train_cross_entropy": 0.1996031842629115
+      },
+      "selection_retuned": false,
+      "stop_reason": "FIXED_EPOCHS",
+      "stopped_early": false,
+      "threads": 2,
+      "tune_inference_executed": false
+    }
+  },
+  {
+    "artifact": "primary-replay/model",
+    "configuration": {
+      "encoder_lr": 1e-05,
+      "epochs": 1,
+      "hard_weight": 1.0,
+      "head_dropout": 0.1,
+      "head_lr": 0.0002,
+      "id": "full256_budgeted",
+      "label_smoothing": 0.0,
+      "max_length": 256,
+      "mode": "full",
+      "patience": 1,
+      "pooling": "mean_l2",
+      "weight_decay": 0.01
+    },
+    "key": "beto_full256_budgeted",
+    "kind": "beto",
+    "manifest_sha256": "c66453d041090bf6d10a9af10fdfbb8ab2d53b70a18f44e4439921a28914a7b7",
+    "training": {
+      "artifact": "/workspace/scratch/5a04ce976ba1/traveler-beto-v3-recovered/artifacts/beto-v3-recovered-run/primary-replay/model",
+      "assessment_used": false,
+      "cost": {
+        "effective_wall_seconds_cap": 786.399055996,
+        "wall_seconds": 331.5903172609999,
+        "wall_seconds_cap": 900
+      },
+      "encoder": {
+        "adaptation_sha256": "276348048d5926a4a84a835437db1248531e082fbb8d131ac575dccc970f7ae4",
+        "device": "cpu",
+        "encoder_trainable_parameters": 109260288,
+        "executed_epochs": 1,
+        "first_encoder_gradient_norm": 1.9521174430847168,
+        "fit_wall_seconds": 268.148301125,
+        "frozen_parameter_gradients_absent": true,
+        "head_trainable_parameters": 2307,
+        "history": [
+          {
+            "elapsed_seconds": 267.045785882,
+            "epoch": 1,
+            "gradient_norm_mean_before_clip": 21.470974701245627,
+            "last_encoder_lr": 0.0,
+            "last_head_lr": 0.0,
+            "sampling": {
+              "available_hard_rows": 211,
+              "class_draws": {
+                "negativo": 100,
+                "neutral": 100,
+                "positivo": 100
+              },
+              "class_probability_mass": {
+                "negativo": 0.3333333333333334,
+                "neutral": 0.3333333333333334,
+                "positivo": 0.3333333333333334
+              },
+              "component_draws": {
+                "sg-v3-train-co-001": 3,
+                "sg-v3-train-co-002": 3,
+                "sg-v3-train-co-003": 3,
+                "sg-v3-train-co-004": 3,
+                "sg-v3-train-co-005": 3,
+                "sg-v3-train-co-006": 3,
+                "sg-v3-train-co-007": 3,
+                "sg-v3-train-co-008": 3,
+                "sg-v3-train-co-009": 3,
+                "sg-v3-train-co-010": 3,
+                "sg-v3-train-co-011": 3,
+                "sg-v3-train-co-012": 3,
+                "sg-v3-train-co-013": 3,
+                "sg-v3-train-co-014": 3,
+                "sg-v3-train-co-015": 3,
+                "sg-v3-train-co-016": 3,
+                "sg-v3-train-co-017": 3,
+                "sg-v3-train-co-018": 3,
+                "sg-v3-train-co-019": 3,
+                "sg-v3-train-co-020": 3,
+                "sg-v3-train-es-001": 3,
+                "sg-v3-train-es-002": 3,
+                "sg-v3-train-es-003": 3,
+                "sg-v3-train-es-004": 3,
+                "sg-v3-train-es-005": 3,
+                "sg-v3-train-es-006": 3,
+                "sg-v3-train-es-007": 3,
+                "sg-v3-train-es-008": 3,
+                "sg-v3-train-es-009": 3,
+                "sg-v3-train-es-010": 3,
+                "sg-v3-train-es-011": 3,
+                "sg-v3-train-es-012": 3,
+                "sg-v3-train-es-013": 3,
+                "sg-v3-train-es-014": 3,
+                "sg-v3-train-es-015": 3,
+                "sg-v3-train-es-016": 3,
+                "sg-v3-train-es-017": 3,
+                "sg-v3-train-es-018": 3,
+                "sg-v3-train-es-019": 3,
+                "sg-v3-train-es-020": 3,
+                "sg-v3-train-mx-001": 3,
+                "sg-v3-train-mx-002": 3,
+                "sg-v3-train-mx-003": 3,
+                "sg-v3-train-mx-004": 3,
+                "sg-v3-train-mx-005": 3,
+                "sg-v3-train-mx-006": 3,
+                "sg-v3-train-mx-007": 3,
+                "sg-v3-train-mx-008": 3,
+                "sg-v3-train-mx-009": 3,
+                "sg-v3-train-mx-010": 3,
+                "sg-v3-train-mx-011": 3,
+                "sg-v3-train-mx-012": 3,
+                "sg-v3-train-mx-013": 3,
+                "sg-v3-train-mx-014": 3,
+                "sg-v3-train-mx-015": 3,
+                "sg-v3-train-mx-016": 3,
+                "sg-v3-train-mx-017": 3,
+                "sg-v3-train-mx-018": 3,
+                "sg-v3-train-mx-019": 3,
+                "sg-v3-train-mx-020": 3,
+                "sg-v3-train-oh-001": 3,
+                "sg-v3-train-oh-002": 3,
+                "sg-v3-train-oh-003": 3,
+                "sg-v3-train-oh-004": 3,
+                "sg-v3-train-oh-005": 3,
+                "sg-v3-train-oh-006": 3,
+                "sg-v3-train-oh-007": 3,
+                "sg-v3-train-oh-008": 3,
+                "sg-v3-train-oh-009": 3,
+                "sg-v3-train-oh-010": 3,
+                "sg-v3-train-oh-011": 3,
+                "sg-v3-train-oh-012": 3,
+                "sg-v3-train-oh-013": 3,
+                "sg-v3-train-oh-014": 3,
+                "sg-v3-train-oh-015": 3,
+                "sg-v3-train-oh-016": 3,
+                "sg-v3-train-oh-017": 3,
+                "sg-v3-train-oh-018": 3,
+                "sg-v3-train-oh-019": 3,
+                "sg-v3-train-oh-020": 3,
+                "sg-v3-train-pe-001": 3,
+                "sg-v3-train-pe-002": 3,
+                "sg-v3-train-pe-003": 3,
+                "sg-v3-train-pe-004": 3,
+                "sg-v3-train-pe-005": 3,
+                "sg-v3-train-pe-006": 3,
+                "sg-v3-train-pe-007": 3,
+                "sg-v3-train-pe-008": 3,
+                "sg-v3-train-pe-009": 3,
+                "sg-v3-train-pe-010": 3,
+                "sg-v3-train-pe-011": 3,
+                "sg-v3-train-pe-012": 3,
+                "sg-v3-train-pe-013": 3,
+                "sg-v3-train-pe-014": 3,
+                "sg-v3-train-pe-015": 3,
+                "sg-v3-train-pe-016": 3,
+                "sg-v3-train-pe-017": 3,
+                "sg-v3-train-pe-018": 3,
+                "sg-v3-train-pe-019": 3,
+                "sg-v3-train-pe-020": 3
+              },
+              "draws": 300,
+              "effective_hard_multiplier": 1.0,
+              "epoch": 1,
+              "hard_class_draws": {
+                "negativo": 94,
+                "neutral": 29,
+                "positivo": 88
+              },
+              "hard_draws": 211,
+              "repeated_draws": 0,
+              "replacement": false,
+              "requested_hard_multiplier": 1.0,
+              "row_exposure_counts": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "scope": "TRAIN_TAGS_ONLY_NO_TUNE_OR_MODEL_OUTPUTS",
+              "strategy": "UNIFORM_SHUFFLE_WITHOUT_REPLACEMENT",
+              "unique_rows": 300
+            },
+            "train_cross_entropy_smoothed_if_configured": 0.19845867686904967
+          }
+        ],
+        "nonzero_encoder_gradient_observed": true,
+        "optimizer_steps": 75,
+        "patience": 1,
+        "planned_epochs": 1,
+        "probe_tensor_l2_update": 0.06497472524642944,
+        "scheduler_total_steps": 75,
+        "scheduler_warmup_steps": 7,
+        "scope": "TRAIN_ONLY_FIXED_EPOCH_REPLAY",
+        "seed": 42,
+        "selected": {
+          "elapsed_seconds": 267.045785882,
+          "epoch": 1,
+          "gradient_norm_mean_before_clip": 21.470974701245627,
+          "last_encoder_lr": 0.0,
+          "last_head_lr": 0.0,
+          "sampling": {
+            "available_hard_rows": 211,
+            "class_draws": {
+              "negativo": 100,
+              "neutral": 100,
+              "positivo": 100
+            },
+            "class_probability_mass": {
+              "negativo": 0.3333333333333334,
+              "neutral": 0.3333333333333334,
+              "positivo": 0.3333333333333334
+            },
+            "component_draws": {
+              "sg-v3-train-co-001": 3,
+              "sg-v3-train-co-002": 3,
+              "sg-v3-train-co-003": 3,
+              "sg-v3-train-co-004": 3,
+              "sg-v3-train-co-005": 3,
+              "sg-v3-train-co-006": 3,
+              "sg-v3-train-co-007": 3,
+              "sg-v3-train-co-008": 3,
+              "sg-v3-train-co-009": 3,
+              "sg-v3-train-co-010": 3,
+              "sg-v3-train-co-011": 3,
+              "sg-v3-train-co-012": 3,
+              "sg-v3-train-co-013": 3,
+              "sg-v3-train-co-014": 3,
+              "sg-v3-train-co-015": 3,
+              "sg-v3-train-co-016": 3,
+              "sg-v3-train-co-017": 3,
+              "sg-v3-train-co-018": 3,
+              "sg-v3-train-co-019": 3,
+              "sg-v3-train-co-020": 3,
+              "sg-v3-train-es-001": 3,
+              "sg-v3-train-es-002": 3,
+              "sg-v3-train-es-003": 3,
+              "sg-v3-train-es-004": 3,
+              "sg-v3-train-es-005": 3,
+              "sg-v3-train-es-006": 3,
+              "sg-v3-train-es-007": 3,
+              "sg-v3-train-es-008": 3,
+              "sg-v3-train-es-009": 3,
+              "sg-v3-train-es-010": 3,
+              "sg-v3-train-es-011": 3,
+              "sg-v3-train-es-012": 3,
+              "sg-v3-train-es-013": 3,
+              "sg-v3-train-es-014": 3,
+              "sg-v3-train-es-015": 3,
+              "sg-v3-train-es-016": 3,
+              "sg-v3-train-es-017": 3,
+              "sg-v3-train-es-018": 3,
+              "sg-v3-train-es-019": 3,
+              "sg-v3-train-es-020": 3,
+              "sg-v3-train-mx-001": 3,
+              "sg-v3-train-mx-002": 3,
+              "sg-v3-train-mx-003": 3,
+              "sg-v3-train-mx-004": 3,
+              "sg-v3-train-mx-005": 3,
+              "sg-v3-train-mx-006": 3,
+              "sg-v3-train-mx-007": 3,
+              "sg-v3-train-mx-008": 3,
+              "sg-v3-train-mx-009": 3,
+              "sg-v3-train-mx-010": 3,
+              "sg-v3-train-mx-011": 3,
+              "sg-v3-train-mx-012": 3,
+              "sg-v3-train-mx-013": 3,
+              "sg-v3-train-mx-014": 3,
+              "sg-v3-train-mx-015": 3,
+              "sg-v3-train-mx-016": 3,
+              "sg-v3-train-mx-017": 3,
+              "sg-v3-train-mx-018": 3,
+              "sg-v3-train-mx-019": 3,
+              "sg-v3-train-mx-020": 3,
+              "sg-v3-train-oh-001": 3,
+              "sg-v3-train-oh-002": 3,
+              "sg-v3-train-oh-003": 3,
+              "sg-v3-train-oh-004": 3,
+              "sg-v3-train-oh-005": 3,
+              "sg-v3-train-oh-006": 3,
+              "sg-v3-train-oh-007": 3,
+              "sg-v3-train-oh-008": 3,
+              "sg-v3-train-oh-009": 3,
+              "sg-v3-train-oh-010": 3,
+              "sg-v3-train-oh-011": 3,
+              "sg-v3-train-oh-012": 3,
+              "sg-v3-train-oh-013": 3,
+              "sg-v3-train-oh-014": 3,
+              "sg-v3-train-oh-015": 3,
+              "sg-v3-train-oh-016": 3,
+              "sg-v3-train-oh-017": 3,
+              "sg-v3-train-oh-018": 3,
+              "sg-v3-train-oh-019": 3,
+              "sg-v3-train-oh-020": 3,
+              "sg-v3-train-pe-001": 3,
+              "sg-v3-train-pe-002": 3,
+              "sg-v3-train-pe-003": 3,
+              "sg-v3-train-pe-004": 3,
+              "sg-v3-train-pe-005": 3,
+              "sg-v3-train-pe-006": 3,
+              "sg-v3-train-pe-007": 3,
+              "sg-v3-train-pe-008": 3,
+              "sg-v3-train-pe-009": 3,
+              "sg-v3-train-pe-010": 3,
+              "sg-v3-train-pe-011": 3,
+              "sg-v3-train-pe-012": 3,
+              "sg-v3-train-pe-013": 3,
+              "sg-v3-train-pe-014": 3,
+              "sg-v3-train-pe-015": 3,
+              "sg-v3-train-pe-016": 3,
+              "sg-v3-train-pe-017": 3,
+              "sg-v3-train-pe-018": 3,
+              "sg-v3-train-pe-019": 3,
+              "sg-v3-train-pe-020": 3
+            },
+            "draws": 300,
+            "effective_hard_multiplier": 1.0,
+            "epoch": 1,
+            "hard_class_draws": {
+              "negativo": 94,
+              "neutral": 29,
+              "positivo": 88
+            },
+            "hard_draws": 211,
+            "repeated_draws": 0,
+            "replacement": false,
+            "requested_hard_multiplier": 1.0,
+            "row_exposure_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "scope": "TRAIN_TAGS_ONLY_NO_TUNE_OR_MODEL_OUTPUTS",
+            "strategy": "UNIFORM_SHUFFLE_WITHOUT_REPLACEMENT",
+            "unique_rows": 300
+          },
+          "train_cross_entropy_smoothed_if_configured": 0.19845867686904967
+        },
+        "selection_retuned": false,
+        "stop_reason": "FIXED_EPOCHS",
+        "stopped_early": false,
+        "threads": 2,
+        "tune_inference_executed": false
+      },
+      "fixed_configuration": {
+        "configuration": {
+          "encoder_lr": 1e-05,
+          "epochs": 1,
+          "hard_weight": 1.0,
+          "head_dropout": 0.1,
+          "head_lr": 0.0002,
+          "id": "full256_budgeted",
+          "label_smoothing": 0.0,
+          "max_length": 256,
+          "mode": "full",
+          "patience": 1,
+          "pooling": "mean_l2",
+          "weight_decay": 0.01
+        },
+        "head_epoch": 80,
+        "id": "full256_budgeted",
+        "selected_epoch": 1,
+        "status": "EXECUTED",
+        "training": {
+          "adaptation_sha256": "c7998f095b570e6cd7a53a0d98d126c4ee1f872850c1b6ac728898bcb31a16b8",
+          "device": "cpu",
+          "encoder_trainable_parameters": 109260288,
+          "executed_epochs": 1,
+          "first_encoder_gradient_norm": 1.9521174430847168,
+          "fit_wall_seconds": 226.52513527099995,
+          "frozen_parameter_gradients_absent": true,
+          "head_trainable_parameters": 2307,
+          "history": [
+            {
+              "elapsed_seconds": 212.7923211079999,
+              "epoch": 1,
+              "gradient_norm_mean_before_clip": 21.470977005958556,
+              "last_encoder_lr": 0.0,
+              "last_head_lr": 0.0,
+              "sampling": {
+                "available_hard_rows": 211,
+                "class_draws": {
+                  "negativo": 100,
+                  "neutral": 100,
+                  "positivo": 100
+                },
+                "class_probability_mass": {
+                  "negativo": 0.3333333333333334,
+                  "neutral": 0.3333333333333334,
+                  "positivo": 0.3333333333333334
+                },
+                "component_draws": {
+                  "sg-v3-train-co-001": 3,
+                  "sg-v3-train-co-002": 3,
+                  "sg-v3-train-co-003": 3,
+                  "sg-v3-train-co-004": 3,
+                  "sg-v3-train-co-005": 3,
+                  "sg-v3-train-co-006": 3,
+                  "sg-v3-train-co-007": 3,
+                  "sg-v3-train-co-008": 3,
+                  "sg-v3-train-co-009": 3,
+                  "sg-v3-train-co-010": 3,
+                  "sg-v3-train-co-011": 3,
+                  "sg-v3-train-co-012": 3,
+                  "sg-v3-train-co-013": 3,
+                  "sg-v3-train-co-014": 3,
+                  "sg-v3-train-co-015": 3,
+                  "sg-v3-train-co-016": 3,
+                  "sg-v3-train-co-017": 3,
+                  "sg-v3-train-co-018": 3,
+                  "sg-v3-train-co-019": 3,
+                  "sg-v3-train-co-020": 3,
+                  "sg-v3-train-es-001": 3,
+                  "sg-v3-train-es-002": 3,
+                  "sg-v3-train-es-003": 3,
+                  "sg-v3-train-es-004": 3,
+                  "sg-v3-train-es-005": 3,
+                  "sg-v3-train-es-006": 3,
+                  "sg-v3-train-es-007": 3,
+                  "sg-v3-train-es-008": 3,
+                  "sg-v3-train-es-009": 3,
+                  "sg-v3-train-es-010": 3,
+                  "sg-v3-train-es-011": 3,
+                  "sg-v3-train-es-012": 3,
+                  "sg-v3-train-es-013": 3,
+                  "sg-v3-train-es-014": 3,
+                  "sg-v3-train-es-015": 3,
+                  "sg-v3-train-es-016": 3,
+                  "sg-v3-train-es-017": 3,
+                  "sg-v3-train-es-018": 3,
+                  "sg-v3-train-es-019": 3,
+                  "sg-v3-train-es-020": 3,
+                  "sg-v3-train-mx-001": 3,
+                  "sg-v3-train-mx-002": 3,
+                  "sg-v3-train-mx-003": 3,
+                  "sg-v3-train-mx-004": 3,
+                  "sg-v3-train-mx-005": 3,
+                  "sg-v3-train-mx-006": 3,
+                  "sg-v3-train-mx-007": 3,
+                  "sg-v3-train-mx-008": 3,
+                  "sg-v3-train-mx-009": 3,
+                  "sg-v3-train-mx-010": 3,
+                  "sg-v3-train-mx-011": 3,
+                  "sg-v3-train-mx-012": 3,
+                  "sg-v3-train-mx-013": 3,
+                  "sg-v3-train-mx-014": 3,
+                  "sg-v3-train-mx-015": 3,
+                  "sg-v3-train-mx-016": 3,
+                  "sg-v3-train-mx-017": 3,
+                  "sg-v3-train-mx-018": 3,
+                  "sg-v3-train-mx-019": 3,
+                  "sg-v3-train-mx-020": 3,
+                  "sg-v3-train-oh-001": 3,
+                  "sg-v3-train-oh-002": 3,
+                  "sg-v3-train-oh-003": 3,
+                  "sg-v3-train-oh-004": 3,
+                  "sg-v3-train-oh-005": 3,
+                  "sg-v3-train-oh-006": 3,
+                  "sg-v3-train-oh-007": 3,
+                  "sg-v3-train-oh-008": 3,
+                  "sg-v3-train-oh-009": 3,
+                  "sg-v3-train-oh-010": 3,
+                  "sg-v3-train-oh-011": 3,
+                  "sg-v3-train-oh-012": 3,
+                  "sg-v3-train-oh-013": 3,
+                  "sg-v3-train-oh-014": 3,
+                  "sg-v3-train-oh-015": 3,
+                  "sg-v3-train-oh-016": 3,
+                  "sg-v3-train-oh-017": 3,
+                  "sg-v3-train-oh-018": 3,
+                  "sg-v3-train-oh-019": 3,
+                  "sg-v3-train-oh-020": 3,
+                  "sg-v3-train-pe-001": 3,
+                  "sg-v3-train-pe-002": 3,
+                  "sg-v3-train-pe-003": 3,
+                  "sg-v3-train-pe-004": 3,
+                  "sg-v3-train-pe-005": 3,
+                  "sg-v3-train-pe-006": 3,
+                  "sg-v3-train-pe-007": 3,
+                  "sg-v3-train-pe-008": 3,
+                  "sg-v3-train-pe-009": 3,
+                  "sg-v3-train-pe-010": 3,
+                  "sg-v3-train-pe-011": 3,
+                  "sg-v3-train-pe-012": 3,
+                  "sg-v3-train-pe-013": 3,
+                  "sg-v3-train-pe-014": 3,
+                  "sg-v3-train-pe-015": 3,
+                  "sg-v3-train-pe-016": 3,
+                  "sg-v3-train-pe-017": 3,
+                  "sg-v3-train-pe-018": 3,
+                  "sg-v3-train-pe-019": 3,
+                  "sg-v3-train-pe-020": 3
+                },
+                "draws": 300,
+                "effective_hard_multiplier": 1.0,
+                "epoch": 1,
+                "hard_class_draws": {
+                  "negativo": 94,
+                  "neutral": 29,
+                  "positivo": 88
+                },
+                "hard_draws": 211,
+                "repeated_draws": 0,
+                "replacement": false,
+                "requested_hard_multiplier": 1.0,
+                "row_exposure_counts": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "scope": "TRAIN_TAGS_ONLY_NO_TUNE_OR_MODEL_OUTPUTS",
+                "strategy": "UNIFORM_SHUFFLE_WITHOUT_REPLACEMENT",
+                "unique_rows": 300
+              },
+              "train_cross_entropy_smoothed_if_configured": 0.19845864481603107,
+              "tune": {
+                "cross_entropy": 0.06335443591467019,
+                "macro_f1": 0.9833229101521784,
+                "negative_to_positive": 0
+              }
+            }
+          ],
+          "nonzero_encoder_gradient_observed": true,
+          "optimizer_steps": 75,
+          "patience": 1,
+          "planned_epochs": 1,
+          "probe_tensor_l2_update": 0.06497472524642944,
+          "scheduler_total_steps": 75,
+          "scheduler_warmup_steps": 7,
+          "scope": "TRAIN_OPTIMIZATION_TUNE_SELECTION",
+          "seed": 42,
+          "selected": {
+            "elapsed_seconds": 212.7923211079999,
+            "epoch": 1,
+            "gradient_norm_mean_before_clip": 21.470977005958556,
+            "last_encoder_lr": 0.0,
+            "last_head_lr": 0.0,
+            "sampling": {
+              "available_hard_rows": 211,
+              "class_draws": {
+                "negativo": 100,
+                "neutral": 100,
+                "positivo": 100
+              },
+              "class_probability_mass": {
+                "negativo": 0.3333333333333334,
+                "neutral": 0.3333333333333334,
+                "positivo": 0.3333333333333334
+              },
+              "component_draws": {
+                "sg-v3-train-co-001": 3,
+                "sg-v3-train-co-002": 3,
+                "sg-v3-train-co-003": 3,
+                "sg-v3-train-co-004": 3,
+                "sg-v3-train-co-005": 3,
+                "sg-v3-train-co-006": 3,
+                "sg-v3-train-co-007": 3,
+                "sg-v3-train-co-008": 3,
+                "sg-v3-train-co-009": 3,
+                "sg-v3-train-co-010": 3,
+                "sg-v3-train-co-011": 3,
+                "sg-v3-train-co-012": 3,
+                "sg-v3-train-co-013": 3,
+                "sg-v3-train-co-014": 3,
+                "sg-v3-train-co-015": 3,
+                "sg-v3-train-co-016": 3,
+                "sg-v3-train-co-017": 3,
+                "sg-v3-train-co-018": 3,
+                "sg-v3-train-co-019": 3,
+                "sg-v3-train-co-020": 3,
+                "sg-v3-train-es-001": 3,
+                "sg-v3-train-es-002": 3,
+                "sg-v3-train-es-003": 3,
+                "sg-v3-train-es-004": 3,
+                "sg-v3-train-es-005": 3,
+                "sg-v3-train-es-006": 3,
+                "sg-v3-train-es-007": 3,
+                "sg-v3-train-es-008": 3,
+                "sg-v3-train-es-009": 3,
+                "sg-v3-train-es-010": 3,
+                "sg-v3-train-es-011": 3,
+                "sg-v3-train-es-012": 3,
+                "sg-v3-train-es-013": 3,
+                "sg-v3-train-es-014": 3,
+                "sg-v3-train-es-015": 3,
+                "sg-v3-train-es-016": 3,
+                "sg-v3-train-es-017": 3,
+                "sg-v3-train-es-018": 3,
+                "sg-v3-train-es-019": 3,
+                "sg-v3-train-es-020": 3,
+                "sg-v3-train-mx-001": 3,
+                "sg-v3-train-mx-002": 3,
+                "sg-v3-train-mx-003": 3,
+                "sg-v3-train-mx-004": 3,
+                "sg-v3-train-mx-005": 3,
+                "sg-v3-train-mx-006": 3,
+                "sg-v3-train-mx-007": 3,
+                "sg-v3-train-mx-008": 3,
+                "sg-v3-train-mx-009": 3,
+                "sg-v3-train-mx-010": 3,
+                "sg-v3-train-mx-011": 3,
+                "sg-v3-train-mx-012": 3,
+                "sg-v3-train-mx-013": 3,
+                "sg-v3-train-mx-014": 3,
+                "sg-v3-train-mx-015": 3,
+                "sg-v3-train-mx-016": 3,
+                "sg-v3-train-mx-017": 3,
+                "sg-v3-train-mx-018": 3,
+                "sg-v3-train-mx-019": 3,
+                "sg-v3-train-mx-020": 3,
+                "sg-v3-train-oh-001": 3,
+                "sg-v3-train-oh-002": 3,
+                "sg-v3-train-oh-003": 3,
+                "sg-v3-train-oh-004": 3,
+                "sg-v3-train-oh-005": 3,
+                "sg-v3-train-oh-006": 3,
+                "sg-v3-train-oh-007": 3,
+                "sg-v3-train-oh-008": 3,
+                "sg-v3-train-oh-009": 3,
+                "sg-v3-train-oh-010": 3,
+                "sg-v3-train-oh-011": 3,
+                "sg-v3-train-oh-012": 3,
+                "sg-v3-train-oh-013": 3,
+                "sg-v3-train-oh-014": 3,
+                "sg-v3-train-oh-015": 3,
+                "sg-v3-train-oh-016": 3,
+                "sg-v3-train-oh-017": 3,
+                "sg-v3-train-oh-018": 3,
+                "sg-v3-train-oh-019": 3,
+                "sg-v3-train-oh-020": 3,
+                "sg-v3-train-pe-001": 3,
+                "sg-v3-train-pe-002": 3,
+                "sg-v3-train-pe-003": 3,
+                "sg-v3-train-pe-004": 3,
+                "sg-v3-train-pe-005": 3,
+                "sg-v3-train-pe-006": 3,
+                "sg-v3-train-pe-007": 3,
+                "sg-v3-train-pe-008": 3,
+                "sg-v3-train-pe-009": 3,
+                "sg-v3-train-pe-010": 3,
+                "sg-v3-train-pe-011": 3,
+                "sg-v3-train-pe-012": 3,
+                "sg-v3-train-pe-013": 3,
+                "sg-v3-train-pe-014": 3,
+                "sg-v3-train-pe-015": 3,
+                "sg-v3-train-pe-016": 3,
+                "sg-v3-train-pe-017": 3,
+                "sg-v3-train-pe-018": 3,
+                "sg-v3-train-pe-019": 3,
+                "sg-v3-train-pe-020": 3
+              },
+              "draws": 300,
+              "effective_hard_multiplier": 1.0,
+              "epoch": 1,
+              "hard_class_draws": {
+                "negativo": 94,
+                "neutral": 29,
+                "positivo": 88
+              },
+              "hard_draws": 211,
+              "repeated_draws": 0,
+              "replacement": false,
+              "requested_hard_multiplier": 1.0,
+              "row_exposure_counts": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "scope": "TRAIN_TAGS_ONLY_NO_TUNE_OR_MODEL_OUTPUTS",
+              "strategy": "UNIFORM_SHUFFLE_WITHOUT_REPLACEMENT",
+              "unique_rows": 300
+            },
+            "train_cross_entropy_smoothed_if_configured": 0.19845864481603107,
+            "tune": {
+              "cross_entropy": 0.06335443591467019,
+              "macro_f1": 0.9833229101521784,
+              "negative_to_positive": 0
+            }
+          },
+          "selection_retuned": true,
+          "stop_reason": "MAX_EPOCHS",
+          "stopped_early": false,
+          "threads": 2,
+          "tune_inference_executed": true
+        },
+        "tune": {
+          "cross_entropy": 0.06335443591467019,
+          "macro_f1": 0.9833229101521784,
+          "negative_to_positive": 0
+        }
+      },
+      "head": {
+        "device": "cpu",
+        "encoder_trainable_parameters": 0,
+        "executed_epochs": 80,
+        "fit_wall_seconds": 0.7905467880000288,
+        "head_trainable_parameters": 2307,
+        "history": [
+          {
+            "epoch": 1,
+            "train_cross_entropy": 1.0915515677134195
+          },
+          {
+            "epoch": 2,
+            "train_cross_entropy": 1.0291413736343384
+          },
+          {
+            "epoch": 3,
+            "train_cross_entropy": 0.9820845119158427
+          },
+          {
+            "epoch": 4,
+            "train_cross_entropy": 0.9345487650235494
+          },
+          {
+            "epoch": 5,
+            "train_cross_entropy": 0.8941841316223145
+          },
+          {
+            "epoch": 6,
+            "train_cross_entropy": 0.853186264038086
+          },
+          {
+            "epoch": 7,
+            "train_cross_entropy": 0.8165098818143209
+          },
+          {
+            "epoch": 8,
+            "train_cross_entropy": 0.7822332978248596
+          },
+          {
+            "epoch": 9,
+            "train_cross_entropy": 0.7514803496996562
+          },
+          {
+            "epoch": 10,
+            "train_cross_entropy": 0.7212496280670166
+          },
+          {
+            "epoch": 11,
+            "train_cross_entropy": 0.6945153792699178
+          },
+          {
+            "epoch": 12,
+            "train_cross_entropy": 0.6682672015825908
+          },
+          {
+            "epoch": 13,
+            "train_cross_entropy": 0.649029479821523
+          },
+          {
+            "epoch": 14,
+            "train_cross_entropy": 0.6233357262611389
+          },
+          {
+            "epoch": 15,
+            "train_cross_entropy": 0.6083212836583456
+          },
+          {
+            "epoch": 16,
+            "train_cross_entropy": 0.5885856223106384
+          },
+          {
+            "epoch": 17,
+            "train_cross_entropy": 0.5661820356051127
+          },
+          {
+            "epoch": 18,
+            "train_cross_entropy": 0.5558662549654643
+          },
+          {
+            "epoch": 19,
+            "train_cross_entropy": 0.5407338182131449
+          },
+          {
+            "epoch": 20,
+            "train_cross_entropy": 0.5220421651999155
+          },
+          {
+            "epoch": 21,
+            "train_cross_entropy": 0.5058305629094442
+          },
+          {
+            "epoch": 22,
+            "train_cross_entropy": 0.4973933092753092
+          },
+          {
+            "epoch": 23,
+            "train_cross_entropy": 0.48256587704022724
+          },
+          {
+            "epoch": 24,
+            "train_cross_entropy": 0.47438236276308693
+          },
+          {
+            "epoch": 25,
+            "train_cross_entropy": 0.4608777364095052
+          },
+          {
+            "epoch": 26,
+            "train_cross_entropy": 0.44587613781293234
+          },
+          {
+            "epoch": 27,
+            "train_cross_entropy": 0.4419999579588572
+          },
+          {
+            "epoch": 28,
+            "train_cross_entropy": 0.4259646439552307
+          },
+          {
+            "epoch": 29,
+            "train_cross_entropy": 0.422136599222819
+          },
+          {
+            "epoch": 30,
+            "train_cross_entropy": 0.4109189462661743
+          },
+          {
+            "epoch": 31,
+            "train_cross_entropy": 0.3969195981820424
+          },
+          {
+            "epoch": 32,
+            "train_cross_entropy": 0.395674763917923
+          },
+          {
+            "epoch": 33,
+            "train_cross_entropy": 0.3874979670842489
+          },
+          {
+            "epoch": 34,
+            "train_cross_entropy": 0.3763053703308106
+          },
+          {
+            "epoch": 35,
+            "train_cross_entropy": 0.37290507833162945
+          },
+          {
+            "epoch": 36,
+            "train_cross_entropy": 0.36145310203234354
+          },
+          {
+            "epoch": 37,
+            "train_cross_entropy": 0.3549246958891551
+          },
+          {
+            "epoch": 38,
+            "train_cross_entropy": 0.3527022993564606
+          },
+          {
+            "epoch": 39,
+            "train_cross_entropy": 0.3481175820032755
+          },
+          {
+            "epoch": 40,
+            "train_cross_entropy": 0.3421695903937022
+          },
+          {
+            "epoch": 41,
+            "train_cross_entropy": 0.3344823197523753
+          },
+          {
+            "epoch": 42,
+            "train_cross_entropy": 0.32919347246487934
+          },
+          {
+            "epoch": 43,
+            "train_cross_entropy": 0.32647464632987977
+          },
+          {
+            "epoch": 44,
+            "train_cross_entropy": 0.3166824543476105
+          },
+          {
+            "epoch": 45,
+            "train_cross_entropy": 0.3068873647848765
+          },
+          {
+            "epoch": 46,
+            "train_cross_entropy": 0.3092926931381226
+          },
+          {
+            "epoch": 47,
+            "train_cross_entropy": 0.30174420634905497
+          },
+          {
+            "epoch": 48,
+            "train_cross_entropy": 0.2942645927270254
+          },
+          {
+            "epoch": 49,
+            "train_cross_entropy": 0.294165318608284
+          },
+          {
+            "epoch": 50,
+            "train_cross_entropy": 0.2841224388281504
+          },
+          {
+            "epoch": 51,
+            "train_cross_entropy": 0.28060707767804466
+          },
+          {
+            "epoch": 52,
+            "train_cross_entropy": 0.28255272189776104
+          },
+          {
+            "epoch": 53,
+            "train_cross_entropy": 0.28200724283854167
+          },
+          {
+            "epoch": 54,
+            "train_cross_entropy": 0.26837637623151145
+          },
+          {
+            "epoch": 55,
+            "train_cross_entropy": 0.2740807910760244
+          },
+          {
+            "epoch": 56,
+            "train_cross_entropy": 0.27128840804100035
+          },
+          {
+            "epoch": 57,
+            "train_cross_entropy": 0.26576956232388815
+          },
+          {
+            "epoch": 58,
+            "train_cross_entropy": 0.27007390817006427
+          },
+          {
+            "epoch": 59,
+            "train_cross_entropy": 0.25877453287442526
+          },
+          {
+            "epoch": 60,
+            "train_cross_entropy": 0.2518197556336721
+          },
+          {
+            "epoch": 61,
+            "train_cross_entropy": 0.2562784429391225
+          },
+          {
+            "epoch": 62,
+            "train_cross_entropy": 0.2487679926554362
+          },
+          {
+            "epoch": 63,
+            "train_cross_entropy": 0.23992457409699758
+          },
+          {
+            "epoch": 64,
+            "train_cross_entropy": 0.23308741291364035
+          },
+          {
+            "epoch": 65,
+            "train_cross_entropy": 0.2457087711493174
+          },
+          {
+            "epoch": 66,
+            "train_cross_entropy": 0.23017292181650797
+          },
+          {
+            "epoch": 67,
+            "train_cross_entropy": 0.23565444111824035
+          },
+          {
+            "epoch": 68,
+            "train_cross_entropy": 0.22787796278794606
+          },
+          {
+            "epoch": 69,
+            "train_cross_entropy": 0.23062708417574565
+          },
+          {
+            "epoch": 70,
+            "train_cross_entropy": 0.2205743185679118
+          },
+          {
+            "epoch": 71,
+            "train_cross_entropy": 0.2171667581796646
+          },
+          {
+            "epoch": 72,
+            "train_cross_entropy": 0.22411507368087769
+          },
+          {
+            "epoch": 73,
+            "train_cross_entropy": 0.2196077076594035
+          },
+          {
+            "epoch": 74,
+            "train_cross_entropy": 0.21682028671105702
+          },
+          {
+            "epoch": 75,
+            "train_cross_entropy": 0.2157504012187322
+          },
+          {
+            "epoch": 76,
+            "train_cross_entropy": 0.21186266680558521
+          },
+          {
+            "epoch": 77,
+            "train_cross_entropy": 0.21246206243832907
+          },
+          {
+            "epoch": 78,
+            "train_cross_entropy": 0.21141569554805756
+          },
+          {
+            "epoch": 79,
+            "train_cross_entropy": 0.20407237927118937
+          },
+          {
+            "epoch": 80,
+            "train_cross_entropy": 0.1996031842629115
+          }
+        ],
+        "optimizer_steps": 800,
+        "planned_epochs": 80,
+        "scope": "TRAIN_ONLY_FIXED_EPOCH_REPLAY",
+        "seed": 42,
+        "selected": {
+          "epoch": 80,
+          "train_cross_entropy": 0.1996031842629115
+        },
+        "selection_retuned": false,
+        "stop_reason": "FIXED_EPOCHS",
+        "stopped_early": false,
+        "threads": 2,
+        "tune_inference_executed": false
+      },
+      "memory": {
+        "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+        "peak_rss_mib": 3354.4375
+      },
+      "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+      "scope": "REPRODUCTION_OF_OBSERVED_SYNTHETIC_PILOT_NOT_A_FRESH_TEST",
+      "seed": 42,
+      "selection_retuned": false
+    }
+  },
+  {
+    "artifact": "models/beto_reference_v1",
+    "configuration": {
+      "id": "reference_v1_frozen128",
+      "max_length": 128,
+      "mode": "frozen",
+      "pooling": "mean_l2"
+    },
+    "key": "beto_reference_v1",
+    "kind": "beto",
+    "manifest_sha256": "61cfd9ff053c9d4f73bad1e7efb644787d1e11f8b3f1acd2301af79d53b71773",
+    "training": {
+      "device": "cpu",
+      "encoder_trainable_parameters": 0,
+      "executed_epochs": 30,
+      "fit_wall_seconds": 0.28987990299992816,
+      "head_trainable_parameters": 2307,
+      "history": [
+        {
+          "epoch": 1,
+          "train_cross_entropy": 1.0911751492818196
+        },
+        {
+          "epoch": 2,
+          "train_cross_entropy": 1.0274020290374757
+        },
+        {
+          "epoch": 3,
+          "train_cross_entropy": 0.977300234635671
+        },
+        {
+          "epoch": 4,
+          "train_cross_entropy": 0.9292936889330546
+        },
+        {
+          "epoch": 5,
+          "train_cross_entropy": 0.8863095792134603
+        },
+        {
+          "epoch": 6,
+          "train_cross_entropy": 0.8436319001515706
+        },
+        {
+          "epoch": 7,
+          "train_cross_entropy": 0.8067902477582296
+        },
+        {
+          "epoch": 8,
+          "train_cross_entropy": 0.7747602995236714
+        },
+        {
+          "epoch": 9,
+          "train_cross_entropy": 0.7402465605735778
+        },
+        {
+          "epoch": 10,
+          "train_cross_entropy": 0.7111651476224263
+        },
+        {
+          "epoch": 11,
+          "train_cross_entropy": 0.6851438728968302
+        },
+        {
+          "epoch": 12,
+          "train_cross_entropy": 0.6582152851422628
+        },
+        {
+          "epoch": 13,
+          "train_cross_entropy": 0.6382707285881043
+        },
+        {
+          "epoch": 14,
+          "train_cross_entropy": 0.6131255594889323
+        },
+        {
+          "epoch": 15,
+          "train_cross_entropy": 0.5940020211537679
+        },
+        {
+          "epoch": 16,
+          "train_cross_entropy": 0.5733312853177388
+        },
+        {
+          "epoch": 17,
+          "train_cross_entropy": 0.559256378809611
+        },
+        {
+          "epoch": 18,
+          "train_cross_entropy": 0.5515658084551494
+        },
+        {
+          "epoch": 19,
+          "train_cross_entropy": 0.5281083337465922
+        },
+        {
+          "epoch": 20,
+          "train_cross_entropy": 0.5125743738810221
+        },
+        {
+          "epoch": 21,
+          "train_cross_entropy": 0.49473067045211794
+        },
+        {
+          "epoch": 22,
+          "train_cross_entropy": 0.48486072818438214
+        },
+        {
+          "epoch": 23,
+          "train_cross_entropy": 0.4698664665222168
+        },
+        {
+          "epoch": 24,
+          "train_cross_entropy": 0.46059760769208274
+        },
+        {
+          "epoch": 25,
+          "train_cross_entropy": 0.44658583402633667
+        },
+        {
+          "epoch": 26,
+          "train_cross_entropy": 0.4374166270097097
+        },
+        {
+          "epoch": 27,
+          "train_cross_entropy": 0.4273782138029734
+        },
+        {
+          "epoch": 28,
+          "train_cross_entropy": 0.4180478143692017
+        },
+        {
+          "epoch": 29,
+          "train_cross_entropy": 0.4105536687374115
+        },
+        {
+          "epoch": 30,
+          "train_cross_entropy": 0.40045233686765036
+        }
+      ],
+      "optimizer_steps": 300,
+      "planned_epochs": 80,
+      "scope": "TRAIN_ONLY_FIXED_EPOCH_REPLAY",
+      "seed": 42,
+      "selected": {
+        "epoch": 30,
+        "train_cross_entropy": 0.40045233686765036
+      },
+      "selection_retuned": false,
+      "stop_reason": "FIXED_EPOCHS",
+      "stopped_early": false,
+      "threads": 2,
+      "tune_inference_executed": false
+    }
+  },
+  {
+    "artifact": "models/beto_reference_v2",
+    "configuration": {
+      "encoder_lr": 1e-05,
+      "epochs": 4,
+      "hard_weight": 1.0,
+      "head_dropout": 0.1,
+      "head_lr": 0.0005,
+      "id": "reference_v2_top2_128",
+      "label_smoothing": 0.0,
+      "max_length": 128,
+      "mode": "top2",
+      "patience": 1,
+      "pooling": "mean_l2",
+      "weight_decay": 0.01
+    },
+    "key": "beto_reference_v2",
+    "kind": "beto",
+    "manifest_sha256": "d950f5ee947675dbbe98aa83947fe9298882ad0c5158acc5967b68f10b4f44cc",
+    "training": {
+      "encoder": {
+        "adaptation_sha256": "46d31594b36ecd1cb575561100ef1504854ab5eff42fdd4015070f24faba4f44",
+        "device": "cpu",
+        "encoder_trainable_parameters": 14175744,
+        "executed_epochs": 1,
+        "first_encoder_gradient_norm": 0.5762068629264832,
+        "fit_wall_seconds": 56.287809946999914,
+        "frozen_parameter_gradients_absent": true,
+        "head_trainable_parameters": 2307,
+        "history": [
+          {
+            "elapsed_seconds": 56.14315736599997,
+            "epoch": 1,
+            "gradient_norm_mean_before_clip": 9.1256440671285,
+            "last_encoder_lr": 8.333333333333334e-06,
+            "last_head_lr": 0.0004166666666666667,
+            "sampling": {
+              "available_hard_rows": 211,
+              "class_draws": {
+                "negativo": 100,
+                "neutral": 100,
+                "positivo": 100
+              },
+              "class_probability_mass": {
+                "negativo": 0.3333333333333334,
+                "neutral": 0.3333333333333334,
+                "positivo": 0.3333333333333334
+              },
+              "component_draws": {
+                "sg-v3-train-co-001": 3,
+                "sg-v3-train-co-002": 3,
+                "sg-v3-train-co-003": 3,
+                "sg-v3-train-co-004": 3,
+                "sg-v3-train-co-005": 3,
+                "sg-v3-train-co-006": 3,
+                "sg-v3-train-co-007": 3,
+                "sg-v3-train-co-008": 3,
+                "sg-v3-train-co-009": 3,
+                "sg-v3-train-co-010": 3,
+                "sg-v3-train-co-011": 3,
+                "sg-v3-train-co-012": 3,
+                "sg-v3-train-co-013": 3,
+                "sg-v3-train-co-014": 3,
+                "sg-v3-train-co-015": 3,
+                "sg-v3-train-co-016": 3,
+                "sg-v3-train-co-017": 3,
+                "sg-v3-train-co-018": 3,
+                "sg-v3-train-co-019": 3,
+                "sg-v3-train-co-020": 3,
+                "sg-v3-train-es-001": 3,
+                "sg-v3-train-es-002": 3,
+                "sg-v3-train-es-003": 3,
+                "sg-v3-train-es-004": 3,
+                "sg-v3-train-es-005": 3,
+                "sg-v3-train-es-006": 3,
+                "sg-v3-train-es-007": 3,
+                "sg-v3-train-es-008": 3,
+                "sg-v3-train-es-009": 3,
+                "sg-v3-train-es-010": 3,
+                "sg-v3-train-es-011": 3,
+                "sg-v3-train-es-012": 3,
+                "sg-v3-train-es-013": 3,
+                "sg-v3-train-es-014": 3,
+                "sg-v3-train-es-015": 3,
+                "sg-v3-train-es-016": 3,
+                "sg-v3-train-es-017": 3,
+                "sg-v3-train-es-018": 3,
+                "sg-v3-train-es-019": 3,
+                "sg-v3-train-es-020": 3,
+                "sg-v3-train-mx-001": 3,
+                "sg-v3-train-mx-002": 3,
+                "sg-v3-train-mx-003": 3,
+                "sg-v3-train-mx-004": 3,
+                "sg-v3-train-mx-005": 3,
+                "sg-v3-train-mx-006": 3,
+                "sg-v3-train-mx-007": 3,
+                "sg-v3-train-mx-008": 3,
+                "sg-v3-train-mx-009": 3,
+                "sg-v3-train-mx-010": 3,
+                "sg-v3-train-mx-011": 3,
+                "sg-v3-train-mx-012": 3,
+                "sg-v3-train-mx-013": 3,
+                "sg-v3-train-mx-014": 3,
+                "sg-v3-train-mx-015": 3,
+                "sg-v3-train-mx-016": 3,
+                "sg-v3-train-mx-017": 3,
+                "sg-v3-train-mx-018": 3,
+                "sg-v3-train-mx-019": 3,
+                "sg-v3-train-mx-020": 3,
+                "sg-v3-train-oh-001": 3,
+                "sg-v3-train-oh-002": 3,
+                "sg-v3-train-oh-003": 3,
+                "sg-v3-train-oh-004": 3,
+                "sg-v3-train-oh-005": 3,
+                "sg-v3-train-oh-006": 3,
+                "sg-v3-train-oh-007": 3,
+                "sg-v3-train-oh-008": 3,
+                "sg-v3-train-oh-009": 3,
+                "sg-v3-train-oh-010": 3,
+                "sg-v3-train-oh-011": 3,
+                "sg-v3-train-oh-012": 3,
+                "sg-v3-train-oh-013": 3,
+                "sg-v3-train-oh-014": 3,
+                "sg-v3-train-oh-015": 3,
+                "sg-v3-train-oh-016": 3,
+                "sg-v3-train-oh-017": 3,
+                "sg-v3-train-oh-018": 3,
+                "sg-v3-train-oh-019": 3,
+                "sg-v3-train-oh-020": 3,
+                "sg-v3-train-pe-001": 3,
+                "sg-v3-train-pe-002": 3,
+                "sg-v3-train-pe-003": 3,
+                "sg-v3-train-pe-004": 3,
+                "sg-v3-train-pe-005": 3,
+                "sg-v3-train-pe-006": 3,
+                "sg-v3-train-pe-007": 3,
+                "sg-v3-train-pe-008": 3,
+                "sg-v3-train-pe-009": 3,
+                "sg-v3-train-pe-010": 3,
+                "sg-v3-train-pe-011": 3,
+                "sg-v3-train-pe-012": 3,
+                "sg-v3-train-pe-013": 3,
+                "sg-v3-train-pe-014": 3,
+                "sg-v3-train-pe-015": 3,
+                "sg-v3-train-pe-016": 3,
+                "sg-v3-train-pe-017": 3,
+                "sg-v3-train-pe-018": 3,
+                "sg-v3-train-pe-019": 3,
+                "sg-v3-train-pe-020": 3
+              },
+              "draws": 300,
+              "effective_hard_multiplier": 1.0,
+              "epoch": 1,
+              "hard_class_draws": {
+                "negativo": 94,
+                "neutral": 29,
+                "positivo": 88
+              },
+              "hard_draws": 211,
+              "repeated_draws": 0,
+              "replacement": false,
+              "requested_hard_multiplier": 1.0,
+              "row_exposure_counts": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "scope": "TRAIN_TAGS_ONLY_NO_TUNE_OR_MODEL_OUTPUTS",
+              "strategy": "UNIFORM_SHUFFLE_WITHOUT_REPLACEMENT",
+              "unique_rows": 300
+            },
+            "train_cross_entropy_smoothed_if_configured": 0.18858583378295105
+          }
+        ],
+        "nonzero_encoder_gradient_observed": true,
+        "optimizer_steps": 75,
+        "patience": 1,
+        "planned_epochs": 4,
+        "probe_tensor_l2_update": 0.07463361322879791,
+        "scheduler_total_steps": 300,
+        "scheduler_warmup_steps": 30,
+        "scope": "TRAIN_ONLY_FIXED_EPOCH_REPLAY",
+        "seed": 42,
+        "selected": {
+          "elapsed_seconds": 56.14315736599997,
+          "epoch": 1,
+          "gradient_norm_mean_before_clip": 9.1256440671285,
+          "last_encoder_lr": 8.333333333333334e-06,
+          "last_head_lr": 0.0004166666666666667,
+          "sampling": {
+            "available_hard_rows": 211,
+            "class_draws": {
+              "negativo": 100,
+              "neutral": 100,
+              "positivo": 100
+            },
+            "class_probability_mass": {
+              "negativo": 0.3333333333333334,
+              "neutral": 0.3333333333333334,
+              "positivo": 0.3333333333333334
+            },
+            "component_draws": {
+              "sg-v3-train-co-001": 3,
+              "sg-v3-train-co-002": 3,
+              "sg-v3-train-co-003": 3,
+              "sg-v3-train-co-004": 3,
+              "sg-v3-train-co-005": 3,
+              "sg-v3-train-co-006": 3,
+              "sg-v3-train-co-007": 3,
+              "sg-v3-train-co-008": 3,
+              "sg-v3-train-co-009": 3,
+              "sg-v3-train-co-010": 3,
+              "sg-v3-train-co-011": 3,
+              "sg-v3-train-co-012": 3,
+              "sg-v3-train-co-013": 3,
+              "sg-v3-train-co-014": 3,
+              "sg-v3-train-co-015": 3,
+              "sg-v3-train-co-016": 3,
+              "sg-v3-train-co-017": 3,
+              "sg-v3-train-co-018": 3,
+              "sg-v3-train-co-019": 3,
+              "sg-v3-train-co-020": 3,
+              "sg-v3-train-es-001": 3,
+              "sg-v3-train-es-002": 3,
+              "sg-v3-train-es-003": 3,
+              "sg-v3-train-es-004": 3,
+              "sg-v3-train-es-005": 3,
+              "sg-v3-train-es-006": 3,
+              "sg-v3-train-es-007": 3,
+              "sg-v3-train-es-008": 3,
+              "sg-v3-train-es-009": 3,
+              "sg-v3-train-es-010": 3,
+              "sg-v3-train-es-011": 3,
+              "sg-v3-train-es-012": 3,
+              "sg-v3-train-es-013": 3,
+              "sg-v3-train-es-014": 3,
+              "sg-v3-train-es-015": 3,
+              "sg-v3-train-es-016": 3,
+              "sg-v3-train-es-017": 3,
+              "sg-v3-train-es-018": 3,
+              "sg-v3-train-es-019": 3,
+              "sg-v3-train-es-020": 3,
+              "sg-v3-train-mx-001": 3,
+              "sg-v3-train-mx-002": 3,
+              "sg-v3-train-mx-003": 3,
+              "sg-v3-train-mx-004": 3,
+              "sg-v3-train-mx-005": 3,
+              "sg-v3-train-mx-006": 3,
+              "sg-v3-train-mx-007": 3,
+              "sg-v3-train-mx-008": 3,
+              "sg-v3-train-mx-009": 3,
+              "sg-v3-train-mx-010": 3,
+              "sg-v3-train-mx-011": 3,
+              "sg-v3-train-mx-012": 3,
+              "sg-v3-train-mx-013": 3,
+              "sg-v3-train-mx-014": 3,
+              "sg-v3-train-mx-015": 3,
+              "sg-v3-train-mx-016": 3,
+              "sg-v3-train-mx-017": 3,
+              "sg-v3-train-mx-018": 3,
+              "sg-v3-train-mx-019": 3,
+              "sg-v3-train-mx-020": 3,
+              "sg-v3-train-oh-001": 3,
+              "sg-v3-train-oh-002": 3,
+              "sg-v3-train-oh-003": 3,
+              "sg-v3-train-oh-004": 3,
+              "sg-v3-train-oh-005": 3,
+              "sg-v3-train-oh-006": 3,
+              "sg-v3-train-oh-007": 3,
+              "sg-v3-train-oh-008": 3,
+              "sg-v3-train-oh-009": 3,
+              "sg-v3-train-oh-010": 3,
+              "sg-v3-train-oh-011": 3,
+              "sg-v3-train-oh-012": 3,
+              "sg-v3-train-oh-013": 3,
+              "sg-v3-train-oh-014": 3,
+              "sg-v3-train-oh-015": 3,
+              "sg-v3-train-oh-016": 3,
+              "sg-v3-train-oh-017": 3,
+              "sg-v3-train-oh-018": 3,
+              "sg-v3-train-oh-019": 3,
+              "sg-v3-train-oh-020": 3,
+              "sg-v3-train-pe-001": 3,
+              "sg-v3-train-pe-002": 3,
+              "sg-v3-train-pe-003": 3,
+              "sg-v3-train-pe-004": 3,
+              "sg-v3-train-pe-005": 3,
+              "sg-v3-train-pe-006": 3,
+              "sg-v3-train-pe-007": 3,
+              "sg-v3-train-pe-008": 3,
+              "sg-v3-train-pe-009": 3,
+              "sg-v3-train-pe-010": 3,
+              "sg-v3-train-pe-011": 3,
+              "sg-v3-train-pe-012": 3,
+              "sg-v3-train-pe-013": 3,
+              "sg-v3-train-pe-014": 3,
+              "sg-v3-train-pe-015": 3,
+              "sg-v3-train-pe-016": 3,
+              "sg-v3-train-pe-017": 3,
+              "sg-v3-train-pe-018": 3,
+              "sg-v3-train-pe-019": 3,
+              "sg-v3-train-pe-020": 3
+            },
+            "draws": 300,
+            "effective_hard_multiplier": 1.0,
+            "epoch": 1,
+            "hard_class_draws": {
+              "negativo": 94,
+              "neutral": 29,
+              "positivo": 88
+            },
+            "hard_draws": 211,
+            "repeated_draws": 0,
+            "replacement": false,
+            "requested_hard_multiplier": 1.0,
+            "row_exposure_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "scope": "TRAIN_TAGS_ONLY_NO_TUNE_OR_MODEL_OUTPUTS",
+            "strategy": "UNIFORM_SHUFFLE_WITHOUT_REPLACEMENT",
+            "unique_rows": 300
+          },
+          "train_cross_entropy_smoothed_if_configured": 0.18858583378295105
+        },
+        "selection_retuned": false,
+        "stop_reason": "FIXED_EPOCHS",
+        "stopped_early": false,
+        "threads": 2,
+        "tune_inference_executed": false
+      },
+      "head": {
+        "device": "cpu",
+        "encoder_trainable_parameters": 0,
+        "executed_epochs": 80,
+        "fit_wall_seconds": 0.7929202630000418,
+        "head_trainable_parameters": 2307,
+        "history": [
+          {
+            "epoch": 1,
+            "train_cross_entropy": 1.0917813634872438
+          },
+          {
+            "epoch": 2,
+            "train_cross_entropy": 1.029587755203247
+          },
+          {
+            "epoch": 3,
+            "train_cross_entropy": 0.9823316550254821
+          },
+          {
+            "epoch": 4,
+            "train_cross_entropy": 0.9355706596374511
+          },
+          {
+            "epoch": 5,
+            "train_cross_entropy": 0.8948735117912292
+          },
+          {
+            "epoch": 6,
+            "train_cross_entropy": 0.8539056690533956
+          },
+          {
+            "epoch": 7,
+            "train_cross_entropy": 0.817362752755483
+          },
+          {
+            "epoch": 8,
+            "train_cross_entropy": 0.7836825076738994
+          },
+          {
+            "epoch": 9,
+            "train_cross_entropy": 0.7529131404558818
+          },
+          {
+            "epoch": 10,
+            "train_cross_entropy": 0.7226912124951681
+          },
+          {
+            "epoch": 11,
+            "train_cross_entropy": 0.6970482110977173
+          },
+          {
+            "epoch": 12,
+            "train_cross_entropy": 0.6706393051147461
+          },
+          {
+            "epoch": 13,
+            "train_cross_entropy": 0.6519686778386434
+          },
+          {
+            "epoch": 14,
+            "train_cross_entropy": 0.6257670879364013
+          },
+          {
+            "epoch": 15,
+            "train_cross_entropy": 0.6114251327514648
+          },
+          {
+            "epoch": 16,
+            "train_cross_entropy": 0.5911113182703654
+          },
+          {
+            "epoch": 17,
+            "train_cross_entropy": 0.5698191634813945
+          },
+          {
+            "epoch": 18,
+            "train_cross_entropy": 0.5583558408419291
+          },
+          {
+            "epoch": 19,
+            "train_cross_entropy": 0.5442812991142273
+          },
+          {
+            "epoch": 20,
+            "train_cross_entropy": 0.5257269291083018
+          },
+          {
+            "epoch": 21,
+            "train_cross_entropy": 0.5094677146275838
+          },
+          {
+            "epoch": 22,
+            "train_cross_entropy": 0.5005546573797862
+          },
+          {
+            "epoch": 23,
+            "train_cross_entropy": 0.48708735426266986
+          },
+          {
+            "epoch": 24,
+            "train_cross_entropy": 0.47796714345614116
+          },
+          {
+            "epoch": 25,
+            "train_cross_entropy": 0.4646324253082275
+          },
+          {
+            "epoch": 26,
+            "train_cross_entropy": 0.4494555922349294
+          },
+          {
+            "epoch": 27,
+            "train_cross_entropy": 0.4465530987580617
+          },
+          {
+            "epoch": 28,
+            "train_cross_entropy": 0.4299612824122111
+          },
+          {
+            "epoch": 29,
+            "train_cross_entropy": 0.4263734765847524
+          },
+          {
+            "epoch": 30,
+            "train_cross_entropy": 0.4148506041367849
+          },
+          {
+            "epoch": 31,
+            "train_cross_entropy": 0.402080104748408
+          },
+          {
+            "epoch": 32,
+            "train_cross_entropy": 0.39976330161094664
+          },
+          {
+            "epoch": 33,
+            "train_cross_entropy": 0.3922154239813487
+          },
+          {
+            "epoch": 34,
+            "train_cross_entropy": 0.38095980366071064
+          },
+          {
+            "epoch": 35,
+            "train_cross_entropy": 0.37853186249732973
+          },
+          {
+            "epoch": 36,
+            "train_cross_entropy": 0.3665698540210724
+          },
+          {
+            "epoch": 37,
+            "train_cross_entropy": 0.3593959176540375
+          },
+          {
+            "epoch": 38,
+            "train_cross_entropy": 0.35778892079989116
+          },
+          {
+            "epoch": 39,
+            "train_cross_entropy": 0.35352028648058575
+          },
+          {
+            "epoch": 40,
+            "train_cross_entropy": 0.3457746744155884
+          },
+          {
+            "epoch": 41,
+            "train_cross_entropy": 0.3399443312486013
+          },
+          {
+            "epoch": 42,
+            "train_cross_entropy": 0.333302085796992
+          },
+          {
+            "epoch": 43,
+            "train_cross_entropy": 0.33141563097635907
+          },
+          {
+            "epoch": 44,
+            "train_cross_entropy": 0.3213517010211945
+          },
+          {
+            "epoch": 45,
+            "train_cross_entropy": 0.31273886481920876
+          },
+          {
+            "epoch": 46,
+            "train_cross_entropy": 0.31457157373428346
+          },
+          {
+            "epoch": 47,
+            "train_cross_entropy": 0.30580689907073977
+          },
+          {
+            "epoch": 48,
+            "train_cross_entropy": 0.2985835150877635
+          },
+          {
+            "epoch": 49,
+            "train_cross_entropy": 0.29893968264261883
+          },
+          {
+            "epoch": 50,
+            "train_cross_entropy": 0.28762954274813335
+          },
+          {
+            "epoch": 51,
+            "train_cross_entropy": 0.28662259380022687
+          },
+          {
+            "epoch": 52,
+            "train_cross_entropy": 0.2873373107115428
+          },
+          {
+            "epoch": 53,
+            "train_cross_entropy": 0.2853734131654104
+          },
+          {
+            "epoch": 54,
+            "train_cross_entropy": 0.27407913009325663
+          },
+          {
+            "epoch": 55,
+            "train_cross_entropy": 0.2773304637273153
+          },
+          {
+            "epoch": 56,
+            "train_cross_entropy": 0.2768260872364044
+          },
+          {
+            "epoch": 57,
+            "train_cross_entropy": 0.26950643459955853
+          },
+          {
+            "epoch": 58,
+            "train_cross_entropy": 0.27503130594889325
+          },
+          {
+            "epoch": 59,
+            "train_cross_entropy": 0.26312312920888264
+          },
+          {
+            "epoch": 60,
+            "train_cross_entropy": 0.2553994325796763
+          },
+          {
+            "epoch": 61,
+            "train_cross_entropy": 0.2628809916973114
+          },
+          {
+            "epoch": 62,
+            "train_cross_entropy": 0.2518560947974523
+          },
+          {
+            "epoch": 63,
+            "train_cross_entropy": 0.2440210388104121
+          },
+          {
+            "epoch": 64,
+            "train_cross_entropy": 0.23627034187316895
+          },
+          {
+            "epoch": 65,
+            "train_cross_entropy": 0.2497665027777354
+          },
+          {
+            "epoch": 66,
+            "train_cross_entropy": 0.23523897012074788
+          },
+          {
+            "epoch": 67,
+            "train_cross_entropy": 0.2397387476762136
+          },
+          {
+            "epoch": 68,
+            "train_cross_entropy": 0.2306222015619278
+          },
+          {
+            "epoch": 69,
+            "train_cross_entropy": 0.23568405826886496
+          },
+          {
+            "epoch": 70,
+            "train_cross_entropy": 0.22530596872170766
+          },
+          {
+            "epoch": 71,
+            "train_cross_entropy": 0.22088650325934092
+          },
+          {
+            "epoch": 72,
+            "train_cross_entropy": 0.22955218652884166
+          },
+          {
+            "epoch": 73,
+            "train_cross_entropy": 0.2244579553604126
+          },
+          {
+            "epoch": 74,
+            "train_cross_entropy": 0.22105619112650554
+          },
+          {
+            "epoch": 75,
+            "train_cross_entropy": 0.21936274449030557
+          },
+          {
+            "epoch": 76,
+            "train_cross_entropy": 0.2143785399198532
+          },
+          {
+            "epoch": 77,
+            "train_cross_entropy": 0.21689751982688904
+          },
+          {
+            "epoch": 78,
+            "train_cross_entropy": 0.21438188870747885
+          },
+          {
+            "epoch": 79,
+            "train_cross_entropy": 0.20850193818410237
+          },
+          {
+            "epoch": 80,
+            "train_cross_entropy": 0.20288480420907337
+          }
+        ],
+        "optimizer_steps": 800,
+        "planned_epochs": 80,
+        "scope": "TRAIN_ONLY_FIXED_EPOCH_REPLAY",
+        "seed": 42,
+        "selected": {
+          "epoch": 80,
+          "train_cross_entropy": 0.20288480420907337
+        },
+        "selection_retuned": false,
+        "stop_reason": "FIXED_EPOCHS",
+        "stopped_early": false,
+        "threads": 2,
+        "tune_inference_executed": false
+      }
+    }
+  },
+  {
+    "artifact": "replicas/7/model",
+    "key": "beto_seed7",
+    "kind": "beto",
+    "manifest_sha256": "495d6c833c8cceb2592ac36019ceb86fa6492f356cca0443895ebc4cacf91595",
+    "training": {
+      "fixed_seed": 7,
+      "selection_retuned": false
+    }
+  },
+  {
+    "artifact": "replicas/101/model",
+    "key": "beto_seed101",
+    "kind": "beto",
+    "manifest_sha256": "73e0c378aeda4e3acf0e29a3f732a42543b9011c8027c6c3501350ed09c5dbb9",
+    "training": {
+      "fixed_seed": 101,
+      "selection_retuned": false
+    }
+  }
+]

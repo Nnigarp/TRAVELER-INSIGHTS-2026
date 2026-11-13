@@ -74,6 +74,10 @@ def test_policy_refuses_assessment_selection_and_never_calls_review_all_a_soluti
 def test_stage_head_updates_and_fixed_epoch_replay_preserves_selected_weights():
     pytest.importorskip('torch',reason='executed in dedicated CPU/Windows research jobs')
     _,_,protocol=data.load_data();protocol=deepcopy(protocol)
+    # Isolate algorithmic fixed-epoch equivalence from cold/warm parallel CPU
+    # reductions. Keep exact equality here; real two-thread V3 replay retains
+    # its predeclared probability tolerance and is exercised on Linux/Windows.
+    protocol['threads']=1
     protocol['head'].update(epochs=4,selection_epochs=[2,4])
     rows=[{'role':'train','intended_label':LABELS[i%3]} for i in range(18)]
     tune=[{**r,'role':'tune'} for r in rows]

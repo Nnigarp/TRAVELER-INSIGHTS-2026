@@ -1,0 +1,969 @@
+{
+  "assessment_families": 20,
+  "assessment_rows": 60,
+  "assessment_scope": "REPRODUCTION_OF_OBSERVED_SYNTHETIC_PILOT_NOT_A_FRESH_TEST",
+  "best_model_selection_performed": false,
+  "bootstrap": {
+    "paired_reference": "lr",
+    "resamples": 2000,
+    "same_family_indices_for_all_models": true,
+    "seed": 42,
+    "unit": "synthetic semantic family"
+  },
+  "cost_projection": {
+    "admitted_train_rows": 300,
+    "archived_selection_commit": "a6675d08fa9645725107f059443ddc0ed15d125f",
+    "development_cost_source": "ARCHIVED_ORIGINAL_TUNE_SEARCH",
+    "formula": "measured pilot development wall seconds * 3501 / admitted TRAIN rows",
+    "limits": [
+      "Rough first-order planning estimate, not a measurement of a full 5000-row run.",
+      "Development includes fixed overhead, tuning and any executed optional references; row-linear scaling may fail.",
+      "Candidate skips, early stopping, hardware, memory and non-TRAIN cohort sizes can change cost.",
+      "Cost comparison alone neither admits corpus quality nor authorizes scale-up."
+    ],
+    "measured_full_5000_run": false,
+    "measured_pilot_development_cost": {
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "peak_rss_mib": 3540.2578125,
+      "wall_seconds": 1135.902192504
+    },
+    "quality_inferred_from_assessment_score": false,
+    "registered_scale_development_wall_seconds_cap": 3600,
+    "rough_projected_development_wall_seconds": 13255.97858652168,
+    "rough_projection_to_cap_ratio": 3.6822162740338,
+    "rough_projection_within_registered_cap": false,
+    "row_scale_factor": 11.67,
+    "separate_fixed_reconstruction_cost": {
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "peak_rss_mib": 3354.4375,
+      "wall_seconds": 506.2699122299998,
+      "wall_seconds_cap": 900
+    },
+    "source_selection_sha256": "7af6478c7702cde05e28ef008185f4f718bc05bf0ba7832900d613fb8f9d49c9",
+    "status": "ROUGH_FIRST_ORDER_ROW_LINEAR_PROJECTION",
+    "target_train_rows": 3501,
+    "train_rows_source": "admitted_role_rows.train"
+  },
+  "human_gold": false,
+  "limits": [
+    "AI author intent and AI review are synthetic labels, not human gold or human validation.",
+    "Family bootstrap intervals describe this synthetic cohort, not a human population.",
+    "The fixed primary seed remains 42; no assessment score chooses a model or seed or promotes it to the UI.",
+    "At most three fixed seeds share this evaluation; they do not establish general optimizer stability.",
+    "This cohort is already observed; it cannot serve again as a fresh full-scale final test.",
+    "Optional V1/V2 recipe references are retrained on NEW TRAIN, not original historical model binaries; no across-cohort quality claim is made."
+  ],
+  "membership_validated_against": "frozen manifest.assessment_membership",
+  "paired_family_bootstrap": {
+    "beto_frozen128": {
+      "classification": {
+        "accuracy": 0.9833333333333333,
+        "confusion_matrix": [
+          [
+            20,
+            0,
+            0
+          ],
+          [
+            0,
+            20,
+            0
+          ],
+          [
+            1,
+            0,
+            19
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.9833229101521784,
+        "n": 60,
+        "negative_to_neutral_count": 0,
+        "negative_to_neutral_rate": 0.0,
+        "negative_to_positive_count": 0,
+        "negative_to_positive_rate": 0.0,
+        "per_class": {
+          "accuracy": 0.9833333333333333,
+          "macro avg": {
+            "f1-score": 0.9833229101521784,
+            "precision": 0.9841269841269842,
+            "recall": 0.9833333333333334,
+            "support": 60.0
+          },
+          "negativo": {
+            "f1-score": 0.975609756097561,
+            "precision": 0.9523809523809523,
+            "recall": 1.0,
+            "support": 20.0
+          },
+          "neutral": {
+            "f1-score": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "support": 20.0
+          },
+          "positivo": {
+            "f1-score": 0.9743589743589743,
+            "precision": 1.0,
+            "recall": 0.95,
+            "support": 20.0
+          },
+          "weighted avg": {
+            "f1-score": 0.9833229101521785,
+            "precision": 0.9841269841269842,
+            "recall": 0.9833333333333333,
+            "support": 60.0
+          }
+        },
+        "support": {
+          "negativo": 20,
+          "neutral": 20,
+          "positivo": 20
+        },
+        "three_class_macro_comparable": true
+      },
+      "difference_from_lr": {
+        "high_95": 0.14000203876734515,
+        "low_95": -0.0002565202896577493,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 20,
+      "macro_f1_family_bootstrap": {
+        "high_95": 1.0,
+        "low_95": 0.9497171590194845,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "point_macro_f1_difference_from_lr": 0.0675213675213675
+    },
+    "beto_frozen256": {
+      "classification": {
+        "accuracy": 0.9666666666666667,
+        "confusion_matrix": [
+          [
+            19,
+            0,
+            1
+          ],
+          [
+            0,
+            20,
+            0
+          ],
+          [
+            1,
+            0,
+            19
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.9666666666666667,
+        "n": 60,
+        "negative_to_neutral_count": 0,
+        "negative_to_neutral_rate": 0.0,
+        "negative_to_positive_count": 1,
+        "negative_to_positive_rate": 0.05,
+        "per_class": {
+          "accuracy": 0.9666666666666667,
+          "macro avg": {
+            "f1-score": 0.9666666666666667,
+            "precision": 0.9666666666666667,
+            "recall": 0.9666666666666667,
+            "support": 60.0
+          },
+          "negativo": {
+            "f1-score": 0.95,
+            "precision": 0.95,
+            "recall": 0.95,
+            "support": 20.0
+          },
+          "neutral": {
+            "f1-score": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "support": 20.0
+          },
+          "positivo": {
+            "f1-score": 0.95,
+            "precision": 0.95,
+            "recall": 0.95,
+            "support": 20.0
+          },
+          "weighted avg": {
+            "f1-score": 0.9666666666666667,
+            "precision": 0.9666666666666667,
+            "recall": 0.9666666666666667,
+            "support": 60.0
+          }
+        },
+        "support": {
+          "negativo": 20,
+          "neutral": 20,
+          "positivo": 20
+        },
+        "three_class_macro_comparable": true
+      },
+      "difference_from_lr": {
+        "high_95": 0.13604845446950709,
+        "low_95": -0.03340242698394166,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 20,
+      "macro_f1_family_bootstrap": {
+        "high_95": 1.0,
+        "low_95": 0.9166145507608922,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "point_macro_f1_difference_from_lr": 0.05086512403585575
+    },
+    "beto_full256_budgeted": {
+      "classification": {
+        "accuracy": 1.0,
+        "confusion_matrix": [
+          [
+            20,
+            0,
+            0
+          ],
+          [
+            0,
+            20,
+            0
+          ],
+          [
+            0,
+            0,
+            20
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 1.0,
+        "n": 60,
+        "negative_to_neutral_count": 0,
+        "negative_to_neutral_rate": 0.0,
+        "negative_to_positive_count": 0,
+        "negative_to_positive_rate": 0.0,
+        "per_class": {
+          "accuracy": 1.0,
+          "macro avg": {
+            "f1-score": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "support": 60.0
+          },
+          "negativo": {
+            "f1-score": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "support": 20.0
+          },
+          "neutral": {
+            "f1-score": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "support": 20.0
+          },
+          "positivo": {
+            "f1-score": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "support": 20.0
+          },
+          "weighted avg": {
+            "f1-score": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "support": 60.0
+          }
+        },
+        "support": {
+          "negativo": 20,
+          "neutral": 20,
+          "positivo": 20
+        },
+        "three_class_macro_comparable": true
+      },
+      "difference_from_lr": {
+        "high_95": 0.15273226187860317,
+        "low_95": 0.01667708984782157,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 20,
+      "macro_f1_family_bootstrap": {
+        "high_95": 1.0,
+        "low_95": 1.0,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "point_macro_f1_difference_from_lr": 0.08419845736918907
+    },
+    "beto_reference_v1": {
+      "classification": {
+        "accuracy": 0.9333333333333333,
+        "confusion_matrix": [
+          [
+            20,
+            0,
+            0
+          ],
+          [
+            0,
+            20,
+            0
+          ],
+          [
+            4,
+            0,
+            16
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.9326599326599326,
+        "n": 60,
+        "negative_to_neutral_count": 0,
+        "negative_to_neutral_rate": 0.0,
+        "negative_to_positive_count": 0,
+        "negative_to_positive_rate": 0.0,
+        "per_class": {
+          "accuracy": 0.9333333333333333,
+          "macro avg": {
+            "f1-score": 0.9326599326599326,
+            "precision": 0.9444444444444445,
+            "recall": 0.9333333333333332,
+            "support": 60.0
+          },
+          "negativo": {
+            "f1-score": 0.9090909090909091,
+            "precision": 0.8333333333333334,
+            "recall": 1.0,
+            "support": 20.0
+          },
+          "neutral": {
+            "f1-score": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "support": 20.0
+          },
+          "positivo": {
+            "f1-score": 0.8888888888888888,
+            "precision": 1.0,
+            "recall": 0.8,
+            "support": 20.0
+          },
+          "weighted avg": {
+            "f1-score": 0.9326599326599326,
+            "precision": 0.9444444444444445,
+            "recall": 0.9333333333333333,
+            "support": 60.0
+          }
+        },
+        "support": {
+          "negativo": 20,
+          "neutral": 20,
+          "positivo": 20
+        },
+        "three_class_macro_comparable": true
+      },
+      "difference_from_lr": {
+        "high_95": 0.11980706039651609,
+        "low_95": -0.08701912744465945,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 20,
+      "macro_f1_family_bootstrap": {
+        "high_95": 0.9833229101521784,
+        "low_95": 0.8611111111111112,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "point_macro_f1_difference_from_lr": 0.016858390029121706
+    },
+    "beto_reference_v2": {
+      "classification": {
+        "accuracy": 0.95,
+        "confusion_matrix": [
+          [
+            20,
+            0,
+            0
+          ],
+          [
+            0,
+            20,
+            0
+          ],
+          [
+            2,
+            1,
+            17
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.9489698757991442,
+        "n": 60,
+        "negative_to_neutral_count": 0,
+        "negative_to_neutral_rate": 0.0,
+        "negative_to_positive_count": 0,
+        "negative_to_positive_rate": 0.0,
+        "per_class": {
+          "accuracy": 0.95,
+          "macro avg": {
+            "f1-score": 0.9489698757991442,
+            "precision": 0.9538239538239538,
+            "recall": 0.9500000000000001,
+            "support": 60.0
+          },
+          "negativo": {
+            "f1-score": 0.9523809523809523,
+            "precision": 0.9090909090909091,
+            "recall": 1.0,
+            "support": 20.0
+          },
+          "neutral": {
+            "f1-score": 0.975609756097561,
+            "precision": 0.9523809523809523,
+            "recall": 1.0,
+            "support": 20.0
+          },
+          "positivo": {
+            "f1-score": 0.918918918918919,
+            "precision": 1.0,
+            "recall": 0.85,
+            "support": 20.0
+          },
+          "weighted avg": {
+            "f1-score": 0.948969875799144,
+            "precision": 0.9538239538239537,
+            "recall": 0.95,
+            "support": 60.0
+          }
+        },
+        "support": {
+          "negativo": 20,
+          "neutral": 20,
+          "positivo": 20
+        },
+        "three_class_macro_comparable": true
+      },
+      "difference_from_lr": {
+        "high_95": 0.12673274977436444,
+        "low_95": -0.07007078759773022,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 20,
+      "macro_f1_family_bootstrap": {
+        "high_95": 1.0,
+        "low_95": 0.8946648426812586,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "point_macro_f1_difference_from_lr": 0.03316833316833323
+    },
+    "beto_seed101": {
+      "classification": {
+        "accuracy": 1.0,
+        "confusion_matrix": [
+          [
+            20,
+            0,
+            0
+          ],
+          [
+            0,
+            20,
+            0
+          ],
+          [
+            0,
+            0,
+            20
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 1.0,
+        "n": 60,
+        "negative_to_neutral_count": 0,
+        "negative_to_neutral_rate": 0.0,
+        "negative_to_positive_count": 0,
+        "negative_to_positive_rate": 0.0,
+        "per_class": {
+          "accuracy": 1.0,
+          "macro avg": {
+            "f1-score": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "support": 60.0
+          },
+          "negativo": {
+            "f1-score": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "support": 20.0
+          },
+          "neutral": {
+            "f1-score": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "support": 20.0
+          },
+          "positivo": {
+            "f1-score": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "support": 20.0
+          },
+          "weighted avg": {
+            "f1-score": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "support": 60.0
+          }
+        },
+        "support": {
+          "negativo": 20,
+          "neutral": 20,
+          "positivo": 20
+        },
+        "three_class_macro_comparable": true
+      },
+      "difference_from_lr": {
+        "high_95": 0.15273226187860317,
+        "low_95": 0.01667708984782157,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 20,
+      "macro_f1_family_bootstrap": {
+        "high_95": 1.0,
+        "low_95": 1.0,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "point_macro_f1_difference_from_lr": 0.08419845736918907
+    },
+    "beto_seed7": {
+      "classification": {
+        "accuracy": 0.9833333333333333,
+        "confusion_matrix": [
+          [
+            20,
+            0,
+            0
+          ],
+          [
+            0,
+            20,
+            0
+          ],
+          [
+            1,
+            0,
+            19
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.9833229101521784,
+        "n": 60,
+        "negative_to_neutral_count": 0,
+        "negative_to_neutral_rate": 0.0,
+        "negative_to_positive_count": 0,
+        "negative_to_positive_rate": 0.0,
+        "per_class": {
+          "accuracy": 0.9833333333333333,
+          "macro avg": {
+            "f1-score": 0.9833229101521784,
+            "precision": 0.9841269841269842,
+            "recall": 0.9833333333333334,
+            "support": 60.0
+          },
+          "negativo": {
+            "f1-score": 0.975609756097561,
+            "precision": 0.9523809523809523,
+            "recall": 1.0,
+            "support": 20.0
+          },
+          "neutral": {
+            "f1-score": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "support": 20.0
+          },
+          "positivo": {
+            "f1-score": 0.9743589743589743,
+            "precision": 1.0,
+            "recall": 0.95,
+            "support": 20.0
+          },
+          "weighted avg": {
+            "f1-score": 0.9833229101521785,
+            "precision": 0.9841269841269842,
+            "recall": 0.9833333333333333,
+            "support": 60.0
+          }
+        },
+        "support": {
+          "negativo": 20,
+          "neutral": 20,
+          "positivo": 20
+        },
+        "three_class_macro_comparable": true
+      },
+      "difference_from_lr": {
+        "high_95": 0.14054198274486188,
+        "low_95": -0.0002579400585193788,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 20,
+      "macro_f1_family_bootstrap": {
+        "high_95": 1.0,
+        "low_95": 0.9497171590194845,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "point_macro_f1_difference_from_lr": 0.0675213675213675
+    },
+    "dummy": {
+      "classification": {
+        "accuracy": 0.3333333333333333,
+        "confusion_matrix": [
+          [
+            20,
+            0,
+            0
+          ],
+          [
+            20,
+            0,
+            0
+          ],
+          [
+            20,
+            0,
+            0
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.16666666666666666,
+        "n": 60,
+        "negative_to_neutral_count": 0,
+        "negative_to_neutral_rate": 0.0,
+        "negative_to_positive_count": 0,
+        "negative_to_positive_rate": 0.0,
+        "per_class": {
+          "accuracy": 0.3333333333333333,
+          "macro avg": {
+            "f1-score": 0.16666666666666666,
+            "precision": 0.1111111111111111,
+            "recall": 0.3333333333333333,
+            "support": 60.0
+          },
+          "negativo": {
+            "f1-score": 0.5,
+            "precision": 0.3333333333333333,
+            "recall": 1.0,
+            "support": 20.0
+          },
+          "neutral": {
+            "f1-score": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 20.0
+          },
+          "positivo": {
+            "f1-score": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 20.0
+          },
+          "weighted avg": {
+            "f1-score": 0.16666666666666666,
+            "precision": 0.1111111111111111,
+            "recall": 0.3333333333333333,
+            "support": 60.0
+          }
+        },
+        "support": {
+          "negativo": 20,
+          "neutral": 20,
+          "positivo": 20
+        },
+        "three_class_macro_comparable": true
+      },
+      "difference_from_lr": {
+        "high_95": -0.6806010714547301,
+        "low_95": -0.8166562434855118,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 20,
+      "macro_f1_family_bootstrap": {
+        "high_95": 0.16666666666666666,
+        "low_95": 0.16666666666666666,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "point_macro_f1_difference_from_lr": -0.7491348759641443
+    },
+    "lr": {
+      "classification": {
+        "accuracy": 0.9166666666666666,
+        "confusion_matrix": [
+          [
+            17,
+            1,
+            2
+          ],
+          [
+            0,
+            20,
+            0
+          ],
+          [
+            2,
+            0,
+            18
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.9158015426308109,
+        "n": 60,
+        "negative_to_neutral_count": 1,
+        "negative_to_neutral_rate": 0.05,
+        "negative_to_positive_count": 2,
+        "negative_to_positive_rate": 0.1,
+        "per_class": {
+          "accuracy": 0.9166666666666666,
+          "macro avg": {
+            "f1-score": 0.9158015426308109,
+            "precision": 0.9157059314954051,
+            "recall": 0.9166666666666666,
+            "support": 60.0
+          },
+          "negativo": {
+            "f1-score": 0.8717948717948718,
+            "precision": 0.8947368421052632,
+            "recall": 0.85,
+            "support": 20.0
+          },
+          "neutral": {
+            "f1-score": 0.975609756097561,
+            "precision": 0.9523809523809523,
+            "recall": 1.0,
+            "support": 20.0
+          },
+          "positivo": {
+            "f1-score": 0.9,
+            "precision": 0.9,
+            "recall": 0.9,
+            "support": 20.0
+          },
+          "weighted avg": {
+            "f1-score": 0.9158015426308109,
+            "precision": 0.9157059314954051,
+            "recall": 0.9166666666666666,
+            "support": 60.0
+          }
+        },
+        "support": {
+          "negativo": 20,
+          "neutral": 20,
+          "positivo": 20
+        },
+        "three_class_macro_comparable": true
+      },
+      "difference_from_lr": {
+        "high_95": 0.0,
+        "low_95": 0.0,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 20,
+      "macro_f1_family_bootstrap": {
+        "high_95": 0.9833229101521784,
+        "low_95": 0.8472677381213967,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "point_macro_f1_difference_from_lr": 0.0
+    },
+    "svm": {
+      "classification": {
+        "accuracy": 0.9166666666666666,
+        "confusion_matrix": [
+          [
+            17,
+            1,
+            2
+          ],
+          [
+            0,
+            20,
+            0
+          ],
+          [
+            2,
+            0,
+            18
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.9158015426308109,
+        "n": 60,
+        "negative_to_neutral_count": 1,
+        "negative_to_neutral_rate": 0.05,
+        "negative_to_positive_count": 2,
+        "negative_to_positive_rate": 0.1,
+        "per_class": {
+          "accuracy": 0.9166666666666666,
+          "macro avg": {
+            "f1-score": 0.9158015426308109,
+            "precision": 0.9157059314954051,
+            "recall": 0.9166666666666666,
+            "support": 60.0
+          },
+          "negativo": {
+            "f1-score": 0.8717948717948718,
+            "precision": 0.8947368421052632,
+            "recall": 0.85,
+            "support": 20.0
+          },
+          "neutral": {
+            "f1-score": 0.975609756097561,
+            "precision": 0.9523809523809523,
+            "recall": 1.0,
+            "support": 20.0
+          },
+          "positivo": {
+            "f1-score": 0.9,
+            "precision": 0.9,
+            "recall": 0.9,
+            "support": 20.0
+          },
+          "weighted avg": {
+            "f1-score": 0.9158015426308109,
+            "precision": 0.9157059314954051,
+            "recall": 0.9166666666666666,
+            "support": 60.0
+          }
+        },
+        "support": {
+          "negativo": 20,
+          "neutral": 20,
+          "positivo": 20
+        },
+        "three_class_macro_comparable": true
+      },
+      "difference_from_lr": {
+        "high_95": 0.05047140163419239,
+        "low_95": -0.05047140163419239,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "families": 20,
+      "macro_f1_family_bootstrap": {
+        "high_95": 0.9833229101521784,
+        "low_95": 0.8456631049654306,
+        "scope": "paired synthetic family bootstrap, not a human population interval"
+      },
+      "point_macro_f1_difference_from_lr": 0.0
+    }
+  },
+  "records_sha256": "1ca1521e303325bb314eb6d8c2d8e8b42e1510ac5352a541ab119bd403c16f9d",
+  "schema": "beto-v3-saved-prediction-analysis",
+  "scope": "SAVED_NEW_SYNTHETIC_ASSESSMENT_ONLY_NO_FITTING_OR_SELECTION",
+  "selected_configuration_seed_summary": {
+    "all_fixed_seeds_observed": true,
+    "best_seed_selection_performed": false,
+    "mean_macro_f1": 0.9944409700507261,
+    "mean_negative_to_positive_count": 0.0,
+    "missing_seeds": [],
+    "model_promotion_performed": false,
+    "negative_to_positive": [
+      0,
+      0,
+      0
+    ],
+    "observed_seed_count": 3,
+    "observed_seeds": [
+      42,
+      7,
+      101
+    ],
+    "primary_seed": 42,
+    "registered_replica_seeds": [
+      7,
+      101
+    ],
+    "sample_std_macro_f1": 0.009628522312939357,
+    "sample_std_negative_to_positive_count": 0.0,
+    "seed_results": [
+      {
+        "macro_f1": 1.0,
+        "missing_reason": null,
+        "model_key": "beto_full256_budgeted",
+        "negative_to_positive_count": 0,
+        "negative_to_positive_rate": 0.0,
+        "reported_execution_status": null,
+        "seed": 42,
+        "status": "OBSERVED"
+      },
+      {
+        "macro_f1": 0.9833229101521784,
+        "missing_reason": null,
+        "model_key": "beto_seed7",
+        "negative_to_positive_count": 0,
+        "negative_to_positive_rate": 0.0,
+        "reported_execution_status": "EXECUTED",
+        "seed": 7,
+        "status": "OBSERVED"
+      },
+      {
+        "macro_f1": 1.0,
+        "missing_reason": null,
+        "model_key": "beto_seed101",
+        "negative_to_positive_count": 0,
+        "negative_to_positive_rate": 0.0,
+        "reported_execution_status": "EXECUTED",
+        "seed": 101,
+        "status": "OBSERVED"
+      }
+    ],
+    "summary_scope": "Available fixed seeds only; missing seeds have no imputed score."
+  },
+  "selected_model_key": "beto_full256_budgeted",
+  "source_sha256": {
+    "assessment-predictions.json": "42ec26322884acf0500d8110f151032c3e042f672e5f946442333874943a6f33",
+    "assessment.json": "c9d5866460664fbc07eb8779470d246aa5cc49b3d3a3ecf3be646b897dcd8f29",
+    "manifest.json": "b29abe8fe342c9161e05602eed03e0513b32527013ebfbd8efa97a15d9ea47f4",
+    "protocol.json": "3e9a40d86606287d8ae4b2e4ed421143fa22e93f26a625c0e77a0b4ccc6ebfcb"
+  },
+  "synthetic": true
+}

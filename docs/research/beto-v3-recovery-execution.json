@@ -1,0 +1,64 @@
+{
+  "assessment_and_replica_cost": {
+    "active_phase_sum_excludes_development_pause": true,
+    "assessment_and_replica_wall_seconds": 1002.0389154929999,
+    "continuation_cap_seconds": 300,
+    "continuation_process_memory": {
+      "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+      "peak_rss_mib": 1366.05859375
+    },
+    "continuation_wall_seconds": 98.57562744799998,
+    "original_phase_cap_seconds": 900,
+    "original_phase_wall_seconds": 903.4632880449999
+  },
+  "combined_cap_seconds": 1800,
+  "execution_status": "COMPLETED_WITH_DISCLOSED_FIXED_INFERENCE_CONTINUATION",
+  "fixed_preparation_cost": {
+    "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+    "peak_rss_mib": 3354.4375,
+    "wall_seconds": 506.2699122299998,
+    "wall_seconds_cap": 900
+  },
+  "human_performance_measured": false,
+  "inference_continuation": {
+    "completed_original_prefix": [
+      "dummy",
+      "lr",
+      "svm",
+      "beto_frozen128",
+      "beto_frozen256"
+    ],
+    "filled_models": [
+      "beto_full256_budgeted",
+      "beto_reference_v1",
+      "beto_reference_v2",
+      "beto_seed7",
+      "beto_seed101"
+    ],
+    "new_training_calibration_or_selection": false,
+    "protocol_sha256": "f0a84d14b3b274f7e58551dd68f9063cd0ecf6ed1ad02f09190bb97f9c183b91",
+    "registration_commit": "f8fb2f883631bbd71e3ff4c2f4994a16a934cf82",
+    "wall_seconds": 98.57562744799998
+  },
+  "initial_900_plus_450_contingency_activated": false,
+  "measured_combined_wall_seconds": 1508.3088277229997,
+  "monetary_cost_measured": false,
+  "original_development_cost_archived_not_in_this_total": {
+    "method": "Linux_process_high_water_includes_all_models_imports_and_optimizer",
+    "peak_rss_mib": 3540.2578125,
+    "wall_seconds": 1135.902192504
+  },
+  "original_development_cost_source_commit": "a6675d08fa9645725107f059443ddc0ed15d125f",
+  "recovery_registration_commit": "8b413d5560347f2e31f58a77348c636925bf0bcf",
+  "replica_status": [
+    {
+      "seed": 7,
+      "status": "EXECUTED"
+    },
+    {
+      "seed": 101,
+      "status": "EXECUTED"
+    }
+  ],
+  "scope": "MEASURED_FIXED_OBSERVED_RECONSTRUCTION"
+}

@@ -1,0 +1,8 @@
+{
+  "records_sha256": "1ca1521e303325bb314eb6d8c2d8e8b42e1510ac5352a541ab119bd403c16f9d",
+  "selection_commit": "a6675d08fa9645725107f059443ddc0ed15d125f",
+  "selection_sha256": "7af6478c7702cde05e28ef008185f4f718bc05bf0ba7832900d613fb8f9d49c9",
+  "policy_sha256": "953fa6c645207be247786dd48e49056ff72aa55ecf62a7b2f35126a834e88078",
+  "models_sha256": "5d33ea4a1feab1beae529794025bcaf2f7c2dc61bdb61b11b1d8409a30663613",
+  "scope": "REPRODUCTION_OF_OBSERVED_SYNTHETIC_PILOT_NOT_A_FRESH_TEST"
+}

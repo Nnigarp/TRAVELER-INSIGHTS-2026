@@ -10,6 +10,7 @@ on:
       - 'scripts/*academic_acceptance.py'
       - 'scripts/acceptance_gradio_http.py'
       - 'scripts/check_asr_readiness.py'
+      - 'scripts/analyze_academic_acceptance.py'
       - 'tests/test_academic_acceptance.py'
       - '.github/workflows/academic-acceptance.yml'
   workflow_dispatch:
@@ -53,6 +54,8 @@ jobs:
         run: python scripts/acceptance_gradio_http.py --registration-commit ${{ env.REGISTRATION }} --output artifacts/academic-ci/http.json
       - name: Diagnose ASR packages and CPU, without downloading or loading weights
         run: python scripts/check_asr_readiness.py --require-packages --output artifacts/academic-ci/asr-readiness.json
+      - name: Verify saved predictive responses and metrics, without new predictions
+        run: python scripts/analyze_academic_acceptance.py --output artifacts/academic-ci/frozen-predictive-analysis.md
       - uses: actions/upload-artifact@v4
         if: always()
         with:

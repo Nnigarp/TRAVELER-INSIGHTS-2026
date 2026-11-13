@@ -1,7 +1,7 @@
 {
-  "source": "actual full pytest output before final display-copy and binding checks; final source additionally verified by targeted tests and CI",
-  "passed": 453,
+  "source": "actual full pytest output after the Windows CSV root fix",
+  "passed": 455,
   "known_xfail": 1,
-  "wall_seconds": 47.24,
-  "log_sha256": "31df1ed0a03c39003471dc1e091c2e57c58fbce7a74896425e941e69a5cc44a7"
+  "log_sha256": "585ee326bc63dadf3814c73c522dbd27c94d90c9049b257ccbe1e281caf3997a",
+  "wall_seconds": 46.39
 }

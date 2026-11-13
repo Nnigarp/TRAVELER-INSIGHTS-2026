@@ -1,0 +1,19 @@
+{
+  "additional_application_root_cause": "CSV export text mode could turn an original quoted CRLF into CR-CR-LF.",
+  "before_fix_simulated_windows_regression": {
+    "failed": 1,
+    "log_sha256": "b7d450f7754dfcb3829ce8e77f0b447c809a50e5e4e31f033dd4ac6ba1076ad7"
+  },
+  "first_failed_workflow": 43472544757,
+  "fixture_cause": "Path.write_text used Windows default newline translation, changing intended fixture bytes; fixtures now write explicit UTF8-sig bytes.",
+  "model_or_threshold_changes": false,
+  "observed_contract_failures": [
+    "lr:csv_callback_multiline",
+    "svm:csv_callback_multiline"
+  ],
+  "predictive_responses_unchanged": true,
+  "predictive_sha256": "57e3e4b78fb5208fd8ddd430b4fc2b769491197edc96f8745a1baa1ebe23f243",
+  "remedy": "Preserve quoted CRLF in parser; disable CSV export newline translation; assert JSON and CSV download original text byte-derived roundtrips.",
+  "schema": "windows-csv-newline-diagnosis",
+  "windows_job": 132047888679
+}

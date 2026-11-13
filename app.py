@@ -206,7 +206,9 @@ def export_files(records: list[dict]):
     json_path = directory / "analisis_demo.json"
     csv_path = directory / "analisis_demo.csv"
     json_path.write_text(export_json(records), encoding="utf-8")
-    csv_path.write_text(export_csv(records), encoding="utf-8-sig")
+    # csv.writer already chooses record separators. Prevent Windows text mode
+    # from turning a quoted CRLF into CR-CR-LF and changing the original review.
+    csv_path.write_text(export_csv(records), encoding="utf-8-sig", newline="")
     return str(json_path), str(csv_path), (
         "Archivos DEMO generados localmente. Pueden contener el texto ingresado; trátalos como privados."
     )

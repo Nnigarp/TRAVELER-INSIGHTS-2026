@@ -36,6 +36,31 @@ def test_csv_keeps_bom_commas_multiline_extra_columns_order_and_duplicates():
     assert parse_review_csv(text.encode('utf-8-sig')) == ['Frase, con coma\ny salto', 'igual', 'igual']
 
 
+def test_csv_preserves_original_crlf_inside_quoted_review():
+    assert parse_review_csv('reseña\r\n"Primera línea\r\nsegunda línea"\r\n'.encode('utf-8-sig')) == ['Primera línea\r\nsegunda línea']
+
+
+def test_export_preserves_multiline_csv_under_windows_newline_defaults(tmp_path, monkeypatch):
+    from pathlib import Path
+    from traveler_agent.batch import analyze_batch
+    original_write = Path.write_text
+    def windows_defaults(path, data, encoding=None, errors=None, newline=None):
+        if path.suffix == '.csv' and newline is None:
+            newline = '\r\n'
+        return original_write(path, data, encoding=encoding, errors=errors, newline=newline)
+    monkeypatch.setattr(Path, 'write_text', windows_defaults)
+    text = 'Primera línea\r\nsegunda línea'
+    records = analyze_batch([text], app.get_demo_model('lr'))
+    json_path, csv_path, _ = app.export_files(records)
+    try:
+        content = Path(csv_path).read_bytes().decode('utf-8-sig')
+        exported = list(csv.DictReader(io.StringIO(content, newline='')))
+        assert exported[0]['texto_original'] == text
+        assert json.loads(Path(json_path).read_text(encoding='utf-8'))['registros'][0]['texto_original'] == text
+    finally:
+        Path(json_path).unlink(); Path(csv_path).unlink(); Path(json_path).parent.rmdir()
+
+
 def test_effective_model_guard_never_counts_lr_fallback_as_beto():
     fallback = {'modelo_utilizado': 'lr', 'seleccion_modelo': {'requested': 'beto', 'effective': 'lr', 'fallback': True}}
     with pytest.raises(CorpusError, match='did not execute'):

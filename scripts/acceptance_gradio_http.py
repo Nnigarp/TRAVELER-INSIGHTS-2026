@@ -63,19 +63,22 @@ def run(commit, output, beto_artifact=None):
                 json_path, csv_path, _ = client.predict(api_name='/export_files')
                 payload = json.loads(Path(json_path).read_text(encoding='utf-8'))
                 records = payload['registros']
-                exported = list(csv.DictReader(io.StringIO(Path(csv_path).read_text(encoding='utf-8-sig'))))
+                exported = list(csv.DictReader(io.StringIO(Path(csv_path).read_bytes().decode('utf-8-sig'), newline='')))
                 check(kind + ':session_correction_download_json', len(records) == 2 and records[0]['etiqueta_corregida_humano'] == 'neutral' and records[0]['texto_original'] == fixtures[0]['text'])
                 for row in records: require_effective(row, kind)
                 check(kind + ':download_csv_provenance_and_formula', len(exported) == 2 and all(r['modelo_utilizado'] == kind for r in exported) and exported[-1]['texto_original'].startswith("'="))
                 if kind == 'beto':
                     check('beto:download_csv_actual_manifest', all(r.get('modelo_solicitado') == 'beto' and r.get('fallback_modelo') == 'False' and r.get('version_modelo') == records[i]['seleccion_modelo']['manifest_sha256'] for i, r in enumerate(exported)))
                 source = work / ('valid-' + kind + '.csv')
-                source.write_text('reseña,nota\n"Una visita, con dos paradas\ny una pausa",fixture\n', encoding='utf-8-sig')
+                source.write_bytes('reseña,nota\r\n"Una visita, con dos paradas\r\ny una pausa",fixture\r\n'.encode('utf-8-sig'))
                 uploaded = client.predict(handle_file(str(source)), kind, api_name='/run_batch_csv')
                 check(kind + ':csv_upload_status', 'analizado' in uploaded[-1])
-                json_path, _, _ = client.predict(api_name='/export_files')
+                json_path, csv_path, _ = client.predict(api_name='/export_files')
                 csv_records = json.loads(Path(json_path).read_text(encoding='utf-8'))['registros']
-                check(kind + ':csv_upload_download_preserves_newline', len(csv_records) == 1 and csv_records[0]['texto_original'] == 'Una visita, con dos paradas\ny una pausa')
+                expected = 'Una visita, con dos paradas\r\ny una pausa'
+                check(kind + ':csv_upload_download_preserves_newline', len(csv_records) == 1 and csv_records[0]['texto_original'] == expected)
+                multiline_csv = list(csv.DictReader(io.StringIO(Path(csv_path).read_bytes().decode('utf-8-sig'), newline='')))
+                check(kind + ':csv_download_original_crlf', len(multiline_csv) == 1 and multiline_csv[0]['texto_original'] == expected)
                 for row in csv_records: require_effective(row, kind)
                 source.write_text('reseña,reseña\nprimera,segunda\n', encoding='utf-8')
                 bad = client.predict(handle_file(str(source)), kind, api_name='/run_batch_csv')
@@ -92,7 +95,7 @@ def run(commit, output, beto_artifact=None):
                 json_path, csv_path, _ = client.predict(api_name='/export_files')
                 fallback_records = json.loads(Path(json_path).read_text(encoding='utf-8'))['registros']
                 for row in fallback_records: require_effective(row, 'beto', fallback_expected=True)
-                exported = list(csv.DictReader(io.StringIO(Path(csv_path).read_text(encoding='utf-8-sig'))))
+                exported = list(csv.DictReader(io.StringIO(Path(csv_path).read_bytes().decode('utf-8-sig'), newline='')))
                 check('fault_injection_export_provenance', len(exported) == 1 and exported[0]['modelo_solicitado'] == 'beto' and exported[0]['modelo_utilizado'] == 'lr' and exported[0]['fallback_modelo'] == 'True')
                 report['fallback'] = {'scope': 'INVALID_ARTIFACT_REAL_LR_NOT_REAL_BETO', 'single': record, 'exported_records': fallback_records}
                 os.environ['TRAVELER_BETO_ARTIFACT'] = str(beto_artifact.resolve())

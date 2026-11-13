@@ -235,18 +235,23 @@ def run_functional(commit, kinds=('lr', 'svm')):
         check(kind + ':correction_nonmutating', records == original and edited[0]['sentimiento'] == original[0]['sentimiento'] and edited[0]['etiqueta_corregida_humano'] == 'neutral')
         json_path, csv_path, _ = app.export_files(edited)
         restored = json.loads(Path(json_path).read_text(encoding='utf-8'))['registros']
-        exported = list(csv.DictReader(io.StringIO(Path(csv_path).read_text(encoding='utf-8-sig'))))
+        exported = list(csv.DictReader(io.StringIO(Path(csv_path).read_bytes().decode('utf-8-sig'), newline='')))
         check(kind + ':json_roundtrip', restored == edited)
         check(kind + ':csv_count_model_and_formula', len(exported) == 4 and all(r['modelo_utilizado'] == kind for r in exported) and exported[0]['comentario_revision_humana'].startswith("'") and exported[-1]['texto_original'].startswith("'="))
         # Delete only files/directories created by this acceptance call.
         Path(json_path).unlink(); Path(csv_path).unlink(); Path(json_path).parent.rmdir()
         with tempfile.TemporaryDirectory(prefix='acceptance-csv-', dir='artifacts') as temporary:
             source = Path(temporary) / 'valid.csv'
-            source.write_text('reseña,nota\n"Una frase, con coma\ny otra línea",fixture\n', encoding='utf-8-sig')
+            source.write_bytes('reseña,nota\r\n"Una frase, con coma\r\ny otra línea",fixture\r\n'.encode('utf-8-sig'))
             csv_records, *_ = app.run_batch_csv(str(source), kind)
-            check(kind + ':csv_callback_multiline', len(csv_records) == 1 and csv_records[0]['texto_original'] == 'Una frase, con coma\ny otra línea')
+            expected = 'Una frase, con coma\r\ny otra línea'
+            check(kind + ':csv_callback_multiline', len(csv_records) == 1 and csv_records[0]['texto_original'] == expected)
             for record in csv_records:
                 require_effective(record, kind)
+            json_path, csv_path, _ = app.export_files(csv_records)
+            roundtrip = list(csv.DictReader(io.StringIO(Path(csv_path).read_bytes().decode('utf-8-sig'), newline='')))
+            check(kind + ':csv_export_original_crlf', len(roundtrip) == 1 and roundtrip[0]['texto_original'] == expected)
+            Path(json_path).unlink(); Path(csv_path).unlink(); Path(json_path).parent.rmdir()
         _, encoded = app.analyze_audio_ui(edited_text, provenance, kind)
         audio_record = json.loads(encoded); require_effective(audio_record, kind)
         check(kind + ':editable_audio_stub', audio_record['procedencia_entrada']['fue_corregida'] is True and audio_record['procedencia_entrada']['transcripcion_original'] == 'El recorrido fue malo.' and audio_record['multiagente']['modalidad_percibida'] == 'audio_transcrito' and not record_violations(audio_record, edited_text))

@@ -10,7 +10,7 @@ from traveler_agent import beto_training_v3 as runner
 from traveler_agent.beto_training_v3_model import EncoderV2,fit_head_v3
 from traveler_agent.beto_classifier import BetoClassifier
 from traveler_agent.beto_training_v2_model import load_model_v2
-from traveler_agent.contextual_benchmark import train_baselines
+from traveler_agent.beto_training_v3_representation import fit_represented_baselines,STATE_PATH
 from traveler_agent.corpus import CorpusError,file_sha
 from traveler_agent.labels import LABELS
 from traveler_agent.research_metrics import score_matrix
@@ -20,19 +20,18 @@ RAW_ATOL=.003  # Fixed in registration before the first V3 assessment.
 
 
 def fit_fixed_baselines(train,choices):
-    # One archived C only. The helper's discarded score uses TRAIN, not tune.
-    models,_=train_baselines(train,train,{'seed':42,'baselines':{
-        'lr_C':[choices['lr']['selected']['C']],'svm_C':[choices['svm']['selected']['C']]}})
-    return models
+    return fit_represented_baselines(train,choices)
 
 
-def verify_reference(reference,provenance,records_sha):
+def verify_reference(reference,provenance,records_sha,representation=STATE_PATH):
     if (provenance.get('predictions_sha256')!=file_sha(reference)
             or provenance.get('records_sha256')!=records_sha
             or provenance.get('already_observed') is not True
             or provenance.get('human_gold') is not False
             or provenance.get('source_scope')!='MEASURED_FIXED_REPRODUCTION_NOT_ORIGINAL_RAW_RECOVERY'):
         raise CorpusError('Reference provenance/hash changed; do not treat old aggregate reports as raw predictions.')
+    if provenance.get('train_representation_sha256')!=file_sha(representation):
+        raise CorpusError('Original fitted TRAIN vocabulary/fold state changed.')
 
 
 def compare(key,rows,probabilities,reference):
@@ -53,7 +52,7 @@ def compare(key,rows,probabilities,reference):
                 or old['prediction']!=LABELS[int(np.argmax(p))]):
             raise CorpusError('Fixed class, label or semantic membership drifted.')
         delta=max(delta,float(np.max(np.abs(p-q))))
-    if delta>RAW_ATOL:raise CorpusError('Predeclared numerical reproduction tolerance exceeded.')
+    if delta>RAW_ATOL:raise CorpusError(f'{key}: predeclared numerical reproduction tolerance exceeded; max raw difference={delta:.9g}, limit={RAW_ATOL}.')
     return {'model':key,'rows':len(rows),'class_outcomes_exact':True,'max_raw_probability_difference':delta,'raw_atol_preassessment':RAW_ATOL}
 
 

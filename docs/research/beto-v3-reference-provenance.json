@@ -35,5 +35,7 @@
   "records_sha256": "1ca1521e303325bb314eb6d8c2d8e8b42e1510ac5352a541ab119bd403c16f9d",
   "recovery_registration_commit": "8b413d5560347f2e31f58a77348c636925bf0bcf",
   "schema": "beto-v3-measured-reference-provenance",
-  "source_scope": "MEASURED_FIXED_REPRODUCTION_NOT_ORIGINAL_RAW_RECOVERY"
+  "source_scope": "MEASURED_FIXED_REPRODUCTION_NOT_ORIGINAL_RAW_RECOVERY",
+  "train_representation_note": "Exact already fitted TRAIN vocabularies and per-fold memberships; preserves the original representation across NumPy CPU tie-sort paths. No evaluation-derived vocabulary selection.",
+  "train_representation_sha256": "6000fd604b9536245bb2aa0743c9542e230a8ee6da6c2a1d2ba8977c24937be3"
 }

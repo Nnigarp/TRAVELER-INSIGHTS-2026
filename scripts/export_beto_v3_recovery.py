@@ -8,6 +8,7 @@ from pathlib import Path
 from traveler_agent import beto_training_v3 as base
 from traveler_agent.beto_training_v3_analysis import analyze
 from traveler_agent.beto_training_v3_recovery import SELECTION_COMMIT
+from traveler_agent.beto_training_v3_representation import STATE_PATH
 from traveler_agent.corpus import CorpusError,file_sha
 from traveler_agent.synthetic_diversity import ignored_target,write_json
 
@@ -38,7 +39,7 @@ def require_observed_reproduction(report,bindings):
 
 def provenance(root,report,bindings):
     require_observed_reproduction(report,bindings)
-    return {'schema':'beto-v3-measured-reference-provenance',
+    result={'schema':'beto-v3-measured-reference-provenance',
         'source_scope':'MEASURED_FIXED_REPRODUCTION_NOT_ORIGINAL_RAW_RECOVERY',
         'already_observed':True,'human_gold':False,'original_raw_probabilities_available':False,
         'records_sha256':bindings['records_sha256'],'data_commit':bindings['data_commit'],
@@ -50,6 +51,10 @@ def provenance(root,report,bindings):
         'limits':['New probabilities came from actual fixed-recipe inference; missing old probabilities were not reconstructed.',
                   'CI compares software replay with this observed reproduction, not with unavailable original raw files.',
                   'No new final test, model/epoch selection or human validation.']}
+    if STATE_PATH.exists():
+        result['train_representation_sha256']=file_sha(STATE_PATH)
+        result['train_representation_note']='Exact already fitted TRAIN vocabularies and per-fold memberships; preserves the original representation across NumPy CPU tie-sort paths. No evaluation-derived vocabulary selection.'
+    return result
 
 
 def export(root):

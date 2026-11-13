@@ -26,11 +26,10 @@ def test_changed_recipe_is_not_a_recovery(change):
 
 def test_classical_recovery_uses_one_archived_c_and_training_only(monkeypatch):
     train=[{'role':'train'}];s=archived()
-    def fit(rows,score_rows,config):
-        assert rows is score_rows is train
-        assert config['baselines']=={k+'_C':[s['classical_selection'][k]['selected']['C']] for k in ('lr','svm')}
-        return {'fixed':'models'},{'discarded':True}
-    monkeypatch.setattr(recovery,'train_baselines',fit)
+    def fit(rows,config):
+        assert rows is train and config is s['classical_selection']
+        return {'fixed':'models'}
+    monkeypatch.setattr(recovery,'fit_represented_baselines',fit)
     assert recovery.fit_fixed_classics(train,s)=={'fixed':'models'}
     with pytest.raises(CorpusError,match='TRAIN'):
         recovery.fit_fixed_classics([{'role':'assessment'}],s)

@@ -9,7 +9,8 @@ from pathlib import Path
 
 from . import beto_training_v3 as base
 from .beto_training_v3_model import EncoderV2,fit_head_v3,train_encoder_v3,export_model,BudgetExceeded
-from .contextual_benchmark import train_baselines,resource_report
+from .contextual_benchmark import resource_report
+from .beto_training_v3_representation import fit_represented_baselines
 from .corpus import CorpusError,file_sha
 from .synthetic_diversity import ignored_target,write_json,canonical_sha
 
@@ -37,11 +38,9 @@ def fit_fixed_classics(train,selection):
     if not train or any(r.get('role')!='train' for r in train):
         raise CorpusError('Fixed recovery fits TRAIN only.')
     choices=selection['classical_selection']
-    # The helper scores its only candidate; use TRAIN for that discarded score.
-    # Neither C nor any other decision depends on tune in this reconstruction.
-    models,_=train_baselines(train,train,{'seed':42,'baselines':{
-        'lr_C':[choices['lr']['selected']['C']], 'svm_C':[choices['svm']['selected']['C']]}})
-    return models
+    # Preserve the already fitted TRAIN feature/fold state across CPU paths.
+    # Neither C nor the representation is selected again using any outcome.
+    return fit_represented_baselines(train,choices)
 
 
 def verify_protocol(commit,manifest,selection):

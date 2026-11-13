@@ -246,6 +246,9 @@ def _cost_projection(root, report, manifest, protocol):
     projection = float(seconds * target / train_n)
     return {
         "status": "ROUGH_FIRST_ORDER_ROW_LINEAR_PROJECTION",
+        "development_cost_source": "ARCHIVED_ORIGINAL_TUNE_SEARCH" if selection.get("recovery") else "CURRENT_DEVELOPMENT_SEARCH",
+        "archived_selection_commit": selection.get("recovery", {}).get("original_selection_commit"),
+        "separate_fixed_reconstruction_cost": selection.get("recovery", {}).get("cost"),
         "source_selection_sha256": file_sha(source),
         "measured_pilot_development_cost": cost,
         "admitted_train_rows": train_n, "train_rows_source": train_rows_source,

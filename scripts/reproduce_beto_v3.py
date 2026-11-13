@@ -11,12 +11,28 @@ from traveler_agent.beto_training_v3_model import EncoderV2,fit_head_v3
 from traveler_agent.beto_classifier import BetoClassifier
 from traveler_agent.beto_training_v2_model import load_model_v2
 from traveler_agent.contextual_benchmark import train_baselines
-from traveler_agent.corpus import CorpusError
+from traveler_agent.corpus import CorpusError,file_sha
 from traveler_agent.labels import LABELS
 from traveler_agent.research_metrics import score_matrix
 from traveler_agent.synthetic_diversity import ignored_target,write_json
 
 RAW_ATOL=.003  # Fixed in registration before the first V3 assessment.
+
+
+def fit_fixed_baselines(train,choices):
+    # One archived C only. The helper's discarded score uses TRAIN, not tune.
+    models,_=train_baselines(train,train,{'seed':42,'baselines':{
+        'lr_C':[choices['lr']['selected']['C']],'svm_C':[choices['svm']['selected']['C']]}})
+    return models
+
+
+def verify_reference(reference,provenance,records_sha):
+    if (provenance.get('predictions_sha256')!=file_sha(reference)
+            or provenance.get('records_sha256')!=records_sha
+            or provenance.get('already_observed') is not True
+            or provenance.get('human_gold') is not False
+            or provenance.get('source_scope')!='MEASURED_FIXED_REPRODUCTION_NOT_ORIGINAL_RAW_RECOVERY'):
+        raise CorpusError('Reference provenance/hash changed; do not treat old aggregate reports as raw predictions.')
 
 
 def compare(key,rows,probabilities,reference):
@@ -41,14 +57,17 @@ def compare(key,rows,probabilities,reference):
     return {'model':key,'rows':len(rows),'class_outcomes_exact':True,'max_raw_probability_difference':delta,'raw_atol_preassessment':RAW_ATOL}
 
 
-def run(output,selection,full_selection,reference,*,download=False,primary_only=False):
+def run(output,selection,full_selection,reference,*,download=False,primary_only=False,cache=None,
+        reference_provenance=Path('docs/research/beto-v3-reference-provenance.json')):
     s=json.loads(selection.read_text(encoding='utf-8'));full=json.loads(full_selection.read_text(encoding='utf-8'))
     refs=json.loads(reference.read_text(encoding='utf-8'));commit=s['data_commit']
     if any(s[k]!=full[k] for k in ('records_sha256','selected_model_key','selected_adjusted','data_commit','protocol_commit')):
         raise CorpusError('Fixed selections disagree.')
+    verify_reference(reference,json.loads(reference_provenance.read_text(encoding='utf-8')),s['records_sha256'])
     output=ignored_target(output,kinds=('artifacts',))
     if output.exists():raise CorpusError('New reproduction destination required.')
-    output.mkdir(parents=True);registration=output/'registration';cache=output/'checkpoint'
+    output.mkdir(parents=True);registration=output/'registration'
+    cache=ignored_target(cache if cache is not None else output/'checkpoint',kinds=('artifacts',))
     runner.register(registration,commit);parts,manifest,p=runner.verify(registration,commit)
     # Check membership before expensive replay. The reference remains observed.
     keys=[s['selected_model_key']] if primary_only else ['dummy','lr','svm','beto_frozen128','beto_frozen256',s['selected_model_key']]
@@ -63,8 +82,7 @@ def run(output,selection,full_selection,reference,*,download=False,primary_only=
     del model;gc.collect()
     if not primary_only:
         choices=full['classical_selection']
-        models,_=train_baselines(parts['train'],parts['tune'],{'seed':42,'baselines':{
-            'lr_C':[choices['lr']['selected']['C']],'svm_C':[choices['svm']['selected']['C']]}})
+        models=fit_fixed_baselines(parts['train'],choices)
         for key,model in models.items():checks.append(compare(key,parts['assessment'],score_matrix(model,[r['text'] for r in parts['assessment']]),refs))
         del models,model;gc.collect()
         for length in (128,256):
@@ -86,6 +104,9 @@ if __name__=='__main__':
     p.add_argument('--selection',type=Path,default=Path('docs/research/beto-v3-selected-configuration.json'))
     p.add_argument('--full-selection',type=Path,default=Path('docs/research/beto-v3-selection.json'))
     p.add_argument('--reference',type=Path,default=Path('docs/research/beto-v3-predictions.json'))
+    p.add_argument('--reference-provenance',type=Path,default=Path('docs/research/beto-v3-reference-provenance.json'))
+    p.add_argument('--cache',type=Path,help='Reuse a verified artifacts checkpoint; default OUTPUT/checkpoint.')
     p.add_argument('--download',action='store_true');p.add_argument('--primary-only',action='store_true');args=p.parse_args()
-    r=run(args.output,args.selection,args.full_selection,args.reference,download=args.download,primary_only=args.primary_only)
+    r=run(args.output,args.selection,args.full_selection,args.reference,download=args.download,primary_only=args.primary_only,
+          cache=args.cache,reference_provenance=args.reference_provenance)
     print(json.dumps(r))

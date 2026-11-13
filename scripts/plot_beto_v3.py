@@ -52,7 +52,7 @@ def plot(root: Path, out: Path):
         axes[0].set_ylabel("Intención sintética (IA)")
         color_axis = fig.add_axes((.92, .305, .015, .43))
         fig.colorbar(display, cax=color_axis, label="Textos · misma escala")
-        fig.suptitle(f"BETO V3 · assessment sintético nuevo · n={analysis['assessment_rows']}",
+        fig.suptitle(f"BETO V3 · reproducción sintética · n={analysis['assessment_rows']}",
                      fontsize=16, fontweight="bold", x=.49, y=.96)
         fig.text(.075, .125, "Etiquetas y revisión por IA; datos sintéticos, sin gold humano. Cohorte ya observada.",
                  fontsize=10, color="#334155")

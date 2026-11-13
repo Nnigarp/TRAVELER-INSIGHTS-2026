@@ -38,3 +38,36 @@ def test_fixed_reference_refuses_changed_gold_intent_or_family():
 def test_incomplete_or_invalid_replay_cannot_pass_reference_check(probabilities):
     rows,refs=sample()
     with pytest.raises(CorpusError,match='invalid reproduced'):compare('fixed',rows,probabilities,refs)
+
+
+def test_fixed_classical_replay_never_reads_tune(monkeypatch):
+    import scripts.reproduce_beto_v3 as script
+    train=[{'role':'train'}]
+    def fit(rows,score_rows,config):
+        assert rows is score_rows is train
+        assert config['baselines']=={'lr_C':[10.],'svm_C':[1.]}
+        return {'fixed':'model'},{}
+    monkeypatch.setattr(script,'train_baselines',fit)
+    assert script.fit_fixed_baselines(train,{'lr':{'selected':{'C':10.}},'svm':{'selected':{'C':1.}}})=={'fixed':'model'}
+
+
+def test_reference_requires_measured_provenance_with_matching_hash(tmp_path):
+    import scripts.reproduce_beto_v3 as script
+    from traveler_agent.corpus import file_sha
+    path=tmp_path/'reference.json';path.write_text('[]')
+    p={'predictions_sha256':file_sha(path),'records_sha256':'fixed','already_observed':True,'human_gold':False,
+       'source_scope':'MEASURED_FIXED_REPRODUCTION_NOT_ORIGINAL_RAW_RECOVERY'}
+    script.verify_reference(path,p,'fixed')
+    path.write_text('[{}]')
+    with pytest.raises(CorpusError,match='provenance'):script.verify_reference(path,p,'fixed')
+
+
+@pytest.mark.parametrize('field,value',[('human_gold',True),('already_observed',False),('source_scope','OLD_AGGREGATES')])
+def test_synthetic_reference_cannot_be_relabelled_as_new_or_human(tmp_path,field,value):
+    import scripts.reproduce_beto_v3 as script
+    from traveler_agent.corpus import file_sha
+    path=tmp_path/'reference.json';path.write_text('[]')
+    p={'predictions_sha256':file_sha(path),'records_sha256':'fixed','already_observed':True,'human_gold':False,
+       'source_scope':'MEASURED_FIXED_REPRODUCTION_NOT_ORIGINAL_RAW_RECOVERY'}
+    p[field]=value
+    with pytest.raises(CorpusError,match='provenance'):script.verify_reference(path,p,'fixed')

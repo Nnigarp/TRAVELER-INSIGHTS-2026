@@ -9,6 +9,7 @@ on:
       - 'scripts/*beto_v3*.py'
       - 'research/requirements-beto-v3.txt'
       - 'docs/research/beto-v3-predictions.json'
+      - 'docs/research/beto-v3-reference-provenance.json'
       - 'docs/research/beto-v3-selection.json'
       - '.github/workflows/beto-v3-pilot.yml'
   workflow_dispatch:
@@ -38,6 +39,8 @@ jobs:
         run: python -m pytest -q
       - name: Reproduce six fixed models on observed assessment, no selection
         run: python scripts/reproduce_beto_v3.py --download --output artifacts/beto-v3-ci
+      - name: Independently recompute the frozen corpus quality audit
+        run: python scripts/verify_beto_v3_audit.py --cache artifacts/beto-v3-ci/checkpoint --out artifacts/beto-v3-ci/quality-reproduction.json
       - name: Real Gradio HTTP with the trained V3 adapter
         run: python scripts/smoke_gradio_http.py --beto-artifact artifacts/beto-v3-ci/selected-replay/model --out artifacts/beto-v3-ci/http.json
       - uses: actions/upload-artifact@v4
@@ -47,6 +50,7 @@ jobs:
             artifacts/beto-v3-ci/reproduction.json
             artifacts/beto-v3-ci/selected-replay/replay.json
             artifacts/beto-v3-ci/http.json
+            artifacts/beto-v3-ci/quality-reproduction.json
           if-no-files-found: error
   windows-replay:
     runs-on: windows-latest
@@ -62,11 +66,12 @@ jobs:
         run: |
           python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
           python -m pip install -r research/requirements-beto-v3.txt -e '.[ui,test]'
-      - name: Windows regression and fixed supervised training
-        run: |
-          python -m pytest -q tests/test_beto_training_v3_model.py tests/test_beto_training_v3_runtime.py tests/test_beto_training_v3_data.py tests/test_model_runtime.py
-          python scripts/reproduce_beto_v3.py --download --primary-only --output artifacts/beto-v3-windows
-          python scripts/smoke_gradio_http.py --beto-artifact artifacts/beto-v3-windows/selected-replay/model --out artifacts/beto-v3-windows/http.json
+      - name: Windows regression contracts
+        run: python -m pytest -q tests/test_beto_training_v3_model.py tests/test_beto_training_v3_runtime.py tests/test_beto_training_v3_data.py tests/test_model_runtime.py
+      - name: Windows fixed supervised training and observed reference check
+        run: python scripts/reproduce_beto_v3.py --download --primary-only --output artifacts/beto-v3-windows
+      - name: Windows real Gradio HTTP with the trained adapter
+        run: python scripts/smoke_gradio_http.py --beto-artifact artifacts/beto-v3-windows/selected-replay/model --out artifacts/beto-v3-windows/http.json
       - uses: actions/upload-artifact@v4
         with:
           name: beto-v3-native-windows-reproduction

@@ -138,6 +138,17 @@ def test_report_metrics_cannot_override_saved_predictions(saved_run):
         analysis.analyze(saved_run)
 
 
+def test_reconstruction_cost_is_never_presented_as_a_new_tune_search(saved_run):
+    path=saved_run/'development-selection.json';s=read(path)
+    s['recovery']={'original_selection_commit':'f'*40,'cost':{'wall_seconds':200.}}
+    write(path,s);report=read(saved_run/'assessment.json');report['selection_sha256']=file_sha(path)
+    write(saved_run/'assessment.json',report)
+    result=analysis.analyze(saved_run)['cost_projection']
+    assert result['development_cost_source']=='ARCHIVED_ORIGINAL_TUNE_SEARCH'
+    assert result['separate_fixed_reconstruction_cost']['wall_seconds']==200.
+    assert result['rough_projected_development_wall_seconds']==pytest.approx(500.*3501/297)
+
+
 def test_missing_cost_never_invents_a_projection(saved_run):
     (saved_run / "development-selection.json").unlink()
     cost = analysis.analyze(saved_run)["cost_projection"]

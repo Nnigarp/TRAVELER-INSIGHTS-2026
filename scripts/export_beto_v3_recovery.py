@@ -23,7 +23,7 @@ def write_same_or_new(path,payload):
 
 
 def require_observed_reproduction(report,bindings):
-    if (report.get('status')!='COMPLETED_WITHIN_REGISTERED_BUDGET'
+    if (report.get('status') not in ('COMPLETED_WITHIN_REGISTERED_BUDGET','COMPLETED_WITH_DISCLOSED_FIXED_INFERENCE_CONTINUATION')
             or report.get('scope')!=base.REPRODUCTION_SCOPE
             or report.get('human_performance_measured') is not False
             or report.get('selection_commit')!=SELECTION_COMMIT
@@ -31,6 +31,9 @@ def require_observed_reproduction(report,bindings):
             or bindings.get('recovery',{}).get('original_raw_results_available') is not False
             or report.get('data_manifest',{}).get('records_sha256')!=bindings.get('records_sha256')):
         raise CorpusError('Only complete measured observed reproduction can replace the missing-reference blocker.')
+    if (report['status']=='COMPLETED_WITH_DISCLOSED_FIXED_INFERENCE_CONTINUATION'
+            and report.get('continuation',{}).get('new_training_calibration_or_selection') is not False):
+        raise CorpusError('Disclosed continuation must preserve the fixed recipe without new selection.')
 
 
 def provenance(root,report,bindings):
@@ -41,6 +44,7 @@ def provenance(root,report,bindings):
         'records_sha256':bindings['records_sha256'],'data_commit':bindings['data_commit'],
         'original_selection_commit':SELECTION_COMMIT,
         'recovery_registration_commit':bindings['recovery']['protocol_registration_commit'],
+        'execution_status':report['status'],'inference_continuation':report.get('continuation'),
         'assessment_report_sha256':file_sha(root/'assessment.json'),
         'predictions_sha256':file_sha(root/'assessment-predictions.json'),
         'limits':['New probabilities came from actual fixed-recipe inference; missing old probabilities were not reconstructed.',
@@ -74,6 +78,7 @@ def export(root):
         'original_development_cost_archived_not_in_this_total':bindings['cost'],
         'original_development_cost_source_commit':SELECTION_COMMIT,'human_performance_measured':False,
         'replica_status':report['replica_status'],
+        'execution_status':report['status'],'inference_continuation':report.get('continuation'),
         'initial_900_plus_450_contingency_activated':False,'monetary_cost_measured':False}
     mapping={'assessment.json':'beto-v3-assessment.json',
         'assessment-predictions.json':'beto-v3-predictions.json',
@@ -83,6 +88,12 @@ def export(root):
     for row in report['replica_status']:
         if row['status']=='EXECUTED':
             mapping[f"replicas/{row['seed']}/replay.json"]=f"beto-v3-seed{row['seed']}-replay.json"
+    if report.get('continuation'):
+        mapping.update({'prior-assessment-interruption.json':'beto-v3-recovery-phase1-interruption.json',
+            'prior-assessment-partial-results.json':'beto-v3-recovery-phase1-partial.json',
+            'prior-assessment-started.json':'beto-v3-recovery-phase1-lock.json',
+            'continuation-protocol.json':'beto-v3-inference-continuation-protocol.json',
+            'evaluation-models.json':'beto-v3-evaluation-models.json'})
     # Copies preserve actual source bytes. No prediction is derived from old scores.
     for source,target in mapping.items():write_same_or_new(dest/target,(root/source).read_bytes())
     for target,value in [('beto-v3-analysis.json',analysis),('beto-v3-reference-provenance.json',ref),

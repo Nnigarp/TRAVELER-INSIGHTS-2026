@@ -277,7 +277,7 @@ def analyze(root):
     report, saved, manifest, protocol = [_read(path) for path in paths.values()]
     if (not isinstance(report, dict) or not isinstance(manifest, dict) or not isinstance(protocol, dict)
             or report.get("schema") != "beto-v3-pilot-assessment"
-            or report.get("status") != "COMPLETED_WITHIN_REGISTERED_BUDGET"
+            or report.get("status") not in ("COMPLETED_WITHIN_REGISTERED_BUDGET", "COMPLETED_WITH_DISCLOSED_FIXED_INFERENCE_CONTINUATION")
             or report.get("scope") not in ASSESSMENT_SCOPES
             or manifest.get("schema") != "beto-v3-pilot-manifest"
             or manifest.get("human_gold") is not False
@@ -285,6 +285,9 @@ def analyze(root):
             or not isinstance(manifest.get("records_sha256"), str)
             or report.get("data_manifest") != manifest):
         raise CorpusError("Informe V3 completo y manifiesto sintético coincidente requeridos.")
+    if report['status']=="COMPLETED_WITH_DISCLOSED_FIXED_INFERENCE_CONTINUATION":
+        from .beto_training_v3_continuation import validate_ledger
+        validate_ledger(root,report,saved)
     if (protocol.get("primary_seed") != PRIMARY_SEED
             or protocol.get("replica_seeds") != list(REPLICA_SEEDS)):
         raise CorpusError("Semillas distintas del protocolo V3 registrado.")

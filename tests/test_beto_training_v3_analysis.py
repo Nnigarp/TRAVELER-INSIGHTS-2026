@@ -149,6 +149,12 @@ def test_reconstruction_cost_is_never_presented_as_a_new_tune_search(saved_run):
     assert result['rough_projected_development_wall_seconds']==pytest.approx(500.*3501/297)
 
 
+def test_continuation_status_alone_cannot_bypass_missing_execution_proof(saved_run):
+    report=read(saved_run/'assessment.json');report['status']='COMPLETED_WITH_DISCLOSED_FIXED_INFERENCE_CONTINUATION'
+    write(saved_run/'assessment.json',report)
+    with pytest.raises(CorpusError,match='continuation proof'):analysis.analyze(saved_run)
+
+
 def test_missing_cost_never_invents_a_projection(saved_run):
     (saved_run / "development-selection.json").unlink()
     cost = analysis.analyze(saved_run)["cost_projection"]

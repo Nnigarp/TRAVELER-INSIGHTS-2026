@@ -1,0 +1,43 @@
+{
+  "completed_prefix_models": [
+    "dummy",
+    "lr",
+    "svm",
+    "beto_frozen128",
+    "beto_frozen256"
+  ],
+  "maximum_additional_inference_seconds": 300,
+  "original_phase_cap_seconds": 900,
+  "original_phase_seconds": 903.4632880449999,
+  "original_selection_commit": "a6675d08fa9645725107f059443ddc0ed15d125f",
+  "preparation_seconds": 506.2699122299998,
+  "reason": "The original 900 s reconstruction assessment phase interrupted while loading the primary BETO backend. Five model results are complete. Reallocate unused preparation allowance to missing inference only.",
+  "records_sha256": "1ca1521e303325bb314eb6d8c2d8e8b42e1510ac5352a541ab119bd403c16f9d",
+  "recovery_protocol_commit": "8b413d5560347f2e31f58a77348c636925bf0bcf",
+  "registered_after_original_budget_interruption": true,
+  "registered_at_utc": "2026-11-13T11:55:08.522369+00:00",
+  "registered_before_additional_inference": true,
+  "rules": [
+    "Preserve the actual interruption, all observation locks, completed results and raw prediction prefix exactly.",
+    "Validate original selection decisions, model-list and policy hashes before additional inference.",
+    "No training, calibration, temperature fitting, policy fitting, new seed, epoch, configuration or model selection.",
+    "Fill only the missing original backends with already trained artifacts and already fixed policies.",
+    "The original 900 s phase remains interrupted; do not claim it completed within that limit.",
+    "The additional stage is capped at 300 s; preparation plus both active stages <=1800 s. Report active-phase sums separately from elapsed calendar time.",
+    "If the added stage fails, retain the failure and leave results pending. No silent retry through another output directory."
+  ],
+  "schema": "beto-v3-fixed-inference-continuation-v1",
+  "scope": "ALREADY_OBSERVED_REPRODUCTION_EXECUTION_AMENDMENT_NOT_A_NEW_TEST",
+  "source_sha256": {
+    "assessment-interruption.json": "572acc2f9ceb6d51fdd1cf1d702ada412ce69277ca11287b14f75fb340982569",
+    "assessment-partial-results.json": "39c42e2a184eeb2992dc73a9a237a02699b4dd8e9028c14c598d27f10448f3c6",
+    "assessment-started.json": "19f9e6a6d90eaf3b2eaabdb8e806cdae1ec7bb0cdc2a0457e90cb510efbd2bb6",
+    "calibration-policy-selection.json": "953fa6c645207be247786dd48e49056ff72aa55ecf62a7b2f35126a834e88078",
+    "development-selection.json": "7af6478c7702cde05e28ef008185f4f718bc05bf0ba7832900d613fb8f9d49c9",
+    "evaluation-models.json": "5d33ea4a1feab1beae529794025bcaf2f7c2dc61bdb61b11b1d8409a30663613",
+    "manifest.json": "b29abe8fe342c9161e05602eed03e0513b32527013ebfbd8efa97a15d9ea47f4",
+    "protocol.json": "3e9a40d86606287d8ae4b2e4ed421143fa22e93f26a625c0e77a0b4ccc6ebfcb",
+    "replica-status.json": "fb8bd6380ac96b62e3e98186ec2ea1ff63204ef5e5f7240e1c7dc42cb9736f73"
+  },
+  "unchanged_combined_cap_seconds": 1800
+}

@@ -112,7 +112,9 @@ def _analysis_card(record: dict, *, model_kind: str, audio: bool = False) -> str
     if audio:
         is_corrected = record["procedencia_entrada"]["fue_corregida"]
         sections.insert(2, "**Transcripción corregida:** " + ("Sí" if is_corrected else "No"))
-    sections.append("*Modelo DEMO entrenado con ejemplos ficticios. "
+    sections.append("*BETO entrenado con datos sintéticos experimentales; consultar su procedencia.*"
+                    if model_kind == 'beto' else
+                    "*Modelo DEMO entrenado con ejemplos ficticios. "
                     "Las puntuaciones no acreditan precisión turística.*")
     selection = record.get("seleccion_modelo")
     if selection:
@@ -121,6 +123,9 @@ def _analysis_card(record: dict, *, model_kind: str, audio: bool = False) -> str
         else:
             sections.append("**BETO supervisado experimental, entrenado con datos sintéticos. "
                             "La regla histórica de revisión no valida automatizar sus decisiones.**")
+            sections.append("*BETO usa una ventana limitada de tokens: una reseña larga "
+                            "puede recortarse aunque cumpla el límite de caracteres. "
+                            "Comprueba el contexto completo durante la revisión humana.*")
     return "\n\n".join(sections)
 
 def analyze(review: str, model_kind: str = "lr"):
@@ -253,7 +258,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Demo académico", **_BLOCKS_THEME
     _MODEL_CHOICES = [("TF-IDF + regresión logística", "lr"), ("TF-IDF + SVM lineal", "svm")]
     if configured_artifact(): _MODEL_CHOICES.append(("BETO supervisado (experimental sintético)", "beto"))
     model_choice = gr.Dropdown(label="Modelo de demostración", choices=_MODEL_CHOICES, value="lr")
-    gr.Markdown("Ambos modelos se entrenan con ejemplos **ficticios**. La selección no demuestra rendimiento ni calibración externa.")
+    gr.Markdown("Los modelos clásicos se entrenan con ejemplos **ficticios**. La selección no demuestra rendimiento ni calibración externa.")
     if configured_artifact():
         gr.Markdown("BETO es un clasificador supervisado **experimental sintético**. "
                     "Su selección es opcional; LR permanece como valor inicial y respaldo explícito.")
@@ -280,7 +285,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Demo académico", **_BLOCKS_THEME
             "Micrófono o archivo convertido por Gradio a WAV PCM; máximo 120 s y 12 MiB "
             "después de la conversión. La primera descarga de pesos requiere autorización "
             "explícita y el complemento ASR opcional. El texto se puede corregir antes "
-            "de usar el mismo modelo LR/SVM seleccionado arriba."
+            "de usar el modelo seleccionado arriba: LR, SVM o BETO experimental."
         )
         audio_input = gr.Audio(
             label="Grabar voz o cargar archivo de audio",

@@ -1,0 +1,7 @@
+{
+  "source": "actual full pytest output before final display-copy and binding checks; final source additionally verified by targeted tests and CI",
+  "passed": 453,
+  "known_xfail": 1,
+  "wall_seconds": 47.24,
+  "log_sha256": "31df1ed0a03c39003471dc1e091c2e57c58fbce7a74896425e941e69a5cc44a7"
+}

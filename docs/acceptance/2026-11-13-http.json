@@ -1,0 +1,3336 @@
+{
+  "api_names": [
+    "/analyze_audio_ui",
+    "/analyze_with_agents",
+    "/export_files",
+    "/reset_audio_trace",
+    "/reset_audio_trace_1",
+    "/revise",
+    "/run_batch_csv",
+    "/run_batch_lines",
+    "/transcribe_audio_ui"
+  ],
+  "checks": [
+    {
+      "name": "frontend_http200",
+      "passed": true
+    },
+    {
+      "name": "config_http200",
+      "passed": true
+    },
+    {
+      "name": "lr_remains_default",
+      "passed": true
+    },
+    {
+      "name": "audio_microphone_and_upload_controls",
+      "passed": true
+    },
+    {
+      "name": "lr:text_real_model_and_trace",
+      "passed": true
+    },
+    {
+      "name": "lr:empty_safe_error",
+      "passed": true
+    },
+    {
+      "name": "lr:lines_status",
+      "passed": true
+    },
+    {
+      "name": "lr:session_correction_download_json",
+      "passed": true
+    },
+    {
+      "name": "lr:download_csv_provenance_and_formula",
+      "passed": true
+    },
+    {
+      "name": "lr:csv_upload_status",
+      "passed": true
+    },
+    {
+      "name": "lr:csv_upload_download_preserves_newline",
+      "passed": true
+    },
+    {
+      "name": "lr:bad_csv_error",
+      "passed": true
+    },
+    {
+      "name": "svm:text_real_model_and_trace",
+      "passed": true
+    },
+    {
+      "name": "svm:empty_safe_error",
+      "passed": true
+    },
+    {
+      "name": "svm:lines_status",
+      "passed": true
+    },
+    {
+      "name": "svm:session_correction_download_json",
+      "passed": true
+    },
+    {
+      "name": "svm:download_csv_provenance_and_formula",
+      "passed": true
+    },
+    {
+      "name": "svm:csv_upload_status",
+      "passed": true
+    },
+    {
+      "name": "svm:csv_upload_download_preserves_newline",
+      "passed": true
+    },
+    {
+      "name": "svm:bad_csv_error",
+      "passed": true
+    },
+    {
+      "name": "beto:text_real_model_and_trace",
+      "passed": true
+    },
+    {
+      "name": "beto:empty_safe_error",
+      "passed": true
+    },
+    {
+      "name": "beto:lines_status",
+      "passed": true
+    },
+    {
+      "name": "beto:session_correction_download_json",
+      "passed": true
+    },
+    {
+      "name": "beto:download_csv_provenance_and_formula",
+      "passed": true
+    },
+    {
+      "name": "beto:download_csv_actual_manifest",
+      "passed": true
+    },
+    {
+      "name": "beto:csv_upload_status",
+      "passed": true
+    },
+    {
+      "name": "beto:csv_upload_download_preserves_newline",
+      "passed": true
+    },
+    {
+      "name": "beto:bad_csv_error",
+      "passed": true
+    },
+    {
+      "name": "fault_injection_real_lr_fallback_visible",
+      "passed": true
+    },
+    {
+      "name": "fault_injection_export_provenance",
+      "passed": true
+    }
+  ],
+  "fallback": {
+    "exported_records": [
+      {
+        "advertencia": "Prototipo académico: las puntuaciones no están calibradas; los aspectos se extraen mediante reglas. No inferir causalidad de los fragmentos.",
+        "aspectos_exploratorios": [],
+        "comentario_revision_humana": null,
+        "confianza_no_calibrada": 0.5493,
+        "decision_revision_humana": null,
+        "estado_revision": "pendiente",
+        "etiqueta_corregida_humano": null,
+        "fragmentos_literales_no_explicativos": [],
+        "id": "demo-001",
+        "modelo_utilizado": "lr",
+        "multiagente": {
+          "acciones_externas": false,
+          "arquitectura": "jerarquica_local_v1",
+          "estado": "REVISION_HUMANA",
+          "memoria": "episodica_solo_sesion_sin_aprendizaje_en_linea",
+          "modalidad_percibida": "texto",
+          "orquestador": "TravelerOrchestrator",
+          "plan": [
+            "percepcion",
+            "semantica",
+            "control",
+            "accion"
+          ],
+          "razones_revision": [
+            "SCORE_DEMO_BAJO"
+          ],
+          "transcripcion_editada": false,
+          "traza": [
+            {
+              "agent": "orquestador",
+              "input_fields": [],
+              "note_code": "PLAN_FIJO_CON_GATES",
+              "output_fields": [
+                "accion",
+                "control",
+                "percepcion",
+                "semantica"
+              ],
+              "sequence": 1,
+              "status": "PLANNED",
+              "task": "plan"
+            },
+            {
+              "agent": "orquestador",
+              "input_fields": [
+                "edited_by_human",
+                "modality",
+                "review_id",
+                "text"
+              ],
+              "note_code": "HANDOFF",
+              "output_fields": [],
+              "sequence": 2,
+              "status": "DELEGATED",
+              "task": "percepcion"
+            },
+            {
+              "agent": "percepcion",
+              "input_fields": [
+                "edited_by_human",
+                "modality",
+                "review_id",
+                "text"
+              ],
+              "note_code": "VALIDATED_CONTRACT",
+              "output_fields": [
+                "edited_by_human",
+                "modality",
+                "review_id",
+                "text"
+              ],
+              "sequence": 3,
+              "status": "OK",
+              "task": "percepcion"
+            },
+            {
+              "agent": "orquestador",
+              "input_fields": [
+                "text"
+              ],
+              "note_code": "HANDOFF",
+              "output_fields": [],
+              "sequence": 4,
+              "status": "DELEGATED",
+              "task": "semantica"
+            },
+            {
+              "agent": "semantica",
+              "input_fields": [
+                "text"
+              ],
+              "note_code": "VALIDATED_CONTRACT",
+              "output_fields": [
+                "aspects",
+                "confidence_raw",
+                "contrast",
+                "evidence",
+                "linguistic_profile",
+                "scores",
+                "sentiment"
+              ],
+              "sequence": 5,
+              "status": "OK",
+              "task": "semantica"
+            },
+            {
+              "agent": "orquestador",
+              "input_fields": [
+                "semantic"
+              ],
+              "note_code": "HANDOFF",
+              "output_fields": [],
+              "sequence": 6,
+              "status": "DELEGATED",
+              "task": "control"
+            },
+            {
+              "agent": "control",
+              "input_fields": [
+                "semantic"
+              ],
+              "note_code": "VALIDATED_CONTRACT",
+              "output_fields": [
+                "decision",
+                "needs_human",
+                "reason_codes"
+              ],
+              "sequence": 7,
+              "status": "OK",
+              "task": "control"
+            },
+            {
+              "agent": "orquestador",
+              "input_fields": [
+                "control",
+                "semantic"
+              ],
+              "note_code": "HANDOFF",
+              "output_fields": [],
+              "sequence": 8,
+              "status": "DELEGATED",
+              "task": "accion"
+            },
+            {
+              "agent": "accion",
+              "input_fields": [
+                "control",
+                "semantic"
+              ],
+              "note_code": "VALIDATED_CONTRACT",
+              "output_fields": [
+                "external_actions_executed",
+                "policy_state",
+                "recommendation"
+              ],
+              "sequence": 9,
+              "status": "OK",
+              "task": "accion"
+            },
+            {
+              "agent": "orquestador",
+              "input_fields": [],
+              "note_code": "NO_EXTERNAL_ACTION",
+              "output_fields": [
+                "resultado",
+                "traza"
+              ],
+              "sequence": 10,
+              "status": "REVISION_HUMANA",
+              "task": "cierre"
+            }
+          ]
+        },
+        "perfil_linguistico_exploratorio": {
+          "evidencias_posicionales": [],
+          "idioma": {
+            "coincidencias": {
+              "en": 0,
+              "es": 3,
+              "it": 0
+            },
+            "idioma_indicativo": "es",
+            "metodo": "stopwords_heuristic_v1_no_validado",
+            "nota": "Detección exploratoria; puede fallar en textos cortos, dialectos o mezcla de idiomas."
+          },
+          "indicios_contextuales": {
+            "advertencia": "Conectores y negaciones son indicios; no confirman ironía ni polaridad mixta.",
+            "contrastes": [],
+            "negaciones": [],
+            "posible_opinion_mixta": false
+          },
+          "texto_normalizado_solo_comparacion": "la ducha soltaba agua helada y nadie atendió el aviso durante toda la estancia."
+        },
+        "puntuaciones_modelo_no_calibradas": {
+          "negativo": 0.5493,
+          "neutral": 0.2227,
+          "positivo": 0.2279
+        },
+        "recomendacion": "Revisar manualmente: confianza insuficiente o texto ambiguo. No emitir una acción automática.",
+        "revision_humana": true,
+        "seleccion_modelo": {
+          "effective": "lr",
+          "failure_type": "CorpusError",
+          "fallback": true,
+          "human_validated": false,
+          "requested": "beto",
+          "review_policy_validated": false,
+          "supervised_experimental": true
+        },
+        "sentimiento": "negativo",
+        "texto_original": "La ducha soltaba agua helada y nadie atendió el aviso durante toda la estancia.",
+        "tipo_salida": "revisión_humana"
+      }
+    ],
+    "scope": "INVALID_ARTIFACT_REAL_LR_NOT_REAL_BETO",
+    "single": {
+      "advertencia": "Prototipo académico: las puntuaciones no están calibradas; los aspectos se extraen mediante reglas. No inferir causalidad de los fragmentos.",
+      "aspectos_exploratorios": [],
+      "confianza_no_calibrada": 0.3531,
+      "fragmentos_literales_no_explicativos": [],
+      "id": "",
+      "modelo_utilizado": "lr",
+      "multiagente": {
+        "acciones_externas": false,
+        "arquitectura": "jerarquica_local_v1",
+        "estado": "REVISION_HUMANA",
+        "memoria": "episodica_solo_sesion_sin_aprendizaje_en_linea",
+        "modalidad_percibida": "texto",
+        "orquestador": "TravelerOrchestrator",
+        "plan": [
+          "percepcion",
+          "semantica",
+          "control",
+          "accion"
+        ],
+        "razones_revision": [
+          "SCORE_DEMO_BAJO"
+        ],
+        "transcripcion_editada": false,
+        "traza": [
+          {
+            "agent": "orquestador",
+            "input_fields": [],
+            "note_code": "PLAN_FIJO_CON_GATES",
+            "output_fields": [
+              "accion",
+              "control",
+              "percepcion",
+              "semantica"
+            ],
+            "sequence": 1,
+            "status": "PLANNED",
+            "task": "plan"
+          },
+          {
+            "agent": "orquestador",
+            "input_fields": [
+              "edited_by_human",
+              "modality",
+              "review_id",
+              "text"
+            ],
+            "note_code": "HANDOFF",
+            "output_fields": [],
+            "sequence": 2,
+            "status": "DELEGATED",
+            "task": "percepcion"
+          },
+          {
+            "agent": "percepcion",
+            "input_fields": [
+              "edited_by_human",
+              "modality",
+              "review_id",
+              "text"
+            ],
+            "note_code": "VALIDATED_CONTRACT",
+            "output_fields": [
+              "edited_by_human",
+              "modality",
+              "review_id",
+              "text"
+            ],
+            "sequence": 3,
+            "status": "OK",
+            "task": "percepcion"
+          },
+          {
+            "agent": "orquestador",
+            "input_fields": [
+              "text"
+            ],
+            "note_code": "HANDOFF",
+            "output_fields": [],
+            "sequence": 4,
+            "status": "DELEGATED",
+            "task": "semantica"
+          },
+          {
+            "agent": "semantica",
+            "input_fields": [
+              "text"
+            ],
+            "note_code": "VALIDATED_CONTRACT",
+            "output_fields": [
+              "aspects",
+              "confidence_raw",
+              "contrast",
+              "evidence",
+              "linguistic_profile",
+              "scores",
+              "sentiment"
+            ],
+            "sequence": 5,
+            "status": "OK",
+            "task": "semantica"
+          },
+          {
+            "agent": "orquestador",
+            "input_fields": [
+              "semantic"
+            ],
+            "note_code": "HANDOFF",
+            "output_fields": [],
+            "sequence": 6,
+            "status": "DELEGATED",
+            "task": "control"
+          },
+          {
+            "agent": "control",
+            "input_fields": [
+              "semantic"
+            ],
+            "note_code": "VALIDATED_CONTRACT",
+            "output_fields": [
+              "decision",
+              "needs_human",
+              "reason_codes"
+            ],
+            "sequence": 7,
+            "status": "OK",
+            "task": "control"
+          },
+          {
+            "agent": "orquestador",
+            "input_fields": [
+              "control",
+              "semantic"
+            ],
+            "note_code": "HANDOFF",
+            "output_fields": [],
+            "sequence": 8,
+            "status": "DELEGATED",
+            "task": "accion"
+          },
+          {
+            "agent": "accion",
+            "input_fields": [
+              "control",
+              "semantic"
+            ],
+            "note_code": "VALIDATED_CONTRACT",
+            "output_fields": [
+              "external_actions_executed",
+              "policy_state",
+              "recommendation"
+            ],
+            "sequence": 9,
+            "status": "OK",
+            "task": "accion"
+          },
+          {
+            "agent": "orquestador",
+            "input_fields": [],
+            "note_code": "NO_EXTERNAL_ACTION",
+            "output_fields": [
+              "resultado",
+              "traza"
+            ],
+            "sequence": 10,
+            "status": "REVISION_HUMANA",
+            "task": "cierre"
+          }
+        ]
+      },
+      "perfil_linguistico_exploratorio": {
+        "evidencias_posicionales": [],
+        "idioma": {
+          "coincidencias": {
+            "en": 0,
+            "es": 2,
+            "it": 0
+          },
+          "idioma_indicativo": "es",
+          "metodo": "stopwords_heuristic_v1_no_validado",
+          "nota": "Detección exploratoria; puede fallar en textos cortos, dialectos o mezcla de idiomas."
+        },
+        "indicios_contextuales": {
+          "advertencia": "Conectores y negaciones son indicios; no confirman ironía ni polaridad mixta.",
+          "contrastes": [],
+          "negaciones": [],
+          "posible_opinion_mixta": false
+        },
+        "texto_normalizado_solo_comparacion": "nos recibieron con el equipaje protegido de la lluvia y pudimos descansar enseguida."
+      },
+      "puntuaciones_modelo_no_calibradas": {
+        "negativo": 0.3531,
+        "neutral": 0.3242,
+        "positivo": 0.3227
+      },
+      "recomendacion": "Revisar manualmente: confianza insuficiente o texto ambiguo. No emitir una acción automática.",
+      "revision_humana": true,
+      "seleccion_modelo": {
+        "effective": "lr",
+        "failure_type": "CorpusError",
+        "fallback": true,
+        "human_validated": false,
+        "requested": "beto",
+        "review_policy_validated": false,
+        "supervised_experimental": true
+      },
+      "sentimiento": "negativo",
+      "tipo_salida": "revisión_humana"
+    }
+  },
+  "models": {
+    "beto": {
+      "csv_export_rows": [
+        {
+          "comentario_revision_humana": "Verificación funcional; sin aprendizaje.",
+          "confianza_no_calibrada": "0.9999",
+          "decision_revision_humana": "Corrección registrada; revisar acciones con una persona responsable. No automatizar acciones a partir de la etiqueta corregida.",
+          "estado_revision": "corregida",
+          "etiqueta_corregida_humano": "neutral",
+          "fallback_modelo": "False",
+          "id": "demo-001",
+          "modelo_solicitado": "beto",
+          "modelo_utilizado": "beto",
+          "recomendacion": "Registrar la experiencia favorable; no se requiere intervención automática.",
+          "revision_humana": "False",
+          "sentimiento": "positivo",
+          "texto_original": "Nos recibieron con el equipaje protegido de la lluvia y pudimos descansar enseguida.",
+          "tipo_salida": "informativo",
+          "version_modelo": "c66453d041090bf6d10a9af10fdfbb8ab2d53b70a18f44e4439921a28914a7b7"
+        },
+        {
+          "comentario_revision_humana": "",
+          "confianza_no_calibrada": "0.991",
+          "decision_revision_humana": "",
+          "estado_revision": "sin_revisar",
+          "etiqueta_corregida_humano": "",
+          "fallback_modelo": "False",
+          "id": "demo-002",
+          "modelo_solicitado": "beto",
+          "modelo_utilizado": "beto",
+          "recomendacion": "Registrar la reseña y observar tendencias antes de actuar.",
+          "revision_humana": "False",
+          "sentimiento": "neutral",
+          "texto_original": "'=1+1; la excursión comenzó después del desayuno.",
+          "tipo_salida": "informativo",
+          "version_modelo": "c66453d041090bf6d10a9af10fdfbb8ab2d53b70a18f44e4439921a28914a7b7"
+        }
+      ],
+      "downloaded_corrected_records": [
+        {
+          "advertencia": "Prototipo académico: las puntuaciones no están calibradas; los aspectos se extraen mediante reglas. No inferir causalidad de los fragmentos.",
+          "aspectos_exploratorios": [],
+          "comentario_revision_humana": "Verificación funcional; sin aprendizaje.",
+          "confianza_no_calibrada": 0.9999,
+          "decision_revision_humana": "Corrección registrada; revisar acciones con una persona responsable. No automatizar acciones a partir de la etiqueta corregida.",
+          "estado_revision": "corregida",
+          "etiqueta_corregida_humano": "neutral",
+          "fragmentos_literales_no_explicativos": [],
+          "id": "demo-001",
+          "modelo_utilizado": "beto",
+          "multiagente": {
+            "acciones_externas": false,
+            "arquitectura": "jerarquica_local_v1",
+            "estado": "COMPLETADO",
+            "memoria": "episodica_solo_sesion_sin_aprendizaje_en_linea",
+            "modalidad_percibida": "texto",
+            "orquestador": "TravelerOrchestrator",
+            "plan": [
+              "percepcion",
+              "semantica",
+              "control",
+              "accion"
+            ],
+            "razones_revision": [],
+            "transcripcion_editada": false,
+            "traza": [
+              {
+                "agent": "orquestador",
+                "input_fields": [],
+                "note_code": "PLAN_FIJO_CON_GATES",
+                "output_fields": [
+                  "accion",
+                  "control",
+                  "percepcion",
+                  "semantica"
+                ],
+                "sequence": 1,
+                "status": "PLANNED",
+                "task": "plan"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 2,
+                "status": "DELEGATED",
+                "task": "percepcion"
+              },
+              {
+                "agent": "percepcion",
+                "input_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "sequence": 3,
+                "status": "OK",
+                "task": "percepcion"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "text"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 4,
+                "status": "DELEGATED",
+                "task": "semantica"
+              },
+              {
+                "agent": "semantica",
+                "input_fields": [
+                  "text"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "aspects",
+                  "confidence_raw",
+                  "contrast",
+                  "evidence",
+                  "linguistic_profile",
+                  "scores",
+                  "sentiment"
+                ],
+                "sequence": 5,
+                "status": "OK",
+                "task": "semantica"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "semantic"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 6,
+                "status": "DELEGATED",
+                "task": "control"
+              },
+              {
+                "agent": "control",
+                "input_fields": [
+                  "semantic"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "decision",
+                  "needs_human",
+                  "reason_codes"
+                ],
+                "sequence": 7,
+                "status": "OK",
+                "task": "control"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "control",
+                  "semantic"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 8,
+                "status": "DELEGATED",
+                "task": "accion"
+              },
+              {
+                "agent": "accion",
+                "input_fields": [
+                  "control",
+                  "semantic"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "external_actions_executed",
+                  "policy_state",
+                  "recommendation"
+                ],
+                "sequence": 9,
+                "status": "OK",
+                "task": "accion"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [],
+                "note_code": "NO_EXTERNAL_ACTION",
+                "output_fields": [
+                  "resultado",
+                  "traza"
+                ],
+                "sequence": 10,
+                "status": "COMPLETADO",
+                "task": "cierre"
+              }
+            ]
+          },
+          "perfil_linguistico_exploratorio": {
+            "evidencias_posicionales": [],
+            "idioma": {
+              "coincidencias": {
+                "en": 0,
+                "es": 2,
+                "it": 0
+              },
+              "idioma_indicativo": "es",
+              "metodo": "stopwords_heuristic_v1_no_validado",
+              "nota": "Detección exploratoria; puede fallar en textos cortos, dialectos o mezcla de idiomas."
+            },
+            "indicios_contextuales": {
+              "advertencia": "Conectores y negaciones son indicios; no confirman ironía ni polaridad mixta.",
+              "contrastes": [],
+              "negaciones": [],
+              "posible_opinion_mixta": false
+            },
+            "texto_normalizado_solo_comparacion": "nos recibieron con el equipaje protegido de la lluvia y pudimos descansar enseguida."
+          },
+          "puntuaciones_modelo_no_calibradas": {
+            "negativo": 0.0,
+            "neutral": 0.0,
+            "positivo": 0.9999
+          },
+          "recomendacion": "Registrar la experiencia favorable; no se requiere intervención automática.",
+          "revision_humana": false,
+          "seleccion_modelo": {
+            "checkpoint_revision": "c4d86612f51b4f46759c8390d1798c2febe71b93",
+            "effective": "beto",
+            "fallback": false,
+            "human_validated": false,
+            "manifest_sha256": "c66453d041090bf6d10a9af10fdfbb8ab2d53b70a18f44e4439921a28914a7b7",
+            "requested": "beto",
+            "review_policy_validated": false,
+            "supervised_experimental": true,
+            "training_mode": "V3_FIXED_REPLAY"
+          },
+          "sentimiento": "positivo",
+          "texto_original": "Nos recibieron con el equipaje protegido de la lluvia y pudimos descansar enseguida.",
+          "tipo_salida": "informativo"
+        },
+        {
+          "advertencia": "Prototipo académico: las puntuaciones no están calibradas; los aspectos se extraen mediante reglas. No inferir causalidad de los fragmentos.",
+          "aspectos_exploratorios": [
+            "alimentacion"
+          ],
+          "comentario_revision_humana": null,
+          "confianza_no_calibrada": 0.991,
+          "decision_revision_humana": null,
+          "estado_revision": "sin_revisar",
+          "etiqueta_corregida_humano": null,
+          "fragmentos_literales_no_explicativos": [
+            "la excursión comenzó después del desayuno."
+          ],
+          "id": "demo-002",
+          "modelo_utilizado": "beto",
+          "multiagente": {
+            "acciones_externas": false,
+            "arquitectura": "jerarquica_local_v1",
+            "estado": "COMPLETADO",
+            "memoria": "episodica_solo_sesion_sin_aprendizaje_en_linea",
+            "modalidad_percibida": "texto",
+            "orquestador": "TravelerOrchestrator",
+            "plan": [
+              "percepcion",
+              "semantica",
+              "control",
+              "accion"
+            ],
+            "razones_revision": [],
+            "transcripcion_editada": false,
+            "traza": [
+              {
+                "agent": "orquestador",
+                "input_fields": [],
+                "note_code": "PLAN_FIJO_CON_GATES",
+                "output_fields": [
+                  "accion",
+                  "control",
+                  "percepcion",
+                  "semantica"
+                ],
+                "sequence": 1,
+                "status": "PLANNED",
+                "task": "plan"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 2,
+                "status": "DELEGATED",
+                "task": "percepcion"
+              },
+              {
+                "agent": "percepcion",
+                "input_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "sequence": 3,
+                "status": "OK",
+                "task": "percepcion"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "text"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 4,
+                "status": "DELEGATED",
+                "task": "semantica"
+              },
+              {
+                "agent": "semantica",
+                "input_fields": [
+                  "text"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "aspects",
+                  "confidence_raw",
+                  "contrast",
+                  "evidence",
+                  "linguistic_profile",
+                  "scores",
+                  "sentiment"
+                ],
+                "sequence": 5,
+                "status": "OK",
+                "task": "semantica"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "semantic"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 6,
+                "status": "DELEGATED",
+                "task": "control"
+              },
+              {
+                "agent": "control",
+                "input_fields": [
+                  "semantic"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "decision",
+                  "needs_human",
+                  "reason_codes"
+                ],
+                "sequence": 7,
+                "status": "OK",
+                "task": "control"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "control",
+                  "semantic"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 8,
+                "status": "DELEGATED",
+                "task": "accion"
+              },
+              {
+                "agent": "accion",
+                "input_fields": [
+                  "control",
+                  "semantic"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "external_actions_executed",
+                  "policy_state",
+                  "recommendation"
+                ],
+                "sequence": 9,
+                "status": "OK",
+                "task": "accion"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [],
+                "note_code": "NO_EXTERNAL_ACTION",
+                "output_fields": [
+                  "resultado",
+                  "traza"
+                ],
+                "sequence": 10,
+                "status": "COMPLETADO",
+                "task": "cierre"
+              }
+            ]
+          },
+          "perfil_linguistico_exploratorio": {
+            "evidencias_posicionales": [
+              {
+                "aspecto": "alimentacion",
+                "fin": 47,
+                "inicio": 39,
+                "texto": "desayuno"
+              }
+            ],
+            "idioma": {
+              "coincidencias": {
+                "en": 0,
+                "es": 1,
+                "it": 0
+              },
+              "idioma_indicativo": "desconocido",
+              "metodo": "stopwords_heuristic_v1_no_validado",
+              "nota": "Detección exploratoria; puede fallar en textos cortos, dialectos o mezcla de idiomas."
+            },
+            "indicios_contextuales": {
+              "advertencia": "Conectores y negaciones son indicios; no confirman ironía ni polaridad mixta.",
+              "contrastes": [],
+              "negaciones": [],
+              "posible_opinion_mixta": false
+            },
+            "texto_normalizado_solo_comparacion": "=1+1; la excursión comenzó después del desayuno."
+          },
+          "puntuaciones_modelo_no_calibradas": {
+            "negativo": 0.0003,
+            "neutral": 0.991,
+            "positivo": 0.0088
+          },
+          "recomendacion": "Registrar la reseña y observar tendencias antes de actuar.",
+          "revision_humana": false,
+          "seleccion_modelo": {
+            "checkpoint_revision": "c4d86612f51b4f46759c8390d1798c2febe71b93",
+            "effective": "beto",
+            "fallback": false,
+            "human_validated": false,
+            "manifest_sha256": "c66453d041090bf6d10a9af10fdfbb8ab2d53b70a18f44e4439921a28914a7b7",
+            "requested": "beto",
+            "review_policy_validated": false,
+            "supervised_experimental": true,
+            "training_mode": "V3_FIXED_REPLAY"
+          },
+          "sentimiento": "neutral",
+          "texto_original": "=1+1; la excursión comenzó después del desayuno.",
+          "tipo_salida": "informativo"
+        }
+      ],
+      "single": {
+        "advertencia": "Prototipo académico: las puntuaciones no están calibradas; los aspectos se extraen mediante reglas. No inferir causalidad de los fragmentos.",
+        "aspectos_exploratorios": [
+          "acceso"
+        ],
+        "confianza_no_calibrada": 0.9986,
+        "fragmentos_literales_no_explicativos": [
+          "al final, sin embargo, nos dejaron sin transporte de regreso."
+        ],
+        "id": "",
+        "modelo_utilizado": "beto",
+        "multiagente": {
+          "acciones_externas": false,
+          "arquitectura": "jerarquica_local_v1",
+          "estado": "COMPLETADO",
+          "memoria": "episodica_solo_sesion_sin_aprendizaje_en_linea",
+          "modalidad_percibida": "texto",
+          "orquestador": "TravelerOrchestrator",
+          "plan": [
+            "percepcion",
+            "semantica",
+            "control",
+            "accion"
+          ],
+          "razones_revision": [],
+          "transcripcion_editada": false,
+          "traza": [
+            {
+              "agent": "orquestador",
+              "input_fields": [],
+              "note_code": "PLAN_FIJO_CON_GATES",
+              "output_fields": [
+                "accion",
+                "control",
+                "percepcion",
+                "semantica"
+              ],
+              "sequence": 1,
+              "status": "PLANNED",
+              "task": "plan"
+            },
+            {
+              "agent": "orquestador",
+              "input_fields": [
+                "edited_by_human",
+                "modality",
+                "review_id",
+                "text"
+              ],
+              "note_code": "HANDOFF",
+              "output_fields": [],
+              "sequence": 2,
+              "status": "DELEGATED",
+              "task": "percepcion"
+            },
+            {
+              "agent": "percepcion",
+              "input_fields": [
+                "edited_by_human",
+                "modality",
+                "review_id",
+                "text"
+              ],
+              "note_code": "VALIDATED_CONTRACT",
+              "output_fields": [
+                "edited_by_human",
+                "modality",
+                "review_id",
+                "text"
+              ],
+              "sequence": 3,
+              "status": "OK",
+              "task": "percepcion"
+            },
+            {
+              "agent": "orquestador",
+              "input_fields": [
+                "text"
+              ],
+              "note_code": "HANDOFF",
+              "output_fields": [],
+              "sequence": 4,
+              "status": "DELEGATED",
+              "task": "semantica"
+            },
+            {
+              "agent": "semantica",
+              "input_fields": [
+                "text"
+              ],
+              "note_code": "VALIDATED_CONTRACT",
+              "output_fields": [
+                "aspects",
+                "confidence_raw",
+                "contrast",
+                "evidence",
+                "linguistic_profile",
+                "scores",
+                "sentiment"
+              ],
+              "sequence": 5,
+              "status": "OK",
+              "task": "semantica"
+            },
+            {
+              "agent": "orquestador",
+              "input_fields": [
+                "semantic"
+              ],
+              "note_code": "HANDOFF",
+              "output_fields": [],
+              "sequence": 6,
+              "status": "DELEGATED",
+              "task": "control"
+            },
+            {
+              "agent": "control",
+              "input_fields": [
+                "semantic"
+              ],
+              "note_code": "VALIDATED_CONTRACT",
+              "output_fields": [
+                "decision",
+                "needs_human",
+                "reason_codes"
+              ],
+              "sequence": 7,
+              "status": "OK",
+              "task": "control"
+            },
+            {
+              "agent": "orquestador",
+              "input_fields": [
+                "control",
+                "semantic"
+              ],
+              "note_code": "HANDOFF",
+              "output_fields": [],
+              "sequence": 8,
+              "status": "DELEGATED",
+              "task": "accion"
+            },
+            {
+              "agent": "accion",
+              "input_fields": [
+                "control",
+                "semantic"
+              ],
+              "note_code": "VALIDATED_CONTRACT",
+              "output_fields": [
+                "external_actions_executed",
+                "policy_state",
+                "recommendation"
+              ],
+              "sequence": 9,
+              "status": "OK",
+              "task": "accion"
+            },
+            {
+              "agent": "orquestador",
+              "input_fields": [],
+              "note_code": "NO_EXTERNAL_ACTION",
+              "output_fields": [
+                "resultado",
+                "traza"
+              ],
+              "sequence": 10,
+              "status": "COMPLETADO",
+              "task": "cierre"
+            }
+          ]
+        },
+        "perfil_linguistico_exploratorio": {
+          "evidencias_posicionales": [
+            {
+              "aspecto": "acceso",
+              "fin": 86,
+              "inicio": 76,
+              "texto": "transporte"
+            }
+          ],
+          "idioma": {
+            "coincidencias": {
+              "en": 0,
+              "es": 2,
+              "it": 0
+            },
+            "idioma_indicativo": "es",
+            "metodo": "stopwords_heuristic_v1_no_validado",
+            "nota": "Detección exploratoria; puede fallar en textos cortos, dialectos o mezcla de idiomas."
+          },
+          "indicios_contextuales": {
+            "advertencia": "Conectores y negaciones son indicios; no confirman ironía ni polaridad mixta.",
+            "contrastes": [
+              {
+                "fin": 58,
+                "inicio": 47,
+                "texto": "sin embargo"
+              }
+            ],
+            "negaciones": [
+              {
+                "fin": 50,
+                "inicio": 47,
+                "texto": "sin"
+              },
+              {
+                "fin": 75,
+                "inicio": 72,
+                "texto": "sin"
+              }
+            ],
+            "posible_opinion_mixta": true
+          },
+          "texto_normalizado_solo_comparacion": "la explicación se entendía muy bien; al final, sin embargo, nos dejaron sin transporte de regreso."
+        },
+        "puntuaciones_modelo_no_calibradas": {
+          "negativo": 0.9986,
+          "neutral": 0.0,
+          "positivo": 0.0013
+        },
+        "recomendacion": "Revisar las condiciones de acceso y accesibilidad.",
+        "revision_humana": false,
+        "seleccion_modelo": {
+          "checkpoint_revision": "c4d86612f51b4f46759c8390d1798c2febe71b93",
+          "effective": "beto",
+          "fallback": false,
+          "human_validated": false,
+          "manifest_sha256": "c66453d041090bf6d10a9af10fdfbb8ab2d53b70a18f44e4439921a28914a7b7",
+          "requested": "beto",
+          "review_policy_validated": false,
+          "supervised_experimental": true,
+          "training_mode": "V3_FIXED_REPLAY"
+        },
+        "sentimiento": "negativo",
+        "tipo_salida": "sugerencia"
+      },
+      "uploaded_csv_records": [
+        {
+          "advertencia": "Prototipo académico: las puntuaciones no están calibradas; los aspectos se extraen mediante reglas. No inferir causalidad de los fragmentos.",
+          "aspectos_exploratorios": [],
+          "comentario_revision_humana": null,
+          "confianza_no_calibrada": 0.9562,
+          "decision_revision_humana": null,
+          "estado_revision": "sin_revisar",
+          "etiqueta_corregida_humano": null,
+          "fragmentos_literales_no_explicativos": [],
+          "id": "demo-001",
+          "modelo_utilizado": "beto",
+          "multiagente": {
+            "acciones_externas": false,
+            "arquitectura": "jerarquica_local_v1",
+            "estado": "COMPLETADO",
+            "memoria": "episodica_solo_sesion_sin_aprendizaje_en_linea",
+            "modalidad_percibida": "texto",
+            "orquestador": "TravelerOrchestrator",
+            "plan": [
+              "percepcion",
+              "semantica",
+              "control",
+              "accion"
+            ],
+            "razones_revision": [],
+            "transcripcion_editada": false,
+            "traza": [
+              {
+                "agent": "orquestador",
+                "input_fields": [],
+                "note_code": "PLAN_FIJO_CON_GATES",
+                "output_fields": [
+                  "accion",
+                  "control",
+                  "percepcion",
+                  "semantica"
+                ],
+                "sequence": 1,
+                "status": "PLANNED",
+                "task": "plan"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 2,
+                "status": "DELEGATED",
+                "task": "percepcion"
+              },
+              {
+                "agent": "percepcion",
+                "input_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "sequence": 3,
+                "status": "OK",
+                "task": "percepcion"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "text"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 4,
+                "status": "DELEGATED",
+                "task": "semantica"
+              },
+              {
+                "agent": "semantica",
+                "input_fields": [
+                  "text"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "aspects",
+                  "confidence_raw",
+                  "contrast",
+                  "evidence",
+                  "linguistic_profile",
+                  "scores",
+                  "sentiment"
+                ],
+                "sequence": 5,
+                "status": "OK",
+                "task": "semantica"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "semantic"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 6,
+                "status": "DELEGATED",
+                "task": "control"
+              },
+              {
+                "agent": "control",
+                "input_fields": [
+                  "semantic"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "decision",
+                  "needs_human",
+                  "reason_codes"
+                ],
+                "sequence": 7,
+                "status": "OK",
+                "task": "control"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "control",
+                  "semantic"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 8,
+                "status": "DELEGATED",
+                "task": "accion"
+              },
+              {
+                "agent": "accion",
+                "input_fields": [
+                  "control",
+                  "semantic"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "external_actions_executed",
+                  "policy_state",
+                  "recommendation"
+                ],
+                "sequence": 9,
+                "status": "OK",
+                "task": "accion"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [],
+                "note_code": "NO_EXTERNAL_ACTION",
+                "output_fields": [
+                  "resultado",
+                  "traza"
+                ],
+                "sequence": 10,
+                "status": "COMPLETADO",
+                "task": "cierre"
+              }
+            ]
+          },
+          "perfil_linguistico_exploratorio": {
+            "evidencias_posicionales": [],
+            "idioma": {
+              "coincidencias": {
+                "en": 0,
+                "es": 2,
+                "it": 2
+              },
+              "idioma_indicativo": "desconocido",
+              "metodo": "stopwords_heuristic_v1_no_validado",
+              "nota": "Detección exploratoria; puede fallar en textos cortos, dialectos o mezcla de idiomas."
+            },
+            "indicios_contextuales": {
+              "advertencia": "Conectores y negaciones son indicios; no confirman ironía ni polaridad mixta.",
+              "contrastes": [],
+              "negaciones": [],
+              "posible_opinion_mixta": false
+            },
+            "texto_normalizado_solo_comparacion": "una visita, con dos paradas y una pausa"
+          },
+          "puntuaciones_modelo_no_calibradas": {
+            "negativo": 0.0005,
+            "neutral": 0.9562,
+            "positivo": 0.0433
+          },
+          "recomendacion": "Registrar la reseña y observar tendencias antes de actuar.",
+          "revision_humana": false,
+          "seleccion_modelo": {
+            "checkpoint_revision": "c4d86612f51b4f46759c8390d1798c2febe71b93",
+            "effective": "beto",
+            "fallback": false,
+            "human_validated": false,
+            "manifest_sha256": "c66453d041090bf6d10a9af10fdfbb8ab2d53b70a18f44e4439921a28914a7b7",
+            "requested": "beto",
+            "review_policy_validated": false,
+            "supervised_experimental": true,
+            "training_mode": "V3_FIXED_REPLAY"
+          },
+          "sentimiento": "neutral",
+          "texto_original": "Una visita, con dos paradas\ny una pausa",
+          "tipo_salida": "informativo"
+        }
+      ]
+    },
+    "lr": {
+      "csv_export_rows": [
+        {
+          "comentario_revision_humana": "Verificación funcional; sin aprendizaje.",
+          "confianza_no_calibrada": "0.3531",
+          "decision_revision_humana": "Corrección registrada; revisar acciones con una persona responsable. No automatizar acciones a partir de la etiqueta corregida.",
+          "estado_revision": "corregida",
+          "etiqueta_corregida_humano": "neutral",
+          "id": "demo-001",
+          "modelo_utilizado": "lr",
+          "recomendacion": "Revisar manualmente: confianza insuficiente o texto ambiguo. No emitir una acción automática.",
+          "revision_humana": "True",
+          "sentimiento": "negativo",
+          "texto_original": "Nos recibieron con el equipaje protegido de la lluvia y pudimos descansar enseguida.",
+          "tipo_salida": "revisión_humana"
+        },
+        {
+          "comentario_revision_humana": "",
+          "confianza_no_calibrada": "0.4935",
+          "decision_revision_humana": "",
+          "estado_revision": "pendiente",
+          "etiqueta_corregida_humano": "",
+          "id": "demo-002",
+          "modelo_utilizado": "lr",
+          "recomendacion": "Revisar manualmente: confianza insuficiente o texto ambiguo. No emitir una acción automática.",
+          "revision_humana": "True",
+          "sentimiento": "neutral",
+          "texto_original": "'=1+1; la excursión comenzó después del desayuno.",
+          "tipo_salida": "revisión_humana"
+        }
+      ],
+      "downloaded_corrected_records": [
+        {
+          "advertencia": "Prototipo académico: las puntuaciones no están calibradas; los aspectos se extraen mediante reglas. No inferir causalidad de los fragmentos.",
+          "aspectos_exploratorios": [],
+          "comentario_revision_humana": "Verificación funcional; sin aprendizaje.",
+          "confianza_no_calibrada": 0.3531,
+          "decision_revision_humana": "Corrección registrada; revisar acciones con una persona responsable. No automatizar acciones a partir de la etiqueta corregida.",
+          "estado_revision": "corregida",
+          "etiqueta_corregida_humano": "neutral",
+          "fragmentos_literales_no_explicativos": [],
+          "id": "demo-001",
+          "modelo_utilizado": "lr",
+          "multiagente": {
+            "acciones_externas": false,
+            "arquitectura": "jerarquica_local_v1",
+            "estado": "REVISION_HUMANA",
+            "memoria": "episodica_solo_sesion_sin_aprendizaje_en_linea",
+            "modalidad_percibida": "texto",
+            "orquestador": "TravelerOrchestrator",
+            "plan": [
+              "percepcion",
+              "semantica",
+              "control",
+              "accion"
+            ],
+            "razones_revision": [
+              "SCORE_DEMO_BAJO"
+            ],
+            "transcripcion_editada": false,
+            "traza": [
+              {
+                "agent": "orquestador",
+                "input_fields": [],
+                "note_code": "PLAN_FIJO_CON_GATES",
+                "output_fields": [
+                  "accion",
+                  "control",
+                  "percepcion",
+                  "semantica"
+                ],
+                "sequence": 1,
+                "status": "PLANNED",
+                "task": "plan"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 2,
+                "status": "DELEGATED",
+                "task": "percepcion"
+              },
+              {
+                "agent": "percepcion",
+                "input_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "sequence": 3,
+                "status": "OK",
+                "task": "percepcion"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "text"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 4,
+                "status": "DELEGATED",
+                "task": "semantica"
+              },
+              {
+                "agent": "semantica",
+                "input_fields": [
+                  "text"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "aspects",
+                  "confidence_raw",
+                  "contrast",
+                  "evidence",
+                  "linguistic_profile",
+                  "scores",
+                  "sentiment"
+                ],
+                "sequence": 5,
+                "status": "OK",
+                "task": "semantica"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "semantic"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 6,
+                "status": "DELEGATED",
+                "task": "control"
+              },
+              {
+                "agent": "control",
+                "input_fields": [
+                  "semantic"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "decision",
+                  "needs_human",
+                  "reason_codes"
+                ],
+                "sequence": 7,
+                "status": "OK",
+                "task": "control"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "control",
+                  "semantic"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 8,
+                "status": "DELEGATED",
+                "task": "accion"
+              },
+              {
+                "agent": "accion",
+                "input_fields": [
+                  "control",
+                  "semantic"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "external_actions_executed",
+                  "policy_state",
+                  "recommendation"
+                ],
+                "sequence": 9,
+                "status": "OK",
+                "task": "accion"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [],
+                "note_code": "NO_EXTERNAL_ACTION",
+                "output_fields": [
+                  "resultado",
+                  "traza"
+                ],
+                "sequence": 10,
+                "status": "REVISION_HUMANA",
+                "task": "cierre"
+              }
+            ]
+          },
+          "perfil_linguistico_exploratorio": {
+            "evidencias_posicionales": [],
+            "idioma": {
+              "coincidencias": {
+                "en": 0,
+                "es": 2,
+                "it": 0
+              },
+              "idioma_indicativo": "es",
+              "metodo": "stopwords_heuristic_v1_no_validado",
+              "nota": "Detección exploratoria; puede fallar en textos cortos, dialectos o mezcla de idiomas."
+            },
+            "indicios_contextuales": {
+              "advertencia": "Conectores y negaciones son indicios; no confirman ironía ni polaridad mixta.",
+              "contrastes": [],
+              "negaciones": [],
+              "posible_opinion_mixta": false
+            },
+            "texto_normalizado_solo_comparacion": "nos recibieron con el equipaje protegido de la lluvia y pudimos descansar enseguida."
+          },
+          "puntuaciones_modelo_no_calibradas": {
+            "negativo": 0.3531,
+            "neutral": 0.3242,
+            "positivo": 0.3227
+          },
+          "recomendacion": "Revisar manualmente: confianza insuficiente o texto ambiguo. No emitir una acción automática.",
+          "revision_humana": true,
+          "sentimiento": "negativo",
+          "texto_original": "Nos recibieron con el equipaje protegido de la lluvia y pudimos descansar enseguida.",
+          "tipo_salida": "revisión_humana"
+        },
+        {
+          "advertencia": "Prototipo académico: las puntuaciones no están calibradas; los aspectos se extraen mediante reglas. No inferir causalidad de los fragmentos.",
+          "aspectos_exploratorios": [
+            "alimentacion"
+          ],
+          "comentario_revision_humana": null,
+          "confianza_no_calibrada": 0.4935,
+          "decision_revision_humana": null,
+          "estado_revision": "pendiente",
+          "etiqueta_corregida_humano": null,
+          "fragmentos_literales_no_explicativos": [
+            "la excursión comenzó después del desayuno."
+          ],
+          "id": "demo-002",
+          "modelo_utilizado": "lr",
+          "multiagente": {
+            "acciones_externas": false,
+            "arquitectura": "jerarquica_local_v1",
+            "estado": "REVISION_HUMANA",
+            "memoria": "episodica_solo_sesion_sin_aprendizaje_en_linea",
+            "modalidad_percibida": "texto",
+            "orquestador": "TravelerOrchestrator",
+            "plan": [
+              "percepcion",
+              "semantica",
+              "control",
+              "accion"
+            ],
+            "razones_revision": [
+              "SCORE_DEMO_BAJO"
+            ],
+            "transcripcion_editada": false,
+            "traza": [
+              {
+                "agent": "orquestador",
+                "input_fields": [],
+                "note_code": "PLAN_FIJO_CON_GATES",
+                "output_fields": [
+                  "accion",
+                  "control",
+                  "percepcion",
+                  "semantica"
+                ],
+                "sequence": 1,
+                "status": "PLANNED",
+                "task": "plan"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 2,
+                "status": "DELEGATED",
+                "task": "percepcion"
+              },
+              {
+                "agent": "percepcion",
+                "input_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "sequence": 3,
+                "status": "OK",
+                "task": "percepcion"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "text"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 4,
+                "status": "DELEGATED",
+                "task": "semantica"
+              },
+              {
+                "agent": "semantica",
+                "input_fields": [
+                  "text"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "aspects",
+                  "confidence_raw",
+                  "contrast",
+                  "evidence",
+                  "linguistic_profile",
+                  "scores",
+                  "sentiment"
+                ],
+                "sequence": 5,
+                "status": "OK",
+                "task": "semantica"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "semantic"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 6,
+                "status": "DELEGATED",
+                "task": "control"
+              },
+              {
+                "agent": "control",
+                "input_fields": [
+                  "semantic"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "decision",
+                  "needs_human",
+                  "reason_codes"
+                ],
+                "sequence": 7,
+                "status": "OK",
+                "task": "control"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "control",
+                  "semantic"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 8,
+                "status": "DELEGATED",
+                "task": "accion"
+              },
+              {
+                "agent": "accion",
+                "input_fields": [
+                  "control",
+                  "semantic"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "external_actions_executed",
+                  "policy_state",
+                  "recommendation"
+                ],
+                "sequence": 9,
+                "status": "OK",
+                "task": "accion"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [],
+                "note_code": "NO_EXTERNAL_ACTION",
+                "output_fields": [
+                  "resultado",
+                  "traza"
+                ],
+                "sequence": 10,
+                "status": "REVISION_HUMANA",
+                "task": "cierre"
+              }
+            ]
+          },
+          "perfil_linguistico_exploratorio": {
+            "evidencias_posicionales": [
+              {
+                "aspecto": "alimentacion",
+                "fin": 47,
+                "inicio": 39,
+                "texto": "desayuno"
+              }
+            ],
+            "idioma": {
+              "coincidencias": {
+                "en": 0,
+                "es": 1,
+                "it": 0
+              },
+              "idioma_indicativo": "desconocido",
+              "metodo": "stopwords_heuristic_v1_no_validado",
+              "nota": "Detección exploratoria; puede fallar en textos cortos, dialectos o mezcla de idiomas."
+            },
+            "indicios_contextuales": {
+              "advertencia": "Conectores y negaciones son indicios; no confirman ironía ni polaridad mixta.",
+              "contrastes": [],
+              "negaciones": [],
+              "posible_opinion_mixta": false
+            },
+            "texto_normalizado_solo_comparacion": "=1+1; la excursión comenzó después del desayuno."
+          },
+          "puntuaciones_modelo_no_calibradas": {
+            "negativo": 0.2468,
+            "neutral": 0.4935,
+            "positivo": 0.2597
+          },
+          "recomendacion": "Revisar manualmente: confianza insuficiente o texto ambiguo. No emitir una acción automática.",
+          "revision_humana": true,
+          "sentimiento": "neutral",
+          "texto_original": "=1+1; la excursión comenzó después del desayuno.",
+          "tipo_salida": "revisión_humana"
+        }
+      ],
+      "single": {
+        "advertencia": "Prototipo académico: las puntuaciones no están calibradas; los aspectos se extraen mediante reglas. No inferir causalidad de los fragmentos.",
+        "aspectos_exploratorios": [
+          "acceso"
+        ],
+        "confianza_no_calibrada": 0.3426,
+        "fragmentos_literales_no_explicativos": [
+          "al final, sin embargo, nos dejaron sin transporte de regreso."
+        ],
+        "id": "",
+        "modelo_utilizado": "lr",
+        "multiagente": {
+          "acciones_externas": false,
+          "arquitectura": "jerarquica_local_v1",
+          "estado": "REVISION_HUMANA",
+          "memoria": "episodica_solo_sesion_sin_aprendizaje_en_linea",
+          "modalidad_percibida": "texto",
+          "orquestador": "TravelerOrchestrator",
+          "plan": [
+            "percepcion",
+            "semantica",
+            "control",
+            "accion"
+          ],
+          "razones_revision": [
+            "SCORE_DEMO_BAJO",
+            "CONTRASTE_CON_SCORE_LIMITADO"
+          ],
+          "transcripcion_editada": false,
+          "traza": [
+            {
+              "agent": "orquestador",
+              "input_fields": [],
+              "note_code": "PLAN_FIJO_CON_GATES",
+              "output_fields": [
+                "accion",
+                "control",
+                "percepcion",
+                "semantica"
+              ],
+              "sequence": 1,
+              "status": "PLANNED",
+              "task": "plan"
+            },
+            {
+              "agent": "orquestador",
+              "input_fields": [
+                "edited_by_human",
+                "modality",
+                "review_id",
+                "text"
+              ],
+              "note_code": "HANDOFF",
+              "output_fields": [],
+              "sequence": 2,
+              "status": "DELEGATED",
+              "task": "percepcion"
+            },
+            {
+              "agent": "percepcion",
+              "input_fields": [
+                "edited_by_human",
+                "modality",
+                "review_id",
+                "text"
+              ],
+              "note_code": "VALIDATED_CONTRACT",
+              "output_fields": [
+                "edited_by_human",
+                "modality",
+                "review_id",
+                "text"
+              ],
+              "sequence": 3,
+              "status": "OK",
+              "task": "percepcion"
+            },
+            {
+              "agent": "orquestador",
+              "input_fields": [
+                "text"
+              ],
+              "note_code": "HANDOFF",
+              "output_fields": [],
+              "sequence": 4,
+              "status": "DELEGATED",
+              "task": "semantica"
+            },
+            {
+              "agent": "semantica",
+              "input_fields": [
+                "text"
+              ],
+              "note_code": "VALIDATED_CONTRACT",
+              "output_fields": [
+                "aspects",
+                "confidence_raw",
+                "contrast",
+                "evidence",
+                "linguistic_profile",
+                "scores",
+                "sentiment"
+              ],
+              "sequence": 5,
+              "status": "OK",
+              "task": "semantica"
+            },
+            {
+              "agent": "orquestador",
+              "input_fields": [
+                "semantic"
+              ],
+              "note_code": "HANDOFF",
+              "output_fields": [],
+              "sequence": 6,
+              "status": "DELEGATED",
+              "task": "control"
+            },
+            {
+              "agent": "control",
+              "input_fields": [
+                "semantic"
+              ],
+              "note_code": "VALIDATED_CONTRACT",
+              "output_fields": [
+                "decision",
+                "needs_human",
+                "reason_codes"
+              ],
+              "sequence": 7,
+              "status": "OK",
+              "task": "control"
+            },
+            {
+              "agent": "orquestador",
+              "input_fields": [
+                "control",
+                "semantic"
+              ],
+              "note_code": "HANDOFF",
+              "output_fields": [],
+              "sequence": 8,
+              "status": "DELEGATED",
+              "task": "accion"
+            },
+            {
+              "agent": "accion",
+              "input_fields": [
+                "control",
+                "semantic"
+              ],
+              "note_code": "VALIDATED_CONTRACT",
+              "output_fields": [
+                "external_actions_executed",
+                "policy_state",
+                "recommendation"
+              ],
+              "sequence": 9,
+              "status": "OK",
+              "task": "accion"
+            },
+            {
+              "agent": "orquestador",
+              "input_fields": [],
+              "note_code": "NO_EXTERNAL_ACTION",
+              "output_fields": [
+                "resultado",
+                "traza"
+              ],
+              "sequence": 10,
+              "status": "REVISION_HUMANA",
+              "task": "cierre"
+            }
+          ]
+        },
+        "perfil_linguistico_exploratorio": {
+          "evidencias_posicionales": [
+            {
+              "aspecto": "acceso",
+              "fin": 86,
+              "inicio": 76,
+              "texto": "transporte"
+            }
+          ],
+          "idioma": {
+            "coincidencias": {
+              "en": 0,
+              "es": 2,
+              "it": 0
+            },
+            "idioma_indicativo": "es",
+            "metodo": "stopwords_heuristic_v1_no_validado",
+            "nota": "Detección exploratoria; puede fallar en textos cortos, dialectos o mezcla de idiomas."
+          },
+          "indicios_contextuales": {
+            "advertencia": "Conectores y negaciones son indicios; no confirman ironía ni polaridad mixta.",
+            "contrastes": [
+              {
+                "fin": 58,
+                "inicio": 47,
+                "texto": "sin embargo"
+              }
+            ],
+            "negaciones": [
+              {
+                "fin": 50,
+                "inicio": 47,
+                "texto": "sin"
+              },
+              {
+                "fin": 75,
+                "inicio": 72,
+                "texto": "sin"
+              }
+            ],
+            "posible_opinion_mixta": true
+          },
+          "texto_normalizado_solo_comparacion": "la explicación se entendía muy bien; al final, sin embargo, nos dejaron sin transporte de regreso."
+        },
+        "puntuaciones_modelo_no_calibradas": {
+          "negativo": 0.322,
+          "neutral": 0.3426,
+          "positivo": 0.3353
+        },
+        "recomendacion": "Revisar manualmente: confianza insuficiente o texto ambiguo. No emitir una acción automática.",
+        "revision_humana": true,
+        "sentimiento": "neutral",
+        "tipo_salida": "revisión_humana"
+      },
+      "uploaded_csv_records": [
+        {
+          "advertencia": "Prototipo académico: las puntuaciones no están calibradas; los aspectos se extraen mediante reglas. No inferir causalidad de los fragmentos.",
+          "aspectos_exploratorios": [],
+          "comentario_revision_humana": null,
+          "confianza_no_calibrada": 0.4823,
+          "decision_revision_humana": null,
+          "estado_revision": "pendiente",
+          "etiqueta_corregida_humano": null,
+          "fragmentos_literales_no_explicativos": [],
+          "id": "demo-001",
+          "modelo_utilizado": "lr",
+          "multiagente": {
+            "acciones_externas": false,
+            "arquitectura": "jerarquica_local_v1",
+            "estado": "REVISION_HUMANA",
+            "memoria": "episodica_solo_sesion_sin_aprendizaje_en_linea",
+            "modalidad_percibida": "texto",
+            "orquestador": "TravelerOrchestrator",
+            "plan": [
+              "percepcion",
+              "semantica",
+              "control",
+              "accion"
+            ],
+            "razones_revision": [
+              "SCORE_DEMO_BAJO"
+            ],
+            "transcripcion_editada": false,
+            "traza": [
+              {
+                "agent": "orquestador",
+                "input_fields": [],
+                "note_code": "PLAN_FIJO_CON_GATES",
+                "output_fields": [
+                  "accion",
+                  "control",
+                  "percepcion",
+                  "semantica"
+                ],
+                "sequence": 1,
+                "status": "PLANNED",
+                "task": "plan"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 2,
+                "status": "DELEGATED",
+                "task": "percepcion"
+              },
+              {
+                "agent": "percepcion",
+                "input_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "sequence": 3,
+                "status": "OK",
+                "task": "percepcion"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "text"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 4,
+                "status": "DELEGATED",
+                "task": "semantica"
+              },
+              {
+                "agent": "semantica",
+                "input_fields": [
+                  "text"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "aspects",
+                  "confidence_raw",
+                  "contrast",
+                  "evidence",
+                  "linguistic_profile",
+                  "scores",
+                  "sentiment"
+                ],
+                "sequence": 5,
+                "status": "OK",
+                "task": "semantica"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "semantic"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 6,
+                "status": "DELEGATED",
+                "task": "control"
+              },
+              {
+                "agent": "control",
+                "input_fields": [
+                  "semantic"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "decision",
+                  "needs_human",
+                  "reason_codes"
+                ],
+                "sequence": 7,
+                "status": "OK",
+                "task": "control"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "control",
+                  "semantic"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 8,
+                "status": "DELEGATED",
+                "task": "accion"
+              },
+              {
+                "agent": "accion",
+                "input_fields": [
+                  "control",
+                  "semantic"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "external_actions_executed",
+                  "policy_state",
+                  "recommendation"
+                ],
+                "sequence": 9,
+                "status": "OK",
+                "task": "accion"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [],
+                "note_code": "NO_EXTERNAL_ACTION",
+                "output_fields": [
+                  "resultado",
+                  "traza"
+                ],
+                "sequence": 10,
+                "status": "REVISION_HUMANA",
+                "task": "cierre"
+              }
+            ]
+          },
+          "perfil_linguistico_exploratorio": {
+            "evidencias_posicionales": [],
+            "idioma": {
+              "coincidencias": {
+                "en": 0,
+                "es": 2,
+                "it": 2
+              },
+              "idioma_indicativo": "desconocido",
+              "metodo": "stopwords_heuristic_v1_no_validado",
+              "nota": "Detección exploratoria; puede fallar en textos cortos, dialectos o mezcla de idiomas."
+            },
+            "indicios_contextuales": {
+              "advertencia": "Conectores y negaciones son indicios; no confirman ironía ni polaridad mixta.",
+              "contrastes": [],
+              "negaciones": [],
+              "posible_opinion_mixta": false
+            },
+            "texto_normalizado_solo_comparacion": "una visita, con dos paradas y una pausa"
+          },
+          "puntuaciones_modelo_no_calibradas": {
+            "negativo": 0.217,
+            "neutral": 0.4823,
+            "positivo": 0.3007
+          },
+          "recomendacion": "Revisar manualmente: confianza insuficiente o texto ambiguo. No emitir una acción automática.",
+          "revision_humana": true,
+          "sentimiento": "neutral",
+          "texto_original": "Una visita, con dos paradas\ny una pausa",
+          "tipo_salida": "revisión_humana"
+        }
+      ]
+    },
+    "svm": {
+      "csv_export_rows": [
+        {
+          "comentario_revision_humana": "Verificación funcional; sin aprendizaje.",
+          "confianza_no_calibrada": "0.362",
+          "decision_revision_humana": "Corrección registrada; revisar acciones con una persona responsable. No automatizar acciones a partir de la etiqueta corregida.",
+          "estado_revision": "corregida",
+          "etiqueta_corregida_humano": "neutral",
+          "id": "demo-001",
+          "modelo_utilizado": "svm",
+          "recomendacion": "Revisar manualmente: confianza insuficiente o texto ambiguo. No emitir una acción automática.",
+          "revision_humana": "True",
+          "sentimiento": "neutral",
+          "texto_original": "Nos recibieron con el equipaje protegido de la lluvia y pudimos descansar enseguida.",
+          "tipo_salida": "revisión_humana"
+        },
+        {
+          "comentario_revision_humana": "",
+          "confianza_no_calibrada": "0.5092",
+          "decision_revision_humana": "",
+          "estado_revision": "pendiente",
+          "etiqueta_corregida_humano": "",
+          "id": "demo-002",
+          "modelo_utilizado": "svm",
+          "recomendacion": "Revisar manualmente: confianza insuficiente o texto ambiguo. No emitir una acción automática.",
+          "revision_humana": "True",
+          "sentimiento": "neutral",
+          "texto_original": "'=1+1; la excursión comenzó después del desayuno.",
+          "tipo_salida": "revisión_humana"
+        }
+      ],
+      "downloaded_corrected_records": [
+        {
+          "advertencia": "Prototipo académico: las puntuaciones no están calibradas; los aspectos se extraen mediante reglas. No inferir causalidad de los fragmentos.",
+          "aspectos_exploratorios": [],
+          "comentario_revision_humana": "Verificación funcional; sin aprendizaje.",
+          "confianza_no_calibrada": 0.362,
+          "decision_revision_humana": "Corrección registrada; revisar acciones con una persona responsable. No automatizar acciones a partir de la etiqueta corregida.",
+          "estado_revision": "corregida",
+          "etiqueta_corregida_humano": "neutral",
+          "fragmentos_literales_no_explicativos": [],
+          "id": "demo-001",
+          "modelo_utilizado": "svm",
+          "multiagente": {
+            "acciones_externas": false,
+            "arquitectura": "jerarquica_local_v1",
+            "estado": "REVISION_HUMANA",
+            "memoria": "episodica_solo_sesion_sin_aprendizaje_en_linea",
+            "modalidad_percibida": "texto",
+            "orquestador": "TravelerOrchestrator",
+            "plan": [
+              "percepcion",
+              "semantica",
+              "control",
+              "accion"
+            ],
+            "razones_revision": [
+              "SCORE_DEMO_BAJO"
+            ],
+            "transcripcion_editada": false,
+            "traza": [
+              {
+                "agent": "orquestador",
+                "input_fields": [],
+                "note_code": "PLAN_FIJO_CON_GATES",
+                "output_fields": [
+                  "accion",
+                  "control",
+                  "percepcion",
+                  "semantica"
+                ],
+                "sequence": 1,
+                "status": "PLANNED",
+                "task": "plan"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 2,
+                "status": "DELEGATED",
+                "task": "percepcion"
+              },
+              {
+                "agent": "percepcion",
+                "input_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "sequence": 3,
+                "status": "OK",
+                "task": "percepcion"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "text"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 4,
+                "status": "DELEGATED",
+                "task": "semantica"
+              },
+              {
+                "agent": "semantica",
+                "input_fields": [
+                  "text"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "aspects",
+                  "confidence_raw",
+                  "contrast",
+                  "evidence",
+                  "linguistic_profile",
+                  "scores",
+                  "sentiment"
+                ],
+                "sequence": 5,
+                "status": "OK",
+                "task": "semantica"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "semantic"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 6,
+                "status": "DELEGATED",
+                "task": "control"
+              },
+              {
+                "agent": "control",
+                "input_fields": [
+                  "semantic"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "decision",
+                  "needs_human",
+                  "reason_codes"
+                ],
+                "sequence": 7,
+                "status": "OK",
+                "task": "control"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "control",
+                  "semantic"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 8,
+                "status": "DELEGATED",
+                "task": "accion"
+              },
+              {
+                "agent": "accion",
+                "input_fields": [
+                  "control",
+                  "semantic"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "external_actions_executed",
+                  "policy_state",
+                  "recommendation"
+                ],
+                "sequence": 9,
+                "status": "OK",
+                "task": "accion"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [],
+                "note_code": "NO_EXTERNAL_ACTION",
+                "output_fields": [
+                  "resultado",
+                  "traza"
+                ],
+                "sequence": 10,
+                "status": "REVISION_HUMANA",
+                "task": "cierre"
+              }
+            ]
+          },
+          "perfil_linguistico_exploratorio": {
+            "evidencias_posicionales": [],
+            "idioma": {
+              "coincidencias": {
+                "en": 0,
+                "es": 2,
+                "it": 0
+              },
+              "idioma_indicativo": "es",
+              "metodo": "stopwords_heuristic_v1_no_validado",
+              "nota": "Detección exploratoria; puede fallar en textos cortos, dialectos o mezcla de idiomas."
+            },
+            "indicios_contextuales": {
+              "advertencia": "Conectores y negaciones son indicios; no confirman ironía ni polaridad mixta.",
+              "contrastes": [],
+              "negaciones": [],
+              "posible_opinion_mixta": false
+            },
+            "texto_normalizado_solo_comparacion": "nos recibieron con el equipaje protegido de la lluvia y pudimos descansar enseguida."
+          },
+          "puntuaciones_modelo_no_calibradas": {
+            "negativo": 0.3067,
+            "neutral": 0.362,
+            "positivo": 0.3313
+          },
+          "recomendacion": "Revisar manualmente: confianza insuficiente o texto ambiguo. No emitir una acción automática.",
+          "revision_humana": true,
+          "sentimiento": "neutral",
+          "texto_original": "Nos recibieron con el equipaje protegido de la lluvia y pudimos descansar enseguida.",
+          "tipo_salida": "revisión_humana"
+        },
+        {
+          "advertencia": "Prototipo académico: las puntuaciones no están calibradas; los aspectos se extraen mediante reglas. No inferir causalidad de los fragmentos.",
+          "aspectos_exploratorios": [
+            "alimentacion"
+          ],
+          "comentario_revision_humana": null,
+          "confianza_no_calibrada": 0.5092,
+          "decision_revision_humana": null,
+          "estado_revision": "pendiente",
+          "etiqueta_corregida_humano": null,
+          "fragmentos_literales_no_explicativos": [
+            "la excursión comenzó después del desayuno."
+          ],
+          "id": "demo-002",
+          "modelo_utilizado": "svm",
+          "multiagente": {
+            "acciones_externas": false,
+            "arquitectura": "jerarquica_local_v1",
+            "estado": "REVISION_HUMANA",
+            "memoria": "episodica_solo_sesion_sin_aprendizaje_en_linea",
+            "modalidad_percibida": "texto",
+            "orquestador": "TravelerOrchestrator",
+            "plan": [
+              "percepcion",
+              "semantica",
+              "control",
+              "accion"
+            ],
+            "razones_revision": [
+              "SCORE_DEMO_BAJO"
+            ],
+            "transcripcion_editada": false,
+            "traza": [
+              {
+                "agent": "orquestador",
+                "input_fields": [],
+                "note_code": "PLAN_FIJO_CON_GATES",
+                "output_fields": [
+                  "accion",
+                  "control",
+                  "percepcion",
+                  "semantica"
+                ],
+                "sequence": 1,
+                "status": "PLANNED",
+                "task": "plan"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 2,
+                "status": "DELEGATED",
+                "task": "percepcion"
+              },
+              {
+                "agent": "percepcion",
+                "input_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "sequence": 3,
+                "status": "OK",
+                "task": "percepcion"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "text"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 4,
+                "status": "DELEGATED",
+                "task": "semantica"
+              },
+              {
+                "agent": "semantica",
+                "input_fields": [
+                  "text"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "aspects",
+                  "confidence_raw",
+                  "contrast",
+                  "evidence",
+                  "linguistic_profile",
+                  "scores",
+                  "sentiment"
+                ],
+                "sequence": 5,
+                "status": "OK",
+                "task": "semantica"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "semantic"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 6,
+                "status": "DELEGATED",
+                "task": "control"
+              },
+              {
+                "agent": "control",
+                "input_fields": [
+                  "semantic"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "decision",
+                  "needs_human",
+                  "reason_codes"
+                ],
+                "sequence": 7,
+                "status": "OK",
+                "task": "control"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "control",
+                  "semantic"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 8,
+                "status": "DELEGATED",
+                "task": "accion"
+              },
+              {
+                "agent": "accion",
+                "input_fields": [
+                  "control",
+                  "semantic"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "external_actions_executed",
+                  "policy_state",
+                  "recommendation"
+                ],
+                "sequence": 9,
+                "status": "OK",
+                "task": "accion"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [],
+                "note_code": "NO_EXTERNAL_ACTION",
+                "output_fields": [
+                  "resultado",
+                  "traza"
+                ],
+                "sequence": 10,
+                "status": "REVISION_HUMANA",
+                "task": "cierre"
+              }
+            ]
+          },
+          "perfil_linguistico_exploratorio": {
+            "evidencias_posicionales": [
+              {
+                "aspecto": "alimentacion",
+                "fin": 47,
+                "inicio": 39,
+                "texto": "desayuno"
+              }
+            ],
+            "idioma": {
+              "coincidencias": {
+                "en": 0,
+                "es": 1,
+                "it": 0
+              },
+              "idioma_indicativo": "desconocido",
+              "metodo": "stopwords_heuristic_v1_no_validado",
+              "nota": "Detección exploratoria; puede fallar en textos cortos, dialectos o mezcla de idiomas."
+            },
+            "indicios_contextuales": {
+              "advertencia": "Conectores y negaciones son indicios; no confirman ironía ni polaridad mixta.",
+              "contrastes": [],
+              "negaciones": [],
+              "posible_opinion_mixta": false
+            },
+            "texto_normalizado_solo_comparacion": "=1+1; la excursión comenzó después del desayuno."
+          },
+          "puntuaciones_modelo_no_calibradas": {
+            "negativo": 0.2538,
+            "neutral": 0.5092,
+            "positivo": 0.237
+          },
+          "recomendacion": "Revisar manualmente: confianza insuficiente o texto ambiguo. No emitir una acción automática.",
+          "revision_humana": true,
+          "sentimiento": "neutral",
+          "texto_original": "=1+1; la excursión comenzó después del desayuno.",
+          "tipo_salida": "revisión_humana"
+        }
+      ],
+      "single": {
+        "advertencia": "Prototipo académico: las puntuaciones no están calibradas; los aspectos se extraen mediante reglas. No inferir causalidad de los fragmentos.",
+        "aspectos_exploratorios": [
+          "acceso"
+        ],
+        "confianza_no_calibrada": 0.3479,
+        "fragmentos_literales_no_explicativos": [
+          "al final, sin embargo, nos dejaron sin transporte de regreso."
+        ],
+        "id": "",
+        "modelo_utilizado": "svm",
+        "multiagente": {
+          "acciones_externas": false,
+          "arquitectura": "jerarquica_local_v1",
+          "estado": "REVISION_HUMANA",
+          "memoria": "episodica_solo_sesion_sin_aprendizaje_en_linea",
+          "modalidad_percibida": "texto",
+          "orquestador": "TravelerOrchestrator",
+          "plan": [
+            "percepcion",
+            "semantica",
+            "control",
+            "accion"
+          ],
+          "razones_revision": [
+            "SCORE_DEMO_BAJO",
+            "CONTRASTE_CON_SCORE_LIMITADO"
+          ],
+          "transcripcion_editada": false,
+          "traza": [
+            {
+              "agent": "orquestador",
+              "input_fields": [],
+              "note_code": "PLAN_FIJO_CON_GATES",
+              "output_fields": [
+                "accion",
+                "control",
+                "percepcion",
+                "semantica"
+              ],
+              "sequence": 1,
+              "status": "PLANNED",
+              "task": "plan"
+            },
+            {
+              "agent": "orquestador",
+              "input_fields": [
+                "edited_by_human",
+                "modality",
+                "review_id",
+                "text"
+              ],
+              "note_code": "HANDOFF",
+              "output_fields": [],
+              "sequence": 2,
+              "status": "DELEGATED",
+              "task": "percepcion"
+            },
+            {
+              "agent": "percepcion",
+              "input_fields": [
+                "edited_by_human",
+                "modality",
+                "review_id",
+                "text"
+              ],
+              "note_code": "VALIDATED_CONTRACT",
+              "output_fields": [
+                "edited_by_human",
+                "modality",
+                "review_id",
+                "text"
+              ],
+              "sequence": 3,
+              "status": "OK",
+              "task": "percepcion"
+            },
+            {
+              "agent": "orquestador",
+              "input_fields": [
+                "text"
+              ],
+              "note_code": "HANDOFF",
+              "output_fields": [],
+              "sequence": 4,
+              "status": "DELEGATED",
+              "task": "semantica"
+            },
+            {
+              "agent": "semantica",
+              "input_fields": [
+                "text"
+              ],
+              "note_code": "VALIDATED_CONTRACT",
+              "output_fields": [
+                "aspects",
+                "confidence_raw",
+                "contrast",
+                "evidence",
+                "linguistic_profile",
+                "scores",
+                "sentiment"
+              ],
+              "sequence": 5,
+              "status": "OK",
+              "task": "semantica"
+            },
+            {
+              "agent": "orquestador",
+              "input_fields": [
+                "semantic"
+              ],
+              "note_code": "HANDOFF",
+              "output_fields": [],
+              "sequence": 6,
+              "status": "DELEGATED",
+              "task": "control"
+            },
+            {
+              "agent": "control",
+              "input_fields": [
+                "semantic"
+              ],
+              "note_code": "VALIDATED_CONTRACT",
+              "output_fields": [
+                "decision",
+                "needs_human",
+                "reason_codes"
+              ],
+              "sequence": 7,
+              "status": "OK",
+              "task": "control"
+            },
+            {
+              "agent": "orquestador",
+              "input_fields": [
+                "control",
+                "semantic"
+              ],
+              "note_code": "HANDOFF",
+              "output_fields": [],
+              "sequence": 8,
+              "status": "DELEGATED",
+              "task": "accion"
+            },
+            {
+              "agent": "accion",
+              "input_fields": [
+                "control",
+                "semantic"
+              ],
+              "note_code": "VALIDATED_CONTRACT",
+              "output_fields": [
+                "external_actions_executed",
+                "policy_state",
+                "recommendation"
+              ],
+              "sequence": 9,
+              "status": "OK",
+              "task": "accion"
+            },
+            {
+              "agent": "orquestador",
+              "input_fields": [],
+              "note_code": "NO_EXTERNAL_ACTION",
+              "output_fields": [
+                "resultado",
+                "traza"
+              ],
+              "sequence": 10,
+              "status": "REVISION_HUMANA",
+              "task": "cierre"
+            }
+          ]
+        },
+        "perfil_linguistico_exploratorio": {
+          "evidencias_posicionales": [
+            {
+              "aspecto": "acceso",
+              "fin": 86,
+              "inicio": 76,
+              "texto": "transporte"
+            }
+          ],
+          "idioma": {
+            "coincidencias": {
+              "en": 0,
+              "es": 2,
+              "it": 0
+            },
+            "idioma_indicativo": "es",
+            "metodo": "stopwords_heuristic_v1_no_validado",
+            "nota": "Detección exploratoria; puede fallar en textos cortos, dialectos o mezcla de idiomas."
+          },
+          "indicios_contextuales": {
+            "advertencia": "Conectores y negaciones son indicios; no confirman ironía ni polaridad mixta.",
+            "contrastes": [
+              {
+                "fin": 58,
+                "inicio": 47,
+                "texto": "sin embargo"
+              }
+            ],
+            "negaciones": [
+              {
+                "fin": 50,
+                "inicio": 47,
+                "texto": "sin"
+              },
+              {
+                "fin": 75,
+                "inicio": 72,
+                "texto": "sin"
+              }
+            ],
+            "posible_opinion_mixta": true
+          },
+          "texto_normalizado_solo_comparacion": "la explicación se entendía muy bien; al final, sin embargo, nos dejaron sin transporte de regreso."
+        },
+        "puntuaciones_modelo_no_calibradas": {
+          "negativo": 0.3143,
+          "neutral": 0.3378,
+          "positivo": 0.3479
+        },
+        "recomendacion": "Revisar manualmente: confianza insuficiente o texto ambiguo. No emitir una acción automática.",
+        "revision_humana": true,
+        "sentimiento": "positivo",
+        "tipo_salida": "revisión_humana"
+      },
+      "uploaded_csv_records": [
+        {
+          "advertencia": "Prototipo académico: las puntuaciones no están calibradas; los aspectos se extraen mediante reglas. No inferir causalidad de los fragmentos.",
+          "aspectos_exploratorios": [],
+          "comentario_revision_humana": null,
+          "confianza_no_calibrada": 0.4904,
+          "decision_revision_humana": null,
+          "estado_revision": "pendiente",
+          "etiqueta_corregida_humano": null,
+          "fragmentos_literales_no_explicativos": [],
+          "id": "demo-001",
+          "modelo_utilizado": "svm",
+          "multiagente": {
+            "acciones_externas": false,
+            "arquitectura": "jerarquica_local_v1",
+            "estado": "REVISION_HUMANA",
+            "memoria": "episodica_solo_sesion_sin_aprendizaje_en_linea",
+            "modalidad_percibida": "texto",
+            "orquestador": "TravelerOrchestrator",
+            "plan": [
+              "percepcion",
+              "semantica",
+              "control",
+              "accion"
+            ],
+            "razones_revision": [
+              "SCORE_DEMO_BAJO"
+            ],
+            "transcripcion_editada": false,
+            "traza": [
+              {
+                "agent": "orquestador",
+                "input_fields": [],
+                "note_code": "PLAN_FIJO_CON_GATES",
+                "output_fields": [
+                  "accion",
+                  "control",
+                  "percepcion",
+                  "semantica"
+                ],
+                "sequence": 1,
+                "status": "PLANNED",
+                "task": "plan"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 2,
+                "status": "DELEGATED",
+                "task": "percepcion"
+              },
+              {
+                "agent": "percepcion",
+                "input_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "edited_by_human",
+                  "modality",
+                  "review_id",
+                  "text"
+                ],
+                "sequence": 3,
+                "status": "OK",
+                "task": "percepcion"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "text"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 4,
+                "status": "DELEGATED",
+                "task": "semantica"
+              },
+              {
+                "agent": "semantica",
+                "input_fields": [
+                  "text"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "aspects",
+                  "confidence_raw",
+                  "contrast",
+                  "evidence",
+                  "linguistic_profile",
+                  "scores",
+                  "sentiment"
+                ],
+                "sequence": 5,
+                "status": "OK",
+                "task": "semantica"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "semantic"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 6,
+                "status": "DELEGATED",
+                "task": "control"
+              },
+              {
+                "agent": "control",
+                "input_fields": [
+                  "semantic"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "decision",
+                  "needs_human",
+                  "reason_codes"
+                ],
+                "sequence": 7,
+                "status": "OK",
+                "task": "control"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [
+                  "control",
+                  "semantic"
+                ],
+                "note_code": "HANDOFF",
+                "output_fields": [],
+                "sequence": 8,
+                "status": "DELEGATED",
+                "task": "accion"
+              },
+              {
+                "agent": "accion",
+                "input_fields": [
+                  "control",
+                  "semantic"
+                ],
+                "note_code": "VALIDATED_CONTRACT",
+                "output_fields": [
+                  "external_actions_executed",
+                  "policy_state",
+                  "recommendation"
+                ],
+                "sequence": 9,
+                "status": "OK",
+                "task": "accion"
+              },
+              {
+                "agent": "orquestador",
+                "input_fields": [],
+                "note_code": "NO_EXTERNAL_ACTION",
+                "output_fields": [
+                  "resultado",
+                  "traza"
+                ],
+                "sequence": 10,
+                "status": "REVISION_HUMANA",
+                "task": "cierre"
+              }
+            ]
+          },
+          "perfil_linguistico_exploratorio": {
+            "evidencias_posicionales": [],
+            "idioma": {
+              "coincidencias": {
+                "en": 0,
+                "es": 2,
+                "it": 2
+              },
+              "idioma_indicativo": "desconocido",
+              "metodo": "stopwords_heuristic_v1_no_validado",
+              "nota": "Detección exploratoria; puede fallar en textos cortos, dialectos o mezcla de idiomas."
+            },
+            "indicios_contextuales": {
+              "advertencia": "Conectores y negaciones son indicios; no confirman ironía ni polaridad mixta.",
+              "contrastes": [],
+              "negaciones": [],
+              "posible_opinion_mixta": false
+            },
+            "texto_normalizado_solo_comparacion": "una visita, con dos paradas y una pausa"
+          },
+          "puntuaciones_modelo_no_calibradas": {
+            "negativo": 0.2314,
+            "neutral": 0.4904,
+            "positivo": 0.2783
+          },
+          "recomendacion": "Revisar manualmente: confianza insuficiente o texto ambiguo. No emitir una acción automática.",
+          "revision_humana": true,
+          "sentimiento": "neutral",
+          "texto_original": "Una visita, con dos paradas\ny una pausa",
+          "tipo_salida": "revisión_humana"
+        }
+      ]
+    }
+  },
+  "provenance": {
+    "beto": {
+      "checkpoint_revision": "c4d86612f51b4f46759c8390d1798c2febe71b93",
+      "manifest_sha256": "c66453d041090bf6d10a9af10fdfbb8ab2d53b70a18f44e4439921a28914a7b7",
+      "max_length": 256,
+      "training": {
+        "data_registration_commit": "07935b6dc5eee6d62d2f62c6d67ce47b21cc58b9",
+        "encoder_epoch": 1,
+        "experiment": "BETO_V3_QUALITY_PILOT",
+        "head_epoch": 80,
+        "label_origin": "AI_AUTHOR_INTENT_WITH_BLIND_AI_REVIEW_NOT_HUMAN_GOLD",
+        "mode": "V3_FIXED_REPLAY",
+        "protocol_registration_commit": "e4c52c18c146355ab955debc1255e680af8df2a4",
+        "records_sha256": "1ca1521e303325bb314eb6d8c2d8e8b42e1510ac5352a541ab119bd403c16f9d",
+        "seed": 42,
+        "supervised": true
+      },
+      "training_source": "EXPERIMENTAL_SYNTHETIC_V3"
+    },
+    "lr": {
+      "actual_runtime_artifact_sha256": "91314c6fe4945bce38d0988c07815ca315a42a5d45c3ace2f26ccfa803215628",
+      "demo_source_sha256": "e8982128c91ccd64f0c812d83acfe08f7de702c461ea38e9749d44f0ce872dca",
+      "training_classes": {
+        "negativo": 12,
+        "neutral": 12,
+        "positivo": 12
+      },
+      "training_rows": 36,
+      "training_source": "HISTORICAL_SYNTHETIC_DEMO"
+    },
+    "svm": {
+      "demo_source_sha256": "e8982128c91ccd64f0c812d83acfe08f7de702c461ea38e9749d44f0ce872dca",
+      "training_classes": {
+        "negativo": 12,
+        "neutral": 12,
+        "positivo": 12
+      },
+      "training_rows": 36,
+      "training_source": "HISTORICAL_SYNTHETIC_DEMO"
+    }
+  },
+  "registration_commit": "e20326484aa33d335e85bf0f8551c24adbbd13e1",
+  "scope": "REAL_HTTP_QUEUE_SESSION_UPLOAD_DOWNLOAD_NOT_BROWSER_OR_REAL_VOICE",
+  "source_sha256": {
+    "app.py": "2baf6d863503327527ee2614211289ad399e1b208b7fd6293e05ea69d804cc21",
+    "src/traveler_agent/academic_acceptance.py": "e486ccccb1a0325bd452118cab85d16a2abd3cd97b13adf0fa24b118ae938517",
+    "src/traveler_agent/batch.py": "04802118ab77890260e0261d540440b8200d0fe1ae1f4cb146b598811ef7137b",
+    "src/traveler_agent/model_runtime.py": "e8e6ff2a3ac9e66fa665e9a65f4d2b1d70f731ae011323c69091cf0e46219b09",
+    "src/traveler_agent/multiagent.py": "3e9fcb208600ab9f40d576d1c12b5efcd086f432b03a6753808b89ed63f19451"
+  },
+  "status": "PASSED",
+  "violations": [],
+  "wall_seconds": 2.9143467060000603
+}

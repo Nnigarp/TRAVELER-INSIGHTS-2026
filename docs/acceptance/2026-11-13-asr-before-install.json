@@ -1,0 +1,16 @@
+{
+  "python": "3.12.14",
+  "platform": "linux",
+  "dependencies": {
+    "faster-whisper": "NO_INSTALADO",
+    "ctranslate2": "NO_INSTALADO",
+    "av": "NO_INSTALADO",
+    "onnxruntime": "NO_INSTALADO",
+    "tokenizers": "0.22.2",
+    "huggingface-hub": "0.36.2",
+    "numpy": "2.5.4",
+    "gradio": "6.17.3"
+  },
+  "cpu_compute_types": "NO_DISPONIBLE",
+  "pyav_import": "ERROR"
+}

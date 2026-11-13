@@ -1,0 +1,45 @@
+{
+  "provenance": {
+    "beto": {
+      "checkpoint_revision": "c4d86612f51b4f46759c8390d1798c2febe71b93",
+      "manifest_sha256": "c66453d041090bf6d10a9af10fdfbb8ab2d53b70a18f44e4439921a28914a7b7",
+      "max_length": 256,
+      "training": {
+        "data_registration_commit": "07935b6dc5eee6d62d2f62c6d67ce47b21cc58b9",
+        "encoder_epoch": 1,
+        "experiment": "BETO_V3_QUALITY_PILOT",
+        "head_epoch": 80,
+        "label_origin": "AI_AUTHOR_INTENT_WITH_BLIND_AI_REVIEW_NOT_HUMAN_GOLD",
+        "mode": "V3_FIXED_REPLAY",
+        "protocol_registration_commit": "e4c52c18c146355ab955debc1255e680af8df2a4",
+        "records_sha256": "1ca1521e303325bb314eb6d8c2d8e8b42e1510ac5352a541ab119bd403c16f9d",
+        "seed": 42,
+        "supervised": true
+      },
+      "training_source": "EXPERIMENTAL_SYNTHETIC_V3"
+    },
+    "lr": {
+      "actual_runtime_artifact_sha256": "91314c6fe4945bce38d0988c07815ca315a42a5d45c3ace2f26ccfa803215628",
+      "demo_source_sha256": "e8982128c91ccd64f0c812d83acfe08f7de702c461ea38e9749d44f0ce872dca",
+      "training_classes": {
+        "negativo": 12,
+        "neutral": 12,
+        "positivo": 12
+      },
+      "training_rows": 36,
+      "training_source": "HISTORICAL_SYNTHETIC_DEMO"
+    },
+    "svm": {
+      "demo_source_sha256": "e8982128c91ccd64f0c812d83acfe08f7de702c461ea38e9749d44f0ce872dca",
+      "training_classes": {
+        "negativo": 12,
+        "neutral": 12,
+        "positivo": 12
+      },
+      "training_rows": 36,
+      "training_source": "HISTORICAL_SYNTHETIC_DEMO"
+    }
+  },
+  "registration_commit": "e20326484aa33d335e85bf0f8551c24adbbd13e1",
+  "scope": "MODELS_BOUND_BEFORE_NEW_PREDICTIVE_MEASUREMENT"
+}

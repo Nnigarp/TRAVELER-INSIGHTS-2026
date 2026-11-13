@@ -1,0 +1,30 @@
+{
+  "cpu_compute_types": [
+    "float32",
+    "int16",
+    "int8",
+    "int8_float32"
+  ],
+  "dependencies": {
+    "av": "18.1.0",
+    "ctranslate2": "4.9.0",
+    "faster-whisper": "1.2.1",
+    "gradio": "6.17.3",
+    "huggingface-hub": "0.36.2",
+    "numpy": "2.5.4",
+    "onnxruntime": "1.32.0",
+    "tokenizers": "0.22.2"
+  },
+  "pcm_decoder": {
+    "finite": true,
+    "generated_non_speech": true,
+    "samples": 16000
+  },
+  "platform": "linux",
+  "pyav_import": "OK",
+  "python": "3.12.14",
+  "scope": "REAL_PACKAGES_AND_PCM_DECODER_NOT_REAL_SPEECH_RECOGNITION",
+  "status": "PACKAGES_AND_DECODER_READY_MICROPHONE_PENDING",
+  "whisper_weights": "NOT_LOADED_OR_DOWNLOADED",
+  "windows_microphone": "PENDING_USER_TEST"
+}

@@ -1,0 +1,43 @@
+name: BETO artifact distribution — Linux and Windows
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'app.py'
+      - 'src/traveler_agent/beto_distribution.py'
+      - 'scripts/check_beto_activation.py'
+      - 'scripts/diagnose_beto_local.py'
+      - 'tests/test_beto_distribution.py'
+      - 'docs/models/**'
+      - '.github/workflows/beto-distribution.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+env:
+  PYTHONUTF8: '1'
+  GRADIO_ANALYTICS_ENABLED: 'False'
+jobs:
+  archive-contracts:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e '.[ui,test]'
+      - name: Tiny archive I/O fixtures, UI presence and explicit fallback contracts
+        run: python -m pytest -q tests/test_beto_distribution.py tests/test_model_runtime.py tests/test_ui_smoke.py tests/test_ui_midnight_indigo.py
+      - name: Local metadata diagnostics without checkpoints, training or inference
+        run: python scripts/diagnose_beto_local.py --output artifacts/distribution-ci/diagnostic.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: distribution-metadata-${{ runner.os }}
+          path: artifacts/distribution-ci/diagnostic.json
+          if-no-files-found: error

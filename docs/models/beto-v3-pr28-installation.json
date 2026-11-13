@@ -1,0 +1,12 @@
+{
+  "archive_sha256": "4b676117b204a84fb23bec8706268d887bdaffe9aa298c7dcac63b8d1eb56769",
+  "base_source": "REUSED_VERIFIED_LOCAL_BASE",
+  "inference_checked": false,
+  "local_absolute_output_replaced_with_relative": true,
+  "model_manifest_sha256": "c66453d041090bf6d10a9af10fdfbb8ab2d53b70a18f44e4439921a28914a7b7",
+  "original_receipt_sha256": "eddd36eda6b7781dd430900d3a916d351a90c02947b850ff7fd0d9d51debb953",
+  "output": "artifacts/beto-v3-pr28-local",
+  "recipe_changed": false,
+  "status": "INSTALLED_VERIFIED_NO_TRAINING",
+  "version": "beto-v3-pr28-seed42-overlay-v1"
+}

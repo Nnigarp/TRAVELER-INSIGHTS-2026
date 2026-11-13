@@ -1,0 +1,6 @@
+{
+  "source": "actual full pytest output, no new model training",
+  "passed": 474,
+  "known_xfail": 1,
+  "log_sha256": "d488ca8197c8467830f09e80d20d0d7b5578b68415e0a60e3bb171e108b355e0"
+}

@@ -1,0 +1,29 @@
+{
+  "architecture_and_demo_preservation": [
+    {
+      "identical_to_verified_main": true,
+      "path": "src/traveler_agent/multiagent.py",
+      "sha256": "3e9fcb208600ab9f40d576d1c12b5efcd086f432b03a6753808b89ed63f19451"
+    },
+    {
+      "identical_to_verified_main": true,
+      "path": "app.py",
+      "sha256": "18344b69ce67787c26a328040c8c7dbbd9a1cd5452282acc050ea5ec75690919"
+    },
+    {
+      "identical_to_verified_main": true,
+      "path": "src/traveler_agent/model_runtime.py",
+      "sha256": "e8e6ff2a3ac9e66fa665e9a65f4d2b1d70f731ae011323c69091cf0e46219b09"
+    }
+  ],
+  "human_voice_tested": false,
+  "known_xfail": 1,
+  "known_xfail_name": "test_negation_expected_positive_is_known_limitation",
+  "log_sha256": "5455ed397a99cfe73ef51da7eb2cd87f94171d76472a092452f672bca28b25bd",
+  "main_verified": "1628df6fe9a1c9ee68ab34096444177ba4c4a580",
+  "passed": 437,
+  "schema": "beto-v3-local-regression-2026-11-13",
+  "source": "actual pytest output; integrated main checkout, pinned research environment",
+  "tested_commit": "f8fb2f883631bbd71e3ff4c2f4994a16a934cf82",
+  "wall_seconds": 65.39
+}

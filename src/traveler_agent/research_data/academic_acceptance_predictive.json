@@ -1,0 +1,556 @@
+[
+  {
+    "family": "hotel_seguridad",
+    "human_gold": false,
+    "id": "P001",
+    "intended_label": "negativo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "negative",
+      "contrast"
+    ],
+    "region": "Colombia",
+    "text": "La tarjeta abría mi cuarto y también el de al lado. Lo avisé en recepción; me ofrecieron una almohada extra y dejaron las cerraduras igual. No me sentí seguro ni una noche."
+  },
+  {
+    "family": "restaurante_alergia",
+    "human_gold": false,
+    "id": "P002",
+    "intended_label": "negativo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "negation",
+      "mixed"
+    ],
+    "region": "España",
+    "text": "Antes de pedir expliqué mi alergia y la camarera la anotó. El plato llegó con el ingrediente que había pedido evitar. Que el mantel estuviera impecable no compensa ese descuido."
+  },
+  {
+    "family": "taxi_tarifa",
+    "human_gold": false,
+    "id": "P003",
+    "intended_label": "negativo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "negation"
+    ],
+    "region": "México",
+    "text": "El taxi sí tenía taxímetro, pero el conductor no quiso encenderlo y al llegar exigió el doble de la tarifa acordada. Me bajé sintiéndome estafado."
+  },
+  {
+    "family": "aeropuerto_asistencia",
+    "human_gold": false,
+    "id": "P004",
+    "intended_label": "negativo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "implicit_contrast"
+    ],
+    "region": "Perú",
+    "text": "Solicité acompañamiento hasta la puerta de embarque. Me dejaron en un pasillo con el cartel de otra terminal y nadie regresó. Perdí el vuelo esperando la ayuda confirmada."
+  },
+  {
+    "family": "playa_residuos",
+    "human_gold": false,
+    "id": "P005",
+    "intended_label": "negativo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "mixed"
+    ],
+    "region": "otros",
+    "text": "El agua se veía turquesa desde arriba. Al bajar encontramos anzuelos y vidrios entre la arena; salimos enseguida para no cortarnos. No recomendaría ese sector para bañarse."
+  },
+  {
+    "family": "museo_audioguia",
+    "human_gold": false,
+    "id": "P006",
+    "intended_label": "negativo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "negation",
+      "contrast"
+    ],
+    "region": "España",
+    "text": "No es que faltaran aparatos: había audioguías disponibles. Ninguna tenía subtítulos ni una alternativa escrita para mi acompañante sordo, así que no pudimos seguir el contenido."
+  },
+  {
+    "family": "tour_espera",
+    "human_gold": false,
+    "id": "P007",
+    "intended_label": "negativo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "double_negation"
+    ],
+    "region": "otros",
+    "text": "No hubo un solo tramo del recorrido sin otra espera. Acabamos pasando más tiempo junto al estacionamiento que en los sitios anunciados; contratarlo fue perder la tarde."
+  },
+  {
+    "family": "bus_co",
+    "human_gold": false,
+    "id": "P008",
+    "intended_label": "negativo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "regionalism",
+      "contrast"
+    ],
+    "region": "Colombia",
+    "text": "Parce, el bus venía bonito, pero me dejaron tirado en una parada distinta y sin avisar. Llegué tarde al alojamiento y todavía tuve que pagar otro transporte."
+  },
+  {
+    "family": "reserva_pe",
+    "human_gold": false,
+    "id": "P009",
+    "intended_label": "negativo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "regionalism",
+      "negation"
+    ],
+    "region": "Perú",
+    "text": "Pucha, pagué la reserva completa y al llegar no figuraba mi nombre. Ni habitación ni devolución, solo me mandaban de un mostrador a otro. Salió bien mal ese trámite."
+  },
+  {
+    "family": "excursion_puente",
+    "human_gold": false,
+    "id": "P010",
+    "intended_label": "negativo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "irony",
+      "sarcasm"
+    ],
+    "region": "otros",
+    "text": "Qué detalle tan considerado: cobrar el suplemento de seguridad y luego hacernos cruzar por tablas sueltas, sin baranda. Me devolví a mitad del camino por miedo a caer."
+  },
+  {
+    "family": "ferry_cancelado",
+    "human_gold": false,
+    "id": "P011",
+    "intended_label": "negativo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "typo",
+      "positive_words_negative"
+    ],
+    "region": "México",
+    "text": "El servisio era dizque premium. Cancelaron el ferry cuando ya avíamos pagado el traslado al muelle y nadie quiso responder por la plata. Una maravilla de desorden."
+  },
+  {
+    "family": "alquiler_bici",
+    "human_gold": false,
+    "id": "P012",
+    "intended_label": "negativo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "contrast",
+      "positive_words_negative"
+    ],
+    "region": "España",
+    "text": "En el anuncio ponía «excelente mantenimiento». La cadena se salió tres veces antes de llegar a la esquina y tuve que volver caminando. Esa bicicleta no estaba lista para alquilarse."
+  },
+  {
+    "family": "sendero_apoyo",
+    "human_gold": false,
+    "id": "P013",
+    "intended_label": "positivo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "negation"
+    ],
+    "region": "Colombia",
+    "text": "Me daba temor quedarme atrás en el sendero. El monitor ajustó el ritmo sin apurarme y pude completar el trayecto con el grupo. Volví con ganas de repetirlo."
+  },
+  {
+    "family": "hotel_ruido_resuelto",
+    "human_gold": false,
+    "id": "P014",
+    "intended_label": "positivo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "mixed",
+      "contrast"
+    ],
+    "region": "México",
+    "text": "La primera habitación daba a una obra. En cuanto lo comenté me cambiaron a una interior sin recargo; dormí de corrido y agradecí que resolvieran el problema en lugar de discutirlo."
+  },
+  {
+    "family": "restaurante_adaptacion",
+    "human_gold": false,
+    "id": "P015",
+    "intended_label": "positivo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "implicit_contrast"
+    ],
+    "region": "Perú",
+    "text": "Llegamos sin haber avisado que una persona no podía comer sal. En cocina prepararon su plato aparte y trajeron todo junto, recién hecho. Nos cuidaron de principio a fin."
+  },
+  {
+    "family": "museo_subtitulos",
+    "human_gold": false,
+    "id": "P016",
+    "intended_label": "positivo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "negation"
+    ],
+    "region": "España",
+    "text": "Pensé que solo entendería la mitad del documental, pero pude activar subtítulos y seguirlo entero. No tuve que pedir que me explicaran después; salí muy a gusto."
+  },
+  {
+    "family": "bus_apoyo_co",
+    "human_gold": false,
+    "id": "P017",
+    "intended_label": "positivo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "regionalism"
+    ],
+    "region": "Colombia",
+    "text": "Bacán que el conductor esperara a que mi mamá se sentara antes de arrancar. También nos indicó dónde bajarnos y nos ayudó con la maleta. Así da gusto moverse por la ciudad."
+  },
+  {
+    "family": "tren_precio",
+    "human_gold": false,
+    "id": "P018",
+    "intended_label": "positivo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "contrast"
+    ],
+    "region": "otros",
+    "text": "La compra por internet había quedado sin confirmar. Mostré el comprobante en taquilla, respetaron el precio y salí en el tren previsto. Fue un alivio que lo solucionaran tan fácil."
+  },
+  {
+    "family": "tour_lluvia",
+    "human_gold": false,
+    "id": "P019",
+    "intended_label": "positivo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "double_negation",
+      "mixed"
+    ],
+    "region": "Perú",
+    "text": "No puedo decir que la lluvia arruinara la salida: no nos faltó abrigo ni dejaron a nadie esperando bajo el agua. Con el cambio de ruta vimos el valle despejado y disfruté muchísimo."
+  },
+  {
+    "family": "hostal_pe",
+    "human_gold": false,
+    "id": "P020",
+    "intended_label": "positivo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "regionalism",
+      "typo"
+    ],
+    "region": "Perú",
+    "text": "Qué chévere encontrar el equipaje ya guardado cuando bolvimos del paseo. Nos dejaron ducharnos antes del viaje sin cobrarnos otra noche. Ese gesto me alegró el día."
+  },
+  {
+    "family": "taxi_objeto_recuperado",
+    "human_gold": false,
+    "id": "P021",
+    "intended_label": "positivo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "negation"
+    ],
+    "region": "México",
+    "text": "Dejé los lentes en el asiento y creí que no los recuperaría. El conductor se comunicó con el hotel y los entregó esa misma tarde, sin pedir dinero. Me trató con mucha consideración."
+  },
+  {
+    "family": "playa_acceso",
+    "human_gold": false,
+    "id": "P022",
+    "intended_label": "positivo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "implicit_contrast"
+    ],
+    "region": "España",
+    "text": "Había ido con muletas y me estaba por volver. La pasarela llegaba hasta la zona de sombra y pude instalarme sin que nadie tuviera que cargarme. Pasé una mañana estupenda."
+  },
+  {
+    "family": "reserva_fechas",
+    "human_gold": false,
+    "id": "P023",
+    "intended_label": "positivo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "contrast"
+    ],
+    "region": "otros",
+    "text": "Me equivoqué al escribir las fechas. Tenía miedo de perder el pago; la encargada corrigió la reserva y me envió la confirmación sin cargos. Me quedé muy tranquilo con su atención."
+  },
+  {
+    "family": "excursion_rescate",
+    "human_gold": false,
+    "id": "P024",
+    "intended_label": "positivo",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "mixed",
+      "negation"
+    ],
+    "region": "Colombia",
+    "text": "La caminata se cortó por una tormenta. El equipo nos recogió a tiempo, ofreció reprogramar y cumplió la nueva salida. No sentí que me dejaran a mi suerte: volvería con ellos."
+  },
+  {
+    "family": "aeropuerto_puertas",
+    "human_gold": false,
+    "id": "P025",
+    "intended_label": "neutral",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "factual"
+    ],
+    "region": "México",
+    "text": "El vuelo aparecía en la pantalla de la puerta 18. A las diez y veinte cambiaron el anuncio a la 22; fui hasta allí y el embarque comenzó a las diez y cuarenta."
+  },
+  {
+    "family": "ferry_itinerario",
+    "human_gold": false,
+    "id": "P026",
+    "intended_label": "neutral",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "factual",
+      "negation"
+    ],
+    "region": "otros",
+    "text": "El ferry transporta pasajeros y bicicletas. No lleva automóviles. El billete que compré corresponde al cruce de las siete y media y muestra el número de muelle."
+  },
+  {
+    "family": "hotel_llaves",
+    "human_gold": false,
+    "id": "P027",
+    "intended_label": "neutral",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "factual"
+    ],
+    "region": "Perú",
+    "text": "Al registrarme recibí una tarjeta y una hoja con el horario del desayuno. El cuarto está en el tercer piso y la devolución de la tarjeta se hace en recepción."
+  },
+  {
+    "family": "restaurante_menu",
+    "human_gold": false,
+    "id": "P028",
+    "intended_label": "neutral",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "factual",
+      "contrast"
+    ],
+    "region": "España",
+    "text": "En la carta del mediodía hay dos sopas y cuatro platos principales. Por la noche, en cambio, se usa otra carta. Mi mesa quedó registrada con el número doce."
+  },
+  {
+    "family": "playa_mareas",
+    "human_gold": false,
+    "id": "P029",
+    "intended_label": "neutral",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "factual"
+    ],
+    "region": "Colombia",
+    "text": "El acceso que usé está junto al puesto de información. El tablero señala las horas de la marea y un sendero conecta esa entrada con el estacionamiento."
+  },
+  {
+    "family": "museo_salas",
+    "human_gold": false,
+    "id": "P030",
+    "intended_label": "neutral",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "factual",
+      "negation"
+    ],
+    "region": "México",
+    "text": "La exposición temporal ocupa las salas A y B. No pasé por la colección permanente; seguí las flechas hacia el patio y salí por la tienda."
+  },
+  {
+    "family": "tour_secuencia",
+    "human_gold": false,
+    "id": "P031",
+    "intended_label": "neutral",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "factual"
+    ],
+    "region": "otros",
+    "text": "El grupo se reunió frente al reloj de la plaza. Caminamos al mercado, cruzamos el puente y el guía terminó la explicación al lado de la estación."
+  },
+  {
+    "family": "transporte_colombia",
+    "human_gold": false,
+    "id": "P032",
+    "intended_label": "neutral",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "factual",
+      "regionalism"
+    ],
+    "region": "Colombia",
+    "text": "La buseta que tomé llevaba el letrero del centro. Pagué al subir, recorrimos la avenida y me bajé en la parada que figura detrás del hospital."
+  },
+  {
+    "family": "reserva_documentos",
+    "human_gold": false,
+    "id": "P033",
+    "intended_label": "neutral",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "factual"
+    ],
+    "region": "España",
+    "text": "Para retirar la reserva mostré el código de la aplicación y mi documento. Me entregaron tres entradas; cada una tiene impreso un horario distinto."
+  },
+  {
+    "family": "taxi_fila",
+    "human_gold": false,
+    "id": "P034",
+    "intended_label": "neutral",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "factual",
+      "negation"
+    ],
+    "region": "Perú",
+    "text": "Los taxis de esa zona esperan después del segundo cruce. No tomé el primero de la fila porque seguía buscando mi dirección en el teléfono; subí al siguiente."
+  },
+  {
+    "family": "acceso_medidas",
+    "human_gold": false,
+    "id": "P035",
+    "intended_label": "neutral",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "factual"
+    ],
+    "region": "otros",
+    "text": "La ficha del alojamiento indica un ascensor de ochenta centímetros de ancho. La entrada lateral tiene una rampa y la puerta principal se abre hacia adentro."
+  },
+  {
+    "family": "excursion_inventario",
+    "human_gold": false,
+    "id": "P036",
+    "intended_label": "neutral",
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "factual",
+      "typo"
+    ],
+    "region": "Perú",
+    "text": "Para la excursión nos dieron un casco y una bolsa. El guía apunto los nombres en una libreta y contó las linternas antes de repartirlas. Yo llevaba agua en mi mochila."
+  },
+  {
+    "expected_human_review": true,
+    "family": "habitacion_compensacion",
+    "human_gold": false,
+    "id": "U001",
+    "intended_label": null,
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "mixed"
+    ],
+    "region": "unspecified",
+    "text": "El cuarto es silencioso y queda lejos de todo. Dormí sin interrupciones, pero cada salida implicó otro taxi; todavía no sé qué pesa más para mí."
+  },
+  {
+    "expected_human_review": true,
+    "family": "menu_indefinido",
+    "human_gold": false,
+    "id": "U002",
+    "intended_label": null,
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "mixed"
+    ],
+    "region": "unspecified",
+    "text": "Me gustó la salsa y dejé casi todo el plato. No sabría explicar si era lo que había pedido o simplemente no tenía hambre."
+  },
+  {
+    "expected_human_review": true,
+    "family": "taxi_tono",
+    "human_gold": false,
+    "id": "U003",
+    "intended_label": null,
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "irony"
+    ],
+    "region": "unspecified",
+    "text": "El conductor me dijo «qué buen viaje» al bajar. Yo contesté «sí, buenísimo». Sin oír el tono, esa conversación admite más de una lectura."
+  },
+  {
+    "expected_human_review": true,
+    "family": "tour_suficiente",
+    "human_gold": false,
+    "id": "U004",
+    "intended_label": null,
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "regionalism"
+    ],
+    "region": "unspecified",
+    "text": "Estuvo normalito, pues. Para lo que buscaba quizá alcanza, aunque si me preguntan si volvería no tengo respuesta todavía."
+  },
+  {
+    "expected_human_review": true,
+    "family": "museo_visita_incompleta",
+    "human_gold": false,
+    "id": "U005",
+    "intended_label": null,
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "underspecified"
+    ],
+    "region": "unspecified",
+    "text": "Vi una sola sala y me fui antes de la actividad principal. No sé cómo resultó para los demás y prefiero no ponerle una valoración general."
+  },
+  {
+    "expected_human_review": true,
+    "family": "aeropuerto_impresion",
+    "human_gold": false,
+    "id": "U006",
+    "intended_label": null,
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "mixed"
+    ],
+    "region": "unspecified",
+    "text": "No perdí el vuelo y eso era lo que necesitaba. Todo lo demás lo recuerdo como una mezcla de apuros y alivio, sin una impresión final clara."
+  },
+  {
+    "expected_human_review": true,
+    "family": "playa_duda",
+    "human_gold": false,
+    "id": "U007",
+    "intended_label": null,
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "underspecified"
+    ],
+    "region": "unspecified",
+    "text": "Regresé de esa playa sin decidir si me había gustado. Lo que para mi familia fue tranquilidad, para mí por momentos se sintió como aislamiento."
+  },
+  {
+    "expected_human_review": true,
+    "family": "reserva_terceros",
+    "human_gold": false,
+    "id": "U008",
+    "intended_label": null,
+    "origin": "original_synthetic_assistant_2026-11-13",
+    "phenomena": [
+      "reported_speech"
+    ],
+    "region": "unspecified",
+    "text": "Mi acompañante dijo que la reserva fue un acierto; otra persona del grupo opinó lo contrario. Yo no participé en la gestión y no tengo una opinión propia."
+  }
+]

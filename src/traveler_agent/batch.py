@@ -35,16 +35,27 @@ def parse_review_csv(content: bytes, *, text_col: str = "reseña") -> list[str]:
         text = content.decode("utf-8-sig")
     except UnicodeDecodeError as exc:
         raise ValueError("El CSV debe estar codificado en UTF-8.") from exc
-    reader = csv.DictReader(io.StringIO(text, newline=""))
-    if reader.fieldnames is None or text_col not in reader.fieldnames:
-        raise ValueError(f"Falta la columna obligatoria '{text_col}'.")
     rows = []
-    for row in reader:
-        value = (row.get(text_col) or "").strip()
-        if value:
-            rows.append(value)
-        if len(rows) > MAX_ROWS:
-            raise ValueError(f"Límite de {MAX_ROWS} reseñas por lote.")
+    try:
+        reader = csv.DictReader(io.StringIO(text, newline=""), strict=True)
+        fields = reader.fieldnames
+        if fields is None or text_col not in fields:
+            raise ValueError(f"Falta la columna obligatoria '{text_col}'.")
+        if len(fields) != len(set(fields)):
+            raise ValueError("El CSV contiene encabezados duplicados.")
+        for row in reader:
+            # Reject the entire input before any classifier is called. DictReader
+            # otherwise silently stores extra columns under None, or fills absent
+            # columns with None; duplicate headers silently overwrite text.
+            if None in row or any(value is None for value in row.values()):
+                raise ValueError("El CSV contiene filas con un número de columnas inconsistente.")
+            value = (row.get(text_col) or "").strip()
+            if value:
+                rows.append(value)
+            if len(rows) > MAX_ROWS:
+                raise ValueError(f"Límite de {MAX_ROWS} reseñas por lote.")
+    except csv.Error as exc:
+        raise ValueError("El CSV contiene comillas o estructura inválidas.") from exc
     if not rows:
         raise ValueError("El CSV no contiene reseñas válidas.")
     if any(len(text) > MAX_TEXT_LENGTH for text in rows):

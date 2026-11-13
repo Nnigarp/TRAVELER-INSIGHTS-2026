@@ -1,0 +1,56 @@
+{
+  "ambiguity_only": 8,
+  "authorship_limit": "One assistant author knows prior limitations; newly written distinct cases, not blinded human gold or population-independent sampling.",
+  "budget": {
+    "ci": "regression and functional HTTP on Linux/Windows, no checkpoint downloads or expensive research retraining",
+    "fixed_beto_rebuild_max_wall_seconds": 900,
+    "new_predictive_cpu_seconds_target": 180,
+    "no_5000_generation": true,
+    "no_search": true
+  },
+  "comparison_limit": "Available app configurations differ in training source/size. This is acceptance of deployed demo options, not a controlled causal architecture comparison.",
+  "date": "2026-11-13",
+  "functional_gates": [
+    "valid text has ten ordered events and four specialist OK events plus orchestrator",
+    "no input text or private paths duplicated in metadata trace",
+    "human-review reasons mathematically match unchanged .56 / contrast .80 rules within rounding",
+    "no external actions",
+    "empty/null/whitespace and >5000 characters rejected with no prediction",
+    "5000 characters accepted; BETO token truncation measured and documented, not accuracy-tested",
+    "batch preserves order and count including duplicate reviews; max200 rows",
+    "UTF8 BOM, quoted commas/newlines accepted; duplicate headers, ragged rows, invalid UTF8, unclosed quotes rejected before inference",
+    "correction preserves prediction and original text, adds human label without training",
+    "JSON/CSV row/model provenance roundtrip; formula-like cells escaped",
+    "BETO-required routes fail acceptance if effective model is LR or fallback true",
+    "separate real malformed-artifact scenario executes LR and explicitly discloses fallback in text/batch/CSV/audio",
+    "Gradio HTTP frontend/config, text, batch lines, CSV upload, session correction and actual downloadable exports",
+    "ASR readiness metadata and deterministic stub are separate from pending real Windows microphone test"
+  ],
+  "functional_retesting_after_root_cause_fixes_allowed": true,
+  "functional_texts": 13,
+  "human_gold": false,
+  "main_verified": "4df0cebc44ff4130bcba3cd17f12835049ed9953",
+  "metrics": [
+    "macro_f1",
+    "precision_recall_f1_by_class",
+    "confusion_matrix",
+    "negative_recall",
+    "negative_to_positive",
+    "automatic_negative_to_positive",
+    "negation_contrast_slices",
+    "ambiguity_referral_descriptive",
+    "latency"
+  ],
+  "predictive_labeled": 36,
+  "predictive_policy": "First completed primary run is frozen; repeated CI is software verification, never a fresh untouched test. Incomplete failures remain recorded. No changing labels after seeing predictions.",
+  "preexecution_commit_required": true,
+  "schema": "academic-acceptance-v1",
+  "selection_on_these_cases_forbidden": true,
+  "sources": {
+    "beto": "V3 selected configuration, seed42; fixed TRAIN-only reconstruction allowed once if trained weights unavailable",
+    "lr": "DEMO source and runtime artifact, no hyperparameter selection",
+    "svm": "DEMO source, fixed shipped recipe"
+  },
+  "synthetic_only": true,
+  "threshold_changes_forbidden": true
+}

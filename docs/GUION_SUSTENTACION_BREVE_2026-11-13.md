@@ -1,0 +1,16 @@
+# Guion breve para la sustentación
+
+**Mensaje inicial:** «Traveler Insights es un prototipo académico local de clasificación de reseñas. Integra ML clásico, un Transformer supervisado experimental y revisión humana trazable. Los datos de entrenamiento y pruebas aquí son sintéticos».
+
+1. **Abrir con LR por defecto.** Introducir: «Nos recibieron con el equipaje protegido de la lluvia y pudimos descansar enseguida». Mostrar etiqueta, scores no calibrados y JSON. Se espera una salida válida y trazada; no prometer una clase infalible.
+2. **Explicar los cinco componentes.** Orquestador: plan y contratos; Perception: validación; Semantics: inferencia y reglas exploratorias; Control: revisión; Action: recomendación sin acciones externas. Mostrar diez eventos: cuatro delegaciones, cuatro respuestas de especialistas, plan y cierre. Autonomía limitada, plan fijo y aprendizaje offline.
+3. **Cambiar SVM/BETO expresamente.** Comprobar `modelo_utilizado`, `fallback=false` y versión. LR/SVM usan DEMO36; BETO V3 usa TRAIN300. Un respaldo LR no acredita BETO. TF-IDF aprende pesos de palabras/caracteres; BETO contextualiza WordPiece y usa una cabeza supervisada con encoder ajustado.
+4. **Mostrar una limitación real.** P002: «Antes de pedir expliqué mi alergia y la camarera la anotó. El plato llegó con el ingrediente que había pedido evitar. Que el mantel estuviera impecable no compensa ese descuido». BETO observado: positivo, score 0,7195, sin revisión. La intención sintética registrada era negativa. La regla actual reconoce ciertos contrastes explícitos, no este cierre implícito. El score no equivale a 71,95% de acierto.
+5. **Demostrar control humano.** Pasar ese texto al lote, corregir a negativo y exportar. Conservar predicción original y etiqueta corregida por separado. No hay reentrenamiento ni acciones externas. Las correcciones de las pruebas automáticas son simuladas, no gold humano.
+6. **Comprobar robustez funcional.** Vacío y 5.001 caracteres: error de validación. CSV con encabezados duplicados: rechazo sin inferencia. CSV válido: `reseña` UTF8, comas/saltos citados, conteo y orden preservados. Exportación protege celdas de fórmula.
+
+Resultados nuevos registrados antes de ejecutar: 36 intenciones sintéticas y 8 ambiguos. Macro-F1: LR 0,4056; SVM 0,3702; BETO 0,9722. BETO tuvo 1/12 negativos→positivos, aceptado sin revisión, y 0/8 ambiguos derivados. Los clásicos derivaron 33/36: tampoco constituye una solución operativa satisfactoria. Son opciones con entrenamiento distinto, no un experimento causal de arquitectura ni validación humana. Estos casos ya están observados.
+
+**Antes de usar voz:** completar personalmente el ensayo Windows de la [guía ejecutable](SUSTENTACION_Y_ACEPTACION_2026-11-13.md). Paquetes y decoder verificados no prueban micrófono ni Whisper real. Revisar la negación, editar y comprobar procedencia/modelo efectivo. Si ese ensayo no se completó, declarar voz pendiente.
+
+**Limitaciones para explicar:** corpus pequeño y artificial; revisión no validada para automatizar BETO; ventanas de 256 tokens pueden recortar reseñas largas; aspectos y fragmentos son heurísticos, no explicaciones causales. LR sigue por defecto y BETO opcional. [Matrices, métricas por clase y todos los errores](ANALISIS_ACEPTACION_2026-11-13.md).

@@ -1,0 +1,7 @@
+{
+  "source": "actual full pytest output after the Windows CSV root fix",
+  "passed": 455,
+  "known_xfail": 1,
+  "log_sha256": "585ee326bc63dadf3814c73c522dbd27c94d90c9049b257ccbe1e281caf3997a",
+  "wall_seconds": 46.39
+}

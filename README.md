@@ -133,3 +133,8 @@ Para **PILOTO-01 con aportaciones originales**, usar el [flujo privado de recogi
 ## Benchmark reproducible del corpus adjudicado (PR encadenado)
 
 En el PR #8 (rama feat/corpus-benchmark) se desarrolla infraestructura para comparar DummyClassifier, LR y SVM con el mismo train/validation/test del corpus académico. Comprueba permisos registrados, hashes y ausencia de grupos y textos exactos compartidos antes de entrenar. La selección de hiperparámetros sólo usa validation; SVM calibra dentro de folds separados por grupos de train. Produce informes, modelos y manifiestos privados. **No hay resultados científicos de reseñas reales**; tests usan datos sintéticos. Manual: docs/INCREMENTO_09_BENCHMARK.md.
+
+
+## Aceptación académica y sustentación
+
+La [guía breve](docs/GUION_SUSTENTACION_BREVE_2026-11-13.md), la [preparación Windows y micrófono](docs/SUSTENTACION_Y_ACEPTACION_2026-11-13.md) y el [análisis de respuestas congeladas](docs/ANALISIS_ACEPTACION_2026-11-13.md) separan contratos funcionales de medición predictiva sintética. Incluyen errores observados y límites de revisión humana; LR conserva el valor inicial y BETO V3 continúa opcional.

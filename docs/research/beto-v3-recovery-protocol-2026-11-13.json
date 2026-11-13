@@ -1,0 +1,29 @@
+{
+  "assessment_already_observed": true,
+  "assessment_scope": "REPRODUCTION_OF_OBSERVED_SYNTHETIC_PILOT_NOT_A_FRESH_TEST",
+  "calibration_policy": "Rerun only the original fixed temperature/policy grids on original calibration/policy roles. Never use final outcomes to change the grid or decisions.",
+  "fixed_construction": [
+    "Dummy/LR/SVM single archived C, TRAIN only; discarded TRAIN score, no tune selection.",
+    "Frozen128/256 heads replay archived epochs on TRAIN; V1 head30 dropout0; V2 head80 + one of four scheduled top2/128 epochs.",
+    "Primary full256 head80 plus one encoder epoch, seed42; fixed replicas7/101 through the original bounded assessment runner."
+  ],
+  "fixed_selection_decisions_sha256": "8746dce215d176a13bddd455690b808807f509727dbc3e7457c6156d8032b8ea",
+  "main_verified": "1628df6fe9a1c9ee68ab34096444177ba4c4a580",
+  "max_assessment_and_replica_seconds": 900,
+  "max_preparation_seconds": 900,
+  "maximum_total_seconds": 1800,
+  "new_hyperparameter_or_epoch_selection": false,
+  "original_data_commit": "07935b6dc5eee6d62d2f62c6d67ce47b21cc58b9",
+  "original_selection_commit": "a6675d08fa9645725107f059443ddc0ed15d125f",
+  "raw_original_results_available": false,
+  "records_sha256": "1ca1521e303325bb314eb6d8c2d8e8b42e1510ac5352a541ab119bd403c16f9d",
+  "reporting_rules": [
+    "Preserve old reported aggregates separately, without inventing missing probabilities or original files.",
+    "Keep original a6675d0 selection bytes unchanged; rebind fresh artifacts only and verify semantic decisions against that commit.",
+    "Publish newly measured predictions/report as observed reproduction, with raw-reference provenance before CI software comparisons.",
+    "Report mismatches with prior aggregates; do not adjust models, epochs, thresholds, or tolerances to recover a desired score.",
+    "Original development cost remains archived provenance, not time spent in this reconstruction.",
+    "Keep all observation markers; no develop/tuning call on this corpus; no app/default/historical experiment changes."
+  ],
+  "version": "beto-v3-observed-reproduction-2026-11-13"
+}

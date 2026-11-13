@@ -2,6 +2,9 @@
 
 Investigación del **10 de noviembre de 2026**. Se construyó un primer corpus operativo de **564 borradores sintéticos**, antes de comprometer la generación y el entrenamiento de 5.000. Dos casos ambiguos se excluyeron tras adjudicación: quedan **562 muestras admitidas**, de las cuales 540 tienen sentimiento previsto y 22 solo expectativa de revisión. No hay turistas reales, anotación humana ni métricas humanas en esta fase.
 
+
+Actualización operativa del **13 de noviembre de 2026**: PR #26 ya está fusionado; main verificado `1628df6fe9a1c9ee68ab34096444177ba4c4a580`. PR #27 se ha reorientado a main. El entorno recuperado no conserva los archivos raw de la primera evaluación que Work informó; sí conserva en Git el corpus, protocolo y selección previa. Los [agregados informados](research/beto-v3-prior-reported-aggregates.json) se preservan sin inventar probabilidades. El [protocolo de reconstrucción](research/beto-v3-recovery-protocol-2026-11-13.json) fija las recetas y el presupuesto antes de volver a ejecutarlas. Las próximas mediciones son **reproducción de una cohorte ya observada**, no un test nuevo ni recuperación byte a byte de los archivos perdidos.
+
 ## Estado de GitHub y aislamiento
 
 Se verificó `main@9e3f0d8d9c1591921a7103952dbe83de234be906`: #23 y #24 están fusionados en main. #25 se fusionó en la antigua rama del #24, no en main; #26 propone incorporar ese resultado y seguía abierto al iniciar este incremento. V3 se prepara en `feat/beto-v3-quality-pilot-20261110`, dependiente de #26, sin duplicar sus cambios ni fusionar PRs.

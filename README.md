@@ -123,6 +123,13 @@ Comenzar en la rama feat/tourism-corpus-foundation:
 
 La validación exigirá primero registrar una fuente autorizada y al menos una reseña; ver docs/CORPUS_TURISTICO_2026.md. La CLI permite contribuir, anotar, adjudicar y dividir train/validation/test; sin descargar nada ni publicar textos.
 
+Para **PILOTO-01 con aportaciones originales**, usar el [flujo privado de recogida y anotación ciega](docs/PILOTO01_RECOGIDA_HUMANA_Y_ANOTACION_CIEGA_2026-11-07.md). Reutiliza el gestor y añade formulario offline, consentimiento versionado, dos paquetes de anotación separados, tercera adjudicación y agrupación por autor/lugar/textos relacionados. No hay aún reseñas humanas admitidas ni resultados predictivos humanos.
+
+~~~powershell
+.\.venv\Scripts\python.exe -m traveler_agent.human_intake_cli init
+.\.venv\Scripts\python.exe -m traveler_agent.human_intake_cli participant-form --out data/private/delivery/participant-001.html
+~~~
+
 ## Benchmark reproducible del corpus adjudicado (PR encadenado)
 
 En el PR #8 (rama feat/corpus-benchmark) se desarrolla infraestructura para comparar DummyClassifier, LR y SVM con el mismo train/validation/test del corpus académico. Comprueba permisos registrados, hashes y ausencia de grupos y textos exactos compartidos antes de entrenar. La selección de hiperparámetros sólo usa validation; SVM calibra dentro de folds separados por grupos de train. Produce informes, modelos y manifiestos privados. **No hay resultados científicos de reseñas reales**; tests usan datos sintéticos. Manual: docs/INCREMENTO_09_BENCHMARK.md.

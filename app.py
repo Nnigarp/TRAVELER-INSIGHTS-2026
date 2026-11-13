@@ -19,6 +19,7 @@ from traveler_agent.batch import (
 from traveler_agent.demo_data import DEMO
 from traveler_agent.model import MODEL_KINDS, load_model, save_model, train
 from traveler_agent.model_runtime import configured_artifact, run_selected
+from traveler_agent.beto_distribution import artifact_available
 
 MODEL_PATH = Path("artifacts/demo_model.joblib")
 if not MODEL_PATH.exists():
@@ -247,6 +248,7 @@ def reset_audio_trace():
 # Gradio 6 accepts launch-time theme/css; 4–5 attach them to Blocks.
 _GRADIO_MAJOR = int(gr.__version__.split(".")[0])
 _BLOCKS_THEME = {"theme": THEME, "css": UI_CSS} if _GRADIO_MAJOR < 6 else {}
+_BETO_AVAILABLE = artifact_available(configured_artifact())
 with gr.Blocks(title="Traveler Insights 2026 | Demo académico", **_BLOCKS_THEME) as app:
     with gr.Group(elem_classes=["ti-hero"]):
         gr.Markdown(
@@ -258,10 +260,10 @@ with gr.Blocks(title="Traveler Insights 2026 | Demo académico", **_BLOCKS_THEME
             "sin métricas científicas ni probabilidades externamente calibradas."
         )
     _MODEL_CHOICES = [("TF-IDF + regresión logística", "lr"), ("TF-IDF + SVM lineal", "svm")]
-    if configured_artifact(): _MODEL_CHOICES.append(("BETO supervisado (experimental sintético)", "beto"))
+    if _BETO_AVAILABLE: _MODEL_CHOICES.append(("BETO supervisado (experimental sintético)", "beto"))
     model_choice = gr.Dropdown(label="Modelo de demostración", choices=_MODEL_CHOICES, value="lr")
     gr.Markdown("Los modelos clásicos se entrenan con ejemplos **ficticios**. La selección no demuestra rendimiento ni calibración externa.")
-    if configured_artifact():
+    if _BETO_AVAILABLE:
         gr.Markdown("BETO es un clasificador supervisado **experimental sintético**. "
                     "Su selección es opcional; LR permanece como valor inicial y respaldo explícito.")
     with gr.Tab("Reseña individual"):

@@ -1,0 +1,70 @@
+{
+  "archive_bytes": 407210123,
+  "archive_name": "beto-v3-pr28-seed42-overlay-v1.zip",
+  "archive_sha256": "4b676117b204a84fb23bec8706268d887bdaffe9aa298c7dcac63b8d1eb56769",
+  "checkpoint_revision": "c4d86612f51b4f46759c8390d1798c2febe71b93",
+  "files": {
+    "adaptation.safetensors": {
+      "bytes": 437063304,
+      "sha256": "276348048d5926a4a84a835437db1248531e082fbb8d131ac575dccc970f7ae4"
+    },
+    "checkpoint/README.md": {
+      "bytes": 5927,
+      "sha256": "faaa2bc652dd73f77ef9e3b9bda5effc1d860f633483fbf25f2d6a5fa1ab4729"
+    },
+    "checkpoint/config.json": {
+      "bytes": 648,
+      "sha256": "3694a761b0ba882c24baab95df01cf7e7e1424797af557272e944ec2452f9f31"
+    },
+    "checkpoint/special_tokens_map.json": {
+      "bytes": 134,
+      "sha256": "bd6ed009009f8264d0ef87d5b50798cb57c5219a0bbb7c8973372855241aa05f"
+    },
+    "checkpoint/tokenizer.json": {
+      "bytes": 480199,
+      "sha256": "ea7a58026720ba45a8a401d9f86bbe8337f2725d3b02d3a1011305c46cbbd9cd"
+    },
+    "checkpoint/tokenizer_config.json": {
+      "bytes": 364,
+      "sha256": "2f5cde6bbb9959fccd280e9e9c08d41d05e96743fac1a3b5b67e0e5691ae7d10"
+    },
+    "checkpoint/verified_checkpoint.json": {
+      "bytes": 1086,
+      "sha256": "0c3abb52f014fe4f8e6a7eaba63e032d808009eca9f059d4e661dad3bfbad4e9"
+    },
+    "checkpoint/vocab.txt": {
+      "bytes": 241796,
+      "sha256": "b8f1c939e21273bd19cd885d0b6d7eb11244240ef81f62e30dcf84b4c970ce36"
+    },
+    "head.npz": {
+      "bytes": 9734,
+      "sha256": "2d045c47d1128773c919c41a3f06d1fbd22b0187af5ab4c62663c060b864ba5f"
+    },
+    "model_manifest.json": {
+      "bytes": 2312,
+      "sha256": "c66453d041090bf6d10a9af10fdfbb8ab2d53b70a18f44e4439921a28914a7b7"
+    }
+  },
+  "notice": "Upstream model README and its license/corpus caveat are retained in checkpoint/README.md.",
+  "recipe_changed": false,
+  "required_base": {
+    "bytes": 439621341,
+    "sha256": "e131a95091c777bbd45250fb647fec415010cb8cd1ad6e1d59babeb82a0be360"
+  },
+  "schema": "traveler-beto-overlay-v1",
+  "source_model_manifest_sha256": "c66453d041090bf6d10a9af10fdfbb8ab2d53b70a18f44e4439921a28914a7b7",
+  "training": {
+    "data_registration_commit": "07935b6dc5eee6d62d2f62c6d67ce47b21cc58b9",
+    "encoder_epoch": 1,
+    "experiment": "BETO_V3_QUALITY_PILOT",
+    "head_epoch": 80,
+    "label_origin": "AI_AUTHOR_INTENT_WITH_BLIND_AI_REVIEW_NOT_HUMAN_GOLD",
+    "mode": "V3_FIXED_REPLAY",
+    "protocol_registration_commit": "e4c52c18c146355ab955debc1255e680af8df2a4",
+    "records_sha256": "1ca1521e303325bb314eb6d8c2d8e8b42e1510ac5352a541ab119bd403c16f9d",
+    "seed": 42,
+    "supervised": true
+  },
+  "version": "beto-v3-pr28-seed42-overlay-v1",
+  "weights_quantized_or_retrained": false
+}

@@ -138,3 +138,8 @@ En el PR #8 (rama feat/corpus-benchmark) se desarrolla infraestructura para comp
 ## Aceptación académica y sustentación
 
 La [guía breve](docs/GUION_SUSTENTACION_BREVE_2026-11-13.md), la [preparación Windows y micrófono](docs/SUSTENTACION_Y_ACEPTACION_2026-11-13.md) y el [análisis de respuestas congeladas](docs/ANALISIS_ACEPTACION_2026-11-13.md) separan contratos funcionales de medición predictiva sintética. Incluyen errores observados y límites de revisión humana; LR conserva el valor inicial y BETO V3 continúa opcional.
+
+
+## BETO V3 local sin repetir entrenamiento
+
+[Instalación Windows del artefacto recuperado y comprobación de ejecución real](docs/ACTIVAR_BETO_V3_WINDOWS_SIN_ENTRENAR_2026-11-13.md). El paquete externo conserva los pesos ajustados verificados del PR28, reutiliza la caché base y mantiene LR como valor inicial. No contiene una nueva receta ni una nueva evaluación predictiva.

@@ -135,7 +135,8 @@ def export_csv(records: list[dict]) -> str:
                    "qwen_latencia_ms", "qwen_resumen", "qwen_problema_identificado",
                    "qwen_recomendacion", "qwen_accion_propuesta", "qwen_acciones_ejecutadas",
                    "qwen_sentimiento_analizado", "qwen_aspectos_identificados", "qwen_requiere_revision_humana",
-                   "qwen_advertencias", "qwen_protocolo", "qwen_esquema_sha256", "qwen_vigencia"]
+                   "qwen_advertencias", "qwen_protocolo", "qwen_esquema_sha256", "qwen_vigencia",
+                   "qwen_evidencia_textual", "qwen_validacion_contenido"]
     writer = csv.DictWriter(buffer, fieldnames=fields, extrasaction="ignore", lineterminator="\n")
     writer.writeheader()
     for record in records:
@@ -151,9 +152,11 @@ def export_csv(records: list[dict]) -> str:
         values.update({"qwen_" + key: report.get(key) for key in (
             "resumen", "problema_identificado", "recomendacion", "accion_propuesta",
             "sentimiento_analizado", "aspectos_identificados", "requiere_revision_humana", "advertencias")})
+        values["qwen_evidencia_textual"] = report.get("evidencia_textual")
+        values["qwen_validacion_contenido"] = generation.get("validacion_contenido")
         values["qwen_vigencia"] = ("ANTERIOR_A_CORRECCION_HUMANA" if record.get("etiqueta_corregida_humano") is not None
                                    else "ANALISIS_ORIGINAL")
-        for key in ("qwen_aspectos_identificados", "qwen_advertencias"):
+        for key in ("qwen_aspectos_identificados", "qwen_advertencias", "qwen_evidencia_textual", "qwen_validacion_contenido"):
             values[key] = json.dumps(values[key], ensure_ascii=False)
         values["qwen_acciones_ejecutadas"] = generation.get("acciones_externas_ejecutadas")
         writer.writerow({key: _safe_csv_value(values.get(key)) for key in fields})

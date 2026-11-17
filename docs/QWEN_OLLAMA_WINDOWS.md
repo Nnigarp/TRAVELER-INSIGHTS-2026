@@ -10,7 +10,7 @@ Cerrar Gradio antes de actualizar. Desde la raíz del repositorio:
 
 ```powershell
 git fetch origin
-git switch feat/qwen-ollama-tourism-report-20261117
+git switch feat/qwen-report-quality-readme-20261117
 git pull --ff-only
 .\.venv-research\Scripts\Activate.ps1
 $env:PYTHONPATH = (Resolve-Path '.\src').Path
@@ -62,7 +62,7 @@ Comprobar en JSON:
 - `generacion_qwen.generacion_llm = true`, `estado = GENERADO`,
   `modelo_ejecutado = qwen3:1.7b`, `validado_por = ActionAgent`.
 - El sentimiento, aspectos y revisión del informe coinciden con los originales.
-  La cita del problema incluye el transporte; ninguna propuesta atribuye el
+  La evidencia literal incluye el transporte y está separada del resumen y del problema. Ninguna propuesta atribuye el
   transporte al hotel ni afirma una acción externa ejecutada.
 - `multiagente.traza` conserva diez eventos. `traza_generacion` registra tres
   eventos independientes: solicitud tras Control, respuesta y validación de Acción.
@@ -106,9 +106,12 @@ Desmarcar no detiene el modelo ya cargado en Ollama. Opcionalmente,
 
 ## 5. Contrato, límites y errores explícitos
 
-Generación restringida: Qwen compone JSON eligiendo citas completas y propuestas
-de un catálogo versionado. Resumen/problema **no son paráfrasis libres**; el problema
-puede quedar vacío. El catálogo no promete pagos ni identifica culpables. Una
+Generación restringida v2: Qwen selecciona síntesis y descripciones permitidas por
+un contrato acotado de cláusulas completas, con `evidencia_textual` literal separada.
+Las propuestas se ajustan al incidente reconocido. `validacion_contenido` registra
+paráfrasis controlada o cita conservadora. Resumen/problema **no son paráfrasis libres**;
+ante sintaxis no reconocida el problema puede quedar indeterminado. No se prometen
+pagos ni se identifican culpables. Una
 expresión regular no puede certificar la veracidad de prosa arbitraria. El modelo
 aún puede elegir una cita poco pertinente; la validación estructural no reemplaza
 la revisión semántica humana.
@@ -153,5 +156,21 @@ Fuentes primarias HTTP: [chat](https://docs.ollama.com/api/chat),
 Las pruebas utilizan HTTP Ollama **simulado**, LR/SVM reales de la DEMO y una
 interfaz BETO inyectada para comprobar aislamiento y ausencia de fallback. Sesiones,
 cola, CSV y descargas Gradio se ejercitan por HTTP real. No acreditan Qwen, pesos
-BETO ni voz física en CI. La nueva aceptación Ollama/Qwen + Gradio en Windows
-sigue pendiente hasta ejecutar los pasos 2–4. Ver [guion académico](QWEN_DEMOSTRACION_2026-11-17.md).
+BETO ni voz física en CI. El usuario confirmó PR #30 con BETO + Qwen, LR + Qwen y
+audio en Windows. La revisión v2 de síntesis/tarjeta se debe aceptar nuevamente
+con los pasos 2–4. Para inspeccionar doce casos variados sin ejecutar modelos:
+
+```powershell
+python scripts/check_qwen_report_quality.py --output artifacts/qwen-v2-contracts-01.json
+```
+
+Con Gradio abierto, la batería real reutiliza sus modelos cargados. Desde otra
+terminal con el mismo entorno y variables:
+
+```powershell
+python scripts/check_qwen_report_quality.py --actual --classifier beto --gradio-url http://127.0.0.1:7860 --output artifacts/qwen-v2-quality-01.json
+```
+
+Sin `--actual` el informe declara `CONTRACT_ONLY_NO_LLM_OR_CLASSIFIER_EXECUTED`.
+Los casos conservadores y las copias de la reseña quedan visibles; superar el
+contrato no acredita calidad humana ni eliminación de alucinaciones.

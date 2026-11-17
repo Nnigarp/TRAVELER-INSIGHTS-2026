@@ -23,7 +23,7 @@ python app.py
 
 Si tu artefacto BETO tiene otro nombre, usa su carpeta instalada dentro de
 `artifacts` o `data/private`. El comando falla si BETO recurre a LR o si Qwen no
-responde con un informe validado. No acepta una respuesta fija ni simulada.
+responde con un informe validado. El comando no contiene respuestas fijas ni activa simulaciones.
 En cada repetición, usa un nombre de salida nuevo para conservar la evidencia.
 
 En Gradio (`http://127.0.0.1:7860`), selecciona **BETO supervisado** y marca

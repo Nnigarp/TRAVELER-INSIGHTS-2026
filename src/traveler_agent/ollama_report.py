@@ -233,7 +233,12 @@ def render_generation_html(record):
     if not generation:
         return ""
     def line(label, value):
-        return f"<p><strong>{label}:</strong> {escape(str(value), quote=True)}</p>"
+        safe = escape(str(value), quote=True)
+        # This card also appears in gr.Markdown. Review blank lines must not
+        # reopen Markdown image/link parsing inside the escaped HTML block.
+        safe = re.sub(r"([\\`*_{}\[\]()!#|])", lambda m: f"&#{ord(m[1])};", safe)
+        safe = safe.replace("\r\n", "\n").replace("\r", "\n").replace("\n", "<br>")
+        return f"<p><strong>{label}:</strong> {safe}</p>"
     parts = ['<section class="ti-flow-outcome"><h3>Informe Qwen · propuesta sin ejecutar</h3>',
              line("Estado de generación", generation["estado"] + " · " + generation["codigo"]),
              line("Modelo solicitado", generation["modelo_solicitado"]),

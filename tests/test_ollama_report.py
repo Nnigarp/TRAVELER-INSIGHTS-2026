@@ -161,9 +161,11 @@ def test_configuration_and_safe_html(monkeypatch):
     monkeypatch.setenv("TRAVELER_OLLAMA_TIMEOUT", "bad")
     result = OllamaReporter().generate(TEXT, "neutral", False)
     assert result["codigo"] == "CONFIGURACION_INVALIDA"
-    source = '<script>alert("x")</script> [link](https://example.com)'
+    source = '<script>alert("x")</script>\r\n\r\n![image](https://example.com)\n[link](https://example.com)'
     generation = validate_generation({"estado": "GENERADO", "codigo": "OK", "modelo_solicitado": DEFAULT_MODEL,
         "modelo_ejecutado": DEFAULT_MODEL, "latencia_ms": 0, "informe": fixture_report(source)}, source)
     html = render_generation_html({"generacion_qwen": generation})
     assert '<script>' not in html and "&lt;script&gt;" in html
     assert '<a ' not in html and '<img' not in html
+    assert "\n\n" not in html and "\r" not in html
+    assert "<br><br>&#33;&#91;image&#93;" in html

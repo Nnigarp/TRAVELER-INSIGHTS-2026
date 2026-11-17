@@ -1,0 +1,38 @@
+{
+  "config_http_status": 200,
+  "configured_models": [
+    "lr",
+    "svm",
+    "beto"
+  ],
+  "errors": [],
+  "frontend_http_status": 200,
+  "models": {
+    "beto": {
+      "executed_model": "beto",
+      "human_review": true,
+      "roundtrip_seconds": 4.894446095000603,
+      "sentiment": "positivo",
+      "trace_events": 10,
+      "violations": []
+    },
+    "lr": {
+      "executed_model": "lr",
+      "human_review": true,
+      "roundtrip_seconds": 0.33251688499967713,
+      "sentiment": "positivo",
+      "trace_events": 10,
+      "violations": []
+    },
+    "svm": {
+      "executed_model": "svm",
+      "human_review": true,
+      "roundtrip_seconds": 0.12065118700047606,
+      "sentiment": "positivo",
+      "trace_events": 10,
+      "violations": []
+    }
+  },
+  "scope": "REAL_LOCAL_HTTP_QUEUE_NOT_BROWSER_VISUAL_OR_REAL_VOICE",
+  "status": "PASSED"
+}

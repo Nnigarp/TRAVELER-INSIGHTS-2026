@@ -1,0 +1,248 @@
+{
+  "default_model": "lr",
+  "fallback": false,
+  "model_manifest_sha256": "c66453d041090bf6d10a9af10fdfbb8ab2d53b70a18f44e4439921a28914a7b7",
+  "modelo_utilizado": "beto",
+  "observed": {
+    "advertencia": "Prototipo académico: las puntuaciones no están calibradas; los aspectos se extraen mediante reglas. No inferir causalidad de los fragmentos.",
+    "aspectos_exploratorios": [
+      "acceso"
+    ],
+    "confianza_no_calibrada": 0.9986,
+    "fragmentos_literales_no_explicativos": [
+      "al final, sin embargo, nos dejaron sin transporte de regreso."
+    ],
+    "id": "",
+    "modelo_utilizado": "beto",
+    "multiagente": {
+      "acciones_externas": false,
+      "arquitectura": "jerarquica_local_v1",
+      "estado": "COMPLETADO",
+      "memoria": "episodica_solo_sesion_sin_aprendizaje_en_linea",
+      "modalidad_percibida": "texto",
+      "orquestador": "TravelerOrchestrator",
+      "plan": [
+        "percepcion",
+        "semantica",
+        "control",
+        "accion"
+      ],
+      "razones_revision": [],
+      "transcripcion_editada": false,
+      "traza": [
+        {
+          "agent": "orquestador",
+          "input_fields": [],
+          "note_code": "PLAN_FIJO_CON_GATES",
+          "output_fields": [
+            "accion",
+            "control",
+            "percepcion",
+            "semantica"
+          ],
+          "sequence": 1,
+          "status": "PLANNED",
+          "task": "plan"
+        },
+        {
+          "agent": "orquestador",
+          "input_fields": [
+            "edited_by_human",
+            "modality",
+            "review_id",
+            "text"
+          ],
+          "note_code": "HANDOFF",
+          "output_fields": [],
+          "sequence": 2,
+          "status": "DELEGATED",
+          "task": "percepcion"
+        },
+        {
+          "agent": "percepcion",
+          "input_fields": [
+            "edited_by_human",
+            "modality",
+            "review_id",
+            "text"
+          ],
+          "note_code": "VALIDATED_CONTRACT",
+          "output_fields": [
+            "edited_by_human",
+            "modality",
+            "review_id",
+            "text"
+          ],
+          "sequence": 3,
+          "status": "OK",
+          "task": "percepcion"
+        },
+        {
+          "agent": "orquestador",
+          "input_fields": [
+            "text"
+          ],
+          "note_code": "HANDOFF",
+          "output_fields": [],
+          "sequence": 4,
+          "status": "DELEGATED",
+          "task": "semantica"
+        },
+        {
+          "agent": "semantica",
+          "input_fields": [
+            "text"
+          ],
+          "note_code": "VALIDATED_CONTRACT",
+          "output_fields": [
+            "aspects",
+            "confidence_raw",
+            "contrast",
+            "evidence",
+            "linguistic_profile",
+            "scores",
+            "sentiment"
+          ],
+          "sequence": 5,
+          "status": "OK",
+          "task": "semantica"
+        },
+        {
+          "agent": "orquestador",
+          "input_fields": [
+            "semantic"
+          ],
+          "note_code": "HANDOFF",
+          "output_fields": [],
+          "sequence": 6,
+          "status": "DELEGATED",
+          "task": "control"
+        },
+        {
+          "agent": "control",
+          "input_fields": [
+            "semantic"
+          ],
+          "note_code": "VALIDATED_CONTRACT",
+          "output_fields": [
+            "decision",
+            "needs_human",
+            "reason_codes"
+          ],
+          "sequence": 7,
+          "status": "OK",
+          "task": "control"
+        },
+        {
+          "agent": "orquestador",
+          "input_fields": [
+            "control",
+            "semantic"
+          ],
+          "note_code": "HANDOFF",
+          "output_fields": [],
+          "sequence": 8,
+          "status": "DELEGATED",
+          "task": "accion"
+        },
+        {
+          "agent": "accion",
+          "input_fields": [
+            "control",
+            "semantic"
+          ],
+          "note_code": "VALIDATED_CONTRACT",
+          "output_fields": [
+            "external_actions_executed",
+            "policy_state",
+            "recommendation"
+          ],
+          "sequence": 9,
+          "status": "OK",
+          "task": "accion"
+        },
+        {
+          "agent": "orquestador",
+          "input_fields": [],
+          "note_code": "NO_EXTERNAL_ACTION",
+          "output_fields": [
+            "resultado",
+            "traza"
+          ],
+          "sequence": 10,
+          "status": "COMPLETADO",
+          "task": "cierre"
+        }
+      ]
+    },
+    "perfil_linguistico_exploratorio": {
+      "evidencias_posicionales": [
+        {
+          "aspecto": "acceso",
+          "fin": 86,
+          "inicio": 76,
+          "texto": "transporte"
+        }
+      ],
+      "idioma": {
+        "coincidencias": {
+          "en": 0,
+          "es": 2,
+          "it": 0
+        },
+        "idioma_indicativo": "es",
+        "metodo": "stopwords_heuristic_v1_no_validado",
+        "nota": "Detección exploratoria; puede fallar en textos cortos, dialectos o mezcla de idiomas."
+      },
+      "indicios_contextuales": {
+        "advertencia": "Conectores y negaciones son indicios; no confirman ironía ni polaridad mixta.",
+        "contrastes": [
+          {
+            "fin": 58,
+            "inicio": 47,
+            "texto": "sin embargo"
+          }
+        ],
+        "negaciones": [
+          {
+            "fin": 50,
+            "inicio": 47,
+            "texto": "sin"
+          },
+          {
+            "fin": 75,
+            "inicio": 72,
+            "texto": "sin"
+          }
+        ],
+        "posible_opinion_mixta": true
+      },
+      "texto_normalizado_solo_comparacion": "la explicación se entendía muy bien; al final, sin embargo, nos dejaron sin transporte de regreso."
+    },
+    "puntuaciones_modelo_no_calibradas": {
+      "negativo": 0.9986,
+      "neutral": 0.0,
+      "positivo": 0.0013
+    },
+    "recomendacion": "Revisar las condiciones de acceso y accesibilidad.",
+    "revision_humana": false,
+    "seleccion_modelo": {
+      "checkpoint_revision": "c4d86612f51b4f46759c8390d1798c2febe71b93",
+      "effective": "beto",
+      "fallback": false,
+      "human_validated": false,
+      "manifest_sha256": "c66453d041090bf6d10a9af10fdfbb8ab2d53b70a18f44e4439921a28914a7b7",
+      "requested": "beto",
+      "review_policy_validated": false,
+      "supervised_experimental": true,
+      "training_mode": "V3_FIXED_REPLAY"
+    },
+    "sentimiento": "negativo",
+    "tipo_salida": "sugerencia"
+  },
+  "scope": "ACTUAL_RECOVERED_ARTIFACT_INFERENCE_NOT_NEW_PREDICTIVE_EVALUATION",
+  "status": "PASSED",
+  "trace_events": 10,
+  "ui_beto_available": true,
+  "violations": []
+}

@@ -28,5 +28,30 @@ def test_acceptance_checker_requires_real_model_names_no_fallback():
     broken["generacion_qwen"]["modelo_ejecutado"] = "unexpected-model"
     assert "QWEN_1_7B_DID_NOT_EXECUTE" in check.check_record(broken, "lr")
     broken = copy.deepcopy(record)
-    broken["multiagente"]["traza"] = record["multiagente"]["traza"][:10]
+    broken["multiagente"]["traza_generacion"] = []
     assert "GENERATION_TRACE_INCOMPLETE" in check.check_record(broken, "lr")
+
+
+def test_local_identity_and_ram_snapshot_are_explicit(monkeypatch):
+    with simulated_ollama(from_request) as (url, _):
+        monkeypatch.setenv("TRAVELER_OLLAMA_ENDPOINT", url)
+        identity = check.ollama_identity()
+    assert identity["status"] == "VERIFIED_LOCAL_API"
+    assert identity["ollama_version"] == "SIMULATED_TEST_ONLY"
+    assert len(identity["digest"]) == 64
+    snapshot = check.resource_snapshot()
+    assert snapshot["status"] in {"MEASURED_CURRENT_SNAPSHOT", "PENDING_OPTIONAL_PSUTIL"}
+    assert "limits" in snapshot
+
+
+def test_acceptance_evidence_preserved_on_failure(tmp_path, monkeypatch):
+    monkeypatch.setenv("TRAVELER_OLLAMA_ENDPOINT", "http://127.0.0.1:1")
+    output = tmp_path / "failed-check.json"
+    assert check.main(["--classifier", "lr", "--output", str(output)]) == 1
+    import json
+    import pytest
+    evidence = json.loads(output.read_text(encoding="utf-8"))
+    assert evidence["status"] == "FAILED" and evidence["observed"]["modelo_utilizado"] == "lr"
+    assert evidence["observed"]["generacion_qwen"]["generacion_llm"] is False
+    with pytest.raises(SystemExit):
+        check.main(["--output", str(output)])

@@ -1,8 +1,12 @@
-# Activar Qwen3 1.7B en Windows
+# Qwen3 1.7B en Windows: integración opcional y aceptación
 
-Desde la raíz del repositorio, con Gradio cerrado y Ollama iniciado. Se reutilizan
-`.venv-research`, el modelo `qwen3:1.7b` ya instalado y los pesos BETO V3 existentes.
-No hay entrenamiento ni descarga de modelos en estos pasos.
+Se reutilizan Python 3.12, `.venv-research`, Ollama, `qwen3:1.7b` y el artefacto
+BETO V3 `artifacts/beto-v3-pr28-local` que el responsable ya confirmó en Windows.
+No entrenar BETO ni reconstruir los pesos para esta integración.
+
+## 1. Preparar rama y servicio local
+
+Cerrar Gradio antes de actualizar. Desde la raíz del repositorio:
 
 ```powershell
 git fetch origin
@@ -14,57 +18,140 @@ $env:TRAVELER_BETO_ARTIFACT = (Resolve-Path '.\artifacts\beto-v3-pr28-local').Pa
 $env:TRAVELER_OLLAMA_ENDPOINT = 'http://127.0.0.1:11434'
 $env:TRAVELER_OLLAMA_MODEL = 'qwen3:1.7b'
 $env:TRAVELER_OLLAMA_TIMEOUT = '120'
+ollama --version
 ollama list
 Invoke-RestMethod "$env:TRAVELER_OLLAMA_ENDPOINT/api/version"
-python scripts/check_qwen_local.py --classifier beto --output artifacts/qwen-windows-01.json
-if ($LASTEXITCODE -ne 0) { throw 'Revisar el JSON: BETO + Qwen no han superado la comprobación.' }
+```
+
+Si el servicio está desconectado, abrir Ollama desde Inicio; alternativamente,
+ejecutar `ollama serve` en otra terminal. No iniciar un segundo servidor si ya
+está activo. **Solo si falta el modelo en `ollama list`**, instalarlo una vez:
+
+```powershell
+ollama pull qwen3:1.7b
+```
+
+No se requiere una biblioteca Python de Ollama ni una API externa. Para medir
+RAM se utiliza `psutil`, incluido en el entorno de investigación; si falta, el
+comprobador lo marca pendiente. No estima RAM a partir del archivo del modelo.
+
+## 2. Comprobar aplicación y modelos sin entrenar
+
+```powershell
+python scripts/check_qwen_local.py --classifier beto --output artifacts/qwen-windows-callback-01.json
+if ($LASTEXITCODE -ne 0) { throw 'Leer el JSON: no se acreditó BETO + Qwen.' }
 python app.py
 ```
 
-Si tu artefacto BETO tiene otro nombre, usa su carpeta instalada dentro de
-`artifacts` o `data/private`. El comando falla si BETO recurre a LR o si Qwen no
-responde con un informe validado. El comando no contiene respuestas fijas ni activa simulaciones.
-En cada repetición, usa un nombre de salida nuevo para conservar la evidencia.
+La primera llamada puede cargar ambos modelos. El script no acepta `PASSED` si
+BETO cae a LR, Qwen no responde, el informe es rechazado o no se verifica
+versión/digest local de Ollama. No fuerza una clase de sentimiento. Cada
+repetición exige otro nombre de salida; no sobrescribe evidencias anteriores.
+El digest es el declarado por la API local, no una atestación remota.
 
-En Gradio (`http://127.0.0.1:7860`), selecciona **BETO supervisado** y marca
-**Activar informe local Qwen3 1.7B (Ollama)**. Introduce:
+## 3. Demostrar Gradio y guardar aceptación por HTTP
+
+En `http://127.0.0.1:7860` seleccionar **BETO supervisado** y marcar
+**Activar informe local Qwen3 1.7B (Ollama)**. Usar:
 
 > El hotel era cómodo, pero el transporte nunca llegó y perdimos la excursión.
 
-Comprueba en JSON `modelo_utilizado: beto`, `seleccion_modelo.fallback: false`,
-`generacion_qwen.estado: GENERADO`, `modelo_ejecutado: qwen3:1.7b` y
-`validado_por: ActionAgent`. El informe debe identificar el transporte y proponer
-comprobaciones sobre lo narrado. No se fija una etiqueta de sentimiento ni se
-incluye una respuesta generativa de ejemplo. El clasificador decide la etiqueta.
+Comprobar en JSON:
 
-Qwen desactivado conserva diez eventos; activado registra trece, incluidos la
-consulta después de Control, su respuesta y la validación por Acción. Los eventos
-solo contienen metadatos, no razonamientos internos. La latencia incluye la
-carga inicial del modelo. Texto, transcripción corregida y lotes utilizan el mismo
-adaptador; CSV/JSON conservan estado, modelo, latencia e informe. Las correcciones
-humanas no regeneran ni cambian el informe original.
+- `modelo_utilizado = beto`, `seleccion_modelo.effective = beto`, `fallback = false`.
+- `generacion_qwen.generacion_llm = true`, `estado = GENERADO`,
+  `modelo_ejecutado = qwen3:1.7b`, `validado_por = ActionAgent`.
+- El sentimiento, aspectos y revisión del informe coinciden con los originales.
+  La cita del problema incluye el transporte; ninguna propuesta atribuye el
+  transporte al hotel ni afirma una acción externa ejecutada.
+- `multiagente.traza` conserva diez eventos. `traza_generacion` registra tres
+  eventos independientes: solicitud tras Control, respuesta y validación de Acción.
 
-Si falla Ollama, se muestra el código del error y se conserva el análisis
-convencional. `OLLAMA_DESCONECTADO`: inicia Ollama; `MODELO_NO_DISPONIBLE`:
-comprueba `ollama list`; `TIMEOUT`: comprueba carga/memoria y vuelve a intentarlo.
-El plazo se configura con `TRAVELER_OLLAMA_TIMEOUT` (máximo 600 s), sin modificar
-presupuestos ni modelos científicos. JSON incompleto, modelo inesperado,
-descripciones no literales y propuestas rechazadas nunca se publican como informe.
-No hay reintentos ni sustitución del modelo generativo.
-
-Para verificar las pruebas sin cargar modelos:
+En una **segunda terminal**, activar el mismo entorno y establecer las mismas
+variables de Ollama. Con Gradio aún abierto:
 
 ```powershell
-python -m pytest -q tests/test_ollama_report.py tests/test_qwen_integration.py tests/test_qwen_gradio_http.py tests/test_qwen_local_check.py
+python scripts/check_qwen_local.py --classifier beto --gradio-url http://127.0.0.1:7860 --output artifacts/qwen-windows-http-01.json
+if ($LASTEXITCODE -ne 0) { throw 'Aceptación HTTP pendiente; revisar violations y observed.' }
 ```
 
-Estas pruebas simulan la API; las de Gradio usan HTTP y sesiones reales. El
-contrato BETO se prueba con una interfaz inyectada; no acredita inferencia con
-pesos reales. La aceptación con Ollama/Qwen, BETO V3 y el micrófono físicos se
-verifica en tu portátil con el comando anterior y Gradio. El resumen y el problema
-son extractivos para limitar hechos inventados; las propuestas generadas siguen
-necesitando valoración humana. No se ejecuta ninguna acción externa.
+Este modo utiliza la cola y el callback del servidor Gradio real. La primera
+prueba solo llama al callback de aplicación directamente; no confundir ambas.
+El JSON registra commit, entorno, BETO efectivo, protocolo, parámetros, hash del
+esquema, versión/digest de Ollama y latencia de generación y del recorrido.
+Registra instantáneas de RAM disponible, RSS del comprobador y procesos Ollama
+accesibles. **No son picos, memoria exclusiva por modelo ni memoria de GPU**;
+las páginas compartidas pueden contabilizarse varias veces. En modo HTTP el
+RSS del comprobador no es el del servidor Gradio. Complementar con Administrador
+de tareas y anotar arranque frío frente a modelo cargado.
 
-Contrato API utilizado: [chat](https://docs.ollama.com/api/chat),
+## 4. Audio, lote, corrección y exportación
+
+Con Qwen habilitado, grabar la misma frase usando Whisper Tiny, comprobar la
+transcripción original y corregirla antes de analizar con BETO. El informe usa
+el texto **editado**, conserva procedencia ASR y revisión de Control. La prueba
+real de esta combinación con micrófono se realiza en el portátil; el
+funcionamiento anterior de Whisper fue confirmado por el responsable.
+
+En Lotes introducir dos reseñas, analizar y exportar JSON/CSV. Se conservan estado,
+modelo, informe, latencia y `generacion_llm`. Una corrección humana conserva el
+informe original: interfaz y CSV indican que es anterior a la corrección; no cambia
+la etiqueta del modelo ni se regenera automáticamente. JSON conserva predicción
+y corrección separadas. No publicar exportaciones privadas ni notas identificables.
+
+Para volver al comportamiento anterior, **desmarcar Qwen** y analizar de nuevo:
+no se consulta Ollama ni se añade un informe generativo; LR sigue predeterminado.
+Desmarcar no detiene el modelo ya cargado en Ollama. Opcionalmente,
+`ollama stop qwen3:1.7b` libera su carga local al terminar la prueba.
+
+## 5. Contrato, límites y errores explícitos
+
+Generación restringida: Qwen compone JSON eligiendo citas completas y propuestas
+de un catálogo versionado. Resumen/problema **no son paráfrasis libres**; el problema
+puede quedar vacío. El catálogo no promete pagos ni identifica culpables. Una
+expresión regular no puede certificar la veracidad de prosa arbitraria. El modelo
+aún puede elegir una cita poco pertinente; la validación estructural no reemplaza
+la revisión semántica humana.
+
+| Control | Valor inicial / comportamiento |
+|---|---|
+| Activación | Checkbox desactivado; cero consultas al servicio |
+| Endpoint | HTTP(S) de loopback, sin credenciales, rutas, proxies ni redirecciones |
+| Modelo | `TRAVELER_OLLAMA_MODEL`, inicialmente `qwen3:1.7b` |
+| Tiempo | `TRAVELER_OLLAMA_TIMEOUT`: 120 s, máximo 600; límite de pared incluso con respuesta a goteo |
+| Entrada generativa | 1.200 caracteres; hasta ocho unidades de evidencia de 600 caracteres |
+| Clasificación | Conserva límite de 5.000 caracteres; no recorta entrada para forzar Qwen |
+| Salida | 65.536 bytes, 1.024 tokens máximos, contexto 4.096 |
+| Muestreo | Temperatura 0, semilla 42; no garantiza identidad bit a bit entre runtimes |
+| Razonamiento | `think=false`; thinking separado/bloques completos descartados, bloque sin cerrar rechazado |
+| Lote | Hasta cinco consultas secuenciales y presupuesto compartido de 120 s iniciales |
+
+Las demás filas del lote se clasifican y conservan recomendación por reglas.
+No se realizan reintentos, sustituciones generativas, descargas ni entrenamiento.
+En fallo: `generacion_llm=false`, `informe=null`, código visible y
+`alternativa=RECOMENDACION_TRADICIONAL_POR_REGLAS`. No se publica una respuesta
+rechazada como informe Qwen ni se cambia el clasificador por un fallo generativo.
+
+| Código | Acción local |
+|---|---|
+| `OLLAMA_DESCONECTADO` | Iniciar Ollama y comprobar puerto |
+| `MODELO_NO_DISPONIBLE` | Comprobar nombre con `ollama list`; un 404 indica recurso no disponible |
+| `TIMEOUT` | Comprobar carga/RAM; reintentar conscientemente o ampliar tiempo dentro del límite |
+| `CONFIGURACION_INVALIDA` | Corregir variables; no usar servidores externos |
+| `ANALISIS_ALTERADO` | Informe rechazado por intentar cambiar sentimiento/aspectos/revisión |
+| `HECHOS_NO_SUSTENTADOS` / `PROPUESTA_NO_ADMITIDA` | Informe rechazado; conservar clasificación y revisar relato |
+| `ENTRADA_GENERATIVA_EXCESIVA` / `EVIDENCIA_GENERATIVA_EXCESIVA` | Clasificación conservada; generación omitida, sin truncado oculto |
+| `LIMITE_LOTE_GENERATIVO` / `PRESUPUESTO_LOTE_AGOTADO` | Clasificación conservada; usar revisión individual si se necesita informe |
+
+Fuentes primarias HTTP: [chat](https://docs.ollama.com/api/chat),
 [JSON estructurado](https://docs.ollama.com/capabilities/structured-outputs),
-[separación de thinking](https://docs.ollama.com/capabilities/thinking).
+[thinking](https://docs.ollama.com/capabilities/thinking),
+[modelos locales](https://docs.ollama.com/api/tags).
+
+## 6. Alcance comprobado
+
+Las pruebas utilizan HTTP Ollama **simulado**, LR/SVM reales de la DEMO y una
+interfaz BETO inyectada para comprobar aislamiento y ausencia de fallback. Sesiones,
+cola, CSV y descargas Gradio se ejercitan por HTTP real. No acreditan Qwen, pesos
+BETO ni voz física en CI. La nueva aceptación Ollama/Qwen + Gradio en Windows
+sigue pendiente hasta ejecutar los pasos 2–4. Ver [guion académico](QWEN_DEMOSTRACION_2026-11-17.md).

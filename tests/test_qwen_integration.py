@@ -19,7 +19,9 @@ from test_ollama_report import TEXT, fixture_report, response_for, simulated_oll
 
 def from_request(body):
     text = json.loads(body["messages"][1]["content"])["resena_no_confiable"]
-    return response_for(fixture_report(text))
+    context = json.loads(body["messages"][1]["content"])
+    return response_for(fixture_report(text, context["sentimiento_solo_lectura"],
+                                      context["revision_humana"], context["aspectos_solo_lectura"]))
 
 
 @pytest.mark.parametrize("kind", ["lr", "svm"])
@@ -35,10 +37,13 @@ def test_real_classical_models_immutable_control_and_order(kind, fault):
             assert result[key] == baseline[key]
     assert result["multiagente"]["estado"] == baseline["multiagente"]["estado"]
     trace = result["multiagente"]["traza"]
-    assert len(trace) == 13 and [t["sequence"] for t in trace] == list(range(1, 14))
-    assert trace[6]["agent"] == "control" and trace[7]["task"] == "generacion"
-    assert trace[9]["task"] == "accion" and trace[11]["task"] == "generacion"
-    assert trace[11]["generation"]["estado"] == ("ERROR" if fault else "GENERADO")
+    assert len(trace) == 10 and [t["sequence"] for t in trace] == list(range(1, 11))
+    from traveler_agent.demo_validation import trace_violations
+    assert trace_violations(result) == []
+    generation_trace = result["multiagente"]["traza_generacion"]
+    assert len(generation_trace) == 3
+    assert [e["agent"] for e in generation_trace] == ["orquestador", "qwen", "accion"]
+    assert generation_trace[-1]["generation"]["estado"] == ("ERROR" if fault else "GENERADO")
     assert result["generacion_qwen"]["estado"] == ("ERROR" if fault else "GENERADO")
     assert TEXT not in json.dumps(trace, ensure_ascii=False)
     assert result["multiagente"]["acciones_externas"] is False
@@ -153,3 +158,58 @@ def test_unexpected_generator_failure_is_explicit_and_not_classifier_fallback(mo
     assert record["modelo_utilizado"] == "svm"
     assert record["generacion_qwen"]["codigo"] == "GENERADOR_ERROR"
     assert "PRIVATE" not in raw and "no produjo un informe validado" in summary
+
+
+def test_batch_limits_calls_and_keeps_all_classifier_results(monkeypatch):
+    from traveler_agent.ollama_report import MAX_BATCH_REQUESTS
+    with simulated_ollama(from_request) as (url, calls):
+        monkeypatch.setenv("TRAVELER_OLLAMA_ENDPOINT", url)
+        records, *_, status = app.run_batch_lines("\n".join([TEXT] * 7), "svm", True)
+    assert len(records) == 7 and len(calls) == MAX_BATCH_REQUESTS
+    assert all(r["modelo_utilizado"] == "svm" for r in records)
+    assert [r["generacion_qwen"]["codigo"] for r in records[-2:]] == ["LIMITE_LOTE_GENERATIVO"] * 2
+    assert all(r["generacion_qwen"]["generacion_llm"] is False for r in records[-2:])
+
+
+def test_batch_time_budget_is_shared_and_long_reviews_still_classify(monkeypatch):
+    monkeypatch.setenv("TRAVELER_OLLAMA_TIMEOUT", ".04")
+    with simulated_ollama(from_request, delay=.1) as (url, calls):
+        monkeypatch.setenv("TRAVELER_OLLAMA_ENDPOINT", url)
+        records, *_ = app.run_batch_lines(TEXT + "\n" + TEXT, "lr", True)
+    assert len(records) == 2 and len(calls) == 1
+    assert records[0]["generacion_qwen"]["codigo"] == "TIMEOUT"
+    assert records[1]["generacion_qwen"]["codigo"] == "PRESUPUESTO_LOTE_AGOTADO"
+    text = "La visita empezó por la mañana. " * 50
+    summary, raw = app.analyze(text, "lr", True)
+    record = json.loads(raw)
+    assert record["modelo_utilizado"] == "lr" and record["sentimiento"]
+    assert record["generacion_qwen"]["codigo"] == "ENTRADA_GENERATIVA_EXCESIVA"
+
+
+def test_generated_schema_never_becomes_a_classifier_feature():
+    class ClassifierSpy:
+        classes_ = np.array(["negativo", "neutral", "positivo"])
+        def predict_proba(self, texts):
+            assert texts == [TEXT]
+            return np.array([[.85, .1, .05]])
+    with simulated_ollama(from_request) as (url, calls):
+        record = TravelerOrchestrator(ClassifierSpy(), reporter=OllamaReporter(OllamaConfig(url))).run(TEXT)
+    report = record["generacion_qwen"]["informe"]
+    assert report["sentimiento_analizado"] == record["sentimiento"]
+    assert report["aspectos_identificados"] == record["aspectos_exploratorios"]
+    assert report["requiere_revision_humana"] == record["revision_humana"]
+    assert record["generacion_qwen"]["generacion_llm"] is True and len(calls) == 1
+
+
+def test_qwen_csv_formula_escaping_and_correction_warning(monkeypatch):
+    from traveler_agent.ollama_report import render_generation_html
+    text = '=1+1; la visita comenzó después del desayuno.'
+    with simulated_ollama(from_request) as (url, _):
+        monkeypatch.setenv("TRAVELER_OLLAMA_ENDPOINT", url)
+        records, *_ = app.run_batch_lines(text, "lr", True)
+    corrected = apply_human_correction(records, "demo-001", "neutral", "Comentario")
+    rows = list(csv.DictReader(io.StringIO(export_csv(corrected))))
+    assert rows[0]["qwen_resumen"].startswith("'=1+1")
+    assert rows[0]["qwen_vigencia"] == "ANTERIOR_A_CORRECCION_HUMANA"
+    assert "anterior a la corrección humana" in render_generation_html(corrected[0])
+    assert corrected[0]["generacion_qwen"] == records[0]["generacion_qwen"]

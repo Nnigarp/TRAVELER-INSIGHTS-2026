@@ -78,6 +78,7 @@ def render_multiagent_view(record: dict | None) -> str:
             'mediante este callback.</p></section>'
         )
     events = [event for event in multi["traza"] if isinstance(event, dict)]
+    generation_events = [event for event in multi.get("traza_generacion", []) if isinstance(event, dict)]
     # Never alter the captured sequence; display recorded order only.
     # Any extra unknown names/statuses are redacted, not echoed.
     terminal = multi.get("estado")
@@ -110,7 +111,10 @@ def render_multiagent_view(record: dict | None) -> str:
         '<ol class="ti-flow-events">',
     ))
     # Only allowlisted task, agent, status and note codes are rendered.
-    for event in events:
+    for event in [*events, *generation_events]:
+        if generation_events and event is generation_events[0]:
+            blocks.append('</ol><h4>Generación · secuencia independiente tras Control</h4>'
+                          '<ol class="ti-flow-events">')
         agent = NAMES.get(event.get("agent"), "Agente no identificado")
         task = TASKS.get(event.get("task"), "Tarea no identificada")
         state = STATUSES.get(event.get("status"), "Estado no reconocido")
@@ -129,6 +133,9 @@ def render_multiagent_view(record: dict | None) -> str:
             '</li>'
         )
     blocks.append("</ol>")
+    if generation_events:
+        blocks.append("<p>Generación: secuencia independiente de tres eventos después de Control y antes del cierre. "
+                      "La traza principal conserva diez eventos.</p>")
     reasons = multi.get("razones_revision")
     if isinstance(reasons, list) and reasons:
         readable = [REASONS.get(reason, "Motivo interno no reconocido") for reason in reasons]

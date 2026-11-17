@@ -50,6 +50,7 @@ class Execution:
     plan: tuple[str, ...] = STEPS
     results: dict[str, dict] = field(default_factory=dict)
     trace: list[dict] = field(default_factory=list)
+    generation_trace: list[dict] = field(default_factory=list)
 
 
 class SpecializedAgent(Protocol):
@@ -58,7 +59,7 @@ class SpecializedAgent(Protocol):
 
 
 def _trace(state: Execution, *, agent: str, step: str, status: str,
-           input_fields=(), output_fields=(), note: str = "", metadata=None) -> None:
+           input_fields=(), output_fields=(), note: str = "") -> None:
     # Metadata only; never save raw text, model outputs or transcript.
     state.trace.append({
         "sequence": len(state.trace) + 1,
@@ -69,8 +70,17 @@ def _trace(state: Execution, *, agent: str, step: str, status: str,
         "output_fields": sorted(output_fields),
         "note_code": note,
     })
-    if metadata is not None:
-        state.trace[-1]["generation"] = metadata
+
+
+def _trace_generation(state: Execution, *, agent: str, status: str, note: str, generation=None):
+    # Separate extension: the original ten-event trace and its consumers survive.
+    event = {"sequence": len(state.generation_trace) + 1, "agent": agent,
+             "task": "generacion", "status": status, "note_code": note,
+             "after_task": "control", "before_task": "cierre"}
+    if generation is not None:
+        event["generation"] = {key: generation.get(key) for key in (
+            "estado", "codigo", "modelo_solicitado", "modelo_ejecutado", "latencia_ms", "generacion_llm")}
+    state.generation_trace.append(event)
 
 
 class PerceptionAgent:
@@ -176,7 +186,8 @@ class ActionAgent:
         if "generation" in message.payload:
             from .ollama_report import validate_generation
             output["generation"] = validate_generation(
-                message.payload["generation"], message.payload["text"])
+                message.payload["generation"], message.payload["text"],
+                semantic["sentiment"], list(semantic["aspects"]), control["needs_human"])
         return output
 
 
@@ -221,23 +232,22 @@ class TravelerOrchestrator:
                 }
                 if self.reporter is not None:
                     from .ollama_report import failed_generation
-                    _trace(execution, agent="orquestador", step="generacion", status="DELEGATED",
-                           input_fields=("text", "sentiment", "needs_human"), note="QWEN_REQUESTED")
+                    _trace_generation(execution, agent="orquestador", status="DELEGATED", note="QWEN_REQUESTED")
                     try:
-                        # Scalar snapshots only: the generator cannot mutate agent state.
+                        # Scalars and a fresh aspect list: no mutable agent state.
                         generation = self.reporter.generate(
                             execution.results["percepcion"]["text"],
                             execution.results["semantica"]["sentiment"],
                             execution.results["control"]["needs_human"],
+                            list(execution.results["semantica"]["aspects"]),
                         )
                         if not isinstance(generation, dict):
                             raise ValueError("Invalid report contract")
                     except Exception:
                         generation = failed_generation("GENERADOR_ERROR")
-                    _trace(execution, agent="qwen", step="generacion",
+                    _trace_generation(execution, agent="qwen",
                            status="RECEIVED" if generation.get("estado") == "GENERADO" else "FAILED",
-                           note="QWEN_RESPONSE", metadata={key: generation.get(key) for key in (
-                               "estado", "codigo", "modelo_solicitado", "modelo_ejecutado", "latencia_ms")})
+                           note="QWEN_RESPONSE", generation=generation)
                     payload.update(generation=generation, text=execution.results["percepcion"]["text"])
             _trace(execution, agent="orquestador", step=step, status="DELEGATED",
                    input_fields=payload.keys(), note="HANDOFF")
@@ -279,10 +289,9 @@ class TravelerOrchestrator:
                     if generation.get("estado") == "GENERADO" and generation.get("validado_por") != "ActionAgent":
                         generation = failed_generation("INFORME_NO_VALIDADO")
                     output["generation"] = generation
-                    _trace(execution, agent="accion", step="generacion",
+                    _trace_generation(execution, agent="accion",
                            status="OK" if generation["estado"] == "GENERADO" else "FAILED",
-                           note="QWEN_VALIDATED", metadata={key: generation.get(key) for key in (
-                               "estado", "codigo", "modelo_solicitado", "modelo_ejecutado", "latencia_ms")})
+                           note="QWEN_VALIDATED", generation=generation)
             except Exception as exc:
                 # Failure semantics: no recommendation, no partial model output,
                 # no leaking text/error details to end-user trace.
@@ -333,6 +342,7 @@ class TravelerOrchestrator:
         }
         if self.reporter is not None:
             record["generacion_qwen"] = action["generation"]
+            record["multiagente"]["traza_generacion"] = execution.generation_trace
         return record
 
 

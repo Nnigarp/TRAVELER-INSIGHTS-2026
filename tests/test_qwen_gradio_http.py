@@ -33,8 +33,8 @@ def test_gradio_qwen_http_and_existing_default_clients(tmp_path, monkeypatch):
                 assert record["modelo_utilizado"] == kind
                 assert record["generacion_qwen"]["modelo_ejecutado"] == "qwen3:1.7b"
                 assert record["generacion_qwen"]["validado_por"] == "ActionAgent"
-                assert "Problema identificado" in summary and "sin ejecutar" in summary
-                assert "Qwen local" in view and len(record["multiagente"]["traza"]) == 13
+                assert "Problema" in summary and "sin ejecutar" in summary
+                assert "Qwen local" in view and len(record["multiagente"]["traza"]) == 10 and len(record["multiagente"]["traza_generacion"]) == 3
             batch = client.predict(TEXT, "lr", True, api_name="/run_batch_lines")
             assert "1/1" in batch[-1]
             client.predict("demo-001", "negativo", "Revisión", api_name="/revise")
@@ -48,6 +48,14 @@ def test_gradio_qwen_http_and_existing_default_clients(tmp_path, monkeypatch):
             source.write_text('reseña\n"' + TEXT + '"\n', encoding="utf-8")
             result = client.predict(handle_file(str(source)), "svm", True, api_name="/run_batch_csv")
             assert "1/1" in result[-1]
+            from test_qwen_local_check import check
+            evidence_path = tmp_path / "simulated-api-acceptance.json"
+            assert check.main(["--classifier", "lr", "--gradio-url", f"http://127.0.0.1:{port}",
+                               "--output", str(evidence_path)]) == 0
+            evidence = json.loads(evidence_path.read_text(encoding="utf-8"))
+            assert evidence["transport"] == "GRADIO_HTTP"
+            assert evidence["ollama_identity"]["ollama_version"] == "SIMULATED_TEST_ONLY"
+            assert evidence["observed"]["generacion_qwen"]["generacion_llm"] is True
             # Explicit connection failure remains successful classifier HTTP response.
             monkeypatch.setenv("TRAVELER_OLLAMA_ENDPOINT", "http://127.0.0.1:1")
             summary, encoded, _ = client.predict(TEXT, "svm", True, api_name="/analyze_with_agents")
@@ -58,4 +66,4 @@ def test_gradio_qwen_http_and_existing_default_clients(tmp_path, monkeypatch):
             assert "análisis convencional" in summary
         finally:
             app.app.close()
-    assert len(calls) == 4
+    assert len(calls) == 5

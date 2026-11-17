@@ -10,17 +10,18 @@ import pytest
 
 from traveler_agent.ollama_report import (
     DEFAULT_MODEL, OllamaConfig, OllamaReporter, ReportRejected,
-    render_generation_html, validate_generation, validate_report,
+    render_generation_html, validate_generation, validate_report, RECOMMENDATIONS, ACTIONS, WARNINGS,
 )
 
 TEXT = "El hotel era cómodo, pero el transporte nunca llegó y perdimos la excursión."
 
 
-def fixture_report(text=TEXT):
+def fixture_report(text=TEXT, sentiment="negativo", needs_human=True, aspects=None):
     # API fixture, deliberately NOT evidence of actual Qwen inference.
-    return {"resumen": text, "problema_identificado": "el transporte nunca llegó" if text == TEXT else "",
-            "recomendacion": "Verificar la información del transporte descrito en la reseña.",
-            "accion_propuesta": "Documentar el incidente narrado para su valoración humana."}
+    return {"resumen": text, "problema_identificado": text if text == TEXT else "",
+            "sentimiento_analizado": sentiment, "aspectos_identificados": aspects or [],
+            "requiere_revision_humana": needs_human, "advertencias": list(WARNINGS),
+            "recomendacion": RECOMMENDATIONS[0], "accion_propuesta": ACTIONS[0]}
 
 
 def response_for(report=None, **overrides):
@@ -30,9 +31,18 @@ def response_for(report=None, **overrides):
 
 
 @contextmanager
-def simulated_ollama(reply=None, *, status=200, delay=0):
+def simulated_ollama(reply=None, *, status=200, delay=0, drip=0):
     requests = []
     class Handler(BaseHTTPRequestHandler):
+        def do_GET(self):
+            # Diagnostic fixtures, not a real Ollama daemon/model digest.
+            value = {"version": "SIMULATED_TEST_ONLY"} if self.path == "/api/version" else {
+                "models": [{"name": DEFAULT_MODEL, "digest": "0" * 64}]}
+            raw = json.dumps(value).encode()
+            self.send_response(200)
+            self.send_header("Content-Length", str(len(raw)))
+            self.end_headers()
+            self.wfile.write(raw)
         def do_POST(self):
             requests.append({"path": self.path, "body": json.loads(self.rfile.read(int(self.headers["Content-Length"]))),
                              "content_type": self.headers.get("Content-Type")})
@@ -45,7 +55,13 @@ def simulated_ollama(reply=None, *, status=200, delay=0):
                 self.send_header("Content-Type", "application/json")
                 self.send_header("Content-Length", str(len(raw)))
                 self.end_headers()
-                self.wfile.write(raw)
+                if drip:
+                    for byte in raw:
+                        self.wfile.write(bytes([byte]))
+                        self.wfile.flush()
+                        time.sleep(drip)
+                else:
+                    self.wfile.write(raw)
             except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError):
                 pass  # Expected when the client times out.
         def log_message(self, *args):
@@ -67,7 +83,7 @@ def test_real_http_structured_generation_and_separate_thinking(monkeypatch):
     with simulated_ollama(reply) as (url, calls):
         # Verify local reviews are not routed through proxy environment variables.
         monkeypatch.setenv("http_proxy", "http://127.0.0.1:1")
-        result = OllamaReporter(OllamaConfig(url)).generate(TEXT, "negativo", True)
+        result = OllamaReporter(OllamaConfig(url)).generate(TEXT, "negativo", True, [])
     assert result["estado"] == "GENERADO"
     assert result["modelo_ejecutado"] == DEFAULT_MODEL
     assert result["latencia_ms"] >= 0
@@ -76,12 +92,12 @@ def test_real_http_structured_generation_and_separate_thinking(monkeypatch):
     assert len(calls) == 1 and calls[0]["path"] == "/api/chat"
     payload = calls[0]["body"]
     assert payload["think"] is False and payload["stream"] is False
-    assert payload["options"]["temperature"] == 0 and payload["options"]["num_predict"] == 512
+    assert payload["options"]["temperature"] == 0 and payload["options"]["num_predict"] == 1024
     assert set(payload["format"]["required"]) == set(fixture_report())
     assert payload["format"]["additionalProperties"] is False
     assert "tools" not in payload
     assert json.loads(payload["messages"][1]["content"])["resena_no_confiable"] == TEXT
-    assert validate_generation(result, TEXT)["validado_por"] == "ActionAgent"
+    assert validate_generation(result, TEXT, "negativo", [], True)["validado_por"] == "ActionAgent"
 
 
 @pytest.mark.parametrize("reply,code", [
@@ -105,7 +121,7 @@ def test_real_http_structured_generation_and_separate_thinking(monkeypatch):
 ])
 def test_invalid_response_never_publishes_an_invented_report(reply, code):
     with simulated_ollama(reply) as (url, calls):
-        result = OllamaReporter(OllamaConfig(url)).generate(TEXT, "negativo", True)
+        result = OllamaReporter(OllamaConfig(url)).generate(TEXT, "negativo", True, [])
     assert result["estado"] == "ERROR" and result["codigo"] == code
     assert result["informe"] is None
     assert "PRIVATE" not in json.dumps(result)
@@ -115,7 +131,7 @@ def test_invalid_response_never_publishes_an_invented_report(reply, code):
 @pytest.mark.parametrize("status,code", [(404, "MODELO_NO_DISPONIBLE"), (500, "OLLAMA_HTTP_ERROR"), (400, "OLLAMA_HTTP_ERROR")])
 def test_http_failures(status, code):
     with simulated_ollama({"error": "PRIVATE"}, status=status) as (url, calls):
-        result = OllamaReporter(OllamaConfig(url)).generate(TEXT, "negativo", True)
+        result = OllamaReporter(OllamaConfig(url)).generate(TEXT, "negativo", True, [])
     assert result["codigo"] == code and result["modelo_ejecutado"] is None
     assert result["informe"] is None and len(calls) == 1
     assert "PRIVATE" not in json.dumps(result)
@@ -123,12 +139,12 @@ def test_http_failures(status, code):
 
 def test_timeout_and_disconnected():
     with simulated_ollama(delay=.2) as (url, _):
-        result = OllamaReporter(OllamaConfig(url, timeout=.02)).generate(TEXT, "negativo", True)
+        result = OllamaReporter(OllamaConfig(url, timeout=.02)).generate(TEXT, "negativo", True, [])
     assert result["codigo"] == "TIMEOUT" and result["informe"] is None
     with socket.socket() as probe:
         probe.bind(("127.0.0.1", 0))
         url = f"http://127.0.0.1:{probe.getsockname()[1]}"
-    result = OllamaReporter(OllamaConfig(url)).generate(TEXT, "negativo", True)
+    result = OllamaReporter(OllamaConfig(url)).generate(TEXT, "negativo", True, [])
     assert result["codigo"] == "OLLAMA_DESCONECTADO" and result["modelo_ejecutado"] is None
 
 
@@ -146,8 +162,8 @@ def test_timeout_and_disconnected():
 def test_action_gate_rejects_ungrounded_facts_and_execution_claims(field, value):
     report = {**fixture_report(), field: value}
     with pytest.raises(ReportRejected):
-        validate_report(report, TEXT)
-    record = validate_generation({"estado": "GENERADO", "informe": report}, TEXT)
+        validate_report(report, TEXT, "negativo", [], True)
+    record = validate_generation({"estado": "GENERADO", "informe": report}, TEXT, "negativo", [], True)
     assert record["estado"] == "ERROR" and record["informe"] is None
 
 
@@ -159,13 +175,65 @@ def test_configuration_and_safe_html(monkeypatch):
         with pytest.raises(ValueError):
             OllamaConfig(timeout=timeout)
     monkeypatch.setenv("TRAVELER_OLLAMA_TIMEOUT", "bad")
-    result = OllamaReporter().generate(TEXT, "neutral", False)
+    result = OllamaReporter().generate(TEXT, "neutral", False, [])
     assert result["codigo"] == "CONFIGURACION_INVALIDA"
     source = '<script>alert("x")</script>\r\n\r\n![image](https://example.com)\n[link](https://example.com)'
     generation = validate_generation({"estado": "GENERADO", "codigo": "OK", "modelo_solicitado": DEFAULT_MODEL,
-        "modelo_ejecutado": DEFAULT_MODEL, "latencia_ms": 0, "informe": fixture_report(source)}, source)
+        "modelo_ejecutado": DEFAULT_MODEL, "latencia_ms": 0, "informe": fixture_report(source)}, source, "negativo", [], True)
     html = render_generation_html({"generacion_qwen": generation})
     assert '<script>' not in html and "&lt;script&gt;" in html
     assert '<a ' not in html and '<img' not in html
     assert "\n\n" not in html and "\r" not in html
     assert "<br><br>&#33;&#91;image&#93;" in html
+
+
+@pytest.mark.parametrize("field,value", [
+    ("sentimiento_analizado", "positivo"),
+    ("requiere_revision_humana", False),
+    ("aspectos_identificados", ["seguridad"]),
+    ("requiere_revision_humana", 1),
+    ("aspectos_identificados", "acceso"),
+    ("advertencias", []),
+    ("recomendacion", "Verificar el pago autorizado al hotel."),
+    ("accion_propuesta", "Documentar que el hotel pagará la excursión."),
+])
+def test_locked_fields_and_controlled_proposals(field, value):
+    with simulated_ollama(response_for({**fixture_report(), field: value})) as (url, _):
+        result = OllamaReporter(OllamaConfig(url)).generate(TEXT, "negativo", True, [])
+    assert result["generacion_llm"] is False and result["informe"] is None
+
+
+def test_complete_cites_do_not_drop_negation_or_contrast():
+    source = "No confirmo que el hotel cancelara el taxi, pero perdimos la visita."
+    report = fixture_report(source)
+    report["problema_identificado"] = "el hotel cancelara el taxi"
+    assert report["problema_identificado"] in source  # The old substring gate accepted this.
+    with pytest.raises(ReportRejected, match="HECHOS_NO_SUSTENTADOS"):
+        validate_report(report, source, "negativo", [], True)
+
+
+def test_deadline_stops_dripping_body_not_only_socket_inactivity():
+    started = time.monotonic()
+    with simulated_ollama(drip=.01) as (url, _):
+        result = OllamaReporter(OllamaConfig(url, timeout=.07)).generate(TEXT, "negativo", True, [])
+    assert result["codigo"] == "TIMEOUT"
+    assert time.monotonic() - started < 2
+
+
+def test_redirects_are_not_followed():
+    with simulated_ollama(status=302) as (url, calls):
+        result = OllamaReporter(OllamaConfig(url)).generate(TEXT, "negativo", True, [])
+    assert result["codigo"] == "OLLAMA_HTTP_ERROR" and len(calls) == 1
+
+
+def test_long_input_is_not_silently_cut_and_does_not_make_http_calls():
+    with simulated_ollama() as (url, calls):
+        result = OllamaReporter(OllamaConfig(url)).generate("Una visita. " * 150, "neutral", False, [])
+    assert result["codigo"] == "ENTRADA_GENERATIVA_EXCESIVA" and calls == []
+
+
+def test_failed_envelope_cannot_retain_a_partial_report_or_true_generation_flag():
+    failed = {"estado": "ERROR", "codigo": "TIMEOUT", "generacion_llm": True, "informe": fixture_report()}
+    result = validate_generation(failed, TEXT, "negativo", [], True)
+    assert result["generacion_llm"] is False and result["informe"] is None
+    assert result["alternativa"] == "RECOMENDACION_TRADICIONAL_POR_REGLAS"

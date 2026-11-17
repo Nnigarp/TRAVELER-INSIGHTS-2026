@@ -279,7 +279,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Demo académico", **_BLOCKS_THEME
     model_choice = gr.Dropdown(label="Modelo de demostración", choices=_MODEL_CHOICES, value="lr")
     qwen_choice = gr.Checkbox(label="Activar informe local Qwen3 1.7B (Ollama)", value=False)
     gr.Markdown("Qwen redacta propuestas después de Control; conserva la clasificación y la revisión humana. "
-                "Requiere Ollama local y `qwen3:1.7b`. Los lotes consultan una reseña cada vez. "
+                "Requiere Ollama local y `qwen3:1.7b`. Los lotes consultan hasta cinco reseñas en secuencia dentro de un presupuesto compartido de tiempo. "
                 "Desactivado: análisis convencional, sin consultas a Ollama.")
     gr.Markdown("Los modelos clásicos se entrenan con ejemplos **ficticios**. La selección no demuestra rendimiento ni calibración externa.")
     if _BETO_AVAILABLE:

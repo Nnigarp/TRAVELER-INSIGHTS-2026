@@ -1,5 +1,6 @@
 """Existing classifiers/ASR/UI plus simulated Qwen. BETO fixture is a contract stub."""
 import csv
+import html
 import io
 import json
 from types import SimpleNamespace
@@ -79,7 +80,7 @@ def test_action_validation_failure_preserves_conventional_analysis(monkeypatch):
     assert record["generacion_qwen"]["codigo"] == "HECHOS_NO_SUSTENTADOS"
     assert record["sentimiento"] and record["recomendacion"]
     assert "no produjo un informe validado" in summary
-    assert "HECHOS_NO_SUSTENTADOS" in summary
+    assert "HECHOS_NO_SUSTENTADOS" in html.unescape(summary)
     assert "La agencia canceló" not in summary
     assert "Validación del informe por Acción" in view
 

@@ -259,7 +259,8 @@ def recognize_audio(
 
 
 def analyze_edited_transcript(
-    edited_text: str, provenance: dict | None, classifier: Any, *, model_kind: str = "lr"
+    edited_text: str, provenance: dict | None, classifier: Any, *, model_kind: str = "lr",
+    qwen_enabled: bool = False,
 ) -> dict:
     """Pass corrected transcript to the existing agent, preserving ASR trace."""
     if not provenance or provenance.get("modalidad") != "audio":
@@ -275,6 +276,7 @@ def analyze_edited_transcript(
     record = inspect_review(
         edited_text, classifier, modality="audio_transcrito",
         edited_by_human=(edited_text != original),
+        qwen_enabled=qwen_enabled,
     )
     record["modelo_utilizado"] = model_kind
     record["procedencia_entrada"] = {

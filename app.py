@@ -20,6 +20,7 @@ from traveler_agent.demo_data import DEMO
 from traveler_agent.model import MODEL_KINDS, load_model, save_model, train
 from traveler_agent.model_runtime import configured_artifact, run_selected
 from traveler_agent.beto_distribution import artifact_available
+from traveler_agent.ollama_report import render_generation_html
 
 MODEL_PATH = Path("artifacts/demo_model.joblib")
 if not MODEL_PATH.exists():
@@ -127,12 +128,14 @@ def _analysis_card(record: dict, *, model_kind: str, audio: bool = False) -> str
             sections.append("*BETO usa una ventana limitada de tokens: una reseña larga "
                             "puede recortarse aunque cumpla el límite de caracteres. "
                             "Comprueba el contexto completo durante la revisión humana.*")
+    if "generacion_qwen" in record:
+        sections.append(render_generation_html(record))
     return "\n\n".join(sections)
 
-def analyze(review: str, model_kind: str = "lr"):
+def analyze(review: str, model_kind: str = "lr", qwen_enabled: bool = False):
     try:
         record, effective = run_selected(model_kind, get_demo_model,
-                                        lambda classifier: inspect_review(review, classifier))
+                                        lambda classifier: inspect_review(review, classifier, qwen_enabled=qwen_enabled))
         record["modelo_utilizado"] = effective
         summary = _analysis_card(record, model_kind=effective)
         return summary, json.dumps(record, ensure_ascii=False, indent=2)
@@ -140,13 +143,13 @@ def analyze(review: str, model_kind: str = "lr"):
         return f"Error de validación: {exc}", "{}"
 
 
-def analyze_with_agents(review: str, model_kind: str = "lr"):
+def analyze_with_agents(review: str, model_kind: str = "lr", qwen_enabled: bool = False):
     """UI-only adapter: exactly one inference, unchanged legacy JSON outputs.
 
     A safe failure currently has no returned execution trace. Do not fabricate
     specialist status or a completed run when the underlying agent raised.
     """
-    summary, json_text = analyze(review, model_kind)
+    summary, json_text = analyze(review, model_kind, True) if qwen_enabled else analyze(review, model_kind)
     try:
         record = json.loads(json_text)
     except (TypeError, json.JSONDecodeError):
@@ -163,19 +166,31 @@ def _render_batch(records: list[dict]):
     return records, table, counts, gr.update(choices=ids, value=ids[0] if ids else None)
 
 
-def run_batch_lines(raw: str, model_kind: str = "lr"):
+def _generation_batch_status(records):
+    generations = [r["generacion_qwen"] for r in records if "generacion_qwen" in r]
+    if not generations:
+        return ""
+    passed = sum(g.get("estado") == "GENERADO" for g in generations)
+    return f" Qwen: {passed}/{len(generations)} informes validados; {len(generations)-passed} errores explícitos."
+
+
+def batch_generation_view(records):
+    return "\n".join(render_generation_html(record) for record in records or [])
+
+
+def run_batch_lines(raw: str, model_kind: str = "lr", qwen_enabled: bool = False):
     try:
         reviews = parse_review_lines(raw)
         records, effective = run_selected(model_kind, get_demo_model,
-            lambda classifier: analyze_batch(reviews, classifier, model_kind=model_kind))
+            lambda classifier: analyze_batch(reviews, classifier, model_kind=model_kind, qwen_enabled=qwen_enabled))
         status = "Lote de demostración analizado."
         if model_kind == "beto": status += " BETO experimental." if effective == "beto" else " BETO falló; se ejecutó LR de respaldo."
-        return _render_batch(records) + (status,)
+        return _render_batch(records) + (status + _generation_batch_status(records),)
     except ValueError as exc:
         return _render_batch([]) + (f"Error de validación: {exc}",)
 
 
-def run_batch_csv(filepath: str | None, model_kind: str = "lr"):
+def run_batch_csv(filepath: str | None, model_kind: str = "lr", qwen_enabled: bool = False):
     if not filepath:
         return _render_batch([]) + ("Selecciona un CSV UTF-8 con columna 'reseña'.",)
     try:
@@ -184,10 +199,10 @@ def run_batch_csv(filepath: str | None, model_kind: str = "lr"):
             raise ValueError("El archivo supera el límite de 1 MiB.")
         reviews = parse_review_csv(path.read_bytes())
         records, effective = run_selected(model_kind, get_demo_model,
-            lambda classifier: analyze_batch(reviews, classifier, model_kind=model_kind))
+            lambda classifier: analyze_batch(reviews, classifier, model_kind=model_kind, qwen_enabled=qwen_enabled))
         status = "CSV de demostración analizado."
         if model_kind == "beto": status += " BETO experimental." if effective == "beto" else " BETO falló; se ejecutó LR de respaldo."
-        return _render_batch(records) + (status,)
+        return _render_batch(records) + (status + _generation_batch_status(records),)
     except (OSError, ValueError) as exc:
         return _render_batch([]) + (f"Error de validación: {exc}",)
 
@@ -230,11 +245,11 @@ def transcribe_audio_ui(filepath: str | None, language: str):
         return "", {}, f"Error de audio: {exc}"
 
 
-def analyze_audio_ui(edited_text: str, provenance: dict, model_kind: str):
+def analyze_audio_ui(edited_text: str, provenance: dict, model_kind: str, qwen_enabled: bool = False):
     try:
         result, effective = run_selected(model_kind, get_demo_model,
             lambda classifier: analyze_edited_transcript(edited_text, provenance, classifier,
-                                                        model_kind=model_kind))
+                                                        model_kind=model_kind, qwen_enabled=qwen_enabled))
         summary = _analysis_card(result, model_kind=effective, audio=True)
         return summary, json.dumps(result, ensure_ascii=False, indent=2)
     except (AudioInputError, ValueError, TypeError) as exc:
@@ -262,6 +277,10 @@ with gr.Blocks(title="Traveler Insights 2026 | Demo académico", **_BLOCKS_THEME
     _MODEL_CHOICES = [("TF-IDF + regresión logística", "lr"), ("TF-IDF + SVM lineal", "svm")]
     if _BETO_AVAILABLE: _MODEL_CHOICES.append(("BETO supervisado (experimental sintético)", "beto"))
     model_choice = gr.Dropdown(label="Modelo de demostración", choices=_MODEL_CHOICES, value="lr")
+    qwen_choice = gr.Checkbox(label="Activar informe local Qwen3 1.7B (Ollama)", value=False)
+    gr.Markdown("Qwen redacta propuestas después de Control; conserva la clasificación y la revisión humana. "
+                "Requiere Ollama local y `qwen3:1.7b`. Los lotes consultan una reseña cada vez. "
+                "Desactivado: análisis convencional, sin consultas a Ollama.")
     gr.Markdown("Los modelos clásicos se entrenan con ejemplos **ficticios**. La selección no demuestra rendimiento ni calibración externa.")
     if _BETO_AVAILABLE:
         gr.Markdown("BETO es un clasificador supervisado **experimental sintético**. "
@@ -277,7 +296,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Demo académico", **_BLOCKS_THEME
         with gr.Accordion("Trazabilidad completa · JSON", open=False):
             detail = gr.Code(label="JSON sin modificaciones", language="json")
         run.click(
-            analyze_with_agents, inputs=[inp, model_choice],
+            analyze_with_agents, inputs=[inp, model_choice, qwen_choice],
             outputs=[result, detail, agent_view],
         )
 
@@ -316,7 +335,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Demo académico", **_BLOCKS_THEME
             outputs=[audio_transcript, audio_metadata, audio_status],
         )
         audio_analyze_btn.click(
-            analyze_audio_ui, inputs=[audio_transcript, audio_metadata, model_choice],
+            analyze_audio_ui, inputs=[audio_transcript, audio_metadata, model_choice, qwen_choice],
             outputs=[audio_summary, audio_trace],
         )
         audio_input.change(
@@ -341,6 +360,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Demo académico", **_BLOCKS_THEME
         batch_file = gr.File(label="O cargar CSV local", file_types=[".csv"], type="filepath")
         run_csv = gr.Button("Analizar CSV")
         batch_status = gr.Markdown()
+        batch_qwen = gr.HTML(label="Informes Qwen del lote · propuestas sin ejecutar")
         gr.Markdown("#### Resultados por reseña")
         batch_table = gr.Dataframe(headers=["ID", "Texto", "Modelo", "Predicción modelo", "Corrección humana", "Estado"],
                                    datatype=["str"] * 6, interactive=False, label="Resultados de demostración")
@@ -358,8 +378,9 @@ with gr.Blocks(title="Traveler Insights 2026 | Demo académico", **_BLOCKS_THEME
         json_export = gr.File(label="Descargar JSON de demostración", interactive=False)
         csv_export = gr.File(label="Descargar CSV de demostración", interactive=False)
         outputs = [batch_state, batch_table, trend_table, review_id, batch_status]
-        run_lines.click(run_batch_lines, inputs=[batch_text, model_choice], outputs=outputs)
-        run_csv.click(run_batch_csv, inputs=[batch_file, model_choice], outputs=outputs)
+        run_lines.click(run_batch_lines, inputs=[batch_text, model_choice, qwen_choice], outputs=outputs)
+        run_csv.click(run_batch_csv, inputs=[batch_file, model_choice, qwen_choice], outputs=outputs)
+        batch_state.change(batch_generation_view, inputs=batch_state, outputs=batch_qwen)
         save_review.click(revise, inputs=[batch_state, review_id, corrected, note], outputs=outputs)
         make_export.click(export_files, inputs=batch_state, outputs=[json_export, csv_export, batch_status])
 

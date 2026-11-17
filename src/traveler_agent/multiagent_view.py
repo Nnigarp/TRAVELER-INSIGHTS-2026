@@ -14,16 +14,19 @@ AGENTS = (
     ("control", "Control", "Continuar o revisión humana"),
     ("accion", "Acción", "Recomendación o abstención"),
 )
-NAMES = {"orquestador": "Orquestador principal", **{key: name for key, name, _ in AGENTS}}
+NAMES = {"orquestador": "Orquestador principal", "qwen": "Qwen local (generador)",
+         **{key: name for key, name, _ in AGENTS}}
 TASKS = {
     "plan": "Plan de ejecución", "percepcion": "Percepción",
     "semantica": "Análisis semántico", "control": "Evaluación y control",
     "accion": "Acción y recomendación", "cierre": "Cierre",
+    "generacion": "Informe Qwen opcional",
 }
 STATUSES = {
     "PLANNED": "Planificado", "DELEGATED": "Delegado", "OK": "Completado",
     "FAILED": "Fallido", "COMPLETADO": "Ejecución completada",
     "REVISION_HUMANA": "Revisión humana", "DETENIDO_SEGURO": "Detenido con seguridad",
+    "RECEIVED": "Respuesta recibida; pendiente de validación",
 }
 REASONS = {
     "SCORE_DEMO_BAJO": "Puntuación DEMO inferior al umbral interno",
@@ -35,6 +38,9 @@ NOTES = {
     "VALIDATED_CONTRACT": "Contrato validado",
     "SAFE_ABORT": "Detención segura",
     "NO_EXTERNAL_ACTION": "Sin acción externa",
+    "QWEN_REQUESTED": "Consulta local solicitada tras Control",
+    "QWEN_RESPONSE": "Resultado de la consulta local",
+    "QWEN_VALIDATED": "Validación del informe por Acción",
 }
 
 
@@ -43,7 +49,8 @@ def _safe(value: Any) -> str:
 
 
 def _agent_state(events: list[dict], name: str) -> str:
-    statuses = [event.get("status") for event in events if event.get("agent") == name]
+    statuses = [event.get("status") for event in events
+                if event.get("agent") == name and event.get("task") == name]
     if "FAILED" in statuses:
         return "FAILED"
     if "OK" in statuses:

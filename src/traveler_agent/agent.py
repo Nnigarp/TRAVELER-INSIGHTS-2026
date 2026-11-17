@@ -8,9 +8,13 @@ from .multiagent import TravelerOrchestrator
 
 def inspect_review(text: str, model, *, review_id: str = "",
                    threshold: float = 0.56, modality: str = "texto",
-                   edited_by_human: bool = False) -> dict:
+                   edited_by_human: bool = False, qwen_enabled: bool = False) -> dict:
     """Run the hierarchical workflow while retaining the legacy API."""
-    return TravelerOrchestrator(model, threshold=threshold).run(
+    reporter = None
+    if qwen_enabled:
+        from .ollama_report import OllamaReporter
+        reporter = OllamaReporter()
+    return TravelerOrchestrator(model, threshold=threshold, reporter=reporter).run(
         text, review_id=review_id, modality=modality,
         edited_by_human=edited_by_human,
     )

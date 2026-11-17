@@ -2,7 +2,8 @@
 
 Agents have distinct observations, contracts, decisions and capabilities.
 The coordinator owns a state machine, plan, handoffs, validation and fail-closed
-outcomes. No LLM, network requests, online learning or external side effects.
+outcomes. Optional local Ollama reporting cannot alter classification/control.
+No online learning or external actions.
 
 Trace is intentionally metadata-only: raw reviews, transcripts and private
 audio paths are NOT duplicated into the coordination log.
@@ -57,7 +58,7 @@ class SpecializedAgent(Protocol):
 
 
 def _trace(state: Execution, *, agent: str, step: str, status: str,
-           input_fields=(), output_fields=(), note: str = "") -> None:
+           input_fields=(), output_fields=(), note: str = "", metadata=None) -> None:
     # Metadata only; never save raw text, model outputs or transcript.
     state.trace.append({
         "sequence": len(state.trace) + 1,
@@ -68,6 +69,8 @@ def _trace(state: Execution, *, agent: str, step: str, status: str,
         "output_fields": sorted(output_fields),
         "note_code": note,
     })
+    if metadata is not None:
+        state.trace[-1]["generation"] = metadata
 
 
 class PerceptionAgent:
@@ -168,15 +171,22 @@ class ActionAgent:
         )
         if control["needs_human"] and state != "revisión_humana":
             raise AgentFailure("Política insegura: revisión humana bloqueada.")
-        return {"policy_state": state, "recommendation": recommendation,
-                "external_actions_executed": False}
+        output = {"policy_state": state, "recommendation": recommendation,
+                  "external_actions_executed": False}
+        if "generation" in message.payload:
+            from .ollama_report import validate_generation
+            output["generation"] = validate_generation(
+                message.payload["generation"], message.payload["text"])
+        return output
 
 
 class TravelerOrchestrator:
     """Parent agent. Plans, dispatches, validates handoffs and retains status."""
 
     def __init__(self, classifier: Any, *, threshold: float = .56,
-                 agents: dict[str, SpecializedAgent] | None = None):
+                 agents: dict[str, SpecializedAgent] | None = None,
+                 reporter=None):
+        self.reporter = reporter
         self.agents = agents if agents is not None else {
             "percepcion": PerceptionAgent(),
             "semantica": SemanticsAgent(classifier),
@@ -209,6 +219,26 @@ class TravelerOrchestrator:
                     "semantic": execution.results["semantica"],
                     "control": execution.results["control"],
                 }
+                if self.reporter is not None:
+                    from .ollama_report import failed_generation
+                    _trace(execution, agent="orquestador", step="generacion", status="DELEGATED",
+                           input_fields=("text", "sentiment", "needs_human"), note="QWEN_REQUESTED")
+                    try:
+                        # Scalar snapshots only: the generator cannot mutate agent state.
+                        generation = self.reporter.generate(
+                            execution.results["percepcion"]["text"],
+                            execution.results["semantica"]["sentiment"],
+                            execution.results["control"]["needs_human"],
+                        )
+                        if not isinstance(generation, dict):
+                            raise ValueError("Invalid report contract")
+                    except Exception:
+                        generation = failed_generation("GENERADOR_ERROR")
+                    _trace(execution, agent="qwen", step="generacion",
+                           status="RECEIVED" if generation.get("estado") == "GENERADO" else "FAILED",
+                           note="QWEN_RESPONSE", metadata={key: generation.get(key) for key in (
+                               "estado", "codigo", "modelo_solicitado", "modelo_ejecutado", "latencia_ms")})
+                    payload.update(generation=generation, text=execution.results["percepcion"]["text"])
             _trace(execution, agent="orquestador", step=step, status="DELEGATED",
                    input_fields=payload.keys(), note="HANDOFF")
             try:
@@ -243,6 +273,16 @@ class TravelerOrchestrator:
                 _trace(execution, agent=step, step=step, status="OK",
                        input_fields=payload.keys(), output_fields=output.keys(),
                        note="VALIDATED_CONTRACT")
+                if step == "accion" and self.reporter is not None:
+                    generation = output.get("generation") or failed_generation("INFORME_NO_VALIDADO")
+                    # ActionAgent acceptance, not just HTTP success, decides publication.
+                    if generation.get("estado") == "GENERADO" and generation.get("validado_por") != "ActionAgent":
+                        generation = failed_generation("INFORME_NO_VALIDADO")
+                    output["generation"] = generation
+                    _trace(execution, agent="accion", step="generacion",
+                           status="OK" if generation["estado"] == "GENERADO" else "FAILED",
+                           note="QWEN_VALIDATED", metadata={key: generation.get(key) for key in (
+                               "estado", "codigo", "modelo_solicitado", "modelo_ejecutado", "latencia_ms")})
             except Exception as exc:
                 # Failure semantics: no recommendation, no partial model output,
                 # no leaking text/error details to end-user trace.
@@ -260,7 +300,7 @@ class TravelerOrchestrator:
         execution.state = "REVISION_HUMANA" if control["needs_human"] else "COMPLETADO"
         _trace(execution, agent="orquestador", step="cierre", status=execution.state,
                output_fields=("resultado", "traza"), note="NO_EXTERNAL_ACTION")
-        return {
+        record = {
             # UNCHANGED legacy keys and value semantics:
             "id": perception["review_id"],
             "sentimiento": semantic["sentiment"],
@@ -291,6 +331,9 @@ class TravelerOrchestrator:
                 "acciones_externas": False,
             },
         }
+        if self.reporter is not None:
+            record["generacion_qwen"] = action["generation"]
+        return record
 
 
 def main(argv=None):

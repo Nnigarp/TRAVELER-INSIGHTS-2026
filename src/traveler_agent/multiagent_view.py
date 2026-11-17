@@ -14,16 +14,19 @@ AGENTS = (
     ("control", "Control", "Continuar o revisión humana"),
     ("accion", "Acción", "Recomendación o abstención"),
 )
-NAMES = {"orquestador": "Orquestador principal", **{key: name for key, name, _ in AGENTS}}
+NAMES = {"orquestador": "Orquestador principal", "qwen": "Qwen local (generador)",
+         **{key: name for key, name, _ in AGENTS}}
 TASKS = {
     "plan": "Plan de ejecución", "percepcion": "Percepción",
     "semantica": "Análisis semántico", "control": "Evaluación y control",
     "accion": "Acción y recomendación", "cierre": "Cierre",
+    "generacion": "Informe Qwen opcional",
 }
 STATUSES = {
     "PLANNED": "Planificado", "DELEGATED": "Delegado", "OK": "Completado",
     "FAILED": "Fallido", "COMPLETADO": "Ejecución completada",
     "REVISION_HUMANA": "Revisión humana", "DETENIDO_SEGURO": "Detenido con seguridad",
+    "RECEIVED": "Respuesta recibida; pendiente de validación",
 }
 REASONS = {
     "SCORE_DEMO_BAJO": "Puntuación DEMO inferior al umbral interno",
@@ -35,6 +38,9 @@ NOTES = {
     "VALIDATED_CONTRACT": "Contrato validado",
     "SAFE_ABORT": "Detención segura",
     "NO_EXTERNAL_ACTION": "Sin acción externa",
+    "QWEN_REQUESTED": "Consulta local solicitada tras Control",
+    "QWEN_RESPONSE": "Resultado de la consulta local",
+    "QWEN_VALIDATED": "Validación del informe por Acción",
 }
 
 
@@ -43,7 +49,8 @@ def _safe(value: Any) -> str:
 
 
 def _agent_state(events: list[dict], name: str) -> str:
-    statuses = [event.get("status") for event in events if event.get("agent") == name]
+    statuses = [event.get("status") for event in events
+                if event.get("agent") == name and event.get("task") == name]
     if "FAILED" in statuses:
         return "FAILED"
     if "OK" in statuses:
@@ -71,6 +78,7 @@ def render_multiagent_view(record: dict | None) -> str:
             'mediante este callback.</p></section>'
         )
     events = [event for event in multi["traza"] if isinstance(event, dict)]
+    generation_events = [event for event in multi.get("traza_generacion", []) if isinstance(event, dict)]
     # Never alter the captured sequence; display recorded order only.
     # Any extra unknown names/statuses are redacted, not echoed.
     terminal = multi.get("estado")
@@ -103,7 +111,10 @@ def render_multiagent_view(record: dict | None) -> str:
         '<ol class="ti-flow-events">',
     ))
     # Only allowlisted task, agent, status and note codes are rendered.
-    for event in events:
+    for event in [*events, *generation_events]:
+        if generation_events and event is generation_events[0]:
+            blocks.append('</ol><h4>Generación · secuencia independiente tras Control</h4>'
+                          '<ol class="ti-flow-events">')
         agent = NAMES.get(event.get("agent"), "Agente no identificado")
         task = TASKS.get(event.get("task"), "Tarea no identificada")
         state = STATUSES.get(event.get("status"), "Estado no reconocido")
@@ -122,6 +133,9 @@ def render_multiagent_view(record: dict | None) -> str:
             '</li>'
         )
     blocks.append("</ol>")
+    if generation_events:
+        blocks.append("<p>Generación: secuencia independiente de tres eventos después de Control y antes del cierre. "
+                      "La traza principal conserva diez eventos.</p>")
     reasons = multi.get("razones_revision")
     if isinstance(reasons, list) and reasons:
         readable = [REASONS.get(reason, "Motivo interno no reconocido") for reason in reasons]

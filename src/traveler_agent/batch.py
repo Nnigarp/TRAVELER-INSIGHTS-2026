@@ -63,13 +63,16 @@ def parse_review_csv(content: bytes, *, text_col: str = "reseña") -> list[str]:
     return rows
 
 
-def analyze_batch(reviews: list[str], model: Any, *, prefix: str = "demo", model_kind: str = "lr") -> list[dict]:
+def analyze_batch(reviews: list[str], model: Any, *, prefix: str = "demo", model_kind: str = "lr",
+                  qwen_enabled: bool = False) -> list[dict]:
     if not reviews or len(reviews) > MAX_ROWS:
         raise ValueError("Número de reseñas no permitido.")
     from .agent import inspect_review
+    from .ollama_report import OllamaReporter
+    reporter = OllamaReporter(batch=True) if qwen_enabled else None
     result = []
     for index, text in enumerate(reviews, 1):
-        record = inspect_review(text, model, review_id=f"{prefix}-{index:03d}")
+        record = inspect_review(text, model, review_id=f"{prefix}-{index:03d}", qwen_enabled=qwen_enabled, reporter=reporter)
         record["modelo_utilizado"] = model_kind
         record["texto_original"] = text
         record["etiqueta_corregida_humano"] = None
@@ -127,6 +130,12 @@ def export_csv(records: list[dict]) -> str:
               "comentario_revision_humana", "recomendacion", "tipo_salida", "decision_revision_humana"]
     if any("seleccion_modelo" in row for row in records):
         fields += ["modelo_solicitado", "fallback_modelo", "version_modelo"]
+    if any("generacion_qwen" in row for row in records):
+        fields += ["qwen_generacion_llm", "qwen_estado", "qwen_codigo", "qwen_modelo_solicitado", "qwen_modelo_ejecutado",
+                   "qwen_latencia_ms", "qwen_resumen", "qwen_problema_identificado",
+                   "qwen_recomendacion", "qwen_accion_propuesta", "qwen_acciones_ejecutadas",
+                   "qwen_sentimiento_analizado", "qwen_aspectos_identificados", "qwen_requiere_revision_humana",
+                   "qwen_advertencias", "qwen_protocolo", "qwen_esquema_sha256", "qwen_vigencia"]
     writer = csv.DictWriter(buffer, fieldnames=fields, extrasaction="ignore", lineterminator="\n")
     writer.writeheader()
     for record in records:
@@ -134,5 +143,18 @@ def export_csv(records: list[dict]) -> str:
         values = {**record, "modelo_solicitado": selected.get("requested"),
                   "fallback_modelo": selected.get("fallback"),
                   "version_modelo": selected.get("manifest_sha256")}
+        generation = record.get("generacion_qwen", {})
+        report = generation.get("informe") or {}
+        values.update({"qwen_" + key: generation.get(key) for key in (
+            "generacion_llm", "estado", "codigo", "modelo_solicitado", "modelo_ejecutado", "latencia_ms",
+            "protocolo", "esquema_sha256")})
+        values.update({"qwen_" + key: report.get(key) for key in (
+            "resumen", "problema_identificado", "recomendacion", "accion_propuesta",
+            "sentimiento_analizado", "aspectos_identificados", "requiere_revision_humana", "advertencias")})
+        values["qwen_vigencia"] = ("ANTERIOR_A_CORRECCION_HUMANA" if record.get("etiqueta_corregida_humano") is not None
+                                   else "ANALISIS_ORIGINAL")
+        for key in ("qwen_aspectos_identificados", "qwen_advertencias"):
+            values[key] = json.dumps(values[key], ensure_ascii=False)
+        values["qwen_acciones_ejecutadas"] = generation.get("acciones_externas_ejecutadas")
         writer.writerow({key: _safe_csv_value(values.get(key)) for key in fields})
     return buffer.getvalue()

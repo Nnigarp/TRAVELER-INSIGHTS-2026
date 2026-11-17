@@ -143,3 +143,18 @@ La [guía breve](docs/GUION_SUSTENTACION_BREVE_2026-11-13.md), la [preparación 
 ## BETO V3 local sin repetir entrenamiento
 
 [Instalación Windows del artefacto recuperado y comprobación de ejecución real](docs/ACTIVAR_BETO_V3_WINDOWS_SIN_ENTRENAR_2026-11-13.md). El paquete externo conserva los pesos ajustados verificados del PR28, reutiliza la caché base y mantiene LR como valor inicial. No contiene una nueva receta ni una nueva evaluación predictiva.
+
+## Informes opcionales con Qwen3 y Ollama
+
+La generación local está **desactivada por defecto**. Qwen3 1.7B compone un informe
+estructurado después de Control, con citas completas y propuestas de un catálogo;
+ActionAgent lo valida sin cambiar sentimiento, aspectos ni revisión humana.
+LR conserva el valor predeterminado y BETO V3 sigue siendo opcional. Un fallo de
+Ollama conserva la clasificación y señala `generacion_llm=false`; no se ejecutan
+acciones externas. La traza principal conserva sus diez eventos y la generación
+usa una secuencia adicional separada.
+
+[Activación y aceptación real en Windows](docs/QWEN_OLLAMA_WINDOWS.md) ·
+[Guion académico y límites](docs/QWEN_DEMOSTRACION_2026-11-17.md).
+Las pruebas de CI simulan Ollama; la ejecución Qwen real en el portátil se verifica
+con el comprobador documentado, sin repetir el entrenamiento de BETO.

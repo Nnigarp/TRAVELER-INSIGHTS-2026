@@ -153,6 +153,16 @@ def run(output):
                     page.set_viewport_size({'width': 390, 'height': 844})
                     page.wait_for_function('innerWidth === 390')
                     mobile_grid = page.locator('#ti-result .ti-report-grid').evaluate('(el) => getComputedStyle(el).gridTemplateColumns')
+                    report['mobile_layout'] = page.locator('#ti-input-pane').evaluate('''(el) => {
+                        const chain = [];
+                        while (el) {
+                            const css = getComputedStyle(el);
+                            chain.push({tag: el.tagName, id: el.id, classes: el.className,
+                                width: el.getBoundingClientRect().width, padding: css.padding});
+                            el = el.parentElement;
+                        }
+                        return chain;
+                    }''')
                     check('mobile_one_report_column', len(mobile_grid.split()) == 1)
                     check('mobile_no_page_overflow', page.evaluate('document.documentElement.scrollWidth <= innerWidth + 1'))
                     check('mobile_uses_screen_width', page.locator('#ti-input-pane').bounding_box()['width'] >= 350)

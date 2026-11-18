@@ -83,7 +83,7 @@ body, .gradio-container {
  --table-odd-background-fill:var(--ti-panel3); --table-odd-background-fill-dark:var(--ti-panel3);
  --table-text-color:var(--ti-soft); --table-text-color-dark:var(--ti-soft);
  --link-text-color:var(--ti-cyan); --link-text-color-dark:var(--ti-cyan);
- max-width:1500px!important; padding:0 32px 24px!important; min-height:100vh;
+ max-width:1500px!important; padding:0 clamp(12px,2.3vw,32px) 24px!important; min-height:100vh;
 }
 /* Gradio also pads its inner app shell. Keep a single responsive gutter. */
 .gradio-container > .main {padding:0!important;margin:0!important;max-width:none!important;width:100%!important;}
@@ -114,7 +114,7 @@ body, .gradio-container {
 #ti-theme label {font-size:11px!important;}
 #ti-nav {border:none;}
 #ti-nav [role="tablist"] {display:flex;gap:6px;border-bottom:1px solid var(--ti-edge);padding:14px 0;}
-#ti-nav [role="tab"] {border:1px solid transparent;border-radius:10px!important;font-weight:700;
+#ti-nav [role="tab"], #ti-nav .tab-container button {border:1px solid transparent;border-radius:10px!important;font-weight:700;
  color:var(--ti-muted);padding:10px 20px!important;background:transparent;min-height:44px;}
 #ti-nav [role="tab"][aria-selected="true"] {background:var(--ti-primary)!important;color:#fff!important;border-color:var(--ti-primary)!important;}
 #ti-nav > .tabitem {border:none;padding:0;}
@@ -192,15 +192,13 @@ body, .gradio-container {
 footer {background:transparent!important;}
 @media(min-width:1000px) {#ti-input-pane {flex:0 1 38%!important;} #ti-result-pane {flex:1 1 58%!important;}}
 @media(max-width:999px) {
- .gradio-container,.gradio-container.dark {padding:0 16px 20px!important;}
  #ti-analysis-row {flex-direction:column!important;} #ti-input-pane,#ti-result-pane {width:100%!important;flex:auto!important;}
  .ti-hero-tags {display:none;}.ti-flow-agents {grid-template-columns:repeat(2,minmax(0,1fr));}
 }
 @media(max-width:600px) {
- .gradio-container,.gradio-container.dark {padding:0 12px 18px!important;}
  #ti-topbar {flex-direction:column;align-items:stretch;gap:12px;}
  #ti-nav [role="tablist"] {justify-content:space-between;gap:2px;overflow:auto;}
- #ti-nav [role="tab"] {padding:9px 11px!important;font-size:12px;}
+ #ti-nav [role="tab"], #ti-nav .tab-container button {padding:9px 11px!important;font-size:12px;}
  .ti-hero {margin:21px 0 20px;}.ti-hero h1 {font-size:27px;}
  .ti-pane {padding:17px!important;}.ti-report-grid {grid-template-columns:minmax(0,1fr);}
  .ti-flow-agents {grid-template-columns:minmax(0,1fr);}.ti-brand-name {font-size:18px;}

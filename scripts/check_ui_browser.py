@@ -7,6 +7,8 @@ real Ollama remain local Windows acceptance tasks.
 from __future__ import annotations
 
 import argparse
+import csv
+import io
 import json
 import os
 from pathlib import Path
@@ -134,11 +136,15 @@ def run(output):
                     page.get_by_role('button', name='Registrar corrección', exact=True).click()
                     page.get_by_text('corregida', exact=True).filter(visible=True).first.wait_for(timeout=10000)
                     page.get_by_role('button', name='Preparar exportaciones', exact=True).click()
-                    download_link = page.get_by_role('link', name='analisis_demo.json')
+                    download_link = page.locator('a[download="analisis_demo.json"]')
                     with page.expect_download() as download:
                         download_link.click()
                     exported = json.loads(Path(download.value.path()).read_text(encoding='utf-8'))
                     check('real_batch_export_and_correction', len(exported['registros']) == 2 and exported['registros'][0]['estado_revision'] == 'corregida' and all(r['modelo_utilizado'] == 'svm' for r in exported['registros']))
+                    with page.expect_download() as csv_download:
+                        page.locator('a[download="analisis_demo.csv"]').click()
+                    csv_rows = list(csv.DictReader(io.StringIO(Path(csv_download.value.path()).read_text(encoding='utf-8-sig'))))
+                    check('real_csv_export', len(csv_rows) == 2 and all(r['modelo_utilizado'] == 'svm' for r in csv_rows))
                     page.screenshot(path=str(output / 'lots-desktop.png'), full_page=True)
                     page.get_by_role('tab', name='Análisis', exact=True).click()
                     page.get_by_role('radio', name='Caribe Nocturno', exact=True).check()

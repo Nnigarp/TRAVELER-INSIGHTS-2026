@@ -74,7 +74,11 @@ def run(output):
                         request.abort()
                 context.route('**/*', route)
                 try:
-                    page.goto(address, wait_until='networkidle')
+                    # Gradio keeps live event/heartbeat requests; networkidle is
+                    # not a readiness signal. Wait for the actual controls.
+                    page.goto(address, wait_until='domcontentloaded')
+                    page.locator('#ti-review textarea').wait_for(timeout=30000)
+                    page.wait_for_function("document.documentElement.dataset.tiTheme === 'caribe'")
                     check('four_native_tabs', page.get_by_role('tab').all_text_contents() == ['Análisis', 'Audio', 'Lotes', 'Agentes'])
                     check('default_dark_theme', page.locator('html').get_attribute('data-ti-theme') == 'caribe')
                     check('empty_real_result', page.locator('#ti-result .ti-placeholder').count() == 1 and page.locator('#ti-result .ti-indicators').count() == 0)

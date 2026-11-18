@@ -42,6 +42,7 @@ def test_session_adapters_use_records_without_changing_or_reclassifying(monkeypa
     monkeypatch.setattr(app, "run_selected", lambda *a: pytest.fail("Agent view must not reclassify"))
     captured, view, raw, source = app.capture_execution(encoded)
     assert captured == original and raw == encoded and source == "Análisis individual"
+    assert app.capture_audio_execution(encoded)[3] == "Audio · transcripción revisada"
     assert "TravelerOrchestrator" in view and view.count('class="ti-flow-event"') == 10
     assert app.capture_execution("{}")[0] is None
     assert app.capture_execution("invalid")[0] is None

@@ -1,4 +1,4 @@
-"""Regression checks for a presentation-only agent trace in Midnight Indigo."""
+"""Regression checks for a read-only view of the real agent trace."""
 import copy
 import html
 import json

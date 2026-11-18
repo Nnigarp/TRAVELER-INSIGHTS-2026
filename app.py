@@ -206,6 +206,10 @@ def capture_batch_execution(records, review_id):
     return capture_execution(json.dumps(selected, ensure_ascii=False), "Lote · " + str(review_id))
 
 
+def capture_audio_execution(encoded):
+    return capture_execution(encoded, "Audio · transcripción revisada")
+
+
 def clear_analysis():
     return ("", character_count(""), EMPTY_REPORT_HTML, "{}", render_multiagent_view(None),
             *capture_execution("{}"))
@@ -331,7 +335,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
         button.click(lambda: gr.Tabs(selected="agents"), outputs=navigation, api_name=False)
     audio_transcribe_btn.click(transcribe_audio_ui, inputs=[audio_input, audio_language], outputs=[audio_transcript, audio_metadata, audio_status])
     audio_analyze_btn.click(analyze_audio_ui, inputs=[audio_transcript, audio_metadata, model_choice, qwen_choice], outputs=[audio_summary, audio_trace]).then(
-        capture_execution, inputs=audio_trace, outputs=captured_outputs, api_name=False)
+        capture_audio_execution, inputs=audio_trace, outputs=captured_outputs, api_name=False)
     for component in (audio_input, audio_language):
         component.change(reset_audio_trace, outputs=[audio_transcript, audio_metadata, audio_status, audio_summary, audio_trace])
     batch_outputs = [batch_state, batch_table, trend_table, review_id, batch_status]

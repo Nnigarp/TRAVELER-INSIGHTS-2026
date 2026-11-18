@@ -3,22 +3,19 @@ import json
 import app
 
 
-def test_midnight_indigo_has_light_and_dark_tokens():
-    assert app._PRIMARY.c500 == "#4F46E5"
-    assert app._PRIMARY.c300 == "#818CF8"
-    assert app.THEME.body_background_fill == "#F8FAFC"
-    assert app.THEME.body_background_fill_dark == "#0F172A"
-    assert app.THEME.block_background_fill == "#FFFFFF"
-    assert app.THEME.block_background_fill_dark == "#1E293B"
+def test_caribe_and_utb_have_explicit_light_and_dark_tokens():
+    assert app._PRIMARY.c500 == "#14b8a6"
+    assert app.THEME.body_background_fill == "#f3f7fa"
+    assert app.THEME.body_background_fill_dark == "#061217"
+    assert app.THEME.block_background_fill == "#ffffff"
+    assert app.THEME.block_background_fill_dark == "#0c1f27"
 
 
-def test_three_tabs_and_event_wiring_remain_present():
+def test_four_tabs_and_event_wiring_remain_present():
     config = app.app.get_config_file()
     tabs = [c.get("props", {}).get("label") for c in config["components"]
             if c.get("type") in ("tabitem", "tab")]
-    assert "Reseña individual" in tabs
-    assert "Audio y transcripción local" in tabs
-    assert "Lotes y revisión humana" in tabs
+    assert tabs == ["Análisis", "Audio", "Lotes", "Agentes"]
     dependencies = config["dependencies"]
     # 7 button clicks + 2 change/reset handlers, as in original contract.
     assert len(dependencies) >= 9

@@ -14,6 +14,8 @@ AGENTS = (
     ("control", "Control", "Continuar o revisión humana"),
     ("accion", "Acción", "Recomendación o abstención"),
 )
+CLASS_NAMES = {"percepcion": "PerceptionAgent", "semantica": "SemanticsAgent",
+               "control": "ControlAgent", "accion": "ActionAgent"}
 NAMES = {"orquestador": "Orquestador principal", "qwen": "Qwen local (generador)",
          **{key: name for key, name, _ in AGENTS}}
 TASKS = {
@@ -101,12 +103,14 @@ def render_multiagent_view(record: dict | None) -> str:
         blocks.extend((
             '<div class="ti-flow-agent">',
             f'<strong>{_safe(label)}</strong>',
+            f'<div class="ti-agent-class">{CLASS_NAMES[key]}</div>',
             f'<p>{_safe(description)}</p>',
             f'<span class="ti-flow-status">{_safe(display)}</span>',
             '</div>',
         ))
     blocks.extend((
         '</div>',
+        render_qwen_service(record),
         '<h4>Secuencia real de eventos</h4>',
         '<ol class="ti-flow-events">',
     ))
@@ -154,4 +158,34 @@ def render_multiagent_view(record: dict | None) -> str:
         'aprendizaje offline. Los eventos solo registran metadatos, no '
         'razonamientos internos ni transcripciones.</p></section>'
     )
+    return "\n".join(blocks)
+
+
+def render_qwen_service(record):
+    generation = record.get("generacion_qwen") if isinstance(record, dict) else None
+    if not generation:
+        status = "Sin consulta registrada"
+    elif generation.get("estado") == "GENERADO" and generation.get("validado_por") == "ActionAgent":
+        status = "Informe validado por Acción"
+    else:
+        status = "Sin informe validado"
+    return ('<div class="ti-qwen-service"><h4>Qwen / Ollama · servicio generativo subordinado</h4>'
+            '<p>Opcional, después de Control y antes de Acción. No es un agente especializado ni ejecuta acciones externas.</p>'
+            '<span class="ti-flow-status">' + _safe(status) + '</span></div>')
+
+
+def render_agents_overview(record=None):
+    """Function map when idle; executed states only when a real trace exists."""
+    if isinstance(record, dict) and isinstance(record.get("multiagente", {}).get("traza"), list):
+        return render_multiagent_view(record)
+    blocks = ['<section class="ti-flow" aria-label="Coordinación multiagente">',
+              '<div class="ti-flow-lead"><div class="ti-flow-eyebrow">ORQUESTADOR PRINCIPAL</div>'
+              '<h3>TravelerOrchestrator</h3><p>Funciones del sistema · sin ejecución registrada.</p></div>',
+              '<div class="ti-flow-agents">']
+    for key, label, description in AGENTS:
+        blocks.append('<div class="ti-flow-agent"><strong>' + label + '</strong>'
+                      '<div class="ti-agent-class">' + CLASS_NAMES[key] + '</div><p>' + description + '</p>'
+                      '<span class="ti-flow-status">Sin ejecutar</span></div>')
+    blocks.extend(('</div>', render_qwen_service(None),
+                   '<p class="ti-flow-caveat">Analiza una entrada para mostrar la traza real de diez eventos y, si se activa Qwen, tres eventos generativos separados.</p></section>'))
     return "\n".join(blocks)

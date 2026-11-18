@@ -37,6 +37,21 @@ Prototipo local de apoyo a la revisión de reseñas turísticas, desarrollado po
 - **Revisión humana:** permite guardar etiqueta corregida y nota por ID. Mantiene predicción, revisión original e informe anterior; no reentrena ni regenera automáticamente.
 - **JSON/CSV:** incluyen modelo efectivo, fallback explícito, texto y correcciones. Con Qwen incluyen estado, informe, evidencia literal, modo de síntesis y procedencia. CSV protege celdas que podrían interpretarse como fórmulas. Los archivos exportados pueden contener información privada.
 
+## Interfaz Caribe Nocturno / UTB Claro
+
+Gradio conserva los componentes y callbacks reales. El diseño toma como referencia el prototipo visual **Traveler Insights 2026 — Cartagena · UTB Intelligence**, con dos temas seleccionables sin reiniciar ni volver a inferir. Usa fuentes locales disponibles y fuentes del sistema como alternativa; no requiere CDN. La navegación, el selector de tema y los controles admiten teclado y foco visible.
+
+| Sección | Uso |
+|---|---|
+| **Análisis** | Selecciona LR/SVM/BETO disponible y activa Qwen opcionalmente. Entrada vacía inicial, contador, ejemplos identificados como demostrativos, análisis real y limpieza. Entrada/resultados en dos columnas amplias y apiladas en móvil. |
+| **Audio** | Micrófono o archivo real, Whisper Tiny, transcripción editable y análisis posterior. Usa el modelo y la opción Qwen seleccionados en Análisis; conserva procedencia y correcciones. |
+| **Lotes** | Texto o CSV, resultados y conteos descriptivos reales, corrección por ID, exportaciones y consulta de la traza de una fila. Conserva los límites existentes. |
+| **Agentes** | Funciones y estados del último registro consultado en la sesión: orquestador y cuatro especialistas. Qwen/Ollama aparece separado como servicio subordinado. Sin registro no muestra tareas completadas. |
+
+El informe presenta síntesis de ancho completo, indicadores compactos y una cuadrícula de dos columnas para problema, evidencia, recomendación y acción propuesta; en móvil se reduce a una. Advertencias y detalles técnicos quedan separados. **Sin Qwen o ante un fallo se identifica la orientación tradicional por reglas**, sin rellenar un resumen generativo ficticio. Las puntuaciones se rotulan como no calibradas. El JSON completo y las trazas siguen accesibles en secciones plegables.
+
+La navegación utiliza pestañas nativas, y el tema un selector explícito en vez de los controles ilustrativos del HTML. La selección de tema dura mientras la página está abierta; al recargar comienza en Caribe Nocturno. La adaptación y los contratos automáticos no sustituyen la aceptación de esta interfaz con los modelos, el micrófono y el navegador reales en Windows.
+
 ## Informes Qwen: síntesis con evidencia separada
 
 El protocolo `ollama-tourism-report-v2` organiza la tarjeta en **resumen ejecutivo, sentimiento/aspectos, problema, evidencia, recomendación, acción propuesta, revisión humana y advertencias**. La información técnica queda plegada; el JSON y las trazas mantienen sus detalles.
@@ -119,6 +134,8 @@ python scripts/check_qwen_report_quality.py --output artifacts/qwen-contracts-01
 ```
 
 La suite completa utiliza el entorno de investigación para los contratos de optimización existentes; la ruta `.[ui,test]` ejecuta los contratos disponibles sin instalar pesos. CI de Qwen en Linux y Windows usa HTTP Ollama **simulado**, LR/SVM de la DEMO y una interfaz BETO inyectada para probar consistencia/fallback. También ejecuta cola, sesiones, cargas CSV, correcciones y descargas por **HTTP Gradio real**. No descarga Qwen ni exige Ollama real. Los tests de optimización con fixtures pequeños no constituyen un nuevo experimento BETO.
+
+El workflow `ui-browser.yml` añade contratos de presentación en Linux/Windows y un navegador Chromium en Linux sobre Gradio real: cuatro pestañas, ambos temas, LR/SVM, revisión de lotes, descarga JSON y disposición móvil. Conserva capturas y un registro de comprobaciones como artefacto de CI. Playwright es una dependencia exclusiva de esa prueba, no de la aplicación. No usa pesos BETO/Whisper ni Ollama real; los informes Qwen v2 y sus fallos se cubren con API simulada en los contratos existentes.
 
 La batería de contenido está versionada en [tests/fixtures/qwen_report_quality_v2.json](tests/fixtures/qwen_report_quality_v2.json). Incluye comentarios positivos, negativos, mixtos, neutrales, ambiguos, insuficientes y de alcance incierto. Las pruebas adversariales rechazan invenciones de hoteles, fechas, pagos, atribuciones, evidencia alterada y supresión de revisión. Una API simulada aprobada no demuestra calidad de las respuestas del Qwen real; esta revisión se debe aceptar nuevamente en Windows.
 

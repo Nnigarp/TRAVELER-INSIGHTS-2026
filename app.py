@@ -235,7 +235,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
             theme_choice = gr.Radio(["Caribe Nocturno", "UTB Claro"], value="Caribe Nocturno",
                                     label="Tema visual", elem_id="ti-theme")
     with gr.Tabs(selected="analysis", elem_id="ti-nav") as navigation:
-        with gr.Tab("Análisis", id="analysis"):
+        with gr.Tab("Análisis", id="analysis", elem_id="ti-analysis-tab"):
             gr.HTML(HERO_HTML)
             with gr.Row(elem_id="ti-analysis-row"):
                 with gr.Column(scale=4, min_width=300, elem_id="ti-input-pane", elem_classes=["ti-pane"]):
@@ -262,10 +262,10 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
                     gr.HTML(pane_heading("Informe de experiencia", "Síntesis, evidencia y propuestas para valoración humana."))
                     result = gr.HTML(EMPTY_REPORT_HTML, elem_id="ti-result", label="Informe de experiencia")
                     with gr.Accordion("Detalles técnicos · JSON y trazabilidad", open=False):
-                        detail = gr.Code(value="{}", label="JSON completo sin modificaciones", language="json", elem_id="ti-detail-json")
+                        detail = gr.Code(value="{}", label="JSON completo sin modificaciones", language="json", max_lines=18, elem_id="ti-detail-json")
                         agent_view = gr.HTML(render_multiagent_view(None), label="Traza de esta ejecución")
                     goto_agents = gr.Button("Explorar trazabilidad", size="sm")
-        with gr.Tab("Audio", id="audio"):
+        with gr.Tab("Audio", id="audio", elem_id="ti-audio-tab"):
             gr.HTML(section_heading("Entrada multimodal", "Audio y transcripción", "Graba o carga audio, revisa las palabras y analiza con el modelo y Qwen seleccionados en Análisis."))
             with gr.Row():
                 with gr.Column(min_width=300, elem_classes=["ti-pane"]):
@@ -282,9 +282,9 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
                     gr.HTML(pane_heading("Informe de la transcripción", "Procedencia ASR y edición humana conservadas."))
                     audio_summary = gr.HTML(EMPTY_REPORT_HTML, label="Informe de audio")
                     with gr.Accordion("Procedencia ASR y análisis · JSON", open=False):
-                        audio_trace = gr.Code(value="{}", label="ASR original + edición + análisis", language="json", elem_id="ti-audio-json")
+                        audio_trace = gr.Code(value="{}", label="ASR original + edición + análisis", language="json", max_lines=18, elem_id="ti-audio-json")
                     audio_goto_agents = gr.Button("Ver agentes de la última ejecución", size="sm")
-        with gr.Tab("Lotes", id="batch"):
+        with gr.Tab("Lotes", id="batch", elem_id="ti-batch-tab"):
             gr.HTML(section_heading("Revisión de varias experiencias", "Análisis por lotes", "Procesa texto o CSV, conserva predicciones y correcciones y exporta resultados reales. Los conteos son descriptivos."))
             batch_state = gr.State([])
             with gr.Row():
@@ -312,12 +312,12 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
                 batch_table = gr.Dataframe(headers=["ID", "Texto", "Modelo", "Predicción modelo", "Corrección humana", "Estado"], datatype=["str"] * 6, interactive=False, label="Resultados reales del lote")
                 trend_table = gr.Dataframe(headers=["Predicción del modelo", "Cantidad"], datatype=["str", "number"], interactive=False, label="Conteos descriptivos de predicciones")
             batch_qwen = gr.HTML(label="Informes Qwen del lote · propuestas sin ejecutar")
-        with gr.Tab("Agentes", id="agents"):
+        with gr.Tab("Agentes", id="agents", elem_id="ti-agents-tab"):
             gr.HTML(section_heading("Transparencia del sistema", "Coordinación multiagente", "Un orquestador y cuatro especialistas. Qwen/Ollama es un servicio opcional subordinado; sus estados se obtienen de la ejecución."))
             execution_source = gr.Markdown("Sin ejecución registrada en esta sesión.")
             agents_panel = gr.HTML(render_agents_overview(), elem_id="ti-agents", label="Estados derivados de la traza real")
             with gr.Accordion("JSON completo de la ejecución mostrada", open=False):
-                agents_json = gr.Code(value="{}", label="Registro y procedencia originales", language="json", elem_id="ti-agents-json")
+                agents_json = gr.Code(value="{}", label="Registro y procedencia originales", language="json", max_lines=18, elem_id="ti-agents-json")
     gr.HTML('<div class="ti-footer">Traveler Insights 2026 · Universidad Tecnológica de Bolívar · Cartagena de Indias<br>Prototipo académico local · clasificación, evidencia y supervisión humana · sin acciones externas</div>')
 
     captured_outputs = [last_record, agents_panel, agents_json, execution_source]

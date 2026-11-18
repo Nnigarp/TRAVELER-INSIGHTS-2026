@@ -20,6 +20,7 @@ THEME_JS = """(value) => {
  return [];
 }"""
 INITIAL_THEME_JS = """() => {
+ document.documentElement.lang = 'es';
  document.documentElement.dataset.tiTheme = 'caribe';
  document.documentElement.classList.add('dark');
  document.querySelectorAll('.gradio-container').forEach(el => el.classList.add('dark'));
@@ -100,7 +101,7 @@ body, .gradio-container {
 .ti-brand-name {font-size:19px;font-weight:800;letter-spacing:-.7px;color:var(--ti-text);}
 .ti-brand-name span {color:var(--ti-cyan);}
 .ti-brand-sub {font-size:10px;color:var(--ti-muted);letter-spacing:1.7px;font-weight:700;margin-top:4px;}
-#ti-theme {background:transparent;border:none;padding:0;}
+#ti-theme {background:transparent!important;border:none!important;padding:0;}
 #ti-theme label {font-size:11px!important;}
 #ti-nav {border:none;}
 #ti-nav [role="tablist"] {display:flex;gap:6px;border-bottom:1px solid var(--ti-edge);padding:14px 0;}

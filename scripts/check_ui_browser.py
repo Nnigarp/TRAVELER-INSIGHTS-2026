@@ -21,9 +21,12 @@ TEXT = "El hotel era cómodo, pero el transporte nunca llegó y perdimos la excu
 
 
 def read_record(page, element_id):
-    node = page.locator(element_id + ' .cm-content')
-    node.wait_for(state="visible", timeout=10000)
-    return json.loads(node.inner_text())
+    # CodeMirror virtualizes long JSON; visible lines are not the full record.
+    # Exercise the native download control and inspect its complete bytes.
+    page.locator(element_id).hover()
+    with page.expect_download(timeout=10000) as download:
+        page.locator(element_id + ' a[download]').click()
+    return json.loads(Path(download.value.path()).read_text(encoding='utf-8'))
 
 
 def choose_model(page, label):

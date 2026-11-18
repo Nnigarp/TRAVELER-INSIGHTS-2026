@@ -10,7 +10,7 @@ import pytest
 
 from traveler_agent.ollama_report import (
     DEFAULT_MODEL, OllamaConfig, OllamaReporter, ReportRejected,
-    render_generation_html, validate_generation, validate_report, RECOMMENDATIONS, ACTIONS, WARNINGS,
+    render_generation_html, validate_generation, validate_report, report_schema,
 )
 
 TEXT = "El hotel era cómodo, pero el transporte nunca llegó y perdimos la excursión."
@@ -18,10 +18,8 @@ TEXT = "El hotel era cómodo, pero el transporte nunca llegó y perdimos la excu
 
 def fixture_report(text=TEXT, sentiment="negativo", needs_human=True, aspects=None):
     # API fixture, deliberately NOT evidence of actual Qwen inference.
-    return {"resumen": text, "problema_identificado": text if text == TEXT else "",
-            "sentimiento_analizado": sentiment, "aspectos_identificados": aspects or [],
-            "requiere_revision_humana": needs_human, "advertencias": list(WARNINGS),
-            "recomendacion": RECOMMENDATIONS[0], "accion_propuesta": ACTIONS[0]}
+    schema = report_schema(text, sentiment, aspects or [], needs_human)
+    return {field: spec["enum"][0] for field, spec in schema["properties"].items()}
 
 
 def response_for(report=None, **overrides):

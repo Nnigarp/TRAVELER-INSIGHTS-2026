@@ -1,0 +1,18 @@
+{
+  "version": "qwen-report-quality-v2",
+  "scope": "Small synthetic functional battery, not predictive or human validation. Context labels are fixtures, not evaluated model outputs.",
+  "cases": [
+    {"id": "mixed_transport", "text": "El hotel era cómodo, pero el transporte nunca llegó y perdimos la excursión.", "sentiment": "negativo", "aspects": ["acceso"], "needs_human": true, "mode": "PARAFRASIS_CONTROLADA", "summary_terms": ["comodidad", "transporte", "pérdida"], "problem_term": "transporte", "category": "transporte"},
+    {"id": "positive", "text": "La habitación estaba limpia.", "sentiment": "positivo", "aspects": ["higiene"], "needs_human": false, "mode": "PARAFRASIS_CONTROLADA", "summary_terms": ["limpieza"], "problem_term": "", "category": "favorable"},
+    {"id": "negative", "text": "La habitación estaba sucia.", "sentiment": "negativo", "aspects": ["higiene"], "needs_human": true, "mode": "PARAFRASIS_CONTROLADA", "summary_terms": ["suciedad"], "problem_term": "suciedad", "category": "higiene"},
+    {"id": "neutral", "text": "La visita duró dos horas.", "sentiment": "neutral", "aspects": [], "needs_human": false, "mode": "PARAFRASIS_CONTROLADA", "summary_terms": ["duración"], "problem_term": "", "category": "informativo"},
+    {"id": "ambiguous", "text": "No sé si volvería.", "sentiment": "neutral", "aspects": [], "needs_human": true, "mode": "PARAFRASIS_CONTROLADA", "summary_terms": ["duda"], "problem_term": "", "category": "aclaracion"},
+    {"id": "insufficient", "text": "Regular.", "sentiment": "neutral", "aspects": [], "needs_human": true, "mode": "PARAFRASIS_CONTROLADA", "summary_terms": ["no detalla"], "problem_term": "", "category": "aclaracion"},
+    {"id": "negated_problem", "text": "El transporte no falló.", "sentiment": "positivo", "aspects": ["acceso"], "needs_human": false, "mode": "CITA_CONSERVADORA", "summary_terms": ["no falló"], "problem_term": "", "category": "aclaracion"},
+    {"id": "uncertain_attribution", "text": "No confirmo que el hotel cancelara el taxi, pero perdimos la visita.", "sentiment": "negativo", "aspects": [], "needs_human": true, "mode": "CITA_CONSERVADORA", "summary_terms": ["No confirmo"], "problem_term": "", "category": "aclaracion"},
+    {"id": "regional", "text": "El guía fue bacano, pero nos dejaron tirados.", "sentiment": "negativo", "aspects": ["servicio"], "needs_human": true, "mode": "CITA_CONSERVADORA", "summary_terms": ["bacano", "tirados"], "problem_term": "", "category": "aclaracion"},
+    {"id": "irony", "text": "Qué maravilla de tour: nadie apareció.", "sentiment": "negativo", "aspects": [], "needs_human": true, "mode": "CITA_CONSERVADORA", "summary_terms": ["nadie apareció"], "problem_term": "", "category": "aclaracion"},
+    {"id": "price", "text": "Nos cobraron más de lo anunciado.", "sentiment": "negativo", "aspects": ["precio"], "needs_human": true, "mode": "PARAFRASIS_CONTROLADA", "summary_terms": ["cobro", "anunciado"], "problem_term": "precio", "category": "precio"},
+    {"id": "multiple_incidents", "text": "La habitación estaba sucia. Nos cobraron más de lo anunciado.", "sentiment": "negativo", "aspects": ["higiene", "precio"], "needs_human": true, "mode": "PARAFRASIS_CONTROLADA", "summary_terms": ["suciedad", "cobro"], "problem_term": "suciedad", "category": "higiene"}
+  ]
+}

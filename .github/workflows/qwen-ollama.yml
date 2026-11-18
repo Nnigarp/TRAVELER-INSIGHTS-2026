@@ -5,11 +5,14 @@ on:
     paths:
       - 'app.py'
       - 'src/traveler_agent/ollama_report.py'
+      - 'src/traveler_agent/report_content.py'
       - 'src/traveler_agent/agent.py'
       - 'src/traveler_agent/multiagent*.py'
       - 'src/traveler_agent/audio_asr.py'
       - 'src/traveler_agent/batch.py'
       - 'scripts/check_qwen_local.py'
+      - 'scripts/check_qwen_report_quality.py'
+      - 'tests/fixtures/qwen_report_quality_v2.json'
       - 'tests/test_*qwen*.py'
       - 'tests/test_ollama_report.py'
       - '.github/workflows/qwen-ollama.yml'
@@ -36,10 +39,14 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install -e '.[ui,test]'
       - name: Simulated Ollama, classifier/ASR contracts and actual Gradio HTTP
-        run: python -m pytest -q tests/test_ollama_report.py tests/test_qwen_integration.py tests/test_qwen_gradio_http.py tests/test_qwen_local_check.py tests/test_multiagent.py tests/test_audio_ui.py tests/test_batch.py tests/test_model_runtime.py tests/test_ui_smoke.py tests/test_ui_multiagent_view.py --junitxml=artifacts/qwen-ci.xml
+        run: python -m pytest -q tests/test_ollama_report.py tests/test_qwen_integration.py tests/test_qwen_gradio_http.py tests/test_qwen_local_check.py tests/test_qwen_report_quality.py tests/test_multiagent.py tests/test_audio_ui.py tests/test_batch.py tests/test_model_runtime.py tests/test_ui_smoke.py tests/test_ui_multiagent_view.py --junitxml=artifacts/qwen-ci.xml
+      - name: Reproduce content contracts with no LLM/classifier execution
+        run: python scripts/check_qwen_report_quality.py --output artifacts/qwen-report-contracts.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: qwen-contracts-${{ runner.os }}
-          path: artifacts/qwen-ci.xml
+          path: |
+            artifacts/qwen-ci.xml
+            artifacts/qwen-report-contracts.json
           if-no-files-found: error

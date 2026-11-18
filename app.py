@@ -89,6 +89,13 @@ UI_CSS = """
  min-height:2rem;border-radius:9px;background:var(--background-fill-secondary);
  font-variant-numeric:tabular-nums;font-weight:600;}
 .ti-flow-caveat {font-size:.83rem;opacity:.85;}
+.ti-report-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.8rem;}
+.ti-report-block {border:1px solid var(--border-color-primary);border-radius:10px;padding:.8rem;}
+.ti-report h4 {margin:0 0 .45rem;}
+.ti-report-summary {background:var(--background-fill-secondary);margin:.8rem 0;}
+.ti-report-source {font-size:.85rem;opacity:.85;}
+.ti-report blockquote {margin:.35rem 0;padding:.35rem .75rem;border-left:3px solid var(--border-color-primary);}
+.ti-report-tech {margin-top:1rem;border-top:1px solid var(--border-color-primary);padding-top:.7rem;}
 @media (max-width:600px) {.ti-flow-agents {grid-template-columns:1fr 1fr;}
  .ti-flow-event {align-items:flex-start;}}
 @media (max-width:380px) {.ti-flow-agents {grid-template-columns:1fr;}}
@@ -129,6 +136,10 @@ def _analysis_card(record: dict, *, model_kind: str, audio: bool = False) -> str
                             "puede recortarse aunque cumpla el límite de caracteres. "
                             "Comprueba el contexto completo durante la revisión humana.*")
     if "generacion_qwen" in record:
+        if record["generacion_qwen"].get("generacion_llm") is True:
+            # The conventional recommendation remains in JSON. Display the
+            # contextual report once instead of competing recommendation cards.
+            sections = [part for part in sections if not part.startswith("**Recomendación exploratoria:**")]
         sections.append(render_generation_html(record))
     return "\n\n".join(sections)
 

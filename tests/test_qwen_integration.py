@@ -172,11 +172,26 @@ def test_batch_limits_calls_and_keeps_all_classifier_results(monkeypatch):
 
 
 def test_batch_time_budget_is_shared_and_long_reviews_still_classify(monkeypatch):
+    from types import SimpleNamespace
+    import time
+    import traveler_agent.ollama_report as reports
+
+    # A 40 ms real socket timeout may leave a small positive budget on Windows.
+    # Test shared-budget accounting with an explicit clock instead of scheduler
+    # precision. Real HTTP timeouts/watchdog behavior remain tested separately
+    # in test_ollama_report.py.
+    clock, calls = [0.0], []
+    def consume_budget(config, path, payload=None, *, timeout=None):
+        calls.append(timeout)
+        clock[0] += timeout
+        raise reports.ReportRejected("TIMEOUT")
+    monkeypatch.setattr(reports, "time", SimpleNamespace(
+        monotonic=lambda: clock[0], perf_counter=time.perf_counter))
+    monkeypatch.setattr(reports, "local_json_request", consume_budget)
     monkeypatch.setenv("TRAVELER_OLLAMA_TIMEOUT", ".04")
-    with simulated_ollama(from_request, delay=.1) as (url, calls):
-        monkeypatch.setenv("TRAVELER_OLLAMA_ENDPOINT", url)
-        records, *_ = app.run_batch_lines(TEXT + "\n" + TEXT, "lr", True)
+    records, *_ = app.run_batch_lines(TEXT + "\n" + TEXT, "lr", True)
     assert len(records) == 2 and len(calls) == 1
+    assert calls[0] == .04
     assert records[0]["generacion_qwen"]["codigo"] == "TIMEOUT"
     assert records[1]["generacion_qwen"]["codigo"] == "PRESUPUESTO_LOTE_AGOTADO"
     text = "La visita empezó por la mañana. " * 50
@@ -184,6 +199,7 @@ def test_batch_time_budget_is_shared_and_long_reviews_still_classify(monkeypatch
     record = json.loads(raw)
     assert record["modelo_utilizado"] == "lr" and record["sentimiento"]
     assert record["generacion_qwen"]["codigo"] == "ENTRADA_GENERATIVA_EXCESIVA"
+    assert len(calls) == 1
 
 
 def test_generated_schema_never_becomes_a_classifier_feature():

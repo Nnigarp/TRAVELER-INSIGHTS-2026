@@ -37,7 +37,7 @@ Prototipo local de apoyo a la revisión de reseñas turísticas, desarrollado po
 - **Revisión humana:** permite guardar etiqueta corregida y nota por ID. Mantiene predicción, revisión original e informe anterior; no reentrena ni regenera automáticamente.
 - **JSON/CSV:** incluyen modelo efectivo, fallback explícito, texto y correcciones. Con Qwen incluyen estado, informe, evidencia literal, modo de síntesis y procedencia. CSV protege celdas que podrían interpretarse como fórmulas. Los archivos exportados pueden contener información privada.
 
-## Interfaz Caribe Nocturno / UTB Claro
+## Interfaz UTB Claro Premium / Caribe Nocturno
 
 Gradio conserva los componentes y callbacks reales. El diseño toma como referencia el prototipo visual **Traveler Insights 2026 — Cartagena · UTB Intelligence**, con dos temas seleccionables sin reiniciar ni volver a inferir. Usa fuentes locales disponibles y fuentes del sistema como alternativa; no requiere CDN. La navegación, el selector de tema y los controles admiten teclado y foco visible.
 
@@ -50,7 +50,9 @@ Gradio conserva los componentes y callbacks reales. El diseño toma como referen
 
 El informe presenta síntesis de ancho completo, indicadores compactos y una cuadrícula de dos columnas para problema, evidencia, recomendación y acción propuesta; en móvil se reduce a una. Advertencias y detalles técnicos quedan separados. **Sin Qwen o ante un fallo se identifica la orientación tradicional por reglas**, sin rellenar un resumen generativo ficticio. Las puntuaciones se rotulan como no calibradas. El JSON completo y las trazas siguen accesibles en secciones plegables.
 
-La navegación utiliza pestañas nativas, y el tema un selector explícito en vez de los controles ilustrativos del HTML. La selección de tema dura mientras la página está abierta; al recargar comienza en Caribe Nocturno. La adaptación y los contratos automáticos no sustituyen la aceptación de esta interfaz con los modelos, el micrófono y el navegador reales en Windows.
+La navegación utiliza pestañas nativas, y el tema un selector explícito en vez de los controles ilustrativos del HTML. UTB Claro Premium se aplica en la primera visita. La última selección se guarda en este navegador para la misma dirección local (incluido el puerto). Si el navegador bloquea el almacenamiento, el selector funciona durante la visita y se vuelve al tema claro al recargar. La adaptación y los contratos automáticos no sustituyen la aceptación de esta interfaz con los modelos, el micrófono y el navegador reales en Windows.
+
+En Audio y Lotes se muestra la selección de clasificador/Qwen de Análisis y un acceso directo para cambiarla. El editor JSON ajusta líneas en pantalla y conserva el documento completo para copiar o descargar. Consulta la [auditoría y prioridades de UX/UI](docs/AUDITORIA_UX_UI_PREMIUM.md).
 
 ## Informes Qwen: síntesis con evidencia separada
 

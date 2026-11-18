@@ -41,7 +41,7 @@ jobs:
           python-version: '3.12'
       - name: Install application and test-only browser
         run: |
-          python -m pip install -e '.[ui,test]' 'playwright>=1.50,<2'
+          python -m pip install -e '.[ui,test]' 'playwright>=1.51,<2'
           python -m playwright install --with-deps chromium
       - name: Navigate real Gradio, infer LR/SVM, revise and export
         run: python scripts/check_ui_browser.py --output-dir artifacts/ui-browser

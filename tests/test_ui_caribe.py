@@ -88,6 +88,16 @@ def test_agent_service_is_subordinate_and_idle_states_are_honest():
     assert all(name in idle for name in ("PerceptionAgent", "SemanticsAgent", "ControlAgent", "ActionAgent"))
 
 
+def test_html_output_keeps_validation_errors_inert(monkeypatch):
+    payload = '<img src=x onerror="alert(1)">'
+    def fail(*args, **kwargs):
+        raise ValueError(payload)
+    monkeypatch.setattr(app, "run_selected", fail)
+    for markup, raw in (app.analyze("review"), app.analyze_audio_ui("review", {}, "lr")):
+        assert raw == "{}" and 'role="alert"' in markup
+        assert '<img' not in markup and html.unescape(markup).find(payload) >= 0
+
+
 def _contrast(a, b):
     def light(color):
         if len(color) == 4:

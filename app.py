@@ -41,7 +41,7 @@ def get_demo_model(kind: str = "lr"):
 
 from traveler_agent.ui_style import THEME, UI_CSS, THEME_JS, INITIAL_THEME_JS, _PRIMARY
 from traveler_agent.ui_presenter import (
-    BRAND_HTML, HERO_HTML, EMPTY_REPORT_HTML, render_result, section_heading, pane_heading,
+    BRAND_HTML, HERO_HTML, EMPTY_REPORT_HTML, render_result, section_heading, pane_heading, safe_text,
 )
 
 
@@ -57,7 +57,7 @@ def analyze(review: str, model_kind: str = "lr", qwen_enabled: bool = False):
         summary = _analysis_card(record, model_kind=effective)
         return summary, json.dumps(record, ensure_ascii=False, indent=2)
     except (ValueError, TypeError) as exc:
-        return f"Error de validación: {exc}", "{}"
+        return '<p role="alert">' + safe_text(f"Error de validación: {exc}") + '</p>', "{}"
 
 
 def analyze_with_agents(review: str, model_kind: str = "lr", qwen_enabled: bool = False):
@@ -170,7 +170,7 @@ def analyze_audio_ui(edited_text: str, provenance: dict, model_kind: str, qwen_e
         summary = _analysis_card(result, model_kind=effective, audio=True)
         return summary, json.dumps(result, ensure_ascii=False, indent=2)
     except (AudioInputError, ValueError, TypeError) as exc:
-        return f"Error: {exc}", "{}"
+        return '<p role="alert">' + safe_text(f"Error: {exc}") + '</p>', "{}"
 
 
 def reset_audio_trace():

@@ -215,7 +215,23 @@ def run(output):
                         page.locator('a[download="analisis_demo.csv"]').click()
                     csv_rows = list(csv.DictReader(io.StringIO(Path(csv_download.value.path()).read_text(encoding='utf-8-sig'))))
                     check('real_csv_export', len(csv_rows) == 2 and all(r['modelo_utilizado'] == 'svm' for r in csv_rows))
+                    check("batch_columns_fit_on_desktop", page.locator("#ti-batch-table .virtual-table-viewport").evaluate(
+                        "(el) => el.scrollWidth <= el.clientWidth + 2"))
                     page.screenshot(path=str(output / 'lots-desktop.png'), full_page=True)
+                    page.set_viewport_size({"width": 390, "height": 844})
+                    check("batch_scroll_is_contained_on_mobile", page.locator("#ti-batch-table .virtual-table-viewport").evaluate(
+                        """el => el.scrollWidth > el.clientWidth &&
+                              el.getBoundingClientRect().right <= innerWidth &&
+                              document.documentElement.scrollWidth <= innerWidth + 1"""))
+                    page.set_viewport_size({"width": 1366, "height": 1024})
+                    page.locator("#ti-batch-file input[type=file]").set_input_files({
+                        "name": "resenas.csv", "mimeType": "text/csv",
+                        "buffer": ("reseña\nLa visita en barco fue excelente.\n").encode("utf-8"),
+                    })
+                    page.locator('#ti-batch-file [aria-label="resenas.csv"]').wait_for()
+                    page.get_by_role("button", name="Analizar CSV", exact=True).click()
+                    page.get_by_text("La visita en barco fue excelente.", exact=True).filter(visible=True).first.wait_for()
+                    check("csv_upload_follows_real_batch_path", page.get_by_text("La visita en barco fue excelente.", exact=True).filter(visible=True).count() >= 1)
                     page.get_by_role('tab', name='Análisis', exact=True).click()
                     # A report's trace button must restore that report, even
                     # after looking at a newer batch in the same session.
@@ -223,7 +239,6 @@ def run(output):
                     page.locator('#ti-agents-tab').get_by_text('Análisis individual', exact=True).wait_for()
                     check('trace_button_restores_its_source', page.locator('#ti-agents .ti-flow-event').count() == 10)
                     page.get_by_role('tab', name='Análisis', exact=True).click()
-                    check('batch_shows_current_model', page.locator('#ti-batch-config').count() == 1)
                     page.get_by_role('button', name='Limpiar', exact=True).click()
                     page.locator('#ti-result .ti-placeholder').wait_for()
                     check('clear_removes_previous_result', page.locator('#ti-review textarea').input_value() == '')

@@ -239,7 +239,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
     with gr.Row(elem_id="ti-topbar"):
         with gr.Column(scale=3, min_width=260):
             gr.HTML(BRAND_HTML)
-        with gr.Column(scale=1, min_width=265):
+        with gr.Column(scale=0, min_width=372):
             theme_choice = gr.Radio(list(THEME_CHOICES), value=THEME_CHOICES[0],
                                     label="Tema visual", elem_id="ti-theme")
     with gr.Tabs(selected="analysis", elem_id="ti-nav") as navigation:
@@ -307,7 +307,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
                     gr.HTML(pane_heading("Reseñas del lote", "Máximo 200 reseñas · CSV UTF-8 de hasta 1 MiB con columna reseña"))
                     batch_text = gr.Textbox(label="Reseñas (una por línea)", lines=7, placeholder="Una reseña por línea. No hay resultados hasta analizar.", elem_id="ti-batch-text")
                     run_lines = gr.Button("Analizar texto por lotes", variant="primary")
-                    batch_file = gr.File(label="Cargar CSV local", file_types=[".csv"], type="filepath")
+                    batch_file = gr.File(label="Cargar CSV local", file_types=[".csv"], type="filepath", height=140, elem_id="ti-batch-file")
                     run_csv = gr.Button("Analizar CSV")
                     gr.Markdown("Qwen consulta hasta cinco reseñas en secuencia con presupuesto compartido. El resto conserva análisis y recomendación por reglas.")
                 with gr.Column(min_width=300, elem_classes=["ti-pane"]):
@@ -317,6 +317,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
                     note = gr.Textbox(label="Motivo opcional (máximo 500 caracteres)")
                     save_review = gr.Button("Registrar corrección", variant="primary")
                     batch_goto_agents = gr.Button("Ver traza de la reseña seleccionada")
+                    gr.HTML(pane_heading("Exportaciones", "Descarga los resultados y las correcciones del lote."))
                     make_export = gr.Button("Preparar exportaciones")
                     with gr.Row():
                         json_export = gr.File(label="Descargar JSON", interactive=False)
@@ -326,6 +327,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
                 gr.HTML(pane_heading("Resultados del lote", "Predicción original y revisión humana por reseña"))
                 batch_table = gr.Dataframe(headers=["ID", "Texto", "Modelo", "Predicción modelo", "Corrección humana", "Estado"],
                                            datatype=["str"] * 6, interactive=False, wrap=True, max_height=480,
+                                           column_widths=[100, 380, 90, 145, 150, 105],
                                            label="Resultados reales del lote", elem_id="ti-batch-table")
                 trend_table = gr.Dataframe(headers=["Predicción del modelo", "Cantidad"], datatype=["str", "number"], interactive=False, label="Conteos descriptivos de predicciones")
             batch_qwen = gr.HTML(label="Informes Qwen del lote · propuestas sin ejecutar")

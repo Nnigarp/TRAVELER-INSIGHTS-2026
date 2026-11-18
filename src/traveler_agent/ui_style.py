@@ -136,7 +136,7 @@ html, body, gradio-app {
 .ti-brand {display:flex;gap:12px;align-items:center;}
 .ti-brand-mark {display:grid;place-items:center;background:linear-gradient(140deg,#0b4f8a,#08766b);
  width:48px;height:48px;border-radius:14px;color:#fff!important;flex:none;box-shadow:0 8px 24px #14b8a629;}
-.ti-brand svg {width:27px;height:27px;}
+.ti-brand svg {width:27px;height:27px;color:#fff;}
 .ti-brand-name {font-size:clamp(20px,2vw,26px);font-weight:800;letter-spacing:-.7px;color:var(--ti-text);}
 .ti-brand-name span {color:var(--ti-cyan);}
 .ti-brand-sub {font-size:14px;color:var(--ti-muted);letter-spacing:.08em;font-weight:700;margin-top:4px;}
@@ -173,6 +173,7 @@ html, body, gradio-app {
 .gradio-container .ti-pane-head h2 {font-size:22px;letter-spacing:-.025em;margin:0 0 5px;font-weight:800;color:var(--ti-text);}
 .ti-pane-head p {font-size:15px;line-height:1.55;color:var(--ti-muted);margin:0;}
 #ti-input-pane .block {box-shadow:none;}
+#ti-qwen .info-text {color:var(--ti-muted)!important;font-size:14px;}
 #ti-input-pane #ti-qwen {background:var(--ti-panel2);border:1px solid var(--ti-edge);border-radius:10px;padding:12px;}
 #ti-char-count {text-align:right;font-size:14px;color:var(--ti-muted);min-height:20px;}
 .ti-example-note {color:var(--ti-muted);font-size:14px;margin:8px 0 2px;}
@@ -236,6 +237,11 @@ html, body, gradio-app {
 .ti-table-wrap [data-testid="dataframe"] {min-width:0;max-width:100%;}
 .ti-config-context {margin:0 0 14px;color:var(--ti-muted);font-size:14px;}
 .ti-config-context strong {color:var(--ti-text);}
+#ti-audio-config,#ti-batch-config {align-items:center;gap:8px 16px;margin-bottom:8px;}
+.ti-run-status .prose {color:var(--ti-text);}
+#ti-batch-table [role="grid"] {max-width:100%;}
+#ti-batch-table [role="columnheader"] {font-size:14px;}
+#ti-batch-table .virtual-table-viewport {overscroll-behavior-inline:contain;}
 .ti-result-empty {border:1px dashed var(--ti-edge-strong);border-radius:14px;background:var(--ti-panel3);}
 .gradio-container p[role="alert"] {padding:16px;border:1px solid var(--ti-red);border-radius:12px;color:var(--ti-red);}
 .ti-flow-order {display:flex;flex-wrap:wrap;gap:8px 22px;list-style:none;margin:0;padding:0;}

@@ -12,7 +12,7 @@ AGENTS = (
     ("percepcion", "Percepción", "Validación de entrada"),
     ("semantica", "Semántica", "Sentimiento, aspectos y evidencias"),
     ("control", "Control", "Continuar o revisión humana"),
-    ("accion", "Acción", "Recomendación o abstención"),
+    ("accion", "Acción", "Valida el informe y registra la recomendación o abstención"),
 )
 CLASS_NAMES = {"percepcion": "PerceptionAgent", "semantica": "SemanticsAgent",
                "control": "ControlAgent", "accion": "ActionAgent"}

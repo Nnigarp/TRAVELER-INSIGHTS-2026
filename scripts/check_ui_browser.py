@@ -149,6 +149,12 @@ def run(output):
                     check('real_csv_export', len(csv_rows) == 2 and all(r['modelo_utilizado'] == 'svm' for r in csv_rows))
                     page.screenshot(path=str(output / 'lots-desktop.png'), full_page=True)
                     page.get_by_role('tab', name='Análisis', exact=True).click()
+                    # A report's trace button must restore that report, even
+                    # after looking at a newer batch in the same session.
+                    page.get_by_role('button', name='Explorar trazabilidad', exact=True).click()
+                    page.locator('#ti-agents-tab').get_by_text('Análisis individual', exact=True).wait_for()
+                    check('trace_button_restores_its_source', page.locator('#ti-agents .ti-flow-event').count() == 10)
+                    page.get_by_role('tab', name='Análisis', exact=True).click()
                     page.get_by_role('radio', name='Caribe Nocturno', exact=True).check()
                     page.set_viewport_size({'width': 390, 'height': 844})
                     page.wait_for_function('innerWidth === 390')

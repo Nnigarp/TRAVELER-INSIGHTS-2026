@@ -5,6 +5,9 @@ import re
 BRAND_HTML = '''<div class="ti-brand"><div class="ti-brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17 8 7l4 7 3-4 6 8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="5" r="2" fill="#fcd34d" stroke="none"/></svg></div><div><div class="ti-brand-name">Traveler Insights <span>2026</span></div><div class="ti-brand-sub">CARTAGENA · UTB INTELLIGENCE</div></div></div>'''
 HERO_HTML = '''<div class="ti-hero"><div><div class="ti-eyebrow">Inteligencia turística · Cartagena de Indias</div><h1>Entiende cada experiencia.<br><span>Decide con evidencia.</span></h1><p>Analiza reseñas y voz con modelos locales, evidencia textual y propuestas para valoración humana.</p></div><div class="ti-hero-tags"><span class="ti-tag">LR · SVM · BETO V3</span><span class="ti-tag ti-tag-accent">Qwen3 · 1.7B opcional</span><span class="ti-tag ti-tag-gold">UTB · PROTOTIPO</span></div></div>'''
 EMPTY_REPORT_HTML = '''<div class="ti-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M6 3h9l4 4v14H5V3h1zm9 0v5h4M8 12h8M8 16h6"/></svg><h3>Tu informe aparecerá aquí</h3><p>Escribe una reseña o carga un ejemplo demostrativo y pulsa Analizar reseña. Los resultados aparecerán después de ejecutar el backend.</p></div>'''
+EMPTY_AUDIO_REPORT_HTML = EMPTY_REPORT_HTML.replace(
+    "Escribe una reseña o carga un ejemplo demostrativo y pulsa Analizar reseña.",
+    "Transcribe un audio, revisa el texto y pulsa Analizar transcripción corregida.")
 
 
 def safe_text(value):

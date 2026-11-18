@@ -41,7 +41,8 @@ def get_demo_model(kind: str = "lr"):
 
 from traveler_agent.ui_style import THEME, UI_CSS, THEME_JS, INITIAL_THEME_JS, _PRIMARY
 from traveler_agent.ui_presenter import (
-    BRAND_HTML, HERO_HTML, EMPTY_REPORT_HTML, render_result, section_heading, pane_heading, safe_text,
+    BRAND_HTML, HERO_HTML, EMPTY_REPORT_HTML, EMPTY_AUDIO_REPORT_HTML,
+    render_result, section_heading, pane_heading, safe_text,
 )
 
 
@@ -280,7 +281,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
                     gr.HTML('<div class="ti-input-note">Solo reconocimiento de palabras; no se infiere emoción desde la voz. WAV PCM de 0,25–120 s y hasta 12 MiB tras conversión. Conserva tu caché Tiny existente; la primera descarga necesita autorización explícita.</div>')
                 with gr.Column(min_width=300, elem_classes=["ti-pane"]):
                     gr.HTML(pane_heading("Informe de la transcripción", "Procedencia ASR y edición humana conservadas."))
-                    audio_summary = gr.HTML(EMPTY_REPORT_HTML, label="Informe de audio")
+                    audio_summary = gr.HTML(EMPTY_AUDIO_REPORT_HTML, label="Informe de audio")
                     with gr.Accordion("Procedencia ASR y análisis · JSON", open=False):
                         audio_trace = gr.Code(value="{}", label="ASR original + edición + análisis", language="json", max_lines=18, elem_id="ti-audio-json")
                     audio_goto_agents = gr.Button("Ver agentes de la última ejecución", size="sm")
@@ -331,8 +332,10 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
     example_uncertain.click(lambda: load_example("Ambigua"), outputs=cleared_outputs, api_name=False)
     theme_choice.change(fn=None, inputs=theme_choice, outputs=[], js=THEME_JS, queue=False, api_name=False)
     app.load(fn=None, inputs=None, outputs=[], js=INITIAL_THEME_JS, api_name=False)
-    for button in (goto_agents, audio_goto_agents):
-        button.click(lambda: gr.Tabs(selected="agents"), outputs=navigation, api_name=False)
+    for button, source, capture in ((goto_agents, detail, capture_execution),
+                                    (audio_goto_agents, audio_trace, capture_audio_execution)):
+        button.click(capture, inputs=source, outputs=captured_outputs, api_name=False).then(
+            lambda: gr.Tabs(selected="agents"), outputs=navigation, api_name=False)
     audio_transcribe_btn.click(transcribe_audio_ui, inputs=[audio_input, audio_language], outputs=[audio_transcript, audio_metadata, audio_status])
     audio_analyze_btn.click(analyze_audio_ui, inputs=[audio_transcript, audio_metadata, model_choice, qwen_choice], outputs=[audio_summary, audio_trace]).then(
         capture_audio_execution, inputs=audio_trace, outputs=captured_outputs, api_name=False)

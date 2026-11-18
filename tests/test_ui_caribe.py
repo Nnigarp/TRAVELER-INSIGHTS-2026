@@ -110,7 +110,7 @@ def _contrast(a, b):
 
 
 def test_theme_contrast_focus_and_responsive_grids_have_explicit_contracts():
-    for block in UI_CSS.split(':root[data-ti-theme="utb"]')[:2]:
+    for block in (UI_CSS.split("\n:root, ", 1)[1], UI_CSS.split(':root[data-ti-theme="caribe"]', 1)[1]):
         # Both palettes are defined before the component rules.
         palette = dict(re.findall(r"--ti-([\w-]+):\s*(#[0-9a-f]{3}(?:[0-9a-f]{3})?)\s*[;}]", block.split('}')[0]))
         for foreground, background in (("text", "panel"), ("muted", "panel"), ("gold", "gold-bg"), ("red", "panel3")):

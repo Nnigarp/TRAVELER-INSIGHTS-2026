@@ -3,8 +3,13 @@ from html import escape
 import re
 
 BRAND_HTML = '''<div class="ti-brand"><div class="ti-brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17 8 7l4 7 3-4 6 8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="5" r="2" fill="#fcd34d" stroke="none"/></svg></div><div><div class="ti-brand-name">Traveler Insights <span>2026</span></div><div class="ti-brand-sub">CARTAGENA · UTB INTELLIGENCE</div></div></div>'''
-HERO_HTML = '''<div class="ti-hero"><div><div class="ti-eyebrow">Inteligencia turística · Cartagena de Indias</div><h1>Entiende cada experiencia.<br><span>Decide con evidencia.</span></h1><p>Analiza reseñas y voz con modelos locales, evidencia textual y propuestas para valoración humana.</p></div><div class="ti-hero-tags"><span class="ti-tag">LR · SVM · BETO V3</span><span class="ti-tag ti-tag-accent">Qwen3 · 1.7B opcional</span><span class="ti-tag ti-tag-gold">UTB · PROTOTIPO</span></div></div>'''
-EMPTY_REPORT_HTML = '''<div class="ti-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M6 3h9l4 4v14H5V3h1zm9 0v5h4M8 12h8M8 16h6"/></svg><h3>Tu informe aparecerá aquí</h3><p>Escribe una reseña o carga un ejemplo demostrativo y pulsa Analizar reseña. Los resultados aparecerán después de ejecutar el backend.</p></div>'''
+HERO_HTML = '''<div class="ti-hero"><div class="ti-eyebrow">Inteligencia turística</div>
+<h1>Análisis de experiencias</h1>
+<p>Clasifica una reseña, consulta la evidencia y revisa las recomendaciones antes de decidir.</p></div>'''
+AGENT_ORDER_HTML = '''<ol class="ti-flow-order" aria-label="Orden de las etapas coordinadas por TravelerOrchestrator">
+<li>Entrada</li><li>Percepción</li><li>Semántica</li><li>Control</li>
+<li class="ti-flow-optional">Qwen · opcional</li><li>Acción</li><li>Resultado</li></ol>'''
+EMPTY_REPORT_HTML = '''<div class="ti-placeholder ti-result-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M6 3h9l4 4v14H5V3h1zm9 0v5h4M8 12h8M8 16h6"/></svg><h3>Tu informe aparecerá aquí</h3><p>Escribe una reseña o carga un ejemplo demostrativo y pulsa Analizar reseña.</p></div>'''
 EMPTY_AUDIO_REPORT_HTML = EMPTY_REPORT_HTML.replace(
     "Escribe una reseña o carga un ejemplo demostrativo y pulsa Analizar reseña.",
     "Transcribe un audio, revisa el texto y pulsa Analizar transcripción corregida.")
@@ -44,7 +49,7 @@ def render_result(record, *, model_kind=None, audio=False):
     def indicator(label, value, variant=""):
         return '<span class="ti-indicator ' + variant + '">' + label + '<strong>' + safe_text(value) + '</strong></span>'
     parts = ['<section class="ti-report" aria-label="Informe turístico">']
-    parts.append('<p class="ti-report-source">' + (
+    parts.append('<p class="ti-report-source" role="status">' + (
         'Generado con Qwen y validado por Acción · propuestas sin ejecutar'
         if generated else 'Salida tradicional basada en reglas · sin informe Qwen validado') + '</p>')
     if generated:
@@ -52,8 +57,9 @@ def render_result(record, *, model_kind=None, audio=False):
         title = "Resumen ejecutivo" + (" · cita conservadora" if mode == "CITA_CONSERVADORA" else "")
         summary = report["resumen"]
     else:
-        title = "Orientación del análisis tradicional"
-        summary = record.get("recomendacion", "Sin recomendación registrada.")
+        title = "Resultado del análisis"
+        summary = ("La reseña queda pendiente de revisión humana."
+                   if review else "El clasificador completó el análisis sin activar la revisión humana.")
     parts.append('<div class="ti-report-summary"><h4>' + title + '</h4><p>' + safe_text(summary) + '</p></div>')
     generation_state = ("Generado y validado" if generated else
                         "Error · " + str(generation.get("codigo", "SIN_INFORME")) if generation else "Desactivado")

@@ -39,9 +39,9 @@ def get_demo_model(kind: str = "lr"):
 
 
 
-from traveler_agent.ui_style import THEME, UI_CSS, THEME_JS, INITIAL_THEME_JS, _PRIMARY
+from traveler_agent.ui_style import THEME, UI_CSS, THEME_JS, INITIAL_THEME_JS, THEME_CHOICES, _PRIMARY
 from traveler_agent.ui_presenter import (
-    BRAND_HTML, HERO_HTML, EMPTY_REPORT_HTML, EMPTY_AUDIO_REPORT_HTML,
+    BRAND_HTML, HERO_HTML, AGENT_ORDER_HTML, EMPTY_REPORT_HTML, EMPTY_AUDIO_REPORT_HTML,
     render_result, section_heading, pane_heading, safe_text,
 )
 
@@ -223,17 +223,24 @@ def load_example(name):
     return tuple(values)
 
 
+def configuration_context(model_kind, qwen_enabled):
+    names = {"lr": "Regresión logística", "svm": "SVM lineal", "beto": "BETO V3"}
+    model_name = names.get(model_kind, "Sin selección")
+    generation = "solicitado para el próximo análisis" if qwen_enabled else "desactivado"
+    return f"**Configuración de Análisis** · {model_name} · Qwen {generation}"
+
+
 # Gradio 6 accepts launch-time theme/css; 4–5 attach them to Blocks.
 _GRADIO_MAJOR = int(gr.__version__.split(".")[0])
 _BLOCKS_THEME = {"theme": THEME, "css": UI_CSS} if _GRADIO_MAJOR < 6 else {}
 _BETO_AVAILABLE = artifact_available(configured_artifact())
-with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enabled=False, **_BLOCKS_THEME) as app:
+with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enabled=False, fill_width=True, **_BLOCKS_THEME) as app:
     last_record = gr.State(None)
     with gr.Row(elem_id="ti-topbar"):
         with gr.Column(scale=3, min_width=260):
             gr.HTML(BRAND_HTML)
-        with gr.Column(scale=1, min_width=265):
-            theme_choice = gr.Radio(["Caribe Nocturno", "UTB Claro"], value="Caribe Nocturno",
+        with gr.Column(scale=0, min_width=372):
+            theme_choice = gr.Radio(list(THEME_CHOICES), value=THEME_CHOICES[0],
                                     label="Tema visual", elem_id="ti-theme")
     with gr.Tabs(selected="analysis", elem_id="ti-nav") as navigation:
         with gr.Tab("Análisis", id="analysis", elem_id="ti-analysis-tab"):
@@ -246,11 +253,11 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
                         _MODEL_CHOICES.append(("BETO V3 · Transformer experimental", "beto"))
                     model_choice = gr.Dropdown(label="Modelo de demostración", choices=_MODEL_CHOICES, value="lr", elem_id="ti-model")
                     qwen_choice = gr.Checkbox(label="Activar informe local Qwen3 1.7B (Ollama)", value=False,
-                                             info="Generación opcional · evidencia y revisión protegidas", elem_id="ti-qwen")
+                                             info="Consulta Ollama al analizar. Si falla, se conserva la clasificación.", elem_id="ti-qwen")
                     inp = gr.Textbox(label="Reseña turística", lines=6, value="",
                                      placeholder="Describe la experiencia que deseas analizar…", elem_id="ti-review")
                     char_count = gr.Markdown(character_count(""), elem_id="ti-char-count")
-                    gr.HTML('<p class="ti-example-note">Ejemplos demostrativos · solo cargan texto; no predicen el resultado.</p>')
+                    gr.HTML('<p class="ti-example-note">Ejemplos de reseñas · cargan texto para editar antes de analizar.</p>')
                     with gr.Row(elem_classes=["ti-example-row"]):
                         example_mixed = gr.Button("Mixta · transporte", size="sm")
                         example_positive = gr.Button("Positiva · servicio", size="sm")
@@ -260,21 +267,25 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
                         clear = gr.Button("Limpiar", elem_id="ti-clear")
                     gr.HTML('<div class="ti-input-note"><strong>Inferencia local real.</strong> LR/SVM usan datos ficticios y BETO es experimental. Qwen no cambia clasificación ni revisión humana. No se ejecutan acciones externas.</div>')
                 with gr.Column(scale=6, min_width=300, elem_id="ti-result-pane", elem_classes=["ti-pane"]):
-                    gr.HTML(pane_heading("Informe de experiencia", "Síntesis, evidencia y propuestas para valoración humana."))
+                    gr.HTML(pane_heading("Informe de experiencia", "Sentimiento, evidencia y revisión de la reseña."))
                     result = gr.HTML(EMPTY_REPORT_HTML, elem_id="ti-result", label="Informe de experiencia")
-                    with gr.Accordion("Detalles técnicos · JSON y trazabilidad", open=False):
-                        detail = gr.Code(value="{}", label="JSON completo sin modificaciones", language="json", max_lines=18, elem_id="ti-detail-json")
+                    with gr.Accordion("Detalles técnicos · JSON y trazabilidad", open=False, elem_classes=["ti-technical"]):
+                        detail = gr.Code(value="{}", label="JSON completo sin modificaciones", language="json", max_lines=18, wrap_lines=True, interactive=False, elem_id="ti-detail-json")
                         agent_view = gr.HTML(render_multiagent_view(None), label="Traza de esta ejecución")
                     goto_agents = gr.Button("Explorar trazabilidad", size="sm")
         with gr.Tab("Audio", id="audio", elem_id="ti-audio-tab"):
-            gr.HTML(section_heading("Entrada multimodal", "Audio y transcripción", "Graba o carga audio, revisa las palabras y analiza con el modelo y Qwen seleccionados en Análisis."))
+            gr.HTML(section_heading("Entrada multimodal", "Audio y transcripción", "Graba o carga audio. Transcribe con Whisper Tiny, revisa el texto y analiza la versión corregida."))
+            with gr.Row(elem_id="ti-audio-config"):
+                audio_config = gr.Markdown(configuration_context("lr", False), elem_classes=["ti-config-context"])
+                audio_settings = gr.Button("Cambiar configuración", size="sm", scale=0)
             with gr.Row():
                 with gr.Column(min_width=300, elem_classes=["ti-pane"]):
-                    gr.HTML(pane_heading("Tu voz, como entrada", "Whisper Tiny local · micrófono o archivo · transcripción editable"))
+                    gr.HTML(pane_heading("Audio de la reseña", "Selecciona el micrófono o sube un archivo."))
                     audio_input = gr.Audio(label="Grabar voz o cargar archivo de audio", sources=["microphone", "upload"], type="filepath", format="wav", elem_id="ti-audio-input")
                     audio_language = gr.Dropdown(label="Idioma de la voz", choices=[("Español", "es"), ("English", "en"), ("Italiano", "it"), ("Detectar", "auto")], value="es")
                     audio_transcribe_btn = gr.Button("Transcribir localmente", variant="primary")
-                    audio_status = gr.Markdown()
+                    audio_status = gr.Markdown(elem_classes=["ti-run-status"])
+                    gr.HTML(pane_heading("Revisa la transcripción", "Corrige el texto antes de enviarlo al clasificador."))
                     audio_transcript = gr.Textbox(label="Transcripción editable — revisa negaciones y palabras mal reconocidas", lines=5, interactive=True)
                     audio_metadata = gr.State({})
                     audio_analyze_btn = gr.Button("Analizar transcripción corregida", variant="primary")
@@ -282,18 +293,21 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
                 with gr.Column(min_width=300, elem_classes=["ti-pane"]):
                     gr.HTML(pane_heading("Informe de la transcripción", "Procedencia ASR y edición humana conservadas."))
                     audio_summary = gr.HTML(EMPTY_AUDIO_REPORT_HTML, label="Informe de audio")
-                    with gr.Accordion("Procedencia ASR y análisis · JSON", open=False):
-                        audio_trace = gr.Code(value="{}", label="ASR original + edición + análisis", language="json", max_lines=18, elem_id="ti-audio-json")
+                    with gr.Accordion("Procedencia ASR y análisis · JSON", open=False, elem_classes=["ti-technical"]):
+                        audio_trace = gr.Code(value="{}", label="ASR original + edición + análisis", language="json", max_lines=18, wrap_lines=True, interactive=False, elem_id="ti-audio-json")
                     audio_goto_agents = gr.Button("Ver agentes de la última ejecución", size="sm")
         with gr.Tab("Lotes", id="batch", elem_id="ti-batch-tab"):
             gr.HTML(section_heading("Revisión de varias experiencias", "Análisis por lotes", "Procesa texto o CSV, conserva predicciones y correcciones y exporta resultados reales. Los conteos son descriptivos."))
+            with gr.Row(elem_id="ti-batch-config"):
+                batch_config = gr.Markdown(configuration_context("lr", False), elem_classes=["ti-config-context"])
+                batch_settings = gr.Button("Cambiar configuración", size="sm", scale=0)
             batch_state = gr.State([])
             with gr.Row():
                 with gr.Column(min_width=300, elem_classes=["ti-pane"]):
                     gr.HTML(pane_heading("Reseñas del lote", "Máximo 200 reseñas · CSV UTF-8 de hasta 1 MiB con columna reseña"))
                     batch_text = gr.Textbox(label="Reseñas (una por línea)", lines=7, placeholder="Una reseña por línea. No hay resultados hasta analizar.", elem_id="ti-batch-text")
                     run_lines = gr.Button("Analizar texto por lotes", variant="primary")
-                    batch_file = gr.File(label="Cargar CSV local", file_types=[".csv"], type="filepath")
+                    batch_file = gr.File(label="Cargar CSV local", file_types=[".csv"], type="filepath", height=140, elem_id="ti-batch-file")
                     run_csv = gr.Button("Analizar CSV")
                     gr.Markdown("Qwen consulta hasta cinco reseñas en secuencia con presupuesto compartido. El resto conserva análisis y recomendación por reglas.")
                 with gr.Column(min_width=300, elem_classes=["ti-pane"]):
@@ -303,22 +317,27 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
                     note = gr.Textbox(label="Motivo opcional (máximo 500 caracteres)")
                     save_review = gr.Button("Registrar corrección", variant="primary")
                     batch_goto_agents = gr.Button("Ver traza de la reseña seleccionada")
+                    gr.HTML(pane_heading("Exportaciones", "Descarga los resultados y las correcciones del lote."))
                     make_export = gr.Button("Preparar exportaciones")
                     with gr.Row():
                         json_export = gr.File(label="Descargar JSON", interactive=False)
                         csv_export = gr.File(label="Descargar CSV", interactive=False)
-            batch_status = gr.Markdown()
+            batch_status = gr.Markdown(elem_classes=["ti-run-status"])
             with gr.Group(elem_classes=["ti-pane", "ti-table-wrap"]):
                 gr.HTML(pane_heading("Resultados del lote", "Predicción original y revisión humana por reseña"))
-                batch_table = gr.Dataframe(headers=["ID", "Texto", "Modelo", "Predicción modelo", "Corrección humana", "Estado"], datatype=["str"] * 6, interactive=False, label="Resultados reales del lote")
+                batch_table = gr.Dataframe(headers=["ID", "Texto", "Modelo", "Predicción modelo", "Corrección humana", "Estado"],
+                                           datatype=["str"] * 6, interactive=False, wrap=True, max_height=480,
+                                           column_widths=[100, 440, 90, 145, 150, 126],
+                                           label="Resultados reales del lote", elem_id="ti-batch-table")
                 trend_table = gr.Dataframe(headers=["Predicción del modelo", "Cantidad"], datatype=["str", "number"], interactive=False, label="Conteos descriptivos de predicciones")
             batch_qwen = gr.HTML(label="Informes Qwen del lote · propuestas sin ejecutar")
         with gr.Tab("Agentes", id="agents", elem_id="ti-agents-tab"):
             gr.HTML(section_heading("Transparencia del sistema", "Coordinación multiagente", "Un orquestador y cuatro especialistas. Qwen/Ollama es un servicio opcional subordinado; sus estados se obtienen de la ejecución."))
+            gr.HTML(AGENT_ORDER_HTML)
             execution_source = gr.Markdown("Sin ejecución registrada en esta sesión.")
             agents_panel = gr.HTML(render_agents_overview(), elem_id="ti-agents", label="Estados derivados de la traza real")
-            with gr.Accordion("JSON completo de la ejecución mostrada", open=False):
-                agents_json = gr.Code(value="{}", label="Registro y procedencia originales", language="json", max_lines=18, elem_id="ti-agents-json")
+            with gr.Accordion("JSON completo de la ejecución mostrada", open=False, elem_classes=["ti-technical"]):
+                agents_json = gr.Code(value="{}", label="Registro y procedencia originales", language="json", max_lines=18, wrap_lines=True, interactive=False, elem_id="ti-agents-json")
     gr.HTML('<div class="ti-footer">Traveler Insights 2026 · Universidad Tecnológica de Bolívar · Cartagena de Indias<br>Prototipo académico local · clasificación, evidencia y supervisión humana · sin acciones externas</div>')
 
     captured_outputs = [last_record, agents_panel, agents_json, execution_source]
@@ -331,7 +350,11 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
     example_positive.click(lambda: load_example("Positiva"), outputs=cleared_outputs, api_name=False)
     example_uncertain.click(lambda: load_example("Ambigua"), outputs=cleared_outputs, api_name=False)
     theme_choice.change(fn=None, inputs=theme_choice, outputs=[], js=THEME_JS, queue=False, api_name=False)
-    app.load(fn=None, inputs=None, outputs=[], js=INITIAL_THEME_JS, api_name=False)
+    app.load(fn=None, inputs=None, outputs=theme_choice, js=INITIAL_THEME_JS, queue=False, api_name=False)
+    gr.on([model_choice.change, qwen_choice.change], fn=lambda model, qwen: (configuration_context(model, qwen),) * 2,
+          inputs=[model_choice, qwen_choice], outputs=[audio_config, batch_config], queue=False, api_name=False)
+    for button in (audio_settings, batch_settings):
+        button.click(lambda: gr.Tabs(selected="analysis"), outputs=navigation, queue=False, api_name=False)
     for button, source, capture in ((goto_agents, detail, capture_execution),
                                     (audio_goto_agents, audio_trace, capture_audio_execution)):
         button.click(capture, inputs=source, outputs=captured_outputs, api_name=False).then(

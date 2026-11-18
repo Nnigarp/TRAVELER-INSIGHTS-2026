@@ -76,6 +76,9 @@ body, .gradio-container {
  --checkbox-background-color:var(--ti-panel3); --checkbox-background-color-dark:var(--ti-panel3);
  --checkbox-background-color-selected:var(--ti-primary); --checkbox-background-color-selected-dark:var(--ti-primary);
  --checkbox-label-text-color:var(--ti-soft); --checkbox-label-text-color-dark:var(--ti-soft);
+ --checkbox-label-background-fill:var(--ti-panel2); --checkbox-label-background-fill-dark:var(--ti-panel2);
+ --checkbox-label-background-fill-selected:var(--ti-primary); --checkbox-label-background-fill-selected-dark:var(--ti-primary);
+ --checkbox-label-text-color-selected:#fff; --checkbox-label-text-color-selected-dark:#fff;
  --table-even-background-fill:var(--ti-panel); --table-even-background-fill-dark:var(--ti-panel);
  --table-odd-background-fill:var(--ti-panel3); --table-odd-background-fill-dark:var(--ti-panel3);
  --table-text-color:var(--ti-soft); --table-text-color-dark:var(--ti-soft);
@@ -88,6 +91,9 @@ body, .gradio-container {
  outline:3px solid var(--ti-focus)!important; outline-offset:3px!important;
 }
 .gradio-container button {transition:background .18s,border-color .18s;min-height:42px;}
+.gradio-container button.secondary {background:var(--ti-panel2)!important;color:var(--ti-soft)!important;
+ border:1px solid var(--ti-edge-strong)!important;box-shadow:none!important;}
+.gradio-container input[type="checkbox"],.gradio-container input[type="radio"] {border:1px solid var(--ti-muted)!important;}
 .gradio-container textarea {line-height:1.7!important;}
 .gradio-container label, .gradio-container .prose {color:var(--ti-soft);}
 .gradio-container .prose p, .gradio-container .prose li {color:inherit;}
@@ -102,6 +108,7 @@ body, .gradio-container {
 .ti-brand-name span {color:var(--ti-cyan);}
 .ti-brand-sub {font-size:10px;color:var(--ti-muted);letter-spacing:1.7px;font-weight:700;margin-top:4px;}
 #ti-theme {background:transparent!important;border:none!important;padding:0;}
+#ti-topbar .form {background:transparent!important;border:none!important;box-shadow:none!important;}
 #ti-theme label {font-size:11px!important;}
 #ti-nav {border:none;}
 #ti-nav [role="tablist"] {display:flex;gap:6px;border-bottom:1px solid var(--ti-edge);padding:14px 0;}

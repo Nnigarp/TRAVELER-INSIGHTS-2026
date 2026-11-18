@@ -85,6 +85,8 @@ body, .gradio-container {
  --link-text-color:var(--ti-cyan); --link-text-color-dark:var(--ti-cyan);
  max-width:1500px!important; padding:0 32px 24px!important; min-height:100vh;
 }
+/* Gradio also pads its inner app shell. Keep a single responsive gutter. */
+.gradio-container > .main {padding:0!important;margin:0!important;max-width:none!important;width:100%!important;}
 .gradio-container button:focus-visible, .gradio-container input:focus-visible,
 .gradio-container textarea:focus-visible, .gradio-container summary:focus-visible,
 .gradio-container [role="tab"]:focus-visible {
@@ -190,12 +192,12 @@ body, .gradio-container {
 footer {background:transparent!important;}
 @media(min-width:1000px) {#ti-input-pane {flex:0 1 38%!important;} #ti-result-pane {flex:1 1 58%!important;}}
 @media(max-width:999px) {
- .gradio-container {padding:0 16px 20px!important;}
+ .gradio-container,.gradio-container.dark {padding:0 16px 20px!important;}
  #ti-analysis-row {flex-direction:column!important;} #ti-input-pane,#ti-result-pane {width:100%!important;flex:auto!important;}
  .ti-hero-tags {display:none;}.ti-flow-agents {grid-template-columns:repeat(2,minmax(0,1fr));}
 }
 @media(max-width:600px) {
- .gradio-container {padding:0 12px 18px!important;}
+ .gradio-container,.gradio-container.dark {padding:0 12px 18px!important;}
  #ti-topbar {flex-direction:column;align-items:stretch;gap:12px;}
  #ti-nav [role="tablist"] {justify-content:space-between;gap:2px;overflow:auto;}
  #ti-nav [role="tab"] {padding:9px 11px!important;font-size:12px;}

@@ -67,7 +67,8 @@ def run(output):
                     time.sleep(.2)
             with sync_playwright() as playwright:
                 browser = playwright.chromium.launch(headless=True)
-                context = browser.new_context(viewport={'width': 1440, 'height': 1100}, device_scale_factor=1)
+                context = browser.new_context(viewport={'width': 1440, 'height': 1100}, device_scale_factor=1,
+                                              reduced_motion='reduce')
                 page = context.new_page()
                 page.on('pageerror', lambda e: report['console_errors'].append(str(e)))
                 def route(request):
@@ -105,6 +106,7 @@ def run(output):
                     page.wait_for_function("document.documentElement.dataset.tiTheme === 'utb'")
                     check('theme_preserves_input', page.locator('#ti-review textarea').input_value() == TEXT)
                     check('light_theme_background', page.locator('.gradio-container').evaluate('(el) => getComputedStyle(el).backgroundColor') == 'rgb(243, 247, 250)')
+                    check('light_secondary_control_background', page.locator('#ti-clear').evaluate('(el) => getComputedStyle(el).backgroundColor') == 'rgb(238, 244, 248)')
                     page.screenshot(path=str(output / 'utb-desktop.png'), full_page=True)
                     page.get_by_role('button', name='Explorar trazabilidad', exact=True).click()
                     page.get_by_role('tab', name='Agentes', exact=True).wait_for()
@@ -153,6 +155,8 @@ def run(output):
                     mobile_grid = page.locator('#ti-result .ti-report-grid').evaluate('(el) => getComputedStyle(el).gridTemplateColumns')
                     check('mobile_one_report_column', len(mobile_grid.split()) == 1)
                     check('mobile_no_page_overflow', page.evaluate('document.documentElement.scrollWidth <= innerWidth + 1'))
+                    check('mobile_uses_screen_width', page.locator('#ti-input-pane').bounding_box()['width'] >= 350)
+                    check('mobile_four_tabs_visible', all(page.get_by_role('tab', name=name, exact=True).is_visible() for name in ('Análisis', 'Audio', 'Lotes', 'Agentes')))
                     positions = page.locator('#ti-analysis-row').evaluate('(el) => [...el.children].map(x=>x.getBoundingClientRect().top)')
                     check('mobile_stacked_input_and_results', len(positions) >= 2 and positions[-1] > positions[0])
                     page.screenshot(path=str(output / 'caribe-mobile.png'), full_page=True)

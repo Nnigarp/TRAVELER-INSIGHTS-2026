@@ -1,0 +1,53 @@
+name: Caribe interface — contracts and real browser
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'app.py'
+      - 'src/traveler_agent/ui_*.py'
+      - 'src/traveler_agent/multiagent_view.py'
+      - 'src/traveler_agent/ollama_report.py'
+      - 'tests/test_ui*.py'
+      - 'scripts/check_ui_browser.py'
+      - '.github/workflows/ui-browser.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+env:
+  PYTHONUTF8: '1'
+  GRADIO_ANALYTICS_ENABLED: 'False'
+jobs:
+  presentation-contracts:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e '.[ui,test]'
+      - run: python -m pytest -q tests/test_ui_caribe.py tests/test_ui_midnight_indigo.py tests/test_ui_multiagent_view.py tests/test_audio_ui.py tests/test_qwen_report_quality.py
+  real-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install application and test-only browser
+        run: |
+          python -m pip install -e '.[ui,test]' 'playwright>=1.51,<2'
+          python -m playwright install --with-deps --only-shell chromium
+      - name: Navigate real Gradio, infer LR/SVM, revise and export
+        run: python scripts/check_ui_browser.py --output-dir artifacts/ui-browser
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: caribe-ui-browser
+          path: artifacts/ui-browser
+          if-no-files-found: error

@@ -1,4 +1,4 @@
-"""Regression checks for a presentation-only agent trace in Midnight Indigo."""
+"""Regression checks for a read-only view of the real agent trace."""
 import copy
 import html
 import json
@@ -133,12 +133,12 @@ def test_html_escaping_and_strict_allowlist_for_trace():
     assert "Delegado" in markup
 
 
-def test_three_tabs_and_all_original_batch_audio_callbacks_remain():
+def test_four_tabs_and_all_original_batch_audio_callbacks_remain():
     config = app.app.get_config_file()
     tabs = {component.get("props", {}).get("label") for component in config["components"]
             if component.get("type") in ("tabitem", "tab")}
-    assert {"Reseña individual", "Audio y transcripción local", "Lotes y revisión humana"} <= tabs
+    assert {"Análisis", "Audio", "Lotes", "Agentes"} == tabs
     assert len(config["dependencies"]) >= 9
     assert app.analyze_audio_ui and app.run_batch_lines and app.run_batch_csv
     assert app.revise and app.export_files and app.reset_audio_trace
-    assert app.THEME.body_background_fill_dark == "#0F172A"
+    assert app.THEME.body_background_fill_dark == "#061217"

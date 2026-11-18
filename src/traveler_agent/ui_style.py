@@ -239,6 +239,10 @@ html, body, gradio-app {
 .ti-config-context strong {color:var(--ti-text);}
 #ti-audio-config,#ti-batch-config {align-items:center;gap:8px 16px;margin-bottom:8px;}
 .ti-run-status .prose {color:var(--ti-text);}
+.ti-pane [data-testid="status-tracker"]:not(.hide) {
+ color:var(--ti-text);
+ font-size:15px;
+}
 #ti-batch-table [role="grid"] {max-width:100%;}
 #ti-batch-table [role="columnheader"] {font-size:14px;}
 #ti-batch-table .virtual-table-viewport {overscroll-behavior-inline:contain;}

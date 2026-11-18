@@ -327,7 +327,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
                 gr.HTML(pane_heading("Resultados del lote", "Predicción original y revisión humana por reseña"))
                 batch_table = gr.Dataframe(headers=["ID", "Texto", "Modelo", "Predicción modelo", "Corrección humana", "Estado"],
                                            datatype=["str"] * 6, interactive=False, wrap=True, max_height=480,
-                                           column_widths=[100, 380, 90, 145, 150, 105],
+                                           column_widths=[100, 440, 90, 145, 150, 126],
                                            label="Resultados reales del lote", elem_id="ti-batch-table")
                 trend_table = gr.Dataframe(headers=["Predicción del modelo", "Cantidad"], datatype=["str", "number"], interactive=False, label="Conteos descriptivos de predicciones")
             batch_qwen = gr.HTML(label="Informes Qwen del lote · propuestas sin ejecutar")

@@ -146,6 +146,10 @@ def run(output):
                     check('four_native_tabs', page.get_by_role('tab').all_text_contents() == ['Análisis', 'Audio', 'Lotes', 'Agentes'])
                     check('default_premium_theme', page.get_by_role('radio', name=LIGHT, exact=True).is_checked())
                     check('empty_real_result', page.locator('#ti-result .ti-placeholder').count() == 1 and page.locator('#ti-result .ti-indicators').count() == 0)
+                    page.locator("#ti-analyze").focus()
+                    page.keyboard.press("Tab")
+                    check("keyboard_focus_visible_on_clear", page.locator("#ti-clear").evaluate(
+                        'el => el === document.activeElement && getComputedStyle(el).outlineStyle === "solid"'))
                     page.get_by_role('button', name='Mixta · transporte', exact=True).click()
                     page.wait_for_function("document.querySelector('#ti-review textarea').value.includes('perdimos la excursión')")
                     check('example_does_not_infer', page.locator('#ti-result .ti-indicators').count() == 0)

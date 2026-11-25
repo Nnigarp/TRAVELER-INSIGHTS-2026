@@ -308,6 +308,8 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
             with gr.Row(elem_id="ti-analysis-row"):
                 with gr.Column(scale=4, min_width=300, elem_id="ti-input-pane", elem_classes=["ti-pane"]):
                     _MODEL_CHOICES = [("Regresión logística · LR", "lr"), ("SVM lineal", "svm")]
+                    if v4_selected():
+                        _MODEL_CHOICES = [("LR contextual V4.3", "lr"), ("SVM contextual V4.3", "svm")]
                     if _BETO_AVAILABLE:
                         _MODEL_CHOICES.append((("BETO V4.2" if v4_selected() else "BETO V3"), "beto"))
                     with gr.Column(min_width=0, elem_id="ti-composer"):

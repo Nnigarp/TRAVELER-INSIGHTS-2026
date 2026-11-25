@@ -297,6 +297,8 @@ footer {background:transparent!important;}
 #ti-composer {border:1px solid var(--ti-edge-strong);background:var(--ti-panel);border-radius:16px;padding:12px;min-width:0;}
 #ti-model:focus-within {outline:2px solid var(--ti-focus);outline-offset:2px;}
 #ti-language-panel, #ti-language-panel * {min-width:0;max-width:100%;overflow-wrap:anywhere;box-sizing:border-box;}
+#ti-language-panel {overflow-x:clip;}
+#ti-language-panel input, #ti-language-panel textarea {width:100%;}
 #ti-language-panel pre {white-space:pre-wrap;}
 #ti-composer #ti-review textarea, #ti-composer #ti-review textarea:is(:focus,:hover,:focus-visible,:active,:disabled) {
  background:var(--ti-panel)!important;color:var(--ti-text)!important;-webkit-text-fill-color:var(--ti-text)!important;

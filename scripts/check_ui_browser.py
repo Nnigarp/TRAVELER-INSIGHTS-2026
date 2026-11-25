@@ -239,7 +239,7 @@ def run(output):
                     page.screenshot(path=str(output / 'agents-desktop.png'), full_page=True)
                     page.get_by_role('tab', name='Análisis', exact=True).click()
                     page.locator("#ti-dictate").click()
-                    microphone = page.locator('#ti-audio-input button').filter(has_text="Grabar")
+                    microphone = page.locator("#ti-audio-input button.record-button")
                     microphone.first.wait_for()
                     check('native_microphone_control', microphone.first.is_visible())
                     page.get_by_role('button', name='+ Audio', exact=True).click()

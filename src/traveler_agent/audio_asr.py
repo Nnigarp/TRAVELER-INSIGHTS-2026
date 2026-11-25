@@ -237,7 +237,7 @@ def recognize_audio(
     if len(recognized) > 5000:
         raise AudioInputError("Transcripción superior al límite de 5000 caracteres.")
     detected = getattr(metadata, "language", None)
-    if detected not in ("es", "en", "it"):
+    if not isinstance(detected, str) or not (2 <= len(detected) <= 3 and detected.isascii() and detected.isalpha()):
         detected = "desconocido"
     record = {
         "modalidad": "audio",

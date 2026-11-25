@@ -210,7 +210,7 @@ class TravelerOrchestrator:
         self.last_execution: Execution | None = None
 
     def run(self, text: str, *, review_id: str = "", modality: str = "texto",
-            edited_by_human: bool = False) -> dict:
+            edited_by_human: bool = False, progress=None) -> dict:
         execution = Execution()
         self.last_execution = execution
         _trace(execution, agent="orquestador", step="plan", status="PLANNED",
@@ -222,6 +222,8 @@ class TravelerOrchestrator:
         execution.state = "EJECUTANDO"
         for step in execution.plan:
             if step == "semantica":
+                if progress:
+                    progress("Clasificando")
                 payload = {"text": execution.results["percepcion"]["text"]}
             elif step == "control":
                 payload = {"semantic": execution.results["semantica"]}
@@ -231,6 +233,8 @@ class TravelerOrchestrator:
                     "control": execution.results["control"],
                 }
                 if self.reporter is not None:
+                    if progress:
+                        progress("Generando informe")
                     from .ollama_report import failed_generation
                     _trace_generation(execution, agent="orquestador", status="DELEGATED", note="QWEN_REQUESTED")
                     try:
@@ -249,6 +253,8 @@ class TravelerOrchestrator:
                            status="RECEIVED" if generation.get("estado") == "GENERADO" else "FAILED",
                            note="QWEN_RESPONSE", generation=generation)
                     payload.update(generation=generation, text=execution.results["percepcion"]["text"])
+                if progress:
+                    progress("Validando")
             _trace(execution, agent="orquestador", step=step, status="DELEGATED",
                    input_fields=payload.keys(), note="HANDOFF")
             try:

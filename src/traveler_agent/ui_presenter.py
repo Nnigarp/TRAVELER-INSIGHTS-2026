@@ -71,6 +71,10 @@ def render_result(record, *, model_kind=None, audio=False):
                   indicator("Revisión humana", "Requerida" if review else "No activada"),
                   indicator("Generación Qwen", generation_state), '</div>'))
     parts.append('<div class="ti-report-grid">')
+    language = record.get("procesamiento_linguistico", {})
+    if language:
+        parts.append(line("Idioma original", language["idioma_original"]))
+        parts.append(line("Traducción", language["estado"]))
     if generated:
         problem = report["problema_identificado"] or "Incidente no determinado por el contrato; revisar la evidencia."
         recommendation, action = report["recomendacion"], report["accion_propuesta"]
@@ -82,6 +86,8 @@ def render_result(record, *, model_kind=None, audio=False):
         action = "No se ha generado una acción adicional. La recomendación por reglas requiere valoración humana."
     parts.append(block("Problema identificado", problem, "ti-report-problem"))
     parts.append('<div class="ti-report-block ti-report-evidence"><h4>Evidencia textual</h4>')
+    if language.get("traduccion_automatica") or language.get("traduccion_editada"):
+        parts.append("<p>Citas de la traducción al español.</p>")
     if evidence:
         parts.extend('<blockquote>' + safe_text(quote) + '</blockquote>' for quote in evidence)
     else:
@@ -118,8 +124,9 @@ def render_result(record, *, model_kind=None, audio=False):
                   line("Tiempo de respuesta (ms)", generation.get("latencia_ms", "No registrado")),
                   line("Redacción", generation.get("validacion_contenido", {}).get("resumen", "No registrada"))))
     if record.get("puntuaciones_modelo_no_calibradas"):
-        parts.append(line("Puntuaciones no calibradas", " · ".join(
-            f"{key}: {float(value):.4f}" for key, value in record["puntuaciones_modelo_no_calibradas"].items())))
+        parts.append("<h4>Puntuaciones no calibradas</h4>")
+        for label, value in record["puntuaciones_modelo_no_calibradas"].items():
+            parts.append(f'<p>{safe_text(label)} <meter min="0" max="1" value="{float(value)}"></meter> {float(value):.4f}</p>')
     if audio and record.get("procedencia_entrada"):
         parts.append(line("Transcripción corregida", "Sí" if record["procedencia_entrada"].get("fue_corregida") else "No"))
     parts.append('<p>El JSON completo y la trazabilidad conservan los datos originales, sin modificaciones de presentación.</p></details></section>')

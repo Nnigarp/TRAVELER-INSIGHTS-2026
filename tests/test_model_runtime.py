@@ -55,7 +55,7 @@ def test_successful_optional_backend_is_executed_for_text_batch_and_exports(conf
     assert record['sentimiento']=='neutral' and record['modelo_utilizado']=='beto'
     assert not record['seleccion_modelo']['fallback'] and len(calls)==1
     assert 'experimental' in summary
-    rows,*_=app.run_batch_lines('Primer fixture artificial.\nOtro fixture distinto.','beto')
+    rows,*_=app.run_batch_lines('El guía fue amable.\nLa habitación estaba sucia.','beto')
     assert len(rows)==2 and len(calls)==3
     parsed=list(csv.DictReader(io.StringIO(export_csv(rows))))
     assert parsed[0]['modelo_utilizado']==parsed[0]['modelo_solicitado']=='beto'

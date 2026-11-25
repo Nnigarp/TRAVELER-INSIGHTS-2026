@@ -93,7 +93,7 @@ def test_html_output_keeps_validation_errors_inert(monkeypatch):
     def fail(*args, **kwargs):
         raise ValueError(payload)
     monkeypatch.setattr(app, "run_selected", fail)
-    for markup, raw in (app.analyze("review"), app.analyze_audio_ui("review", {}, "lr")):
+    for markup, raw in (app.analyze("El guía fue amable."), app.analyze_audio_ui("review", {}, "lr")):
         assert raw == "{}" and 'role="alert"' in markup
         assert '<img' not in markup and html.unescape(markup).find(payload) >= 0
 

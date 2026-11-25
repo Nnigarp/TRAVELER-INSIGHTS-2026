@@ -14,7 +14,7 @@ MARKERS = {
     "fr": "le les une très était mais chambre personnel jamais hôtel propre pas",
 }
 LEXICON = {lang: set(words.split()) for lang, words in MARKERS.items()}
-NEGATION = re.compile(r"\b(no|not|never|without|non|senza|pas|jamais|sans)\b|n't\b|[不没]", re.I)
+NEGATION = re.compile(r"\b(no|not|never|without|non|senza|pas|jamais|sans)\b|n['’]t\b|[不没]|从未", re.I)
 SPANISH_NEGATION = re.compile(r"\b(no|nunca|sin|ningún\w*|jamás|tampoco|ni|nada|nadie)\b", re.I)
 
 
@@ -112,6 +112,10 @@ def prepare(text, *, asr=None, manual="", edited="", prior=None, progress=lambda
             warnings.append("Las cifras cambiaron.")
         if NEGATION.search(text) and not SPANISH_NEGATION.search(target):
             warnings.append("Comprueba la negación.")
+        if lang == "fr" and re.search(r"manqu[ée]\w*.{0,32}excursion", text, re.I) and re.search(r"falt[óo].{0,24}excursión", target, re.I):
+            warnings.append("Comprueba si se perdió la excursión o si faltaba en la oferta.")
+        if lang == "zh" and any(term in text for term in ("接驳车", "接送车")) and "albergamiento" in target.casefold():
+            warnings.append("Comprueba la referencia al vehículo de traslado.")
         if lang == "it" and re.search(r"\bcamera\b", text, re.I) and re.search(r"\bcámara\b", target, re.I):
             warnings.append("Revisa si camera se refiere a la habitación.")
         if re.search(r"\b(but|however|ma|mais)\b|但是", text, re.I) and not re.search(r"\b(pero|aunque|embargo|obstante)\b", target, re.I):

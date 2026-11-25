@@ -25,8 +25,9 @@ PROTOCOL = RESOURCE / "synthetic_v4_protocol.json"
 
 GENERATOR = "curated_compositional_scenarios_v4"
 MODEL = "NO_LLM_LOCAL_COMPOSITIONAL_V4"
-VERSION = "4.0.0"
+VERSION = "4.1.0"
 SCHEMA = "traveler-synthetic-tourism-v4"
+REFERENCE_VERSION = "4.0.0"  # preserved locally; do not overwrite
 
 DOMAINS = (
     "hotel", "restaurante", "museo", "playa", "transporte",
@@ -251,6 +252,17 @@ COMPLAINT = (
     "llamamos varias veces sin que nadie retomara el caso",
     "la queja quedó abierta sin solución después de varios días",
 )
+# Closings are SHARED across labels (V4.1). Polarity must come from the body,
+# not from a class-exclusive final sentence (the V4.0 shortcut).
+SHARED_CLOSINGS = (
+    "Así quedó la experiencia para nosotros.",
+    "Dejo este relato tal como lo vivimos.",
+    "Eso es lo que ocurrió durante la visita.",
+    "Con eso termino el resumen del día.",
+    "Queda dicha la secuencia completa.",
+    "Hasta aquí el recuento de lo sucedido.",
+)
+# Kept only for V4.0 shortcut audits / backward diagnostics — not used in V4.1 compose.
 NON_RETURN = {
     "negativo": (
         "por eso no volveré a contratar este servicio ni lo recomendaría",
@@ -437,32 +449,19 @@ def _sentence(text: str) -> str:
 def _expand_to_band(parts: list[str], band: str, rng: random.Random, label: str, *, slot: int) -> str:
     lo, hi = protocol()["length_bands"][band]
     text = " ".join(_sentence(p) for p in parts if p.strip())
-    filler_bank = {
-        "negativo": (
-            "Cada intento de aclararlo empeoró la sensación de abandono",
-            "Lo más grave fue la falta de una solución concreta",
-            "Esa secuencia dejó la experiencia irrecuperable para nosotros",
-            "La demora administrativa cerró cualquier margen de recuperación",
-            "El silencio del operador confirmó que no había plan B",
-        ),
-        "neutral": (
-            "Anoto estos pasos en el mismo orden en que ocurrieron",
-            "No añado una valoración más allá de la cronología",
-            "Queda registrado el horario y el canal utilizado",
-            "La secuencia se limita a hechos observables sin juicio",
-            "Dejo documentado el intermediario y la hora exacta",
-        ),
-        "positivo": (
-            "Ese cuidado se notó también en los pequeños detalles",
-            "La sensación final fue de confianza y ganas de repetir",
-            "Valoramos especialmente la claridad con la que resolvieron todo",
-            "La coordinación del equipo sostuvo una visita fluida",
-            "El cierre del servicio reforzó una impresión favorable",
-        ),
-    }
+    # Shared fillers (V4.1): no class-exclusive elongation cues.
+    filler_bank = (
+        "Anoto también el contexto inmediato alrededor del lugar",
+        "Queda registrado el tramo siguiente de la visita",
+        "El intervalo entre un momento y el siguiente fue breve",
+        "Había más gente en la misma zona en ese instante",
+        "La luz y el ruido del entorno formaban parte de la escena",
+        "El trayecto corto hasta el punto siguiente no cambió el relato",
+    )
+    del label  # length expansion must not encode polarity
     step = 0
     while len(text.split()) < lo:
-        base = filler_bank[label][(slot + step) % len(filler_bank[label])]
+        base = filler_bank[(slot + step) % len(filler_bank)]
         detail = ANCHOR_OBJECTS[(slot + step * 3) % len(ANCHOR_OBJECTS)]
         text = f"{text} {_sentence(f'{base} junto al {detail} del escenario {slot:04d}')}"
         step += 1
@@ -494,7 +493,7 @@ def _compose(meta: dict, label: str, rng: random.Random, *, slot: int) -> tuple[
     transport = _pick(TRANSPORT_BREACH, rng, 5)
     lost = _pick(EXCURSION_LOSS, rng, 6)
     complaint = _pick(COMPLAINT, rng, 7)
-    close = _pick(NON_RETURN[label], rng, 8)
+    close = _pick(SHARED_CLOSINGS, rng, 8)
     regional = _pick(REGIONAL[region], rng, 9)
     colloquial = _pick(COLLOQUIAL[region], rng, 10)
     anchor = _family_anchor(slot, label)
@@ -686,6 +685,38 @@ def generate_records(
     return sorted(rows, key=lambda r: r["review_id"])
 
 
+def lexical_closing_audit(rows: list[dict], *, max_exclusivity: float = 0.92) -> dict:
+    """Detect class-exclusive closing/filler phrases (the V4.0 shortcut family)."""
+    candidates = []
+    for phrase in SHARED_CLOSINGS:
+        candidates.append(phrase.casefold().rstrip("."))
+    for phrases in NON_RETURN.values():
+        for phrase in phrases:
+            candidates.append(phrase.casefold().rstrip("."))
+    exclusive = []
+    shared_ok = []
+    for phrase in sorted(set(candidates)):
+        hits = Counter(
+            r["intended_label"] for r in rows if phrase in r["text"].casefold()
+        )
+        total = sum(hits.values())
+        if total == 0:
+            continue
+        top = max(hits.values()) / total
+        entry = {"phrase": phrase, "counts": dict(hits), "top_share": round(top, 4)}
+        if top >= max_exclusivity and len(hits) == 1:
+            exclusive.append(entry)
+        else:
+            shared_ok.append(entry)
+    return {
+        "version": VERSION,
+        "exclusive_closing_phrases": exclusive,
+        "shared_or_mixed_phrases": shared_ok[:20],
+        "max_exclusivity": max_exclusivity,
+        "status": "FAIL" if exclusive else "PASS",
+    }
+
+
 def audit_records(rows: list[dict], *, jaccard_threshold: float = 0.84) -> dict:
     proto = protocol()
     if len(rows) != proto["target_rows"]:
@@ -775,8 +806,12 @@ def audit_records(rows: list[dict], *, jaccard_threshold: float = 0.84) -> dict:
             raise CorpusError("Hard case sin señal de transporte.")
         if "reclam" not in text and "queja" not in text and "soporte" not in text and "llamamos" not in text:
             raise CorpusError("Hard case sin reclamación.")
-        if not any(k in text for k in ("no volver", "descarto", "no contratar")):
-            raise CorpusError("Hard case sin rechazo a repetir.")
+        if not any(k in text for k in ("perdimos", "se cayó", "no pudimos", "se perdió", "canceló", "sin conexión")):
+            raise CorpusError("Hard case sin desenlace negativo en el cuerpo.")
+
+    shortcut = lexical_closing_audit(rows)
+    if shortcut["exclusive_closing_phrases"]:
+        raise CorpusError("Atajos de cierre exclusivos por etiqueta detectados.")
 
     return {
         "purpose": "INTERNAL_SYNTHETIC_V4_QUALITY_ONLY",
@@ -792,6 +827,8 @@ def audit_records(rows: list[dict], *, jaccard_threshold: float = 0.84) -> dict:
         "unique_token_count": len(set(re.findall(r"\w+", " ".join(r["text"] for r in rows).casefold()))),
         "near_duplicate_candidates_cross_family": near,
         "hard_holdout_negatives": len(hard_neg),
+        "lexical_closing_audit": shortcut,
+        "generator_version": VERSION,
         "approx_beto_tokens": {
             "min": min(int(r["approx_beto_tokens"]) for r in rows),
             "median": int(sorted(int(r["approx_beto_tokens"]) for r in rows)[len(rows) // 2]),
@@ -845,7 +882,7 @@ def write_corpus(rows: list[dict], out_dir: Path, audit: dict, *, seed: int) -> 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Generar corpus sintético turístico V4")
-    parser.add_argument("--out", type=Path, default=Path("data/processed/synthetic-tourism-v4"))
+    parser.add_argument("--out", type=Path, default=Path("data/processed/synthetic-tourism-v4.1"))
     parser.add_argument("--seed", type=int, default=None)
     parser.add_argument("--date", default="2026-11-25")
     args = parser.parse_args(argv)

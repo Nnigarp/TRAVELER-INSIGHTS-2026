@@ -1,11 +1,19 @@
 {
-  "version": "synthetic-tourism-v4.0.0",
+  "version": "synthetic-tourism-v4.1.0",
   "registered": "2026-11-25",
-  "purpose": "High-quality synthetic tourism sentiment corpus for LR/SVM/BETO V4, targeting mixed praise-then-failure failures without replacing historical V1–V3 artifacts.",
+  "purpose": "V4.1 corrects class-exclusive closings from V4.0 while preserving the same family/split geometry. V4.0 corpus and metrics remain the local reference baseline.",
   "label_origin": "GENERATOR_INTENT_NOT_HUMAN_GOLD",
   "human_gold": false,
   "generator_model": "NO_LLM_LOCAL_COMPOSITIONAL_V4",
-  "seed": 20261125,
+  "seed": 202611251,
+  "reference_corpus": {
+    "version": "4.0.0",
+    "seed": 20261125,
+    "local_dir": "data/processed/synthetic-tourism-v4",
+    "artifacts_dir": "artifacts/synthetic-tourism-v4",
+    "rows_sha256": "fd3ea2c01e980b89929968c5773f772623928c583f351942f839b02aab552b6a",
+    "note": "Do not overwrite. Compare new models against this frozen reference."
+  },
   "target_rows": 5001,
   "target_note": "5001 = 1667 families × 3 labels; nearest ternary-balanced size to the requested 5000.",
   "labels": ["negativo", "neutral", "positivo"],
@@ -53,7 +61,8 @@
       "exact text_sha256 disjoint across roles",
       "entire family stays in one role",
       "historical V1/V2/V3/contextual text hashes excluded",
-      "near-duplicate Jaccard screen across families"
+      "near-duplicate Jaccard screen across families",
+      "shared closings across labels (no class-exclusive endings)"
     ]
   },
   "hard_holdout_design": {
@@ -62,7 +71,7 @@
       "early_positive_lexicon",
       "transport_or_excursion_breach",
       "unanswered_complaint",
-      "explicit_non_return"
+      "negative_outcome_in_body"
     ],
     "intended_global_label": "negativo for failure endpoint; matched neutral/positive twins share family skeleton"
   },
@@ -76,11 +85,16 @@
   "hardware_budget": {
     "device": "RTX_4050_Laptop_6GB",
     "system_ram_gb": 16,
+    "cuda_driver_observed": "560.94 / CUDA 12.6",
     "beto_notes": [
       "Prefer frozen encoder or last-block adaptation over full fine-tune if VRAM pressure appears.",
       "Keep batch_size small (2–4) for 256-token sequences on 6 GB."
     ]
   },
   "preserve_historical": true,
-  "ui_and_main_untouched": true
+  "ui_and_main_untouched": true,
+  "independent_eval": {
+    "path": "src/traveler_agent/research_data/v4_independent_eval.json",
+    "rule": "Freeze records_sha256 before any model prediction. Never fit or tune on this set."
+  }
 }

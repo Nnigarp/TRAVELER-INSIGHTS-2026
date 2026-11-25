@@ -10,7 +10,8 @@ import pytest
 from traveler_agent.corpus import CorpusError
 from traveler_agent.dataset_v4_training import prepare_beto_v4_plan, train_classical_v4
 from traveler_agent.synthetic_tourism_v4 import (
-    LABELS, PROTOCOL, ROLES, audit_records, generate_records, protocol, write_corpus,
+    LABELS, PROTOCOL, ROLES, SHARED_CLOSINGS, VERSION, audit_records,
+    generate_records, lexical_closing_audit, protocol, write_corpus,
 )
 
 
@@ -70,7 +71,19 @@ def test_hard_holdout_encodes_failure_pattern(rows):
         assert row["template"] == "praise_then_failure"
         assert any(k in text for k in ("transporte", "traslado", "bus", "conductor"))
         assert any(k in text for k in ("reclam", "queja", "soporte", "llamamos"))
-        assert any(k in text for k in ("no volver", "descarto", "no contratar"))
+        assert any(k in text for k in ("perdimos", "se cayó", "no pudimos", "se perdió", "canceló", "sin conexión"))
+
+
+def test_v41_closings_are_shared_not_label_exclusive(rows):
+    assert VERSION == "4.1.0"
+    audit = lexical_closing_audit(rows)
+    assert audit["status"] == "PASS"
+    assert audit["exclusive_closing_phrases"] == []
+    # Each shared closing should appear under more than one label when present.
+    for phrase in SHARED_CLOSINGS:
+        hits = {r["intended_label"] for r in rows if phrase.casefold().rstrip(".") in r["text"].casefold()}
+        if hits:
+            assert len(hits) >= 2
 
 
 def test_rejects_human_gold_attribution(rows):

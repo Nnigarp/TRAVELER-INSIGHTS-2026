@@ -1,211 +1,121 @@
 # Traveler Insights — Dataset / Training V4 Handoff
 
-**Fecha:** 2026-11-25  
-**Rama:** `feat/dataset-training-v4` (base `bf97231`, PR #35 ya en main)  
-**Agente:** continuación tras límite de uso de Codex  
-**Restricciones respetadas:** sin cambios de UI/`app.py`/`main`; sin merge de PR; artefactos V1–V3 conservados; sin pesos/cachés en Git.
+**Fecha:** 2026-11-25 (continuación post-`aae9bcd`)  
+**Rama:** `feat/dataset-training-v4`  
+**Restricciones:** sin UI/`app.py`/`main`; sin merge; sin pesos/cachés en Git; V1–V3 y V4.0 locales conservados.
 
-## Worktree y rutas absolutas locales
+## Worktree y rutas absolutas
 
 | Recurso | Ruta absoluta |
 | --- | --- |
-| Worktree / raíz del repo | `C:\UTB-2026\INTELIGENCIA ARTIFICIAL\traveler_insights_github` |
-| Rama experimental | `feat/dataset-training-v4` |
-| Corpus V4 (gitignored) | `C:\UTB-2026\INTELIGENCIA ARTIFICIAL\traveler_insights_github\data\processed\synthetic-tourism-v4\` |
-| Artefactos V4 (gitignored) | `C:\UTB-2026\INTELIGENCIA ARTIFICIAL\traveler_insights_github\artifacts\synthetic-tourism-v4\` |
-| LR V4 | `...\artifacts\synthetic-tourism-v4\lr.joblib` (+ `lr_report.json`, `lr.meta.json`) |
-| SVM V4 | `...\artifacts\synthetic-tourism-v4\svm.joblib` (+ `svm_report.json`, `svm.meta.json`) |
-| BETO V4 frozen256 | `...\artifacts\synthetic-tourism-v4\beto-v4-frozen256\` |
-| Informe BETO V4 | `...\artifacts\synthetic-tourism-v4\beto_v4_frozen256_report.json` |
-| Caché features TRAIN (no subir) | `...\artifacts\synthetic-tourism-v4\beto_v4_train_features_256.npz` |
-| Plan BETO completo con textos (no subir; ~4.8 MB) | `...\artifacts\synthetic-tourism-v4\beto_v4_training_plan.json` |
-| Checkpoint base reutilizado (V3, no tocar) | `C:\UTB-2026\INTELIGENCIA ARTIFICIAL\traveler_insights_github\artifacts\beto-v3-pr28-local\checkpoint` |
+| Worktree | `C:\UTB-2026\INTELIGENCIA ARTIFICIAL\traveler_insights_github` |
+| Corpus V4.0 referencia (no sobrescribir) | `...\data\processed\synthetic-tourism-v4\` |
+| Artefactos V4.0 referencia | `...\artifacts\synthetic-tourism-v4\` |
+| Corpus V4.1 (cierres compartidos) | `...\data\processed\synthetic-tourism-v4.1\` |
+| Artefactos V4.1 | `...\artifacts\synthetic-tourism-v4.1\` |
+| Eval independiente congelada | `...\src\traveler_agent\research_data\v4_independent_eval.json` |
+| Checkpoint BETO base (V3, no tocar) | `...\artifacts\beto-v3-pr28-local\checkpoint` |
 
-**No versionar:** `artifacts/*`, `data/processed/*`, `*.joblib`, `*.npz`, pesos BETO, ni la carpeta anidada `traveler-insights-2026/`.
+### Modelos locales V4.1 (gitignored)
 
-## Estado al retomar
+- `...\artifacts\synthetic-tourism-v4.1\lr.joblib`
+- `...\artifacts\synthetic-tourism-v4.1\svm.joblib`
+- `...\artifacts\synthetic-tourism-v4.1\beto-v4-frozen128\`
+- `...\artifacts\synthetic-tourism-v4.1\beto-v4-frozen256\`
+- `...\artifacts\synthetic-tourism-v4.1\beto-v4-partial256\`
 
-| Ítem | Estado |
+## 1) Atajos léxicos V4.0 → corrección V4.1
+
+**Problema medido en V4.0:** cierres `NON_RETURN` 100 % exclusivos por etiqueta (`no volveré` solo negativo, `sí lo recomendaría` solo positivo, etc.).
+
+**Corrección V4.1 (`VERSION=4.1.0`, seed `202611251`):**
+
+- Cierres `SHARED_CLOSINGS` compartidos entre clases.
+- Fillers de longitud sin polaridad.
+- Gate `lexical_closing_audit` en `audit_records` (FAIL si exclusividad ≥ 0.92).
+
+| Corpus | `rows_sha256` | In-gen Val Macro-F1 LR | Nota |
+| --- | --- | ---: | --- |
+| V4.0 ref | `fd3ea2c0…52b6a` | 1.000 | Conservado localmente |
+| V4.1 | `1eff643d…aa9b7c` | 0.953 | Atajos de cierre eliminados |
+
+Evidencia: `docs/research/v4/v4_0_reference_pointer.json`, `v4_1_training_metrics_summary.json`.
+
+## 2) Evaluación independiente (congelada antes de predecir)
+
+- Archivo: `src/traveler_agent/research_data/v4_independent_eval.json`
+- **72** reseñas (24/clase), textos originales (sin plantillas V4)
+- `records_sha256`: `d377dc71e5c7584c78eb991def3100a371c4f2dc9cabbdc604eecce318a280ac`
+- `frozen: true` **antes** de cualquier predicción
+- Caso diagnóstico: `ie_cartagena_fail` (hotel elogiado + transporte/excursión/reclamación)
+- **No** se usó para fitting ni selección de hiperparámetros
+
+## 3) CUDA / RTX 4050
+
+| Ítem | Valor medido |
 | --- | --- |
-| Rama experimental | Reutilizada: `feat/dataset-training-v4` en `bf97231` |
-| Cambios previos de Codex | Solo la rama vacía; **ningún archivo V4** dejado |
-| Workspace Cursor | Trabajo en el worktree padre anterior; no usar el clone anidado `traveler-insights-2026/` |
+| GPU | NVIDIA GeForce RTX 4050 Laptop GPU |
+| VRAM | 6.0 GB |
+| Driver / CUDA | 560.94 / 12.6 |
+| torch research | `2.14.1+cu126`, `cuda_available=True` |
+| frozen128 wall | ~25 s (encode train ~13 s) |
+| frozen256 wall | ~28 s |
+| partial256 | 2 épocas, peak **654 MiB**, wall ~98 s — **viable** |
 
-## Auditoría histórica (medida / documentada, no inventada)
+## 4) Comparación en eval independiente (no optimizada)
 
-### Datasets previos
+Evidencia completa: `docs/research/v4/independent_comparison_2026-11-25.json`
 
-| Recurso | Filas | Notas |
-| --- | ---: | --- |
-| Synthetic tourism V1 | 336 | Template composicional; 56 familias; balance 112/clase; `data/processed/synthetic-tourism-v1/` |
-| Synthetic diversity V2/V3 | catálogos en `research_data/` | Familias de 3 intenciones; labels = intención de autor |
-| BETO V3 piloto | 564 generadas → 562 admitidas | TRAIN 300 + tune/cal/policy/assessment 60 c/u + ambiguos; ver `docs/BETO_V3_PILOTO_Y_ESCALADO_2026-11-10.md` |
-
-### Entrenamientos previos (assessment V3, cohorte sintética)
-
-| Modelo | Macro-F1 | Neg→Pos /20 | Fuente |
-| --- | ---: | ---: | --- |
-| TF-IDF + LR | 0.9158 | 2 | docs BETO V3 |
-| TF-IDF + SVM | 0.9158 | 2 | docs BETO V3 |
-| BETO V3 full · seed 42 | 1.0000 | 0 | docs BETO V3 |
-
-V3 TRAIN: **99/300** textos >128 tokens WordPiece; ninguno >256. Artefacto recuperado PR28 usa `max_length=256`, schema `traveler-beto-supervised-v2`.
-
-## Hallazgo de truncamiento (medido 2026-11-25)
-
-Evidencia: `docs/research/v4/truncation_audit_2026-11-25.json`
-
-Caso corto (~122 tokens BETO, elogio hotel + fallo transporte/excursión/reclamación):
-
-- Cabe entero en 128.
-- BETO V3 recuperado → **negativo**.
-- LR/SVM V1 históricos → **neutral** (no positivo).
-
-Caso largo (prefijo de elogios ×6 + mismo fallo, ~206 tokens):
-
-| max_length | Predicción BETO V3 | ¿Conserva transporte/reclamación? |
-| ---: | --- | --- |
-| 128 | **positivo** | No (corte a mitad del elogio) |
-| 256 | **negativo** | Sí |
-
-**Conclusión:** el truncamiento a 128 **sí puede** volcar elogio-inicial→fallo-final a positivo cuando el prefijo positivo es largo. No es la única causa posible de errores en reseñas cortas mixtas.
-
-## Dataset V4 construido
-
-| Campo | Valor |
-| --- | --- |
-| Generador | `src/traveler_agent/synthetic_tourism_v4.py` |
-| Protocolo | `src/traveler_agent/research_data/synthetic_v4_protocol.json` |
-| Semilla | `20261125` |
-| Filas | **5001** (= 1667 familias × 3; tamaño ternario más cercano a 5000) |
-| Balance | 1667 negativo / 1667 neutral / 1667 positivo |
-| Salida | `data/processed/synthetic-tourism-v4/` (gitignored) |
-| `rows_sha256` | `fd3ea2c01e980b89929968c5773f772623928c583f351942f839b02aab552b6a` |
-
-### Particiones (por familia, sin fuga)
-
-| Rol | Familias | Filas |
-| --- | ---: | ---: |
-| train | 1120 | 3360 |
-| validation | 240 | 720 |
-| test | 240 | 720 |
-| hard_holdout | 67 | 201 |
-
-`hard_holdout`: plantilla `praise_then_failure` (elogio → fallo de transporte/excursión → reclamación sin respuesta → no volver). **No entra en fitting.**
-
-Controles: hashes históricos V1/V2/V3/contextual excluidos; `text_sha256` disjuntos entre roles; pantalla near-duplicate Jaccard bloqueada (umbral 0.84).
-
-### Regenerar
-
-```bat
-python -m traveler_agent.synthetic_tourism_v4 --out data/processed/synthetic-tourism-v4
-```
-
-## Entrenamiento V4
-
-### LR / SVM (completado)
-
-```bat
-python -m traveler_agent.dataset_v4_training train-classical --model-kind lr
-python -m traveler_agent.dataset_v4_training train-classical --model-kind svm
-```
-
-Artefactos (gitignored): `artifacts/synthetic-tourism-v4/{lr,svm}.joblib` + `*_report.json`  
-Resumen versionado: `docs/research/v4/classical_v4_metrics_summary.json`
-
-| Modelo | Val Macro-F1 | Test Macro-F1 | Hard Macro-F1 | Hard Neg→Pos |
+| Modelo | Accuracy | Macro-F1 | Neg→Pos | Latencia media (ms) |
 | --- | ---: | ---: | ---: | ---: |
-| LR | 1.0 | 1.0 | 1.0 | 0 |
-| SVM | 1.0 | 1.0 | 1.0 | 0 |
+| demo_lr (Gradio default) | 0.500 | 0.501 | 0 | 0.38 |
+| v1_lr / v1_svm | 0.458 | 0.443 / 0.447 | 11 | 0.22 / 0.68 |
+| v4_0_lr / v4_0_svm | **0.639** / 0.611 | **0.631** / 0.594 | 0 | 0.23 / 0.74 |
+| v4_1_lr / v4_1_svm | 0.583 / 0.528 | 0.560 / 0.492 | 0 | 0.22 / 0.70 |
+| beto_v3_pr28 | 0.556 | 0.479 | 9 | 15.2 |
+| beto_v4_0_frozen256 | **0.736** | **0.684** | 1 | 14.0 |
+| beto_v4_1_frozen128 | 0.583 | 0.492 | 0 | 14.3 |
+| beto_v4_1_frozen256 | 0.597 | 0.500 | 0 | 11.3 |
+| beto_v4_1_partial256 | 0.694 | 0.620 | 1 | 11.4 |
 
-**Limitación científica:** Macro-F1=1.0 **in-generator** no implica validez poblacional. Persisten cierres léxicos por clase y plantillas compartidas (atajo conocido del generador composicional). Sobre el caso de fallo usuario, LR/SVM V4 predicen **negativo** (short y long).
+Matrices, precision/recall por clase y reportes: ver JSON de comparación (no inventar cifras adicionales aquí).
 
-### BETO V4 (frozen256 completado)
+**Lectura:** corregir atajos baja el Macro-F1 in-generator y también el transfer a esta eval; V4.0 frozen256 sigue siendo el mejor en este set congelado. No se retocó nada tras ver estas cifras.
 
-```bat
-python -m traveler_agent.dataset_v4_training prepare-beto-plan
-.\.venv-research\Scripts\python.exe -m traveler_agent.beto_training_v4 --max-length 256 --checkpoint artifacts/beto-v3-pr28-local/checkpoint
+## 5) Reseña Cartagena + artefactos Gradio
+
+Evidencia: `docs/research/v4/cartagena_gradio_diagnosis_2026-11-25.json`
+
+| Binding Gradio | Artefacto efectivo | Predicción `ie_cartagena_fail` |
+| --- | --- | --- |
+| LR | `artifacts/demo_model.joblib` (DEMO) | negativo |
+| SVM | train in-memory sobre DEMO (`get_demo_model`) | **neutral** |
+| BETO sin env | fallback LR (`FileNotFoundError`) | negativo (vía LR) |
+| BETO + `TRAVELER_BETO_ARTIFACT=artifacts/beto-v3-pr28-local` | BETO V3 PR28 | **positivo** (fallo) |
+| V4.* locales | **no cableados a la UI** | negativo (todos los V4 medidos) |
+
+## 6) Pruebas
+
+```
+608 passed, 10 skipped, 1 xfailed
 ```
 
-- Plan: `artifacts/synthetic-tourism-v4/beto_v4_training_plan.json`
-- Índice docs: `docs/research/v4/beto_v4_training_index.json`
-- Informe: `artifacts/synthetic-tourism-v4/beto_v4_frozen256_report.json`
-- Resumen docs: `docs/research/v4/beto_v4_frozen256_metrics_summary.json`
-- Artefacto: `artifacts/synthetic-tourism-v4/beto-v4-frozen256/`
-- Caché de features TRAIN: `artifacts/synthetic-tourism-v4/beto_v4_train_features_256.npz` (reutilizable)
+Log: `docs/research/v4/pytest_full_2026-11-25.txt`. Suite verde; no se eliminaron pruebas históricas.
 
-| Split | Macro-F1 | Neg→Pos |
-| --- | ---: | ---: |
-| validation | 0.9945 | ver informe |
-| test | 0.9972 | 1 |
-| hard_holdout | 1.0000 | 0 |
+## Archivos versionables de esta iteración
 
-Encoder congelado + cabeza logística sklearn; `max_length=256`. Ablación 128 y `partial256` siguen pendientes.
+- Generador V4.1 + protocol + eval independiente
+- `beto_training_v4.py` (frozen128/256 + partial256 CUDA)
+- `scripts/compare_v4_independent.py`
+- Evidencias bajo `docs/research/v4/`
+- Tests V4 actualizados
 
-Comprobación post-entrenamiento del caso usuario (medida, no inventada):
+**No versionar:** `artifacts/*`, `data/processed/*`, `*.joblib`, `*.npz`, pesos, plan BETO con textos (~MB).
 
-| Texto | Inferencia max_length | Predicción BETO V4 frozen |
-| --- | ---: | --- |
-| failure short | 128 / 256 | negativo / negativo |
-| failure long (prefijo×6) | 128 | **positivo** (sigue truncando) |
-| failure long (prefijo×6) | 256 | **negativo** |
+## Pendiente para Codex Astra
 
-LR/SVM V4: negativo en short y long (sin truncamiento Transformer).
-
-## Archivos tocados en esta sesión
-
-**Nuevos**
-
-- `src/traveler_agent/synthetic_tourism_v4.py`
-- `src/traveler_agent/dataset_v4_training.py`
-- `src/traveler_agent/beto_training_v4.py`
-- `src/traveler_agent/research_data/synthetic_v4_protocol.json`
-- `scripts/audit_v4_truncation.py`
-- `tests/test_synthetic_tourism_v4.py`
-- `docs/V4_HANDOFF.md`
-- `docs/research/v4/truncation_audit_2026-11-25.json`
-- `docs/research/v4/beto_v4_training_index.json`
-- `docs/research/v4/classical_v4_metrics_summary.json`
-- `docs/research/v4/beto_v4_frozen256_metrics_summary.json`
-
-**Generados locales (gitignored)**
-
-- `data/processed/synthetic-tourism-v4/`
-- `artifacts/synthetic-tourism-v4/`
-
-**No modificados:** `app.py`, UI, modelos/datasets/métricas V1–V3 históricos.
-
-## Pruebas
-
-```bat
-python -m pytest tests/test_synthetic_tourism_v4.py -q
-```
-
-6 passed (sesión 2026-11-25). Suite completa del repo **no** re-ejecutada aquí tras el handoff.
-
-## Decisiones
-
-1. **5001 filas** en lugar de 5000 exactas para preservar familias de 3 etiquetas.
-2. Generador **rule-based local** (sin LLM API), alineado con V1/V3 del repo.
-3. Anclas escénicas por familia **sin codificar la etiqueta** (se corrigió una fuga inicial `NEG/POS/NEU`).
-4. BETO V4 prioriza **256 tokens**; 128 se mantiene como candidato de ablación.
-5. Hard set independiente; LR/SVM y BETO frozen256 ya entrenados localmente (artefactos fuera de Git).
-
-## Pendiente para Codex / siguiente agente
-
-1. Ablación BETO V4 `frozen128` (comparar truncamiento vs 256) reutilizando el mismo plan/corpus.
-2. Opcional: adaptación `partial256` / últimos bloques bajo presupuesto VRAM 6 GB (torch CUDA si se habilita; el entorno actual usó torch CPU).
-3. Auditoría de atajos léxicos OOF (estilo V3 `beto-v3-train-lexical.json`) sobre TRAIN V4 **sin** retocar assessment.
-4. Diversificar cierres/neutralidad para reducir Macro-F1 trivial in-generator antes de congelar un assessment “oficial” V4.
-5. No fusionar PR; no tocar UI; no sobrescribir `artifacts/beto-v3-*` ni V1; no subir pesos/cachés.
-
-## Comandos rápidos de verificación
-
-```bat
-git status
-git branch --show-current
-python -m traveler_agent.synthetic_tourism_v4 --help
-python -m traveler_agent.dataset_v4_training --help
-python -m traveler_agent.beto_training_v4 --help
-.\.venv-research\Scripts\python.exe scripts\audit_v4_truncation.py
-```
+1. Auditoría final del generador V4.1 y de la eval independiente (hashes, fugas, naturalidad).
+2. Decidir si la integración UI debe apuntar a V4 (hoy sigue DEMO + BETO V3 opcional) — **sin fusionar aún**.
+3. No optimizar sobre `v4_independent_eval.json`.
+4. Conservar V4.0 como baseline de referencia local.
+5. Commit/push solo en `feat/dataset-training-v4`; no tocar `main`.

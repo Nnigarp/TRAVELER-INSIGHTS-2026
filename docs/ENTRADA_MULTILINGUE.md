@@ -1,5 +1,7 @@
 # Aceptación de la entrada unificada en Windows
 
+Esta guía registra la aceptación histórica del PR #34. Para la interfaz actual, consulta el [refinamiento final](ACEPTACION_UX_FINAL.md).
+
 ## Arranque desde el clon validado
 
 En PowerShell, con el entorno y los modelos ya instalados:

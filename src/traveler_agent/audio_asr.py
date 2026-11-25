@@ -6,6 +6,8 @@ running pytest, and using text analysis never downloads or loads ASR weights.
 from __future__ import annotations
 
 import hashlib
+import math
+import re
 import os
 import wave
 import logging
@@ -203,6 +205,40 @@ def _load_local_backend(model_id: str, allow_download: bool):
         ) from None
 
 
+def perception_signals(segments, metadata, text, requested):
+    """Record observed decoder diagnostics; absent measurements remain absent."""
+    def number(obj, field):
+        value = getattr(obj, field, None)
+        return value if isinstance(value, (int, float)) and math.isfinite(value) else None
+
+    options = getattr(metadata, "transcription_options", None)
+    signals = []
+    warnings = []
+    for part in segments:
+        item = {key: value for key in ("avg_logprob", "no_speech_prob", "compression_ratio")
+                if (value := number(part, key)) is not None}
+        signals.append(item)
+        log_limit = number(options, "log_prob_threshold")
+        compression_limit = number(options, "compression_ratio_threshold")
+        if log_limit is not None and item.get("avg_logprob", log_limit) < log_limit:
+            warnings.append("Whisper señala un segmento de baja verosimilitud.")
+        if compression_limit is not None and item.get("compression_ratio", compression_limit) > compression_limit:
+            warnings.append("Whisper señala posible repetición en un segmento.")
+    probability = number(metadata, "language_probability") if requested == "auto" else None
+    if probability is not None and probability <= 0.5:
+        warnings.append("El idioma elegido no reúne la mayoría de la probabilidad estimada por Whisper.")
+    from .language_input import local_language
+    detected = getattr(metadata, "language", None)
+    indicative = local_language(text)
+    if detected and indicative and indicative != detected:
+        warnings.append("El texto y Whisper sugieren idiomas distintos.")
+    words = set(re.findall(r"[^\W\d_]+", text.casefold()))
+    if detected == "es" and "perso" in words and words.intersection({"maí", "trasporto", "transporto", "abbiamo"}):
+        warnings.append("La transcripción contiene indicios de italiano pese al idioma español registrado.")
+    return {"probabilidad_idioma_auto": probability, "segmentos_asr": signals,
+            "advertencias_percepcion": list(dict.fromkeys(warnings))}
+
+
 def recognize_audio(
     filepath: str | Path | None, language: str = "es", *, backend: Any = None
 ) -> tuple[str, dict]:
@@ -222,6 +258,7 @@ def recognize_audio(
             beam_size=1, vad_filter=True,
         )
         # Inference may fail during the call OR the lazy generator iteration.
+        segments = list(segments)
         recognized = " ".join(str(part.text).strip() for part in segments).strip()
     except Exception as exc:
         stage = _inference_failure_stage(exc)
@@ -240,6 +277,7 @@ def recognize_audio(
     if not isinstance(detected, str) or not (2 <= len(detected) <= 3 and detected.isascii() and detected.isalpha()):
         detected = "desconocido"
     record = {
+        **perception_signals(segments, metadata, recognized, language),
         "modalidad": "audio",
         "formato_procesado": "wav_pcm16",
         "audio_sha256": info.sha256,

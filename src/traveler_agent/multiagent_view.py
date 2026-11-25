@@ -174,10 +174,53 @@ def render_qwen_service(record):
             '<span class="ti-flow-status">' + _safe(status) + '</span></div>')
 
 
+def execution_map(record):
+    multi = record.get("multiagente", {})
+    trace = multi.get("traza", [])
+    language = record.get("procesamiento_linguistico") or {}
+    generation = record.get("generacion_qwen") or {}
+    origin = record.get("procedencia_entrada") or {}
+    validated = generation.get("validado_por") == "ActionAgent" and generation.get("estado") == "GENERADO"
+    terminal = STATUSES.get(multi.get("estado"), language.get("estado", "Sin ejecutar"))
+    human = record.get("revision_humana")
+    fields = (("Estado", terminal), ("Entrada", multi.get("modalidad_percibida", "Audio" if origin else "Texto" if language else "Sin entrada")),
+              ("Idioma original", language.get("idioma_original", "Sin registro")),
+              ("Clasificador", record.get("modelo_utilizado", "Pendiente")),
+              ("Traducción", "Sin ejecutar" if terminal == "pendiente de revisión ASR" else language.get("estado", "Sin registro")),
+              ("Informe Qwen", generation.get("estado", "Sin consulta")),
+              ("Revisión humana", "Requerida" if human is True else "No requerida" if human is False else "Pendiente"),
+              ("Eventos", f'{len(trace)} principales · {len(multi.get("traza_generacion", []))} generativos'))
+    summary = "".join(f"<div><dt>{_safe(k)}</dt><dd>{_safe(v)}</dd></div>" for k, v in fields)
+    nodes = [("Entrada", "Audio · Whisper" if origin else "Texto" if trace else "Pendiente")]
+    for key, label, _ in AGENTS:
+        if key == "accion":
+            nodes.append(("Qwen · informe", "Validado" if validated else "Error" if generation else "Sin consulta"))
+        nodes.append((label, STATUSES.get(_agent_state(trace, key), "Sin ejecutar")))
+    nodes.append(("Resultado", terminal))
+    def node(label, state):
+        tone = "idle" if state in {"Sin ejecutar", "Sin consulta", "Pendiente"} else "error" if state in {"Error", "Fallido"} else "active"
+        if state in {"Revisión humana", "pendiente de revisión ASR", "pendiente de revisión"}:
+            tone = "review"
+        return f'<li class="ti-node-{tone}"><strong>{_safe(label)}</strong><span>{_safe(state)}</span></li>'
+    flow = "".join(node(label, state) for label, state in nodes)
+    recommendation = record.get("recomendacion")
+    result = f'<p class="ti-decision">{_safe(recommendation)}</p>' if recommendation else ""
+    method = language.get("metodo_deteccion", "Sin registro")
+    service = language.get("modelo_traduccion") or "Sin traducción automática registrada"
+    return (f'<section class="ti-operations"><h2>Resumen de ejecución</h2><dl>{summary}</dl>{result}'
+            '<div class="ti-coordinator"><strong>TravelerOrchestrator</strong><span>Coordinación jerárquica</span></div>'
+            f'<ol class="ti-runtime-map" aria-label="Flujo de ejecución">{flow}</ol>'
+            f'<details><summary>Procedencia lingüística y servicios auxiliares</summary><p>ASR · {_safe(origin.get("motor_asr", "Sin audio"))}'
+            f' · {_safe(origin.get("modelo_asr", ""))}</p><p>Identificación · {_safe(method)}</p>'
+            f'<p>Traducción · {_safe(service)}</p></details></section>')
+
+
 def render_agents_overview(record=None):
     """Function map when idle; executed states only when a real trace exists."""
     if isinstance(record, dict) and isinstance(record.get("multiagente", {}).get("traza"), list):
-        return render_multiagent_view(record)
+        return execution_map(record) + '<details class="ti-timeline"><summary>Cronología, especialistas y contratos</summary>' + render_multiagent_view(record) + "</details>"
+    if isinstance(record, dict) and record.get("procesamiento_linguistico"):
+        return execution_map(record)
     blocks = ['<section class="ti-flow" aria-label="Coordinación multiagente">',
               '<div class="ti-flow-lead"><div class="ti-flow-eyebrow">ORQUESTADOR PRINCIPAL</div>'
               '<h3>TravelerOrchestrator</h3><p>Funciones del sistema · sin ejecución registrada.</p></div>',
@@ -188,4 +231,4 @@ def render_agents_overview(record=None):
                       '<span class="ti-flow-status">Sin ejecutar</span></div>')
     blocks.extend(('</div>', render_qwen_service(None),
                    '<p class="ti-flow-caveat">Analiza una entrada para mostrar la traza real de diez eventos y, si se activa Qwen, tres eventos generativos separados.</p></section>'))
-    return "\n".join(blocks)
+    return execution_map({}) + '<details class="ti-timeline"><summary>Funciones de los especialistas</summary>' + "\n".join(blocks) + "</details>"

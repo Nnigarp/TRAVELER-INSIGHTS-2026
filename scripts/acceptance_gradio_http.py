@@ -47,7 +47,7 @@ def run(commit, output, beto_artifact=None):
             check('frontend_http200', home.status_code == 200)
             check('config_http200', config.status_code == 200)
             components = config.json()['components']
-            check('lr_remains_default', any(c.get('type') == 'dropdown' and c.get('props', {}).get('label') == 'Modelo de demostración' and c['props'].get('value') == 'lr' for c in components))
+            check('lr_remains_default', any(c.get('type') == 'dropdown' and c.get('props', {}).get('elem_id') == 'ti-model' and c['props'].get('value') == 'lr' for c in components))
             check('audio_microphone_and_upload_controls', any(c.get('type') == 'audio' and set(c.get('props', {}).get('sources', [])) == {'microphone', 'upload'} for c in components))
             client = Client(url, verbose=False, download_files=str(work / 'downloads'), httpx_kwargs={'trust_env': False})
             report['api_names'] = sorted(client.view_api(print_info=False, return_format='dict')['named_endpoints'])

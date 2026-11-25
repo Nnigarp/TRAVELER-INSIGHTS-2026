@@ -315,7 +315,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
                         gr.Markdown("Para empezar una reseña independiente, pulsa Limpiar.")
                     with gr.Accordion("Idioma y traducción experimental", open=False):
                         manual = gr.Textbox(value="", label="Idioma original (opcional, código ISO)")
-                        translation = gr.Textbox(label="Traducción al español revisada", lines=3)
+                        translation = gr.Textbox(value="", label="Traducción al español revisada", lines=3)
                         confirmed = gr.Checkbox(label="He revisado la traducción señalada", value=False)
                         previous = gr.State({})
                         gr.Markdown("Si aparece una advertencia, comprueba la traducción antes de volver a pulsar Analizar reseña.")
@@ -328,7 +328,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
                     with gr.Row():
                         run = gr.Button("Analizar reseña", variant="primary", elem_id="ti-analyze")
                         clear = gr.Button("Limpiar", elem_id="ti-clear")
-                    cancel = gr.Button("Cancelar análisis", visible=False)
+                    cancel = gr.Button("Cancelar análisis", visible=False, elem_id="ti-cancel")
                     gr.HTML('<div class="ti-input-note"><strong>Inferencia local real.</strong> LR/SVM usan datos ficticios y BETO es experimental. Qwen no cambia clasificación ni revisión humana. No se ejecutan acciones externas.</div>')
                 with gr.Column(scale=6, min_width=300, elem_id="ti-result-pane", elem_classes=["ti-pane"]):
                     gr.HTML(pane_heading("Informe de experiencia", "Sentimiento, evidencia y revisión de la reseña."))
@@ -407,7 +407,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
                *capture_execution(raw, "Audio · transcripción revisada" if origin else "Análisis individual"), trace, gr.update(visible=False))
 
     submission = run.click(submit, [inp, model_choice, qwen_choice, audio_metadata, manual, translation, previous, confirmed],
-              [*editors, *captured, previous, cancel], trigger_mode="once", api_name=False)
+              [*editors, *captured, previous, cancel], trigger_mode="multiple", api_name=False)
     submission.then(fn=None, js="() => { delete document.documentElement.dataset.tiPending; }", api_name=False)
     def cancel_submission():
         return (*set_editable(True), *clear_analysis()[2:], gr.update(visible=False))

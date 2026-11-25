@@ -82,3 +82,9 @@ def test_adversarial_text_is_data_only(monkeypatch):
     record = json.loads(app.unified(text, "lr", False)[1])
     assert record["modelo_utilizado"] == "lr" and "generacion_qwen" not in record
 
+
+
+def test_first_submission_accepts_untouched_translation_field():
+    _, raw, trace = app.unified("El guía fue amable.", "lr", False, edited=None)
+    assert trace["estado"] == "español directo"
+    assert json.loads(raw)["modelo_utilizado"] == "lr"

@@ -61,6 +61,7 @@ def ask_qwen(task, text):
 def prepare(text, *, asr=None, manual="", edited="", prior=None, progress=lambda message: None):
     if not isinstance(text, str) or not text.strip() or len(text) > 5000:
         raise ValueError("Introduce entre 1 y 5000 caracteres.")
+    edited = edited or ""  # A fresh Gradio textbox may arrive as null.
     progress("Detectando idioma")
     hint = local_language(text)
     if manual:

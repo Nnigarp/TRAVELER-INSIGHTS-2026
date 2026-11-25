@@ -31,8 +31,9 @@ INITIAL_THEME_JS = """() => {
  if (!document.documentElement.dataset.tiSubmitGuard) {
    document.documentElement.dataset.tiSubmitGuard = '1';
    document.addEventListener('click', event => {
-     if (!event.target.closest?.('#ti-analyze')) return;
      const state = document.documentElement.dataset;
+     if (event.target.closest?.('#ti-cancel')) delete state.tiPending;
+     if (!event.target.closest?.('#ti-analyze')) return;
      if (state.tiPending) {
        event.preventDefault();
        event.stopImmediatePropagation();

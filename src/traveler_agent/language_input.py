@@ -8,7 +8,7 @@ import time
 from .ollama_report import DEFAULT_MODEL, OllamaConfig, local_json_request, _json
 
 MARKERS = {
-    "es": "el los las fue estuvo muy servicio guía recorrido que habitación estaba nunca llegó transporte perdimos excursión amable sucia visita volvería limpio precio excelente gustó pero mejorable empezó mañana comenzó después desayuno regreso sé prueba texto para con del después duró horas apareció qué cobraron más habitaciones limpieza",
+    "es": "el los las fue estuvo muy servicio guía recorrido que habitación estaba nunca llegó transporte perdimos excursión amable sucia visita volvería limpio precio excelente gustó pero mejorable empezó mañana comenzó después desayuno regreso sé prueba texto para con del duró horas apareció qué cobraron más habitaciones limpieza ducha helada estancia alojamiento atendió equipaje trayecto paradas lluvia vehículo llave nadie otra línea opinión distinta",
     "en": "the and was were very but room service great not staff never arrived",
     "it": "il gli molto servizio guida camera non personale bellissimo pulita albergo",
     "fr": "le les une très était mais chambre personnel jamais hôtel propre pas",
@@ -75,7 +75,9 @@ def prepare(text, *, asr=None, manual="", edited="", prior=None, progress=lambda
         lang, method = asr if asr and asr != "desconocido" else "und", "traducción humana"
     else:
         lang, method = ask_qwen("idioma", text), "Qwen" if not asr else "Qwen + Whisper"
-    if (not manual and not edited and lang == "es" and (hint not in (None, "es") or re.search(r"[\u3400-\u9fff]", text))) or not re.fullmatch(r"[a-z]{2,3}", lang) or (lang in {"und", "mul", "zxx"} and not edited):
+    contradicts_spanish = lang == "es" and (hint not in (None, "es") or re.search(r"[\u3400-\u9fff]", text))
+    unresolved = lang in {"und", "mul", "zxx"} or (contradicts_spanish and not manual)
+    if not re.fullmatch(r"[a-z]{2,3}", lang) or (unresolved and not edited.strip()):
         raise ValueError("Idioma incierto. Indica el código de idioma o introduce una traducción al español.")
     previous = prior if prior and prior.get("texto_original") == text and prior.get("idioma_original") == lang else {}
     trace = {"protocolo": "traveler-language-v1", "texto_original": text, "idioma_original": lang,
@@ -83,12 +85,13 @@ def prepare(text, *, asr=None, manual="", edited="", prior=None, progress=lambda
              "modelo_traduccion": previous.get("modelo_traduccion"), "latencia_ms": previous.get("latencia_ms", 0),
              "traduccion_editada": None, "advertencias": [], "revision": "no requerida"}
     if previous and edited and edited == previous.get("traduccion_automatica") and not previous.get("advertencias"):
-        return previous
+        return {**previous, "texto_analizado": edited, "traduccion_editada": None}
     if edited.strip():
         if len(edited) > 5000:
             raise ValueError("La traducción supera 5000 caracteres.")
         target = edited.strip()
-        trace.update(traduccion_editada=target, estado="edición humana", revision="revisada")
+        trace.update(traduccion_editada=target, estado="edición humana", revision="revisada",
+                     advertencias_previas=previous.get("advertencias") or previous.get("advertencias_previas", []))
     elif lang == "es":
         target = text
         trace["estado"] = "español directo"

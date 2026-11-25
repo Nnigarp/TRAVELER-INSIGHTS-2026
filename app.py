@@ -328,6 +328,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
                     with gr.Row():
                         run = gr.Button("Analizar reseña", variant="primary", elem_id="ti-analyze")
                         clear = gr.Button("Limpiar", elem_id="ti-clear")
+                    cancel = gr.Button("Cancelar análisis", visible=False)
                     gr.HTML('<div class="ti-input-note"><strong>Inferencia local real.</strong> LR/SVM usan datos ficticios y BETO es experimental. Qwen no cambia clasificación ni revisión humana. No se ejecutan acciones externas.</div>')
                 with gr.Column(scale=6, min_width=300, elem_id="ti-result-pane", elem_classes=["ti-pane"]):
                     gr.HTML(pane_heading("Informe de experiencia", "Sentimiento, evidencia y revisión de la reseña."))
@@ -390,7 +391,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
         return [gr.update(interactive=enabled) for _ in editors]
 
     def submit(review, kind, report, origin, language, edited, prior, reviewed, progress=gr.Progress()):
-        yield (*set_editable(False), *clear_analysis()[2:], gr.skip())
+        yield (*set_editable(False), *clear_analysis()[2:], gr.skip(), gr.update(visible=True))
         if prior and prior.get("traduccion_automatica") and prior.get("advertencias") and edited and not reviewed:
             card, raw, trace = '<p role="alert">Confirma la revisión en Idioma y traducción experimental.</p>', "{}", prior
             trace = {**trace, "traduccion_editada": edited}
@@ -401,12 +402,18 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
         updates = set_editable(True)
         updates[4] = gr.update(interactive=True, value=trace.get("traduccion_editada") or trace.get("traduccion_automatica") or "")
         updates[-1] = gr.update(interactive=True, value=False)
-        yield (*updates, card, raw, render_multiagent_view(record),
-               *capture_execution(raw, "Audio · transcripción revisada" if origin else "Análisis individual"), trace)
+        technical = raw if record or not trace else json.dumps({"procesamiento_linguistico": trace}, ensure_ascii=False, indent=2)
+        yield (*updates, card, technical, render_multiagent_view(record),
+               *capture_execution(raw, "Audio · transcripción revisada" if origin else "Análisis individual"), trace, gr.update(visible=False))
 
     submission = run.click(submit, [inp, model_choice, qwen_choice, audio_metadata, manual, translation, previous, confirmed],
-              [*editors, *captured, previous], trigger_mode="once", api_name=False)
+              [*editors, *captured, previous, cancel], trigger_mode="once", api_name=False)
     submission.then(fn=None, js="() => { delete document.documentElement.dataset.tiPending; }", api_name=False)
+    def cancel_submission():
+        return (*set_editable(True), *clear_analysis()[2:], gr.update(visible=False))
+    cancel.click(cancel_submission, outputs=[*editors, *captured, cancel], cancels=[submission],
+                 queue=False, js="() => { delete document.documentElement.dataset.tiPending; return []; }", api_name=False)
+
     def reset_input(name=None):
         values = load_example(name) if name else clear_analysis()
         return (*values, None, {}, "", "", {}, "", False)
@@ -419,7 +426,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
         if origin and not shares_transcript(text, origin["transcripcion_original"]):
             origin = {}
         return (*clear_analysis()[2:], origin, "", {}, "", False)
-    inp.input(invalidate_text, [inp, audio_metadata], [*captured, audio_metadata, translation, previous, manual, confirmed], api_name=False)
+    inp.change(invalidate_text, [inp, audio_metadata], [*captured, audio_metadata, translation, previous, manual, confirmed], api_name=False)
     manual.input(lambda: ("", {}, False), outputs=[translation, previous, confirmed], api_name=False)
     gr.on([manual.input, translation.input, model_choice.input, qwen_choice.input],
           lambda: clear_analysis()[2:], outputs=captured, api_name=False)

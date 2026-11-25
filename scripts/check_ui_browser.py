@@ -265,7 +265,7 @@ def run(output):
                     check("validation_alert_is_visible", page.locator("#ti-result [role=alert]").is_visible())
                     page.locator("#ti-review textarea").fill("El guía fue amable.")
                     page.locator("#ti-result .ti-placeholder").wait_for()
-                    page.wait_for_function("document.querySelector('#ti-char-count').textContent.includes('18 /')")
+                    page.wait_for_function("document.querySelector('#ti-char-count').textContent.includes('19 /')")
                     check("editing_invalidates_report_and_updates_count", page.locator("#ti-result [role=alert]").count() == 0)
                     set_theme(page, DARK)
                     page.reload(wait_until="domcontentloaded")

@@ -175,7 +175,7 @@ def token_diagnostic(app, kind, text):
 
 def observe(app, kind, row):
     start = time.perf_counter()
-    summary, encoded, view = app.analyze_with_agents(row['text'], kind)
+    summary, encoded, view = app.analyze_with_agents(row['text'], kind, language='es')  # Registered Spanish fixtures.
     record = json.loads(encoded)
     require_effective(record, kind)
     problems = record_violations(record, row['text'])

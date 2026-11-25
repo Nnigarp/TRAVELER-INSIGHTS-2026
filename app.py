@@ -56,11 +56,17 @@ def shares_transcript(text, original):
     return SequenceMatcher(None, original.casefold(), text.casefold(), autojunk=False).ratio() >= 0.45
 
 
-def unified(review, model_kind, qwen_enabled, origin=None, language="", edited="", prior=None, progress=lambda stage: None):
+def unified(review, model_kind, qwen_enabled, origin=None, language="", edited="", prior=None, progress=lambda stage: None, asr_reviewed=False):
     trace = {}
     try:
         if not isinstance(review, str) or not review.strip() or len(review) > 5000:
             raise ValueError("Introduce una reseña de 1 a 5000 caracteres.")
+        if origin and origin.get("advertencias_percepcion") and not asr_reviewed:
+            trace = {"estado": "pendiente de revisión ASR", "texto_original": review,
+                     "idioma_original": origin.get("idioma_detectado_asr"), "texto_analizado": None,
+                     "advertencias": origin["advertencias_percepcion"]}
+            raise ValueError(" ".join(origin["advertencias_percepcion"]) +
+                             " Escucha el audio, corrige o retranscribe y confirma la revisión de voz.")
         trace = prepare(review, asr=(origin or {}).get("idioma_detectado_asr"), manual=language,
                         edited=edited, prior=prior, progress=progress)
         if not trace["texto_analizado"]:
@@ -73,7 +79,7 @@ def unified(review, model_kind, qwen_enabled, origin=None, language="", edited="
         record["modelo_utilizado"] = effective
         record["procesamiento_linguistico"] = trace
         if origin:
-            record["procedencia_entrada"] = {**origin, "transcripcion_editada": review, "fue_corregida": corrected, "texto_analizado": target}
+            record["procedencia_entrada"] = {**origin, "revision_percepcion_confirmada": bool(asr_reviewed), "transcripcion_editada": review, "fue_corregida": corrected, "texto_analizado": target}
         progress("Completado")
         return _analysis_card(record, model_kind=effective, audio=bool(origin)), json.dumps(record, ensure_ascii=False, indent=2), trace
     except (ValueError, TypeError) as exc:
@@ -202,10 +208,11 @@ def transcribe_audio_ui(filepath: str | None, language: str):
                     raise AudioInputError("No se pudo convertir el archivo a WAV.") from exc
                 text, provenance = recognize_audio(wav, language)
         provenance["audio_original_sha256"] = digest
+        warnings = " ".join(provenance.get("advertencias_percepcion", []))
         return text, provenance, (
             f"Transcripción local terminada ({provenance['duracion_segundos']} s; "
             f"idioma ASR: {provenance['idioma_detectado_asr']}). "
-            "Revisa especialmente negaciones, nombres y ruido antes de analizar."
+            f"Revisa negaciones y nombres antes de analizar. {warnings}"
         )
     except (AudioInputError, OSError) as exc:
         return "", {}, f"Error de audio: {exc}"
@@ -213,6 +220,8 @@ def transcribe_audio_ui(filepath: str | None, language: str):
 
 def analyze_audio_ui(edited_text: str, provenance: dict, model_kind: str, qwen_enabled: bool = False):
     try:
+        if provenance and provenance.get("advertencias_percepcion"):
+            raise AudioInputError("Revisa la transcripción en Análisis y confirma antes de clasificar.")
         result, effective = run_selected(model_kind, get_demo_model,
             lambda classifier: analyze_edited_transcript(edited_text, provenance, classifier,
                                                         model_kind=model_kind, qwen_enabled=qwen_enabled))
@@ -242,7 +251,7 @@ def character_count(text):
 def capture_execution(encoded, source="Análisis individual"):
     try:
         record = json.loads(encoded)
-        if not isinstance(record, dict) or not record.get("multiagente", {}).get("traza"):
+        if not isinstance(record, dict) or not (record.get("multiagente", {}).get("traza") or record.get("procesamiento_linguistico")):
             record = None
     except (ValueError, TypeError, AttributeError):
         record = None
@@ -295,25 +304,33 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
             gr.HTML(HERO_HTML)
             with gr.Row(elem_id="ti-analysis-row"):
                 with gr.Column(scale=4, min_width=300, elem_id="ti-input-pane", elem_classes=["ti-pane"]):
-                    gr.HTML(pane_heading("Nueva evaluación", "Configura los modelos y analiza una reseña turística."))
-                    _MODEL_CHOICES = [("TF-IDF · Regresión logística", "lr"), ("TF-IDF · SVM lineal", "svm")]
+                    _MODEL_CHOICES = [("Regresión logística · LR", "lr"), ("SVM lineal", "svm")]
                     if _BETO_AVAILABLE:
-                        _MODEL_CHOICES.append(("BETO V3 · Transformer experimental", "beto"))
-                    model_choice = gr.Dropdown(label="Modelo de demostración", choices=_MODEL_CHOICES, value="lr", elem_id="ti-model")
-                    qwen_choice = gr.Checkbox(label="Activar informe local Qwen3 1.7B (Ollama)", value=False,
-                                             info="La traducción automática usa Qwen aunque el informe esté desactivado.", elem_id="ti-qwen")
-                    inp = gr.Textbox(label="Reseña turística", lines=6, value="",
-                                     placeholder="Escribe o dicta tu experiencia en tu idioma…", elem_id="ti-review")
-                    char_count = gr.Markdown(character_count(""), elem_id="ti-char-count")
-                    with gr.Accordion("+ Audio · micrófono o archivo", open=False):
+                        _MODEL_CHOICES.append(("BETO V3", "beto"))
+                    with gr.Column(min_width=0, elem_id="ti-composer"):
+                        inp = gr.Textbox(label="Reseña turística", lines=6, value="",
+                                         placeholder="Escribe o dicta tu experiencia en tu idioma…", elem_id="ti-review")
+                        char_count = gr.Markdown(character_count(""), elem_id="ti-char-count")
+                        with gr.Row(elem_id="ti-tools"):
+                            attach = gr.Button("+ Audio", size="sm", min_width=80)
+                            dictate = gr.Button("Micrófono", size="sm", min_width=92, elem_id="ti-dictate")
+                            model_choice = gr.Dropdown(label="Clasificador", choices=_MODEL_CHOICES, value="lr", min_width=150, elem_id="ti-model")
+                            qwen_choice = gr.Checkbox(label="Informe Qwen", value=False, min_width=110, elem_id="ti-qwen")
+                        with gr.Row():
+                            run = gr.Button("Analizar reseña", variant="primary", elem_id="ti-analyze")
+                            clear = gr.Button("Limpiar", elem_id="ti-clear")
+                    with gr.Column(min_width=0, visible=False, elem_id="ti-audio-panel") as audio_panel:
                         audio_input = gr.Audio(label="Grabar o adjuntar audio", sources=["microphone", "upload"], type="filepath", format=None, elem_id="ti-audio-input")
                         audio_language = gr.Dropdown(label="Idioma de Whisper", choices=["auto", "es", "en", "it"], value="auto")
                         audio_status = gr.Markdown("Whisper Tiny · revisa la transcripción antes de analizar.")
+                        retry_audio = gr.Button("Retranscribir y sustituir el texto", size="sm")
+                        review_voice = gr.Checkbox(label="He escuchado y revisado la transcripción", value=False)
                         audio_metadata = gr.State({})
                         pending_audio = gr.State(None)
                         discard_audio = gr.Button("Descartar audio", size="sm")
                         gr.Markdown("Para empezar una reseña independiente, pulsa Limpiar.")
-                    with gr.Accordion("Idioma y traducción experimental", open=False):
+                    with gr.Accordion("Idioma y traducción experimental", open=False, elem_id="ti-language-panel"):
+                        gr.Markdown("Las entradas extranjeras se traducen al español aunque el informe Qwen esté apagado.")
                         manual = gr.Textbox(value="", label="Idioma original (opcional, código ISO)")
                         translation = gr.Textbox(value="", label="Traducción al español revisada", lines=3)
                         confirmed = gr.Checkbox(label="He revisado la traducción señalada", value=False)
@@ -325,11 +342,8 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
                         example_mixed = gr.Button("Mixta · transporte", size="sm")
                         example_positive = gr.Button("Positiva · servicio", size="sm")
                         example_uncertain = gr.Button("Ambigua · regreso", size="sm")
-                    with gr.Row():
-                        run = gr.Button("Analizar reseña", variant="primary", elem_id="ti-analyze")
-                        clear = gr.Button("Limpiar", elem_id="ti-clear")
                     cancel = gr.Button("Cancelar análisis", visible=False, elem_id="ti-cancel")
-                    gr.HTML('<div class="ti-input-note"><strong>Inferencia local real.</strong> LR/SVM usan datos ficticios y BETO es experimental. Qwen no cambia clasificación ni revisión humana. No se ejecutan acciones externas.</div>')
+
                 with gr.Column(scale=6, min_width=300, elem_id="ti-result-pane", elem_classes=["ti-pane"]):
                     gr.HTML(pane_heading("Informe de experiencia", "Sentimiento, evidencia y revisión de la reseña."))
                     result = gr.HTML(EMPTY_REPORT_HTML, elem_id="ti-result", label="Informe de experiencia")
@@ -374,39 +388,45 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
             batch_qwen = gr.HTML(label="Informes Qwen del lote · propuestas sin ejecutar")
         with gr.Tab("Agentes", id="agents", elem_id="ti-agents-tab"):
             gr.HTML(section_heading("Transparencia del sistema", "Coordinación multiagente", "Un orquestador y cuatro especialistas. Qwen/Ollama es un servicio opcional subordinado; sus estados se obtienen de la ejecución."))
-            gr.HTML(AGENT_ORDER_HTML)
             execution_source = gr.Markdown("Sin ejecución registrada en esta sesión.")
             agents_panel = gr.HTML(render_agents_overview(), elem_id="ti-agents", label="Estados derivados de la traza real")
             with gr.Accordion("JSON completo de la ejecución mostrada", open=False, elem_classes=["ti-technical"]):
                 agents_json = gr.Code(value="{}", label="Registro y procedencia originales", language="json", max_lines=18, wrap_lines=True, interactive=False, elem_id="ti-agents-json")
     gr.HTML('<div class="ti-footer">Traveler Insights 2026 · Universidad Tecnológica de Bolívar · Cartagena de Indias<br>Prototipo académico local · clasificación, evidencia y supervisión humana · sin acciones externas</div>')
 
+    def open_audio(source):
+        return gr.update(visible=True), gr.update(sources=[source])
+    attach.click(lambda: open_audio("upload"), outputs=[audio_panel, audio_input], queue=False, api_name=False)
+    dictate.click(lambda: open_audio("microphone"), outputs=[audio_panel, audio_input], queue=False, api_name=False)
+    gr.on([clear.click, discard_audio.click], lambda: gr.update(visible=False), outputs=audio_panel, api_name=False)
     captured_outputs = [last_record, agents_panel, agents_json, execution_source]
     cleared_outputs = [inp, char_count, result, detail, agent_view, *captured_outputs]
     api_run.click(analyze_with_agents, inputs=[inp, model_choice, qwen_choice, manual], outputs=[result, detail, agent_view])
     captured = [result, detail, agent_view, *captured_outputs]
     editors = [inp, model_choice, qwen_choice, manual, translation, audio_input,
-               example_mixed, example_positive, example_uncertain, run, clear, discard_audio, confirmed]
+               example_mixed, example_positive, example_uncertain, run, clear, discard_audio, attach, dictate, retry_audio, audio_language, review_voice, confirmed]
     def set_editable(enabled):
         return [gr.update(interactive=enabled) for _ in editors]
 
-    def submit(review, kind, report, origin, language, edited, prior, reviewed, progress=gr.Progress()):
+    def submit(review, kind, report, origin, language, edited, prior, reviewed, voice_checked, progress=gr.Progress()):
         yield (*set_editable(False), *clear_analysis()[2:], gr.skip(), gr.update(visible=True))
         if prior and prior.get("traduccion_automatica") and prior.get("advertencias") and edited and not reviewed:
             card, raw, trace = '<p role="alert">Confirma la revisión en Idioma y traducción experimental.</p>', "{}", prior
             trace = {**trace, "traduccion_editada": edited}
         else:
             card, raw, trace = unified(review, kind, report, origin, language, edited, prior,
-                                       lambda stage: progress(None, desc=stage))
+                                       lambda stage: progress(None, desc=stage), asr_reviewed=voice_checked)
         record = json.loads(raw)
         updates = set_editable(True)
         updates[4] = gr.update(interactive=True, value=trace.get("traduccion_editada") or trace.get("traduccion_automatica") or "")
         updates[-1] = gr.update(interactive=True, value=False)
         technical = raw if record or not trace else json.dumps({"procesamiento_linguistico": trace}, ensure_ascii=False, indent=2)
+        if not record and trace and origin:
+            technical = json.dumps({"procesamiento_linguistico": trace, "procedencia_entrada": origin}, ensure_ascii=False, indent=2)
         yield (*updates, card, technical, render_multiagent_view(record),
-               *capture_execution(raw, "Audio · transcripción revisada" if origin else "Análisis individual"), trace, gr.update(visible=False))
+               *capture_execution(technical, "Audio · transcripción revisada" if origin else "Análisis individual"), trace, gr.update(visible=False))
 
-    submission = run.click(submit, [inp, model_choice, qwen_choice, audio_metadata, manual, translation, previous, confirmed],
+    submission = run.click(submit, [inp, model_choice, qwen_choice, audio_metadata, manual, translation, previous, confirmed, review_voice],
               [*editors, *captured, previous, cancel], trigger_mode="multiple", api_name=False)
     submission.then(fn=None, js="() => { delete document.documentElement.dataset.tiPending; }", api_name=False)
     def cancel_submission():
@@ -422,11 +442,13 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
     for button, name in ((example_mixed, "Mixta"), (example_positive, "Positiva"), (example_uncertain, "Ambigua")):
         button.click(lambda name=name: reset_input(name), outputs=reset_outputs, api_name=False)
     inp.change(character_count, inp, char_count, queue=False, api_name=False)
-    def invalidate_text(text, origin):
+    def invalidate_text(text, origin, analyzed):
+        if analyzed and analyzed.get("texto_original") == text and analyzed.get("texto_analizado"):
+            return tuple(gr.skip() for _ in range(len(captured) + 5))
         if origin and not shares_transcript(text, origin["transcripcion_original"]):
             origin = {}
         return (*clear_analysis()[2:], origin, "", {}, "", False)
-    inp.change(invalidate_text, [inp, audio_metadata], [*captured, audio_metadata, translation, previous, manual, confirmed], api_name=False)
+    inp.change(invalidate_text, [inp, audio_metadata, previous], [*captured, audio_metadata, translation, previous, manual, confirmed], api_name=False)
     manual.input(lambda: ("", {}, False), outputs=[translation, previous, confirmed], api_name=False)
     gr.on([manual.input, translation.input, model_choice.input, qwen_choice.input],
           lambda: clear_analysis()[2:], outputs=captured, api_name=False)
@@ -435,25 +457,34 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
             return None, "Ya hay texto. Pulsa Limpiar antes de grabar o cargar otra reseña."
         progress(None, desc="Transcribiendo")
         transcript, metadata, status = transcribe_audio_ui(path, language)
-        return (transcript, metadata) if metadata else None, status
+        return (transcript, metadata, text) if metadata else None, status
 
     def insert_transcription(pending, current):
-        if not pending or current.strip():
-            return (gr.skip(), gr.skip(), *[gr.skip()] * len(captured))
-        return (*pending, *clear_analysis()[2:])
+        if not pending or current != pending[2]:
+            return tuple(gr.skip() for _ in insert_outputs)
+        return (*pending[:2], *clear_analysis()[2:], "", "", {}, False, False)
+    insert_outputs = [inp, audio_metadata, *captured, manual, translation, previous, confirmed, review_voice]
 
     transcription_event = gr.on([audio_input.stop_recording, audio_input.upload], start_transcription,
                                 [audio_input, audio_language, inp], [pending_audio, audio_status], api_name=False)
     insertion = transcription_event.then(insert_transcription, [pending_audio, inp],
-                                        [inp, audio_metadata, *captured], api_name=False)
+                                        insert_outputs, api_name=False)
+    def retranscribe(path, language, text, progress=gr.Progress()):
+        progress(None, desc="Retranscribiendo")
+        transcript, metadata, status = transcribe_audio_ui(path, language)
+        return (transcript, metadata, text) if metadata else None, status, False
+    retry_event = retry_audio.click(retranscribe, [audio_input, audio_language, inp],
+                                    [pending_audio, audio_status, review_voice], api_name=False)
+    retry_insert = retry_event.then(insert_transcription, [pending_audio, inp], insert_outputs, api_name=False)
+    gr.on([inp.change, audio_input.change, clear.click, retry_audio.click], lambda: False, outputs=review_voice, api_name=False)
     def discard(text, origin):
         values = list(reset_input())
         if not origin:
             values[:2] = [text, character_count(text)]
         return (*values, None)
     discard_audio.click(discard, [inp, audio_metadata], [*reset_outputs, pending_audio],
-                        cancels=[transcription_event, insertion], api_name=False)
-    clear.click(lambda: None, outputs=pending_audio, cancels=[transcription_event, insertion], api_name=False)
+                        cancels=[transcription_event, insertion, retry_event, retry_insert], api_name=False)
+    clear.click(lambda: None, outputs=pending_audio, cancels=[transcription_event, insertion, retry_event, retry_insert], api_name=False)
     audio_input.start_recording(lambda: "Grabando", outputs=audio_status, queue=False, api_name=False)
     theme_choice.change(fn=None, inputs=theme_choice, outputs=[], js=THEME_JS, queue=False, api_name=False)
     app.load(fn=lambda value: value, inputs=theme_choice, outputs=theme_choice, js=INITIAL_THEME_JS, queue=False, api_name=False)

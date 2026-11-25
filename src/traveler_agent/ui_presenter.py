@@ -3,9 +3,8 @@ from html import escape
 import re
 
 BRAND_HTML = '''<div class="ti-brand"><div class="ti-brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17 8 7l4 7 3-4 6 8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="5" r="2" fill="#fcd34d" stroke="none"/></svg></div><div><div class="ti-brand-name">Traveler Insights <span>2026</span></div><div class="ti-brand-sub">CARTAGENA · UTB INTELLIGENCE</div></div></div>'''
-HERO_HTML = '''<div class="ti-hero"><div class="ti-eyebrow">Inteligencia turística</div>
-<h1>Análisis de experiencias</h1>
-<p>Clasifica una reseña, consulta la evidencia y revisa las recomendaciones antes de decidir.</p></div>'''
+HERO_HTML = '''<header class="ti-hero"><h1>¿Qué experiencia turística deseas analizar?</h1>
+<p>Escribe una reseña, dicta tu experiencia o adjunta un audio.</p></header>'''
 AGENT_ORDER_HTML = '''<ol class="ti-flow-order" aria-label="Orden de las etapas coordinadas por TravelerOrchestrator">
 <li>Entrada</li><li>Percepción</li><li>Semántica</li><li>Control</li>
 <li class="ti-flow-optional">Qwen · opcional</li><li>Acción</li><li>Resultado</li></ol>'''

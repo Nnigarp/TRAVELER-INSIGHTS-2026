@@ -46,6 +46,43 @@ def set_theme(page, name):
     page.wait_for_function("name => document.documentElement.dataset.tiTheme === name", arg=expected)
 
 
+def check_editor(page, check):
+    editor = page.locator("#ti-review textarea")
+    def measure(theme, state):
+        colors = editor.evaluate("""el => {
+          const css = getComputedStyle(el), placeholder = getComputedStyle(el, '::placeholder');
+          const selection = getComputedStyle(el, '::selection');
+          return [css.backgroundColor, css.webkitTextFillColor, css.caretColor,
+                  placeholder.webkitTextFillColor, selection.backgroundColor, selection.color];
+        }""")
+        import re
+        def luminance(color):
+            channels = [int(v)/255 for v in re.findall(r"[0-9]+", color)[:3]]
+            assert len(channels) == 3, color
+            linear = [v/12.92 if v <= .04045 else ((v+.055)/1.055)**2.4 for v in channels]
+            return sum(v*w for v, w in zip(linear, (.2126, .7152, .0722)))
+        bg, fg, caret, placeholder, selected, highlight = map(luminance, colors)
+        def contrast(a, b):
+            return (max(a,b)+.05)/(min(a,b)+.05)
+        check(f"{theme}_{state}_contrast", min(contrast(bg, c) for c in (fg, caret, placeholder)) >= 4.5
+              and contrast(selected, highlight) >= 4.5 and ((bg > fg) == (theme == LIGHT)))
+    for theme in (LIGHT, DARK):
+        set_theme(page, theme)
+        editor.evaluate("el => el.blur()")
+        measure(theme, "idle")
+        editor.hover()
+        measure(theme, "hover")
+        editor.focus()
+        editor.press("a")
+        editor.press("Control+a")
+        measure(theme, "typing_selection")
+        editor.evaluate("el => el.disabled = true")
+        measure(theme, "disabled")
+        editor.evaluate("el => el.disabled = false")
+        editor.fill("")
+    set_theme(page, LIGHT)
+
+
 def check_viewports(page, context, output, report, check):
     """Use the effective CSS width and pixel density of each desktop zoom."""
     cdp = context.new_cdp_session(page)
@@ -80,11 +117,10 @@ def check_viewports(page, context, output, report, check):
                 }""")
                 key = f"{width}px_{round(zoom * 100)}percent"
                 report["layout_matrix"].append({"screen": width, "zoom": zoom, **dimensions})
-                check(key + "_symmetric_gutters", 0 <= dimensions["left"] <= 49
+                check(key + "_symmetric_gutters", 0 <= dimensions["left"] <= max(49, (css_width - 1024) / 2 + 1)
                       and abs(dimensions["left"] - dimensions["right"]) <= 3)
                 check(key + "_no_page_overflow", not dimensions["overflow"])
-                check(key + "_layout", dimensions["stacked"] if css_width < 1000
-                      else not dimensions["stacked"] and dimensions["resultWidth"] > dimensions["inputWidth"])
+                check(key + "_layout", dimensions["stacked"] and abs(dimensions["resultWidth"] - dimensions["inputWidth"]) <= 2)
                 if width == 390 and zoom == 1:
                     check("mobile_tabs_and_single_column", dimensions["visibleTabs"] == 3 and dimensions["reportColumns"] == 1)
                 if zoom == 1 and width in (390, 1366, 1920):
@@ -146,6 +182,10 @@ def run(output):
                     check('three_native_tabs', page.get_by_role('tab').all_text_contents() == ['Análisis', 'Lotes', 'Agentes'])
                     check('default_premium_theme', page.get_by_role('radio', name=LIGHT, exact=True).is_checked())
                     check('empty_real_result', page.locator('#ti-result .ti-placeholder').count() == 1 and page.locator('#ti-result .ti-indicators').count() == 0)
+                    check_editor(page, check)
+                    page.reload(wait_until="domcontentloaded")
+                    page.wait_for_function("document.documentElement.dataset.tiSubmitGuard")
+                    page.screenshot(path=str(output / "analysis-desktop.png"), full_page=True)
                     page.locator("#ti-analyze").focus()
                     page.keyboard.press("Tab")
                     check("keyboard_focus_visible_on_clear", page.locator("#ti-clear").evaluate(
@@ -198,16 +238,24 @@ def run(output):
                     check('four_agents_and_subordinate_qwen', page.locator('#ti-agents .ti-flow-agent').count() == 4 and page.locator('#ti-agents .ti-qwen-service').count() == 1)
                     page.screenshot(path=str(output / 'agents-desktop.png'), full_page=True)
                     page.get_by_role('tab', name='Análisis', exact=True).click()
-                    page.get_by_text('+ Audio · micrófono o archivo', exact=True).click()
-                    page.locator('#ti-audio-input').get_by_role('button', name='Record audio', exact=True).wait_for()
-                    check('native_microphone_control', page.locator('#ti-audio-input').get_by_role('button', name='Record audio', exact=True).count() == 1)
-                    page.locator('#ti-audio-input').get_by_role('button', name='Upload file', exact=True).click()
+                    page.locator("#ti-dictate").click()
+                    microphone = page.locator('#ti-audio-input button').filter(has_text="Grabar")
+                    microphone.first.wait_for()
+                    check('native_microphone_control', microphone.first.is_visible())
+                    page.get_by_role('button', name='+ Audio', exact=True).click()
                     page.locator('#ti-audio-input input[type=file]').wait_for(state='attached')
                     check('native_audio_upload', page.locator('#ti-audio-input input[type=file]').count() > 0)
+                    page.get_by_text("Idioma y traducción experimental", exact=True).click()
+                    for width in (390, 1366):
+                        page.set_viewport_size({"width": width, "height": 900})
+                        for panel in ("ti-audio-panel", "ti-language-panel"):
+                            check(f"{panel}_{width}_fits", page.locator("#"+panel).evaluate(
+                                "(el) => el.scrollWidth <= el.clientWidth + 1 && el.getBoundingClientRect().right <= innerWidth"))
+                    page.get_by_text("Idioma y traducción experimental", exact=True).click()
                     check('editable_transcript', page.locator('#ti-review textarea').is_editable())
                     page.screenshot(path=str(output / 'audio-desktop.png'), full_page=True)
                     page.get_by_role('tab', name='Análisis', exact=True).click()
-                    choose_model(page, 'TF-IDF · SVM lineal')
+                    choose_model(page, 'SVM lineal')
                     page.get_by_role('button', name='Analizar reseña', exact=True).click()
                     page.locator('#ti-result .ti-indicators').get_by_text('SVM', exact=True).wait_for(timeout=30000)
                     page.get_by_text('Detalles técnicos · JSON y trazabilidad', exact=True).click()

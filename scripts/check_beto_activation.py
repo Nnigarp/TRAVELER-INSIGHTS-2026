@@ -30,7 +30,7 @@ if __name__ == '__main__':
     if 'beto' not in [v for _, v in app._MODEL_CHOICES]: problems.append('beto_not_in_ui_choices')
     if 'TravelerOrchestrator' not in view: problems.append('agent_view_missing')
     defaults = [c.get('props', {}).get('value') for c in app.app.config['components']
-                if c.get('type') == 'dropdown' and c.get('props', {}).get('label') == 'Modelo de demostración']
+                if c.get('type') == 'dropdown' and c.get('props', {}).get('elem_id') == 'ti-model']
     if defaults != ['lr']: problems.append('default_model_changed')
     report = {'scope': 'ACTUAL_RECOVERED_ARTIFACT_INFERENCE_NOT_NEW_PREDICTIVE_EVALUATION',
         'status': 'PASSED' if not problems else 'FAILED', 'modelo_utilizado': record['modelo_utilizado'],

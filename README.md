@@ -4,6 +4,8 @@ Prototipo local de apoyo a la revisión de reseñas turísticas, desarrollado po
 
 **LR es el clasificador inicial. BETO V3 es experimental y opcional. La generación Qwen comienza desactivada.** El sistema no realiza reservas, reclamaciones, contactos ni pagos. Su funcionamiento técnico no demuestra precisión turística ni seguridad para automatizar decisiones.
 
+En **Análisis**, escribe en tu idioma o abre **+ Audio · micrófono o archivo**. Whisper inserta la transcripción en la misma reseña. Puedes corregirla antes de enviar. La identificación y la traducción experimental al español preceden al clasificador. El interruptor Qwen controla únicamente el informe posterior. [Guía de aceptación en Windows](docs/ENTRADA_MULTILINGUE.md).
+
 ## Estado implementado, experimental y no validado
 
 | Componente | Implementado y probado | Condición y límites |
@@ -11,7 +13,7 @@ Prototipo local de apoyo a la revisión de reseñas turísticas, desarrollado po
 | LR y SVM | Inferencia, selector Gradio, lotes y exportaciones; pruebas automáticas y funcionamiento local confirmado por el usuario | DEMO con 36 ejemplos ficticios. TF-IDF de palabras/caracteres; LR o LinearSVC con calibración interna. Las puntuaciones no tienen validación probabilística externa. |
 | BETO V3 | Carga del artefacto ajustado, inferencia efectiva y comprobación de ausencia de fallback; ejecución Windows confirmada por el usuario | **Experimental sintético**: 300 reseñas TRAIN dentro de un piloto de 562 muestras admitidas. Los pesos se distribuyen fuera de Git. |
 | Whisper Tiny | ASR local mediante faster-whisper, transcripción editable, procedencia y validaciones de audio; voz confirmada por el usuario | Reconocimiento de palabras; no detección de emociones. Ruido y negaciones requieren revisión. Sin evaluación WER humana publicada. |
-| Qwen3 1.7B / Ollama | Generación opcional posterior a Control y validación por Acción. BETO + Qwen, LR + Qwen y audio confirmados por el usuario en Windows para PR #30 | **Redacción restringida**. El protocolo v2 de esta mejora separa síntesis/evidencia y adapta propuestas. Sus contratos y API simulada se prueban automáticamente; la aceptación de esta revisión con Qwen real en Windows queda pendiente. |
+| Qwen3 1.7B / Ollama | Generación opcional posterior a Control y validación por Acción. BETO + Qwen, LR + Qwen y audio confirmados por el usuario en Windows para PR #30 | **Redacción restringida**. El protocolo v2 de esta mejora separa síntesis/evidencia y adapta propuestas. Sus contratos y API simulada se prueban automáticamente; la guía de entrada multilingüe registra las comprobaciones de esta rama. |
 | Coordinación jerárquica | Un orquestador, cuatro especialistas, diez eventos principales y tres generativos adicionales cuando se activa Qwen | Plan fijo y memoria de sesión; no son cinco LLM autónomos ni aprendizaje en línea. |
 | Evaluación predictiva externa | Infraestructura disponible para datos autorizados, particiones y comparación | **No validada con turistas reales independientes**. Las métricas históricas citadas abajo son sintéticas. |
 
@@ -32,7 +34,7 @@ Prototipo local de apoyo a la revisión de reseñas turísticas, desarrollado po
 ## Entradas, revisión y exportaciones
 
 - **Texto:** reseña individual de hasta 5.000 caracteres; vacío o exceso de longitud se rechazan.
-- **Audio:** micrófono o archivo convertido por Gradio a WAV PCM; 0,25–120 s y hasta 12 MiB tras conversión. Whisper Tiny transcribe localmente. Revisa y corrige antes de analizar con el clasificador seleccionado y, opcionalmente, Qwen.
+- **Audio:** micrófono o archivo convertido localmente a WAV PCM; 0,25–120 s y hasta 12 MiB tras conversión. Whisper Tiny transcribe localmente. Revisa y corrige antes de analizar con el clasificador seleccionado y, opcionalmente, Qwen.
 - **Lotes:** hasta 200 reseñas, una por línea, o CSV UTF-8 de hasta 1 MiB con columna `reseña`. CSV malformados se rechazan antes de clasificar. Las tendencias son conteos, no exactitud.
 - **Revisión humana:** permite guardar etiqueta corregida y nota por ID. Mantiene predicción, revisión original e informe anterior; no reentrena ni regenera automáticamente.
 - **JSON/CSV:** incluyen modelo efectivo, fallback explícito, texto y correcciones. Con Qwen incluyen estado, informe, evidencia literal, modo de síntesis y procedencia. CSV protege celdas que podrían interpretarse como fórmulas. Los archivos exportados pueden contener información privada.
@@ -44,7 +46,6 @@ Gradio conserva los componentes y callbacks reales. El diseño toma como referen
 | Sección | Uso |
 |---|---|
 | **Análisis** | Selecciona LR/SVM/BETO disponible y activa Qwen opcionalmente. Entrada vacía inicial, contador, ejemplos identificados como demostrativos, análisis real y limpieza. Entrada/resultados en dos columnas amplias y apiladas en móvil. |
-| **Audio** | Micrófono o archivo real, Whisper Tiny, transcripción editable y análisis posterior. Usa el modelo y la opción Qwen seleccionados en Análisis; conserva procedencia y correcciones. |
 | **Lotes** | Texto o CSV, resultados y conteos descriptivos reales, corrección por ID, exportaciones y consulta de la traza de una fila. Conserva los límites existentes. |
 | **Agentes** | Funciones y estados del último registro consultado en la sesión: orquestador y cuatro especialistas. Qwen/Ollama aparece separado como servicio subordinado. Sin registro no muestra tareas completadas. |
 
@@ -52,7 +53,7 @@ El informe presenta síntesis de ancho completo, indicadores compactos y una cua
 
 La navegación utiliza pestañas nativas, y el tema un selector explícito en vez de los controles ilustrativos del HTML. UTB Claro Premium se aplica en la primera visita. La última selección se guarda en este navegador para la misma dirección local (incluido el puerto). Si el navegador bloquea el almacenamiento, el selector funciona durante la visita y se vuelve al tema claro al recargar. La adaptación y los contratos automáticos no sustituyen la aceptación de esta interfaz con los modelos, el micrófono y el navegador reales en Windows.
 
-En Audio y Lotes se muestra la selección de clasificador/Qwen de Análisis y un acceso directo para cambiarla. El editor JSON ajusta líneas en pantalla y conserva el documento completo para copiar o descargar. Consulta la [auditoría y prioridades de UX/UI](docs/AUDITORIA_UX_UI_PREMIUM.md).
+En Lotes se muestra la selección de clasificador/Qwen de Análisis y un acceso directo para cambiarla. El editor JSON ajusta líneas en pantalla y conserva el documento completo para copiar o descargar. Consulta la [auditoría y prioridades de UX/UI](docs/AUDITORIA_UX_UI_PREMIUM.md).
 
 ## Informes Qwen: síntesis con evidencia separada
 
@@ -137,7 +138,7 @@ python scripts/check_qwen_report_quality.py --output artifacts/qwen-contracts-01
 
 La suite completa utiliza el entorno de investigación para los contratos de optimización existentes; la ruta `.[ui,test]` ejecuta los contratos disponibles sin instalar pesos. CI de Qwen en Linux y Windows usa HTTP Ollama **simulado**, LR/SVM de la DEMO y una interfaz BETO inyectada para probar consistencia/fallback. También ejecuta cola, sesiones, cargas CSV, correcciones y descargas por **HTTP Gradio real**. No descarga Qwen ni exige Ollama real. Los tests de optimización con fixtures pequeños no constituyen un nuevo experimento BETO.
 
-El workflow `ui-browser.yml` añade contratos de presentación en Linux/Windows y un navegador Chromium en Linux sobre Gradio real: cuatro pestañas, ambos temas, LR/SVM, revisión de lotes, descargas JSON/CSV, y márgenes y desbordamiento en seis anchos. Chromium reproduce el ancho CSS y la densidad de píxeles de zoom de 100 % y 125 %. Conserva capturas y un registro de comprobaciones como artefacto de CI. Playwright es una dependencia exclusiva de esa prueba, no de la aplicación. No usa pesos BETO/Whisper ni Ollama real; los informes Qwen v2 y sus fallos se cubren con API simulada en los contratos existentes.
+El workflow `ui-browser.yml` añade contratos de presentación en Linux/Windows y un navegador Chromium en Linux sobre Gradio real: tres pestañas, ambos temas, LR/SVM, revisión de lotes, descargas JSON/CSV, y márgenes y desbordamiento en seis anchos. Chromium reproduce el ancho CSS y la densidad de píxeles de zoom de 100 % y 125 %. Conserva capturas y un registro de comprobaciones como artefacto de CI. Playwright es una dependencia exclusiva de esa prueba, no de la aplicación. No usa pesos BETO/Whisper ni Ollama real; los informes Qwen v2 y sus fallos se cubren con API simulada en los contratos existentes.
 
 La batería de contenido está versionada en [tests/fixtures/qwen_report_quality_v2.json](tests/fixtures/qwen_report_quality_v2.json). Incluye comentarios positivos, negativos, mixtos, neutrales, ambiguos, insuficientes y de alcance incierto. Las pruebas adversariales rechazan invenciones de hoteles, fechas, pagos, atribuciones, evidencia alterada y supresión de revisión. Una API simulada aprobada no demuestra calidad de las respuestas del Qwen real; esta revisión se debe aceptar nuevamente en Windows.
 

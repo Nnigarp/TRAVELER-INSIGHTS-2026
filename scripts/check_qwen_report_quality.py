@@ -76,9 +76,9 @@ def run(*, actual=False, classifier="beto", gradio_url=None):
         if actual:
             try:
                 if client:
-                    _, encoded, _ = client.predict(case["text"], classifier, True, api_name="/analyze_with_agents")
+                    _, encoded, _ = client.predict(case["text"], classifier, True, "es", api_name="/analyze_with_agents")
                 else:
-                    _, encoded, _ = app.analyze_with_agents(case["text"], classifier, True)
+                    _, encoded, _ = app.analyze_with_agents(case["text"], classifier, True, "es")
                 record = json.loads(encoded)
                 checked = inspect_content(record, case, actual=True)
                 if record.get("modelo_utilizado") != classifier:

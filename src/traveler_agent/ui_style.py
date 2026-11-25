@@ -28,6 +28,20 @@ THEME_JS = """(value) => {""" + _APPLY_THEME + """
  return [];
 }"""
 INITIAL_THEME_JS = """() => {
+ if (!document.documentElement.dataset.tiSubmitGuard) {
+   document.documentElement.dataset.tiSubmitGuard = '1';
+   document.addEventListener('click', event => {
+     const state = document.documentElement.dataset;
+     if (event.target.closest?.('#ti-cancel')) delete state.tiPending;
+     if (!event.target.closest?.('#ti-analyze')) return;
+     if (state.tiPending) {
+       event.preventDefault();
+       event.stopImmediatePropagation();
+     } else {
+       state.tiPending = '1';
+     }
+   }, true);
+ }
  let value = 'UTB Claro Premium';
  try {
    if (localStorage.getItem('traveler-insights:theme') === 'Caribe Nocturno') {

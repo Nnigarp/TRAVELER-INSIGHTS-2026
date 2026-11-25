@@ -55,6 +55,7 @@ def test_disabled_is_exact_legacy_result_and_never_calls_api(monkeypatch):
     summary, payload, view = app.analyze_with_agents(TEXT, "lr")
     record = json.loads(payload)
     assert "generacion_qwen" not in record and len(record["multiagente"]["traza"]) == 10
+    assert record.pop("procesamiento_linguistico")["estado"] == "español directo"
     assert record == {**inspect_review(TEXT, app.get_demo_model()), "modelo_utilizado": "lr"}
     defaults = [c["props"]["value"] for c in app.app.config["components"]
                 if c["type"] == "checkbox" and "Qwen" in c.get("props", {}).get("label", "")]

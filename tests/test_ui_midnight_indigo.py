@@ -11,11 +11,11 @@ def test_caribe_and_utb_have_explicit_light_and_dark_tokens():
     assert app.THEME.block_background_fill_dark == "#0c1f27"
 
 
-def test_four_tabs_and_event_wiring_remain_present():
+def test_three_tabs_and_event_wiring_remain_present():
     config = app.app.get_config_file()
     tabs = [c.get("props", {}).get("label") for c in config["components"]
             if c.get("type") in ("tabitem", "tab")]
-    assert tabs == ["Análisis", "Audio", "Lotes", "Agentes"]
+    assert tabs == ["Análisis", "Lotes", "Agentes"]
     dependencies = config["dependencies"]
     # 7 button clicks + 2 change/reset handlers, as in original contract.
     assert len(dependencies) >= 9
@@ -48,4 +48,4 @@ def test_premium_default_and_native_technical_panels():
     assert theme["value"] == "UTB Claro Premium"
     assert [choice[1] for choice in theme["choices"]] == ["UTB Claro Premium", "Caribe Nocturno"]
     assert all(by_id[elem]["wrap_lines"] and by_id[elem]["interactive"] is False
-               for elem in ("ti-detail-json", "ti-audio-json", "ti-agents-json"))
+               for elem in ("ti-detail-json", "ti-agents-json"))

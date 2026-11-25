@@ -1,0 +1,17 @@
+{
+  "status": "TRAINED_FROZEN_HEAD",
+  "max_length": 256,
+  "seed": 20261125,
+  "corpus_rows_sha256": "fd3ea2c01e980b89929968c5773f772623928c583f351942f839b02aab552b6a",
+  "validation_macro_f1": 0.994450171374781,
+  "test_macro_f1": 0.9972192984745286,
+  "hard_macro_f1": 1.0,
+  "hard_neg_to_pos": 0,
+  "test_neg_to_pos": 1,
+  "human_gold": false,
+  "historical_v3_preserved": true,
+  "limitations": [
+    "In-generator metrics on synthetic V4; not population validity.",
+    "Frozen encoder + sklearn logistic head; not full V3-style partial FT."
+  ]
+}

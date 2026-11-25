@@ -1,0 +1,86 @@
+{
+  "version": "synthetic-tourism-v4.0.0",
+  "registered": "2026-11-25",
+  "purpose": "High-quality synthetic tourism sentiment corpus for LR/SVM/BETO V4, targeting mixed praise-then-failure failures without replacing historical V1–V3 artifacts.",
+  "label_origin": "GENERATOR_INTENT_NOT_HUMAN_GOLD",
+  "human_gold": false,
+  "generator_model": "NO_LLM_LOCAL_COMPOSITIONAL_V4",
+  "seed": 20261125,
+  "target_rows": 5001,
+  "target_note": "5001 = 1667 families × 3 labels; nearest ternary-balanced size to the requested 5000.",
+  "labels": ["negativo", "neutral", "positivo"],
+  "rows_per_class": 1667,
+  "family_count": 1667,
+  "domains": [
+    "hotel",
+    "restaurante",
+    "museo",
+    "playa",
+    "transporte",
+    "recorrido",
+    "guia",
+    "aeropuerto",
+    "reserva",
+    "excursion_natural"
+  ],
+  "aspects": [
+    "servicio",
+    "higiene",
+    "precio",
+    "espera",
+    "seguridad",
+    "acceso",
+    "alimentacion",
+    "instalaciones"
+  ],
+  "regions": ["es-CO", "es-PE", "es-MX", "es-ES", "es"],
+  "length_bands": {
+    "short": [18, 40],
+    "medium": [41, 85],
+    "long": [86, 140],
+    "xlong": [141, 220]
+  },
+  "roles": {
+    "train": 1120,
+    "validation": 240,
+    "test": 240,
+    "hard_holdout": 67
+  },
+  "role_note": "Role counts are families, not rows. hard_holdout never enters fitting, tuning or classical calibration.",
+  "split_policy": {
+    "unit": "scenario_family",
+    "leakage_controls": [
+      "exact text_sha256 disjoint across roles",
+      "entire family stays in one role",
+      "historical V1/V2/V3/contextual text hashes excluded",
+      "near-duplicate Jaccard screen across families"
+    ]
+  },
+  "hard_holdout_design": {
+    "primary_template": "praise_then_failure",
+    "required_signals": [
+      "early_positive_lexicon",
+      "transport_or_excursion_breach",
+      "unanswered_complaint",
+      "explicit_non_return"
+    ],
+    "intended_global_label": "negativo for failure endpoint; matched neutral/positive twins share family skeleton"
+  },
+  "beto": {
+    "base_model": "dccuchile/bert-base-spanish-wwm-cased",
+    "revision": "c4d86612f51b4f46759c8390d1798c2febe71b93",
+    "candidate_max_lengths": [128, 256],
+    "default_train_max_length": 256,
+    "truncation_finding": "Measured 2026-11-25: praise-prefixed failure (206 BETO tokens) predicts positivo at max_length=128 because transporte/reclamación are dropped; same text predicts negativo at 256."
+  },
+  "hardware_budget": {
+    "device": "RTX_4050_Laptop_6GB",
+    "system_ram_gb": 16,
+    "beto_notes": [
+      "Prefer frozen encoder or last-block adaptation over full fine-tune if VRAM pressure appears.",
+      "Keep batch_size small (2–4) for 256-token sequences on 6 GB."
+    ]
+  },
+  "preserve_historical": true,
+  "ui_and_main_untouched": true
+}

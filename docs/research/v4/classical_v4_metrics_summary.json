@@ -1,0 +1,44 @@
+{
+  "lr": {
+    "corpus_rows_sha256": "fd3ea2c01e980b89929968c5773f772623928c583f351942f839b02aab552b6a",
+    "train_rows": 3360,
+    "validation_macro_f1": 1.0,
+    "test_macro_f1": 1.0,
+    "hard_macro_f1": 1.0,
+    "hard_neg_to_pos": 0,
+    "test_neg_to_pos": 0,
+    "environment": {
+      "joblib": "1.6.0",
+      "numpy": "2.5.4",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1"
+    },
+    "limitations": [
+      "Synthetic generator intent labels only.",
+      "Hard holdout is still in-generator; not population validity.",
+      "In-generator Macro-F1=1.0 is not population validity; class-specific closings remain a shortcut risk."
+    ]
+  },
+  "svm": {
+    "corpus_rows_sha256": "fd3ea2c01e980b89929968c5773f772623928c583f351942f839b02aab552b6a",
+    "train_rows": 3360,
+    "validation_macro_f1": 1.0,
+    "test_macro_f1": 1.0,
+    "hard_macro_f1": 1.0,
+    "hard_neg_to_pos": 0,
+    "test_neg_to_pos": 0,
+    "environment": {
+      "joblib": "1.6.0",
+      "numpy": "2.5.4",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "python": "3.12.10",
+      "scikit-learn": "1.9.1"
+    },
+    "limitations": [
+      "Synthetic generator intent labels only.",
+      "Hard holdout is still in-generator; not population validity.",
+      "In-generator Macro-F1=1.0 is not population validity; class-specific closings remain a shortcut risk."
+    ]
+  }
+}

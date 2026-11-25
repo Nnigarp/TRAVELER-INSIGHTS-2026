@@ -124,6 +124,8 @@ class SemanticsAgent:
             np.any(probabilities < 0) or
             not np.isclose(probabilities.sum(), 1.0, atol=1e-3)):
             raise AgentFailure("Salida inválida del clasificador; bloquear acción.")
+        encoder = getattr(self.classifier, "encoder", None)
+        truncated = encoder is not None and len(encoder.tokenizer.encode(text, truncation=False)) > encoder.max_length
         idx = int(probabilities.argmax())
         aspects = find_aspects(text)
         profile = linguistic_profile(text)
@@ -137,6 +139,7 @@ class SemanticsAgent:
             "evidence": evidence_spans(text, aspects),
             "linguistic_profile": profile,
             "contrast": contrast,
+            "truncated": truncated,
         }
 
 
@@ -156,6 +159,13 @@ class ControlAgent:
         value = semantic["confidence_raw"]
         review = value < self.threshold or (semantic["contrast"] and value < .80)
         reasons = []
+        if semantic.get("truncated"):
+            review = True
+            reasons.append("TEXTO_TRUNCADO_POR_ENCODER")
+        balance = message.payload.get("balance_qwen")
+        if balance is not None and balance != semantic["sentiment"]:
+            review = True
+            reasons.append("VERIFICACION_QWEN_" + balance.upper())
         if value < self.threshold:
             reasons.append("SCORE_DEMO_BAJO")
         if semantic["contrast"] and value < .80:
@@ -164,6 +174,7 @@ class ControlAgent:
             "needs_human": review,
             "decision": "SOLICITAR_REVISION" if review else "CONTINUAR",
             "reason_codes": reasons,
+            "balance_qwen": balance,
         }
 
 
@@ -197,6 +208,7 @@ class TravelerOrchestrator:
     def __init__(self, classifier: Any, *, threshold: float = .56,
                  agents: dict[str, SpecializedAgent] | None = None,
                  reporter=None):
+        self.context_verification = getattr(classifier, "context_verification", False)
         self.reporter = reporter
         self.agents = agents if agents is not None else {
             "percepcion": PerceptionAgent(),
@@ -226,7 +238,14 @@ class TravelerOrchestrator:
                     progress("Clasificando")
                 payload = {"text": execution.results["percepcion"]["text"]}
             elif step == "control":
-                payload = {"semantic": execution.results["semantica"]}
+                semantic = execution.results["semantica"]
+                payload = {"semantic": semantic}
+                verify = getattr(self.reporter, "verify_context", None)
+                if self.context_verification and verify and (semantic["contrast"] or re.search(r"\b(no|nunca|sin|tampoco|aunque|pero)\b", text, re.I)):
+                    try:
+                        payload["balance_qwen"] = verify(text)
+                    except Exception:
+                        payload["balance_qwen"] = "no_disponible"
             elif step == "accion":
                 payload = {
                     "semantic": execution.results["semantica"],
@@ -346,6 +365,8 @@ class TravelerOrchestrator:
                 "acciones_externas": False,
             },
         }
+        if control.get("balance_qwen") is not None:
+            record["verificacion_contextual"] = {"modelo": "qwen3:1.7b", "balance": control["balance_qwen"], "etapa": "antes_de_control"}
         if self.reporter is not None:
             record["generacion_qwen"] = action["generation"]
             record["multiagente"]["traza_generacion"] = execution.generation_trace

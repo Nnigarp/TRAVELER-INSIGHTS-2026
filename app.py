@@ -19,6 +19,7 @@ from traveler_agent.batch import (
 )
 from traveler_agent.demo_data import DEMO
 from traveler_agent.model import MODEL_KINDS, load_model, save_model, train
+from traveler_agent.v4_runtime import embedding_model, v4_selected
 from traveler_agent.model_runtime import configured_artifact, run_selected
 from traveler_agent.beto_distribution import artifact_available
 from traveler_agent.ollama_report import render_generation_html
@@ -31,6 +32,8 @@ model = load_model(MODEL_PATH)
 
 @lru_cache(maxsize=2)
 def get_demo_model(kind: str = "lr"):
+    if v4_selected():
+        return embedding_model(kind)
     if kind not in MODEL_KINDS:
         raise ValueError("Modelo no disponible")
     if kind == "lr":
@@ -281,7 +284,7 @@ def load_example(name):
 
 
 def configuration_context(model_kind, qwen_enabled):
-    names = {"lr": "Regresión logística", "svm": "SVM lineal", "beto": "BETO V3"}
+    names = {"lr": "Regresión logística", "svm": "SVM lineal", "beto": ("BETO V4.2" if v4_selected() else "BETO V3")}
     model_name = names.get(model_kind, "Sin selección")
     generation = "solicitado para el próximo análisis" if qwen_enabled else "desactivado"
     return f"**Configuración de Análisis** · {model_name} · Qwen {generation}"
@@ -306,7 +309,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
                 with gr.Column(scale=4, min_width=300, elem_id="ti-input-pane", elem_classes=["ti-pane"]):
                     _MODEL_CHOICES = [("Regresión logística · LR", "lr"), ("SVM lineal", "svm")]
                     if _BETO_AVAILABLE:
-                        _MODEL_CHOICES.append(("BETO V3", "beto"))
+                        _MODEL_CHOICES.append((("BETO V4.2" if v4_selected() else "BETO V3"), "beto"))
                     with gr.Column(min_width=0, elem_id="ti-composer"):
                         inp = gr.Textbox(label="Reseña turística", lines=6, value="",
                                          placeholder="Escribe o dicta tu experiencia en tu idioma…", elem_id="ti-review")

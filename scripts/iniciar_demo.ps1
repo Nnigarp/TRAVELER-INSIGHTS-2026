@@ -7,8 +7,8 @@ try {
     if (!(Test-Path -LiteralPath $python)) { throw 'Falta el intérprete del entorno .venv-research.' }
     & $python -c "import sys, gradio; print('Python', sys.version.split()[0], '/ Gradio', gradio.__version__)"
     if ($LASTEXITCODE -ne 0) { throw 'Gradio no está disponible en .venv-research.' }
-    $artifact = (Resolve-Path 'artifacts/beto-v3-pr28-local').Path
-    $expected = 'c66453d041090bf6d10a9af10fdfbb8ab2d53b70a18f44e4439921a28914a7b7'
+    $artifact = (Resolve-Path 'artifacts/synthetic-tourism-v4.2/beto-v4-partial256').Path
+    $expected = '24be5eb9ecf2ac20c1085b5a93aba09c53feb2ab57c5e290f56534faef817a63'
     if ((Get-FileHash (Join-Path $artifact 'model_manifest.json') -Algorithm SHA256).Hash -ne $expected) {
         throw 'El manifiesto del artefacto BETO difiere del validado para la sustentación.'
     }

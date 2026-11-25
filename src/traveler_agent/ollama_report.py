@@ -253,6 +253,22 @@ def local_json_request(config, path, payload=None, *, timeout=None):
 
 
 class OllamaReporter:
+    def verify_context(self, text):
+        from .language_input import ask_qwen
+        config = self.config or OllamaConfig.from_env()
+        remaining = config.timeout
+        if self.batch:
+            if self.started is None:
+                self.started = time.monotonic()
+            remaining -= time.monotonic() - self.started
+            if self.calls >= MAX_BATCH_REQUESTS or remaining < 1:
+                raise ValueError("Presupuesto contextual del lote agotado.")
+            self.calls += 1
+        answer = ask_qwen("balance", text, config=config, timeout=remaining)
+        if answer not in {"negativo", "neutral", "positivo", "incierto"}:
+            raise ValueError("Balance contextual inválido.")
+        return answer
+
     def __init__(self, config: OllamaConfig | None = None, *, batch=False):
         self.config, self.batch = config, batch
         self.calls, self.started = 0, None

@@ -4,7 +4,7 @@ Prototipo local de apoyo a la revisión de reseñas turísticas, desarrollado po
 
 **LR es el clasificador inicial. BETO V3 es experimental y opcional. La generación Qwen comienza desactivada.** El sistema no realiza reservas, reclamaciones, contactos ni pagos. Su funcionamiento técnico no demuestra precisión turística ni seguridad para automatizar decisiones.
 
-En **Análisis**, escribe en tu idioma o abre **+ Audio · micrófono o archivo**. Whisper inserta la transcripción en la misma reseña. Puedes corregirla antes de enviar. La identificación y la traducción experimental al español preceden al clasificador. El interruptor Qwen controla únicamente el informe posterior. [Guía de aceptación en Windows](docs/ENTRADA_MULTILINGUE.md).
+En **Análisis**, escribe en tu idioma o usa **+ Audio** o **Micrófono**. Whisper inserta la transcripción en la misma reseña. Puedes corregirla antes de enviar. La identificación y la traducción experimental al español preceden al clasificador. El interruptor Qwen controla únicamente el informe posterior. [Arranque, aceptación y capturas del refinamiento final](docs/ACEPTACION_UX_FINAL.md).
 
 ## Estado implementado, experimental y no validado
 
@@ -45,7 +45,7 @@ Gradio conserva los componentes y callbacks reales. El diseño toma como referen
 
 | Sección | Uso |
 |---|---|
-| **Análisis** | Selecciona LR/SVM/BETO disponible y activa Qwen opcionalmente. Entrada vacía inicial, contador, ejemplos identificados como demostrativos, análisis real y limpieza. Entrada/resultados en dos columnas amplias y apiladas en móvil. |
+| **Análisis** | Selecciona LR/SVM/BETO disponible y activa Qwen opcionalmente. Entrada vacía inicial, contador, ejemplos identificados como demostrativos, análisis real y limpieza. Editor centrado, herramientas integradas y resultados debajo. |
 | **Lotes** | Texto o CSV, resultados y conteos descriptivos reales, corrección por ID, exportaciones y consulta de la traza de una fila. Conserva los límites existentes. |
 | **Agentes** | Funciones y estados del último registro consultado en la sesión: orquestador y cuatro especialistas. Qwen/Ollama aparece separado como servicio subordinado. Sin registro no muestra tareas completadas. |
 

@@ -1,0 +1,487 @@
+{
+  "scope": "ACTUAL_GRADIO_BROWSER_AND_DEMO_LR_SVM_NOT_REAL_QWEN_BETO_OR_VOICE",
+  "status": "PASSED",
+  "checks": [
+    {
+      "name": "three_native_tabs",
+      "passed": true
+    },
+    {
+      "name": "default_premium_theme",
+      "passed": true
+    },
+    {
+      "name": "empty_real_result",
+      "passed": true
+    },
+    {
+      "name": "UTB Claro Premium_idle_contrast",
+      "passed": true
+    },
+    {
+      "name": "UTB Claro Premium_hover_contrast",
+      "passed": true
+    },
+    {
+      "name": "UTB Claro Premium_typing_selection_contrast",
+      "passed": true
+    },
+    {
+      "name": "UTB Claro Premium_disabled_contrast",
+      "passed": true
+    },
+    {
+      "name": "Caribe Nocturno_idle_contrast",
+      "passed": true
+    },
+    {
+      "name": "Caribe Nocturno_hover_contrast",
+      "passed": true
+    },
+    {
+      "name": "Caribe Nocturno_typing_selection_contrast",
+      "passed": true
+    },
+    {
+      "name": "Caribe Nocturno_disabled_contrast",
+      "passed": true
+    },
+    {
+      "name": "keyboard_focus_visible_on_clear",
+      "passed": true
+    },
+    {
+      "name": "example_counter",
+      "passed": true
+    },
+    {
+      "name": "example_does_not_infer",
+      "passed": true
+    },
+    {
+      "name": "duplicate_submit_guard",
+      "passed": true
+    },
+    {
+      "name": "actual_lr_not_qwen",
+      "passed": true
+    },
+    {
+      "name": "actual_trace_ten_events",
+      "passed": true
+    },
+    {
+      "name": "desktop_report_two_columns",
+      "passed": true
+    },
+    {
+      "name": "desktop_no_page_overflow",
+      "passed": true
+    },
+    {
+      "name": "light_canvas_matches_shell",
+      "passed": true
+    },
+    {
+      "name": "theme_preserves_result",
+      "passed": true
+    },
+    {
+      "name": "390px_100percent_symmetric_gutters",
+      "passed": true
+    },
+    {
+      "name": "390px_100percent_no_page_overflow",
+      "passed": true
+    },
+    {
+      "name": "390px_100percent_layout",
+      "passed": true
+    },
+    {
+      "name": "mobile_tabs_and_single_column",
+      "passed": true
+    },
+    {
+      "name": "768px_100percent_symmetric_gutters",
+      "passed": true
+    },
+    {
+      "name": "768px_100percent_no_page_overflow",
+      "passed": true
+    },
+    {
+      "name": "768px_100percent_layout",
+      "passed": true
+    },
+    {
+      "name": "1024px_100percent_symmetric_gutters",
+      "passed": true
+    },
+    {
+      "name": "1024px_100percent_no_page_overflow",
+      "passed": true
+    },
+    {
+      "name": "1024px_100percent_layout",
+      "passed": true
+    },
+    {
+      "name": "1366px_100percent_symmetric_gutters",
+      "passed": true
+    },
+    {
+      "name": "1366px_100percent_no_page_overflow",
+      "passed": true
+    },
+    {
+      "name": "1366px_100percent_layout",
+      "passed": true
+    },
+    {
+      "name": "1536px_100percent_symmetric_gutters",
+      "passed": true
+    },
+    {
+      "name": "1536px_100percent_no_page_overflow",
+      "passed": true
+    },
+    {
+      "name": "1536px_100percent_layout",
+      "passed": true
+    },
+    {
+      "name": "1920px_100percent_symmetric_gutters",
+      "passed": true
+    },
+    {
+      "name": "1920px_100percent_no_page_overflow",
+      "passed": true
+    },
+    {
+      "name": "1920px_100percent_layout",
+      "passed": true
+    },
+    {
+      "name": "390px_125percent_symmetric_gutters",
+      "passed": true
+    },
+    {
+      "name": "390px_125percent_no_page_overflow",
+      "passed": true
+    },
+    {
+      "name": "390px_125percent_layout",
+      "passed": true
+    },
+    {
+      "name": "768px_125percent_symmetric_gutters",
+      "passed": true
+    },
+    {
+      "name": "768px_125percent_no_page_overflow",
+      "passed": true
+    },
+    {
+      "name": "768px_125percent_layout",
+      "passed": true
+    },
+    {
+      "name": "1024px_125percent_symmetric_gutters",
+      "passed": true
+    },
+    {
+      "name": "1024px_125percent_no_page_overflow",
+      "passed": true
+    },
+    {
+      "name": "1024px_125percent_layout",
+      "passed": true
+    },
+    {
+      "name": "1366px_125percent_symmetric_gutters",
+      "passed": true
+    },
+    {
+      "name": "1366px_125percent_no_page_overflow",
+      "passed": true
+    },
+    {
+      "name": "1366px_125percent_layout",
+      "passed": true
+    },
+    {
+      "name": "1536px_125percent_symmetric_gutters",
+      "passed": true
+    },
+    {
+      "name": "1536px_125percent_no_page_overflow",
+      "passed": true
+    },
+    {
+      "name": "1536px_125percent_layout",
+      "passed": true
+    },
+    {
+      "name": "1920px_125percent_symmetric_gutters",
+      "passed": true
+    },
+    {
+      "name": "1920px_125percent_no_page_overflow",
+      "passed": true
+    },
+    {
+      "name": "1920px_125percent_layout",
+      "passed": true
+    },
+    {
+      "name": "technical_json_fits",
+      "passed": true
+    },
+    {
+      "name": "real_agent_states",
+      "passed": true
+    },
+    {
+      "name": "four_agents_and_subordinate_qwen",
+      "passed": true
+    },
+    {
+      "name": "native_microphone_control",
+      "passed": true
+    },
+    {
+      "name": "native_audio_upload",
+      "passed": true
+    },
+    {
+      "name": "ti-audio-panel_390_fits",
+      "passed": true
+    },
+    {
+      "name": "ti-language-panel_390_fits",
+      "passed": true
+    },
+    {
+      "name": "ti-audio-panel_1366_fits",
+      "passed": true
+    },
+    {
+      "name": "ti-language-panel_1366_fits",
+      "passed": true
+    },
+    {
+      "name": "editable_transcript",
+      "passed": true
+    },
+    {
+      "name": "actual_svm",
+      "passed": true
+    },
+    {
+      "name": "real_batch_export_and_correction",
+      "passed": true
+    },
+    {
+      "name": "real_csv_export",
+      "passed": true
+    },
+    {
+      "name": "batch_columns_fit_on_desktop",
+      "passed": true
+    },
+    {
+      "name": "batch_scroll_is_contained_on_mobile",
+      "passed": true
+    },
+    {
+      "name": "csv_upload_follows_real_batch_path",
+      "passed": true
+    },
+    {
+      "name": "trace_button_restores_its_source",
+      "passed": true
+    },
+    {
+      "name": "clear_removes_previous_result",
+      "passed": true
+    },
+    {
+      "name": "validation_alert_is_visible",
+      "passed": true
+    },
+    {
+      "name": "editing_invalidates_report_and_updates_count",
+      "passed": true
+    },
+    {
+      "name": "theme_persists_with_radio_synced",
+      "passed": true
+    },
+    {
+      "name": "no_browser_exceptions",
+      "passed": true
+    }
+  ],
+  "console_errors": [],
+  "external_requests": [],
+  "browser_submissions": 1,
+  "layout_matrix": [
+    {
+      "screen": 390,
+      "zoom": 1,
+      "width": 390,
+      "left": 14,
+      "right": 14,
+      "overflow": false,
+      "stacked": true,
+      "inputWidth": 362,
+      "resultWidth": 362,
+      "reportColumns": 1,
+      "visibleTabs": 3
+    },
+    {
+      "screen": 768,
+      "zoom": 1,
+      "width": 768,
+      "left": 18.421875,
+      "right": 18.421875,
+      "overflow": false,
+      "stacked": true,
+      "inputWidth": 731.15625,
+      "resultWidth": 731.15625,
+      "reportColumns": 2,
+      "visibleTabs": 3
+    },
+    {
+      "screen": 1024,
+      "zoom": 1,
+      "width": 1024,
+      "left": 24.5625,
+      "right": 24.5625,
+      "overflow": false,
+      "stacked": true,
+      "inputWidth": 974.875,
+      "resultWidth": 974.875,
+      "reportColumns": 2,
+      "visibleTabs": 3
+    },
+    {
+      "screen": 1366,
+      "zoom": 1,
+      "width": 1366,
+      "left": 171,
+      "right": 171,
+      "overflow": false,
+      "stacked": true,
+      "inputWidth": 1024,
+      "resultWidth": 1024,
+      "reportColumns": 2,
+      "visibleTabs": 3
+    },
+    {
+      "screen": 1536,
+      "zoom": 1,
+      "width": 1536,
+      "left": 256,
+      "right": 256,
+      "overflow": false,
+      "stacked": true,
+      "inputWidth": 1024,
+      "resultWidth": 1024,
+      "reportColumns": 2,
+      "visibleTabs": 3
+    },
+    {
+      "screen": 1920,
+      "zoom": 1,
+      "width": 1920,
+      "left": 448,
+      "right": 448,
+      "overflow": false,
+      "stacked": true,
+      "inputWidth": 1024,
+      "resultWidth": 1024,
+      "reportColumns": 2,
+      "visibleTabs": 3
+    },
+    {
+      "screen": 390,
+      "zoom": 1.25,
+      "width": 312,
+      "left": 14,
+      "right": 14,
+      "overflow": false,
+      "stacked": true,
+      "inputWidth": 284,
+      "resultWidth": 284,
+      "reportColumns": 1,
+      "visibleTabs": 3
+    },
+    {
+      "screen": 768,
+      "zoom": 1.25,
+      "width": 614,
+      "left": 14.734375,
+      "right": 14.734375,
+      "overflow": false,
+      "stacked": true,
+      "inputWidth": 584.53125,
+      "resultWidth": 584.53125,
+      "reportColumns": 2,
+      "visibleTabs": 3
+    },
+    {
+      "screen": 1024,
+      "zoom": 1.25,
+      "width": 819,
+      "left": 19.640625,
+      "right": 19.640625,
+      "overflow": false,
+      "stacked": true,
+      "inputWidth": 779.71875,
+      "resultWidth": 779.71875,
+      "reportColumns": 2,
+      "visibleTabs": 3
+    },
+    {
+      "screen": 1366,
+      "zoom": 1.25,
+      "width": 1093,
+      "left": 34.5,
+      "right": 34.5,
+      "overflow": false,
+      "stacked": true,
+      "inputWidth": 1024,
+      "resultWidth": 1024,
+      "reportColumns": 2,
+      "visibleTabs": 3
+    },
+    {
+      "screen": 1536,
+      "zoom": 1.25,
+      "width": 1229,
+      "left": 102.5,
+      "right": 102.5,
+      "overflow": false,
+      "stacked": true,
+      "inputWidth": 1024,
+      "resultWidth": 1024,
+      "reportColumns": 2,
+      "visibleTabs": 3
+    },
+    {
+      "screen": 1920,
+      "zoom": 1.25,
+      "width": 1536,
+      "left": 256,
+      "right": 256,
+      "overflow": false,
+      "stacked": true,
+      "inputWidth": 1024,
+      "resultWidth": 1024,
+      "reportColumns": 2,
+      "visibleTabs": 3
+    }
+  ]
+}

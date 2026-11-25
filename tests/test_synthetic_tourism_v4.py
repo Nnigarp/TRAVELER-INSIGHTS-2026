@@ -75,7 +75,8 @@ def test_hard_holdout_encodes_failure_pattern(rows):
 
 
 def test_v42_closings_are_shared_not_label_exclusive(rows):
-    assert VERSION == "4.2.0"
+    # V4.2 introduced shared closings; V4.3+ keeps the same invariant.
+    assert VERSION >= "4.2.0"
     audit = lexical_closing_audit(rows)
     assert audit["status"] == "PASS"
     assert audit["exclusive_closing_phrases"] == []

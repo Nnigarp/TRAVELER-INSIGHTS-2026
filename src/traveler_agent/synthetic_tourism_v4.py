@@ -25,9 +25,9 @@ PROTOCOL = RESOURCE / "synthetic_v4_protocol.json"
 
 GENERATOR = "curated_compositional_scenarios_v4"
 MODEL = "NO_LLM_LOCAL_COMPOSITIONAL_V4"
-VERSION = "4.2.0"
+VERSION = "4.3.0"
 SCHEMA = "traveler-synthetic-tourism-v4"
-REFERENCE_VERSION = "4.1.0"  # V4.0 and V4.1 preserved locally; do not overwrite
+REFERENCE_VERSION = "4.2.0"  # V4.0–V4.2 preserved locally; do not overwrite
 
 DOMAINS = (
     "hotel", "restaurante", "museo", "playa", "transporte",
@@ -112,41 +112,58 @@ PRAISE = {
         "nos atendieron con paciencia y resolvieron dudas al instante",
         "el personal fue cordial y estuvo pendiente sin invadir",
         "la atención del equipo se sintió cercana y eficiente",
+        "respondieron al primer llamado y aclararon cada detalle",
+        "la disposición del staff facilitó toda la logística",
+        "hubo acompañamiento humano real cuando lo pedimos",
     ),
     "higiene": (
         "todo estaba limpio, ordenado y sin olores molestos",
         "las áreas comunes lucían impecables y cuidadas",
         "encontramos superficies limpias y baños en buen estado",
+        "el aseo se notaba reciente y sin restos visibles",
+        "la limpieza general transmitió cuidado del espacio",
     ),
     "precio": (
         "el precio nos pareció justo frente a lo ofrecido",
         "la tarifa coincidía con lo anunciado y sin cargos ocultos",
         "pagamos un valor razonable para la experiencia",
+        "el costo se alineó con lo publicado sin sorpresas",
+        "la relación calidad-precio resultó equilibrada",
     ),
     "espera": (
         "entramos sin demora y el ritmo fue puntual",
         "la fila avanzó rápido y nos llamaron a tiempo",
         "no hubo retrasos relevantes en el inicio",
+        "respetaron la franja horaria comprometida",
+        "el flujo de ingreso se mantuvo ágil",
     ),
     "seguridad": (
         "las indicaciones de seguridad fueron claras",
         "había personal pendiente de prevenir riesgos",
         "nos sentimos respaldados con medidas visibles",
+        "el protocolo de prevención se aplicó con rigor útil",
+        "vigilancia y señalética redujeron la incertidumbre",
     ),
     "acceso": (
         "llegar fue sencillo y la señalización ayudó",
         "los accesos estaban bien marcados y practicables",
         "encontramos la entrada sin rodeos confusos",
+        "la orientación hacia el punto de encuentro fue directa",
+        "el trayecto de ingreso resultó claro y sin obstáculos",
     ),
     "alimentacion": (
         "la comida llegó caliente, fresca y sabrosa",
         "las opciones de alimentación estaban bien logradas",
         "nos gustó la calidad de lo que sirvieron",
+        "los platos mantuvieron sabor y temperatura adecuados",
+        "la oferta gastronómica cubrió bien lo esperado",
     ),
     "instalaciones": (
         "las instalaciones estaban cómodas y bien mantenidas",
         "los espacios funcionaban y se sentían agradables",
         "habitaciones y zonas comunes estaban en buen estado",
+        "el mobiliario y la infraestructura respondieron bien",
+        "el entorno físico sostuvo una estancia cómoda",
     ),
 }
 
@@ -220,41 +237,58 @@ FAILURE = {
         "nadie respondió cuando pedimos ayuda urgente",
         "el trato fue seco y nos dejaron sin orientación",
         "tras reclamar, solo recibimos silencio o mensajes automáticos",
+        "la mesa de ayuda ignoró el seguimiento reiterado",
+        "quedamos sin interlocutor humano tras varios intentos",
+        "el soporte cerró el caso sin resolver la incidencia",
     ),
     "higiene": (
         "había suciedad visible y mal olor persistente",
         "encontramos basura acumulada en zonas de uso",
         "varias superficies estaban descuidadas pese a lo cobrado",
+        "el aseo falló en áreas de alto contacto",
+        "condiciones de limpieza inaceptables para lo pagado",
     ),
     "precio": (
         "nos cobraron más de lo anunciado sin explicación",
         "aparecieron cargos extras al momento de pagar",
         "el precio final no coincidió con la reserva",
+        "surgió un recargo no anticipado en el cierre",
+        "la factura se desvió del monto confirmado por escrito",
     ),
     "espera": (
         "esperamos demasiado sin información útil",
         "el retraso se alargó y nadie explicó la causa",
         "perdimos la franja horaria por una demora no gestionada",
+        "la demora encadenada anuló el bloque central del plan",
+        "el retraso acumulado inutilizó la actividad reservada",
     ),
     "seguridad": (
         "nos sentimos expuestos por falta de vigilancia",
         "no había medidas visibles ante un riesgo evidente",
         "las instrucciones de seguridad fueron contradictorias",
+        "faltó supervisión ante una situación de riesgo clara",
+        "el protocolo de seguridad se incumplió de forma manifiesta",
     ),
     "acceso": (
         "no había señalización suficiente para llegar",
         "el acceso era confuso y nos hizo perder tiempo",
         "una barrera no anunciada impidió el ingreso previsto",
+        "el punto de encuentro resultó imposible de ubicar a tiempo",
+        "el ingreso previsto quedó bloqueado sin aviso útil",
     ),
     "alimentacion": (
         "la comida llegó fría y en malas condiciones",
         "las opciones eran escasas y de baja calidad",
         "hubo un problema sanitario evidente en lo servido",
+        "lo servido no cumplió mínimos de frescura ni temperatura",
+        "la oferta alimentaria decepcionó de forma concreta",
     ),
     "instalaciones": (
         "varias instalaciones estaban dañadas",
         "los espacios tenían desperfectos que afectaron la visita",
         "equipos anunciados no funcionaban durante la estancia",
+        "la infraestructura falló en elementos esenciales",
+        "desperfectos graves limitaron el uso del espacio",
     ),
 }
 
@@ -285,6 +319,8 @@ SHARED_CLOSINGS = (
     "Con eso termino el resumen del día.",
     "Queda dicha la secuencia completa.",
     "Hasta aquí el recuento de lo sucedido.",
+    "Registro cerrado con los hechos del día.",
+    "Fin del relato en el orden en que sucedió.",
 )
 # Kept only for V4.0 shortcut audits / backward diagnostics — not used in V4.1 compose.
 NON_RETURN = {
@@ -1014,7 +1050,7 @@ def write_corpus(rows: list[dict], out_dir: Path, audit: dict, *, seed: int) -> 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Generar corpus sintético turístico V4")
-    parser.add_argument("--out", type=Path, default=Path("data/processed/synthetic-tourism-v4.2"))
+    parser.add_argument("--out", type=Path, default=Path("data/processed/synthetic-tourism-v4.3"))
     parser.add_argument("--seed", type=int, default=None)
     parser.add_argument("--date", default="2026-11-25")
     args = parser.parse_args(argv)

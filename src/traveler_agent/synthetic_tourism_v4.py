@@ -25,9 +25,9 @@ PROTOCOL = RESOURCE / "synthetic_v4_protocol.json"
 
 GENERATOR = "curated_compositional_scenarios_v4"
 MODEL = "NO_LLM_LOCAL_COMPOSITIONAL_V4"
-VERSION = "4.1.0"
+VERSION = "4.2.0"
 SCHEMA = "traveler-synthetic-tourism-v4"
-REFERENCE_VERSION = "4.0.0"  # preserved locally; do not overwrite
+REFERENCE_VERSION = "4.1.0"  # V4.0 and V4.1 preserved locally; do not overwrite
 
 DOMAINS = (
     "hotel", "restaurante", "museo", "playa", "transporte",
@@ -42,6 +42,8 @@ LENGTH_BANDS = ("short", "medium", "long", "xlong")
 TEMPLATES = (
     "direct", "negation", "contrast", "mixed_aspects",
     "praise_then_failure", "colloquial", "chronology", "irony",
+    "resolved_incident", "contradiction_pos", "contradiction_neg",
+    "factual_neutral", "sarcasm",
 )
 ROLES = ("train", "validation", "test", "hard_holdout")
 FIELDS = (
@@ -153,43 +155,65 @@ NEUTRAL = {
         "nos indicaron el mostrador de información",
         "recibimos el horario y los datos de contacto",
         "el personal respondió solo lo consultado",
+        "anotaron nuestra solicitud en una libreta sin adelantar un juicio",
+        "nos derivaron al canal oficial y registramos el número de ticket",
     ),
     "higiene": (
         "había personal de aseo en turno",
         "vimos el aviso con el horario de limpieza",
         "el estado general era el habitual de un espacio en uso",
+        "contamos tres papeleras visibles y un carro de limpieza estacionado",
+        "el olor del área era el propio de un salón ventilado en horario punta",
     ),
     "precio": (
         "la tarifa estaba publicada en un panel",
         "el monto se mostró antes de confirmar",
         "el recibo listaba los conceptos cobrados",
+        "la diferencia entre tarifa base e impuestos aparecía desglosada",
+        "comparamos el precio del folleto con el de la pantalla de caja",
     ),
     "espera": (
         "el turno quedó asignado para más tarde",
         "nos informaron la hora prevista de ingreso",
         "la espera se mantuvo dentro del rango anunciado",
+        "el tablero marcaba un desfase de doce minutos respecto al plan",
+        "cronometramos la fila desde la fila tres hasta el ingreso",
     ),
     "seguridad": (
         "había carteles con normas básicas",
         "recibimos la hoja de rutas de evacuación",
         "el protocolo se limitó a lo reglamentario",
+        "el personal verificó identificaciones en el acceso lateral",
+        "había un extintor y un botiquín señalizados junto a la puerta",
     ),
     "acceso": (
         "la entrada principal estaba en el segundo nivel",
         "se indicaba un acceso lateral alternativo",
         "el recorrido de ingreso estaba señalizado de forma ordinaria",
+        "el ascensor y la escalera convergían en el mismo vestíbulo",
+        "el plano del sitio numeraba las puertas del uno al seis",
     ),
     "alimentacion": (
         "el menú listaba las opciones disponibles",
         "nos mostraron dónde comprar alimentos",
         "había un punto de comida con carta fija",
+        "la pizarra indicaba dos menús del día y un plato sin existencias",
+        "el buffet abría en franjas horarias publicadas en la mesa",
     ),
     "instalaciones": (
         "había dos salas y una zona de espera",
         "las instalaciones incluían baños y un patio",
         "el mobiliario cumplía la función básica",
+        "contamos cuatro tomas eléctricas y una fuera de servicio",
+        "la terraza y el interior compartían el mismo mostrador de control",
     ),
 }
+NEUTRAL_BRIDGE = (
+    "Anoto el hecho sin calificarlo.",
+    "Queda la observación en el mismo orden temporal.",
+    "El registro se limita a lo verificado in situ.",
+    "No agrego un veredicto sobre si convenía o no repetir.",
+)
 
 FAILURE = {
     "servicio": (
@@ -395,11 +419,15 @@ def _family_meta(slot: int, rng: random.Random) -> dict:
         # Keep enough room for praise + breach + complaint + non-return.
         length_band = "xlong" if slot % 2 == 0 else "long"
     else:
-        template = TEMPLATES[(slot + rng.randrange(3)) % len(TEMPLATES)]
-        # Enrich train pool with mixed failures beyond hard holdout.
+        template = TEMPLATES[(slot + rng.randrange(5)) % len(TEMPLATES)]
+        # Enrich train pool with mixed failures and factual neutrals.
         if slot % 11 == 0:
             template = "praise_then_failure"
             length_band = "long" if length_band == "short" else length_band
+        elif slot % 9 == 0:
+            template = "factual_neutral"
+        elif slot % 13 == 0:
+            template = "resolved_incident"
         hard = template == "praise_then_failure"
     return {
         "domain": domain,
@@ -449,21 +477,21 @@ def _sentence(text: str) -> str:
 def _expand_to_band(parts: list[str], band: str, rng: random.Random, label: str, *, slot: int) -> str:
     lo, hi = protocol()["length_bands"][band]
     text = " ".join(_sentence(p) for p in parts if p.strip())
-    # Shared fillers (V4.1): no class-exclusive elongation cues.
+    # Shared narrative extenders (V4.2): prefer concrete scene facts over empty padding.
     filler_bank = (
-        "Anoto también el contexto inmediato alrededor del lugar",
-        "Queda registrado el tramo siguiente de la visita",
-        "El intervalo entre un momento y el siguiente fue breve",
-        "Había más gente en la misma zona en ese instante",
-        "La luz y el ruido del entorno formaban parte de la escena",
-        "El trayecto corto hasta el punto siguiente no cambió el relato",
+        "El entorno inmediato incluía señalización temporal del operador",
+        "Había más visitantes en la misma zona en ese intervalo",
+        "La iluminación y el ruido ambiental formaban parte de la escena",
+        "El trayecto corto hasta el punto siguiente no alteró la secuencia",
+        "Un panel informativo repetía la misma hora que el comprobante",
+        "La densidad de gente varió entre el inicio y el tramo medio",
     )
     del label  # length expansion must not encode polarity
     step = 0
     while len(text.split()) < lo:
         base = filler_bank[(slot + step) % len(filler_bank)]
         detail = ANCHOR_OBJECTS[(slot + step * 3) % len(ANCHOR_OBJECTS)]
-        text = f"{text} {_sentence(f'{base} junto al {detail} del escenario {slot:04d}')}"
+        text = f"{text} {_sentence(f'{base} cerca del {detail} {slot:04d}')}"
         step += 1
         if step > 40:
             break
@@ -597,13 +625,117 @@ def _compose(meta: dict, label: str, rng: random.Random, *, slot: int) -> tuple[
             f"Al final {close[0].lower() + close[1:]}",
         ]
         phenomena.append("objective_chronology")
-    else:  # irony
+    elif template == "irony":
         parts = [
             f"{open_}. {_pick(IRONY[label], rng, 14)}",
             f"{praise if label == 'positivo' else fail if label == 'negativo' else neutral}.",
             close,
         ]
         phenomena.append("irony")
+    elif template == "resolved_incident":
+        phenomena.append("resolved_incident")
+        if label == "positivo":
+            parts = [
+                f"{open_}. Hubo un imprevisto breve ({fail}),",
+                f"pero lo corrigieron de inmediato y {praise}.",
+                close,
+            ]
+        elif label == "negativo":
+            parts = [
+                f"{open_}. Intentaron corregir un fallo ({fail}),",
+                f"pero la solución no llegó a tiempo y {complaint}.",
+                close,
+            ]
+            phenomena.append("unanswered_complaint")
+        else:
+            parts = [
+                f"{open_}. Se reportó un incidente menor y {neutral}.",
+                f"{_pick(NEUTRAL_BRIDGE, rng, 15)}",
+                close,
+            ]
+            phenomena.append("objective_chronology")
+    elif template == "contradiction_pos":
+        parts = [
+            f"{open_}. Primero {fail},",
+            f"después {praise} y el saldo quedó del lado favorable.",
+            close,
+        ]
+        phenomena.extend(["contrast", "neg_then_pos", "mixed_aspects"])
+        if label != "positivo":
+            # Keep family geometry: non-positive twins stay coherent.
+            if label == "negativo":
+                parts = [
+                    f"{open_}. Primero {praise},",
+                    f"después {fail} y el saldo quedó del lado desfavorable.",
+                    close,
+                ]
+                phenomena.extend(["contrast", "pos_then_neg", "mixed_aspects"])
+            else:
+                parts = [
+                    f"{open_}. Hubo {praise} y también {fail}.",
+                    f"{_pick(NEUTRAL_BRIDGE, rng, 16)}",
+                    close,
+                ]
+                phenomena.extend(["balanced_contrast", "mixed_aspects"])
+    elif template == "contradiction_neg":
+        parts = [
+            f"{open_}. Aunque {praise}, {fail} y {complaint}.",
+            close,
+        ]
+        phenomena.extend(["contrast", "pos_then_neg", "mixed_aspects"])
+        if label == "positivo":
+            parts = [
+                f"{open_}. Aunque {fail}, {praise} y el desenlace fue aceptable.",
+                close,
+            ]
+            phenomena.extend(["contrast", "neg_then_pos"])
+        elif label == "neutral":
+            parts = [
+                f"{open_}. Se observó {neutral} junto con un comentario aislado ({praise}).",
+                f"{_pick(NEUTRAL_BRIDGE, rng, 17)}",
+                close,
+            ]
+            phenomena.extend(["factual_neutral", "mixed_aspects"])
+    elif template == "factual_neutral":
+        # Stronger neutrals: multi-fact chronology without polarity verbs.
+        parts = [
+            f"{open_}. {neutral.capitalize() if neutral[:1].islower() else neutral}.",
+            f"Luego {_pick(NEUTRAL[aspect], rng, 18)}.",
+            f"{_pick(NEUTRAL_BRIDGE, rng, 19)}",
+            close,
+        ]
+        phenomena.extend(["factual_neutral", "objective_chronology"])
+        if label == "positivo":
+            parts = [f"{open_}, {praise}.", close]
+            phenomena = ["direct"]
+        elif label == "negativo":
+            parts = [f"{open_}, {fail}.", close]
+            phenomena = ["direct"]
+    elif template == "sarcasm":
+        if label == "negativo":
+            parts = [
+                f"{open_}. {_pick(IRONY['negativo'], rng, 14)}",
+                f"{fail}; {complaint}.",
+                close,
+            ]
+            phenomena.extend(["irony", "sarcasm"])
+        elif label == "positivo":
+            parts = [
+                f"{open_}. {_pick(IRONY['positivo'], rng, 14)}",
+                f"{praise}.",
+                close,
+            ]
+            phenomena.append("irony")
+        else:
+            parts = [
+                f"{open_}. {_pick(IRONY['neutral'], rng, 14)}",
+                f"{neutral}.",
+                close,
+            ]
+            phenomena.append("irony")
+    else:  # fallback
+        parts = [f"{open_}, {neutral if label == 'neutral' else praise if label == 'positivo' else fail}.", close]
+        phenomena.append("direct")
 
     if band in {"long", "xlong"} and template == "praise_then_failure" and label == "negativo":
         # Force enough early praise that 128-token windows can drop the failure.
@@ -882,7 +1014,7 @@ def write_corpus(rows: list[dict], out_dir: Path, audit: dict, *, seed: int) -> 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Generar corpus sintético turístico V4")
-    parser.add_argument("--out", type=Path, default=Path("data/processed/synthetic-tourism-v4.1"))
+    parser.add_argument("--out", type=Path, default=Path("data/processed/synthetic-tourism-v4.2"))
     parser.add_argument("--seed", type=int, default=None)
     parser.add_argument("--date", default="2026-11-25")
     args = parser.parse_args(argv)

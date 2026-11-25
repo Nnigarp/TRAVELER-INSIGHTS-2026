@@ -1,0 +1,1729 @@
+{
+  "eval_n": 300,
+  "eval_path": "C:\\UTB-2026\\INTELIGENCIA ARTIFICIAL\\traveler_insights_github\\src\\traveler_agent\\research_data\\v4_independent_eval_v2.json",
+  "eval_records_sha256": "7fc9cf2130c4a1ffd7dedf5f6a8296bcbc02f88f88e267037af488f5997a036b",
+  "experimental_targets_note": "Aspirational; reported honestly even if unmet.",
+  "frozen_before_prediction": true,
+  "optimized_on_this_set": false,
+  "results": {
+    "beto_v3_pr28": {
+      "errors_by_phenomenon": {
+        "balanced_contrast": {
+          "errors": 50,
+          "n": 50
+        },
+        "colloquial": {
+          "errors": 20,
+          "n": 90,
+          "ok": 70
+        },
+        "contrast": {
+          "errors": 25,
+          "n": 50,
+          "ok": 25
+        },
+        "early_positive_lexicon": {
+          "errors": 60,
+          "n": 65,
+          "ok": 5
+        },
+        "factual_neutral": {
+          "errors": 59,
+          "n": 100,
+          "ok": 41
+        },
+        "irony": {
+          "errors": 10,
+          "n": 20,
+          "ok": 10
+        },
+        "long_form": {
+          "n": 50,
+          "ok": 50
+        },
+        "mixed_aspects": {
+          "errors": 50,
+          "n": 50
+        },
+        "neg_then_pos": {
+          "n": 20,
+          "ok": 20
+        },
+        "negation": {
+          "errors": 5,
+          "n": 20,
+          "ok": 15
+        },
+        "objective_chronology": {
+          "errors": 59,
+          "n": 100,
+          "ok": 41
+        },
+        "resolved_incident": {
+          "n": 20,
+          "ok": 20
+        },
+        "sarcasm": {
+          "errors": 10,
+          "n": 20,
+          "ok": 10
+        },
+        "truncation_stress": {
+          "errors": 50,
+          "n": 50
+        },
+        "unanswered_complaint": {
+          "errors": 25,
+          "n": 30,
+          "ok": 5
+        }
+      },
+      "goals": {
+        "accuracy>=0.90": false,
+        "each_f1>=0.85": false,
+        "macro_f1>=0.90": false,
+        "macro_precision>=0.90": false,
+        "macro_recall>=0.90": false,
+        "neg_recall>=0.95": false,
+        "neg_to_pos_rate<=0.05": false
+      },
+      "infer_max_length": 256,
+      "manifest_sha256": "c66453d041090bf6d10a9af10fdfbb8ab2d53b70a18f44e4439921a28914a7b7",
+      "metrics": {
+        "accuracy": 0.6033333333333334,
+        "classification_report": {
+          "accuracy": 0.6033333333333334,
+          "macro avg": {
+            "f1-score": 0.5913040785111886,
+            "precision": 0.7977318403674992,
+            "recall": 0.6033333333333334,
+            "support": 300.0
+          },
+          "negativo": {
+            "f1-score": 0.5594405594405595,
+            "precision": 0.9302325581395349,
+            "recall": 0.4,
+            "support": 100.0
+          },
+          "neutral": {
+            "f1-score": 0.5815602836879432,
+            "precision": 1.0,
+            "recall": 0.41,
+            "support": 100.0
+          },
+          "positivo": {
+            "f1-score": 0.6329113924050633,
+            "precision": 0.46296296296296297,
+            "recall": 1.0,
+            "support": 100.0
+          },
+          "weighted avg": {
+            "f1-score": 0.5913040785111887,
+            "precision": 0.7977318403674993,
+            "recall": 0.6033333333333334,
+            "support": 300.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            40,
+            0,
+            60
+          ],
+          [
+            3,
+            41,
+            56
+          ],
+          [
+            0,
+            0,
+            100
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.5913040785111886,
+        "macro_precision": 0.7977318403674992,
+        "macro_recall": 0.6033333333333334,
+        "mean_latency_ms": 6.449123999997634,
+        "n": 300,
+        "neg_recall": 0.4,
+        "neg_to_pos": 60,
+        "neg_to_pos_rate": 0.6,
+        "per_class": {
+          "negativo": {
+            "f1": 0.5594405594405595,
+            "precision": 0.9302325581395349,
+            "recall": 0.4,
+            "support": 100
+          },
+          "neutral": {
+            "f1": 0.5815602836879432,
+            "precision": 1.0,
+            "recall": 0.41,
+            "support": 100
+          },
+          "positivo": {
+            "f1": 0.6329113924050633,
+            "precision": 0.46296296296296297,
+            "recall": 1.0,
+            "support": 100
+          }
+        }
+      },
+      "path": "artifacts\\beto-v3-pr28-local",
+      "status": "OK"
+    },
+    "beto_v4_1_partial256": {
+      "errors_by_phenomenon": {
+        "balanced_contrast": {
+          "errors": 18,
+          "n": 50,
+          "ok": 32
+        },
+        "colloquial": {
+          "errors": 17,
+          "n": 90,
+          "ok": 73
+        },
+        "contrast": {
+          "n": 50,
+          "ok": 50
+        },
+        "early_positive_lexicon": {
+          "n": 65,
+          "ok": 65
+        },
+        "factual_neutral": {
+          "errors": 18,
+          "n": 100,
+          "ok": 82
+        },
+        "irony": {
+          "n": 20,
+          "ok": 20
+        },
+        "long_form": {
+          "errors": 11,
+          "n": 50,
+          "ok": 39
+        },
+        "mixed_aspects": {
+          "errors": 18,
+          "n": 50,
+          "ok": 32
+        },
+        "neg_then_pos": {
+          "n": 20,
+          "ok": 20
+        },
+        "negation": {
+          "n": 20,
+          "ok": 20
+        },
+        "objective_chronology": {
+          "errors": 18,
+          "n": 100,
+          "ok": 82
+        },
+        "resolved_incident": {
+          "errors": 1,
+          "n": 20,
+          "ok": 19
+        },
+        "sarcasm": {
+          "n": 20,
+          "ok": 20
+        },
+        "truncation_stress": {
+          "n": 50,
+          "ok": 50
+        },
+        "unanswered_complaint": {
+          "n": 30,
+          "ok": 30
+        }
+      },
+      "goals": {
+        "accuracy>=0.90": false,
+        "each_f1>=0.85": true,
+        "macro_f1>=0.90": false,
+        "macro_precision>=0.90": true,
+        "macro_recall>=0.90": false,
+        "neg_recall>=0.95": true,
+        "neg_to_pos_rate<=0.05": true
+      },
+      "infer_max_length": 256,
+      "manifest_sha256": "74dddc6f93006392b8b5a999095d529045eaf21ce39baa1d21563bf4554af1fc",
+      "metrics": {
+        "accuracy": 0.88,
+        "classification_report": {
+          "accuracy": 0.88,
+          "macro avg": {
+            "f1-score": 0.8827791980913711,
+            "precision": 0.9095641826565521,
+            "recall": 0.8799999999999999,
+            "support": 300.0
+          },
+          "negativo": {
+            "f1-score": 0.851063829787234,
+            "precision": 0.7407407407407407,
+            "recall": 1.0,
+            "support": 100.0
+          },
+          "neutral": {
+            "f1-score": 0.8961748633879781,
+            "precision": 0.9879518072289156,
+            "recall": 0.82,
+            "support": 100.0
+          },
+          "positivo": {
+            "f1-score": 0.9010989010989011,
+            "precision": 1.0,
+            "recall": 0.82,
+            "support": 100.0
+          },
+          "weighted avg": {
+            "f1-score": 0.8827791980913712,
+            "precision": 0.909564182656552,
+            "recall": 0.88,
+            "support": 300.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            100,
+            0,
+            0
+          ],
+          [
+            18,
+            82,
+            0
+          ],
+          [
+            17,
+            1,
+            82
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.8827791980913711,
+        "macro_precision": 0.9095641826565521,
+        "macro_recall": 0.8799999999999999,
+        "mean_latency_ms": 5.685058666664797,
+        "n": 300,
+        "neg_recall": 1.0,
+        "neg_to_pos": 0,
+        "neg_to_pos_rate": 0.0,
+        "per_class": {
+          "negativo": {
+            "f1": 0.851063829787234,
+            "precision": 0.7407407407407407,
+            "recall": 1.0,
+            "support": 100
+          },
+          "neutral": {
+            "f1": 0.8961748633879781,
+            "precision": 0.9879518072289156,
+            "recall": 0.82,
+            "support": 100
+          },
+          "positivo": {
+            "f1": 0.9010989010989011,
+            "precision": 1.0,
+            "recall": 0.82,
+            "support": 100
+          }
+        }
+      },
+      "path": "artifacts\\synthetic-tourism-v4.1\\beto-v4-partial256",
+      "status": "OK"
+    },
+    "beto_v4_2_frozen256": {
+      "errors_by_phenomenon": {
+        "balanced_contrast": {
+          "errors": 39,
+          "n": 50,
+          "ok": 11
+        },
+        "colloquial": {
+          "errors": 40,
+          "n": 90,
+          "ok": 50
+        },
+        "contrast": {
+          "errors": 20,
+          "n": 50,
+          "ok": 30
+        },
+        "early_positive_lexicon": {
+          "n": 65,
+          "ok": 65
+        },
+        "factual_neutral": {
+          "errors": 47,
+          "n": 100,
+          "ok": 53
+        },
+        "irony": {
+          "n": 20,
+          "ok": 20
+        },
+        "long_form": {
+          "errors": 46,
+          "n": 50,
+          "ok": 4
+        },
+        "mixed_aspects": {
+          "errors": 39,
+          "n": 50,
+          "ok": 11
+        },
+        "neg_then_pos": {
+          "errors": 20,
+          "n": 20
+        },
+        "negation": {
+          "errors": 2,
+          "n": 20,
+          "ok": 18
+        },
+        "objective_chronology": {
+          "errors": 47,
+          "n": 100,
+          "ok": 53
+        },
+        "resolved_incident": {
+          "errors": 14,
+          "n": 20,
+          "ok": 6
+        },
+        "sarcasm": {
+          "n": 20,
+          "ok": 20
+        },
+        "truncation_stress": {
+          "n": 50,
+          "ok": 50
+        },
+        "unanswered_complaint": {
+          "n": 30,
+          "ok": 30
+        }
+      },
+      "goals": {
+        "accuracy>=0.90": false,
+        "each_f1>=0.85": false,
+        "macro_f1>=0.90": false,
+        "macro_precision>=0.90": false,
+        "macro_recall>=0.90": false,
+        "neg_recall>=0.95": true,
+        "neg_to_pos_rate<=0.05": true
+      },
+      "infer_max_length": 256,
+      "manifest_sha256": "fea082cb09fd1aa1fd6214dbe52168dd333eb41e31feacb6677804dcb1314586",
+      "metrics": {
+        "accuracy": 0.59,
+        "classification_report": {
+          "accuracy": 0.59,
+          "macro avg": {
+            "f1-score": 0.5703298143787575,
+            "precision": 0.8037083160370831,
+            "recall": 0.59,
+            "support": 300.0
+          },
+          "negativo": {
+            "f1-score": 0.6144200626959248,
+            "precision": 0.4474885844748858,
+            "recall": 0.98,
+            "support": 100.0
+          },
+          "neutral": {
+            "f1-score": 0.6838709677419355,
+            "precision": 0.9636363636363636,
+            "recall": 0.53,
+            "support": 100.0
+          },
+          "positivo": {
+            "f1-score": 0.4126984126984127,
+            "precision": 1.0,
+            "recall": 0.26,
+            "support": 100.0
+          },
+          "weighted avg": {
+            "f1-score": 0.5703298143787576,
+            "precision": 0.8037083160370831,
+            "recall": 0.59,
+            "support": 300.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            98,
+            2,
+            0
+          ],
+          [
+            47,
+            53,
+            0
+          ],
+          [
+            74,
+            0,
+            26
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.5703298143787575,
+        "macro_precision": 0.8037083160370831,
+        "macro_recall": 0.59,
+        "mean_latency_ms": 5.712559666662855,
+        "n": 300,
+        "neg_recall": 0.98,
+        "neg_to_pos": 0,
+        "neg_to_pos_rate": 0.0,
+        "per_class": {
+          "negativo": {
+            "f1": 0.6144200626959248,
+            "precision": 0.4474885844748858,
+            "recall": 0.98,
+            "support": 100
+          },
+          "neutral": {
+            "f1": 0.6838709677419355,
+            "precision": 0.9636363636363636,
+            "recall": 0.53,
+            "support": 100
+          },
+          "positivo": {
+            "f1": 0.4126984126984127,
+            "precision": 1.0,
+            "recall": 0.26,
+            "support": 100
+          }
+        }
+      },
+      "path": "artifacts\\synthetic-tourism-v4.2\\beto-v4-frozen256",
+      "status": "OK"
+    },
+    "beto_v4_2_partial256": {
+      "errors_by_phenomenon": {
+        "balanced_contrast": {
+          "errors": 7,
+          "n": 50,
+          "ok": 43
+        },
+        "colloquial": {
+          "errors": 14,
+          "n": 90,
+          "ok": 76
+        },
+        "contrast": {
+          "n": 50,
+          "ok": 50
+        },
+        "early_positive_lexicon": {
+          "n": 65,
+          "ok": 65
+        },
+        "factual_neutral": {
+          "errors": 7,
+          "n": 100,
+          "ok": 93
+        },
+        "irony": {
+          "n": 20,
+          "ok": 20
+        },
+        "long_form": {
+          "errors": 20,
+          "n": 50,
+          "ok": 30
+        },
+        "mixed_aspects": {
+          "errors": 7,
+          "n": 50,
+          "ok": 43
+        },
+        "neg_then_pos": {
+          "n": 20,
+          "ok": 20
+        },
+        "negation": {
+          "errors": 3,
+          "n": 20,
+          "ok": 17
+        },
+        "objective_chronology": {
+          "errors": 7,
+          "n": 100,
+          "ok": 93
+        },
+        "resolved_incident": {
+          "errors": 3,
+          "n": 20,
+          "ok": 17
+        },
+        "sarcasm": {
+          "n": 20,
+          "ok": 20
+        },
+        "truncation_stress": {
+          "n": 50,
+          "ok": 50
+        },
+        "unanswered_complaint": {
+          "n": 30,
+          "ok": 30
+        }
+      },
+      "goals": {
+        "accuracy>=0.90": true,
+        "each_f1>=0.85": true,
+        "macro_f1>=0.90": true,
+        "macro_precision>=0.90": true,
+        "macro_recall>=0.90": true,
+        "neg_recall>=0.95": true,
+        "neg_to_pos_rate<=0.05": true
+      },
+      "infer_max_length": 256,
+      "manifest_sha256": "24be5eb9ecf2ac20c1085b5a93aba09c53feb2ab57c5e290f56534faef817a63",
+      "metrics": {
+        "accuracy": 0.91,
+        "classification_report": {
+          "accuracy": 0.91,
+          "macro avg": {
+            "f1-score": 0.9088598402323892,
+            "precision": 0.9187665782493369,
+            "recall": 0.9100000000000001,
+            "support": 300.0
+          },
+          "negativo": {
+            "f1-score": 0.9259259259259259,
+            "precision": 0.8620689655172413,
+            "recall": 1.0,
+            "support": 100.0
+          },
+          "neutral": {
+            "f1-score": 0.9117647058823529,
+            "precision": 0.8942307692307693,
+            "recall": 0.93,
+            "support": 100.0
+          },
+          "positivo": {
+            "f1-score": 0.8888888888888888,
+            "precision": 1.0,
+            "recall": 0.8,
+            "support": 100.0
+          },
+          "weighted avg": {
+            "f1-score": 0.9088598402323892,
+            "precision": 0.9187665782493369,
+            "recall": 0.91,
+            "support": 300.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            100,
+            0,
+            0
+          ],
+          [
+            7,
+            93,
+            0
+          ],
+          [
+            9,
+            11,
+            80
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.9088598402323892,
+        "macro_precision": 0.9187665782493369,
+        "macro_recall": 0.9100000000000001,
+        "mean_latency_ms": 5.815403666662557,
+        "n": 300,
+        "neg_recall": 1.0,
+        "neg_to_pos": 0,
+        "neg_to_pos_rate": 0.0,
+        "per_class": {
+          "negativo": {
+            "f1": 0.9259259259259259,
+            "precision": 0.8620689655172413,
+            "recall": 1.0,
+            "support": 100
+          },
+          "neutral": {
+            "f1": 0.9117647058823529,
+            "precision": 0.8942307692307693,
+            "recall": 0.93,
+            "support": 100
+          },
+          "positivo": {
+            "f1": 0.8888888888888888,
+            "precision": 1.0,
+            "recall": 0.8,
+            "support": 100
+          }
+        }
+      },
+      "path": "artifacts\\synthetic-tourism-v4.2\\beto-v4-partial256",
+      "status": "OK"
+    },
+    "demo_lr": {
+      "errors_by_phenomenon": {
+        "balanced_contrast": {
+          "n": 50,
+          "ok": 50
+        },
+        "colloquial": {
+          "errors": 72,
+          "n": 90,
+          "ok": 18
+        },
+        "contrast": {
+          "errors": 48,
+          "n": 50,
+          "ok": 2
+        },
+        "early_positive_lexicon": {
+          "errors": 58,
+          "n": 65,
+          "ok": 7
+        },
+        "factual_neutral": {
+          "errors": 5,
+          "n": 100,
+          "ok": 95
+        },
+        "irony": {
+          "errors": 10,
+          "n": 20,
+          "ok": 10
+        },
+        "long_form": {
+          "errors": 50,
+          "n": 50
+        },
+        "mixed_aspects": {
+          "n": 50,
+          "ok": 50
+        },
+        "neg_then_pos": {
+          "errors": 20,
+          "n": 20
+        },
+        "negation": {
+          "errors": 20,
+          "n": 20
+        },
+        "objective_chronology": {
+          "errors": 5,
+          "n": 100,
+          "ok": 95
+        },
+        "resolved_incident": {
+          "errors": 20,
+          "n": 20
+        },
+        "sarcasm": {
+          "errors": 10,
+          "n": 20,
+          "ok": 10
+        },
+        "truncation_stress": {
+          "errors": 43,
+          "n": 50,
+          "ok": 7
+        },
+        "unanswered_complaint": {
+          "errors": 28,
+          "n": 30,
+          "ok": 2
+        }
+      },
+      "goals": {
+        "accuracy>=0.90": false,
+        "each_f1>=0.85": false,
+        "macro_f1>=0.90": false,
+        "macro_precision>=0.90": false,
+        "macro_recall>=0.90": false,
+        "neg_recall>=0.95": false,
+        "neg_to_pos_rate<=0.05": true
+      },
+      "metrics": {
+        "accuracy": 0.4166666666666667,
+        "classification_report": {
+          "accuracy": 0.4166666666666667,
+          "macro avg": {
+            "f1-score": 0.3154689637894818,
+            "precision": 0.3379306478288902,
+            "recall": 0.4166666666666667,
+            "support": 300.0
+          },
+          "negativo": {
+            "f1-score": 0.40816326530612246,
+            "precision": 0.6382978723404256,
+            "recall": 0.3,
+            "support": 100.0
+          },
+          "neutral": {
+            "f1-score": 0.5382436260623229,
+            "precision": 0.37549407114624506,
+            "recall": 0.95,
+            "support": 100.0
+          },
+          "positivo": {
+            "f1-score": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 100.0
+          },
+          "weighted avg": {
+            "f1-score": 0.3154689637894818,
+            "precision": 0.3379306478288902,
+            "recall": 0.4166666666666667,
+            "support": 300.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            30,
+            70,
+            0
+          ],
+          [
+            5,
+            95,
+            0
+          ],
+          [
+            12,
+            88,
+            0
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.3154689637894818,
+        "macro_precision": 0.3379306478288902,
+        "macro_recall": 0.4166666666666667,
+        "mean_latency_ms": 0.2981123333362727,
+        "n": 300,
+        "neg_recall": 0.3,
+        "neg_to_pos": 0,
+        "neg_to_pos_rate": 0.0,
+        "per_class": {
+          "negativo": {
+            "f1": 0.40816326530612246,
+            "precision": 0.6382978723404256,
+            "recall": 0.3,
+            "support": 100
+          },
+          "neutral": {
+            "f1": 0.5382436260623229,
+            "precision": 0.37549407114624506,
+            "recall": 0.95,
+            "support": 100
+          },
+          "positivo": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 100
+          }
+        }
+      },
+      "path": "artifacts\\demo_model.joblib",
+      "sha256": "35101692b6e5e7ac211ad4f92a4251896024d754d7a84e54541a11f6e4eafd9c",
+      "status": "OK"
+    },
+    "v4_0_lr": {
+      "errors_by_phenomenon": {
+        "balanced_contrast": {
+          "errors": 9,
+          "n": 50,
+          "ok": 41
+        },
+        "colloquial": {
+          "errors": 41,
+          "n": 90,
+          "ok": 49
+        },
+        "contrast": {
+          "errors": 8,
+          "n": 50,
+          "ok": 42
+        },
+        "early_positive_lexicon": {
+          "errors": 26,
+          "n": 65,
+          "ok": 39
+        },
+        "factual_neutral": {
+          "errors": 9,
+          "n": 100,
+          "ok": 91
+        },
+        "irony": {
+          "errors": 7,
+          "n": 20,
+          "ok": 13
+        },
+        "long_form": {
+          "errors": 27,
+          "n": 50,
+          "ok": 23
+        },
+        "mixed_aspects": {
+          "errors": 9,
+          "n": 50,
+          "ok": 41
+        },
+        "neg_then_pos": {
+          "errors": 2,
+          "n": 20,
+          "ok": 18
+        },
+        "negation": {
+          "errors": 4,
+          "n": 20,
+          "ok": 16
+        },
+        "objective_chronology": {
+          "errors": 9,
+          "n": 100,
+          "ok": 91
+        },
+        "resolved_incident": {
+          "errors": 11,
+          "n": 20,
+          "ok": 9
+        },
+        "sarcasm": {
+          "errors": 7,
+          "n": 20,
+          "ok": 13
+        },
+        "truncation_stress": {
+          "errors": 26,
+          "n": 50,
+          "ok": 24
+        },
+        "unanswered_complaint": {
+          "errors": 6,
+          "n": 30,
+          "ok": 24
+        }
+      },
+      "goals": {
+        "accuracy>=0.90": false,
+        "each_f1>=0.85": false,
+        "macro_f1>=0.90": false,
+        "macro_precision>=0.90": false,
+        "macro_recall>=0.90": false,
+        "neg_recall>=0.95": false,
+        "neg_to_pos_rate<=0.05": false
+      },
+      "metrics": {
+        "accuracy": 0.7333333333333333,
+        "classification_report": {
+          "accuracy": 0.7333333333333333,
+          "macro avg": {
+            "f1-score": 0.7279818077940144,
+            "precision": 0.7261297678064961,
+            "recall": 0.7333333333333334,
+            "support": 300.0
+          },
+          "negativo": {
+            "f1-score": 0.7474747474747475,
+            "precision": 0.7551020408163265,
+            "recall": 0.74,
+            "support": 100.0
+          },
+          "neutral": {
+            "f1-score": 0.8544600938967136,
+            "precision": 0.8053097345132744,
+            "recall": 0.91,
+            "support": 100.0
+          },
+          "positivo": {
+            "f1-score": 0.582010582010582,
+            "precision": 0.6179775280898876,
+            "recall": 0.55,
+            "support": 100.0
+          },
+          "weighted avg": {
+            "f1-score": 0.7279818077940144,
+            "precision": 0.7261297678064962,
+            "recall": 0.7333333333333333,
+            "support": 300.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            74,
+            1,
+            25
+          ],
+          [
+            0,
+            91,
+            9
+          ],
+          [
+            24,
+            21,
+            55
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.7279818077940144,
+        "macro_precision": 0.7261297678064961,
+        "macro_recall": 0.7333333333333334,
+        "mean_latency_ms": 0.33300833333366125,
+        "n": 300,
+        "neg_recall": 0.74,
+        "neg_to_pos": 25,
+        "neg_to_pos_rate": 0.25,
+        "per_class": {
+          "negativo": {
+            "f1": 0.7474747474747475,
+            "precision": 0.7551020408163265,
+            "recall": 0.74,
+            "support": 100
+          },
+          "neutral": {
+            "f1": 0.8544600938967136,
+            "precision": 0.8053097345132744,
+            "recall": 0.91,
+            "support": 100
+          },
+          "positivo": {
+            "f1": 0.582010582010582,
+            "precision": 0.6179775280898876,
+            "recall": 0.55,
+            "support": 100
+          }
+        }
+      },
+      "path": "artifacts\\synthetic-tourism-v4\\lr.joblib",
+      "sha256": "a813179456518a9313f2dddbebf8ea7cf16283be8027ecd52ca9fe2d1a4cd1b2",
+      "status": "OK"
+    },
+    "v4_1_lr": {
+      "errors_by_phenomenon": {
+        "balanced_contrast": {
+          "n": 50,
+          "ok": 50
+        },
+        "colloquial": {
+          "errors": 55,
+          "n": 90,
+          "ok": 35
+        },
+        "contrast": {
+          "errors": 20,
+          "n": 50,
+          "ok": 30
+        },
+        "early_positive_lexicon": {
+          "errors": 5,
+          "n": 65,
+          "ok": 60
+        },
+        "factual_neutral": {
+          "n": 100,
+          "ok": 100
+        },
+        "irony": {
+          "n": 20,
+          "ok": 20
+        },
+        "long_form": {
+          "errors": 50,
+          "n": 50
+        },
+        "mixed_aspects": {
+          "n": 50,
+          "ok": 50
+        },
+        "neg_then_pos": {
+          "errors": 20,
+          "n": 20
+        },
+        "negation": {
+          "errors": 5,
+          "n": 20,
+          "ok": 15
+        },
+        "objective_chronology": {
+          "n": 100,
+          "ok": 100
+        },
+        "resolved_incident": {
+          "errors": 17,
+          "n": 20,
+          "ok": 3
+        },
+        "sarcasm": {
+          "n": 20,
+          "ok": 20
+        },
+        "truncation_stress": {
+          "errors": 5,
+          "n": 50,
+          "ok": 45
+        },
+        "unanswered_complaint": {
+          "n": 30,
+          "ok": 30
+        }
+      },
+      "goals": {
+        "accuracy>=0.90": false,
+        "each_f1>=0.85": false,
+        "macro_f1>=0.90": false,
+        "macro_precision>=0.90": false,
+        "macro_recall>=0.90": false,
+        "neg_recall>=0.95": true,
+        "neg_to_pos_rate<=0.05": true
+      },
+      "metrics": {
+        "accuracy": 0.6766666666666666,
+        "classification_report": {
+          "accuracy": 0.6766666666666666,
+          "macro avg": {
+            "f1-score": 0.584250917584251,
+            "precision": 0.792831886853102,
+            "recall": 0.6766666666666666,
+            "support": 300.0
+          },
+          "negativo": {
+            "f1-score": 0.7037037037037037,
+            "precision": 0.5588235294117647,
+            "recall": 0.95,
+            "support": 100.0
+          },
+          "neutral": {
+            "f1-score": 0.9009009009009009,
+            "precision": 0.819672131147541,
+            "recall": 1.0,
+            "support": 100.0
+          },
+          "positivo": {
+            "f1-score": 0.14814814814814814,
+            "precision": 1.0,
+            "recall": 0.08,
+            "support": 100.0
+          },
+          "weighted avg": {
+            "f1-score": 0.584250917584251,
+            "precision": 0.7928318868531019,
+            "recall": 0.6766666666666666,
+            "support": 300.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            95,
+            5,
+            0
+          ],
+          [
+            0,
+            100,
+            0
+          ],
+          [
+            75,
+            17,
+            8
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.584250917584251,
+        "macro_precision": 0.792831886853102,
+        "macro_recall": 0.6766666666666666,
+        "mean_latency_ms": 0.3268616666658393,
+        "n": 300,
+        "neg_recall": 0.95,
+        "neg_to_pos": 0,
+        "neg_to_pos_rate": 0.0,
+        "per_class": {
+          "negativo": {
+            "f1": 0.7037037037037037,
+            "precision": 0.5588235294117647,
+            "recall": 0.95,
+            "support": 100
+          },
+          "neutral": {
+            "f1": 0.9009009009009009,
+            "precision": 0.819672131147541,
+            "recall": 1.0,
+            "support": 100
+          },
+          "positivo": {
+            "f1": 0.14814814814814814,
+            "precision": 1.0,
+            "recall": 0.08,
+            "support": 100
+          }
+        }
+      },
+      "path": "artifacts\\synthetic-tourism-v4.1\\lr.joblib",
+      "sha256": "d5e9ba8c95af665059f96c8bd1a632c869ee0f80234fe10449c3c14dfc082b2d",
+      "status": "OK"
+    },
+    "v4_1_svm": {
+      "errors_by_phenomenon": {
+        "balanced_contrast": {
+          "n": 50,
+          "ok": 50
+        },
+        "colloquial": {
+          "errors": 55,
+          "n": 90,
+          "ok": 35
+        },
+        "contrast": {
+          "errors": 20,
+          "n": 50,
+          "ok": 30
+        },
+        "early_positive_lexicon": {
+          "errors": 6,
+          "n": 65,
+          "ok": 59
+        },
+        "factual_neutral": {
+          "n": 100,
+          "ok": 100
+        },
+        "irony": {
+          "errors": 1,
+          "n": 20,
+          "ok": 19
+        },
+        "long_form": {
+          "errors": 50,
+          "n": 50
+        },
+        "mixed_aspects": {
+          "n": 50,
+          "ok": 50
+        },
+        "neg_then_pos": {
+          "errors": 20,
+          "n": 20
+        },
+        "negation": {
+          "errors": 5,
+          "n": 20,
+          "ok": 15
+        },
+        "objective_chronology": {
+          "n": 100,
+          "ok": 100
+        },
+        "resolved_incident": {
+          "errors": 20,
+          "n": 20
+        },
+        "sarcasm": {
+          "errors": 1,
+          "n": 20,
+          "ok": 19
+        },
+        "truncation_stress": {
+          "errors": 6,
+          "n": 50,
+          "ok": 44
+        },
+        "unanswered_complaint": {
+          "n": 30,
+          "ok": 30
+        }
+      },
+      "goals": {
+        "accuracy>=0.90": false,
+        "each_f1>=0.85": false,
+        "macro_f1>=0.90": false,
+        "macro_precision>=0.90": false,
+        "macro_recall>=0.90": false,
+        "neg_recall>=0.95": false,
+        "neg_to_pos_rate<=0.05": true
+      },
+      "metrics": {
+        "accuracy": 0.6633333333333333,
+        "classification_report": {
+          "accuracy": 0.6633333333333333,
+          "macro avg": {
+            "f1-score": 0.5588503092938338,
+            "precision": 0.7813747504990021,
+            "recall": 0.6633333333333333,
+            "support": 300.0
+          },
+          "negativo": {
+            "f1-score": 0.704119850187266,
+            "precision": 0.562874251497006,
+            "recall": 0.94,
+            "support": 100.0
+          },
+          "neutral": {
+            "f1-score": 0.8771929824561403,
+            "precision": 0.78125,
+            "recall": 1.0,
+            "support": 100.0
+          },
+          "positivo": {
+            "f1-score": 0.09523809523809523,
+            "precision": 1.0,
+            "recall": 0.05,
+            "support": 100.0
+          },
+          "weighted avg": {
+            "f1-score": 0.5588503092938338,
+            "precision": 0.781374750499002,
+            "recall": 0.6633333333333333,
+            "support": 300.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            94,
+            6,
+            0
+          ],
+          [
+            0,
+            100,
+            0
+          ],
+          [
+            73,
+            22,
+            5
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.5588503092938338,
+        "macro_precision": 0.7813747504990021,
+        "macro_recall": 0.6633333333333333,
+        "mean_latency_ms": 0.9898519999963659,
+        "n": 300,
+        "neg_recall": 0.94,
+        "neg_to_pos": 0,
+        "neg_to_pos_rate": 0.0,
+        "per_class": {
+          "negativo": {
+            "f1": 0.704119850187266,
+            "precision": 0.562874251497006,
+            "recall": 0.94,
+            "support": 100
+          },
+          "neutral": {
+            "f1": 0.8771929824561403,
+            "precision": 0.78125,
+            "recall": 1.0,
+            "support": 100
+          },
+          "positivo": {
+            "f1": 0.09523809523809523,
+            "precision": 1.0,
+            "recall": 0.05,
+            "support": 100
+          }
+        }
+      },
+      "path": "artifacts\\synthetic-tourism-v4.1\\svm.joblib",
+      "sha256": "528fc0dbdb77be9ebec8c73fcddd27b99f17c72d45ae28352b265c049bb5d9f4",
+      "status": "OK"
+    },
+    "v4_2_lr": {
+      "errors_by_phenomenon": {
+        "balanced_contrast": {
+          "n": 50,
+          "ok": 50
+        },
+        "colloquial": {
+          "errors": 72,
+          "n": 90,
+          "ok": 18
+        },
+        "contrast": {
+          "errors": 30,
+          "n": 50,
+          "ok": 20
+        },
+        "early_positive_lexicon": {
+          "errors": 48,
+          "n": 65,
+          "ok": 17
+        },
+        "factual_neutral": {
+          "n": 100,
+          "ok": 100
+        },
+        "irony": {
+          "errors": 10,
+          "n": 20,
+          "ok": 10
+        },
+        "long_form": {
+          "errors": 50,
+          "n": 50
+        },
+        "mixed_aspects": {
+          "n": 50,
+          "ok": 50
+        },
+        "neg_then_pos": {
+          "errors": 15,
+          "n": 20,
+          "ok": 5
+        },
+        "negation": {
+          "errors": 10,
+          "n": 20,
+          "ok": 10
+        },
+        "objective_chronology": {
+          "n": 100,
+          "ok": 100
+        },
+        "resolved_incident": {
+          "errors": 19,
+          "n": 20,
+          "ok": 1
+        },
+        "sarcasm": {
+          "errors": 10,
+          "n": 20,
+          "ok": 10
+        },
+        "truncation_stress": {
+          "errors": 48,
+          "n": 50,
+          "ok": 2
+        },
+        "unanswered_complaint": {
+          "errors": 15,
+          "n": 30,
+          "ok": 15
+        }
+      },
+      "goals": {
+        "accuracy>=0.90": false,
+        "each_f1>=0.85": false,
+        "macro_f1>=0.90": false,
+        "macro_precision>=0.90": false,
+        "macro_recall>=0.90": false,
+        "neg_recall>=0.95": false,
+        "neg_to_pos_rate<=0.05": true
+      },
+      "metrics": {
+        "accuracy": 0.53,
+        "classification_report": {
+          "accuracy": 0.53,
+          "macro avg": {
+            "f1-score": 0.4602036192050282,
+            "precision": 0.696439421557905,
+            "recall": 0.53,
+            "support": 300.0
+          },
+          "negativo": {
+            "f1-score": 0.5393258426966292,
+            "precision": 0.6153846153846154,
+            "recall": 0.48,
+            "support": 100.0
+          },
+          "neutral": {
+            "f1-score": 0.6430868167202572,
+            "precision": 0.47393364928909953,
+            "recall": 1.0,
+            "support": 100.0
+          },
+          "positivo": {
+            "f1-score": 0.1981981981981982,
+            "precision": 1.0,
+            "recall": 0.11,
+            "support": 100.0
+          },
+          "weighted avg": {
+            "f1-score": 0.4602036192050283,
+            "precision": 0.696439421557905,
+            "recall": 0.53,
+            "support": 300.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            48,
+            52,
+            0
+          ],
+          [
+            0,
+            100,
+            0
+          ],
+          [
+            30,
+            59,
+            11
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.4602036192050282,
+        "macro_precision": 0.696439421557905,
+        "macro_recall": 0.53,
+        "mean_latency_ms": 0.3743453333360473,
+        "n": 300,
+        "neg_recall": 0.48,
+        "neg_to_pos": 0,
+        "neg_to_pos_rate": 0.0,
+        "per_class": {
+          "negativo": {
+            "f1": 0.5393258426966292,
+            "precision": 0.6153846153846154,
+            "recall": 0.48,
+            "support": 100
+          },
+          "neutral": {
+            "f1": 0.6430868167202572,
+            "precision": 0.47393364928909953,
+            "recall": 1.0,
+            "support": 100
+          },
+          "positivo": {
+            "f1": 0.1981981981981982,
+            "precision": 1.0,
+            "recall": 0.11,
+            "support": 100
+          }
+        }
+      },
+      "path": "artifacts\\synthetic-tourism-v4.2\\lr.joblib",
+      "sha256": "f459cb4461c1f2191d1727f40f7fc90c4131363957b5e8d34f95b2dfde696d52",
+      "status": "OK"
+    },
+    "v4_2_svm": {
+      "errors_by_phenomenon": {
+        "balanced_contrast": {
+          "n": 50,
+          "ok": 50
+        },
+        "colloquial": {
+          "errors": 70,
+          "n": 90,
+          "ok": 20
+        },
+        "contrast": {
+          "errors": 33,
+          "n": 50,
+          "ok": 17
+        },
+        "early_positive_lexicon": {
+          "errors": 46,
+          "n": 65,
+          "ok": 19
+        },
+        "factual_neutral": {
+          "n": 100,
+          "ok": 100
+        },
+        "irony": {
+          "errors": 10,
+          "n": 20,
+          "ok": 10
+        },
+        "long_form": {
+          "errors": 50,
+          "n": 50
+        },
+        "mixed_aspects": {
+          "n": 50,
+          "ok": 50
+        },
+        "neg_then_pos": {
+          "errors": 20,
+          "n": 20
+        },
+        "negation": {
+          "errors": 10,
+          "n": 20,
+          "ok": 10
+        },
+        "objective_chronology": {
+          "n": 100,
+          "ok": 100
+        },
+        "resolved_incident": {
+          "errors": 20,
+          "n": 20
+        },
+        "sarcasm": {
+          "errors": 10,
+          "n": 20,
+          "ok": 10
+        },
+        "truncation_stress": {
+          "errors": 46,
+          "n": 50,
+          "ok": 4
+        },
+        "unanswered_complaint": {
+          "errors": 13,
+          "n": 30,
+          "ok": 17
+        }
+      },
+      "goals": {
+        "accuracy>=0.90": false,
+        "each_f1>=0.85": false,
+        "macro_f1>=0.90": false,
+        "macro_precision>=0.90": false,
+        "macro_recall>=0.90": false,
+        "neg_recall>=0.95": false,
+        "neg_to_pos_rate<=0.05": true
+      },
+      "metrics": {
+        "accuracy": 0.5233333333333333,
+        "classification_report": {
+          "accuracy": 0.5233333333333333,
+          "macro avg": {
+            "f1-score": 0.43451410108756683,
+            "precision": 0.6976604227789062,
+            "recall": 0.5233333333333333,
+            "support": 300.0
+          },
+          "negativo": {
+            "f1-score": 0.5652173913043478,
+            "precision": 0.6190476190476191,
+            "recall": 0.52,
+            "support": 100.0
+          },
+          "neutral": {
+            "f1-score": 0.6430868167202572,
+            "precision": 0.47393364928909953,
+            "recall": 1.0,
+            "support": 100.0
+          },
+          "positivo": {
+            "f1-score": 0.09523809523809523,
+            "precision": 1.0,
+            "recall": 0.05,
+            "support": 100.0
+          },
+          "weighted avg": {
+            "f1-score": 0.4345141010875668,
+            "precision": 0.6976604227789062,
+            "recall": 0.5233333333333333,
+            "support": 300.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            52,
+            48,
+            0
+          ],
+          [
+            0,
+            100,
+            0
+          ],
+          [
+            32,
+            63,
+            5
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.43451410108756683,
+        "macro_precision": 0.6976604227789062,
+        "macro_recall": 0.5233333333333333,
+        "mean_latency_ms": 1.0117926666680432,
+        "n": 300,
+        "neg_recall": 0.52,
+        "neg_to_pos": 0,
+        "neg_to_pos_rate": 0.0,
+        "per_class": {
+          "negativo": {
+            "f1": 0.5652173913043478,
+            "precision": 0.6190476190476191,
+            "recall": 0.52,
+            "support": 100
+          },
+          "neutral": {
+            "f1": 0.6430868167202572,
+            "precision": 0.47393364928909953,
+            "recall": 1.0,
+            "support": 100
+          },
+          "positivo": {
+            "f1": 0.09523809523809523,
+            "precision": 1.0,
+            "recall": 0.05,
+            "support": 100
+          }
+        }
+      },
+      "path": "artifacts\\synthetic-tourism-v4.2\\svm.joblib",
+      "sha256": "f73bd80e9a1b690bf8639407005d7c2d899f1315dfd8b922abac0ca040b7ee72",
+      "status": "OK"
+    }
+  },
+  "schema": "traveler-v4-independent-v2-comparison",
+  "truncation_coverage": {
+    "max_tokens": 182,
+    "n": 300,
+    "over_128": 103,
+    "over_256": 0
+  }
+}

@@ -74,16 +74,18 @@ def test_hard_holdout_encodes_failure_pattern(rows):
         assert any(k in text for k in ("perdimos", "se cayó", "no pudimos", "se perdió", "canceló", "sin conexión"))
 
 
-def test_v41_closings_are_shared_not_label_exclusive(rows):
-    assert VERSION == "4.1.0"
+def test_v42_closings_are_shared_not_label_exclusive(rows):
+    assert VERSION == "4.2.0"
     audit = lexical_closing_audit(rows)
     assert audit["status"] == "PASS"
     assert audit["exclusive_closing_phrases"] == []
-    # Each shared closing should appear under more than one label when present.
     for phrase in SHARED_CLOSINGS:
         hits = {r["intended_label"] for r in rows if phrase.casefold().rstrip(".") in r["text"].casefold()}
         if hits:
             assert len(hits) >= 2
+    # Neutrals should include factual chronology phenomena in the mix.
+    neutral_phen = " ".join(r["phenomena"] for r in rows if r["intended_label"] == "neutral")
+    assert "factual_neutral" in neutral_phen or "objective_chronology" in neutral_phen
 
 
 def test_rejects_human_gold_attribution(rows):

@@ -98,7 +98,45 @@ def train_classical_v4(
 
     train_texts = [r["text"] for r in parts["train"]]
     train_labels = [r["intended_label"] for r in parts["train"]]
-    model = train_classical(train_texts, train_labels, model_kind=model_kind)
+    val_texts = [r["text"] for r in parts["validation"]]
+    val_labels = [r["intended_label"] for r in parts["validation"]]
+    # Hyperparameter selection ONLY on validation (never independent eval).
+    from sklearn.pipeline import Pipeline
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.svm import LinearSVC
+    from sklearn.calibration import CalibratedClassifierCV
+    from sklearn.metrics import f1_score
+    from .model import _text_features
+
+    selected = {"model_kind": model_kind, "C": 1.0}
+    best_score = -1.0
+    best_model = None
+    for C in (0.25, 1.0, 4.0):
+        if model_kind == "lr":
+            cand = Pipeline([
+                ("tfidf", _text_features()),
+                ("classifier", LogisticRegression(
+                    max_iter=2000, class_weight="balanced", random_state=42, C=C,
+                )),
+            ])
+        else:
+            cand = CalibratedClassifierCV(
+                estimator=Pipeline([
+                    ("tfidf", _text_features()),
+                    ("classifier", LinearSVC(class_weight="balanced", random_state=42, C=C)),
+                ]),
+                method="sigmoid",
+                cv=3,
+            )
+        cand.fit(train_texts, train_labels)
+        pred = [str(x) for x in cand.predict(val_texts)]
+        score = float(f1_score(val_labels, pred, labels=list(LABELS), average="macro", zero_division=0))
+        if score > best_score:
+            best_score, best_model, selected = score, cand, {
+                "model_kind": model_kind, "C": C, "val_macro_f1": score,
+                "selection_split": "validation",
+            }
+    model = best_model
     joblib.dump(model, marker)
 
     def evaluate(name: str, subset: list[dict]) -> dict:
@@ -118,6 +156,7 @@ def train_classical_v4(
         "corpus_rows_sha256": info["rows_sha256"],
         "protocol_sha256": info["protocol_sha256"],
         "train_rows": len(parts["train"]),
+        "hyperparameter_selection": selected,
         "environment": {
             "python": platform.python_version(),
             "platform": platform.platform(),

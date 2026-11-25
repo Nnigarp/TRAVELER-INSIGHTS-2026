@@ -1,0 +1,122 @@
+{
+  "lr": {
+    "corpus_rows_sha256": "a497f9e7d191ad5d82cbd073bac45414c3c1eaf164fa176fc1c0039c47a1b4f1",
+    "hyperparameter_selection": {
+      "C": 4.0,
+      "model_kind": "lr",
+      "selection_split": "validation",
+      "val_macro_f1": 0.9722168921180155
+    },
+    "validation_macro_f1": 0.9722168921180155,
+    "test_macro_f1": 0.9610323649627422,
+    "hard_macro_f1": 1.0
+  },
+  "svm": {
+    "corpus_rows_sha256": "a497f9e7d191ad5d82cbd073bac45414c3c1eaf164fa176fc1c0039c47a1b4f1",
+    "hyperparameter_selection": {
+      "C": 1.0,
+      "model_kind": "svm",
+      "selection_split": "validation",
+      "val_macro_f1": 0.9777756459591354
+    },
+    "validation_macro_f1": 0.9777756459591354,
+    "test_macro_f1": 0.9637933754555617,
+    "hard_macro_f1": 1.0
+  },
+  "frozen256": {
+    "status": "TRAINED_FROZEN_HEAD",
+    "validation_macro_f1": 0.8103463146722555,
+    "test_macro_f1": 0.7897829934077395,
+    "hard_macro_f1": 1.0,
+    "hard_neg_to_pos": 0,
+    "hardware": {
+      "cuda_available": true,
+      "device": "cuda",
+      "device_name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "torch": "2.14.1+cu126",
+      "vram_gb": 6.0
+    },
+    "timing": {
+      "encode_train_seconds": 20.87729389999913,
+      "fit_head_seconds": 5.1552701000000525,
+      "wall_seconds": 35.83426809999946
+    },
+    "peak_vram_mib": null
+  },
+  "partial256": {
+    "status": "TRAINED_PARTIAL256",
+    "validation_macro_f1": 0.9819380945558117,
+    "test_macro_f1": 0.9708119236766551,
+    "hard_macro_f1": 1.0,
+    "hard_neg_to_pos": 0,
+    "hardware": {
+      "cuda_available": true,
+      "device": "cuda",
+      "device_name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "torch": "2.14.1+cu126",
+      "vram_gb": 6.0
+    },
+    "timing": {
+      "wall_seconds": 143.89579070000036
+    },
+    "peak_vram_mib": 654.89794921875
+  },
+  "independent_v2_winner": {
+    "metrics": {
+      "accuracy": 0.91,
+      "macro_f1": 0.9088598402323892,
+      "macro_precision": 0.9187665782493369,
+      "macro_recall": 0.9100000000000001,
+      "neg_recall": 1.0,
+      "neg_to_pos": 0,
+      "neg_to_pos_rate": 0.0,
+      "mean_latency_ms": 5.815403666662557,
+      "per_class": {
+        "negativo": {
+          "f1": 0.9259259259259259,
+          "precision": 0.8620689655172413,
+          "recall": 1.0,
+          "support": 100
+        },
+        "neutral": {
+          "f1": 0.9117647058823529,
+          "precision": 0.8942307692307693,
+          "recall": 0.93,
+          "support": 100
+        },
+        "positivo": {
+          "f1": 0.8888888888888888,
+          "precision": 1.0,
+          "recall": 0.8,
+          "support": 100
+        }
+      },
+      "confusion_matrix": [
+        [
+          100,
+          0,
+          0
+        ],
+        [
+          7,
+          93,
+          0
+        ],
+        [
+          9,
+          11,
+          80
+        ]
+      ]
+    },
+    "goals": {
+      "accuracy>=0.90": true,
+      "each_f1>=0.85": true,
+      "macro_f1>=0.90": true,
+      "macro_precision>=0.90": true,
+      "macro_recall>=0.90": true,
+      "neg_recall>=0.95": true,
+      "neg_to_pos_rate<=0.05": true
+    }
+  }
+}

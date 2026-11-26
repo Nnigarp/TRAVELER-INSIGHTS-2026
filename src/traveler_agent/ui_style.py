@@ -296,10 +296,15 @@ footer {background:transparent!important;}
 .ti-hero p {margin:auto;}
 #ti-composer {border:1px solid var(--ti-edge-strong);background:var(--ti-panel);border-radius:16px;padding:12px;min-width:0;}
 #ti-model:focus-within {outline:2px solid var(--ti-focus);outline-offset:2px;}
-#ti-language-panel, #ti-language-panel * {min-width:0;max-width:100%;overflow-wrap:anywhere;box-sizing:border-box;}
-#ti-language-panel {overflow-x:clip;}
-#ti-language-panel input, #ti-language-panel textarea {width:100%;}
-#ti-language-panel pre {white-space:pre-wrap;}
+#ti-language-panel, #ti-language-panel * {min-width:0;max-width:100%;overflow-wrap:anywhere;word-break:break-word;box-sizing:border-box;}
+#ti-language-panel {overflow-x:hidden!important;width:100%;max-width:100%;}
+#ti-language-panel :is(.form,.block,.wrap,.row,.column) {flex-wrap:wrap!important;min-width:0!important;max-width:100%!important;}
+#ti-language-panel input, #ti-language-panel textarea {width:100%!important;max-width:100%!important;}
+#ti-language-panel label,#ti-language-panel span,#ti-language-panel p {white-space:normal!important;}
+#ti-language-panel pre {white-space:pre-wrap;overflow-x:auto;max-width:100%;}
+#ti-input-pane[data-theme="light"] #ti-language-panel,
+#ti-input-pane[data-theme="dark"] #ti-language-panel,
+.ti-pane #ti-language-panel {overflow-x:hidden!important;}
 #ti-composer #ti-review textarea, #ti-composer #ti-review textarea:is(:focus,:hover,:focus-visible,:active,:disabled) {
  background:var(--ti-panel)!important;color:var(--ti-text)!important;-webkit-text-fill-color:var(--ti-text)!important;
  caret-color:var(--ti-text)!important;opacity:1!important;font-size:17px!important;line-height:1.6!important;

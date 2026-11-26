@@ -105,7 +105,7 @@ def test_card_is_ordered_readable_inert_and_survives_legacy_reports(monkeypatch)
         summary, raw, view = app.analyze_with_agents(TEXT, "lr", True)
     record = json.loads(raw)
     card = render_generation_html(record)
-    headings = ["Resumen ejecutivo", "Sentimiento DEMO", "Aspectos exploratorios", "Revisión humana", "Problema identificado",
+    headings = ["Resumen ejecutivo", "Sentimiento (clasificador local)", "Aspectos exploratorios", "Revisión humana", "Problema identificado",
                 "Evidencia textual", "Recomendación contextual", "Acción propuesta (sin ejecutar)",
                 "Advertencias", "Información técnica de generación"]
     assert [card.index(h) for h in headings] == sorted(card.index(h) for h in headings)

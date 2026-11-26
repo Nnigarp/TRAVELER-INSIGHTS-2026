@@ -10,13 +10,13 @@ from typing import Any
 
 AGENTS = (
     ("percepcion", "Percepción", "Validación de entrada"),
-    ("semantica", "Semántica", "Sentimiento, aspectos y evidencias"),
+    ("semantica", "Semántica", "Sentimiento, aspectos, incidentes y evidencias"),
     ("control", "Control", "Continuar o revisión humana"),
     ("accion", "Acción", "Valida el informe y registra la recomendación o abstención"),
 )
 CLASS_NAMES = {"percepcion": "PerceptionAgent", "semantica": "SemanticsAgent",
                "control": "ControlAgent", "accion": "ActionAgent"}
-NAMES = {"orquestador": "Orquestador principal", "qwen": "Qwen local (generador)",
+NAMES = {"orquestador": "Orquestador principal", "qwen": "Qwen local (servicio)",
          **{key: name for key, name, _ in AGENTS}}
 TASKS = {
     "plan": "Plan de ejecución", "percepcion": "Percepción",
@@ -31,8 +31,20 @@ STATUSES = {
     "RECEIVED": "Respuesta recibida; pendiente de validación",
 }
 REASONS = {
-    "SCORE_DEMO_BAJO": "Puntuación DEMO inferior al umbral interno",
-    "CONTRASTE_CON_SCORE_LIMITADO": "Contraste con puntuación DEMO limitada",
+    "SCORE_BAJO": "Puntuación inferior al umbral interno",
+    "SCORE_DEMO_BAJO": "Puntuación inferior al umbral interno",
+    "CONTRASTE_CON_SCORE_LIMITADO": "Contraste léxico con puntuación limitada",
+    "TEXTO_TRUNCADO_POR_ENCODER": "Texto truncado por la ventana del encoder",
+    "AMBIGUEDAD_O_DUDA": "Ambigüedad o duda detectada en el relato",
+    "INCIDENTE_ABIERTO_VS_ETIQUETA": "Incidente abierto frente a etiqueta global",
+    "VERIFICACION_QWEN_INCIERTO": "Verificación Qwen: balance incierto",
+    "VERIFICACION_QWEN_NO_DISPONIBLE": "Verificación Qwen no disponible",
+    "VERIFICACION_QWEN_DISCREPANCIA_NEGATIVO": "Verificación Qwen discrepa (negativo)",
+    "VERIFICACION_QWEN_DISCREPANCIA_NEUTRAL": "Verificación Qwen discrepa (neutral)",
+    "VERIFICACION_QWEN_DISCREPANCIA_POSITIVO": "Verificación Qwen discrepa (positivo)",
+    "VERIFICACION_QWEN_NEGATIVO": "Verificación Qwen discrepa (negativo)",
+    "VERIFICACION_QWEN_NEUTRAL": "Verificación Qwen discrepa (neutral)",
+    "VERIFICACION_QWEN_POSITIVO": "Verificación Qwen discrepa (positivo)",
 }
 NOTES = {
     "PLAN_FIJO_CON_GATES": "Plan fijo con controles",
@@ -57,20 +69,61 @@ def _agent_state(events: list[dict], name: str) -> str:
         return "FAILED"
     if "OK" in statuses:
         return "OK"
-    # A delegation appears under "orquestador", not under the specialist.
     if any(e.get("agent") == "orquestador" and e.get("task") == name
            and e.get("status") == "DELEGATED" for e in events):
         return "DELEGATED"
     return "NO_EJECUTADO"
 
 
-def render_multiagent_view(record: dict | None) -> str:
-    """Render ONLY recognized trace metadata, no speculative stage status.
+def _classifier_block(record: dict) -> str:
+    selection = record.get("seleccion_modelo") if isinstance(record.get("seleccion_modelo"), dict) else {}
+    multi = record.get("multiagente") if isinstance(record.get("multiagente"), dict) else {}
+    runtime = multi.get("clasificador_runtime") if isinstance(multi.get("clasificador_runtime"), dict) else {}
+    rows = [
+        ("Modelo efectivo", record.get("modelo_utilizado", "pendiente")),
+        ("Solicitado", selection.get("requested", "—")),
+        ("Fallback", "sí" if selection.get("fallback") is True else "no" if selection.get("fallback") is False else "—"),
+        ("Versión", selection.get("version") or selection.get("training_mode") or "—"),
+        ("Representación", selection.get("features") or runtime.get("representation") or "—"),
+        ("Verificación contextual", "activa" if runtime.get("context_verification") else "inactiva"),
+    ]
+    body = "".join(f"<div><dt>{_safe(k)}</dt><dd>{_safe(v)}</dd></div>" for k, v in rows)
+    return ('<div class="ti-flow-outcome ti-agent-meta"><strong>Clasificador en esta ejecución</strong>'
+            f'<dl class="ti-operations">{body}</dl></div>')
 
-    A failure currently raises an exception instead of returning a record.
-    Missing trace therefore gets an explicit unavailable message, not a
-    fabricated failed event.
-    """
+
+def _evidence_block(record: dict) -> str:
+    evidence = record.get("fragmentos_literales_no_explicativos") or []
+    incidents = record.get("incidentes_exploratorios") or []
+    assessment = record.get("valoracion_aspectos_exploratoria") or {}
+    parts = []
+    if isinstance(assessment, dict) and assessment:
+        bits = [f"{_safe(k)}:{_safe(v.get('polarity', '?'))}" for k, v in assessment.items() if isinstance(v, dict)]
+        parts.append("<div><strong>Aspectos (exploratorio):</strong> " + _safe("; ".join(bits)) + "</div>")
+    if isinstance(incidents, list) and incidents:
+        lines = []
+        for item in incidents[:4]:
+            if not isinstance(item, dict):
+                continue
+            lines.append(f"{item.get('status', '?')}: «{(item.get('clause') or '')[:120]}»")
+        parts.append("<div><strong>Incidentes:</strong> " + _safe(" · ".join(lines)) + "</div>")
+    if isinstance(evidence, list) and evidence:
+        quotes = " · ".join(f"«{e[:140]}»" for e in evidence[:4] if isinstance(e, str))
+        parts.append("<div><strong>Evidencias seleccionadas:</strong> " + _safe(quotes) + "</div>")
+    verify = record.get("verificacion_contextual")
+    if isinstance(verify, dict):
+        parts.append(
+            "<div><strong>Verificación Qwen (antes de Control):</strong> "
+            f"balance={_safe(verify.get('balance'))}; "
+            f"etiqueta preservada={_safe(verify.get('etiqueta_supervisada'))}; "
+            f"sobrescribe={_safe(verify.get('sobrescribe_etiqueta'))}</div>"
+        )
+    if not parts:
+        return ""
+    return '<div class="ti-flow-outcome ti-agent-meta">' + "".join(parts) + "</div>"
+
+
+def render_multiagent_view(record: dict | None) -> str:
     multi = record.get("multiagente") if isinstance(record, dict) else None
     if not isinstance(multi, dict) or not isinstance(multi.get("traza"), list):
         return (
@@ -81,8 +134,6 @@ def render_multiagent_view(record: dict | None) -> str:
         )
     events = [event for event in multi["traza"] if isinstance(event, dict)]
     generation_events = [event for event in multi.get("traza_generacion", []) if isinstance(event, dict)]
-    # Never alter the captured sequence; display recorded order only.
-    # Any extra unknown names/statuses are redacted, not echoed.
     terminal = multi.get("estado")
     status = STATUSES.get(terminal, "Estado no reconocido")
     orchestrator = multi.get("orquestador")
@@ -90,11 +141,13 @@ def render_multiagent_view(record: dict | None) -> str:
     blocks = [
         '<section class="ti-flow" aria-label="Coordinación multiagente">',
         '<div class="ti-flow-lead">',
-        '<div class="ti-flow-eyebrow">ARQUITECTURA MULTIAGENTE · DEMO ACADÉMICA</div>',
+        '<div class="ti-flow-eyebrow">ARQUITECTURA MULTIAGENTE · PROTOTIPO ACADÉMICO</div>',
         f'<h3>{_safe(header)}</h3>',
         '<p>Coordina cuatro especialistas mediante delegación y validación de contratos.</p>',
         f'<span class="ti-flow-status">{_safe(status)}</span>',
         '</div>',
+        _classifier_block(record),
+        _evidence_block(record),
         '<div class="ti-flow-agents" aria-label="Agentes especializados">',
     ]
     for key, label, description in AGENTS:
@@ -114,7 +167,6 @@ def render_multiagent_view(record: dict | None) -> str:
         '<h4>Secuencia real de eventos</h4>',
         '<ol class="ti-flow-events">',
     ))
-    # Only allowlisted task, agent, status and note codes are rendered.
     for event in [*events, *generation_events]:
         if generation_events and event is generation_events[0]:
             blocks.append('</ol><h4>Generación · secuencia independiente tras Control</h4>'
@@ -138,72 +190,98 @@ def render_multiagent_view(record: dict | None) -> str:
         )
     blocks.append("</ol>")
     if generation_events:
-        blocks.append("<p>Generación: secuencia independiente de tres eventos después de Control y antes del cierre. "
-                      "La traza principal conserva diez eventos.</p>")
+        blocks.append("<p>Generación: secuencia independiente después de Control. "
+                      "La verificación contextual, si existe, ocurre antes de Control y no altera la etiqueta.</p>")
     reasons = multi.get("razones_revision")
     if isinstance(reasons, list) and reasons:
-        readable = [REASONS.get(reason, "Motivo interno no reconocido") for reason in reasons]
+        readable = [REASONS.get(reason, reason if isinstance(reason, str) else "Motivo interno")
+                    for reason in reasons]
         blocks.append(
             '<div class="ti-flow-outcome"><strong>Motivos de revisión:</strong> '
             + _safe("; ".join(readable)) + "</div>"
         )
-    # A recommendation may be shown only if the original agent produced one.
     recommendation = record.get("recomendacion")
     if isinstance(recommendation, str) and terminal in {"COMPLETADO", "REVISION_HUMANA"}:
         blocks.append('<div class="ti-flow-outcome"><strong>Recomendación del agente:</strong> '
                       + _safe(recommendation) + "</div>")
     blocks.append(
-        '<p class="ti-flow-caveat">Los modelos son DEMO; sus puntuaciones no están '
-        'calibradas externamente. Planificación fija, memoria temporal y '
-        'aprendizaje offline. Los eventos solo registran metadatos, no '
-        'razonamientos internos ni transcripciones.</p></section>'
+        '<p class="ti-flow-caveat">Puntuaciones no calibradas externamente. '
+        'Planificación fija, memoria episódica de sesión y aprendizaje offline. '
+        'Los eventos registran metadatos; aspectos e incidentes son exploratorios.</p></section>'
     )
     return "\n".join(blocks)
 
 
 def render_qwen_service(record):
     generation = record.get("generacion_qwen") if isinstance(record, dict) else None
+    verify = record.get("verificacion_contextual") if isinstance(record, dict) else None
     if not generation:
-        status = "Sin consulta registrada"
+        status = "Informe: sin consulta"
     elif generation.get("estado") == "GENERADO" and generation.get("validado_por") == "ActionAgent":
         status = "Informe validado por Acción"
     else:
-        status = "Sin informe validado"
+        status = "Informe: sin validar / error"
+    verify_line = ""
+    if isinstance(verify, dict):
+        verify_line = (f'<p>Verificación pre-Control: balance={_safe(verify.get("balance"))}; '
+                       f'no sobrescribe etiqueta.</p>')
     return ('<div class="ti-qwen-service"><h4>Qwen / Ollama · servicio generativo subordinado</h4>'
-            '<p>Opcional, después de Control y antes de Acción. No es un agente especializado ni ejecuta acciones externas.</p>'
+            '<p>Verificación contextual (antes de Control) e informe (después de Control) '
+            'están desacoplados. Ninguno ejecuta acciones externas ni reescribe la etiqueta supervisada.</p>'
+            + verify_line +
             '<span class="ti-flow-status">' + _safe(status) + '</span></div>')
 
 
 def execution_map(record):
-    multi = record.get("multiagente", {})
-    trace = multi.get("traza", [])
-    language = record.get("procesamiento_linguistico") or {}
-    generation = record.get("generacion_qwen") or {}
-    origin = record.get("procedencia_entrada") or {}
+    multi = record.get("multiagente", {}) if isinstance(record, dict) else {}
+    trace = multi.get("traza", []) if isinstance(multi, dict) else []
+    language = (record or {}).get("procesamiento_linguistico") or {}
+    generation = (record or {}).get("generacion_qwen") or {}
+    origin = (record or {}).get("procedencia_entrada") or {}
+    verified = (record or {}).get("verificacion_contextual") or {}
+    selection = (record or {}).get("seleccion_modelo") or {}
     validated = generation.get("validado_por") == "ActionAgent" and generation.get("estado") == "GENERADO"
     terminal = STATUSES.get(multi.get("estado"), language.get("estado", "Sin ejecutar"))
-    human = record.get("revision_humana")
-    fields = (("Estado", terminal), ("Entrada", multi.get("modalidad_percibida", "Audio" if origin else "Texto" if language else "Sin entrada")),
-              ("Idioma original", language.get("idioma_original", "Sin registro")),
-              ("Clasificador", record.get("modelo_utilizado", "Pendiente")),
-              ("Traducción", "Sin ejecutar" if terminal == "pendiente de revisión ASR" else language.get("estado", "Sin registro")),
-              ("Informe Qwen", generation.get("estado", "Sin consulta")),
-              ("Revisión humana", "Requerida" if human is True else "No requerida" if human is False else "Pendiente"),
-              ("Eventos", f'{len(trace)} principales · {len(multi.get("traza_generacion", []))} generativos'))
+    human = (record or {}).get("revision_humana")
+    asr_state = "Sin audio"
+    if origin:
+        if origin.get("fue_corregida"):
+            asr_state = "Transcripción corregida"
+        elif origin.get("revision_percepcion_confirmada"):
+            asr_state = "Transcripción confirmada"
+        else:
+            asr_state = "Transcripción obtenida"
+    fields = (
+        ("Estado", terminal),
+        ("Entrada", multi.get("modalidad_percibida", "Audio" if origin else "Texto" if language else "Sin entrada")),
+        ("Audio", asr_state),
+        ("Idioma original", language.get("idioma_original", "Sin registro")),
+        ("Clasificador", (record or {}).get("modelo_utilizado", "Pendiente")),
+        ("Fallback", "sí" if selection.get("fallback") else "no"),
+        ("Traducción", "Sin ejecutar" if terminal == "pendiente de revisión ASR" else language.get("estado", "Sin registro")),
+        ("Verify Qwen", verified.get("balance", "Sin consulta")),
+        ("Informe Qwen", generation.get("estado", "Sin consulta")),
+        ("Revisión humana", "Requerida" if human is True else "No requerida" if human is False else "Pendiente"),
+        ("Eventos", f'{len(trace)} principales · {len(multi.get("traza_generacion", []))} generativos'),
+    )
     summary = "".join(f"<div><dt>{_safe(k)}</dt><dd>{_safe(v)}</dd></div>" for k, v in fields)
     nodes = [("Entrada", "Audio · Whisper" if origin else "Texto" if trace else "Pendiente")]
     for key, label, _ in AGENTS:
+        if key == "control":
+            nodes.append(("Qwen · verify", verified.get("balance", "Sin consulta") if verified else "Sin consulta"))
         if key == "accion":
             nodes.append(("Qwen · informe", "Validado" if validated else "Error" if generation else "Sin consulta"))
         nodes.append((label, STATUSES.get(_agent_state(trace, key), "Sin ejecutar")))
     nodes.append(("Resultado", terminal))
+
     def node(label, state):
         tone = "idle" if state in {"Sin ejecutar", "Sin consulta", "Pendiente"} else "error" if state in {"Error", "Fallido"} else "active"
         if state in {"Revisión humana", "pendiente de revisión ASR", "pendiente de revisión"}:
             tone = "review"
         return f'<li class="ti-node-{tone}"><strong>{_safe(label)}</strong><span>{_safe(state)}</span></li>'
+
     flow = "".join(node(label, state) for label, state in nodes)
-    recommendation = record.get("recomendacion")
+    recommendation = (record or {}).get("recomendacion")
     result = f'<p class="ti-decision">{_safe(recommendation)}</p>' if recommendation else ""
     method = language.get("metodo_deteccion", "Sin registro")
     service = language.get("modelo_traduccion") or "Sin traducción automática registrada"
@@ -212,7 +290,7 @@ def execution_map(record):
             f'<ol class="ti-runtime-map" aria-label="Flujo de ejecución">{flow}</ol>'
             f'<details><summary>Procedencia lingüística y servicios auxiliares</summary><p>ASR · {_safe(origin.get("motor_asr", "Sin audio"))}'
             f' · {_safe(origin.get("modelo_asr", ""))}</p><p>Identificación · {_safe(method)}</p>'
-            f'<p>Traducción · {_safe(service)}</p></details></section>')
+            f'<p>Traducción · {_safe(service)}</p><p>Audio · {_safe(asr_state)}</p></details></section>')
 
 
 def render_agents_overview(record=None):
@@ -230,5 +308,6 @@ def render_agents_overview(record=None):
                       '<div class="ti-agent-class">' + CLASS_NAMES[key] + '</div><p>' + description + '</p>'
                       '<span class="ti-flow-status">Sin ejecutar</span></div>')
     blocks.extend(('</div>', render_qwen_service(None),
-                   '<p class="ti-flow-caveat">Analiza una entrada para mostrar la traza real de diez eventos y, si se activa Qwen, tres eventos generativos separados.</p></section>'))
+                   '<p class="ti-flow-caveat">Analiza una entrada para mostrar la traza real y, si se activa, '
+                   'la verificación Qwen previa a Control y el informe posterior.</p></section>'))
     return execution_map({}) + '<details class="ti-timeline"><summary>Funciones de los especialistas</summary>' + "\n".join(blocks) + "</details>"

@@ -283,6 +283,15 @@ class OllamaReporter:
                 raise ReportRejected("CONFIGURACION_INVALIDA")
             requested = config.model
             schema = report_schema(text, sentiment, aspects, needs_human)
+            fields = schema["properties"]
+            problems = fields["problema_identificado"]["enum"]
+            if len(problems) > 1:
+                # Keep the complete summary and evidence; propose action on the first reported incident.
+                options = content_options(text, evidence_units(text))
+                category = options["problem_categories"][problems[0]]
+                fields["problema_identificado"]["enum"] = problems[:1]
+                fields["recomendacion"]["enum"] = list(PROPOSALS[category][:2])
+                fields["accion_propuesta"]["enum"] = [PROPOSALS[category][2]]
             if self.batch and self.calls >= MAX_BATCH_REQUESTS:
                 raise ReportRejected("LIMITE_LOTE_GENERATIVO")
             if self.started is None:

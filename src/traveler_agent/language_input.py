@@ -35,7 +35,7 @@ def local_language(text):
 
 def ask_qwen(task, text, *, config=None, timeout=None):
     config = config or OllamaConfig.from_env()
-    if config.model != DEFAULT_MODEL or os.getenv("TRAVELER_LANGUAGE_QWEN", "1") == "0":
+    if config.model != DEFAULT_MODEL or (task != "balance" and os.getenv("TRAVELER_LANGUAGE_QWEN", "1") == "0"):
         raise ValueError("Asistencia lingüística local desactivada o modelo incorrecto.")
     identify = task == "idioma"
     instruction = ("Identify the language of the supplied review. Output its ISO 639 code (Spanish es, Chinese zh, Japanese ja, English en, Italian it, French fr, or any other applicable code). Numbers and punctuation do not indicate mixed language. If genuinely uncertain use und, and for multiple languages use mul."

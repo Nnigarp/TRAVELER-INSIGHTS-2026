@@ -26,7 +26,7 @@ _UNFAVORABLE = (
 _RESOLUTION = (
     r"resolvio|resolvieron|se (?:resolvio|soluciono|corrigio)|corrigieron|"
     r"lo solucionaron|lo resolvio|despues(?: de)? (?:lo )?arreglaron|reembolsaron|devolvieron|"
-    r"nos cambiaron|ofrecieron (?:una )?solucion|quedo resuelto|incidente resuelto"
+    r"nos cambiaron|quedo resuelto|incidente resuelto"
 )
 _UNRESOLVED = (
     r"nadie (?:respondio|resolvio|aparecio)|sin (?:respuesta|solucion)|sigue (?:sin|abierto)|"
@@ -42,7 +42,7 @@ _DOUBT = (
     r"regular\b|sin comentarios|^ok$|^bien$|^mal$|^normal$"
 )
 
-_CLAUSE = re.compile(r"(?<=[.!?;])\s+|\s*,\s*(?=(?:pero|aunque|sin embargo)\b)", re.I)
+_CLAUSE = re.compile(r"(?<=[.!?;])\s+|(?:\s*,\s*|\s+)(?=(?:pero|aunque|sin embargo)\b)", re.I)
 
 
 def _fold(text: str) -> str:
@@ -58,8 +58,9 @@ def _clauses(text: str) -> list[str]:
 def _polarity_in(span: str) -> str | None:
     folded = _fold(span)
     # Negated praise → unfavorable cue, not favorable.
-    if re.search(rf"\bno\b.{{0,24}}(?:{_FAVORABLE})", folded):
+    if re.search(rf"\bno (?:era |estaba |fue |estuvo |muy |nada )*(?:{_FAVORABLE})", folded):
         return "desfavorable"
+    folded = re.sub(r"\b(?:sin|no hubo|no habia) (?:retrasos?|demoras?|ruido)\b", "", folded)
     fav = bool(re.search(_FAVORABLE, folded, re.I))
     unf = bool(re.search(_UNFAVORABLE, folded, re.I))
     if fav and not unf:
@@ -103,9 +104,13 @@ def detect_incidents(text: str) -> list[dict]:
     incidents = []
     for clause in _clauses(text):
         folded = _fold(clause)
+        if re.search(r"\b(?:dicen que|no confirmo|no se si|si hubiera)\b|[¿?]", folded):
+            continue
+        folded = re.sub(r"\b(?:no hubo|no habia|sin|no) (?:ningun |ninguna )?(?:retrasos?|demoras?|fallos?|ruido|perdimos|se perdio)\b", "", folded)
         unfavorable = bool(re.search(_UNFAVORABLE, folded, re.I))
         resolved = bool(re.search(_RESOLUTION, folded, re.I))
-        unresolved = bool(re.search(_UNRESOLVED, folded, re.I)) or (
+        denied_resolution = re.search(r"\b(?:no|nunca|nadie) (?:nos |lo |se |la )*(?:" + _RESOLUTION + r")\b", folded)
+        unresolved = bool(denied_resolution) or bool(re.search(_UNRESOLVED, folded, re.I)) or (
             unfavorable and not resolved and bool(re.search(
                 r"nunca|nadie|sin |no (?:lleg|respond|resol)", folded))
         )
@@ -124,7 +129,7 @@ def detect_incidents(text: str) -> list[dict]:
             "clause": clause[:260],
             "consequence": consequence,
             "aspects": aspect_hits,
-            "resolved_marker": resolved,
+            "resolved_marker": resolved and not unresolved,
             "unresolved_marker": unresolved,
         })
     # Deduplicate by clause text.

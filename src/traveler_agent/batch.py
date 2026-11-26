@@ -69,10 +69,13 @@ def analyze_batch(reviews: list[str], model: Any, *, prefix: str = "demo", model
         raise ValueError("Número de reseñas no permitido.")
     from .agent import inspect_review
     from .ollama_report import OllamaReporter
-    reporter = OllamaReporter(batch=True) if qwen_enabled else None
+    import os
+    verify = getattr(model, "context_verification", False) and os.getenv("TRAVELER_QWEN_VERIFY", "1") != "0"
+    service = OllamaReporter(batch=True) if qwen_enabled or verify else None
+    reporter = service if qwen_enabled else None
     result = []
     for index, text in enumerate(reviews, 1):
-        record = inspect_review(text, model, review_id=f"{prefix}-{index:03d}", qwen_enabled=qwen_enabled, reporter=reporter)
+        record = inspect_review(text, model, review_id=f"{prefix}-{index:03d}", qwen_enabled=qwen_enabled, reporter=reporter, context_verifier=service if verify else None)
         record["modelo_utilizado"] = model_kind
         record["texto_original"] = text
         record["etiqueta_corregida_humano"] = None

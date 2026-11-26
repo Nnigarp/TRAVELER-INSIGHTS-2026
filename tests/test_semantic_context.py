@@ -38,3 +38,31 @@ def test_open_incident_with_positive_label_escalates_when_needs_review():
     state, rec = recommend("positivo", ctx["aspects"], True, context=ctx)
     assert state == "revisión_humana"
     assert "manual" in rec.casefold() or "incidente" in rec.casefold()
+
+def test_negated_resolution_and_absent_delays():
+    ctx = analyze_context("Nunca nos reembolsaron el cobro. El transporte llegó sin demoras.")
+    assert [i["status"] for i in ctx["incidents"]] == ["no_resuelto"]
+    assert not ctx["incidents"][0]["resolved_marker"]
+
+
+def test_recommendation_follows_problem_aspect_only():
+    ctx = analyze_context("La habitación estaba limpia pero el transporte nunca llegó.")
+    _, rec = recommend("negativo", ctx["aspects"], False, context=ctx)
+    assert "traslado" in rec and "higiene" not in rec
+
+
+def test_no_unsupported_price_transport_or_resolution_facts():
+    from traveler_agent.report_content import content_options
+    for text in ("No nos cobraron dos veces.", "El transporte llegó y perdimos la visita.",
+                 "Nadie resolvió el problema.", "No se perdió la excursión."):
+        result = content_options(text, [text])
+        assert result["mode"] == "CITA_CONSERVADORA" and result["problems"] == [""]
+
+def test_duration_only_does_not_authorize_favorable_action():
+    from traveler_agent.report_content import is_factual_description
+    from traveler_agent.multiagent import ControlAgent, Message
+    assert is_factual_description("El recorrido duró 45 minutos.")
+    assert not is_factual_description("El recorrido duró 45 minutos. Fue excelente.")
+    semantic = dict(confidence_raw=.99, sentiment="positivo", contrast=False, factual_description=True)
+    result = ControlAgent(.56).handle(Message("orquestador", "control", "control", {"semantic": semantic}))
+    assert result["needs_human"] and "DESCRIPCION_FACTUAL_VS_ETIQUETA" in result["reason_codes"]

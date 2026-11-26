@@ -50,28 +50,25 @@ def recommend(label: str, aspects: dict, needs_review: bool, *, context: dict | 
         )
 
     open_incidents = [i for i in incidents if i.get("status") == "no_resuelto"]
-    resolved_only = incidents and all(i.get("status") == "resuelto" for i in incidents) and not open_incidents
+    resolved_only = any(i.get("status") == "resuelto" for i in incidents) and not open_incidents
 
     if label == "negativo":
-        unfavorable = [a for a in PRIORITY if assessment.get(a, {}).get("polarity") == "desfavorable"
-                       or a in (aspects or {})]
-        # Prefer aspects tied to open incidents.
-        for inc in open_incidents:
-            for a in inc.get("aspects") or []:
-                if a in PRIORITY and a not in unfavorable:
-                    unfavorable.insert(0, a)
-        detected = [a for a in PRIORITY if a in unfavorable or a in (aspects or {})]
-        detected = list(dict.fromkeys(detected))
+        incident_aspects = {a for inc in open_incidents for a in inc.get("aspects", [])}
+        detected = [a for a in PRIORITY if a in incident_aspects
+                    or assessment.get(a, {}).get("polarity") in {"desfavorable", "mixto"}]
+        if not assessment:
+            detected = [a for a in PRIORITY if a in aspects]
         if len(detected) == 1:
             msg = ACTIONS[detected[0]]
             if incident_note:
                 msg = f"{msg} {incident_note}"
             return "sugerencia", msg
         if detected:
+            qualifier = "exploratoria" if assessment else "no determinada"
             items = "; ".join(f"{a}: {ACTIONS[a]}" for a in detected)
             return "sugerencia", (
                 "Verificar por separado los aspectos mencionados (polaridad por aspecto "
-                f"no determinada): {items}"
+                f"{qualifier}): {items}"
                 + (f" {incident_note}" if incident_note else "")
             )
         if incident_note:

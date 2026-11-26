@@ -40,7 +40,7 @@ def test_ui_audio_trace_and_manual_correction(tmp_path, monkeypatch):
     assert result["modelo_utilizado"] == "lr"
     summary2, data2 = app.analyze_audio_ui("No fue malo el hotel.", trace, "svm")
     assert json.loads(data2)["modelo_utilizado"] == "svm"
-    assert "Sentimiento (clasificador local)" in summary2 or "Sentimiento" in summary2
+    assert "Sentimiento (clasificador local)" in summary2
 
 
 def test_ui_audio_empty_input_reset_and_guard():

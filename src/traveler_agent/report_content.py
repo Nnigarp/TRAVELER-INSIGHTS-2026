@@ -65,12 +65,7 @@ def _fact(quote):
         problem = ("Según el relato, el transporte no llegó y se perdió una actividad."
                    if lost else "Según el relato, no se recibió el transporte esperado.")
         return Fact("transporte_ausente", wording, problem, "transporte")
-    if re.search(r"\b(?:perdimos|se perdio)\b.+\b(?:excursion|visita|actividad|tour)\b", value) and not _negated(value, "perdimos"):
-        if re.search(r"\b(?:transporte|traslado|taxi|bus|autobus)\b", value):
-            return Fact("transporte_ausente",
-                        "se reportan la ausencia del transporte y la pérdida de una actividad",
-                        "Según el relato, el transporte no llegó y se perdió una actividad.",
-                        "transporte")
+    if re.fullmatch(r"(?:perdimos|se perdio) (?:la|el|una|un) (?:excursion|visita|actividad|tour)", value):
         return Fact("actividad_perdida", "se reporta la pérdida de una actividad",
                     "Según el relato, se perdió una actividad programada.", "actividad")
 
@@ -86,13 +81,13 @@ def _fact(quote):
     if re.fullmatch(r"(?:nos cobraron|el cobro fue) mas de lo (?:anunciado|indicado)", value):
         return Fact("cobro_discrepante", "se relata un cobro superior a lo anunciado",
                     "Se reporta una diferencia entre el cobro y el precio anunciado.", "precio")
-    if re.search(r"\bcobro duplicado\b|\bcobraron dos veces\b", value):
-        return Fact("cobro_discrepante", "se relata un cobro duplicado o reiterado",
-                    "Se reporta una diferencia entre el cobro y el precio anunciado.", "precio")
+    if re.fullmatch(r"(?:hubo un cobro duplicado|nos cobraron dos veces(?: (?:el|la) (?:desayuno|entrada|habitacion))?)", value):
+        return Fact("cobro_duplicado", "se relata un cobro duplicado",
+                    "Según el relato, se cobró dos veces.", "precio")
     if re.fullmatch(r"(?:habia|hubo) (?:mucho|demasiado) ruido(?: (?:por la noche|en la habitacion))?", value):
         return Fact("ruido", "se describe ruido abundante",
                     "El relato describe ruido abundante, sin identificar su origen.", "ruido")
-    if re.fullmatch(r"la (?:visita|excursion) duro (?:una hora|dos horas|tres horas)", value):
+    if re.fullmatch(r"(?:la (?:visita|excursion|actividad)|el (?:recorrido|viaje)) duro (?:una?|dos|tres|cuatro|veinte|treinta|\d+) (?:horas?|minutos?)", value):
         return Fact("duracion", "se aporta información sobre la duración de la actividad")
     if re.fullmatch(r"habia dos salas y una zona de espera", value):
         return Fact("descripcion_espacio", "se describen salas y una zona de espera")
@@ -106,11 +101,19 @@ def _fact(quote):
         return Fact("insuficiente", "el comentario no detalla un servicio ni un incidente concreto")
 
     # Resolved incident (generalizable): unfavorable cue + resolution verb in same clause.
-    if re.search(r"\b(?:resolvio|resolvieron|se soluciono|corrigieron|devolvieron|reembolsaron)\b", value):
-        if re.search(r"\b(?:problema|llave|cobro|falla|incidencia|retraso)\b", value):
-            return Fact("incidente_resuelto", "se relata un incidente que el visitante marca como resuelto",
-                        positive=True)
+    if re.fullmatch(r"(?:el personal |recepcion )?(?:resolvio|resolvieron|solucionaron|corrigieron) (?:el problema|la falla|la incidencia)(?: de inmediato)?", value):
+        return Fact("incidente_resuelto", "el visitante indica que se resolvió el incidente", positive=True)
+    if re.fullmatch(r"(?:al inicio )?la (?:llave|ducha|cerradura) no funcionaba", value):
+        return Fact("falla_inicial", "se describe un fallo inicial")
+    if re.fullmatch(r"(?:el personal |recepcion )?lo (?:resolvio|soluciono|arreglo)(?: de inmediato)?(?: y el resto de la estancia fue excelente)?", value):
+        return Fact("incidente_resuelto", "el visitante indica que el problema se resolvió", positive=True)
     return None
+
+
+def is_factual_description(text):
+    clauses = re.split(r"(?<=[.!?;])\s+|[\r\n]+", text.strip())
+    return all((fact := _fact(c)) is not None and fact.rule in
+               {"duracion", "descripcion_espacio", "descripcion_horario"} for c in clauses)
 
 
 PROPOSALS = {

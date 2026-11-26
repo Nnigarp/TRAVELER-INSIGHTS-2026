@@ -131,6 +131,7 @@ class SemanticsAgent:
             except Exception:
                 truncated = False
         idx = int(probabilities.argmax())
+        from .report_content import is_factual_description
         context = analyze_context(text)
         profile = linguistic_profile(text)
         contrast = bool(re.search(r"\b(pero|aunque|sin embargo)\b", text, re.I))
@@ -144,6 +145,7 @@ class SemanticsAgent:
             "ambiguity": context["ambiguity"],
             "evidence": context["evidence"] or [],
             "linguistic_profile": profile,
+            "factual_description": is_factual_description(text),
             "contrast": contrast,
             "truncated": truncated,
             "context_version": context["version"],
@@ -175,6 +177,9 @@ class ControlAgent:
         # Open incident under a positive/neutral global label → human check.
         open_incidents = sum(1 for i in (semantic.get("incidents") or []) if i.get("status") == "no_resuelto")
         sentiment = semantic.get("sentiment")
+        if semantic.get("factual_description") and sentiment != "neutral":
+            review = True
+            reasons.append("DESCRIPCION_FACTUAL_VS_ETIQUETA")
         if open_incidents and sentiment in {"positivo", "neutral"}:
             review = True
             reasons.append("INCIDENTE_ABIERTO_VS_ETIQUETA")
@@ -368,11 +373,11 @@ class TravelerOrchestrator:
         _trace(execution, agent="orquestador", step="cierre", status=execution.state,
                output_fields=("resultado", "traza"), note="NO_EXTERNAL_ACTION")
         clf_meta = {
-            "effective": getattr(self.classifier, "artifact_digest", None) and "contextual" or "clasico",
-            "context_verification": bool(self.context_verification),
+            "effective": "contextual" if self.context_verification or getattr(self.classifier, "encoder", None) is not None else "clasico",
+            "context_verification": bool(self.context_verification and self.context_verifier),
             "representation": (
                 "frozen_beto_mean_pool" if getattr(self.classifier, "artifact_digest", None)
-                else "tfidf_or_beto_head"
+                else "BETO · cabeza supervisada" if getattr(self.classifier, "encoder", None) is not None else "TF-IDF"
             ),
         }
         record = {
@@ -416,7 +421,7 @@ class TravelerOrchestrator:
                 "etapa": "antes_de_control",
                 "etiqueta_supervisada": control.get("supervised_sentiment_preserved", semantic["sentiment"]),
                 "sobrescribe_etiqueta": False,
-                "desacoplada_del_informe": self.reporter is None or self.context_verifier is not self.reporter,
+                "desacoplada_del_informe": True,
             }
         if self.reporter is not None:
             record["generacion_qwen"] = action["generation"]

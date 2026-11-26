@@ -55,6 +55,8 @@ def run_selected(kind, classical_factory, operation):
         model = _load(str(attempted), digest)
         result = operation(model)
         effective = "beto"
+        if model.metadata.get("mode") == "partial256":
+            metadata.update(version="V4.2 partial256", features="BETO adaptado · media enmascarada L2")
         metadata.update(effective="beto", fallback=False, manifest_sha256=digest,
                         checkpoint_revision=model.metadata["revision"],
                         training_mode=model.metadata["training"].get("mode", model.metadata.get("mode")))

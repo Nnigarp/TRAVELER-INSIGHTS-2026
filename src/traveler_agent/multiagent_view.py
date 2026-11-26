@@ -36,6 +36,7 @@ REASONS = {
     "CONTRASTE_CON_SCORE_LIMITADO": "Contraste léxico con puntuación limitada",
     "TEXTO_TRUNCADO_POR_ENCODER": "Texto truncado por la ventana del encoder",
     "AMBIGUEDAD_O_DUDA": "Ambigüedad o duda detectada en el relato",
+    "DESCRIPCION_FACTUAL_VS_ETIQUETA": "Descripción factual con etiqueta valorativa",
     "INCIDENTE_ABIERTO_VS_ETIQUETA": "Incidente abierto frente a etiqueta global",
     "VERIFICACION_QWEN_INCIERTO": "Verificación Qwen: balance incierto",
     "VERIFICACION_QWEN_NO_DISPONIBLE": "Verificación Qwen no disponible",

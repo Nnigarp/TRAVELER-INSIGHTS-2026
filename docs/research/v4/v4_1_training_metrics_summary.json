@@ -1,0 +1,76 @@
+{
+  "lr": {
+    "corpus_rows_sha256": "1eff643d0fef087a8a20874ea3713836627cb6b2005dfaa452ffaf5007aa9b7c",
+    "validation_macro_f1": 0.9525896980534636,
+    "test_macro_f1": 0.9554122878283583,
+    "hard_macro_f1": 1.0,
+    "hard_neg_to_pos": 0,
+    "test_neg_to_pos": 1
+  },
+  "svm": {
+    "corpus_rows_sha256": "1eff643d0fef087a8a20874ea3713836627cb6b2005dfaa452ffaf5007aa9b7c",
+    "validation_macro_f1": 0.9582519275990516,
+    "test_macro_f1": 0.9638249169063506,
+    "hard_macro_f1": 1.0,
+    "hard_neg_to_pos": 0,
+    "test_neg_to_pos": 0
+  },
+  "frozen128": {
+    "status": "TRAINED_FROZEN_HEAD",
+    "validation_macro_f1": 0.7770428036285955,
+    "test_macro_f1": 0.7876161529292728,
+    "hard_macro_f1": 1.0,
+    "hard_neg_to_pos": 0,
+    "hardware": {
+      "cuda_available": true,
+      "device": "cuda",
+      "device_name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "torch": "2.14.1+cu126",
+      "vram_gb": 6.0
+    },
+    "timing": {
+      "encode_train_seconds": 12.984912200001418,
+      "fit_head_seconds": 3.1428242000001774,
+      "wall_seconds": 25.455416599999808
+    },
+    "peak_vram_mib": null
+  },
+  "frozen256": {
+    "status": "TRAINED_FROZEN_HEAD",
+    "validation_macro_f1": 0.7649028838319,
+    "test_macro_f1": 0.773789019089191,
+    "hard_macro_f1": 1.0,
+    "hard_neg_to_pos": 0,
+    "hardware": {
+      "cuda_available": true,
+      "device": "cuda",
+      "device_name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "torch": "2.14.1+cu126",
+      "vram_gb": 6.0
+    },
+    "timing": {
+      "encode_train_seconds": 20.25544330000048,
+      "fit_head_seconds": 0.1369483999988006,
+      "wall_seconds": 28.43533380000008
+    },
+    "peak_vram_mib": null
+  },
+  "partial256": {
+    "status": "TRAINED_PARTIAL256",
+    "validation_macro_f1": 0.9694104560622914,
+    "test_macro_f1": 0.9554929675411604,
+    "hard_macro_f1": 1.0,
+    "hard_neg_to_pos": 0,
+    "hardware": {
+      "cuda_available": true,
+      "device": "cuda",
+      "device_name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "torch": "2.14.1+cu126",
+      "vram_gb": 6.0
+    },
+    "timing": {
+      "wall_seconds": 98.04306649999853
+    },
+    "peak_vram_mib": 654.05419921875
+  }
+}

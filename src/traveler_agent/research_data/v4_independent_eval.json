@@ -1,0 +1,958 @@
+{
+  "schema": "traveler-v4-independent-eval-v1",
+  "frozen": true,
+  "purpose": "Frozen independent evaluation for V4; never used for fitting or model selection",
+  "label_origin": "AUTHOR_INTENT_INDEPENDENT_EVAL_NOT_HUMAN_GOLD",
+  "human_gold": false,
+  "created": "2026-11-25",
+  "records_sha256": "d377dc71e5c7584c78eb991def3100a371c4f2dc9cabbdc604eecce318a280ac",
+  "reviews": [
+    {
+      "review_id": "ie_001",
+      "text": "El boutique frente a la muralla de Cartagena nos dejó una primera impresión excelente: habitación amplia con ventilación cruzada, sábanas frescas, desayuno con arepa y café recién colado, y un personal que saludaba por el nombre desde el primer check-in. También nos gustó la piscina pequeña con sombra y el acceso peatonal hacia el centro histórico sin necesidad de taxi. Todo eso, sin embargo, quedó opacado cuando el traslado confirmado para la salida a las islas del Rosario no apareció. Esperamos casi noventa minutos en recepción; el operador no contestó llamadas ni mensajes. Perdimos la excursión ya pagada. Presentamos reclamo por correo y por el chat del paquete; a los cuatro días solo llegó una plantilla automática sin reembolso ni reprogramación. Nos negamos a volver a reservar con esa agencia y lo dejamos por escrito en la reclamación. Además insistimos en que el costo ya estaba liquidado y no aceptamos cargos nuevos.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "praise_then_failure",
+        "early_positive_lexicon",
+        "transport_or_excursion_breach",
+        "unanswered_complaint",
+        "explicit_non_return",
+        "truncation_stress",
+        "mixed_aspects",
+        "contrast"
+      ],
+      "length_band": "xlong",
+      "notes": "xlong praise-then-failure; hotel good, boat transfer no-show",
+      "text_sha256": "432b9b55e14ecdbd5262703badfe84e7154834a9cd73882c60a3a23231e8fc41"
+    },
+    {
+      "review_id": "ie_002",
+      "text": "Empezamos muy bien en un hotel cerca de Bocagrande: cama firme, agua caliente estable, desayuno buffet con frutas locales y un lobby silencioso que invitaba a trabajar. La terraza con vista al mar caribeño y el servicio de toallas en la piscina reforzaban esa sensación de haber elegido bien. Incluso el precio por noche nos pareció razonable para la zona. El problema llegó con el traslado terrestre hacia el aeropuerto de la madrugada: el vehículo anunciado nunca pasó, el conductor asignado no respondió y tuvimos que pagar un taxi improvisado que casi nos hace perder el vuelo. Abrimos un ticket formal; tras una semana solo recibimos silencio administrativo. Con ese desenlace, la experiencia completa queda en negativo y no repetiremos el paquete ni el operador de traslados asociado. Además insistimos en que el costo ya estaba liquidado y no aceptamos cargos nuevos.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "praise_then_failure",
+        "early_positive_lexicon",
+        "transport_or_excursion_breach",
+        "unanswered_complaint",
+        "explicit_non_return",
+        "truncation_stress",
+        "mixed_aspects",
+        "contrast"
+      ],
+      "length_band": "xlong",
+      "notes": "xlong; early hotel praise, late airport transfer failure",
+      "text_sha256": "54ed968bcf8850a587a22d415f90f1a9ff512025da9fc408afff0bac740134f6"
+    },
+    {
+      "review_id": "ie_003",
+      "text": "El hotel en el Getsemaní artístico cumplió con creces: habitación impecable, aire acondicionado silencioso, desayuno con jugo de corozo y personal atento sin ser invasivo. Disfrutamos la terraza al atardecer y la cercanía a cafés locales. También valoramos que el check-in fuera ágil y que nos dejaran guardar el equipaje después de la salida. Esa buena base se derrumbó con la excursión de snorkel contratada: la lancha no llegó al muelle indicado, nadie del operador se presentó y perdimos el cupo del día. Enviamos evidencia y pedimos reembolso; la respuesta fue un mensaje genérico sin solución concreta. El saldo global es claramente negativo pese al alojamiento, y descartamos contratar de nuevo con ese intermediario. Además insistimos en que el costo ya estaba liquidado y no aceptamos cargos nuevos. Guardamos capturas de pantalla del itinerario y de las llamadas sin respuesta. La demora afectó el resto del día y canceló otras reservas menores enlazadas.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "praise_then_failure",
+        "early_positive_lexicon",
+        "transport_or_excursion_breach",
+        "unanswered_complaint",
+        "explicit_non_return",
+        "truncation_stress",
+        "mixed_aspects",
+        "contrast"
+      ],
+      "length_band": "xlong",
+      "notes": "xlong; Getsemaní hotel praise then snorkel boat no-show",
+      "text_sha256": "b25c85fa0df20f8e037610eec1a86b5aabbfcbcb51459755300a0dd1ada0dd0f"
+    },
+    {
+      "review_id": "ie_004",
+      "text": "Pasamos tres noches en un alojamiento limpio cerca de La Popa: buen colchón, ducha con presión constante, desayuno casero y vistas agradables al amancer. El personal nos orientó sobre rutas peatonales seguras y la piscina estaba cuidada. Incluso el parking gratuito nos facilitó la logística familiar. Todo cambió el día del recorrido a Volcán del Totumo: el bus turístico no se detuvo en el punto de recogida, esperamos más de una hora bajo el sol y perdimos la actividad. Presentamos queja por WhatsApp y correo; nadie respondió con una propuesta útil. Mantengo el hotel en buena memoria, pero el producto turístico completo falló y no lo volveré a comprar con esa misma empresa. Además insistimos en que el costo ya estaba liquidado y no aceptamos cargos nuevos. Guardamos capturas de pantalla del itinerario y de las llamadas sin respuesta. La demora afectó el resto del día y canceló otras reservas menores enlazadas.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "praise_then_failure",
+        "early_positive_lexicon",
+        "transport_or_excursion_breach",
+        "unanswered_complaint",
+        "explicit_non_return",
+        "truncation_stress",
+        "mixed_aspects",
+        "contrast"
+      ],
+      "length_band": "xlong",
+      "notes": "xlong; hotel praise then Totumo pickup failure",
+      "text_sha256": "8ab30f5997e4b262f64007cced5c9289cb179f7b94f6f4b97aaaf2663223e54d"
+    },
+    {
+      "review_id": "ie_005",
+      "text": "El check-in en el hotel del centro histórico fue impecable: habitación fresca, amenidades completas, desayuno con pan recién horneado y un personal que anticipaba necesidades sin molestar. Nos encantó la ubicación peatonal hacia la Plaza de los Coches y la terraza con brisa marina. También destacamos la limpieza diaria y el silencio nocturno. Sin embargo, el traslado en van privada hacia el fuerte de San Felipe nunca llegó a la hora pactada; el GPS del conductor no actualizaba y el call center no contestó. Perdimos la visita guiada ya pagada. Tras dos reclamos formales solo recibimos un acuse automático. El resultado final es negativo y no renovaremos la reserva con ese operador multimodal. Además insistimos en que el costo ya estaba liquidado y no aceptamos cargos nuevos. Guardamos capturas de pantalla del itinerario y de las llamadas sin respuesta. La demora afectó el resto del día y canceló otras reservas menores enlazadas.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "praise_then_failure",
+        "early_positive_lexicon",
+        "transport_or_excursion_breach",
+        "unanswered_complaint",
+        "explicit_non_return",
+        "truncation_stress",
+        "mixed_aspects",
+        "contrast"
+      ],
+      "length_band": "xlong",
+      "notes": "xlong; historic-center hotel then van no-show to San Felipe",
+      "text_sha256": "01d28642abfb5697c7cfc074abe3621441f1a711ca1b38d9700e84c206285055"
+    },
+    {
+      "review_id": "ie_006",
+      "text": "El resort pequeño en la zona de Crespo nos sorprendió para bien: habitaciones amplias, ropa de cama limpia, desayuno abundante y una piscina con sombra suficiente para niños. El personal de recepción fue cordial y el Wi-Fi funcionó de verdad. Hasta el late check-out nos lo confirmaron sin pelea. Esa buena racha se cortó con el paseo en chiva rumbera contratado: el vehículo no apareció, el guía no contestó el celular y perdimos la noche de recorrido urbano. Escribimos a soporte del paquete; a los cinco días solo había un correo vacío de contenido. El alojamiento no compensa el fallo operativo, y no repetiremos con esa marca. Además insistimos en que el costo ya estaba liquidado y no aceptamos cargos nuevos. Guardamos capturas de pantalla del itinerario y de las llamadas sin respuesta. La demora afectó el resto del día y canceló otras reservas menores enlazadas.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "praise_then_failure",
+        "early_positive_lexicon",
+        "transport_or_excursion_breach",
+        "unanswered_complaint",
+        "explicit_non_return",
+        "truncation_stress",
+        "mixed_aspects",
+        "contrast"
+      ],
+      "length_band": "xlong",
+      "notes": "xlong; Crespo resort praise then chiva no-show",
+      "text_sha256": "511a5ed96e71a07959928517aa9ca57cc1d338d166a99192a37cfc2e76542ee2"
+    },
+    {
+      "review_id": "ie_007",
+      "text": "La habitación frente al mar en Bocagrande estaba impecable: balcón amplio, aire silencioso, desayuno con frutas y café fuerte, y un personal que resolvía detalles menores al instante. Disfrutamos la zona húmeda y el acceso a la ciclorruta. También valoramos el precio transparente sin cargos sorpresa en el check-out. El colapso llegó con el ferry hacia Baru: el embarque anunciado se canceló sin aviso útil, esperamos en el muelle hasta que se hizo de noche y perdimos el día de playa pagado. La reclamación quedó sin respuesta humana. Aunque el hotel merecía elogio, el paquete completo queda en negativo y no lo recontrataremos. Además insistimos en que el costo ya estaba liquidado y no aceptamos cargos nuevos. Guardamos capturas de pantalla del itinerario y de las llamadas sin respuesta. La demora afectó el resto del día y canceló otras reservas menores enlazadas.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "praise_then_failure",
+        "early_positive_lexicon",
+        "transport_or_excursion_breach",
+        "unanswered_complaint",
+        "explicit_non_return",
+        "truncation_stress",
+        "mixed_aspects",
+        "contrast"
+      ],
+      "length_band": "xlong",
+      "notes": "xlong; Bocagrande hotel then Baru ferry cancellation",
+      "text_sha256": "78382d214e6412e01ac38d3a9fec96b1132c2d3fb98a7dba7f7d3508ccc79436"
+    },
+    {
+      "review_id": "ie_cartagena_fail",
+      "text": "Estuvimos en Cartagena por un encuentro académico ligado a la UTB y el hotel del centro amurallado nos trató de maravilla: habitación ordenada, desayuno con arepa y huevos pericos, personal atento y una terraza con brisa que invitaba a quedarse leyendo. También nos gustó la cercanía peatonal a cafés del barrio y la facilidad para moverse hacia Getsemaní sin estrés. Incluso el check-in adelantado nos ahorró tiempo el primer día. Todo eso se cayó cuando el transporte del circuito a las islas no se presentó: esperamos en el punto de recogida cerca de la Torre del Reloj, llamamos varias veces y nadie llegó. Perdimos la excursión ya cancelada en el presupuesto del viaje. Abrimos reclamación formal con evidencias de pago; pasaron días sin una respuesta útil, solo acuses automáticos. Nos negamos a reprogramar con el mismo operador y cerramos la experiencia en negativo pese al buen hotel.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "praise_then_failure",
+        "early_positive_lexicon",
+        "transport_or_excursion_breach",
+        "unanswered_complaint",
+        "explicit_non_return",
+        "truncation_stress",
+        "mixed_aspects",
+        "contrast",
+        "colloquial",
+        "regionalism"
+      ],
+      "length_band": "xlong",
+      "notes": "DIAGNOSTIC: Cartagena/UTB tourism wording; hotel praise + transport no-show + lost excursion + unanswered claim + refuse to rebook",
+      "text_sha256": "4bc71c762c5819f0dd9bbed870dcf0ef29bc3e8ef980d426ea7003c3d84a5eba"
+    },
+    {
+      "review_id": "ie_008",
+      "text": "El museo estaba limpio y con buena señalética, pero la audioguía no funcionó en ninguna sala y nadie ofreció una alternativa. No es que faltara personal: había vigilantes, solo que no resolvieron el fallo técnico. Además insistimos en que el costo ya estaba liquidado y no aceptamos cargos nuevos.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "contrast",
+        "mixed_aspects"
+      ],
+      "length_band": "medium",
+      "notes": "negation + contrast on museum audio guide",
+      "text_sha256": "fb38bbffec12e2debe86ac11dead129b81fa40c8b31acd7834605839681c77c3"
+    },
+    {
+      "review_id": "ie_009",
+      "text": "Pedí un plato sin mariscos por alergia y igual llegó con camarones. La mesa estaba bien puesta; eso no compensa el riesgo. Me sentí inseguro y pedí la cuenta sin terminar.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "mixed_aspects",
+        "contrast"
+      ],
+      "length_band": "short",
+      "notes": "allergy failure with surface praise",
+      "text_sha256": "2a25192396e27ed7a9fd42c46c405cf91b7b02f2d0e5af163dbe87ae1d63d4cf"
+    },
+    {
+      "review_id": "ie_010",
+      "text": "Parce, el tour por la ciudad vieja empezó tarde, el guía hablaba solo para el frente del grupo y nos dejaron sin sombra en media plaza. Pagamos por algo organizado y terminó siendo un fulano corriendo de un lado a otro. No lo recomiendo para familias con niños.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "colloquial",
+        "regionalism",
+        "negation"
+      ],
+      "length_band": "medium",
+      "notes": "Colombian colloquial negative city tour",
+      "text_sha256": "f4cbfc327b92fde298d21cf9e109155006b07d8f2f7945004464187ebf483ec9"
+    },
+    {
+      "review_id": "ie_011",
+      "text": "La playa se veía espectacular desde el mirador. Al bajar encontramos vidrio y restos de fogata; salimos rápido. No recomendaría ese tramo para bañarse con niños.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "mixed_aspects",
+        "contrast",
+        "negation"
+      ],
+      "length_band": "short",
+      "notes": "beach visual praise then safety failure",
+      "text_sha256": "c943dcf8390f0b4a0db851ff01ff97ea42324955f2c1b762bb317d5436b9d956"
+    },
+    {
+      "review_id": "ie_012",
+      "text": "Reservamos un traslado aeropuerto-hotel con horario cerrado. El conductor canceló a última hora y el soporte solo envió un emoji. Perdimos casi una hora buscando taxi en la madrugada y llegamos exhaustos. El servicio prometido no existió cuando más lo necesitábamos.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "transport_or_excursion_breach",
+        "unanswered_complaint",
+        "negation"
+      ],
+      "length_band": "medium",
+      "notes": "airport transfer cancellation without support",
+      "text_sha256": "ad76eb73b22bd24d1169aa1dcec16d676b914e422ed79121713aeca1d4ad4dde"
+    },
+    {
+      "review_id": "ie_013",
+      "text": "Primero nos confirmaron la habitación con vista. Después nos cambiaron a un cuarto interior sin aviso. Al final el aire no enfriaba y recepción dijo que no había solución hasta el día siguiente. La secuencia completa deja la estancia en negativo.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "objective_chronology",
+        "negation",
+        "contrast"
+      ],
+      "length_band": "medium",
+      "notes": "chronology of hotel downgrades",
+      "text_sha256": "dfb61e130acf0746df8467c0b8c902b358230665191b91029c5a257dda8ebabf"
+    },
+    {
+      "review_id": "ie_014",
+      "text": "No faltó señalización en el aeropuerto: sobraban pantallas. Lo que faltó fue asistencia para mi madre con movilidad reducida; la dejaron en un pasillo y nadie regresó. Perdimos el enlace.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "contrast",
+        "implicit_contrast"
+      ],
+      "length_band": "short",
+      "notes": "airport assistance negation",
+      "text_sha256": "61b6c0ecb1c90a706572d055cf3db10cd57794d9bc86accd9ab57ef62483fbd1"
+    },
+    {
+      "review_id": "ie_015",
+      "text": "El restaurante del hotel lucía moderno y el menú prometía cocina caribeña. Pedimos a tiempo, pero la comida llegó fría, el arroz estaba pasado y el mesero desapareció cuando pedimos corrección. No volvimos a cenar ahí durante la estancia. Además insistimos en que el costo ya estaba liquidado y no aceptamos cargos nuevos.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "mixed_aspects",
+        "contrast",
+        "negation"
+      ],
+      "length_band": "medium",
+      "notes": "restaurant surface polish then service failure",
+      "text_sha256": "c19d441175b7f5581b2cba3a6c12ee00299d471b9bb241fbf0b4d965df649303"
+    },
+    {
+      "review_id": "ie_016",
+      "text": "Qué vaina con ese operador de kayak: nos cobraron el doble de lo anunciado en la página, el chaleco no cerraba bien y el instructor se fue a hablar por teléfono. En Cartagena uno espera calor humano, no un atraco disfrazado de aventura. Quedé molesto y no pienso repetir con ellos.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "colloquial",
+        "regionalism",
+        "explicit_non_return",
+        "negation"
+      ],
+      "length_band": "medium",
+      "notes": "Caribbean colloquial kayak operator complaint",
+      "text_sha256": "7008645be8a1787b063f54dd11d4c8ee07c746b9815f27eb8a7ad2fdcf6c1962"
+    },
+    {
+      "review_id": "ie_017",
+      "text": "La habitación olía a humedad desde el primer minuto. Avisamos; trajeron un ambientador y dejaron la filtración igual. No dormí bien ninguna noche y pedí cambio sin éxito.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "unanswered_complaint"
+      ],
+      "length_band": "short",
+      "notes": "hygiene complaint ignored",
+      "text_sha256": "4e20dab840767057a9c01cb538cc2638063819c01311713880f81cbed8066c30"
+    },
+    {
+      "review_id": "ie_018",
+      "text": "El recorrido al parque natural empezó con un briefing claro y equipo aparentemente completo. A mitad de camino el motor de la lancha falló, nos dejaron a la deriva casi una hora y nadie del operador ofreció reembolso parcial. Presentamos queja; la respuesta fue culpar al clima sin evidencia. La experiencia terminó en riesgo innecesario y en negativo claro. Además insistimos en que el costo ya estaba liquidado y no aceptamos cargos nuevos. Guardamos capturas de pantalla del itinerario y de las llamadas sin respuesta. La demora afectó el resto del día y canceló otras reservas menores enlazadas.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "early_positive_lexicon",
+        "transport_or_excursion_breach",
+        "unanswered_complaint",
+        "mixed_aspects",
+        "contrast"
+      ],
+      "length_band": "long",
+      "notes": "long; natural park boat failure after solid briefing",
+      "text_sha256": "997047b46b84d3d7a7f59c87e38bd2ea060147d149b8b9904457aff259f3decd"
+    },
+    {
+      "review_id": "ie_019",
+      "text": "Ironías del viaje: el paquete se llamaba 'sin contratiempos'. Hubo contratiempos en check-in, en el traslado y en la factura final con cargos fantasma. No fue gracioso para el bolsillo.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "irony",
+        "negation",
+        "mixed_aspects"
+      ],
+      "length_band": "short",
+      "notes": "ironic package name vs reality",
+      "text_sha256": "83baf93ece22b84ee276657c101ad8b56f7737c5b2a9da6e49de4d59d01eea2e"
+    },
+    {
+      "review_id": "ie_020",
+      "text": "El guía del fuerte conocía fechas, pero hablaba tan rápido y sin pausas que nadie del grupo alcanzó a preguntar. Cuando pedimos repetir un punto, respondió que ya lo había dicho. Salimos sin haber entendido el recorrido y con la sensación de haber pagado por un monólogo.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "mixed_aspects"
+      ],
+      "length_band": "medium",
+      "notes": "guide communication failure",
+      "text_sha256": "975bd3e3c6b76207ea08ec9df38949b94331b71de163b5709496c50419c3912e"
+    },
+    {
+      "review_id": "ie_021",
+      "text": "Contratamos un day pass de spa en el hotel. Las instalaciones lucían nuevas, pero el aquecedor del jacuzzi no funcionaba, las toallas venían húmedas y la cita de masaje se canceló sin avisar. Reclamamos en recepción y en la app; nadie ofreció reposición ni descuento. Un día pagado quedó vacío.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "mixed_aspects",
+        "unanswered_complaint",
+        "contrast",
+        "negation"
+      ],
+      "length_band": "medium",
+      "notes": "spa day pass failure",
+      "text_sha256": "0b60ea78fa1b901223cd102e87a3efbfe90cc38bce7799305e7168167c20c2eb"
+    },
+    {
+      "review_id": "ie_022",
+      "text": "El hostal era económico y eso se notó: ruido constante, baño compartido sin papel y un candado que no cerraba bien. No esperaba lujo, pero sí higiene básica. Me fui un día antes.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "negation",
+        "contrast"
+      ],
+      "length_band": "short",
+      "notes": "budget hostel hygiene/security",
+      "text_sha256": "532b77003462fc9b9e2243c8006f737705d6f8c57f127052b9ae97cda13f02ec"
+    },
+    {
+      "review_id": "ie_023",
+      "text": "La reserva decía traslado incluido ida y vuelta al aeropuerto. A la llegada nadie esperaba con el cartel; a la salida el vehículo no apareció y tuvimos que pagar dos taxis de más. Escribimos tres veces al correo de soporte sin obtener reembolso. El hotel en sí estuvo aceptable, pero el componente de transporte rompió el trato y deja el saldo en negativo. Además insistimos en que el costo ya estaba liquidado y no aceptamos cargos nuevos. Guardamos capturas de pantalla del itinerario y de las llamadas sin respuesta.",
+      "intended_label": "negativo",
+      "phenomena": [
+        "mixed_aspects",
+        "transport_or_excursion_breach",
+        "unanswered_complaint",
+        "contrast",
+        "negation"
+      ],
+      "length_band": "long",
+      "notes": "long; included transfers missing both ways",
+      "text_sha256": "37fbc147852a1c7240fc50554665da27f6c600e23f8cab8eb2c23f0447292acc"
+    },
+    {
+      "review_id": "ie_024",
+      "text": "El hotel estaba limpio y el desayuno fue suficiente. La ubicación es céntrica. No hubo contratiempos ni detalles memorables; cumplió lo básico del anuncio.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "length_band": "short",
+      "notes": "plain adequate hotel stay",
+      "text_sha256": "205686c6aeb3da3ab92c803ac63c4f779c0e5a71549eef21a129084fde0e5550"
+    },
+    {
+      "review_id": "ie_025",
+      "text": "Visitamos el museo en la mañana. Las salas estaban abiertas, la taquilla cobró la tarifa publicada y el recorrido tomó unos cuarenta minutos. No salí entusiasmado ni decepcionado; fue una visita estándar. Anoto horarios, precios y tiempos de espera tal como ocurrieron.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "length_band": "medium",
+      "notes": "factual museum visit",
+      "text_sha256": "6ec7a312263602b688a70c68fdf35942d7f67239666da74cf29be2e6e5497e3c"
+    },
+    {
+      "review_id": "ie_026",
+      "text": "El restaurante sirvió a tiempo y los precios coincidían con la carta. El sabor fue aceptable sin destacar. La terraza tenía algo de ruido de calle. Dejo la experiencia anotada sin una recomendación fuerte a favor ni en contra. Anoto horarios, precios y tiempos de espera tal como ocurrieron.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "mixed_aspects",
+        "objective_chronology"
+      ],
+      "length_band": "medium",
+      "notes": "balanced restaurant notes",
+      "text_sha256": "ead84f19c40f9d3c75b2d31a39c17eebd4b7545b42f7c539dcce02a1b331665a"
+    },
+    {
+      "review_id": "ie_027",
+      "text": "Tomamos un bus turístico por la bahía. Salió con retraso leve, el audio funcionó a ratos y las paradas fueron las anunciadas. Ni excelente ni fallido; un traslado funcional.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology",
+        "mixed_aspects"
+      ],
+      "length_band": "short",
+      "notes": "functional bay bus",
+      "text_sha256": "8f6f2d3d9722b98fa9522862b01e45410a3dcc9f93d6cae6a8b734ebbf2a3517"
+    },
+    {
+      "review_id": "ie_028",
+      "text": "La playa tenía sombra limitada y el agua estaba tibia. Había socorrista y baños operativos. No hubo incidentes. Fue un día de sol sin mayores expectativas incumplidas ni sorpresas positivas.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "length_band": "short",
+      "notes": "uneventful beach day",
+      "text_sha256": "827f2c191977cfa27340ea3fa64b3aa3b876f4e8e5876865cfa7f426f57c7583"
+    },
+    {
+      "review_id": "ie_029",
+      "text": "El guía explicó fechas y datos básicos del fuerte. Algunas pausas fueron largas y el grupo se dispersó. Aprendimos lo esencial. No califico el tour como memorable ni como deficiente; quedó en un punto medio. Anoto horarios, precios y tiempos de espera tal como ocurrieron.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "mixed_aspects",
+        "objective_chronology"
+      ],
+      "length_band": "medium",
+      "notes": "mid-range guided fort visit",
+      "text_sha256": "0183abff32be0a379eaad9e0eba2a6f8a648fb5bbc1ccacac3d7bec1172ac5de"
+    },
+    {
+      "review_id": "ie_030",
+      "text": "Parce, el hostel en Getsemaní estaba más o menos: cama decente, ventilador ruidoso, cocina compartida limpia a ratos. Pagamos lo justo y recibimos lo justo. Ni fulano ni maravilla.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "colloquial",
+        "regionalism",
+        "mixed_aspects"
+      ],
+      "length_band": "short",
+      "notes": "Colombian colloquial neutral hostel",
+      "text_sha256": "63b5b44512ef5d3a7e8eddd96cd7f88ca5647c8e86ec675175f104319c08517f"
+    },
+    {
+      "review_id": "ie_031",
+      "text": "La reserva online se confirmó al instante y el correo de detalles llegó completo. En el mostrador hubo una fila de quince minutos. La habitación coincidía con las fotos. No tengo una opinión fuerte más allá de que el proceso fue ordinario.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "length_band": "medium",
+      "notes": "ordinary booking/check-in process",
+      "text_sha256": "f40919682b9bb1633959f3d402cd880575c95fc27d2acd04d88ce2ae20d9a408"
+    },
+    {
+      "review_id": "ie_032",
+      "text": "El aeropuerto estaba concurrido. Los controles demoraron lo esperado en temporada alta. Encontramos el mostrador de la aerolínea sin ayuda extra. Fue un tránsito previsible.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "length_band": "short",
+      "notes": "predictable airport transit",
+      "text_sha256": "fe8be811dd8bb0fcf4c097c69a95b9baaeda74a35e46612183dcb61bce339a71"
+    },
+    {
+      "review_id": "ie_033",
+      "text": "Probamos un café cerca de la universidad. El precio era estándar, el Wi-Fi estable y el ruido de conversaciones moderado. Ni el postre ni el servicio destacaron. Sirvió para trabajar un rato.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology",
+        "mixed_aspects"
+      ],
+      "length_band": "short",
+      "notes": "neutral cafe near campus",
+      "text_sha256": "0e8040a6cb052a1f3d03ce0d74117d052ad0f2fb08febfb5bb24b25b60e80ba9"
+    },
+    {
+      "review_id": "ie_034",
+      "text": "El paquete incluía hotel y un city tour. El hotel cumplió higiene y silencio; el tour mezcló paradas útiles con tiempos muertos. Hubo un cambio menor de horario que se avisó. No concluyo un saldo claramente bueno o malo: ambos componentes fueron correctos sin brillar.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "mixed_aspects",
+        "objective_chronology",
+        "contrast"
+      ],
+      "length_band": "medium",
+      "notes": "mixed package without global lean",
+      "text_sha256": "84b7d15b24696c6526a017649b82a8233763830b38003a54b75f0e5330f773e4"
+    },
+    {
+      "review_id": "ie_035",
+      "text": "Alquilamos bicicletas por dos horas. Las llantas estaban bien, el candado funcionó y la ruta costera era plana. El precio era el de la cartelería. Una actividad práctica sin emoción especial.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "length_band": "short",
+      "notes": "bike rental factual",
+      "text_sha256": "e83c8995b9f05366172a437601c5cd1e02b7b9c0e54ce8e65eb83aabf70ddb46"
+    },
+    {
+      "review_id": "ie_036",
+      "text": "El spa del hotel tenía turnos disponibles. La cabina estaba limpia, el masaje fue de intensidad media y el tiempo se respetó. No sentí un cambio notable después. Queda como un servicio estándar de catálogo. Anoto horarios, precios y tiempos de espera tal como ocurrieron.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "length_band": "medium",
+      "notes": "standard spa session",
+      "text_sha256": "dd692bc50cbebaacf9968d9a19ddabb988f70edebee748e064da2b4e3d4d7e43"
+    },
+    {
+      "review_id": "ie_037",
+      "text": "La excursión a la isla salió a la hora impresa. El almuerzo era simple, el mar estaba movido y el guía repitió el mismo guion en dos idiomas. Cumplió el itinerario. No lo describiría como inolvidable ni como un fracaso logístico.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "mixed_aspects",
+        "objective_chronology"
+      ],
+      "length_band": "medium",
+      "notes": "island excursion mid evaluation",
+      "text_sha256": "844a755ce77e6ee03f49933cec3c326b5cc999451d87d68054c018862adac56d"
+    },
+    {
+      "review_id": "ie_038",
+      "text": "Primero el taxi del aeropuerto cobró tarifa fija publicada. Después el hotel asignó la habitación solicitada. Al final el desayuno fue buffet genérico. Anoto la secuencia sin una valoración definitiva.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "length_band": "short",
+      "notes": "chronology without judgment",
+      "text_sha256": "84729903de5d8a653743d959d2928943624efdf43e521d8d136ada9f4ac8a416"
+    },
+    {
+      "review_id": "ie_039",
+      "text": "El mercado artesanal tenía variedad y precios visibles. Algunas piezas eran repetidas entre puestos. No regateé ni discutí; compré un imán y seguí. Experiencia de paso.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "length_band": "short",
+      "notes": "craft market pass-through",
+      "text_sha256": "6bb8e3f40138b45c8f67e853667e524e95f5c9d9ab98992b3ed6758013639598"
+    },
+    {
+      "review_id": "ie_040",
+      "text": "La cena en el restaurante del muelle llegó a tiempo y la cuenta cuadró. El pescado estaba en punto medio, ni seco ni excepcional. La música ambiente era alta para conversar, pero tolerable. Un resultado intermedio. Anoto horarios, precios y tiempos de espera tal como ocurrieron.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "mixed_aspects",
+        "contrast"
+      ],
+      "length_band": "medium",
+      "notes": "wharf restaurant middle ground",
+      "text_sha256": "aa6f67fccb3b9dbbef53f9bd04fa329da3ff230024001a4b4ff74cb648288b0e"
+    },
+    {
+      "review_id": "ie_041",
+      "text": "El traslado colectivo al fuerte demoró por tráfico. El vehículo estaba limpio y el conductor conocía la ruta. Llegamos con margen. Ni elogio fuerte ni queja: transporte urbano típico de temporada.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology",
+        "mixed_aspects"
+      ],
+      "length_band": "short",
+      "notes": "typical traffic delay transfer",
+      "text_sha256": "d683df49760f2c9c5692d0204a32223fb4c420443189ad87e78fe4dd254ddea8"
+    },
+    {
+      "review_id": "ie_042",
+      "text": "En el museo de historia las cartelas estaban en español e inglés. Algunas vitrinas tenían reflejos que dificultaban leer. El precio de entrada era el anunciado. Salí informado a medias, sin una emoción clara. Anoto horarios, precios y tiempos de espera tal como ocurrieron.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "mixed_aspects",
+        "objective_chronology"
+      ],
+      "length_band": "medium",
+      "notes": "history museum mixed readability",
+      "text_sha256": "8ac302fdfdb05f7086a575724969df068535ebf231c0ca09031700d5ab884b33"
+    },
+    {
+      "review_id": "ie_043",
+      "text": "La habitación familiar tenía dos camas y un sofá. El aire enfriaba despacio y el agua caliente tardó en salir. El personal entregó toallas extras cuando las pedimos. Cumplió necesidades básicas sin destacar. Anoto horarios, precios y tiempos de espera tal como ocurrieron.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "mixed_aspects",
+        "objective_chronology"
+      ],
+      "length_band": "medium",
+      "notes": "family room adequate",
+      "text_sha256": "8ef53162e7fd14cedc7ec20ae5fc4ff5f40eaf35e345155e33df0db1141b5472"
+    },
+    {
+      "review_id": "ie_044",
+      "text": "Hicimos snorkel desde un muelle cercano. El equipo era antiguo pero usable, el instructor dio reglas claras y el agua tenía algo de turbidez. No hubo accidentes. Una actividad correcta y olvidable.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "mixed_aspects",
+        "objective_chronology"
+      ],
+      "length_band": "short",
+      "notes": "usable snorkel, forgettable",
+      "text_sha256": "76aefd68ad5bb0a30a808d0193f8cae6f215fe202b6f0f9c84adb453b48edb59"
+    },
+    {
+      "review_id": "ie_045",
+      "text": "El buffet del hotel ofrecía opciones locales y pan industriales. Había fila a las ocho. La higiene de utensilios se veía cuidada. Desayunamos y listo; no hay mucho más que reportar.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology",
+        "mixed_aspects"
+      ],
+      "length_band": "short",
+      "notes": "buffet factual report",
+      "text_sha256": "4f3e88c71e7f0c8e3e76975d55db1d58ccb0a15096d9a69dc8b8261e247fd584"
+    },
+    {
+      "review_id": "ie_046",
+      "text": "El city walk gratuito del barrio duró una hora. El guía voluntario habló de arquitectura y de comercio local. Algunas anécdotas se repetían. Sirvió de orientación inicial más que de espectáculo.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "objective_chronology"
+      ],
+      "length_band": "short",
+      "notes": "free walking tour orientation",
+      "text_sha256": "049dfb27fbf83a22fe490fc94da098e8651fbacc1825e78ce18445ff903ae97d"
+    },
+    {
+      "review_id": "ie_047",
+      "text": "La noche en el hotel cerca del campus fue silenciosa. El colchón era firme, el Wi-Fi estable y el desayuno limitado a café y pan. Para una estancia corta de trabajo cumplió. No lo elegiría por ocio ni lo descartaría por una visita breve de estudio.",
+      "intended_label": "neutral",
+      "phenomena": [
+        "mixed_aspects",
+        "contrast",
+        "objective_chronology"
+      ],
+      "length_band": "medium",
+      "notes": "campus hotel work stay middle",
+      "text_sha256": "a27e7786c1a787c35de5a1b1b0837c3a0de45b499788159c4142e6b0e29f937c"
+    },
+    {
+      "review_id": "ie_048",
+      "text": "El hotel del centro histórico fue una joya: habitación silenciosa, desayuno con frutas frescas y un personal que anticipaba lo que necesitábamos. Salimos descansados y con ganas de recomendarlo.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "early_positive_lexicon"
+      ],
+      "length_band": "short",
+      "notes": "clear positive historic hotel",
+      "text_sha256": "962ee4a02f64ba172982c1b51b28db5f24210f89c3638a7913fbf068b7da349f"
+    },
+    {
+      "review_id": "ie_049",
+      "text": "La cena caribeña estuvo redonda: pescado en punto, yuca bien cocida y un jugo natural excelente. El mesero cuidó los tiempos sin apurar. Volveremos a esa mesa sin dudar.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "early_positive_lexicon"
+      ],
+      "length_band": "short",
+      "notes": "positive Caribbean dinner",
+      "text_sha256": "836bf01787cd9167d3ef5f3e3f77c1c81c1587338192275ee45826a62cd048f3"
+    },
+    {
+      "review_id": "ie_050",
+      "text": "Parce, qué chimba el tour por Getsemaní: el guía contaba historias con gracia, paramos en un café local y el ritmo del grupo se sintió cercano. Pagamos poco y nos llevamos mucho. Recomendado del todo. Cada tramo del itinerario respetó lo prometido en la confirmación escrita.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "colloquial",
+        "regionalism",
+        "early_positive_lexicon"
+      ],
+      "length_band": "medium",
+      "notes": "Colombian colloquial positive Getsemaní tour",
+      "text_sha256": "edf2de2abbdf2e64c12c30d9ff804756b2b061c757ff355c2663c25e3cfc216b"
+    },
+    {
+      "review_id": "ie_051",
+      "text": "El museo estaba ordenado, las audioguías funcionaron y el personal ayudó a ubicar la sala temporal. No es que fuera pequeño: había recorrido amplio y bien señalizado. Aprendimos y disfrutamos.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "early_positive_lexicon"
+      ],
+      "length_band": "short",
+      "notes": "positive museum with negation framing",
+      "text_sha256": "3c5e483343a542fa05cb8a609620450cbb6a30b30156ab13dfb8c76a88ed5a4d"
+    },
+    {
+      "review_id": "ie_052",
+      "text": "La playa del circuito tenía agua clara, sombra disponible y socorristas atentos. El traslado en lancha salió puntual y el almuerzo ligero estuvo fresco. Un día completo bien ejecutado.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "early_positive_lexicon",
+        "objective_chronology"
+      ],
+      "length_band": "short",
+      "notes": "well-executed beach circuit",
+      "text_sha256": "f1917aaaa95b37368a271af7b92a09f60f2a36f283c30962f6d088b401b46e9f"
+    },
+    {
+      "review_id": "ie_053",
+      "text": "Hubo un susto breve con el horario del van, pero lo reprogramaron en veinte minutos y llegamos a tiempo al fuerte. El guía fue claro y el hotel nos guardó el equipaje sin costo. El incidente quedó resuelto y la experiencia global es positiva.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "resolved_incident",
+        "mixed_aspects",
+        "early_positive_lexicon"
+      ],
+      "length_band": "medium",
+      "notes": "resolved transport scare; global positive",
+      "text_sha256": "7587bda87adb5102d1d8b96e1bcf393f630a0a0025156954de796cc806491c24"
+    },
+    {
+      "review_id": "ie_054",
+      "text": "El spa fue un acierto: cabina limpia, masaje preciso y té de despedida. Salí relajado y con la espalda mucho mejor. Vale cada peso.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "early_positive_lexicon"
+      ],
+      "length_band": "short",
+      "notes": "positive spa",
+      "text_sha256": "ca5186ecc54f23b6f606da92ea5075e55616b507f4e4cdc0fba80fc8632e377d"
+    },
+    {
+      "review_id": "ie_055",
+      "text": "El traslado aeropuerto-hotel llegó cinco minutos antes, el conductor ayudó con las maletas y el aire del vehículo funcionaba. Un detalle logístico que marca la diferencia al aterrizar con cansancio.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "early_positive_lexicon"
+      ],
+      "length_band": "short",
+      "notes": "positive airport transfer",
+      "text_sha256": "e5da559662205f1ed61c1d6350895d7e66daacc913e31acdf6623c3bae49171c"
+    },
+    {
+      "review_id": "ie_056",
+      "text": "La terraza del hotel al atardecer, el café de la mañana y la piscina cuidada hicieron que la estancia se sintiera fácil. El personal resolvió un cambio de almohada al instante. Nos fuimos contentos y ya dejamos una reseña favorable en la plataforma de la reserva.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "early_positive_lexicon",
+        "resolved_incident"
+      ],
+      "length_band": "medium",
+      "notes": "easy hotel stay with small resolved ask",
+      "text_sha256": "fb8cbe7af53857a268ca62d924e039712d1f058d961accfedbbd6e2d753ea8c7"
+    },
+    {
+      "review_id": "ie_057",
+      "text": "El recorrido en bici por la ciclorruta costera fue seguro, el arriendo entregó cascos en buen estado y el mapa sugerido coincidía con la realidad. Terminamos con una brisa agradable y sin contratiempos. Cada tramo del itinerario respetó lo prometido en la confirmación escrita.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "early_positive_lexicon",
+        "objective_chronology"
+      ],
+      "length_band": "medium",
+      "notes": "positive coastal bike rental",
+      "text_sha256": "b98ad05a0165e46acd698bf4c36c69a615ac3d7c0844092f3b1a9b19d9dc2ae0"
+    },
+    {
+      "review_id": "ie_058",
+      "text": "No faltó información en la recepción: mapas, horarios de ferry y tips de seguridad. Todo eso se cumplió. El ferry salió a tiempo y el día en la isla fue ordenado. Una operación transparente que genera confianza. Cada tramo del itinerario respetó lo prometido en la confirmación escrita.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "negation",
+        "early_positive_lexicon",
+        "objective_chronology"
+      ],
+      "length_band": "medium",
+      "notes": "positive with negation of missing info",
+      "text_sha256": "f350f16bf526169f5fe8c94bb9b4398939ab029ec609699e8d80a41e248518dc"
+    },
+    {
+      "review_id": "ie_059",
+      "text": "El hostal boutique tenía detalles cuidados: ropa de cama limpia, desayuno casero y un patio fresco. El precio fue justo. Ideal para una escapada corta sin pretensiones de lujo.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "early_positive_lexicon"
+      ],
+      "length_band": "short",
+      "notes": "positive boutique hostel",
+      "text_sha256": "57ac17abfd98ddc68b6e38a27afd34933942c0b7659d8c09df4971891f4472ed"
+    },
+    {
+      "review_id": "ie_060",
+      "text": "La visita guiada al fuerte combinó historia clara con pausas para fotos. El guía respondió preguntas largas sin apuro. Salimos entendiendo el lugar y agradeciendo el ritmo.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "early_positive_lexicon"
+      ],
+      "length_band": "short",
+      "notes": "positive fort guided visit",
+      "text_sha256": "87edeafefce3f33d88e04d00ee5fae57c8ce2aebb1e6cda19a5d46d81491b61b"
+    },
+    {
+      "review_id": "ie_061",
+      "text": "Primero el check-in fue ágil. Después el desayuno superó lo esperado con opciones calientes. Al final el late check-out nos permitió llegar al aeropuerto sin carrera. La secuencia completa deja la estancia en positivo. Cada tramo del itinerario respetó lo prometido en la confirmación escrita.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "objective_chronology",
+        "early_positive_lexicon"
+      ],
+      "length_band": "medium",
+      "notes": "positive chronology hotel",
+      "text_sha256": "639f8060dd76e8d1b89486e959cee0e40437f73b6546446454591feedfd4bc40"
+    },
+    {
+      "review_id": "ie_062",
+      "text": "El restaurante del muelle sirvió mariscos frescos, la cuenta fue transparente y la vista al atardecer acompañó sin cobrar extra por terraza. Una cena redonda para cerrar el viaje.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "early_positive_lexicon"
+      ],
+      "length_band": "short",
+      "notes": "positive wharf seafood dinner",
+      "text_sha256": "42d57f8f89dc84d900b82f2321cd4ca0415217c405938cdc663eef775fd45b4b"
+    },
+    {
+      "review_id": "ie_063",
+      "text": "Qué nota el kayak al amanecer: agua calmada, instructor paciente y chalecos en buen estado. En Cartagena ese tipo de salida temprana se disfruta distinto. Repetiría la misma compañía sin pensarlo dos veces. Cada tramo del itinerario respetó lo prometido en la confirmación escrita.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "colloquial",
+        "regionalism",
+        "early_positive_lexicon"
+      ],
+      "length_band": "medium",
+      "notes": "Caribbean colloquial positive kayak",
+      "text_sha256": "23561bd90ce6e787ab9bc562e7dd8f8bc1d60476aa95b9d8f0ec18aed9dd4711"
+    },
+    {
+      "review_id": "ie_064",
+      "text": "El paquete hotel más city tour funcionó de punta a punta. El alojamiento era silencioso y el tour respetó los tiempos. Hubo un retraso mínimo del van que avisaron por mensaje; no afectó el plan. Saldo positivo. Cada tramo del itinerario respetó lo prometido en la confirmación escrita.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "resolved_incident",
+        "mixed_aspects",
+        "early_positive_lexicon"
+      ],
+      "length_band": "medium",
+      "notes": "package with minor resolved delay",
+      "text_sha256": "4b3173249cfcdf63093496733908c6bfb36e81da42b18d3999fd3b293cae18b3"
+    },
+    {
+      "review_id": "ie_065",
+      "text": "La habitación familiar tenía espacio de sobra, el aire enfriaba rápido y el desayuno infantil fue generoso. El personal prestó una cuna sin costo. Viajamos con niños y nos sentimos cuidados.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "early_positive_lexicon"
+      ],
+      "length_band": "short",
+      "notes": "positive family hotel",
+      "text_sha256": "a6a0908a45d8ceb7cfddc81961cd8d011912bdc0bd47ba262d9a15f339804646"
+    },
+    {
+      "review_id": "ie_066",
+      "text": "El café cerca del campus tenía Wi-Fi estable, tomas eléctricas y un personal amable. Trabajamos toda la tarde sin interrupciones. Para una visita académica fue un hallazgo práctico.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "early_positive_lexicon"
+      ],
+      "length_band": "short",
+      "notes": "positive campus cafe for work",
+      "text_sha256": "2867df1a7ad4607d27545de0c7bedc3b5567e335a985a4c8e33e8b145cebe316"
+    },
+    {
+      "review_id": "ie_067",
+      "text": "La lancha a las islas salió puntual, el guía explicó normas de snorkel con claridad y el almuerzo fue fresco. Regresamos al muelle sin demoras. Una operación turística bien coordinada de principio a fin. Cada tramo del itinerario respetó lo prometido en la confirmación escrita.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "early_positive_lexicon",
+        "objective_chronology"
+      ],
+      "length_band": "medium",
+      "notes": "positive islands day trip",
+      "text_sha256": "7b0baeb0fd2c0070a2b9105201b1307c5b14bf6056d4ad1af04e10175b73512b"
+    },
+    {
+      "review_id": "ie_068",
+      "text": "Ironía aparte: el paquete se llamaba 'básico' y resultó excelente. Habitación amplia, desayuno completo y un traslado puntual. Nos sorprendió para bien y lo recomendamos.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "irony",
+        "early_positive_lexicon"
+      ],
+      "length_band": "short",
+      "notes": "ironic package name but positive outcome",
+      "text_sha256": "565ceb45ad31a10fd21d36835302e85cd1036cbcbf69f9659a1deeaf40f26236"
+    },
+    {
+      "review_id": "ie_069",
+      "text": "El personal del hotel no solo limpió bien: también ofreció rutas peatonales seguras y reservó mesa en un restaurante local. Esos gestos convirtieron una estancia correcta en una experiencia cálida.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "early_positive_lexicon",
+        "negation"
+      ],
+      "length_band": "short",
+      "notes": "positive service beyond cleaning",
+      "text_sha256": "64f48fcb89237a6ff304a6df86914ae04f3bd2714835ae446a960915bfe9b5cb"
+    },
+    {
+      "review_id": "ie_070",
+      "text": "El day pass de piscina incluyó toallas, sombrilla y acceso a duchas limpias. El agua estaba en temperatura agradable y no hubo filas. Un descanso urbano bien resuelto.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "early_positive_lexicon",
+        "negation"
+      ],
+      "length_band": "short",
+      "notes": "positive pool day pass",
+      "text_sha256": "5c49dc234e8a31ee2d2ef87b36035d004a622ebcf596a191952b2d159b3ad861"
+    },
+    {
+      "review_id": "ie_071",
+      "text": "Volvimos de Cartagena con una impresión clara: el boutique del centro, el tour del fuerte y el traslado al aeropuerto encajaron sin fricciones. Cada pieza del itinerario cumplió lo prometido y el trato fue cercano. Para un viaje corto de estudios y ocio, lo volveríamos a armar igual.",
+      "intended_label": "positivo",
+      "phenomena": [
+        "early_positive_lexicon",
+        "objective_chronology",
+        "mixed_aspects"
+      ],
+      "length_band": "medium",
+      "notes": "overall positive Cartagena multi-component trip",
+      "text_sha256": "19d7ff1079bf2166f5c76a493525f6a89c44bc57037276d931e06351927611e4"
+    }
+  ],
+  "counts": {
+    "total": 72,
+    "by_label": {
+      "negativo": 24,
+      "neutral": 24,
+      "positivo": 24
+    },
+    "by_length_band": {
+      "long": 2,
+      "medium": 29,
+      "short": 33,
+      "xlong": 8
+    },
+    "xlong_negativo_praise_then_failure": 8,
+    "diagnostic_review_id": "ie_cartagena_fail"
+  },
+  "limitations": [
+    "Labels are author intent for independent evaluation, not independent human gold annotation.",
+    "Phenomena tags are author annotations for analysis slices, not model outputs.",
+    "records_sha256 is PENDING until a freeze script hashes the review records.",
+    "This set must never be used for fitting, hyperparameter search, or model selection.",
+    "Texts are original synthetic Spanish tourism narratives; they do not claim real guest identities."
+  ],
+  "frozen_note": "Frozen before any model prediction on 2026-11-25. Do not fit or tune on this set."
+}

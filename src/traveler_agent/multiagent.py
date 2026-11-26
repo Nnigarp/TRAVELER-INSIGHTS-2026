@@ -2,8 +2,9 @@
 
 Agents have distinct observations, contracts, decisions and capabilities.
 The coordinator owns a state machine, plan, handoffs, validation and fail-closed
-outcomes. Optional local Ollama reporting cannot alter classification/control.
-No online learning or external actions.
+outcomes. Optional Qwen verification may escalate human review but never
+overwrites the supervised sentiment label. Optional Ollama reporting cannot
+execute external actions. No online learning.
 
 Trace is intentionally metadata-only: raw reviews, transcripts and private
 audio paths are NOT duplicated into the coordination log.
@@ -18,9 +19,9 @@ from typing import Any, Protocol
 
 import numpy as np
 
-from .aspects import find_aspects, evidence_spans
 from .linguistic import linguistic_profile
 from .policy import recommend
+from .semantic_context import analyze_context
 
 CLASSES = frozenset({"positivo", "neutral", "negativo"})
 STEPS = ("percepcion", "semantica", "control", "accion")
@@ -60,7 +61,6 @@ class SpecializedAgent(Protocol):
 
 def _trace(state: Execution, *, agent: str, step: str, status: str,
            input_fields=(), output_fields=(), note: str = "") -> None:
-    # Metadata only; never save raw text, model outputs or transcript.
     state.trace.append({
         "sequence": len(state.trace) + 1,
         "agent": agent,
@@ -73,7 +73,6 @@ def _trace(state: Execution, *, agent: str, step: str, status: str,
 
 
 def _trace_generation(state: Execution, *, agent: str, status: str, note: str, generation=None):
-    # Separate extension: the original ten-event trace and its consumers survive.
     event = {"sequence": len(state.generation_trace) + 1, "agent": agent,
              "task": "generacion", "status": status, "note_code": note,
              "after_task": "control", "before_task": "cierre"}
@@ -118,25 +117,38 @@ class SemanticsAgent:
             classes = [str(c) for c in self.classifier.classes_]
             probabilities = np.asarray(self.classifier.predict_proba([text])[0], dtype=float)
         except Exception as exc:
-            raise AgentFailure("El clasificador DEMO no pudo inferir.") from exc
+            raise AgentFailure("El clasificador no pudo inferir.") from exc
         if (len(classes) != 3 or set(classes) != CLASSES or
             probabilities.shape != (3,) or not np.isfinite(probabilities).all() or
             np.any(probabilities < 0) or
             not np.isclose(probabilities.sum(), 1.0, atol=1e-3)):
             raise AgentFailure("Salida inválida del clasificador; bloquear acción.")
+        encoder = getattr(self.classifier, "encoder", None)
+        truncated = False
+        if encoder is not None:
+            try:
+                truncated = len(encoder.tokenizer.encode(text, truncation=False)) > encoder.max_length
+            except Exception:
+                truncated = False
         idx = int(probabilities.argmax())
-        aspects = find_aspects(text)
+        from .report_content import is_factual_description
+        context = analyze_context(text)
         profile = linguistic_profile(text)
-        # Retain the 2026 baseline rule: contrast only, with bounded lexical cue.
         contrast = bool(re.search(r"\b(pero|aunque|sin embargo)\b", text, re.I))
         return {
             "sentiment": classes[idx],
             "scores": {c: round(float(p), 4) for c, p in zip(classes, probabilities)},
             "confidence_raw": float(probabilities[idx]),
-            "aspects": aspects,
-            "evidence": evidence_spans(text, aspects),
+            "aspects": context["aspects"],
+            "aspect_assessment": context["aspect_assessment"],
+            "incidents": context["incidents"],
+            "ambiguity": context["ambiguity"],
+            "evidence": context["evidence"] or [],
             "linguistic_profile": profile,
+            "factual_description": is_factual_description(text),
             "contrast": contrast,
+            "truncated": truncated,
+            "context_version": context["version"],
         }
 
 
@@ -152,18 +164,44 @@ class ControlAgent:
         if message.task != self.name:
             raise AgentFailure("Control recibió tarea ajena.")
         semantic = message.payload["semantic"]
-        # The very same threshold/contrast rule as old inspect_review.
         value = semantic["confidence_raw"]
+        ambiguity = semantic.get("ambiguity") or {}
         review = value < self.threshold or (semantic["contrast"] and value < .80)
         reasons = []
+        if semantic.get("truncated"):
+            review = True
+            reasons.append("TEXTO_TRUNCADO_POR_ENCODER")
+        if ambiguity.get("ambiguous") or ambiguity.get("doubt"):
+            review = True
+            reasons.append("AMBIGUEDAD_O_DUDA")
+        # Open incident under a positive/neutral global label → human check.
+        open_incidents = sum(1 for i in (semantic.get("incidents") or []) if i.get("status") == "no_resuelto")
+        sentiment = semantic.get("sentiment")
+        if semantic.get("factual_description") and sentiment != "neutral":
+            review = True
+            reasons.append("DESCRIPCION_FACTUAL_VS_ETIQUETA")
+        if open_incidents and sentiment in {"positivo", "neutral"}:
+            review = True
+            reasons.append("INCIDENTE_ABIERTO_VS_ETIQUETA")
+        balance = message.payload.get("balance_qwen")
+        # Verification never overwrites the supervised label; it only escalates.
+        if balance in {"incierto", "no_disponible"}:
+            review = True
+            reasons.append("VERIFICACION_QWEN_" + balance.upper())
+        elif balance is not None and balance in CLASSES and sentiment is not None and balance != sentiment:
+            review = True
+            reasons.append("VERIFICACION_QWEN_DISCREPANCIA_" + balance.upper())
         if value < self.threshold:
+            # Historical reason code kept for acceptance contracts; UI hides the DEMO wording.
             reasons.append("SCORE_DEMO_BAJO")
-        if semantic["contrast"] and value < .80:
+        if semantic.get("contrast") and value < .80:
             reasons.append("CONTRASTE_CON_SCORE_LIMITADO")
         return {
             "needs_human": review,
             "decision": "SOLICITAR_REVISION" if review else "CONTINUAR",
             "reason_codes": reasons,
+            "balance_qwen": balance,
+            "supervised_sentiment_preserved": semantic.get("sentiment"),
         }
 
 
@@ -175,14 +213,20 @@ class ActionAgent:
             raise AgentFailure("Acción recibió tarea ajena.")
         semantic = message.payload["semantic"]
         control = message.payload["control"]
-        # Existing policy, no external action or automatic intervention.
+        context = {
+            "incidents": semantic.get("incidents") or [],
+            "aspect_assessment": semantic.get("aspect_assessment") or {},
+            "ambiguity": semantic.get("ambiguity") or {},
+        }
         state, recommendation = recommend(
-            semantic["sentiment"], semantic["aspects"], control["needs_human"]
+            semantic["sentiment"], semantic["aspects"], control["needs_human"],
+            context=context,
         )
         if control["needs_human"] and state != "revisión_humana":
             raise AgentFailure("Política insegura: revisión humana bloqueada.")
         output = {"policy_state": state, "recommendation": recommendation,
-                  "external_actions_executed": False}
+                  "external_actions_executed": False,
+                  "incidents": context["incidents"]}
         if "generation" in message.payload:
             from .ollama_report import validate_generation
             output["generation"] = validate_generation(
@@ -196,8 +240,11 @@ class TravelerOrchestrator:
 
     def __init__(self, classifier: Any, *, threshold: float = .56,
                  agents: dict[str, SpecializedAgent] | None = None,
-                 reporter=None):
+                 reporter=None, context_verifier=None):
+        self.context_verification = getattr(classifier, "context_verification", False)
         self.reporter = reporter
+        # Verifier is independent from generative reporting (may share Ollama).
+        self.context_verifier = context_verifier
         self.agents = agents if agents is not None else {
             "percepcion": PerceptionAgent(),
             "semantica": SemanticsAgent(classifier),
@@ -206,8 +253,8 @@ class TravelerOrchestrator:
         }
         if set(self.agents) != set(STEPS):
             raise AgentFailure("El orquestador requiere cuatro especialistas.")
-        # Per-instance, ephemeral observation for debugging failed handoffs.
         self.last_execution: Execution | None = None
+        self.classifier = classifier
 
     def run(self, text: str, *, review_id: str = "", modality: str = "texto",
             edited_by_human: bool = False, progress=None) -> dict:
@@ -226,7 +273,20 @@ class TravelerOrchestrator:
                     progress("Clasificando")
                 payload = {"text": execution.results["percepcion"]["text"]}
             elif step == "control":
-                payload = {"semantic": execution.results["semantica"]}
+                semantic = execution.results["semantica"]
+                payload = {"semantic": semantic}
+                verify = getattr(self.context_verifier, "verify_context", None)
+                if self.context_verification and verify and (
+                    semantic["contrast"]
+                    or semantic.get("ambiguity", {}).get("ambiguous")
+                    or re.search(r"\b(no|nunca|sin|tampoco|aunque|pero)\b", text, re.I)
+                ):
+                    if progress:
+                        progress("Verificación contextual")
+                    try:
+                        payload["balance_qwen"] = verify(text)
+                    except Exception:
+                        payload["balance_qwen"] = "no_disponible"
             elif step == "accion":
                 payload = {
                     "semantic": execution.results["semantica"],
@@ -238,7 +298,6 @@ class TravelerOrchestrator:
                     from .ollama_report import failed_generation
                     _trace_generation(execution, agent="orquestador", status="DELEGATED", note="QWEN_REQUESTED")
                     try:
-                        # Scalars and a fresh aspect list: no mutable agent state.
                         generation = self.reporter.generate(
                             execution.results["percepcion"]["text"],
                             execution.results["semantica"]["sentiment"],
@@ -290,8 +349,8 @@ class TravelerOrchestrator:
                        input_fields=payload.keys(), output_fields=output.keys(),
                        note="VALIDATED_CONTRACT")
                 if step == "accion" and self.reporter is not None:
+                    from .ollama_report import failed_generation
                     generation = output.get("generation") or failed_generation("INFORME_NO_VALIDADO")
-                    # ActionAgent acceptance, not just HTTP success, decides publication.
                     if generation.get("estado") == "GENERADO" and generation.get("validado_por") != "ActionAgent":
                         generation = failed_generation("INFORME_NO_VALIDADO")
                     output["generation"] = generation
@@ -299,8 +358,6 @@ class TravelerOrchestrator:
                            status="OK" if generation["estado"] == "GENERADO" else "FAILED",
                            note="QWEN_VALIDATED", generation=generation)
             except Exception as exc:
-                # Failure semantics: no recommendation, no partial model output,
-                # no leaking text/error details to end-user trace.
                 execution.state = "DETENIDO_SEGURO"
                 _trace(execution, agent=step, step=step, status="FAILED",
                        note="SAFE_ABORT")
@@ -315,13 +372,23 @@ class TravelerOrchestrator:
         execution.state = "REVISION_HUMANA" if control["needs_human"] else "COMPLETADO"
         _trace(execution, agent="orquestador", step="cierre", status=execution.state,
                output_fields=("resultado", "traza"), note="NO_EXTERNAL_ACTION")
+        clf_meta = {
+            "effective": "contextual" if self.context_verification or getattr(self.classifier, "encoder", None) is not None else "clasico",
+            "context_verification": bool(self.context_verification and self.context_verifier),
+            "representation": (
+                "frozen_beto_mean_pool" if getattr(self.classifier, "artifact_digest", None)
+                else "BETO · cabeza supervisada" if getattr(self.classifier, "encoder", None) is not None else "TF-IDF"
+            ),
+        }
         record = {
-            # UNCHANGED legacy keys and value semantics:
             "id": perception["review_id"],
             "sentimiento": semantic["sentiment"],
             "puntuaciones_modelo_no_calibradas": semantic["scores"],
             "confianza_no_calibrada": round(semantic["confidence_raw"], 4),
             "aspectos_exploratorios": list(semantic["aspects"]),
+            "valoracion_aspectos_exploratoria": semantic.get("aspect_assessment") or {},
+            "incidentes_exploratorios": semantic.get("incidents") or [],
+            "ambiguedad_exploratoria": semantic.get("ambiguity") or {},
             "perfil_linguistico_exploratorio": semantic["linguistic_profile"],
             "fragmentos_literales_no_explicativos": semantic["evidence"],
             "revision_humana": control["needs_human"],
@@ -329,10 +396,10 @@ class TravelerOrchestrator:
             "recomendacion": action["recommendation"],
             "advertencia": (
                 "Prototipo académico: las puntuaciones no están calibradas; "
-                "los aspectos se extraen mediante reglas. "
-                "No inferir causalidad de los fragmentos."
+                "los aspectos e incidentes se extraen mediante reglas exploratorias. "
+                "No inferir causalidad de los fragmentos. La verificación Qwen no "
+                "sobrescribe la etiqueta supervisada."
             ),
-            # New optional metadata; existing JSON, UI and exports still work.
             "multiagente": {
                 "arquitectura": "jerarquica_local_v1",
                 "orquestador": "TravelerOrchestrator",
@@ -341,11 +408,21 @@ class TravelerOrchestrator:
                 "razones_revision": control["reason_codes"],
                 "modalidad_percibida": perception["modality"],
                 "transcripcion_editada": perception["edited_by_human"],
+                "clasificador_runtime": clf_meta,
                 "traza": execution.trace,
                 "memoria": "episodica_solo_sesion_sin_aprendizaje_en_linea",
                 "acciones_externas": False,
             },
         }
+        if control.get("balance_qwen") is not None:
+            record["verificacion_contextual"] = {
+                "modelo": "qwen3:1.7b",
+                "balance": control["balance_qwen"],
+                "etapa": "antes_de_control",
+                "etiqueta_supervisada": control.get("supervised_sentiment_preserved", semantic["sentiment"]),
+                "sobrescribe_etiqueta": False,
+                "desacoplada_del_informe": True,
+            }
         if self.reporter is not None:
             record["generacion_qwen"] = action["generation"]
             record["multiagente"]["traza_generacion"] = execution.generation_trace

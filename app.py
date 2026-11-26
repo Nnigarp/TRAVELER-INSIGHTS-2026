@@ -19,6 +19,7 @@ from traveler_agent.batch import (
 )
 from traveler_agent.demo_data import DEMO
 from traveler_agent.model import MODEL_KINDS, load_model, save_model, train
+from traveler_agent.v4_runtime import embedding_model, v4_selected
 from traveler_agent.model_runtime import configured_artifact, run_selected
 from traveler_agent.beto_distribution import artifact_available
 from traveler_agent.ollama_report import render_generation_html
@@ -31,6 +32,8 @@ model = load_model(MODEL_PATH)
 
 @lru_cache(maxsize=2)
 def get_demo_model(kind: str = "lr"):
+    if v4_selected():
+        return embedding_model(kind)
     if kind not in MODEL_KINDS:
         raise ValueError("Modelo no disponible")
     if kind == "lr":
@@ -79,7 +82,15 @@ def unified(review, model_kind, qwen_enabled, origin=None, language="", edited="
         record["modelo_utilizado"] = effective
         record["procesamiento_linguistico"] = trace
         if origin:
-            record["procedencia_entrada"] = {**origin, "revision_percepcion_confirmada": bool(asr_reviewed), "transcripcion_editada": review, "fue_corregida": corrected, "texto_analizado": target}
+            asr_state = "corregida" if corrected else ("confirmada" if asr_reviewed else "obtenida")
+            record["procedencia_entrada"] = {
+                **origin,
+                "revision_percepcion_confirmada": bool(asr_reviewed),
+                "transcripcion_editada": review,
+                "fue_corregida": corrected,
+                "estado_transcripcion": asr_state,
+                "texto_analizado": target,
+            }
         progress("Completado")
         return _analysis_card(record, model_kind=effective, audio=bool(origin)), json.dumps(record, ensure_ascii=False, indent=2), trace
     except (ValueError, TypeError) as exc:
@@ -178,7 +189,7 @@ def export_files(records: list[dict]):
     # from turning a quoted CRLF into CR-CR-LF and changing the original review.
     csv_path.write_text(export_csv(records), encoding="utf-8-sig", newline="")
     return str(json_path), str(csv_path), (
-        "Archivos DEMO generados localmente. Pueden contener el texto ingresado; trátalos como privados."
+        "Archivos generados localmente. Pueden contener el texto ingresado; trátalos como privados."
     )
 
 
@@ -208,11 +219,12 @@ def transcribe_audio_ui(filepath: str | None, language: str):
                     raise AudioInputError("No se pudo convertir el archivo a WAV.") from exc
                 text, provenance = recognize_audio(wav, language)
         provenance["audio_original_sha256"] = digest
+        provenance["estado_transcripcion"] = "obtenida"
         warnings = " ".join(provenance.get("advertencias_percepcion", []))
         return text, provenance, (
-            f"Transcripción local terminada ({provenance['duracion_segundos']} s; "
+            f"**Transcripción obtenida** (terminada · {provenance['duracion_segundos']} s; "
             f"idioma ASR: {provenance['idioma_detectado_asr']}). "
-            f"Revisa negaciones y nombres antes de analizar. {warnings}"
+            f"Confírmala o corrígela antes de analizar. {warnings}"
         )
     except (AudioInputError, OSError) as exc:
         return "", {}, f"Error de audio: {exc}"
@@ -281,7 +293,7 @@ def load_example(name):
 
 
 def configuration_context(model_kind, qwen_enabled):
-    names = {"lr": "Regresión logística", "svm": "SVM lineal", "beto": "BETO V3"}
+    names = {"lr": "Regresión logística", "svm": "SVM lineal", "beto": ("BETO V4.2" if v4_selected() else "BETO V3")}
     model_name = names.get(model_kind, "Sin selección")
     generation = "solicitado para el próximo análisis" if qwen_enabled else "desactivado"
     return f"**Configuración de Análisis** · {model_name} · Qwen {generation}"
@@ -305,8 +317,10 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
             with gr.Row(elem_id="ti-analysis-row"):
                 with gr.Column(scale=4, min_width=300, elem_id="ti-input-pane", elem_classes=["ti-pane"]):
                     _MODEL_CHOICES = [("Regresión logística · LR", "lr"), ("SVM lineal", "svm")]
+                    if v4_selected():
+                        _MODEL_CHOICES = [("LR contextual V4.3", "lr"), ("SVM contextual V4.3", "svm")]
                     if _BETO_AVAILABLE:
-                        _MODEL_CHOICES.append(("BETO V3", "beto"))
+                        _MODEL_CHOICES.append((("BETO V4.2" if v4_selected() else "BETO V3"), "beto"))
                     with gr.Column(min_width=0, elem_id="ti-composer"):
                         inp = gr.Textbox(label="Reseña turística", lines=6, value="",
                                          placeholder="Escribe o dicta tu experiencia en tu idioma…", elem_id="ti-review")
@@ -324,7 +338,7 @@ with gr.Blocks(title="Traveler Insights 2026 | Cartagena · UTB", analytics_enab
                         audio_language = gr.Dropdown(label="Idioma de Whisper", choices=["auto", "es", "en", "it"], value="auto")
                         audio_status = gr.Markdown("Whisper Tiny · revisa la transcripción antes de analizar.")
                         retry_audio = gr.Button("Retranscribir y sustituir el texto", size="sm")
-                        review_voice = gr.Checkbox(label="He escuchado y revisado la transcripción", value=False)
+                        review_voice = gr.Checkbox(label="Transcripción confirmada (escuchada y revisada)", value=False)
                         audio_metadata = gr.State({})
                         pending_audio = gr.State(None)
                         discard_audio = gr.Button("Descartar audio", size="sm")

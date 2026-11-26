@@ -1,0 +1,36 @@
+{
+  "review_id": "ie_cartagena_fail",
+  "intended_label": "negativo",
+  "word_count": 147,
+  "text_sha256": "4bc71c762c5819f0dd9bbed870dcf0ef29bc3e8ef980d426ea7003c3d84a5eba",
+  "gradio_without_env": {
+    "TRAVELER_BETO_ARTIFACT": null,
+    "beto_falls_back_to": "lr",
+    "demo_lr": "artifacts/demo_model.joblib",
+    "svm": "in-memory DEMO via get_demo_model",
+    "predictions_measured": {
+      "lr": "negativo",
+      "svm": "neutral",
+      "beto_requested": "lr_fallback_negativo"
+    }
+  },
+
+  "gradio_with_pr28": {
+    "TRAVELER_BETO_ARTIFACT": "artifacts/beto-v3-pr28-local",
+    "effective": "beto",
+    "sentimiento": "positivo",
+    "seleccion_modelo": {
+      "requested": "beto",
+      "supervised_experimental": true,
+      "human_validated": false,
+      "review_policy_validated": false,
+      "effective": "beto",
+      "fallback": false,
+      "manifest_sha256": "c66453d041090bf6d10a9af10fdfbb8ab2d53b70a18f44e4439921a28914a7b7",
+      "checkpoint_revision": "c4d86612f51b4f46759c8390d1798c2febe71b93",
+      "training_mode": "V3_FIXED_REPLAY"
+    },
+    "manifest_sha256": "c66453d041090bf6d10a9af10fdfbb8ab2d53b70a18f44e4439921a28914a7b7"
+  },
+  "note": "V4 artifacts are NOT wired into Gradio UI; UI remains demo LR/SVM + optional BETO V3 env."
+}

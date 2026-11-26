@@ -1,0 +1,70 @@
+{
+  "corpus_rows_sha256": "fd3ea2c01e980b89929968c5773f772623928c583f351942f839b02aab552b6a",
+  "counts": {
+    "hard_holdout": 201,
+    "test": 720,
+    "train": 3360,
+    "validation": 720
+  },
+  "default_max_length": 256,
+  "label_counts": {
+    "hard_holdout": {
+      "negativo": 67,
+      "neutral": 67,
+      "positivo": 67
+    },
+    "test": {
+      "negativo": 240,
+      "neutral": 240,
+      "positivo": 240
+    },
+    "train": {
+      "negativo": 1120,
+      "neutral": 1120,
+      "positivo": 1120
+    },
+    "validation": {
+      "negativo": 240,
+      "neutral": 240,
+      "positivo": 240
+    }
+  },
+  "plan_sha256": "03a127642ea815540744d145f7cc3572d6ec0b93c742243f31d18fb5ea9bf795",
+  "schema": "traveler-beto-v4-training-index",
+  "status": "PREPARED_NOT_TRAINED",
+  "training_recipe": {
+    "assessment_splits": [
+      "test",
+      "hard_holdout"
+    ],
+    "baselines": [
+      "dummy",
+      "tfidf_lr",
+      "tfidf_svm"
+    ],
+    "beto_modes": [
+      {
+        "encoder": "frozen",
+        "id": "frozen128",
+        "max_length": 128
+      },
+      {
+        "encoder": "frozen",
+        "id": "frozen256",
+        "max_length": 256
+      },
+      {
+        "encoder": "last_two_blocks",
+        "id": "partial256",
+        "max_length": 256
+      }
+    ],
+    "notes": [
+      "Do not fit on hard_holdout.",
+      "Prefer 256 tokens after measured truncation failure at 128.",
+      "On RTX 4050 6GB use batch_size 2–4 and gradient checkpointing if needed."
+    ],
+    "seed": 20261125,
+    "selection_split": "validation"
+  }
+}

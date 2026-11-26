@@ -1,0 +1,87 @@
+{
+  "artifact": "artifacts\\beto-v3-pr28-local",
+  "artifact_manifest_sha256": "c66453d041090bf6d10a9af10fdfbb8ab2d53b70a18f44e4439921a28914a7b7",
+  "artifact_max_length": 256,
+  "cases": {
+    "failure_long_praise_prefix": {
+      "runs": [
+        {
+          "full_tokens": 206,
+          "kept_contains_no_volvere": false,
+          "kept_contains_reclamacion": false,
+          "kept_contains_transporte": false,
+          "kept_tail": "el estaba impecable : habitación amplia, cama cómoda, desayuno variado y personal muy atento desde el check - in. Nos encantó la vista al mar y las instalaciones de la piscina. Sin",
+          "kept_tokens": 128,
+          "max_length": 128,
+          "prediction": "positivo",
+          "probabilities": {
+            "negativo": 0.007855512201786041,
+            "neutral": 0.17597734928131104,
+            "positivo": 0.8161671161651611
+          }
+        },
+        {
+          "full_tokens": 206,
+          "kept_contains_no_volvere": true,
+          "kept_contains_reclamacion": true,
+          "kept_contains_transporte": true,
+          "kept_tail": ". Presentamos una reclamación formal y, tras tres días, solo recibimos un mensaje automático sin solución. Por eso no volveré a contratar este paquete turístico ni lo recomendaría.",
+          "kept_tokens": 206,
+          "max_length": 256,
+          "prediction": "negativo",
+          "probabilities": {
+            "negativo": 0.5266857147216797,
+            "neutral": 0.09435810148715973,
+            "positivo": 0.3789561688899994
+          }
+        }
+      ],
+      "text": "El hotel era maravilloso, limpio, cómodo y con un desayuno excelente. El hotel era maravilloso, limpio, cómodo y con un desayuno excelente. El hotel era maravilloso, limpio, cómodo y con un desayuno excelente. El hotel era maravilloso, limpio, cómodo y con un desayuno excelente. El hotel era maravilloso, limpio, cómodo y con un desayuno excelente. El hotel era maravilloso, limpio, cómodo y con un desayuno excelente. El hotel estaba impecable: habitación amplia, cama cómoda, desayuno variado y personal muy atento desde el check-in. Nos encantó la vista al mar y las instalaciones de la piscina. Sin embargo, el transporte contratado para la excursión nunca llegó a la hora acordada; esperamos más de una hora en la recepción sin que nadie del operador respondiera el teléfono. Perdimos la excursión a la que habíamos pagado con antelación. Presentamos una reclamación formal y, tras tres días, solo recibimos un mensaje automático sin solución. Por eso no volveré a contratar este paquete turístico ni lo recomendaría.",
+      "word_count": 162
+    },
+    "failure_short": {
+      "runs": [
+        {
+          "full_tokens": 122,
+          "kept_contains_no_volvere": true,
+          "kept_contains_reclamacion": true,
+          "kept_contains_transporte": true,
+          "kept_tail": ". Presentamos una reclamación formal y, tras tres días, solo recibimos un mensaje automático sin solución. Por eso no volveré a contratar este paquete turístico ni lo recomendaría.",
+          "kept_tokens": 122,
+          "max_length": 128,
+          "prediction": "negativo",
+          "probabilities": {
+            "negativo": 0.8818344473838806,
+            "neutral": 0.005333198234438896,
+            "positivo": 0.11283234506845474
+          }
+        },
+        {
+          "full_tokens": 122,
+          "kept_contains_no_volvere": true,
+          "kept_contains_reclamacion": true,
+          "kept_contains_transporte": true,
+          "kept_tail": ". Presentamos una reclamación formal y, tras tres días, solo recibimos un mensaje automático sin solución. Por eso no volveré a contratar este paquete turístico ni lo recomendaría.",
+          "kept_tokens": 122,
+          "max_length": 256,
+          "prediction": "negativo",
+          "probabilities": {
+            "negativo": 0.8818344473838806,
+            "neutral": 0.005333198234438896,
+            "positivo": 0.11283234506845474
+          }
+        }
+      ],
+      "text": "El hotel estaba impecable: habitación amplia, cama cómoda, desayuno variado y personal muy atento desde el check-in. Nos encantó la vista al mar y las instalaciones de la piscina. Sin embargo, el transporte contratado para la excursión nunca llegó a la hora acordada; esperamos más de una hora en la recepción sin que nadie del operador respondiera el teléfono. Perdimos la excursión a la que habíamos pagado con antelación. Presentamos una reclamación formal y, tras tres días, solo recibimos un mensaje automático sin solución. Por eso no volveré a contratar este paquete turístico ni lo recomendaría.",
+      "word_count": 96
+    }
+  },
+  "classical_note": "Separately measured with current synthetic-tourism-v1 joblibs: LR and SVM predicted neutral (not positivo) on FAILURE_SHORT. The user-reported triple-positivo outcome may correspond to a longer surface form or a different model binding.",
+  "findings": [
+    "Short failure case (~122 BETO tokens) fits in 128 and predicted negativo with the recovered V3 artifact.",
+    "Long praise-prefixed failure (~206 tokens) loses transporte/reclamación at max_length=128 and predicted positivo.",
+    "The same long text predicted negativo at max_length=256 because the failure clause remained.",
+    "Truncation is a demonstrated risk for praise-then-failure narratives longer than 128 tokens; it is not the sole explanation for every short mixed review."
+  ],
+  "scope": "TRUNCATION_AND_FAILURE_CASE_AUDIT_NOT_NEW_POPULATION_EVAL"
+}

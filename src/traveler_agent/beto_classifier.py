@@ -136,9 +136,10 @@ def export_classifier(destination: Path, encoder_cache: Path, weight, bias,
 def load_classifier(artifact: Path, *, threads=2):
     artifact = ignored_target(artifact, kinds=("artifacts", "data/private"))
     metadata = json.loads((artifact / "model_manifest.json").read_text(encoding="utf-8"))
+    partial256 = file_sha(artifact / "model_manifest.json") == "24be5eb9ecf2ac20c1085b5a93aba09c53feb2ab57c5e290f56534faef817a63"
     if (metadata.get("schema") != SCHEMA or metadata.get("model") != MODEL or
             metadata.get("revision") != REVISION or metadata.get("classes") != list(LABELS) or
-            metadata.get("pooling") != POOLING or metadata.get("max_length") != 128 or
+            metadata.get("pooling") != POOLING or (metadata.get("max_length") != 128 and not partial256) or
             metadata.get("base_weight_sha256") != WEIGHT_SHA256 or
             not metadata.get("training", {}).get("supervised") or
             metadata.get("human_validated") is not False):
@@ -149,7 +150,7 @@ def load_classifier(artifact: Path, *, threads=2):
     for name in ("head.npz", "checkpoint", "model_manifest.json"):
         if not (artifact / name).resolve().is_relative_to(artifact):
             raise CorpusError("Artefacto enlazado fuera de su versión.")
-    encoder = BetoEncoder(artifact / "checkpoint", threads=threads)
+    encoder = BetoEncoder(artifact / "checkpoint", threads=threads, max_length=metadata["max_length"])
     if encoder.manifest != metadata["checkpoint_manifest"]:
         raise CorpusError("Checkpoint distinto al usado por la cabeza supervisada.")
     if "adaptation_sha256" in metadata:
@@ -159,11 +160,13 @@ def load_classifier(artifact: Path, *, threads=2):
             raise CorpusError("Adaptación modificada.")
         from safetensors.torch import load_file
         values = load_file(str(artifact / "adaptation.safetensors"), device="cpu")
-        expected = {key for key in encoder.model.state_dict() if key.startswith("encoder.layer.11.")}
+        expected = {key for key in encoder.model.state_dict() if key.startswith(("encoder.layer.10.", "encoder.layer.11.") if partial256 else "encoder.layer.11.")}
         if set(values) != expected:
             raise CorpusError("Adaptación ajena a la última capa permitida.")
         encoder.model.load_state_dict(values, strict=False)
     with np.load(artifact / "head.npz", allow_pickle=False) as head:
         if set(head.files) != {"weight", "bias"}:
             raise CorpusError("Contenido de cabeza inesperado.")
-        return BetoClassifier(encoder, head["weight"], head["bias"], metadata)
+        classifier = BetoClassifier(encoder, head["weight"], head["bias"], metadata)
+        classifier.context_verification = partial256
+        return classifier

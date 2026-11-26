@@ -1,0 +1,80 @@
+{
+  "version": "synthetic-tourism-v4.3.0",
+  "registered": "2026-11-25",
+  "purpose": "V4.3 specializes classical LR/SVM: broader lexical synonymy, grouped CV, TF-IDF grids, calibration, and separate frozen-BETO embedding classical variants. BETO partial256 V4.2 preserved as 7/7 reference. Prior V4.0–V4.2 corpora remain local references.",
+  "label_origin": "GENERATOR_INTENT_NOT_HUMAN_GOLD",
+  "human_gold": false,
+  "generator_model": "NO_LLM_LOCAL_COMPOSITIONAL_V4",
+  "seed": 202611253,
+  "reference_corpora": [
+    {
+      "version": "4.0.0",
+      "local_dir": "data/processed/synthetic-tourism-v4",
+      "artifacts_dir": "artifacts/synthetic-tourism-v4",
+      "rows_sha256": "fd3ea2c01e980b89929968c5773f772623928c583f351942f839b02aab552b6a"
+    },
+    {
+      "version": "4.1.0",
+      "local_dir": "data/processed/synthetic-tourism-v4.1",
+      "artifacts_dir": "artifacts/synthetic-tourism-v4.1",
+      "rows_sha256": "1eff643d0fef087a8a20874ea3713836627cb6b2005dfaa452ffaf5007aa9b7c"
+    },
+    {
+      "version": "4.2.0",
+      "local_dir": "data/processed/synthetic-tourism-v4.2",
+      "artifacts_dir": "artifacts/synthetic-tourism-v4.2",
+      "rows_sha256": "a497f9e7",
+      "note": "Full sha in V4.2 manifest; BETO partial256 kept as 7/7 candidate."
+    }
+  ],
+  "target_rows": 5001,
+  "rows_per_class": 1667,
+  "family_count": 1667,
+  "labels": ["negativo", "neutral", "positivo"],
+  "domains": ["hotel", "restaurante", "museo", "playa", "transporte", "recorrido", "guia", "aeropuerto", "reserva", "excursion_natural"],
+  "aspects": ["servicio", "higiene", "precio", "espera", "seguridad", "acceso", "alimentacion", "instalaciones"],
+  "regions": ["es-CO", "es-PE", "es-MX", "es-ES", "es"],
+  "length_bands": {
+    "short": [18, 40],
+    "medium": [41, 85],
+    "long": [86, 140],
+    "xlong": [141, 220]
+  },
+  "roles": {
+    "train": 1120,
+    "validation": 240,
+    "test": 240,
+    "hard_holdout": 67
+  },
+  "templates_v43": [
+    "direct", "negation", "contrast", "mixed_aspects", "praise_then_failure",
+    "colloquial", "chronology", "irony", "resolved_incident", "contradiction_pos",
+    "contradiction_neg", "factual_neutral", "sarcasm"
+  ],
+  "classical_v43": {
+    "search": "RandomizedSearchCV",
+    "cv": "StratifiedGroupKFold by scenario_family",
+    "features": "TF-IDF words+chars with n-gram grids",
+    "calibration": "CalibratedClassifierCV sigmoid on grouped folds",
+    "embedding_variants": "frozen BETO mean-pool + LR/SVM (separate from TF-IDF)"
+  },
+  "beto": {
+    "base_model": "dccuchile/bert-base-spanish-wwm-cased",
+    "revision": "c4d86612f51b4f46759c8390d1798c2febe71b93",
+    "candidate_max_lengths": [128, 256],
+    "default_train_max_length": 256,
+    "truncation_finding": "Measured 2026-11-25: praise-prefixed failures can drop transporte/reclamación at max_length=128; prefer 256. V4.2 partial256 remains the BETO candidate (7/7 on IE-v2).",
+    "v42_partial256_preserved": true
+  },
+  "hardware_budget": {
+    "device": "RTX_4050_Laptop_6GB",
+    "system_ram_gb": 16
+  },
+  "independent_eval_v3": {
+    "path": "src/traveler_agent/research_data/v4_independent_eval_v3.json",
+    "target_n": 300,
+    "rule": "Freeze records_sha256 before any V4.3 candidate prediction. Do not tune on IE-v1 or IE-v2."
+  },
+  "preserve_historical": true,
+  "ui_and_main_untouched": true
+}

@@ -1,0 +1,7 @@
+{
+  "version": "4.0.0",
+  "corpus": "data/processed/synthetic-tourism-v4",
+  "artifacts": "artifacts/synthetic-tourism-v4",
+  "rows_sha256": "fd3ea2c01e980b89929968c5773f772623928c583f351942f839b02aab552b6a",
+  "preserved": true
+}

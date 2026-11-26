@@ -52,7 +52,7 @@ def test_human_review_renders_reasons_from_record_only():
     record = _record("REVISION_HUMANA")
     markup = render_multiagent_view(record)
     assert "Revisión humana" in markup
-    assert "Puntuación DEMO inferior al umbral interno" in markup
+    assert "Puntuación inferior al umbral interno" in markup
     assert "Ejecución completada" not in markup
 
 

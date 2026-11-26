@@ -62,12 +62,21 @@ def render_result(record, *, model_kind=None, audio=False):
     parts.append('<div class="ti-report-summary"><h4>' + title + '</h4><p>' + safe_text(summary) + '</p></div>')
     generation_state = ("Generado y validado" if generated else
                         "Error · " + str(generation.get("codigo", "SIN_INFORME")) if generation else "Desactivado")
-    sentiment_label = "Sentimiento experimental" if str(effective).lower() == "beto" else "Sentimiento DEMO"
+    selection = record.get("seleccion_modelo") or {}
+    if str(effective).lower() == "beto":
+        sentiment_label = "Sentimiento (BETO)"
+    elif selection.get("version") == "V4.3" or selection.get("features") == "frozen_beto_mean_pool":
+        sentiment_label = "Sentimiento (V4.3 contextual)"
+    else:
+        sentiment_label = "Sentimiento (clasificador local)"
     variant = "ti-sent-" + sentiment if sentiment in {"positivo", "neutral", "negativo"} else ""
+    verify = record.get("verificacion_contextual") or {}
+    verify_label = verify.get("balance", "Sin consulta") if verify else "Sin consulta"
     parts.extend(('<div class="ti-indicators" aria-label="Indicadores del análisis">',
                   indicator(sentiment_label, sentiment, variant), indicator("Clasificador", str(effective).upper()),
                   indicator("Aspectos exploratorios", ", ".join(aspects) or "No identificados"),
                   indicator("Revisión humana", "Requerida" if review else "No activada"),
+                  indicator("Verify Qwen", str(verify_label)),
                   indicator("Generación Qwen", generation_state), '</div>'))
     parts.append('<div class="ti-report-grid">')
     language = record.get("procesamiento_linguistico", {})
@@ -79,7 +88,14 @@ def render_result(record, *, model_kind=None, audio=False):
         recommendation, action = report["recomendacion"], report["accion_propuesta"]
         evidence = report.get("evidencia_textual", [])
     else:
-        problem = "Sin informe generativo de incidente. El análisis tradicional conserva sentimiento, aspectos y revisión de Control."
+        incidents = record.get("incidentes_exploratorios") or []
+        open_inc = [i for i in incidents if isinstance(i, dict) and i.get("status") == "no_resuelto"]
+        if open_inc:
+            problem = "Incidente exploratorio (reglas): " + (open_inc[0].get("clause") or "mencionado")
+        elif incidents:
+            problem = "Incidentes exploratorios registrados; revisar evidencia. Sin informe generativo."
+        else:
+            problem = "Sin incidente explícito detectado por reglas. El análisis conserva sentimiento, aspectos y Control."
         evidence = record.get("fragmentos_literales_no_explicativos", [])
         recommendation = record.get("recomendacion", "Sin recomendación registrada.")
         action = "No se ha generado una acción adicional. La recomendación por reglas requiere valoración humana."
@@ -103,11 +119,14 @@ def render_result(record, *, model_kind=None, audio=False):
         warnings.append("Qwen no produjo un informe validado. Se conserva el análisis convencional y su recomendación por reglas; generacion_llm=false.")
     if str(effective).lower() == "beto":
         warnings.append("BETO experimental sintético usa una ventana limitada de tokens; revisa el contexto completo. Su política no valida automatizar decisiones.")
+    elif selection.get("version") == "V4.3" or selection.get("features") == "frozen_beto_mean_pool":
+        warnings.append("Clasificador contextual V4.3 (embeddings BETO congelados + cabeza clásica); etiquetas de entrenamiento sintéticas, sin validación humana externa.")
     else:
-        warnings.append("Modelo DEMO entrenado con ejemplos ficticios; sin validación predictiva turística externa.")
-    selection = record.get("seleccion_modelo") or {}
+        warnings.append("Clasificador local con ejemplos sintéticos de demostración; sin validación predictiva turística externa.")
     if selection.get("fallback"):
         warnings.append("BETO no completó el análisis; se ejecutó LR de respaldo explícito.")
+    if verify:
+        warnings.append("La verificación Qwen no sobrescribe la etiqueta supervisada; solo puede solicitar revisión humana.")
     if record.get("etiqueta_corregida_humano") is not None:
         warnings.append("Informe anterior a la corrección humana; no se ha regenerado. Revisa las propuestas junto con la etiqueta corregida.")
     parts.append('<aside class="ti-warnings"><h4>Advertencias</h4>')

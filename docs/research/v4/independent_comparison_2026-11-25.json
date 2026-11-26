@@ -1,0 +1,1101 @@
+{
+  "cartagena_case": {
+    "intended_label": "negativo",
+    "predictions": {
+      "beto_v3_pr28": "positivo",
+      "beto_v4_0_frozen256": "negativo",
+      "beto_v4_1_frozen128": "negativo",
+      "beto_v4_1_frozen256": "negativo",
+      "beto_v4_1_partial256": "negativo",
+      "demo_lr": "negativo",
+      "v1_lr": "positivo",
+      "v1_svm": "positivo",
+      "v4_0_lr": "negativo",
+      "v4_0_svm": "negativo",
+      "v4_1_lr": "negativo",
+      "v4_1_svm": "negativo"
+    },
+    "review_id": "ie_cartagena_fail",
+    "word_count": 147
+  },
+  "eval_n": 72,
+  "eval_path": "C:\\UTB-2026\\INTELIGENCIA ARTIFICIAL\\traveler_insights_github\\src\\traveler_agent\\research_data\\v4_independent_eval.json",
+  "eval_records_sha256": "d377dc71e5c7584c78eb991def3100a371c4f2dc9cabbdc604eecce318a280ac",
+  "frozen_before_prediction": true,
+  "gradio_bindings_note": {
+    "beto": "TRAVELER_BETO_ARTIFACT env → typically artifacts/beto-v3-pr28-local",
+    "lr_default": "artifacts/demo_model.joblib (DEMO synthetic, not V4)",
+    "svm_default": "in-memory train on DEMO via get_demo_model('svm')",
+    "v4_models_not_wired_to_ui": true
+  },
+  "optimized_on_this_set": false,
+  "results": {
+    "beto_v3_pr28": {
+      "artifact_max_length": 256,
+      "infer_max_length": 256,
+      "manifest_sha256": "c66453d041090bf6d10a9af10fdfbb8ab2d53b70a18f44e4439921a28914a7b7",
+      "metrics": {
+        "accuracy": 0.5555555555555556,
+        "classification_report": {
+          "accuracy": 0.5555555555555556,
+          "macro avg": {
+            "f1-score": 0.4791983122362869,
+            "precision": 0.7912878787878789,
+            "recall": 0.5555555555555555,
+            "support": 72.0
+          },
+          "negativo": {
+            "f1-score": 0.75,
+            "precision": 0.9375,
+            "recall": 0.625,
+            "support": 24.0
+          },
+          "neutral": {
+            "f1-score": 0.08,
+            "precision": 1.0,
+            "recall": 0.041666666666666664,
+            "support": 24.0
+          },
+          "positivo": {
+            "f1-score": 0.6075949367088608,
+            "precision": 0.43636363636363634,
+            "recall": 1.0,
+            "support": 24.0
+          },
+          "weighted avg": {
+            "f1-score": 0.47919831223628695,
+            "precision": 0.7912878787878788,
+            "recall": 0.5555555555555556,
+            "support": 72.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            15,
+            0,
+            9
+          ],
+          [
+            1,
+            1,
+            22
+          ],
+          [
+            0,
+            0,
+            24
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.4791983122362869,
+        "mean_latency_ms": 15.227308333351175,
+        "n": 72,
+        "neg_to_pos": 9,
+        "per_class": {
+          "negativo": {
+            "f1": 0.75,
+            "precision": 0.9375,
+            "recall": 0.625,
+            "support": 24
+          },
+          "neutral": {
+            "f1": 0.08,
+            "precision": 1.0,
+            "recall": 0.041666666666666664,
+            "support": 24
+          },
+          "positivo": {
+            "f1": 0.6075949367088608,
+            "precision": 0.43636363636363634,
+            "recall": 1.0,
+            "support": 24
+          }
+        },
+        "train_seconds": null
+      },
+      "path": "artifacts\\beto-v3-pr28-local",
+      "status": "OK"
+    },
+    "beto_v4_0_frozen256": {
+      "artifact_max_length": 256,
+      "infer_max_length": 256,
+      "manifest_sha256": "d3e19c52150a935454fc1af9b983856ff77daba777c3b5ce0f08da42ebf26b66",
+      "metrics": {
+        "accuracy": 0.7361111111111112,
+        "classification_report": {
+          "accuracy": 0.7361111111111112,
+          "macro avg": {
+            "f1-score": 0.6839506172839508,
+            "precision": 0.811111111111111,
+            "recall": 0.7361111111111112,
+            "support": 72.0
+          },
+          "negativo": {
+            "f1-score": 0.8518518518518519,
+            "precision": 0.7666666666666667,
+            "recall": 0.9583333333333334,
+            "support": 24.0
+          },
+          "neutral": {
+            "f1-score": 0.4,
+            "precision": 1.0,
+            "recall": 0.25,
+            "support": 24.0
+          },
+          "positivo": {
+            "f1-score": 0.8,
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "support": 24.0
+          },
+          "weighted avg": {
+            "f1-score": 0.6839506172839507,
+            "precision": 0.8111111111111112,
+            "recall": 0.7361111111111112,
+            "support": 72.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            23,
+            0,
+            1
+          ],
+          [
+            7,
+            6,
+            11
+          ],
+          [
+            0,
+            0,
+            24
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.6839506172839508,
+        "mean_latency_ms": 13.947384722213327,
+        "n": 72,
+        "neg_to_pos": 1,
+        "per_class": {
+          "negativo": {
+            "f1": 0.8518518518518519,
+            "precision": 0.7666666666666667,
+            "recall": 0.9583333333333334,
+            "support": 24
+          },
+          "neutral": {
+            "f1": 0.4,
+            "precision": 1.0,
+            "recall": 0.25,
+            "support": 24
+          },
+          "positivo": {
+            "f1": 0.8,
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "support": 24
+          }
+        },
+        "train_seconds": null
+      },
+      "path": "artifacts\\synthetic-tourism-v4\\beto-v4-frozen256",
+      "status": "OK"
+    },
+    "beto_v4_1_frozen128": {
+      "artifact_max_length": 128,
+      "infer_max_length": 128,
+      "manifest_sha256": "364b547d218055afa7343bd04a0cb347b8faa59a3dda16ecd11a6fe1a2f9d232",
+      "metrics": {
+        "accuracy": 0.5833333333333334,
+        "classification_report": {
+          "accuracy": 0.5833333333333334,
+          "macro avg": {
+            "f1-score": 0.4922215604526503,
+            "precision": 0.75417439703154,
+            "recall": 0.5833333333333334,
+            "support": 72.0
+          },
+          "negativo": {
+            "f1-score": 0.6575342465753424,
+            "precision": 0.4897959183673469,
+            "recall": 1.0,
+            "support": 24.0
+          },
+          "neutral": {
+            "f1-score": 0.08,
+            "precision": 1.0,
+            "recall": 0.041666666666666664,
+            "support": 24.0
+          },
+          "positivo": {
+            "f1-score": 0.7391304347826086,
+            "precision": 0.7727272727272727,
+            "recall": 0.7083333333333334,
+            "support": 24.0
+          },
+          "weighted avg": {
+            "f1-score": 0.4922215604526504,
+            "precision": 0.7541743970315399,
+            "recall": 0.5833333333333334,
+            "support": 72.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            24,
+            0,
+            0
+          ],
+          [
+            18,
+            1,
+            5
+          ],
+          [
+            7,
+            0,
+            17
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.4922215604526503,
+        "mean_latency_ms": 14.268948611111732,
+        "n": 72,
+        "neg_to_pos": 0,
+        "per_class": {
+          "negativo": {
+            "f1": 0.6575342465753424,
+            "precision": 0.4897959183673469,
+            "recall": 1.0,
+            "support": 24
+          },
+          "neutral": {
+            "f1": 0.08,
+            "precision": 1.0,
+            "recall": 0.041666666666666664,
+            "support": 24
+          },
+          "positivo": {
+            "f1": 0.7391304347826086,
+            "precision": 0.7727272727272727,
+            "recall": 0.7083333333333334,
+            "support": 24
+          }
+        },
+        "train_seconds": null
+      },
+      "path": "artifacts\\synthetic-tourism-v4.1\\beto-v4-frozen128",
+      "status": "OK"
+    },
+    "beto_v4_1_frozen256": {
+      "artifact_max_length": 256,
+      "infer_max_length": 256,
+      "manifest_sha256": "1808b666b1968585eb12af5fcd3e6118dca17695bb36e3df49ed69fafc342def",
+      "metrics": {
+        "accuracy": 0.5972222222222222,
+        "classification_report": {
+          "accuracy": 0.5972222222222222,
+          "macro avg": {
+            "f1-score": 0.5001360544217687,
+            "precision": 0.7472463768115943,
+            "recall": 0.5972222222222222,
+            "support": 72.0
+          },
+          "negativo": {
+            "f1-score": 0.6857142857142857,
+            "precision": 0.5217391304347826,
+            "recall": 1.0,
+            "support": 24.0
+          },
+          "neutral": {
+            "f1-score": 0.08,
+            "precision": 1.0,
+            "recall": 0.041666666666666664,
+            "support": 24.0
+          },
+          "positivo": {
+            "f1-score": 0.7346938775510204,
+            "precision": 0.72,
+            "recall": 0.75,
+            "support": 24.0
+          },
+          "weighted avg": {
+            "f1-score": 0.5001360544217687,
+            "precision": 0.7472463768115942,
+            "recall": 0.5972222222222222,
+            "support": 72.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            24,
+            0,
+            0
+          ],
+          [
+            16,
+            1,
+            7
+          ],
+          [
+            6,
+            0,
+            18
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.5001360544217687,
+        "mean_latency_ms": 11.265986111109466,
+        "n": 72,
+        "neg_to_pos": 0,
+        "per_class": {
+          "negativo": {
+            "f1": 0.6857142857142857,
+            "precision": 0.5217391304347826,
+            "recall": 1.0,
+            "support": 24
+          },
+          "neutral": {
+            "f1": 0.08,
+            "precision": 1.0,
+            "recall": 0.041666666666666664,
+            "support": 24
+          },
+          "positivo": {
+            "f1": 0.7346938775510204,
+            "precision": 0.72,
+            "recall": 0.75,
+            "support": 24
+          }
+        },
+        "train_seconds": null
+      },
+      "path": "artifacts\\synthetic-tourism-v4.1\\beto-v4-frozen256",
+      "status": "OK"
+    },
+    "beto_v4_1_partial256": {
+      "artifact_max_length": 256,
+      "infer_max_length": 256,
+      "manifest_sha256": "74dddc6f93006392b8b5a999095d529045eaf21ce39baa1d21563bf4554af1fc",
+      "metrics": {
+        "accuracy": 0.6944444444444444,
+        "classification_report": {
+          "accuracy": 0.6944444444444444,
+          "macro avg": {
+            "f1-score": 0.6195467108899945,
+            "precision": 0.8142516398330352,
+            "recall": 0.6944444444444445,
+            "support": 72.0
+          },
+          "negativo": {
+            "f1-score": 0.92,
+            "precision": 0.8846153846153846,
+            "recall": 0.9583333333333334,
+            "support": 24.0
+          },
+          "neutral": {
+            "f1-score": 0.2222222222222222,
+            "precision": 1.0,
+            "recall": 0.125,
+            "support": 24.0
+          },
+          "positivo": {
+            "f1-score": 0.7164179104477612,
+            "precision": 0.5581395348837209,
+            "recall": 1.0,
+            "support": 24.0
+          },
+          "weighted avg": {
+            "f1-score": 0.6195467108899945,
+            "precision": 0.8142516398330351,
+            "recall": 0.6944444444444444,
+            "support": 72.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            23,
+            0,
+            1
+          ],
+          [
+            3,
+            3,
+            18
+          ],
+          [
+            0,
+            0,
+            24
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.6195467108899945,
+        "mean_latency_ms": 11.357970833336772,
+        "n": 72,
+        "neg_to_pos": 1,
+        "per_class": {
+          "negativo": {
+            "f1": 0.92,
+            "precision": 0.8846153846153846,
+            "recall": 0.9583333333333334,
+            "support": 24
+          },
+          "neutral": {
+            "f1": 0.2222222222222222,
+            "precision": 1.0,
+            "recall": 0.125,
+            "support": 24
+          },
+          "positivo": {
+            "f1": 0.7164179104477612,
+            "precision": 0.5581395348837209,
+            "recall": 1.0,
+            "support": 24
+          }
+        },
+        "train_seconds": null
+      },
+      "path": "artifacts\\synthetic-tourism-v4.1\\beto-v4-partial256",
+      "status": "OK"
+    },
+    "demo_lr": {
+      "metrics": {
+        "accuracy": 0.5,
+        "classification_report": {
+          "accuracy": 0.5,
+          "macro avg": {
+            "f1-score": 0.5009018759018758,
+            "precision": 0.60505698005698,
+            "recall": 0.49999999999999994,
+            "support": 72.0
+          },
+          "negativo": {
+            "f1-score": 0.5416666666666666,
+            "precision": 0.5416666666666666,
+            "recall": 0.5416666666666666,
+            "support": 24.0
+          },
+          "neutral": {
+            "f1-score": 0.47619047619047616,
+            "precision": 0.38461538461538464,
+            "recall": 0.625,
+            "support": 24.0
+          },
+          "positivo": {
+            "f1-score": 0.48484848484848486,
+            "precision": 0.8888888888888888,
+            "recall": 0.3333333333333333,
+            "support": 24.0
+          },
+          "weighted avg": {
+            "f1-score": 0.5009018759018758,
+            "precision": 0.6050569800569802,
+            "recall": 0.5,
+            "support": 72.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            13,
+            11,
+            0
+          ],
+          [
+            8,
+            15,
+            1
+          ],
+          [
+            3,
+            13,
+            8
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.5009018759018758,
+        "mean_latency_ms": 0.3758027777773047,
+        "n": 72,
+        "neg_to_pos": 0,
+        "per_class": {
+          "negativo": {
+            "f1": 0.5416666666666666,
+            "precision": 0.5416666666666666,
+            "recall": 0.5416666666666666,
+            "support": 24
+          },
+          "neutral": {
+            "f1": 0.47619047619047616,
+            "precision": 0.38461538461538464,
+            "recall": 0.625,
+            "support": 24
+          },
+          "positivo": {
+            "f1": 0.48484848484848486,
+            "precision": 0.8888888888888888,
+            "recall": 0.3333333333333333,
+            "support": 24
+          }
+        },
+        "train_seconds": null
+      },
+      "path": "artifacts\\demo_model.joblib",
+      "sha256": "35101692b6e5e7ac211ad4f92a4251896024d754d7a84e54541a11f6e4eafd9c",
+      "status": "OK"
+    },
+    "v1_lr": {
+      "metrics": {
+        "accuracy": 0.4583333333333333,
+        "classification_report": {
+          "accuracy": 0.4583333333333333,
+          "macro avg": {
+            "f1-score": 0.4429583005507474,
+            "precision": 0.4628482972136223,
+            "recall": 0.4583333333333333,
+            "support": 72.0
+          },
+          "negativo": {
+            "f1-score": 0.34146341463414637,
+            "precision": 0.4117647058823529,
+            "recall": 0.2916666666666667,
+            "support": 24.0
+          },
+          "neutral": {
+            "f1-score": 0.43902439024390244,
+            "precision": 0.5294117647058824,
+            "recall": 0.375,
+            "support": 24.0
+          },
+          "positivo": {
+            "f1-score": 0.5483870967741935,
+            "precision": 0.4473684210526316,
+            "recall": 0.7083333333333334,
+            "support": 24.0
+          },
+          "weighted avg": {
+            "f1-score": 0.4429583005507475,
+            "precision": 0.46284829721362225,
+            "recall": 0.4583333333333333,
+            "support": 72.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            7,
+            6,
+            11
+          ],
+          [
+            5,
+            9,
+            10
+          ],
+          [
+            5,
+            2,
+            17
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.4429583005507474,
+        "mean_latency_ms": 0.2166638888765091,
+        "n": 72,
+        "neg_to_pos": 11,
+        "per_class": {
+          "negativo": {
+            "f1": 0.34146341463414637,
+            "precision": 0.4117647058823529,
+            "recall": 0.2916666666666667,
+            "support": 24
+          },
+          "neutral": {
+            "f1": 0.43902439024390244,
+            "precision": 0.5294117647058824,
+            "recall": 0.375,
+            "support": 24
+          },
+          "positivo": {
+            "f1": 0.5483870967741935,
+            "precision": 0.4473684210526316,
+            "recall": 0.7083333333333334,
+            "support": 24
+          }
+        },
+        "train_seconds": null
+      },
+      "path": "artifacts\\synthetic-tourism-v1\\lr.joblib",
+      "sha256": "151eee656009d088730796e136e6c8db25ea25b5713dd0c3adae610744bd36c8",
+      "status": "OK"
+    },
+    "v1_svm": {
+      "metrics": {
+        "accuracy": 0.4583333333333333,
+        "classification_report": {
+          "accuracy": 0.4583333333333333,
+          "macro avg": {
+            "f1-score": 0.4465688143347313,
+            "precision": 0.4654160739687055,
+            "recall": 0.4583333333333333,
+            "support": 72.0
+          },
+          "negativo": {
+            "f1-score": 0.35,
+            "precision": 0.4375,
+            "recall": 0.2916666666666667,
+            "support": 24.0
+          },
+          "neutral": {
+            "f1-score": 0.46511627906976744,
+            "precision": 0.5263157894736842,
+            "recall": 0.4166666666666667,
+            "support": 24.0
+          },
+          "positivo": {
+            "f1-score": 0.5245901639344263,
+            "precision": 0.43243243243243246,
+            "recall": 0.6666666666666666,
+            "support": 24.0
+          },
+          "weighted avg": {
+            "f1-score": 0.44656881433473117,
+            "precision": 0.4654160739687055,
+            "recall": 0.4583333333333333,
+            "support": 72.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            7,
+            6,
+            11
+          ],
+          [
+            4,
+            10,
+            10
+          ],
+          [
+            5,
+            3,
+            16
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.4465688143347313,
+        "mean_latency_ms": 0.679288888906942,
+        "n": 72,
+        "neg_to_pos": 11,
+        "per_class": {
+          "negativo": {
+            "f1": 0.35,
+            "precision": 0.4375,
+            "recall": 0.2916666666666667,
+            "support": 24
+          },
+          "neutral": {
+            "f1": 0.46511627906976744,
+            "precision": 0.5263157894736842,
+            "recall": 0.4166666666666667,
+            "support": 24
+          },
+          "positivo": {
+            "f1": 0.5245901639344263,
+            "precision": 0.43243243243243246,
+            "recall": 0.6666666666666666,
+            "support": 24
+          }
+        },
+        "train_seconds": null
+      },
+      "path": "artifacts\\synthetic-tourism-v1\\svm.joblib",
+      "sha256": "8ed4c620ba88866eeaea27f5429e9adbf20ed7e22a6392bbca91a283d53e266f",
+      "status": "OK"
+    },
+    "v4_0_lr": {
+      "metrics": {
+        "accuracy": 0.6388888888888888,
+        "classification_report": {
+          "accuracy": 0.6388888888888888,
+          "macro avg": {
+            "f1-score": 0.631054131054131,
+            "precision": 0.7425925925925926,
+            "recall": 0.638888888888889,
+            "support": 72.0
+          },
+          "negativo": {
+            "f1-score": 0.6666666666666666,
+            "precision": 0.5111111111111111,
+            "recall": 0.9583333333333334,
+            "support": 24.0
+          },
+          "neutral": {
+            "f1-score": 0.6153846153846154,
+            "precision": 0.8,
+            "recall": 0.5,
+            "support": 24.0
+          },
+          "positivo": {
+            "f1-score": 0.6111111111111112,
+            "precision": 0.9166666666666666,
+            "recall": 0.4583333333333333,
+            "support": 24.0
+          },
+          "weighted avg": {
+            "f1-score": 0.6310541310541311,
+            "precision": 0.7425925925925926,
+            "recall": 0.6388888888888888,
+            "support": 72.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            23,
+            1,
+            0
+          ],
+          [
+            11,
+            12,
+            1
+          ],
+          [
+            11,
+            2,
+            11
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.631054131054131,
+        "mean_latency_ms": 0.22714305555382452,
+        "n": 72,
+        "neg_to_pos": 0,
+        "per_class": {
+          "negativo": {
+            "f1": 0.6666666666666666,
+            "precision": 0.5111111111111111,
+            "recall": 0.9583333333333334,
+            "support": 24
+          },
+          "neutral": {
+            "f1": 0.6153846153846154,
+            "precision": 0.8,
+            "recall": 0.5,
+            "support": 24
+          },
+          "positivo": {
+            "f1": 0.6111111111111112,
+            "precision": 0.9166666666666666,
+            "recall": 0.4583333333333333,
+            "support": 24
+          }
+        },
+        "train_seconds": null
+      },
+      "path": "artifacts\\synthetic-tourism-v4\\lr.joblib",
+      "sha256": "a813179456518a9313f2dddbebf8ea7cf16283be8027ecd52ca9fe2d1a4cd1b2",
+      "status": "OK"
+    },
+    "v4_0_svm": {
+      "metrics": {
+        "accuracy": 0.6111111111111112,
+        "classification_report": {
+          "accuracy": 0.6111111111111112,
+          "macro avg": {
+            "f1-score": 0.5940087145969499,
+            "precision": 0.6811868686868686,
+            "recall": 0.6111111111111112,
+            "support": 72.0
+          },
+          "negativo": {
+            "f1-score": 0.6764705882352942,
+            "precision": 0.5227272727272727,
+            "recall": 0.9583333333333334,
+            "support": 24.0
+          },
+          "neutral": {
+            "f1-score": 0.55,
+            "precision": 0.6875,
+            "recall": 0.4583333333333333,
+            "support": 24.0
+          },
+          "positivo": {
+            "f1-score": 0.5555555555555556,
+            "precision": 0.8333333333333334,
+            "recall": 0.4166666666666667,
+            "support": 24.0
+          },
+          "weighted avg": {
+            "f1-score": 0.5940087145969499,
+            "precision": 0.6811868686868687,
+            "recall": 0.6111111111111112,
+            "support": 72.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            23,
+            1,
+            0
+          ],
+          [
+            11,
+            11,
+            2
+          ],
+          [
+            10,
+            4,
+            10
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.5940087145969499,
+        "mean_latency_ms": 0.7376263889050784,
+        "n": 72,
+        "neg_to_pos": 0,
+        "per_class": {
+          "negativo": {
+            "f1": 0.6764705882352942,
+            "precision": 0.5227272727272727,
+            "recall": 0.9583333333333334,
+            "support": 24
+          },
+          "neutral": {
+            "f1": 0.55,
+            "precision": 0.6875,
+            "recall": 0.4583333333333333,
+            "support": 24
+          },
+          "positivo": {
+            "f1": 0.5555555555555556,
+            "precision": 0.8333333333333334,
+            "recall": 0.4166666666666667,
+            "support": 24
+          }
+        },
+        "train_seconds": null
+      },
+      "path": "artifacts\\synthetic-tourism-v4\\svm.joblib",
+      "sha256": "080eea425238eff88aa144ef9ac6a037d205ea0d8ba98b2a1686cb6b4188bafd",
+      "status": "OK"
+    },
+    "v4_1_lr": {
+      "metrics": {
+        "accuracy": 0.5833333333333334,
+        "classification_report": {
+          "accuracy": 0.5833333333333334,
+          "macro avg": {
+            "f1-score": 0.5598229808756124,
+            "precision": 0.6392348392348391,
+            "recall": 0.5833333333333334,
+            "support": 72.0
+          },
+          "negativo": {
+            "f1-score": 0.6666666666666666,
+            "precision": 0.5111111111111111,
+            "recall": 0.9583333333333334,
+            "support": 24.0
+          },
+          "neutral": {
+            "f1-score": 0.4864864864864865,
+            "precision": 0.6923076923076923,
+            "recall": 0.375,
+            "support": 24.0
+          },
+          "positivo": {
+            "f1-score": 0.5263157894736842,
+            "precision": 0.7142857142857143,
+            "recall": 0.4166666666666667,
+            "support": 24.0
+          },
+          "weighted avg": {
+            "f1-score": 0.5598229808756126,
+            "precision": 0.6392348392348391,
+            "recall": 0.5833333333333334,
+            "support": 72.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            23,
+            1,
+            0
+          ],
+          [
+            11,
+            9,
+            4
+          ],
+          [
+            11,
+            3,
+            10
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.5598229808756124,
+        "mean_latency_ms": 0.2238680555516718,
+        "n": 72,
+        "neg_to_pos": 0,
+        "per_class": {
+          "negativo": {
+            "f1": 0.6666666666666666,
+            "precision": 0.5111111111111111,
+            "recall": 0.9583333333333334,
+            "support": 24
+          },
+          "neutral": {
+            "f1": 0.4864864864864865,
+            "precision": 0.6923076923076923,
+            "recall": 0.375,
+            "support": 24
+          },
+          "positivo": {
+            "f1": 0.5263157894736842,
+            "precision": 0.7142857142857143,
+            "recall": 0.4166666666666667,
+            "support": 24
+          }
+        },
+        "train_seconds": null
+      },
+      "path": "artifacts\\synthetic-tourism-v4.1\\lr.joblib",
+      "sha256": "d5e9ba8c95af665059f96c8bd1a632c869ee0f80234fe10449c3c14dfc082b2d",
+      "status": "OK"
+    },
+    "v4_1_svm": {
+      "metrics": {
+        "accuracy": 0.5277777777777778,
+        "classification_report": {
+          "accuracy": 0.5277777777777778,
+          "macro avg": {
+            "f1-score": 0.4922014260249554,
+            "precision": 0.5833333333333334,
+            "recall": 0.5277777777777778,
+            "support": 72.0
+          },
+          "negativo": {
+            "f1-score": 0.6470588235294118,
+            "precision": 0.5,
+            "recall": 0.9166666666666666,
+            "support": 24.0
+          },
+          "neutral": {
+            "f1-score": 0.45454545454545453,
+            "precision": 0.5,
+            "recall": 0.4166666666666667,
+            "support": 24.0
+          },
+          "positivo": {
+            "f1-score": 0.375,
+            "precision": 0.75,
+            "recall": 0.25,
+            "support": 24.0
+          },
+          "weighted avg": {
+            "f1-score": 0.4922014260249554,
+            "precision": 0.5833333333333334,
+            "recall": 0.5277777777777778,
+            "support": 72.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            22,
+            2,
+            0
+          ],
+          [
+            12,
+            10,
+            2
+          ],
+          [
+            10,
+            8,
+            6
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "negativo",
+          "neutral",
+          "positivo"
+        ],
+        "macro_f1": 0.4922014260249554,
+        "mean_latency_ms": 0.7031083333559864,
+        "n": 72,
+        "neg_to_pos": 0,
+        "per_class": {
+          "negativo": {
+            "f1": 0.6470588235294118,
+            "precision": 0.5,
+            "recall": 0.9166666666666666,
+            "support": 24
+          },
+          "neutral": {
+            "f1": 0.45454545454545453,
+            "precision": 0.5,
+            "recall": 0.4166666666666667,
+            "support": 24
+          },
+          "positivo": {
+            "f1": 0.375,
+            "precision": 0.75,
+            "recall": 0.25,
+            "support": 24
+          }
+        },
+        "train_seconds": null
+      },
+      "path": "artifacts\\synthetic-tourism-v4.1\\svm.joblib",
+      "sha256": "528fc0dbdb77be9ebec8c73fcddd27b99f17c72d45ae28352b265c049bb5d9f4",
+      "status": "OK"
+    }
+  },
+  "schema": "traveler-v4-independent-comparison"
+}

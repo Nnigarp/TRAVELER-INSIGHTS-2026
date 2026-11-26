@@ -1,0 +1,320 @@
+{
+  "base": "4fdb8e4",
+  "inputs": [
+    "El hotel era cómodo, pero el transporte nunca llegó y perdimos la excursión.",
+    "Al inicio la llave no funcionaba. El personal lo resolvió de inmediato y el resto de la estancia fue excelente.",
+    "La visita duró dos horas."
+  ],
+  "beto_online": [
+    {
+      "label": "negativo",
+      "review": false,
+      "reasons": [],
+      "classifier": "beto",
+      "selection": {
+        "requested": "beto",
+        "supervised_experimental": true,
+        "human_validated": false,
+        "review_policy_validated": false,
+        "version": "V4.2 partial256",
+        "features": "BETO adaptado · media enmascarada L2",
+        "effective": "beto",
+        "fallback": false,
+        "manifest_sha256": "24be5eb9ecf2ac20c1085b5a93aba09c53feb2ab57c5e290f56534faef817a63",
+        "checkpoint_revision": "c4d86612f51b4f46759c8390d1798c2febe71b93",
+        "training_mode": "partial256"
+      },
+      "verification": "negativo",
+      "report": "GENERADO",
+      "error": "OK",
+      "summary": "Según el relato, se valora la comodidad del alojamiento, pero se reportan la ausencia del transporte y la pérdida de una actividad.",
+      "events": 10
+    },
+    {
+      "label": "negativo",
+      "review": true,
+      "reasons": [
+        "VERIFICACION_QWEN_INCIERTO"
+      ],
+      "classifier": "beto",
+      "selection": {
+        "requested": "beto",
+        "supervised_experimental": true,
+        "human_validated": false,
+        "review_policy_validated": false,
+        "version": "V4.2 partial256",
+        "features": "BETO adaptado · media enmascarada L2",
+        "effective": "beto",
+        "fallback": false,
+        "manifest_sha256": "24be5eb9ecf2ac20c1085b5a93aba09c53feb2ab57c5e290f56534faef817a63",
+        "checkpoint_revision": "c4d86612f51b4f46759c8390d1798c2febe71b93",
+        "training_mode": "partial256"
+      },
+      "verification": "incierto",
+      "report": "GENERADO",
+      "error": "OK",
+      "summary": "En la experiencia descrita, se describe un fallo inicial; el visitante indica que el problema se resolvió.",
+      "events": 10
+    },
+    {
+      "label": "positivo",
+      "review": true,
+      "reasons": [
+        "DESCRIPCION_FACTUAL_VS_ETIQUETA"
+      ],
+      "classifier": "beto",
+      "selection": {
+        "requested": "beto",
+        "supervised_experimental": true,
+        "human_validated": false,
+        "review_policy_validated": false,
+        "version": "V4.2 partial256",
+        "features": "BETO adaptado · media enmascarada L2",
+        "effective": "beto",
+        "fallback": false,
+        "manifest_sha256": "24be5eb9ecf2ac20c1085b5a93aba09c53feb2ab57c5e290f56534faef817a63",
+        "checkpoint_revision": "c4d86612f51b4f46759c8390d1798c2febe71b93",
+        "training_mode": "partial256"
+      },
+      "verification": null,
+      "report": "GENERADO",
+      "error": "OK",
+      "summary": "En la experiencia descrita, se aporta información sobre la duración de la actividad.",
+      "events": 10
+    }
+  ],
+  "offline": {
+    "lr": [
+      {
+        "label": "negativo",
+        "review": true,
+        "reasons": [
+          "VERIFICACION_QWEN_NO_DISPONIBLE",
+          "SCORE_DEMO_BAJO",
+          "CONTRASTE_CON_SCORE_LIMITADO"
+        ],
+        "classifier": "lr",
+        "selection": {
+          "requested": "lr",
+          "effective": "lr",
+          "fallback": false,
+          "version": "V4.3",
+          "features": "frozen_beto_mean_pool",
+          "sha256": "08604c266d8c391f401394904cbf73ead9655044ecdb5173d2e70ff34dda966e"
+        },
+        "verification": "no_disponible",
+        "report": "ERROR",
+        "error": "OLLAMA_DESCONECTADO",
+        "summary": null,
+        "events": 10
+      },
+      {
+        "label": "positivo",
+        "review": true,
+        "reasons": [
+          "VERIFICACION_QWEN_NO_DISPONIBLE",
+          "SCORE_DEMO_BAJO"
+        ],
+        "classifier": "lr",
+        "selection": {
+          "requested": "lr",
+          "effective": "lr",
+          "fallback": false,
+          "version": "V4.3",
+          "features": "frozen_beto_mean_pool",
+          "sha256": "08604c266d8c391f401394904cbf73ead9655044ecdb5173d2e70ff34dda966e"
+        },
+        "verification": "no_disponible",
+        "report": "ERROR",
+        "error": "OLLAMA_DESCONECTADO",
+        "summary": null,
+        "events": 10
+      },
+      {
+        "label": "positivo",
+        "review": true,
+        "reasons": [
+          "DESCRIPCION_FACTUAL_VS_ETIQUETA",
+          "SCORE_DEMO_BAJO"
+        ],
+        "classifier": "lr",
+        "selection": {
+          "requested": "lr",
+          "effective": "lr",
+          "fallback": false,
+          "version": "V4.3",
+          "features": "frozen_beto_mean_pool",
+          "sha256": "08604c266d8c391f401394904cbf73ead9655044ecdb5173d2e70ff34dda966e"
+        },
+        "verification": null,
+        "report": "ERROR",
+        "error": "OLLAMA_DESCONECTADO",
+        "summary": null,
+        "events": 10
+      }
+    ],
+    "svm": [
+      {
+        "label": "negativo",
+        "review": true,
+        "reasons": [
+          "VERIFICACION_QWEN_NO_DISPONIBLE"
+        ],
+        "classifier": "svm",
+        "selection": {
+          "requested": "svm",
+          "effective": "svm",
+          "fallback": false,
+          "version": "V4.3",
+          "features": "frozen_beto_mean_pool",
+          "sha256": "2e74b31ed32c60845764fc8d307a45a344576ddea70d765e1098f77178b3fe44"
+        },
+        "verification": "no_disponible",
+        "report": "ERROR",
+        "error": "OLLAMA_DESCONECTADO",
+        "summary": null,
+        "events": 10
+      },
+      {
+        "label": "positivo",
+        "review": true,
+        "reasons": [
+          "VERIFICACION_QWEN_NO_DISPONIBLE",
+          "SCORE_DEMO_BAJO"
+        ],
+        "classifier": "svm",
+        "selection": {
+          "requested": "svm",
+          "effective": "svm",
+          "fallback": false,
+          "version": "V4.3",
+          "features": "frozen_beto_mean_pool",
+          "sha256": "2e74b31ed32c60845764fc8d307a45a344576ddea70d765e1098f77178b3fe44"
+        },
+        "verification": "no_disponible",
+        "report": "ERROR",
+        "error": "OLLAMA_DESCONECTADO",
+        "summary": null,
+        "events": 10
+      },
+      {
+        "label": "positivo",
+        "review": true,
+        "reasons": [
+          "DESCRIPCION_FACTUAL_VS_ETIQUETA"
+        ],
+        "classifier": "svm",
+        "selection": {
+          "requested": "svm",
+          "effective": "svm",
+          "fallback": false,
+          "version": "V4.3",
+          "features": "frozen_beto_mean_pool",
+          "sha256": "2e74b31ed32c60845764fc8d307a45a344576ddea70d765e1098f77178b3fe44"
+        },
+        "verification": null,
+        "report": "ERROR",
+        "error": "OLLAMA_DESCONECTADO",
+        "summary": null,
+        "events": 10
+      }
+    ],
+    "beto": [
+      {
+        "label": "negativo",
+        "review": true,
+        "reasons": [
+          "VERIFICACION_QWEN_NO_DISPONIBLE"
+        ],
+        "classifier": "beto",
+        "selection": {
+          "requested": "beto",
+          "supervised_experimental": true,
+          "human_validated": false,
+          "review_policy_validated": false,
+          "version": "V4.2 partial256",
+          "features": "BETO adaptado · media enmascarada L2",
+          "effective": "beto",
+          "fallback": false,
+          "manifest_sha256": "24be5eb9ecf2ac20c1085b5a93aba09c53feb2ab57c5e290f56534faef817a63",
+          "checkpoint_revision": "c4d86612f51b4f46759c8390d1798c2febe71b93",
+          "training_mode": "partial256"
+        },
+        "verification": "no_disponible",
+        "report": "ERROR",
+        "error": "OLLAMA_DESCONECTADO",
+        "summary": null,
+        "events": 10
+      },
+      {
+        "label": "negativo",
+        "review": true,
+        "reasons": [
+          "VERIFICACION_QWEN_NO_DISPONIBLE"
+        ],
+        "classifier": "beto",
+        "selection": {
+          "requested": "beto",
+          "supervised_experimental": true,
+          "human_validated": false,
+          "review_policy_validated": false,
+          "version": "V4.2 partial256",
+          "features": "BETO adaptado · media enmascarada L2",
+          "effective": "beto",
+          "fallback": false,
+          "manifest_sha256": "24be5eb9ecf2ac20c1085b5a93aba09c53feb2ab57c5e290f56534faef817a63",
+          "checkpoint_revision": "c4d86612f51b4f46759c8390d1798c2febe71b93",
+          "training_mode": "partial256"
+        },
+        "verification": "no_disponible",
+        "report": "ERROR",
+        "error": "OLLAMA_DESCONECTADO",
+        "summary": null,
+        "events": 10
+      },
+      {
+        "label": "positivo",
+        "review": true,
+        "reasons": [
+          "DESCRIPCION_FACTUAL_VS_ETIQUETA"
+        ],
+        "classifier": "beto",
+        "selection": {
+          "requested": "beto",
+          "supervised_experimental": true,
+          "human_validated": false,
+          "review_policy_validated": false,
+          "version": "V4.2 partial256",
+          "features": "BETO adaptado · media enmascarada L2",
+          "effective": "beto",
+          "fallback": false,
+          "manifest_sha256": "24be5eb9ecf2ac20c1085b5a93aba09c53feb2ab57c5e290f56534faef817a63",
+          "checkpoint_revision": "c4d86612f51b4f46759c8390d1798c2febe71b93",
+          "training_mode": "partial256"
+        },
+        "verification": null,
+        "report": "ERROR",
+        "error": "OLLAMA_DESCONECTADO",
+        "summary": null,
+        "events": 10
+      }
+    ]
+  },
+  "offline_endpoint": "http://127.0.0.1:1",
+  "long_review": [
+    "TEXTO_TRUNCADO_POR_ENCODER",
+    "INCIDENTE_ABIERTO_VS_ETIQUETA",
+    "VERIFICACION_QWEN_NO_DISPONIBLE"
+  ],
+  "audio_states": [
+    "confirmada",
+    "corregida"
+  ],
+  "manual_translation": "edición humana",
+  "automatic_translation_offline": "error de traducción",
+  "batch_labels": [
+    "negativo",
+    "negativo",
+    "positivo"
+  ]
+}

@@ -253,6 +253,22 @@ def local_json_request(config, path, payload=None, *, timeout=None):
 
 
 class OllamaReporter:
+    def verify_context(self, text):
+        from .language_input import ask_qwen
+        config = self.config or OllamaConfig.from_env()
+        remaining = config.timeout
+        if self.batch:
+            if self.started is None:
+                self.started = time.monotonic()
+            remaining -= time.monotonic() - self.started
+            if self.calls >= MAX_BATCH_REQUESTS or remaining < 1:
+                raise ValueError("Presupuesto contextual del lote agotado.")
+            self.calls += 1
+        answer = ask_qwen("balance", text, config=config, timeout=remaining)
+        if answer not in {"negativo", "neutral", "positivo", "incierto"}:
+            raise ValueError("Balance contextual inválido.")
+        return answer
+
     def __init__(self, config: OllamaConfig | None = None, *, batch=False):
         self.config, self.batch = config, batch
         self.calls, self.started = 0, None
@@ -267,6 +283,15 @@ class OllamaReporter:
                 raise ReportRejected("CONFIGURACION_INVALIDA")
             requested = config.model
             schema = report_schema(text, sentiment, aspects, needs_human)
+            fields = schema["properties"]
+            problems = fields["problema_identificado"]["enum"]
+            if len(problems) > 1:
+                # Keep the complete summary and evidence; propose action on the first reported incident.
+                options = content_options(text, evidence_units(text))
+                category = options["problem_categories"][problems[0]]
+                fields["problema_identificado"]["enum"] = problems[:1]
+                fields["recomendacion"]["enum"] = list(PROPOSALS[category][:2])
+                fields["accion_propuesta"]["enum"] = [PROPOSALS[category][2]]
             if self.batch and self.calls >= MAX_BATCH_REQUESTS:
                 raise ReportRejected("LIMITE_LOTE_GENERATIVO")
             if self.started is None:

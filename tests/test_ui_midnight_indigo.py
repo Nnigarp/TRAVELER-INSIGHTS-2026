@@ -27,7 +27,7 @@ def test_new_visual_summary_preserves_json_contract():
         "El guía fue amable, pero esperamos demasiado para entrar.", "lr"
     )
     record = json.loads(raw)
-    for expected in ("Sentimiento DEMO", "Puntuaciones no calibradas",
+    for expected in ("Sentimiento (clasificador local)", "Puntuaciones no calibradas",
                      "Aspectos exploratorios", "Revisión humana",
                      "Recomendación exploratoria"):
         assert expected in summary

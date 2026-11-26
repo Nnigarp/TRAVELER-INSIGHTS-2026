@@ -35,7 +35,14 @@ def run_selected(kind, classical_factory, operation):
     retries the operation with LR; returned metadata explicitly names that fact.
     """
     if kind in ("lr", "svm"):
-        return operation(classical_factory(kind)), kind
+        classifier = classical_factory(kind)
+        result = operation(classifier)
+        if getattr(classifier, "artifact_digest", None):
+            for record in result if isinstance(result, list) else [result]:
+                record["seleccion_modelo"] = dict(requested=kind, effective=kind, fallback=False,
+                                                 version="V4.3", features="frozen_beto_mean_pool",
+                                                 sha256=classifier.artifact_digest)
+        return result, kind
     if kind != "beto":
         raise ValueError("Modelo no disponible")
     attempted = configured_artifact()
@@ -48,9 +55,11 @@ def run_selected(kind, classical_factory, operation):
         model = _load(str(attempted), digest)
         result = operation(model)
         effective = "beto"
+        if model.metadata.get("mode") == "partial256":
+            metadata.update(version="V4.2 partial256", features="BETO adaptado · media enmascarada L2")
         metadata.update(effective="beto", fallback=False, manifest_sha256=digest,
                         checkpoint_revision=model.metadata["revision"],
-                        training_mode=model.metadata["training"]["mode"])
+                        training_mode=model.metadata["training"].get("mode", model.metadata.get("mode")))
     except Exception as exc:
         # Optional backend isolation. Never expose input, paths or exception args.
         result = operation(classical_factory("lr"))

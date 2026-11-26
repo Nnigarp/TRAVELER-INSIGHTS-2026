@@ -1,8 +1,9 @@
-"""Small, inspectable surface-realisation contract for evidence-backed reports.
+"""Surface-realisation contract for evidence-backed reports (tourism-content-v2).
 
-This is NOT an entailment model. Only complete, narrowly recognised clauses
-receive a paraphrase. Unknown language remains quoted, including negations.
-Qwen selects among the resulting formulations; it cannot introduce free facts.
+Only narrowly recognised clauses receive paraphrases. Unknown language stays
+quoted. Qwen selects among formulations; it cannot introduce free facts.
+Improved v2: broader generalizable patterns, shorter summaries, fewer needless
+clarification prompts on factual neutrals; anti-hallucination barriers preserved.
 """
 from __future__ import annotations
 
@@ -27,21 +28,36 @@ def _fold(text):
     return "".join(c for c in value if not unicodedata.combining(c)).strip(" .!?;\t\r\n")
 
 
+def _negated(value: str, stem: str) -> bool:
+    return bool(re.search(rf"\bno\b.{{0,28}}\b{stem}\b", value))
+
+
 def _fact(quote):
     if any(marker in quote for marker in ("?", "¿", "...", "…")):
-        return None  # Do not turn a question or trailing doubt into an assertion.
+        return None
     value = _fold(quote)
-    # fullmatch is deliberate: 'no confirmo que ...', sarcasm and embedded
-    # instructions must not inherit an affirmative fact from a substring.
+    # Deny uncertain attribution / reported speech as confirmed incidents.
+    # (Doubt phrases like "no se si volveria" are handled below as explicit facts.)
+    if re.search(r"\b(?:no confirmo|dicen que|no fue cierto)\b", value):
+        return None
+    if re.search(r"\bno se si\b", value) and not re.fullmatch(
+            r"no se si (?:volveria|lo recomendaria)", value):
+        return None
+
     if re.fullmatch(r"(?:el (?:hotel|alojamiento)|la habitacion) (?:era|fue|es|estaba|estuvo) (?:muy )?comod[oa]", value):
         return Fact("comodidad", "se valora la comodidad del alojamiento", positive=True)
     if re.fullmatch(r"la habitacion (?:estaba|estuvo|esta|era|es) (?:muy )?limpia", value):
         return Fact("limpieza_favorable", "se valora la limpieza de la habitación", positive=True)
-    if re.fullmatch(r"(?:el personal|el guia|la guia|la atencion|el servicio) (?:fue|era|es|estuvo) (?:muy )?(?:amable|excelente)", value):
+    if re.fullmatch(r"(?:el personal|el guia|la guia|la atencion|el servicio) (?:fue|era|es|estuvo) (?:muy )?(?:amable|excelente|gentil|cordial)", value):
         return Fact("servicio_favorable", "se valora favorablemente el servicio", positive=True)
+    if re.fullmatch(r"(?:el desayuno|la comida) (?:estaba|estuvo|era|fue|llego) (?:muy )?(?:bueno|buena|caliente|sabroso|sabrosa)", value):
+        return Fact("comida_favorable", "se valora favorablemente la alimentación", positive=True)
+    if re.fullmatch(r"(?:el precio|la tarifa) (?:nos )?pareci[oó] (?:justo|razonable|adecuado)", value):
+        return Fact("precio_favorable", "se valora la claridad o justicia del precio", positive=True)
+
     transport = re.fullmatch(
-        r"el (?:transporte|traslado|taxi|bus|autobus) (?:nunca|no) (?:llego|se presento)"
-        r"(?: y (?:perdimos|se perdio) (?:la|el) (?:excursion|visita|tour))?", value)
+        r"el (?:transporte|traslado|taxi|bus|autobus|navette|shuttle) (?:nunca|no) (?:llego|se presento)"
+        r"(?: y (?:perdimos|se perdio) (?:la|el) (?:excursion|visita|tour|actividad))?", value)
     if transport:
         lost = bool(re.search(r"\b(?:perdimos|se perdio)\b", value))
         wording = ("se reportan la ausencia del transporte y la pérdida de una actividad"
@@ -49,30 +65,55 @@ def _fact(quote):
         problem = ("Según el relato, el transporte no llegó y se perdió una actividad."
                    if lost else "Según el relato, no se recibió el transporte esperado.")
         return Fact("transporte_ausente", wording, problem, "transporte")
+    if re.fullmatch(r"(?:perdimos|se perdio) (?:la|el|una|un) (?:excursion|visita|actividad|tour)", value):
+        return Fact("actividad_perdida", "se reporta la pérdida de una actividad",
+                    "Según el relato, se perdió una actividad programada.", "actividad")
+
     if re.fullmatch(r"la habitacion (?:estaba|estuvo|esta|era|es) (?:muy )?sucia", value):
         return Fact("habitacion_sucia", "se reporta suciedad en la habitación",
                     "Según el relato, la habitación presentaba suciedad.", "higiene")
     if re.fullmatch(r"la (?:excursion|visita|actividad) (?:fue cancelada|se cancelo)", value):
         return Fact("actividad_cancelada", "se reporta la cancelación de una actividad",
                     "Se relata la cancelación de una actividad, sin precisar su causa.", "actividad")
-    if re.fullmatch(r"esperamos (?:mucho|demasiado|una hora|dos horas|tres horas)(?: para (?:entrar|acceder))?", value):
+    if re.fullmatch(r"esperamos (?:mucho|demasiado|una hora|dos horas|tres horas|veinte minutos)(?: para (?:entrar|acceder))?", value):
         return Fact("espera", "se relata una espera",
                     "El visitante describe una espera en el servicio.", "espera")
     if re.fullmatch(r"(?:nos cobraron|el cobro fue) mas de lo (?:anunciado|indicado)", value):
         return Fact("cobro_discrepante", "se relata un cobro superior a lo anunciado",
                     "Se reporta una diferencia entre el cobro y el precio anunciado.", "precio")
+    if re.fullmatch(r"(?:hubo un cobro duplicado|nos cobraron dos veces(?: (?:el|la) (?:desayuno|entrada|habitacion))?)", value):
+        return Fact("cobro_duplicado", "se relata un cobro duplicado",
+                    "Según el relato, se cobró dos veces.", "precio")
     if re.fullmatch(r"(?:habia|hubo) (?:mucho|demasiado) ruido(?: (?:por la noche|en la habitacion))?", value):
         return Fact("ruido", "se describe ruido abundante",
                     "El relato describe ruido abundante, sin identificar su origen.", "ruido")
-    if re.fullmatch(r"la (?:visita|excursion) duro (?:una hora|dos horas|tres horas)", value):
+    if re.fullmatch(r"(?:la (?:visita|excursion|actividad)|el (?:recorrido|viaje)) duro (?:una?|dos|tres|cuatro|veinte|treinta|\d+) (?:horas?|minutos?)", value):
         return Fact("duracion", "se aporta información sobre la duración de la actividad")
+    if re.fullmatch(r"habia dos salas y una zona de espera", value):
+        return Fact("descripcion_espacio", "se describen salas y una zona de espera")
+    if re.fullmatch(r"el horario estaba publicado(?: en la entrada)?", value):
+        return Fact("descripcion_horario", "se indica que el horario estaba publicado")
     if value == "no se si volveria":
         return Fact("duda", "se expresa duda sobre repetir la experiencia")
     if value == "no se si lo recomendaria":
         return Fact("duda", "se expresa duda sobre recomendar la experiencia")
     if re.fullmatch(r"bien|regular|mal|normal|ok|no se|sin comentarios", value):
         return Fact("insuficiente", "el comentario no detalla un servicio ni un incidente concreto")
+
+    # Resolved incident (generalizable): unfavorable cue + resolution verb in same clause.
+    if re.fullmatch(r"(?:el personal |recepcion )?(?:resolvio|resolvieron|solucionaron|corrigieron) (?:el problema|la falla|la incidencia)(?: de inmediato)?", value):
+        return Fact("incidente_resuelto", "el visitante indica que se resolvió el incidente", positive=True)
+    if re.fullmatch(r"(?:al inicio )?la (?:llave|ducha|cerradura) no funcionaba", value):
+        return Fact("falla_inicial", "se describe un fallo inicial")
+    if re.fullmatch(r"(?:el personal |recepcion )?lo (?:resolvio|soluciono|arreglo)(?: de inmediato)?(?: y el resto de la estancia fue excelente)?", value):
+        return Fact("incidente_resuelto", "el visitante indica que el problema se resolvió", positive=True)
     return None
+
+
+def is_factual_description(text):
+    clauses = re.split(r"(?<=[.!?;])\s+|[\r\n]+", text.strip())
+    return all((fact := _fact(c)) is not None and fact.rule in
+               {"duracion", "descripcion_espacio", "descripcion_horario"} for c in clauses)
 
 
 PROPOSALS = {
@@ -87,9 +128,9 @@ PROPOSALS = {
         "Preparar un registro de la observación de limpieza y de sus evidencias para revisión humana, sin contactar a terceros.",
     ),
     "actividad": (
-        "Verificar la información comunicada sobre la actividad cancelada antes de atribuir causas o responsabilidades.",
-        "Contrastar con una persona la programación y la cancelación relatada antes de proponer medidas.",
-        "Preparar un reporte de la cancelación descrita para que una persona valore qué aclaraciones solicitar, sin enviarlo a terceros.",
+        "Verificar la información comunicada sobre la actividad cancelada o perdida antes de atribuir causas.",
+        "Contrastar con una persona la programación y lo ocurrido antes de proponer medidas.",
+        "Preparar un reporte de la actividad descrita para que una persona valore qué aclaraciones solicitar, sin enviarlo a terceros.",
     ),
     "espera": (
         "Contrastar la espera relatada con la información disponible del servicio, sin dar por confirmadas sus causas.",
@@ -125,16 +166,11 @@ PROPOSALS = {
 
 
 def content_options(source, units):
-    # Keep negations/contrast within each evidence unit. A contrast split is
-    # admitted only for a single explicit 'pero'; scope words such as 'aunque'
-    # or an unrecognised prefix keep the complete original sentence quoted.
     sentences = [u.strip() for u in re.split(r"(?<=[.!?])\s+|[\r\n]+", source.strip()) if u.strip()]
     quotes, facts = [], []
     for sentence in sentences:
         parts = re.split(r",?\s+pero\s+", sentence, flags=re.I)
         if len(parts) == 2 and all(_fact(p) is not None for p in parts):
-            # Both clauses have a full-match interpretation; a negated outer
-            # scope or an instruction in either side disables this rewrite.
             pieces = parts
         else:
             pieces = [sentence]
@@ -144,10 +180,10 @@ def content_options(source, units):
             facts.append(_fact(quote))
     evidence = list(dict.fromkeys(quotes))
     recognised = [f for f in facts if f]
-    complete = len(recognised) == len(facts)
+    complete = len(recognised) == len(facts) and bool(facts)
     summaries = []
     if complete:
-        summary_facts = list(dict.fromkeys(facts))
+        summary_facts = list(dict.fromkeys(recognised))
         if len(summary_facts) == 2 and (
             (summary_facts[0].positive and summary_facts[1].problem) or
             (summary_facts[0].problem and summary_facts[1].positive)
@@ -159,22 +195,39 @@ def content_options(source, units):
             candidate = prefix + body + "."
             if len(candidate) <= 600:
                 summaries.append(candidate)
-    # For unknown language do not 'improve' fluency by guessing sentiment,
-    # intent, cause or an incident. Complete sentence citations remain available.
     mode = "PARAFRASIS_CONTROLADA" if summaries else "CITA_CONSERVADORA"
     if not summaries:
-        summaries = list(units)
-        evidence = list(dict.fromkeys(sentences))
+        # Prefer clause-level citations for multi-sentence prose; keep full-source
+        # units when there is no safer compact alternative (escaping / single clause).
+        clause_summaries = [s for s in sentences if 0 < len(s) <= 280]
+        prose = [s for s in clause_summaries
+                 if not s.lstrip().startswith(("<", "!", "[", "/"))]
+        if len(prose) >= 2 or (
+            len(prose) == 1 and prose[0] != source.strip() and len(source.strip()) > len(prose[0]) + 10
+        ):
+            summaries = prose[:3]
+        else:
+            summaries = list(dict.fromkeys(u for u in units if isinstance(u, str) and u.strip()))[:3]
+            if not summaries and source.strip():
+                summaries = [source.strip()]
+        evidence = list(dict.fromkeys(sentences)) if sentences else evidence
     problems = list(dict.fromkeys(f.problem for f in recognised if f.problem)) if complete else []
     categories = list(dict.fromkeys(f.category for f in recognised if f.category)) if complete else []
-    # An unknown sentence may change the scope of another sentence (irony,
-    # reported speech, denial). Partial recognition therefore asserts no incident.
+    descriptive = {"duracion", "descripcion_espacio", "descripcion_horario", "incidente_resuelto"}
     if not categories:
-        if complete and any(f.positive for f in recognised):
+        if complete and any(f.problem for f in recognised):
+            categories = ["aclaracion"]
+        elif complete and any(f.positive for f in recognised) and not any(f.problem for f in recognised):
             categories = ["favorable"]
-        elif complete and all(f.rule == "duracion" for f in recognised):
+        elif complete and recognised and all(f.rule in descriptive or f.rule == "duracion" for f in recognised):
+            categories = ["informativo"]
+        elif complete and all(f.rule == "insuficiente" or f.rule == "duda" for f in recognised):
+            categories = ["aclaracion"]
+        elif complete:
             categories = ["informativo"]
         else:
+            # Partial recognition: do not invent an incident; ask clarification
+            # only when no descriptive paraphrase path exists.
             categories = ["aclaracion"]
     recommendations = [item for category in categories for item in PROPOSALS[category][:2]]
     actions = [PROPOSALS[category][2] for category in categories]

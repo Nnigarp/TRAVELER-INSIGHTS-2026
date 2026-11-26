@@ -110,9 +110,9 @@ def evidence_units(source):
     return list(dict.fromkeys(units))
 
 
-def report_schema(source, sentiment, aspects, needs_human):
+def report_schema(source, sentiment, aspects, needs_human, *, context=None):
     units = evidence_units(source)
-    options = content_options(source, units)
+    options = content_options(source, units, context=context)
     if sentiment not in {"positivo", "neutral", "negativo"} or type(needs_human) is not bool:
         raise ReportRejected("CONTEXTO_INVALIDO")
     if not isinstance(aspects, list) or not all(isinstance(a, str) for a in aspects):
@@ -132,8 +132,8 @@ def report_schema(source, sentiment, aspects, needs_human):
             "properties": properties, "required": list(FIELDS)}
 
 
-def validate_report(report, source, sentiment, aspects, needs_human):
-    schema = report_schema(source, sentiment, aspects, needs_human)
+def validate_report(report, source, sentiment, aspects, needs_human, *, context=None):
+    schema = report_schema(source, sentiment, aspects, needs_human, context=context)
     if not isinstance(report, dict) or set(report) != set(FIELDS):
         raise ReportRejected("CAMPOS_INVALIDOS")
     for field in ("resumen", "problema_identificado", "recomendacion", "accion_propuesta", "sentimiento_analizado"):
@@ -157,7 +157,7 @@ def validate_report(report, source, sentiment, aspects, needs_human):
             if field == "evidencia_textual":
                 raise ReportRejected("EVIDENCIA_NO_VERIFICABLE")
             raise ReportRejected("PROPUESTA_NO_ADMITIDA")
-    options = content_options(source, evidence_units(source))
+    options = content_options(source, evidence_units(source), context=context)
     category = options["problem_categories"].get(report["problema_identificado"])
     if category and (report["recomendacion"] not in PROPOSALS[category][:2] or
                      report["accion_propuesta"] != PROPOSALS[category][2]):
@@ -166,37 +166,49 @@ def validate_report(report, source, sentiment, aspects, needs_human):
     return _json(json.dumps(report, ensure_ascii=False))
 
 
-def failed_generation(code, *, requested=DEFAULT_MODEL, executed=None, latency=0.0):
-    return {"estado": "ERROR", "codigo": code, "generacion_llm": False,
-            "modelo_solicitado": requested, "modelo_ejecutado": executed,
-            "latencia_ms": latency, "protocolo": PROTOCOL, "informe": None,
-            "alternativa": "RECOMENDACION_TRADICIONAL_POR_REGLAS",
-            "acciones_externas_ejecutadas": False}
+def failed_generation(code, *, requested=DEFAULT_MODEL, executed=None, latency=0.0,
+                      local_recommendation=None):
+    payload = {"estado": "ERROR", "codigo": code, "generacion_llm": False,
+               "modelo_solicitado": requested, "modelo_ejecutado": executed,
+               "latencia_ms": latency, "protocolo": PROTOCOL, "informe": None,
+               "alternativa": "RECOMENDACION_TRADICIONAL_POR_REGLAS",
+               "fallback_visible": True,
+               "acciones_externas_ejecutadas": False}
+    if isinstance(local_recommendation, str) and local_recommendation.strip():
+        payload["recomendacion_local_conservada"] = local_recommendation.strip()
+    return payload
 
 
-def validate_generation(generation, source, sentiment, aspects, needs_human):
+def validate_generation(generation, source, sentiment, aspects, needs_human, *,
+                        context=None, local_recommendation=None):
     """ActionAgent revalidates against its own classifier/control evidence."""
+    def _fail(code, generation_obj):
+        return failed_generation(
+            code,
+            requested=(generation_obj or {}).get("modelo_solicitado", DEFAULT_MODEL),
+            executed=(generation_obj or {}).get("modelo_ejecutado"),
+            latency=(generation_obj or {}).get("latencia_ms", 0.0),
+            local_recommendation=local_recommendation,
+        )
     try:
         if not isinstance(generation, dict):
-            return failed_generation("GENERADOR_ERROR")
+            return _fail("GENERADOR_ERROR", None)
         if generation.get("estado") != "GENERADO":
             # Normalize failures too: never publish a partially generated report
             # or allow a spurious true flag to survive a failed validation.
             code = generation.get("codigo", "GENERADOR_ERROR")
             code = code if isinstance(code, str) and re.fullmatch(r"[A-Z_]{1,64}", code) else "GENERADOR_ERROR"
-            return failed_generation(code, requested=generation.get("modelo_solicitado", DEFAULT_MODEL),
-                                     executed=generation.get("modelo_ejecutado"),
-                                     latency=generation.get("latencia_ms", 0.0))
-        report = validate_report(generation.get("informe"), source, sentiment, aspects, needs_human)
+            return _fail(code, generation)
+        report = validate_report(
+            generation.get("informe"), source, sentiment, aspects, needs_human, context=context)
         if generation.get("modelo_ejecutado") != generation.get("modelo_solicitado"):
             raise ReportRejected("MODELO_INESPERADO")
         return {**generation, "informe": report, "generacion_llm": True, "protocolo": PROTOCOL,
-                "validacion_contenido": content_provenance(source, evidence_units(source), report),
+                "validacion_contenido": content_provenance(
+                    source, evidence_units(source), report, context=context),
                 "validado_por": "ActionAgent", "acciones_externas_ejecutadas": False}
     except ReportRejected as exc:
-        return failed_generation(str(exc), requested=generation.get("modelo_solicitado", DEFAULT_MODEL),
-                                 executed=generation.get("modelo_ejecutado"),
-                                 latency=generation.get("latencia_ms", 0.0))
+        return _fail(str(exc), generation if isinstance(generation, dict) else None)
 
 
 def local_json_request(config, path, payload=None, *, timeout=None):
@@ -273,7 +285,8 @@ class OllamaReporter:
         self.config, self.batch = config, batch
         self.calls, self.started = 0, None
 
-    def generate(self, text: str, sentiment: str, needs_human: bool, aspects: list[str]) -> dict:
+    def generate(self, text: str, sentiment: str, needs_human: bool, aspects: list[str],
+                 *, context=None) -> dict:
         started = time.perf_counter()
         requested, executed = DEFAULT_MODEL, None
         try:
@@ -282,12 +295,12 @@ class OllamaReporter:
             except (ValueError, TypeError):
                 raise ReportRejected("CONFIGURACION_INVALIDA")
             requested = config.model
-            schema = report_schema(text, sentiment, aspects, needs_human)
+            schema = report_schema(text, sentiment, aspects, needs_human, context=context)
             fields = schema["properties"]
             problems = fields["problema_identificado"]["enum"]
             if len(problems) > 1:
                 # Keep the complete summary and evidence; propose action on the first reported incident.
-                options = content_options(text, evidence_units(text))
+                options = content_options(text, evidence_units(text), context=context)
                 category = options["problem_categories"][problems[0]]
                 fields["problema_identificado"]["enum"] = problems[:1]
                 fields["recomendacion"]["enum"] = list(PROPOSALS[category][:2])
@@ -332,7 +345,8 @@ class OllamaReporter:
             content = re.sub(r"<think>.*?</think>", "", content, flags=re.S | re.I).strip()
             if re.search(r"</?think\b", content, re.I):
                 raise ReportRejected("RAZONAMIENTO_SIN_RESPUESTA")
-            report = validate_report(_json(content), text, sentiment, aspects, needs_human)
+            report = validate_report(
+                _json(content), text, sentiment, aspects, needs_human, context=context)
             stats = {key: value for key in ("total_duration", "load_duration", "prompt_eval_count", "eval_count")
                      if type(value := data.get(key)) is int and value >= 0}
             return {"estado": "GENERADO", "codigo": "OK", "generacion_llm": True,
@@ -341,7 +355,8 @@ class OllamaReporter:
                     "protocolo": PROTOCOL, "think_solicitado": False, "razonamiento_descartado": hidden,
                     "parametros": payload["options"], "estadisticas_ollama": stats,
                     "esquema_sha256": hashlib.sha256(json.dumps(schema, sort_keys=True).encode()).hexdigest(),
-                    "validacion_contenido": content_provenance(text, evidence_units(text), report),
+                    "validacion_contenido": content_provenance(
+                        text, evidence_units(text), report, context=context),
                     "informe": report, "acciones_externas_ejecutadas": False}
         except ReportRejected as exc:
             code = str(exc)

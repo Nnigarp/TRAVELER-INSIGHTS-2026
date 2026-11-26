@@ -18,6 +18,13 @@ from test_ollama_report import TEXT, fixture_report, response_for, simulated_oll
 
 
 def from_request(body):
+    # Select the first admitted enum value from the schema the client sent.
+    # Rebuilding without SemanticsAgent context would desync evidence/problems.
+    schema = body.get("format") or {}
+    properties = schema.get("properties") or {}
+    if properties:
+        report = {field: spec["enum"][0] for field, spec in properties.items()}
+        return response_for(report)
     text = json.loads(body["messages"][1]["content"])["resena_no_confiable"]
     context = json.loads(body["messages"][1]["content"])
     return response_for(fixture_report(text, context["sentimiento_solo_lectura"],

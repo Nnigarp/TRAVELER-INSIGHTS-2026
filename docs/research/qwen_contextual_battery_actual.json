@@ -1,0 +1,26 @@
+{
+  "status": "PASSED",
+  "scope": "ACTUAL_APPLICATION_REPORT_CHECK_NOT_PREDICTIVE_EVALUATION",
+  "classifier": "lr",
+  "ollama_identity": {
+    "status": "VERIFIED_LOCAL_API",
+    "ollama_version": "0.40.18",
+    "model": "qwen3:1.7b"
+  },
+  "case_count": 12,
+  "case_ids": [
+    "mixed_transport",
+    "positive",
+    "negative",
+    "neutral",
+    "ambiguous",
+    "insufficient",
+    "negated_problem",
+    "uncertain_attribution",
+    "regional",
+    "irony",
+    "price",
+    "multiple_incidents"
+  ],
+  "violations_total": 0
+}

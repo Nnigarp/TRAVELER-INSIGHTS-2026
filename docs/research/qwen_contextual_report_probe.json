@@ -1,0 +1,360 @@
+{
+  "cartagena_chars": 374,
+  "cases": [
+    {
+      "id": "cartagena_374",
+      "chars": 374,
+      "qwen_requested": true,
+      "semantic_incidents": [
+        "no_resuelto",
+        "no_resuelto"
+      ],
+      "content_mode": "PARAFRASIS_CONTROLADA",
+      "content_complete": false,
+      "grounded_partial": true,
+      "content_categories": [
+        "transporte"
+      ],
+      "content_problems": [
+        "Según el relato, el transporte no llegó y se perdió una actividad."
+      ],
+      "content_rules": [
+        "transporte_semantico"
+      ],
+      "generation_estado": "GENERADO",
+      "generation_codigo": "OK",
+      "validacion": {
+        "version": "tourism-content-v2",
+        "resumen": "PARAFRASIS_CONTROLADA",
+        "problema": "PARAFRASIS_CONTROLADA",
+        "reglas_aplicadas": [
+          "transporte_semantico"
+        ],
+        "cobertura_completa": false,
+        "cobertura_parcial_sustentada": true,
+        "alcance": "Reglas acotadas; no valida semántica arbitraria ni la veracidad del relato."
+      },
+      "problema": "Según el relato, el transporte no llegó y se perdió una actividad.",
+      "resumen": "Según el relato, se reportan la ausencia del transporte y la pérdida de una actividad.",
+      "recomendacion": "Verificar quién organizó el traslado y qué condiciones se habían comunicado, sin atribuir todavía responsabilidades.",
+      "accion": "Preparar un reporte del traslado relatado y reunir las evidencias disponibles para valoración humana, sin enviarlo a terceros.",
+      "fallback": null,
+      "sentimiento_supervisado": "neutral"
+    },
+    {
+      "id": "classic_mixed",
+      "chars": 76,
+      "qwen_requested": true,
+      "semantic_incidents": [
+        "no_resuelto"
+      ],
+      "content_mode": "PARAFRASIS_CONTROLADA",
+      "content_complete": true,
+      "grounded_partial": false,
+      "content_categories": [
+        "transporte"
+      ],
+      "content_problems": [
+        "Según el relato, el transporte no llegó y se perdió una actividad."
+      ],
+      "content_rules": [
+        "comodidad",
+        "transporte_ausente"
+      ],
+      "generation_estado": "GENERADO",
+      "generation_codigo": "OK",
+      "validacion": {
+        "version": "tourism-content-v2",
+        "resumen": "PARAFRASIS_CONTROLADA",
+        "problema": "PARAFRASIS_CONTROLADA",
+        "reglas_aplicadas": [
+          "comodidad",
+          "transporte_ausente"
+        ],
+        "cobertura_completa": true,
+        "cobertura_parcial_sustentada": false,
+        "alcance": "Reglas acotadas; no valida semántica arbitraria ni la veracidad del relato."
+      },
+      "problema": "Según el relato, el transporte no llegó y se perdió una actividad.",
+      "resumen": "Según el relato, se valora la comodidad del alojamiento, pero se reportan la ausencia del transporte y la pérdida de una actividad.",
+      "recomendacion": "Verificar quién organizó el traslado y qué condiciones se habían comunicado, sin atribuir todavía responsabilidades.",
+      "accion": "Preparar un reporte del traslado relatado y reunir las evidencias disponibles para valoración humana, sin enviarlo a terceros.",
+      "fallback": null,
+      "sentimiento_supervisado": "negativo"
+    },
+    {
+      "id": "resolved",
+      "chars": 111,
+      "qwen_requested": true,
+      "semantic_incidents": [
+        "mencionado",
+        "resuelto"
+      ],
+      "content_mode": "PARAFRASIS_CONTROLADA",
+      "content_complete": true,
+      "grounded_partial": false,
+      "content_categories": [
+        "favorable"
+      ],
+      "content_problems": [
+        ""
+      ],
+      "content_rules": [
+        "falla_inicial",
+        "incidente_resuelto"
+      ],
+      "generation_estado": "GENERADO",
+      "generation_codigo": "OK",
+      "validacion": {
+        "version": "tourism-content-v2",
+        "resumen": "PARAFRASIS_CONTROLADA",
+        "problema": "NO_DETERMINADO",
+        "reglas_aplicadas": [
+          "falla_inicial",
+          "incidente_resuelto"
+        ],
+        "cobertura_completa": true,
+        "cobertura_parcial_sustentada": false,
+        "alcance": "Reglas acotadas; no valida semántica arbitraria ni la veracidad del relato."
+      },
+      "problema": "",
+      "resumen": "En la experiencia descrita, se describe un fallo inicial; el visitante indica que el problema se resolvió.",
+      "recomendacion": "Recoger qué aspectos se valoraron favorablemente para revisión humana, sin generalizarlos a otros visitantes.",
+      "accion": "Preparar una nota de los aspectos favorables expresados para revisión humana, sin ejecutar cambios en el servicio.",
+      "fallback": null,
+      "sentimiento_supervisado": "positivo"
+    },
+    {
+      "id": "positive",
+      "chars": 56,
+      "qwen_requested": true,
+      "semantic_incidents": [],
+      "content_mode": "PARAFRASIS_CONTROLADA",
+      "content_complete": true,
+      "grounded_partial": false,
+      "content_categories": [
+        "favorable"
+      ],
+      "content_problems": [
+        ""
+      ],
+      "content_rules": [
+        "limpieza_favorable",
+        "servicio_favorable"
+      ],
+      "generation_estado": "GENERADO",
+      "generation_codigo": "OK",
+      "validacion": {
+        "version": "tourism-content-v2",
+        "resumen": "PARAFRASIS_CONTROLADA",
+        "problema": "NO_DETERMINADO",
+        "reglas_aplicadas": [
+          "limpieza_favorable",
+          "servicio_favorable"
+        ],
+        "cobertura_completa": true,
+        "cobertura_parcial_sustentada": false,
+        "alcance": "Reglas acotadas; no valida semántica arbitraria ni la veracidad del relato."
+      },
+      "problema": "",
+      "resumen": "En la experiencia descrita, se valora la limpieza de la habitación; se valora favorablemente el servicio.",
+      "recomendacion": "Recoger qué aspectos se valoraron favorablemente para revisión humana, sin generalizarlos a otros visitantes.",
+      "accion": "Preparar una nota de los aspectos favorables expresados para revisión humana, sin ejecutar cambios en el servicio.",
+      "fallback": null,
+      "sentimiento_supervisado": "positivo"
+    },
+    {
+      "id": "neutral",
+      "chars": 67,
+      "qwen_requested": true,
+      "semantic_incidents": [],
+      "content_mode": "PARAFRASIS_CONTROLADA",
+      "content_complete": true,
+      "grounded_partial": false,
+      "content_categories": [
+        "informativo"
+      ],
+      "content_problems": [
+        ""
+      ],
+      "content_rules": [
+        "duracion",
+        "descripcion_espacio"
+      ],
+      "generation_estado": "GENERADO",
+      "generation_codigo": "OK",
+      "validacion": {
+        "version": "tourism-content-v2",
+        "resumen": "PARAFRASIS_CONTROLADA",
+        "problema": "NO_DETERMINADO",
+        "reglas_aplicadas": [
+          "duracion",
+          "descripcion_espacio"
+        ],
+        "cobertura_completa": true,
+        "cobertura_parcial_sustentada": false,
+        "alcance": "Reglas acotadas; no valida semántica arbitraria ni la veracidad del relato."
+      },
+      "problema": "",
+      "resumen": "En la experiencia descrita, se aporta información sobre la duración de la actividad; se describen salas y una zona de espera.",
+      "recomendacion": "Conservar la información de la visita como descripción, sin inferir satisfacción ni un incidente.",
+      "accion": "Preparar una ficha descriptiva de lo narrado para consulta humana, sin ejecutar intervenciones externas.",
+      "fallback": null,
+      "sentimiento_supervisado": "neutral"
+    },
+    {
+      "id": "ambiguous",
+      "chars": 51,
+      "qwen_requested": true,
+      "semantic_incidents": [],
+      "content_mode": "PARAFRASIS_CONTROLADA",
+      "content_complete": false,
+      "grounded_partial": true,
+      "content_categories": [
+        "aclaracion"
+      ],
+      "content_problems": [
+        ""
+      ],
+      "content_rules": [
+        "duda"
+      ],
+      "generation_estado": "GENERADO",
+      "generation_codigo": "OK",
+      "validacion": {
+        "version": "tourism-content-v2",
+        "resumen": "PARAFRASIS_CONTROLADA",
+        "problema": "NO_DETERMINADO",
+        "reglas_aplicadas": [
+          "duda"
+        ],
+        "cobertura_completa": false,
+        "cobertura_parcial_sustentada": true,
+        "alcance": "Reglas acotadas; no valida semántica arbitraria ni la veracidad del relato."
+      },
+      "problema": "",
+      "resumen": "En la experiencia descrita, se expresa duda sobre repetir la experiencia.",
+      "recomendacion": "Solicitar detalles del servicio y de lo ocurrido antes de identificar un incidente o proponer medidas.",
+      "accion": "Preparar una solicitud de aclaración para valoración humana, sin contactar al visitante ni enviarla a terceros.",
+      "fallback": null,
+      "sentimiento_supervisado": "negativo"
+    },
+    {
+      "id": "negation_unsupported",
+      "chars": 41,
+      "qwen_requested": true,
+      "semantic_incidents": [
+        "no_resuelto"
+      ],
+      "content_mode": "CITA_CONSERVADORA",
+      "content_complete": false,
+      "grounded_partial": false,
+      "content_categories": [
+        "aclaracion"
+      ],
+      "content_problems": [
+        ""
+      ],
+      "content_rules": [],
+      "generation_estado": "GENERADO",
+      "generation_codigo": "OK",
+      "validacion": {
+        "version": "tourism-content-v2",
+        "resumen": "CITA_CONSERVADORA",
+        "problema": "NO_DETERMINADO",
+        "reglas_aplicadas": [],
+        "cobertura_completa": false,
+        "cobertura_parcial_sustentada": false,
+        "alcance": "Reglas acotadas; no valida semántica arbitraria ni la veracidad del relato."
+      },
+      "problema": "",
+      "resumen": "El transporte llegó y perdimos la visita.",
+      "recomendacion": "Solicitar detalles del servicio y de lo ocurrido antes de identificar un incidente o proponer medidas.",
+      "accion": "Preparar una solicitud de aclaración para valoración humana, sin contactar al visitante ni enviarla a terceros.",
+      "fallback": null,
+      "sentimiento_supervisado": "neutral"
+    },
+    {
+      "id": "qwen_off_path",
+      "chars": 374,
+      "qwen_requested": false,
+      "semantic_incidents": [
+        "no_resuelto",
+        "no_resuelto"
+      ],
+      "content_mode": "PARAFRASIS_CONTROLADA",
+      "content_complete": false,
+      "grounded_partial": true,
+      "content_categories": [
+        "transporte"
+      ],
+      "content_problems": [
+        "Según el relato, el transporte no llegó y se perdió una actividad."
+      ],
+      "content_rules": [
+        "transporte_semantico"
+      ],
+      "generation_estado": null,
+      "generation_codigo": null,
+      "validacion": null,
+      "problema": null,
+      "resumen": null,
+      "recomendacion": "Revisar manualmente antes de actuar. Incidente abierto: «pero el transporte nunca llegó y perdimos la excursión a las islas del Rosario.». No emitir una acción automática vinculante.",
+      "accion": null,
+      "fallback": null,
+      "sentimiento_supervisado": "neutral"
+    },
+    {
+      "id": "ollama_down",
+      "chars": 374,
+      "qwen_requested": true,
+      "semantic_incidents": [
+        "no_resuelto",
+        "no_resuelto"
+      ],
+      "content_mode": "PARAFRASIS_CONTROLADA",
+      "content_complete": false,
+      "grounded_partial": true,
+      "content_categories": [
+        "transporte"
+      ],
+      "content_problems": [
+        "Según el relato, el transporte no llegó y se perdió una actividad."
+      ],
+      "content_rules": [
+        "transporte_semantico"
+      ],
+      "generation_estado": "ERROR",
+      "generation_codigo": "OLLAMA_DESCONECTADO",
+      "validacion": null,
+      "problema": null,
+      "resumen": null,
+      "recomendacion": "Revisar manualmente antes de actuar. Incidente abierto: «pero el transporte nunca llegó y perdimos la excursión a las islas del Rosario.». No emitir una acción automática vinculante.",
+      "accion": null,
+      "fallback": "Revisar manualmente antes de actuar. Incidente abierto: «pero el transporte nunca llegó y perdimos la excursión a las islas del Rosario.». No emitir una acción automática vinculante.",
+      "sentimiento_supervisado": "neutral"
+    }
+  ],
+  "before_after": {
+    "acceptance_gap_before": {
+      "resumen": "CITA_CONSERVADORA",
+      "problema": "NO_DETERMINADO",
+      "reglas_aplicadas": [],
+      "cobertura_completa": false,
+      "recomendacion": "aclaracion generica"
+    },
+    "cartagena_374_after": {
+      "resumen": "PARAFRASIS_CONTROLADA",
+      "problema": "PARAFRASIS_CONTROLADA",
+      "reglas_aplicadas": [
+        "transporte_semantico"
+      ],
+      "cobertura_completa": false,
+      "cobertura_parcial_sustentada": true,
+      "problema_identificado": "Según el relato, el transporte no llegó y se perdió una actividad.",
+      "recomendacion_categoria": "transporte",
+      "generation_estado": "GENERADO"
+    },
+    "fix": "Partial grounded coverage no longer clears recognised transport facts when unmatched clauses are not uncertain."
+  }
+}

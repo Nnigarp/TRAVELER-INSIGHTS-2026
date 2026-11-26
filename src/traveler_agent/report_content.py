@@ -165,7 +165,71 @@ PROPOSALS = {
 }
 
 
-def content_options(source, units):
+def _strip_contrast_prefix(quote: str) -> str:
+    return re.sub(r"^(?:pero|aunque|sin embargo)\s+", "", quote.strip(), flags=re.I).strip(" ,")
+
+
+def _fact_from_incident(inc: dict, source: str) -> Fact | None:
+    """Ground a SemanticsAgent incident only when its clause is literal in source."""
+    if not isinstance(inc, dict):
+        return None
+    clause = (inc.get("clause") or "").strip()
+    if not clause or clause not in source:
+        return None
+    cleaned = _strip_contrast_prefix(clause)
+    direct = _fact(cleaned) or _fact(clause)
+    if direct is not None:
+        return direct
+    folded = _fold(clause)
+    status = inc.get("status")
+    # Narrow keyword bridges only when _fact cannot parse the clause form but the
+    # SemanticsAgent status already encodes resolution / explicit no-show cues.
+    # Never invent a no-show from a mere consequence like "perdimos la visita".
+    if status == "no_resuelto" and re.search(
+            r"\b(?:transporte|traslado|taxi|bus|autobus)\b", folded) and re.search(
+            r"\b(?:nunca|no) (?:llego|se presento)\b", folded):
+        lost = bool(re.search(r"\b(?:perdimos|se perdio)\b", folded))
+        return Fact(
+            "transporte_semantico",
+            "se reportan la ausencia del transporte y la pérdida de una actividad" if lost
+            else "se reporta que el transporte no llegó",
+            ("Según el relato, el transporte no llegó y se perdió una actividad."
+             if lost else "Según el relato, no se recibió el transporte esperado."),
+            "transporte",
+        )
+    if status == "resuelto" and re.search(
+            r"\b(?:resolvio|resolvieron|soluciono|corrigieron|devolvieron|reembolsaron)\b", folded):
+        return Fact("incidente_resuelto_semantico",
+                    "el visitante indica que un incidente quedó resuelto", positive=True)
+    return None
+
+
+def _build_summaries(facts: list[Fact]) -> list[str]:
+    if not facts:
+        return []
+    summary_facts = list(dict.fromkeys(facts))
+    if len(summary_facts) == 2 and (
+        (summary_facts[0].positive and summary_facts[1].problem) or
+        (summary_facts[0].problem and summary_facts[1].positive)
+    ):
+        body = summary_facts[0].wording + ", pero " + summary_facts[1].wording
+    else:
+        body = "; ".join(f.wording for f in summary_facts)
+    out = []
+    for prefix in ("Según el relato, ", "En la experiencia descrita, "):
+        candidate = prefix + body + "."
+        if len(candidate) <= 600:
+            out.append(candidate)
+    return out
+
+
+def content_options(source, units, *, context=None):
+    """Build Qwen enum options. Optional SemanticsAgent context may ground extra facts.
+
+    Partial sentence coverage no longer forces aclaracion when grounded incidents
+    or recognised clauses already sustain a paraphrase.
+    """
+    context = context or {}
     sentences = [u.strip() for u in re.split(r"(?<=[.!?])\s+|[\r\n]+", source.strip()) if u.strip()]
     quotes, facts = [], []
     for sentence in sentences:
@@ -178,27 +242,69 @@ def content_options(source, units):
             quote = quote.strip()
             quotes.append(quote)
             facts.append(_fact(quote))
-    evidence = list(dict.fromkeys(quotes))
+    evidence = [q for q, f in zip(quotes, facts) if f] or list(dict.fromkeys(quotes))
     recognised = [f for f in facts if f]
     complete = len(recognised) == len(facts) and bool(facts)
-    summaries = []
-    if complete:
-        summary_facts = list(dict.fromkeys(recognised))
-        if len(summary_facts) == 2 and (
-            (summary_facts[0].positive and summary_facts[1].problem) or
-            (summary_facts[0].problem and summary_facts[1].positive)
-        ):
-            body = summary_facts[0].wording + ", pero " + summary_facts[1].wording
-        else:
-            body = "; ".join(f.wording for f in summary_facts)
-        for prefix in ("Según el relato, ", "En la experiencia descrita, "):
-            candidate = prefix + body + "."
-            if len(candidate) <= 600:
-                summaries.append(candidate)
+
+    def _uncertain_unmatched() -> bool:
+        for quote, fact in zip(quotes, facts):
+            if fact is not None:
+                continue
+            folded = _fold(quote)
+            if "?" in quote or "¿" in quote:
+                return True
+            if re.search(r"\b(?:no fue cierto|dicen que|no confirmo|no se si)\b", folded):
+                return True
+            if re.search(r"\bno\b.{0,40}\b(?:sucia|sucio|llego|perdio|funcionaba|resolvio)\b", folded):
+                return True
+        return False
+
+    # Partial paraphrases are allowed only when unmatched clauses do not deny or
+    # unsettle the recognised facts (anti-hallucination).
+    block_partial = (not complete) and _uncertain_unmatched()
+
+    # Bridge SemanticsAgent incidents whose clauses appear verbatim in the source.
+    semantic_facts = []
+    semantic_evidence = []
+    if not block_partial:
+        for inc in context.get("incidents") or []:
+            fact = _fact_from_incident(inc, source)
+            if fact is None:
+                continue
+            semantic_facts.append(fact)
+            clause = (inc.get("clause") or "").strip()
+            if clause and clause in source:
+                semantic_evidence.append(_strip_contrast_prefix(clause) or clause)
+        for span in context.get("evidence") or []:
+            if isinstance(span, str) and span in source and span not in semantic_evidence:
+                semantic_evidence.append(span)
+
+    usable = [] if block_partial else list(recognised)
+    known_problems = {f.problem for f in usable if f.problem}
+    known_categories = {f.category for f in usable if f.category}
+    known_wordings = {f.wording for f in usable}
+    for fact in semantic_facts:
+        if fact.wording in known_wordings:
+            continue
+        if fact.problem and (fact.problem in known_problems or
+                             (fact.category and fact.category in known_categories)):
+            continue
+        usable.append(fact)
+        if fact.problem:
+            known_problems.add(fact.problem)
+        if fact.category:
+            known_categories.add(fact.category)
+        known_wordings.add(fact.wording)
+    summaries = _build_summaries(usable) if usable else []
     mode = "PARAFRASIS_CONTROLADA" if summaries else "CITA_CONSERVADORA"
-    if not summaries:
-        # Prefer clause-level citations for multi-sentence prose; keep full-source
-        # units when there is no safer compact alternative (escaping / single clause).
+    if summaries:
+        # Prefer literal clauses recognised by _fact. Semantic clauses may ground
+        # summaries/problems but must not invent evidence enums that diverge from
+        # the same source without context (ActionAgent / fixtures revalidation).
+        evidence = list(dict.fromkeys(q for q, f in zip(quotes, facts) if f))
+        if not evidence:
+            evidence = list(dict.fromkeys(semantic_evidence or quotes))
+    else:
         clause_summaries = [s for s in sentences if 0 < len(s) <= 280]
         prose = [s for s in clause_summaries
                  if not s.lstrip().startswith(("<", "!", "[", "/"))]
@@ -211,36 +317,39 @@ def content_options(source, units):
             if not summaries and source.strip():
                 summaries = [source.strip()]
         evidence = list(dict.fromkeys(sentences)) if sentences else evidence
-    problems = list(dict.fromkeys(f.problem for f in recognised if f.problem)) if complete else []
-    categories = list(dict.fromkeys(f.category for f in recognised if f.category)) if complete else []
-    descriptive = {"duracion", "descripcion_espacio", "descripcion_horario", "incidente_resuelto"}
+
+    problems = list(dict.fromkeys(f.problem for f in usable if f.problem))
+    categories = list(dict.fromkeys(f.category for f in usable if f.category))
+    descriptive = {"duracion", "descripcion_espacio", "descripcion_horario", "incidente_resuelto",
+                   "incidente_resuelto_semantico"}
     if not categories:
-        if complete and any(f.problem for f in recognised):
+        if problems:
             categories = ["aclaracion"]
-        elif complete and any(f.positive for f in recognised) and not any(f.problem for f in recognised):
+        elif usable and any(f.positive for f in usable) and not any(f.problem for f in usable):
             categories = ["favorable"]
-        elif complete and recognised and all(f.rule in descriptive or f.rule == "duracion" for f in recognised):
+        elif usable and all(f.rule in descriptive or f.rule == "duracion" for f in usable):
             categories = ["informativo"]
-        elif complete and all(f.rule == "insuficiente" or f.rule == "duda" for f in recognised):
+        elif usable and all(f.rule in {"insuficiente", "duda"} for f in usable):
             categories = ["aclaracion"]
-        elif complete:
+        elif usable:
             categories = ["informativo"]
         else:
-            # Partial recognition: do not invent an incident; ask clarification
-            # only when no descriptive paraphrase path exists.
             categories = ["aclaracion"]
     recommendations = [item for category in categories for item in PROPOSALS[category][:2]]
     actions = [PROPOSALS[category][2] for category in categories]
+    problem_categories = {f.problem: f.category for f in usable if f.problem}
     return {"summaries": summaries, "problems": problems or [""], "evidence": evidence,
             "recommendations": recommendations, "actions": actions,
-            "problem_categories": {f.problem: f.category for f in recognised if f.problem} if complete else {},
+            "problem_categories": problem_categories,
             "categories": categories, "mode": mode,
-            "rules": list(dict.fromkeys(f.rule for f in recognised)), "complete": complete}
+            "rules": list(dict.fromkeys(f.rule for f in usable)), "complete": complete,
+            "grounded_partial": bool(usable) and not complete}
 
 
-def content_provenance(source, units, report):
-    options = content_options(source, units)
+def content_provenance(source, units, report, *, context=None):
+    options = content_options(source, units, context=context)
     return {"version": CONTENT_VERSION, "resumen": options["mode"],
             "problema": "PARAFRASIS_CONTROLADA" if report["problema_identificado"] else "NO_DETERMINADO",
             "reglas_aplicadas": options["rules"], "cobertura_completa": options["complete"],
+            "cobertura_parcial_sustentada": options.get("grounded_partial", False),
             "alcance": "Reglas acotadas; no valida semántica arbitraria ni la veracidad del relato."}

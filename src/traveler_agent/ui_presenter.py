@@ -116,7 +116,15 @@ def render_result(record, *, model_kind=None, audio=False):
     if generated:
         warnings.extend(report.get("advertencias", []))
     elif generation:
-        warnings.append("Qwen no produjo un informe validado. Se conserva el análisis convencional y su recomendación por reglas; generacion_llm=false.")
+        local_kept = generation.get("recomendacion_local_conservada") or record.get("recomendacion")
+        warnings.append(
+            "Qwen no produjo un informe validado. FALLBACK ACTIVO: se conserva "
+            "el análisis convencional y su recomendación por reglas"
+            + (f" («{local_kept}»)." if local_kept else ".")
+            + " generacion_llm=false; alternativa="
+            + str(generation.get("alternativa", "RECOMENDACION_TRADICIONAL_POR_REGLAS"))
+            + "."
+        )
     if str(effective).lower() == "beto":
         warnings.append("BETO experimental sintético usa una ventana limitada de tokens; revisa el contexto completo. Su política no valida automatizar decisiones.")
     elif selection.get("version") == "V4.3" or selection.get("features") == "frozen_beto_mean_pool":
@@ -141,6 +149,13 @@ def render_result(record, *, model_kind=None, audio=False):
                   line("Protocolo", generation.get("protocolo", "No solicitado")),
                   line("Tiempo de respuesta (ms)", generation.get("latencia_ms", "No registrado")),
                   line("Redacción", generation.get("validacion_contenido", {}).get("resumen", "No registrada"))))
+    if generation and not generated and generation.get("recomendacion_local_conservada"):
+        parts.append(line("Recomendación local conservada",
+                          generation["recomendacion_local_conservada"]))
+        parts.append(line("Fallback visible", bool(generation.get("fallback_visible"))))
+    provenance = generation.get("validacion_contenido") if generation else None
+    if isinstance(provenance, dict) and provenance.get("cobertura_parcial_sustentada"):
+        parts.append(line("Cobertura parcial sustentada", True))
     if record.get("puntuaciones_modelo_no_calibradas"):
         parts.append("<h4>Puntuaciones no calibradas</h4>")
         for label, value in record["puntuaciones_modelo_no_calibradas"].items():

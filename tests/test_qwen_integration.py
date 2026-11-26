@@ -18,10 +18,28 @@ from test_ollama_report import TEXT, fixture_report, response_for, simulated_oll
 
 
 def from_request(body):
-    text = json.loads(body["messages"][1]["content"])["resena_no_confiable"]
-    context = json.loads(body["messages"][1]["content"])
-    return response_for(fixture_report(text, context["sentimiento_solo_lectura"],
-                                      context["revision_humana"], context["aspectos_solo_lectura"]))
+    """Answer either tourism-report enums or linguistic helper schemas.
+
+    Context verification posts balance/idioma/traduccion formats without enums.
+    Report generation posts full enum schemas. Selecting enum[0] blindly raises
+    KeyError and breaks the simulated Ollama whenever verify precedes generate.
+    """
+    schema = body.get("format") or {}
+    properties = schema.get("properties") or {}
+    if properties and all(isinstance(spec, dict) and "enum" in spec for spec in properties.values()):
+        # Prefer the schema the client sent so SemanticsAgent context stays aligned.
+        report = {field: spec["enum"][0] for field, spec in properties.items()}
+        return response_for(report)
+    if set(properties) <= {"balance", "idioma", "traduccion"} and len(properties) == 1:
+        task = next(iter(properties))
+        value = {"balance": "negativo", "idioma": "es", "traduccion": "texto"}.get(task, "negativo")
+        return response_for({task: value})
+    payload = json.loads(body["messages"][1]["content"])
+    if "resena_no_confiable" in payload:
+        return response_for(fixture_report(
+            payload["resena_no_confiable"], payload["sentimiento_solo_lectura"],
+            payload["revision_humana"], payload["aspectos_solo_lectura"]))
+    raise AssertionError("Simulated Ollama received an unsupported chat schema.")
 
 
 @pytest.mark.parametrize("kind", ["lr", "svm"])

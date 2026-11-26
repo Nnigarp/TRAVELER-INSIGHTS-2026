@@ -217,6 +217,7 @@ class ActionAgent:
             "incidents": semantic.get("incidents") or [],
             "aspect_assessment": semantic.get("aspect_assessment") or {},
             "ambiguity": semantic.get("ambiguity") or {},
+            "evidence": semantic.get("evidence") or [],
         }
         state, recommendation = recommend(
             semantic["sentiment"], semantic["aspects"], control["needs_human"],
@@ -231,7 +232,8 @@ class ActionAgent:
             from .ollama_report import validate_generation
             output["generation"] = validate_generation(
                 message.payload["generation"], message.payload["text"],
-                semantic["sentiment"], list(semantic["aspects"]), control["needs_human"])
+                semantic["sentiment"], list(semantic["aspects"]), control["needs_human"],
+                context=context, local_recommendation=recommendation)
         return output
 
 
@@ -298,11 +300,18 @@ class TravelerOrchestrator:
                     from .ollama_report import failed_generation
                     _trace_generation(execution, agent="orquestador", status="DELEGATED", note="QWEN_REQUESTED")
                     try:
+                        semantic_ctx = execution.results["semantica"]
                         generation = self.reporter.generate(
                             execution.results["percepcion"]["text"],
-                            execution.results["semantica"]["sentiment"],
+                            semantic_ctx["sentiment"],
                             execution.results["control"]["needs_human"],
-                            list(execution.results["semantica"]["aspects"]),
+                            list(semantic_ctx["aspects"]),
+                            context={
+                                "incidents": semantic_ctx.get("incidents") or [],
+                                "evidence": semantic_ctx.get("evidence") or [],
+                                "aspect_assessment": semantic_ctx.get("aspect_assessment") or {},
+                                "ambiguity": semantic_ctx.get("ambiguity") or {},
+                            },
                         )
                         if not isinstance(generation, dict):
                             raise ValueError("Invalid report contract")
@@ -350,9 +359,11 @@ class TravelerOrchestrator:
                        note="VALIDATED_CONTRACT")
                 if step == "accion" and self.reporter is not None:
                     from .ollama_report import failed_generation
-                    generation = output.get("generation") or failed_generation("INFORME_NO_VALIDADO")
+                    generation = output.get("generation") or failed_generation(
+                        "INFORME_NO_VALIDADO", local_recommendation=output.get("recommendation"))
                     if generation.get("estado") == "GENERADO" and generation.get("validado_por") != "ActionAgent":
-                        generation = failed_generation("INFORME_NO_VALIDADO")
+                        generation = failed_generation(
+                            "INFORME_NO_VALIDADO", local_recommendation=output.get("recommendation"))
                     output["generation"] = generation
                     _trace_generation(execution, agent="accion",
                            status="OK" if generation["estado"] == "GENERADO" else "FAILED",

@@ -1,7 +1,8 @@
 # Handoff — mejora funcional final (PR #36)
 
-**Base:** `692af86` · **Rama:** `feat/dataset-training-v4`  
-**Alcance:** mejoras de semántica/control/acción/Qwen/UI/agentes. **Sin reentrenamiento.** Artefactos V4.2/V4.3 intactos.
+**Base:** `692af86` · **Commit funcional:** `9bf2ca7` · **Rama:** `feat/dataset-training-v4` (PR #36)  
+**Alcance:** mejoras de semántica/control/acción/Qwen/UI/agentes. **Sin reentrenamiento.** Artefactos V4.2/V4.3 intactos.  
+**Pytest `.venv-research`:** 627 passed, 1 xfailed.
 
 ## Qué cambió
 
